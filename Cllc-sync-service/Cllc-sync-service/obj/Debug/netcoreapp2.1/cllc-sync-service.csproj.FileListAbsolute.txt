@@ -1,0 +1,14 @@
+/Users/claudecote/Projects/CllcSync/CllcSync/bin/Debug/netcoreapp2.1/cllc-sync-service.deps.json
+/Users/claudecote/Projects/CllcSync/CllcSync/bin/Debug/netcoreapp2.1/cllc-sync-service.runtimeconfig.json
+/Users/claudecote/Projects/CllcSync/CllcSync/bin/Debug/netcoreapp2.1/cllc-sync-service.runtimeconfig.dev.json
+/Users/claudecote/Projects/CllcSync/CllcSync/bin/Debug/netcoreapp2.1/cllc-sync-service.dll
+/Users/claudecote/Projects/CllcSync/CllcSync/bin/Debug/netcoreapp2.1/cllc-sync-service.pdb
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.csproj.CoreCompileInputs.cache
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.RazorAssemblyInfo.cache
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.RazorAssemblyInfo.cs
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.AssemblyInfoInputs.cache
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.AssemblyInfo.cs
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.RazorTargetAssemblyInfo.cache
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.dll
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.pdb
+/Users/claudecote/Projects/CllcSync/CllcSync/obj/Debug/netcoreapp2.1/cllc-sync-service.csprojAssemblyReference.cache

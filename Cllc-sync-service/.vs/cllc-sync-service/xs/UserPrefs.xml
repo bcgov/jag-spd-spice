@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{B4E062FA-C531-4EDA-9CF4-8E934BF877C7}|Default">
+  <MonoDevelop.Ide.ItemProperties.cllc-sync-service PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CllcSync/Startup.cs">
+    <Files>
+      <File FileName="CllcSync/Program.cs" Line="1" Column="1" />
+      <File FileName="CllcSync/Startup.cs" Line="55" Column="16" />
+      <File FileName="CllcSync/Controllers/AuthenticationController.cs" Line="39" Column="102" />
+      <File FileName="CllcSync/Controllers/CllcController.cs" Line="44" Column="41" />
+      <File FileName="CllcSync/CllcUtils.cs" Line="23" Column="5" />
+      <File FileName="CllcSync/Properties/launchSettings.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="cllc-sync-service" expanded="True">
+            <Node name="cllc-sync-service" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
