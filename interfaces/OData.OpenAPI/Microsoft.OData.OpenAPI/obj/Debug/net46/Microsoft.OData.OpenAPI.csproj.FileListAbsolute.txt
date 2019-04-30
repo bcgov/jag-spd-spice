@@ -1,0 +1,12 @@
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\bin\Debug\net46\Microsoft.OData.OpenAPI.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\bin\Debug\net46\Microsoft.OData.OpenAPI.pdb
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\bin\Debug\net46\Microsoft.OData.Edm.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.csprojAssemblyReference.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.Properties.SRResource.resources
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.csproj.GenerateResource.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.csproj.CoreCompileInputs.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.AssemblyInfoInputs.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.AssemblyInfo.cs
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.csproj.CopyComplete
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI\obj\Debug\net46\Microsoft.OData.OpenAPI.pdb

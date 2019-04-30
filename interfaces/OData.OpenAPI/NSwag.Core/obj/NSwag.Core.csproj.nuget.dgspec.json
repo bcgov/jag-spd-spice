@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Projects\\JAG\\LCRB\\repo\\SPD-SPICE\\interfaces\\OData.OpenAPI\\NSwag.Core\\NSwag.Core.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\JAG\\LCRB\\repo\\SPD-SPICE\\interfaces\\OData.OpenAPI\\NSwag.Core\\NSwag.Core.csproj": {
+      "version": "11.18.7",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\JAG\\LCRB\\repo\\SPD-SPICE\\interfaces\\OData.OpenAPI\\NSwag.Core\\NSwag.Core.csproj",
+        "projectName": "NSwag.Core",
+        "projectPath": "C:\\Projects\\JAG\\LCRB\\repo\\SPD-SPICE\\interfaces\\OData.OpenAPI\\NSwag.Core\\NSwag.Core.csproj",
+        "packagesPath": "C:\\Users\\georg\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\JAG\\LCRB\\repo\\SPD-SPICE\\interfaces\\OData.OpenAPI\\NSwag.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\georg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json": {},
+          "https://www.myget.org/F/efcore-mongodb/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "NJsonSchema": {
+              "target": "Package",
+              "version": "[9.10.70, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
