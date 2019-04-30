@@ -92,7 +92,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the resources defined in this template.",
       "required": true,
-      "value": "spd-sync-service"
+      "value": "carla-sync-service"
     },
     {
       "name": "GIT_REPO_URL",

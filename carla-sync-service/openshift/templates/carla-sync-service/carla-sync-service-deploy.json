@@ -115,11 +115,7 @@
 				  {
                     "name": "SHAREPOINT_ODATA_URI",
                     "value": ""
-                  },
-				  {
-                    "name": "SPD_EXPORT_EMAIL",
-                    "value": "${SPD_EXPORT_EMAIL}"
-                  }				                    
+                  }			                    
                 ],
                 "resources": {
                   "limits": {
@@ -196,14 +192,14 @@
       "displayName": "Name",
       "description": "The name assigned to all of the resources defined in this template.",
       "required": true,
-      "value": "spd-sync-service"
+      "value": "carla-sync-service"
     },
     {
       "name": "SOURCE_IMAGE_NAME",
       "displayName": "Source Image Name",
       "description": "The name of the image to use for this resource.",
       "required": true,
-      "value": "spd-sync-service"
+      "value": "carla-sync-service"
     },
     {
       "name": "IMAGE_NAMESPACE",
@@ -288,49 +284,42 @@
 		"displayName": "DYNAMICS CLIENT KEY",
 		"name": "DYNAMICS_CLIENT_KEY",
 		"required": true,
-		"value": ""
+		"value": "CHANGEME"
 	},
 	{
 		"description": "ADFS Dynamics Tenant ID",
 		"displayName": "DYNAMICS AAD TENANT ID",
 		"name": "DYNAMICS_AAD_TENANT_ID",
 		"required": true,
-        "value": ""
+        "value": "CHANGEME"
 	},
 	{
 		"description": "ADFS Dynamics Client ID",
 		"displayName": "DYNAMICS CLIENT ID",
 		"name": "DYNAMICS_CLIENT_ID",
 		"required": true,
-        "value": ""
+        "value": "CHANGEME"
     },
     {
 		"description": "String used to identify the issuer.  Usually a URL to a website.",
 		"displayName": "JWT VALID ISSUER",
         "name": "JWT_VALID_ISSUER",
 		"required": true,
-        "value": ""
+        "value": "CHANGEME"
     },
     {
 		"description": "String used to identify the audience.",
 		"displayName": "JWT VALID AUDIENCE",
         "name": "JWT_VALID_AUDIENCE",
 		"required": true,
-        "value": ""
+        "value": "CHANGEME"
     },
     {
 		"description": "Secret/Key used to generate tokens.  Can be any text string, including the text form of a GUID.",
 		"displayName": "JWT Token Key",
 		"name": "JWT_TOKEN_KEY",
 		"required": true,
-		"value": ""
-    },
-	{
-		"description": "Email address where exports will be sent to.",
-		"displayName": "SPD EXPORT EMAIL",
-        "name": "SPD_EXPORT_EMAIL",
-		"required": true,
-        "value": ""
-	}
+		"value": "CHANGEME"
+    }
   ]
 }
