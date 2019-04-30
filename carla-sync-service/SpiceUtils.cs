@@ -29,12 +29,26 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public void ReceiveImportJob(PerformContext hangfireContext, List<WorkerScreeningResponse> responses)
+        public void ReceiveWorkerImportJob(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            ImportResponses(hangfireContext, responses);
+            ImportWorkerRequests(hangfireContext, requests);
+
+            hangfireContext.WriteLine("Done.");
+            _logger.LogError("Done.");
+        }
+
+        /// <summary>
+        /// Hangfire job to receive an import from SPICE.
+        /// </summary>
+        public void ReceiveApplicationImportJob(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        {
+            hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
+            _logger.LogError("Starting SPICE Import Job.");
+
+            ImportApplicationRequests(hangfireContext, requests);
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -44,41 +58,26 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
-        private void ImportResponses(PerformContext hangfireContext, List<WorkerScreeningResponse> responses)
+        private void ImportApplicationRequests(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
-            foreach (WorkerScreeningResponse workerResponse in responses)
+            foreach (ApplicationScreeningRequest WorkerRequest in requests)
             {
-                // search for the Personal History Record.
-                MicrosoftDynamicsCRMadoxioPersonalhistorysummary record = _dynamics.Personalhistorysummaries.GetByWorkerJobNumber(workerResponse.RecordIdentifier);
 
-                if (record != null)
-                {
-                    // update the record.
-                    MicrosoftDynamicsCRMadoxioPersonalhistorysummary patchRecord = new MicrosoftDynamicsCRMadoxioPersonalhistorysummary()
-                    {
-                        AdoxioSecuritystatus = SPDResultTranslate.GetTranslatedSecurityStatus(workerResponse.Result),
-                        AdoxioCompletedon = workerResponse.DateProcessed
-                    };
+                // add data to dynamics
 
-                    try
-                    {
-                        _dynamics.Personalhistorysummaries.Update(record.AdoxioPersonalhistorysummaryid, patchRecord);
-                    }
-                    catch (OdataerrorException odee)
-                    {
-                        hangfireContext.WriteLine("Error updating worker personal history");
-                        hangfireContext.WriteLine("Request:");
-                        hangfireContext.WriteLine(odee.Request.Content);
-                        hangfireContext.WriteLine("Response:");
-                        hangfireContext.WriteLine(odee.Response.Content);
+            }
+        }
 
-                        _logger.LogError("Error updating worker personal history");
-                        _logger.LogError("Request:");
-                        _logger.LogError(odee.Request.Content);
-                        _logger.LogError("Response:");
-                        _logger.LogError(odee.Response.Content);
-                    }
-                }
+        /// <summary>
+        /// Import responses to Dynamics.
+        /// </summary>
+        /// <returns></returns>
+        private void ImportWorkerRequests(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        {
+            foreach (WorkerScreeningRequest workerResponse in requests)
+            {
+                // add data to dynamics.
+                
             }
         }
     }
