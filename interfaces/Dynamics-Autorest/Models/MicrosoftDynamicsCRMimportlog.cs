@@ -29,30 +29,30 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMimportlog
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMimportlog(string _createdbyValue = default(string), int? linenumber = default(int?), string _modifiedonbehalfbyValue = default(string), int? errornumber = default(int?), string _owninguserValue = default(string), int? statecode = default(int?), string errordescription = default(string), string additionalinfo = default(string), string _owningbusinessunitValue = default(string), string _modifiedbyValue = default(string), int? sequencenumber = default(int?), string headercolumn = default(string), string _owningteamValue = default(string), string _importfileidValue = default(string), int? logphasecode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string importlogid = default(string), string _owneridValue = default(string), string columnvalue = default(string), int? statuscode = default(int?), string _importdataidValue = default(string), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> importLogBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMimportdata importdataid = default(MicrosoftDynamicsCRMimportdata), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMasyncoperation> importLogAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMimportfile importfileid = default(MicrosoftDynamicsCRMimportfile), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMimportlog(string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _owneridValue = default(string), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string headercolumn = default(string), string _owningteamValue = default(string), string errordescription = default(string), int? sequencenumber = default(int?), string _importfileidValue = default(string), string _createdbyValue = default(string), string additionalinfo = default(string), string _owninguserValue = default(string), int? linenumber = default(int?), string importlogid = default(string), int? errornumber = default(int?), int? statuscode = default(int?), string columnvalue = default(string), int? logphasecode = default(int?), string _owningbusinessunitValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _importdataidValue = default(string), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> importLogBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMimportdata importdataid = default(MicrosoftDynamicsCRMimportdata), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMasyncoperation> importLogAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMimportfile importfileid = default(MicrosoftDynamicsCRMimportfile), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            this._createdbyValue = _createdbyValue;
-            Linenumber = linenumber;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Errornumber = errornumber;
-            this._owninguserValue = _owninguserValue;
-            Statecode = statecode;
-            Errordescription = errordescription;
-            Additionalinfo = additionalinfo;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            Sequencenumber = sequencenumber;
-            Headercolumn = headercolumn;
-            this._owningteamValue = _owningteamValue;
-            this._importfileidValue = _importfileidValue;
-            Logphasecode = logphasecode;
-            Createdon = createdon;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Modifiedon = modifiedon;
-            Importlogid = importlogid;
             this._owneridValue = _owneridValue;
-            Columnvalue = columnvalue;
+            Statecode = statecode;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            this._modifiedbyValue = _modifiedbyValue;
+            Headercolumn = headercolumn;
+            this._owningteamValue = _owningteamValue;
+            Errordescription = errordescription;
+            Sequencenumber = sequencenumber;
+            this._importfileidValue = _importfileidValue;
+            this._createdbyValue = _createdbyValue;
+            Additionalinfo = additionalinfo;
+            this._owninguserValue = _owninguserValue;
+            Linenumber = linenumber;
+            Importlogid = importlogid;
+            Errornumber = errornumber;
             Statuscode = statuscode;
+            Columnvalue = columnvalue;
+            Logphasecode = logphasecode;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Createdon = createdon;
             this._importdataidValue = _importdataidValue;
             Owningbusinessunit = owningbusinessunit;
             Owninguser = owninguser;
@@ -76,28 +76,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "linenumber")]
-        public int? Linenumber { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "errornumber")]
-        public int? Errornumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -106,28 +96,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "errordescription")]
-        public string Errordescription { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "additionalinfo")]
-        public string Additionalinfo { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_modifiedby_value")]
         public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sequencenumber")]
-        public int? Sequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -141,28 +116,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "errordescription")]
+        public string Errordescription { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sequencenumber")]
+        public int? Sequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_importfileid_value")]
         public string _importfileidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "logphasecode")]
-        public int? Logphasecode { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "additionalinfo")]
+        public string Additionalinfo { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "linenumber")]
+        public int? Linenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -171,8 +156,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "errornumber")]
+        public int? Errornumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -181,8 +171,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
+        [JsonProperty(PropertyName = "logphasecode")]
+        public int? Logphasecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
 
         /// <summary>
         /// </summary>

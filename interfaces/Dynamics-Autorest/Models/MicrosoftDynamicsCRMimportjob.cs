@@ -27,24 +27,27 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMimportjob
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMimportjob(string importjobid = default(string), string _organizationidValue = default(string), string data = default(string), int? utcconversiontimezonecode = default(int?), string solutionname = default(string), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string name = default(string), System.DateTimeOffset? startedon = default(System.DateTimeOffset?), double? progress = default(double?), string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMimportjob(string importjobid = default(string), string _createdbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string importcontext = default(string), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), double? progress = default(double?), string operationcontext = default(string), int? utcconversiontimezonecode = default(int?), string _organizationidValue = default(string), int? timezoneruleversionnumber = default(int?), string data = default(string), string solutionid = default(string), string solutionname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? startedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Importjobid = importjobid;
-            this._organizationidValue = _organizationidValue;
-            Data = data;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            Solutionname = solutionname;
-            Completedon = completedon;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Modifiedon = modifiedon;
-            Name = name;
-            Startedon = startedon;
-            Progress = progress;
+            this._createdbyValue = _createdbyValue;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Name = name;
+            Modifiedon = modifiedon;
+            Importcontext = importcontext;
+            Completedon = completedon;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             this._modifiedbyValue = _modifiedbyValue;
-            this._createdbyValue = _createdbyValue;
+            Progress = progress;
+            Operationcontext = operationcontext;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            this._organizationidValue = _organizationidValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Data = data;
+            Solutionid = solutionid;
+            Solutionname = solutionname;
             Createdon = createdon;
+            Startedon = startedon;
             Organizationid = organizationid;
             Createdonbehalfby = createdonbehalfby;
             Modifiedonbehalfby = modifiedonbehalfby;
@@ -65,38 +68,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "data")]
-        public string Data { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "solutionname")]
-        public string Solutionname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "completedon")]
-        public System.DateTimeOffset? Completedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -105,18 +83,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "startedon")]
-        public System.DateTimeOffset? Startedon { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "progress")]
-        public double? Progress { get; set; }
+        [JsonProperty(PropertyName = "importcontext")]
+        public string Importcontext { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "completedon")]
+        public System.DateTimeOffset? Completedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -130,13 +108,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "progress")]
+        public double? Progress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "operationcontext")]
+        public string Operationcontext { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "data")]
+        public string Data { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionname")]
+        public string Solutionname { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "startedon")]
+        public System.DateTimeOffset? Startedon { get; set; }
 
         /// <summary>
         /// </summary>

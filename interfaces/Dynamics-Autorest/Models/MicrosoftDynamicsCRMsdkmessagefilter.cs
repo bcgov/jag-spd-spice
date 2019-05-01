@@ -29,26 +29,32 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsdkmessagefilter class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessagefilter(string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? availability = default(int?), string _modifiedbyValue = default(string), string _sdkmessageidValue = default(string), int? customizationlevel = default(int?), string _modifiedonbehalfbyValue = default(string), bool? isvisible = default(bool?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? iscustomprocessingstepallowed = default(bool?), string primaryobjecttypecode = default(string), long? versionnumber = default(long?), bool? workflowsdkstepenabled = default(bool?), string secondaryobjecttypecode = default(string), string sdkmessagefilteridunique = default(string), string sdkmessagefilterid = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessagefilteridSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMsdkmessagefilter(bool? ismanaged = default(bool?), string secondaryobjecttypecode = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string sdkmessagefilterid = default(string), string _modifiedonbehalfbyValue = default(string), int? customizationlevel = default(int?), string _sdkmessageidValue = default(string), bool? isvisible = default(bool?), bool? workflowsdkstepenabled = default(bool?), string primaryobjecttypecode = default(string), string introducedversion = default(string), string sdkmessagefilteridunique = default(string), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), int? componentstate = default(int?), string _modifiedbyValue = default(string), int? restrictionlevel = default(int?), string _createdbyValue = default(string), string solutionid = default(string), bool? iscustomprocessingstepallowed = default(bool?), int? availability = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessagefilteridSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            this._organizationidValue = _organizationidValue;
-            Createdon = createdon;
-            Availability = availability;
-            this._modifiedbyValue = _modifiedbyValue;
-            this._sdkmessageidValue = _sdkmessageidValue;
-            Customizationlevel = customizationlevel;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Isvisible = isvisible;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Modifiedon = modifiedon;
-            Iscustomprocessingstepallowed = iscustomprocessingstepallowed;
-            Primaryobjecttypecode = primaryobjecttypecode;
-            Versionnumber = versionnumber;
-            Workflowsdkstepenabled = workflowsdkstepenabled;
+            Ismanaged = ismanaged;
             Secondaryobjecttypecode = secondaryobjecttypecode;
-            Sdkmessagefilteridunique = sdkmessagefilteridunique;
+            Overwritetime = overwritetime;
             Sdkmessagefilterid = sdkmessagefilterid;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Customizationlevel = customizationlevel;
+            this._sdkmessageidValue = _sdkmessageidValue;
+            Isvisible = isvisible;
+            Workflowsdkstepenabled = workflowsdkstepenabled;
+            Primaryobjecttypecode = primaryobjecttypecode;
+            Introducedversion = introducedversion;
+            Sdkmessagefilteridunique = sdkmessagefilteridunique;
+            Versionnumber = versionnumber;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Createdon = createdon;
+            this._organizationidValue = _organizationidValue;
+            Componentstate = componentstate;
+            this._modifiedbyValue = _modifiedbyValue;
+            Restrictionlevel = restrictionlevel;
             this._createdbyValue = _createdbyValue;
+            Solutionid = solutionid;
+            Iscustomprocessingstepallowed = iscustomprocessingstepallowed;
+            Availability = availability;
+            Modifiedon = modifiedon;
             Organizationid = organizationid;
             SdkmessagefilteridSdkmessageprocessingstep = sdkmessagefilteridSdkmessageprocessingstep;
             Modifiedby = modifiedby;
@@ -66,73 +72,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "availability")]
-        public int? Availability { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_sdkmessageid_value")]
-        public string _sdkmessageidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customizationlevel")]
-        public int? Customizationlevel { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isvisible")]
-        public bool? Isvisible { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "iscustomprocessingstepallowed")]
-        public bool? Iscustomprocessingstepallowed { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "primaryobjecttypecode")]
-        public string Primaryobjecttypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "workflowsdkstepenabled")]
-        public bool? Workflowsdkstepenabled { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
@@ -141,8 +82,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sdkmessagefilteridunique")]
-        public string Sdkmessagefilteridunique { get; set; }
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -151,8 +92,103 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customizationlevel")]
+        public int? Customizationlevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_sdkmessageid_value")]
+        public string _sdkmessageidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isvisible")]
+        public bool? Isvisible { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "workflowsdkstepenabled")]
+        public bool? Workflowsdkstepenabled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "primaryobjecttypecode")]
+        public string Primaryobjecttypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sdkmessagefilteridunique")]
+        public string Sdkmessagefilteridunique { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "restrictionlevel")]
+        public int? Restrictionlevel { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdby_value")]
         public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "iscustomprocessingstepallowed")]
+        public bool? Iscustomprocessingstepallowed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "availability")]
+        public int? Availability { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>

@@ -33,7 +33,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         public ActionResult ReceiveApplicationScreenings([FromBody] List<ApplicationScreeningRequest> requests)
         {
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new SpiceUtils(Configuration, _loggerFactory).ReceiveApplicationImportJob(null, requests));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).ReceiveApplicationImportJob(null, requests));
             _logger.LogInformation("Started receive Application Screenings import job");
             return Ok();
         }

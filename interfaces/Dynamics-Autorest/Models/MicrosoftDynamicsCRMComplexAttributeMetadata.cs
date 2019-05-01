@@ -32,7 +32,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// 'Memo', 'Money', 'Owner', 'PartyList', 'Picklist', 'State',
         /// 'Status', 'String', 'Uniqueidentifier', 'CalendarRules', 'Virtual',
         /// 'BigInt', 'ManagedProperty', 'EntityName'</param>
-        public MicrosoftDynamicsCRMComplexAttributeMetadata(string attributeOf = default(string), string attributeType = default(string), MicrosoftDynamicsCRMAttributeTypeDisplayName attributeTypeName = default(MicrosoftDynamicsCRMAttributeTypeDisplayName), int? columnNumber = default(int?), MicrosoftDynamicsCRMLabel description = default(MicrosoftDynamicsCRMLabel), MicrosoftDynamicsCRMLabel displayName = default(MicrosoftDynamicsCRMLabel), string deprecatedVersion = default(string), string introducedVersion = default(string), string entityLogicalName = default(string), MicrosoftDynamicsCRMBooleanManagedProperty isAuditEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? isCustomAttribute = default(bool?), bool? isPrimaryId = default(bool?), bool? isPrimaryName = default(bool?), bool? isValidForCreate = default(bool?), bool? isValidForRead = default(bool?), bool? isValidForUpdate = default(bool?), bool? canBeSecuredForRead = default(bool?), bool? canBeSecuredForCreate = default(bool?), bool? canBeSecuredForUpdate = default(bool?), bool? isSecured = default(bool?), bool? isRetrievable = default(bool?), bool? isFilterable = default(bool?), bool? isSearchable = default(bool?), bool? isManaged = default(bool?), MicrosoftDynamicsCRMBooleanManagedProperty isGlobalFilterEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isSortableEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), string linkedAttributeId = default(string), string logicalName = default(string), MicrosoftDynamicsCRMBooleanManagedProperty isCustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isRenameable = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isValidForAdvancedFind = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMAttributeRequiredLevelManagedProperty requiredLevel = default(MicrosoftDynamicsCRMAttributeRequiredLevelManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty canModifyAdditionalSettings = default(MicrosoftDynamicsCRMBooleanManagedProperty), string schemaName = default(string), bool? isLogical = default(bool?), string inheritsFrom = default(string), int? sourceType = default(int?), string metadataId = default(string), bool? hasChanged = default(bool?))
+        public MicrosoftDynamicsCRMComplexAttributeMetadata(string attributeOf = default(string), string attributeType = default(string), MicrosoftDynamicsCRMAttributeTypeDisplayName attributeTypeName = default(MicrosoftDynamicsCRMAttributeTypeDisplayName), int? columnNumber = default(int?), MicrosoftDynamicsCRMLabel description = default(MicrosoftDynamicsCRMLabel), MicrosoftDynamicsCRMLabel displayName = default(MicrosoftDynamicsCRMLabel), string deprecatedVersion = default(string), string introducedVersion = default(string), string entityLogicalName = default(string), MicrosoftDynamicsCRMBooleanManagedProperty isAuditEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? isCustomAttribute = default(bool?), bool? isPrimaryId = default(bool?), bool? isPrimaryName = default(bool?), bool? isValidForCreate = default(bool?), bool? isValidForRead = default(bool?), bool? isValidForUpdate = default(bool?), bool? canBeSecuredForRead = default(bool?), bool? canBeSecuredForCreate = default(bool?), bool? canBeSecuredForUpdate = default(bool?), bool? isSecured = default(bool?), bool? isRetrievable = default(bool?), bool? isFilterable = default(bool?), bool? isSearchable = default(bool?), bool? isManaged = default(bool?), MicrosoftDynamicsCRMBooleanManagedProperty isGlobalFilterEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isSortableEnabled = default(MicrosoftDynamicsCRMBooleanManagedProperty), string linkedAttributeId = default(string), string logicalName = default(string), MicrosoftDynamicsCRMBooleanManagedProperty isCustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isRenameable = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty isValidForAdvancedFind = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? isValidForForm = default(bool?), bool? isRequiredForForm = default(bool?), bool? isValidForGrid = default(bool?), MicrosoftDynamicsCRMAttributeRequiredLevelManagedProperty requiredLevel = default(MicrosoftDynamicsCRMAttributeRequiredLevelManagedProperty), MicrosoftDynamicsCRMBooleanManagedProperty canModifyAdditionalSettings = default(MicrosoftDynamicsCRMBooleanManagedProperty), string schemaName = default(string), string externalName = default(string), bool? isLogical = default(bool?), bool? isDataSourceSecret = default(bool?), string inheritsFrom = default(string), int? sourceType = default(int?), string autoNumberFormat = default(string), string metadataId = default(string), bool? hasChanged = default(bool?))
         {
             AttributeOf = attributeOf;
             AttributeType = attributeType;
@@ -65,12 +65,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
             IsCustomizable = isCustomizable;
             IsRenameable = isRenameable;
             IsValidForAdvancedFind = isValidForAdvancedFind;
+            IsValidForForm = isValidForForm;
+            IsRequiredForForm = isRequiredForForm;
+            IsValidForGrid = isValidForGrid;
             RequiredLevel = requiredLevel;
             CanModifyAdditionalSettings = canModifyAdditionalSettings;
             SchemaName = schemaName;
+            ExternalName = externalName;
             IsLogical = isLogical;
+            IsDataSourceSecret = isDataSourceSecret;
             InheritsFrom = inheritsFrom;
             SourceType = sourceType;
+            AutoNumberFormat = autoNumberFormat;
             MetadataId = metadataId;
             HasChanged = hasChanged;
             CustomInit();
@@ -243,6 +249,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "IsValidForForm")]
+        public bool? IsValidForForm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "IsRequiredForForm")]
+        public bool? IsRequiredForForm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "IsValidForGrid")]
+        public bool? IsValidForGrid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "RequiredLevel")]
         public MicrosoftDynamicsCRMAttributeRequiredLevelManagedProperty RequiredLevel { get; set; }
 
@@ -258,8 +279,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "ExternalName")]
+        public string ExternalName { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "IsLogical")]
         public bool? IsLogical { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "IsDataSourceSecret")]
+        public bool? IsDataSourceSecret { get; set; }
 
         /// <summary>
         /// </summary>
@@ -270,6 +301,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "SourceType")]
         public int? SourceType { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "AutoNumberFormat")]
+        public string AutoNumberFormat { get; set; }
 
         /// <summary>
         /// </summary>

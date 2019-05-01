@@ -27,33 +27,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsdkmessageprocessingstepimage class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessageprocessingstepimage(string sdkmessageprocessingstepimageid = default(string), string _sdkmessageprocessingstepidValue = default(string), string _createdbyValue = default(string), int? customizationlevel = default(int?), string description = default(string), string messagepropertyname = default(string), string relatedattributename = default(string), int? componentstate = default(int?), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string sdkmessageprocessingstepimageidunique = default(string), string introducedversion = default(string), bool? ismanaged = default(bool?), string entityalias = default(string), string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), int? imagetype = default(int?), long? versionnumber = default(long?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _organizationidValue = default(string), string attributes = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsdkmessageprocessingstep sdkmessageprocessingstepid = default(MicrosoftDynamicsCRMsdkmessageprocessingstep))
+        public MicrosoftDynamicsCRMsdkmessageprocessingstepimage(int? componentstate = default(int?), string _createdonbehalfbyValue = default(string), string entityalias = default(string), string introducedversion = default(string), string attributes = default(string), bool? ismanaged = default(bool?), string _modifiedonbehalfbyValue = default(string), string sdkmessageprocessingstepimageidunique = default(string), string name = default(string), string _modifiedbyValue = default(string), string description = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string _organizationidValue = default(string), long? versionnumber = default(long?), string messagepropertyname = default(string), string sdkmessageprocessingstepimageid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _sdkmessageprocessingstepidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? imagetype = default(int?), int? customizationlevel = default(int?), string relatedattributename = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsdkmessageprocessingstep sdkmessageprocessingstepid = default(MicrosoftDynamicsCRMsdkmessageprocessingstep))
         {
-            Sdkmessageprocessingstepimageid = sdkmessageprocessingstepimageid;
-            this._sdkmessageprocessingstepidValue = _sdkmessageprocessingstepidValue;
-            this._createdbyValue = _createdbyValue;
-            Customizationlevel = customizationlevel;
-            Description = description;
-            Messagepropertyname = messagepropertyname;
-            Relatedattributename = relatedattributename;
             Componentstate = componentstate;
-            Iscustomizable = iscustomizable;
-            Sdkmessageprocessingstepimageidunique = sdkmessageprocessingstepimageidunique;
-            Introducedversion = introducedversion;
-            Ismanaged = ismanaged;
-            Entityalias = entityalias;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Imagetype = imagetype;
-            Versionnumber = versionnumber;
-            Createdon = createdon;
+            Entityalias = entityalias;
+            Introducedversion = introducedversion;
+            Attributes = attributes;
+            Ismanaged = ismanaged;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Sdkmessageprocessingstepimageidunique = sdkmessageprocessingstepimageidunique;
             Name = name;
             this._modifiedbyValue = _modifiedbyValue;
-            Overwritetime = overwritetime;
-            Solutionid = solutionid;
-            Modifiedon = modifiedon;
+            Description = description;
+            Iscustomizable = iscustomizable;
             this._organizationidValue = _organizationidValue;
-            Attributes = attributes;
+            Versionnumber = versionnumber;
+            Messagepropertyname = messagepropertyname;
+            Sdkmessageprocessingstepimageid = sdkmessageprocessingstepimageid;
+            Modifiedon = modifiedon;
+            this._sdkmessageprocessingstepidValue = _sdkmessageprocessingstepidValue;
+            Createdon = createdon;
+            Solutionid = solutionid;
+            Overwritetime = overwritetime;
+            Imagetype = imagetype;
+            Customizationlevel = customizationlevel;
+            Relatedattributename = relatedattributename;
+            this._createdbyValue = _createdbyValue;
             Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
             Createdby = createdby;
@@ -70,73 +70,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sdkmessageprocessingstepimageid")]
-        public string Sdkmessageprocessingstepimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_sdkmessageprocessingstepid_value")]
-        public string _sdkmessageprocessingstepidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customizationlevel")]
-        public int? Customizationlevel { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "messagepropertyname")]
-        public string Messagepropertyname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "relatedattributename")]
-        public string Relatedattributename { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "componentstate")]
         public int? Componentstate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sdkmessageprocessingstepimageidunique")]
-        public string Sdkmessageprocessingstepimageidunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "introducedversion")]
-        public string Introducedversion { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ismanaged")]
-        public bool? Ismanaged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityalias")]
-        public string Entityalias { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -145,18 +80,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "imagetype")]
-        public int? Imagetype { get; set; }
+        [JsonProperty(PropertyName = "entityalias")]
+        public string Entityalias { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "attributes")]
+        public string Attributes { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sdkmessageprocessingstepimageidunique")]
+        public string Sdkmessageprocessingstepimageidunique { get; set; }
 
         /// <summary>
         /// </summary>
@@ -170,18 +120,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overwritetime")]
-        public System.DateTimeOffset? Overwritetime { get; set; }
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "solutionid")]
-        public string Solutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "iscustomizable")]
+        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -190,8 +135,63 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "attributes")]
-        public string Attributes { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "messagepropertyname")]
+        public string Messagepropertyname { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sdkmessageprocessingstepimageid")]
+        public string Sdkmessageprocessingstepimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_sdkmessageprocessingstepid_value")]
+        public string _sdkmessageprocessingstepidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "imagetype")]
+        public int? Imagetype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customizationlevel")]
+        public int? Customizationlevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "relatedattributename")]
+        public string Relatedattributename { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>

@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMproductsalesliterature class.
         /// </summary>
-        public MicrosoftDynamicsCRMproductsalesliterature(string salesliteratureid = default(string), string productid = default(string), long? versionnumber = default(long?), string productsalesliteratureid = default(string))
+        public MicrosoftDynamicsCRMproductsalesliterature(int? importsequencenumber = default(int?), int? utcconversiontimezonecode = default(int?), string productsalesliteratureid = default(string), int? timezoneruleversionnumber = default(int?), string name = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string productid = default(string), string salesliteratureid = default(string), long? versionnumber = default(long?), IList<MicrosoftDynamicsCRMasyncoperation> productsalesliteratureAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> productsalesliteratureMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> productsalesliteratureBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> productsalesliteraturePrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
-            Salesliteratureid = salesliteratureid;
-            Productid = productid;
-            Versionnumber = versionnumber;
+            Importsequencenumber = importsequencenumber;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             Productsalesliteratureid = productsalesliteratureid;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Name = name;
+            Overriddencreatedon = overriddencreatedon;
+            Productid = productid;
+            Salesliteratureid = salesliteratureid;
+            Versionnumber = versionnumber;
+            ProductsalesliteratureAsyncOperations = productsalesliteratureAsyncOperations;
+            ProductsalesliteratureMailboxTrackingFolders = productsalesliteratureMailboxTrackingFolders;
+            ProductsalesliteratureBulkDeleteFailures = productsalesliteratureBulkDeleteFailures;
+            ProductsalesliteraturePrincipalObjectAttributeAccesses = productsalesliteraturePrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -43,8 +54,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "salesliteratureid")]
-        public string Salesliteratureid { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productsalesliteratureid")]
+        public string Productsalesliteratureid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -53,13 +89,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "salesliteratureid")]
+        public string Salesliteratureid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "productsalesliteratureid")]
-        public string Productsalesliteratureid { get; set; }
+        [JsonProperty(PropertyName = "productsalesliterature_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> ProductsalesliteratureAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productsalesliterature_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ProductsalesliteratureMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productsalesliterature_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ProductsalesliteratureBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productsalesliterature_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ProductsalesliteraturePrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

@@ -27,13 +27,14 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMOptionMetadata class.
         /// </summary>
-        public MicrosoftDynamicsCRMOptionMetadata(int? value = default(int?), MicrosoftDynamicsCRMLabel label = default(MicrosoftDynamicsCRMLabel), MicrosoftDynamicsCRMLabel description = default(MicrosoftDynamicsCRMLabel), string color = default(string), bool? isManaged = default(bool?), string metadataId = default(string), bool? hasChanged = default(bool?))
+        public MicrosoftDynamicsCRMOptionMetadata(int? value = default(int?), MicrosoftDynamicsCRMLabel label = default(MicrosoftDynamicsCRMLabel), MicrosoftDynamicsCRMLabel description = default(MicrosoftDynamicsCRMLabel), string color = default(string), bool? isManaged = default(bool?), string externalValue = default(string), string metadataId = default(string), bool? hasChanged = default(bool?))
         {
             Value = value;
             Label = label;
             Description = description;
             Color = color;
             IsManaged = isManaged;
+            ExternalValue = externalValue;
             MetadataId = metadataId;
             HasChanged = hasChanged;
             CustomInit();
@@ -68,6 +69,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "IsManaged")]
         public bool? IsManaged { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ExternalValue")]
+        public string ExternalValue { get; set; }
 
         /// <summary>
         /// </summary>

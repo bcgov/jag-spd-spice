@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMentitlementcontacts class.
         /// </summary>
-        public MicrosoftDynamicsCRMentitlementcontacts(string entitlementcontactid = default(string), string entitlementid = default(string), long? versionnumber = default(long?), string contactid = default(string))
+        public MicrosoftDynamicsCRMentitlementcontacts(int? utcconversiontimezonecode = default(int?), string name = default(string), string entitlementcontactid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string contactid = default(string), string entitlementid = default(string), int? timezoneruleversionnumber = default(int?), int? importsequencenumber = default(int?), long? versionnumber = default(long?), IList<MicrosoftDynamicsCRMasyncoperation> entitlementcontactsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> entitlementcontactsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> entitlementcontactsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> entitlementcontactsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Name = name;
             Entitlementcontactid = entitlementcontactid;
-            Entitlementid = entitlementid;
-            Versionnumber = versionnumber;
+            Overriddencreatedon = overriddencreatedon;
             Contactid = contactid;
+            Entitlementid = entitlementid;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Importsequencenumber = importsequencenumber;
+            Versionnumber = versionnumber;
+            EntitlementcontactsAsyncOperations = entitlementcontactsAsyncOperations;
+            EntitlementcontactsMailboxTrackingFolders = entitlementcontactsMailboxTrackingFolders;
+            EntitlementcontactsBulkDeleteFailures = entitlementcontactsBulkDeleteFailures;
+            EntitlementcontactsPrincipalObjectAttributeAccesses = entitlementcontactsPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -43,8 +54,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "entitlementcontactid")]
         public string Entitlementcontactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactid")]
+        public string Contactid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -53,13 +84,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "contactid")]
-        public string Contactid { get; set; }
+        [JsonProperty(PropertyName = "entitlementcontacts_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> EntitlementcontactsAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entitlementcontacts_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> EntitlementcontactsMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entitlementcontacts_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> EntitlementcontactsBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entitlementcontacts_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> EntitlementcontactsPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

@@ -32,7 +32,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// 'VersionNumber', 'Phone'</param>
         /// <param name="imeMode">Possible values include: 'Auto', 'Inactive',
         /// 'Active', 'Disabled'</param>
-        public MicrosoftDynamicsCRMStringAttributeMetadata(string format = default(string), MicrosoftDynamicsCRMStringFormatName formatName = default(MicrosoftDynamicsCRMStringFormatName), string imeMode = default(string), int? maxLength = default(int?), string yomiOf = default(string), bool? isLocalizable = default(bool?), string formulaDefinition = default(string), int? sourceTypeMask = default(int?))
+        public MicrosoftDynamicsCRMStringAttributeMetadata(string format = default(string), MicrosoftDynamicsCRMStringFormatName formatName = default(MicrosoftDynamicsCRMStringFormatName), string imeMode = default(string), int? maxLength = default(int?), string yomiOf = default(string), bool? isLocalizable = default(bool?), int? databaseLength = default(int?), string formulaDefinition = default(string), int? sourceTypeMask = default(int?))
         {
             Format = format;
             FormatName = formatName;
@@ -40,6 +40,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             MaxLength = maxLength;
             YomiOf = yomiOf;
             IsLocalizable = isLocalizable;
+            DatabaseLength = databaseLength;
             FormulaDefinition = formulaDefinition;
             SourceTypeMask = sourceTypeMask;
             CustomInit();
@@ -83,6 +84,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "IsLocalizable")]
         public bool? IsLocalizable { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "DatabaseLength")]
+        public int? DatabaseLength { get; set; }
 
         /// <summary>
         /// </summary>

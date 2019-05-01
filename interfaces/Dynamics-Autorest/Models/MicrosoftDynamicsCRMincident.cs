@@ -29,287 +29,316 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMincident
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMincident(string _slainvokedidValue = default(string), string adoxioInspchecklistphototakennotes = default(string), int? adoxioContactedpolicereconcerns = default(int?), string adoxioNoeasection1penaltychoice = default(string), string adoxioMapagentid2 = default(string), int? statuscode = default(int?), System.DateTimeOffset? adoxioNoeasentdate = default(System.DateTimeOffset?), object entityimage = default(object), string adoxioInspchecklistsmelljarsnotes = default(string), string _adoxioRegionalmanagerValue = default(string), double? influencescore = default(double?), string _kbarticleidValue = default(string), int? adoxioServicehourswednesdayclose = default(int?), string _contactidValue = default(string), int? adoxioInspectionservingitright = default(int?), string _createdbyexternalpartyValue = default(string), string _accountidValue = default(string), int? actualserviceunits = default(int?), long? versionnumber = default(long?), string entityimageUrl = default(string), int? adoxioMinorsserved = default(int?), string processid = default(string), int? adoxioServicehourssundayopen = default(int?), string _adoxioParentinspectionidValue = default(string), string adoxioEstablishmentcity = default(string), string _firstresponsebykpiidValue = default(string), int? adoxioDisorderlyorunlawfulactivities = default(int?), bool? decremententitlementterm = default(bool?), int? adoxioInspchecklistphysicalsecurityoperating = default(int?), string _modifiedonbehalfbyValue = default(string), string adoxioInspchecklistnootherbusinessnotes = default(string), string _adoxioLicenceValue = default(string), string adoxioInspchecklistpackagingsealednotes = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), bool? adoxioCreatefollowup = default(bool?), int? billedserviceunits = default(int?), int? adoxioInspchecklistproductnoselfservice = default(int?), int? adoxioInspectionliquorservice = default(int?), string adoxioEstablishmentaddress = default(string), int? adoxioInspchecklistpackagingroutine = default(int?), bool? customercontacted = default(bool?), string _modifiedbyexternalpartyValue = default(string), int? adoxioInspchecklistnootherbusinessassociated = default(int?), int? adoxioServicehoursfridayopen = default(int?), string title = default(string), int? adoxioServicehoursmondayclose = default(int?), int? caseorigincode = default(int?), string _owningbusinessunitValue = default(string), int? adoxioOperatingcontrarytolicence = default(int?), string adoxioInspchecklistworkerqualificationnotes = default(string), System.DateTimeOffset? adoxioInspectionactivitiesconcludeddate = default(System.DateTimeOffset?), int? adoxioInspchecklistsmelljarsroutine = default(int?), string adoxioEstablishmentpostalcode = default(string), int? adoxioServicehoursfridayclose = default(int?), int? adoxioInspchecklistworkersverifiedroutine = default(int?), bool? isescalated = default(bool?), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), string _adoxioApplicationValue = default(string), string _primarycontactidValue = default(string), int? adoxioInspchecklistcannabisregisterroutine = default(int?), int? servicestage = default(int?), int? numberofchildincidents = default(int?), string _customeridValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? severitycode = default(int?), string adoxioExternalinvestigationjobnumber = default(string), int? adoxioInspectionovercrowding = default(int?), int? adoxioInspchecklistfloorplanroutine = default(int?), string _createdbyValue = default(string), int? adoxioDiscussedmapprogram = default(int?), int? adoxioInspectiontimeoutmm = default(int?), int? adoxioServicehourswednesdayopen = default(int?), string _modifiedbyValue = default(string), string _contractdetailidValue = default(string), string _entitlementidValue = default(string), int? adoxioServicehourssaturdayopen = default(int?), string _parentcaseidValue = default(string), string stageid = default(string), int? adoxioInspchecklistaccordancewithaipletter = default(int?), string _masteridValue = default(string), string _adoxioInspectorValue = default(string), string _owningteamValue = default(string), bool? checkemail = default(bool?), string productserialnumber = default(string), int? adoxioInspectionentertainment = default(int?), int? adoxioDrinksizesminpricing = default(int?), int? messagetypecode = default(int?), int? firstresponseslastatus = default(int?), int? timezoneruleversionnumber = default(int?), int? adoxioInspchecklistadvertisingroutine = default(int?), string adoxioNoeachoiceprocedure = default(string), string _productidValue = default(string), int? adoxioServicehoursthursdayopen = default(int?), int? adoxioInspchecklistfollowupinspectionrequired = default(int?), string _adoxioAdjudicatorValue = default(string), int? onholdtime = default(int?), System.DateTimeOffset? resolveby = default(System.DateTimeOffset?), string _owninguserValue = default(string), bool? routecase = default(bool?), bool? isdecrementing = default(bool?), string adoxioInspchecklistproductnoselfservicenotes = default(string), int? adoxioInspectiontype = default(int?), string adoxioMapagentid1 = default(string), int? adoxioInspectionoutcome = default(int?), string _slaidValue = default(string), bool? activitiescomplete = default(bool?), string adoxioInspchecklistaccordancewithaipletternotes = default(string), string _contractidValue = default(string), int? adoxioLicencepostedroutine = default(int?), string _adoxioRegionValue = default(string), string _adoxioInvestigationidValue = default(string), bool? adoxioServicehoursstandardhours = default(bool?), string _subjectidValue = default(string), string description = default(string), int? adoxioInspchecklistproductnotvisible = default(int?), int? contractservicelevelcode = default(int?), string entityimageid = default(string), int? adoxioInspectionintoxication = default(int?), bool? merged = default(bool?), int? adoxioInspectionliquorlicence = default(int?), int? adoxioInspchecklistproductnotvisibleroutine = default(int?), string _adoxioLicenseeValue = default(string), System.DateTimeOffset? adoxioDateout = default(System.DateTimeOffset?), int? adoxioInspectionnumberofpatrons = default(int?), string _adoxioEstablishmentValue = default(string), string traversedpath = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? adoxioInspectiontimeouthh = default(int?), int? adoxioInspectiontimeinmm = default(int?), int? adoxioEmployeesconsumingliquor = default(int?), System.DateTimeOffset? adoxioActualinspectiondate = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), int? adoxioInspchecklistsignmeetsrequirements = default(int?), string adoxioExternalinvestigationfilenumber = default(string), int? adoxioInspchecklisttakeandsendphotos = default(int?), string adoxioInspchecklistsignmeetsrequirementsnotes = default(string), string adoxioComments = default(string), string adoxioContraventionsummary = default(string), int? customersatisfactioncode = default(int?), long? entityimageTimestamp = default(long?), bool? followuptaskcreated = default(bool?), int? adoxioCommunitydisturbance = default(int?), string _owneridValue = default(string), int? adoxioInspectionsminors = default(int?), System.DateTimeOffset? adoxioInspectiondate = default(System.DateTimeOffset?), int? adoxioInspectionredlinefloorplan = default(int?), int? adoxioPackagingsealed = default(int?), System.DateTimeOffset? adoxioInspectionduedate = default(System.DateTimeOffset?), bool? firstresponsesent = default(bool?), string adoxioInspchecklistsignageadvertisingnotes = default(string), string adoxioInspchecklistdepictsaipfloorplannotes = default(string), bool? adoxioDisturbanceofpersonsinthevicinity = default(bool?), int? prioritycode = default(int?), int? adoxioAlcoholsensematerial = default(int?), string ticketnumber = default(string), string adoxioInspchecklistproductnotvisibleroutinenote = default(string), string adoxioInspchecklistphysicalsecuritynotes = default(string), int? casetypecode = default(int?), int? incidentstagecode = default(int?), string adoxioInspchecklistlicencepostednotes = default(string), int? adoxioServicehoursthursdayclose = default(int?), string _existingcaseValue = default(string), System.DateTimeOffset? followupby = default(System.DateTimeOffset?), string _socialprofileidValue = default(string), int? statecode = default(int?), object exchangerate = default(object), int? adoxioServicehoursmondayopen = default(int?), int? adoxioInspchecklistsecrequirementsroutine = default(int?), string adoxioNoeanarrative = default(string), System.DateTimeOffset? responseby = default(System.DateTimeOffset?), string adoxioInspchecklistfloorplanroutinenotes = default(string), int? adoxioInspectionviolationticketsissued = default(int?), string adoxioInspectioncompleteddate = default(string), int? adoxioServicehourssaturdayclose = default(int?), System.DateTimeOffset? escalatedon = default(System.DateTimeOffset?), int? adoxioInspectiontimeinhh = default(int?), int? adoxioInspectionliquorregister = default(int?), int? resolvebyslastatus = default(int?), string adoxioInspchecklistproductnotvisiblenotes = default(string), int? importsequencenumber = default(int?), string incidentid = default(string), int? adoxioServicehourstuesdayclose = default(int?), int? adoxioInspchecklistdepictsaipfloorplan = default(int?), int? adoxioInspectionoccurrence = default(int?), bool? blockedprofile = default(bool?), string _createdonbehalfbyValue = default(string), double? sentimentvalue = default(double?), string adoxioInspchecklistcannabisregisternotes = default(string), string adoxioInspchecklistsecurityoperationalnotes = default(string), System.DateTimeOffset? adoxioDatein = default(System.DateTimeOffset?), System.DateTimeOffset? adoxioInspectioncompletedate = default(System.DateTimeOffset?), int? adoxioPiecesofidchecked = default(int?), string _adoxioComplaintidValue = default(string), int? adoxioServicehourstuesdayopen = default(int?), int? adoxioServicehourssundayclose = default(int?), string _resolvebykpiidValue = default(string), string _adoxioAreaValue = default(string), IList<MicrosoftDynamicsCRMpostregarding> incidentPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMpostfollow> incidentPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), MicrosoftDynamicsCRMincident masterid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentMasterIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMlead> originatingCaseLead = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMincident parentcaseid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentParentIncident = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMactivityparty> incidentActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), MicrosoftDynamicsCRMsla slainvokedidSla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsocialactivity> incidentSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), MicrosoftDynamicsCRMslakpiinstance firstresponsebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMsla slaidSla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceIncident = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMactioncard> incidentActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), IList<MicrosoftDynamicsCRMappointment> incidentAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMconnection> incidentConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMserviceappointment> incidentServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMcontractdetail contractdetailid = default(MicrosoftDynamicsCRMcontractdetail), MicrosoftDynamicsCRMincident existingcase = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentExistingcase = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMqueueitem> incidentQueueItem = default(IList<MicrosoftDynamicsCRMqueueitem>), IList<MicrosoftDynamicsCRMknowledgebaserecord> knowledgeBaseRecordIncident = default(IList<MicrosoftDynamicsCRMknowledgebaserecord>), IList<MicrosoftDynamicsCRMphonetocaseprocess> incidentPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), IList<MicrosoftDynamicsCRMincidentresolution> incidentIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMemail> incidentEmails = default(IList<MicrosoftDynamicsCRMemail>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMasyncoperation> incidentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMphonecall> incidentPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMconnection> incidentConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMentitlement entitlementid = default(MicrosoftDynamicsCRMentitlement), IList<MicrosoftDynamicsCRMannotation> incidentAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> incidentRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), MicrosoftDynamicsCRMsocialprofile socialprofileid = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMactivitypointer> incidentActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMslakpiinstance resolvebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact responsiblecontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMletter> incidentLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMsyncerror> incidentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMfax> incidentFaxes = default(IList<MicrosoftDynamicsCRMfax>), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), IList<MicrosoftDynamicsCRMknowledgearticleincident> knowledgearticleIncidents = default(IList<MicrosoftDynamicsCRMknowledgearticleincident>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMtask> incidentTasks = default(IList<MicrosoftDynamicsCRMtask>), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> incidentAbsScheduledprocessexecutions = default(IList<MicrosoftDynamicsCRMabsScheduledprocessexecution>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> incidentSharePointDocumentLocations = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMaccount adoxioLicensee = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMadoxioApplication adoxioApplication = default(MicrosoftDynamicsCRMadoxioApplication), MicrosoftDynamicsCRMadoxioEstablishment adoxioEstablishment = default(MicrosoftDynamicsCRMadoxioEstablishment), MicrosoftDynamicsCRMadoxioLicences adoxioLicence = default(MicrosoftDynamicsCRMadoxioLicences), MicrosoftDynamicsCRMadoxioRegion adoxioRegion = default(MicrosoftDynamicsCRMadoxioRegion), MicrosoftDynamicsCRMadoxioArea adoxioArea = default(MicrosoftDynamicsCRMadoxioArea), IList<MicrosoftDynamicsCRMadoxioLicencetype> adoxioIncidentAdoxioLicencetype = default(IList<MicrosoftDynamicsCRMadoxioLicencetype>), MicrosoftDynamicsCRMincident adoxioParentInspectionId = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> adoxioInspectionInspections = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMsystemuser> adoxioInspectionInspectors = default(IList<MicrosoftDynamicsCRMsystemuser>), MicrosoftDynamicsCRMsystemuser adoxioAdjudicator = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser adoxioInspector = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser adoxioRegionalManager = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMadoxioDocument> adoxioInspectionDocuments = default(IList<MicrosoftDynamicsCRMadoxioDocument>), IList<MicrosoftDynamicsCRMadoxioContravention> adoxioIncidentAdoxioContravention = default(IList<MicrosoftDynamicsCRMadoxioContravention>), MicrosoftDynamicsCRMadoxioComplaint adoxioComplaintId = default(MicrosoftDynamicsCRMadoxioComplaint), MicrosoftDynamicsCRMadoxioComplianceinvestigation adoxioInvestigationId = default(MicrosoftDynamicsCRMadoxioComplianceinvestigation), IList<MicrosoftDynamicsCRMadoxioInvestigationactivity> adoxioInspectionInvestigationactivities = default(IList<MicrosoftDynamicsCRMadoxioInvestigationactivity>), IList<MicrosoftDynamicsCRMadoxioCompliancemeeting> adoxioInspectionCompliancemeetings = default(IList<MicrosoftDynamicsCRMadoxioCompliancemeeting>))
+        public MicrosoftDynamicsCRMincident(string _owneridValue = default(string), bool? spiceEssDriverRecordsfound = default(bool?), string _contactidValue = default(string), long? versionnumber = default(long?), bool? spiceEssSecurityinterconfirmed = default(bool?), bool? spiceEssCrcResuploaded = default(bool?), bool? spiceEssCharcCvsareqd = default(bool?), long? entityimageTimestamp = default(long?), bool? blockedprofile = default(bool?), string _contractidValue = default(string), bool? spiceBusSpdinvestrequired = default(bool?), int? spiceScreeningcomplexity = default(int?), bool? spiceEssEduVerificationrequired = default(bool?), string _spiceReturnresulttoValue = default(string), int? timezoneruleversionnumber = default(int?), int? spiceFinalresult = default(int?), bool? spicePrimeCheckrequired = default(bool?), string _slaidValue = default(string), System.DateTimeOffset? spiceConsentDtSent = default(System.DateTimeOffset?), bool? spiceOtrletterreceived = default(bool?), bool? spiceAliasesfound = default(bool?), bool? spiceSsqrequired = default(bool?), int? spiceCpicresults = default(int?), int? spiceSpdinvestigationresults = default(int?), string spiceCpicresultstosharewithspd = default(string), int? spiceEssDfoResults = default(int?), bool? spiceEssInterPolygraphrequired = default(bool?), bool? spiceTcDtSignatureConfirmed = default(bool?), string spiceBillingtext = default(string), int? spicePrimeResults = default(int?), bool? spiceLegalreviewcomplete = default(bool?), int? casetypecode = default(int?), bool? spiceEssSecurityinterresultsrecd = default(bool?), bool? activitiescomplete = default(bool?), bool? spiceCpiccheckrequired = default(bool?), bool? spiceRccRequestmade = default(bool?), int? resolvebyslastatus = default(int?), string _spiceApplicantidValue = default(string), string _transactioncurrencyidValue = default(string), int? spiceCreditScore = default(int?), int? incidentstagecode = default(int?), string _customeridValue = default(string), bool? checkemail = default(bool?), int? spiceEssEduVerifresults = default(int?), System.DateTimeOffset? spiceSsqdatereceived = default(System.DateTimeOffset?), string _productidValue = default(string), bool? customercontacted = default(bool?), string traversedpath = default(string), string entityimageid = default(string), bool? firstresponsesent = default(bool?), bool? spiceSsqreceived = default(bool?), bool? spicePrimeChecked = default(bool?), System.DateTimeOffset? responseby = default(System.DateTimeOffset?), bool? spiceEssPolygraphresultsreceived = default(bool?), int? spiceResultofscreening = default(int?), bool? spiceEssCreditcheckrequired = default(bool?), string title = default(string), int? importsequencenumber = default(int?), bool? merged = default(bool?), bool? spiceEssEduEmpverifrequired = default(bool?), string _createdonbehalfbyValue = default(string), bool? spiceEssPolygraphinterviewconfirmed = default(bool?), string spiceSsq = default(string), System.DateTimeOffset? escalatedon = default(System.DateTimeOffset?), bool? spiceJustinReportuploaded = default(bool?), string spicePrimeresultstosharewithspd = default(string), string _slainvokedidValue = default(string), int? contractservicelevelcode = default(int?), bool? spiceReadyforcrru = default(bool?), bool? spiceCpicchecked = default(bool?), string _spiceApplyingpersonidValue = default(string), bool? spiceAdditionalprimeinformationprovided = default(bool?), bool? spiceConsentformSent = default(bool?), System.DateTimeOffset? spiceSsqreceiveddate = default(System.DateTimeOffset?), bool? spiceEssSsvVerified = default(bool?), string _spiceRequesterhiringmanagerValue = default(string), bool? followuptaskcreated = default(bool?), bool? spiceCharrefrequestsentdate = default(bool?), bool? spiceInvestigationrequired = default(bool?), bool? spiceJcRccReceived = default(bool?), bool? spiceBusResultsreceived = default(bool?), int? spiceCannabisapplicanttype = default(int?), bool? spiceFurtherinvestigationcomplete = default(bool?), System.DateTimeOffset? spiceConsentDtReceived = default(System.DateTimeOffset?), bool? spiceEssCharrefcomplete = default(bool?), object spiceScreeningamount = default(object), bool? spiceEssEduCredverrequired = default(bool?), bool? spiceReadyforspdinvestigation = default(bool?), bool? spiceCpicrequestsent = default(bool?), int? spiceCoorsresults = default(int?), bool? spiceEssEduCredvercompleted = default(bool?), bool? spiceEssInterResultsreceived = default(bool?), System.DateTimeOffset? spiceEssSecurityinterdate = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), int? utcconversiontimezonecode = default(int?), bool? spiceJcCheckrequired = default(bool?), string _existingcaseValue = default(string), string _socialprofileidValue = default(string), string _contractdetailidValue = default(string), int? statuscode = default(int?), bool? routecase = default(bool?), string spiceConcapptype = default(string), object spiceScreeningamountBase = default(object), int? actualserviceunits = default(int?), bool? spiceLegalreviewreqd = default(bool?), bool? spiceConsentformReceived = default(bool?), bool? spiceAliasesadded = default(bool?), int? spiceEssCreditscore = default(int?), int? spiceEssCharcresreturned = default(int?), string emailaddress = default(string), bool? spiceSenttocpu = default(bool?), bool? spiceEssRefrecdfromapplicant = default(bool?), int? severitycode = default(int?), System.DateTimeOffset? spiceVerficationexpiresby = default(System.DateTimeOffset?), bool? spiceChreferencerequestsent = default(bool?), bool? spiceCpicInfoprovided = default(bool?), bool? spiceOtrrequired = default(bool?), int? spiceApplicationstatus = default(int?), bool? spiceBusFurtherreviewpackage = default(bool?), System.DateTimeOffset? spiceSpdinvestigationcompletiondate = default(System.DateTimeOffset?), string _owninguserValue = default(string), string _masteridValue = default(string), bool? spiceBusFitandproperresultsent = default(bool?), bool? spiceCpuresultsuploaded = default(bool?), bool? spiceWfReview = default(bool?), bool? spiceEssDfoConfrecd = default(bool?), System.DateTimeOffset? spiceWfTimestampldbletter = default(System.DateTimeOffset?), bool? spiceAdditionalprimerequired = default(bool?), string _modifiedbyValue = default(string), bool? spiceAllassociateinformationreceived = default(bool?), string spiceDupCpicresultstospd = default(string), bool? spiceEss3rdpartyIssuesidentified = default(bool?), int? messagetypecode = default(int?), int? prioritycode = default(int?), bool? spiceBusFitandproper = default(bool?), int? statecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? servicestage = default(int?), string spiceConsentrequired = default(string), string _firstresponsebykpiidValue = default(string), string _kbarticleidValue = default(string), bool? spiceEssCharcIntervconf = default(bool?), string spiceServiceNumber = default(string), bool? spiceEssDriversabstreqd = default(bool?), bool? isdecrementing = default(bool?), bool? spiceResultssent = default(bool?), string productserialnumber = default(string), int? firstresponseslastatus = default(int?), System.DateTimeOffset? spiceSsqsentdate = default(System.DateTimeOffset?), string _resolvebykpiidValue = default(string), bool? spicePrimeInternationalchecks = default(bool?), bool? spiceEssEduVerifcompleted = default(bool?), string stageid = default(string), int? spiceJcResults = default(int?), int? spiceFurtherinvestigationresults = default(int?), bool? spiceNotfitandproperresultsent = default(bool?), bool? spiceCornetReportuploaded = default(bool?), bool? spiceCpuresultsreceived = default(bool?), System.DateTimeOffset? spiceEssInterviewdate = default(System.DateTimeOffset?), bool? spiceSentforadditionalprime = default(bool?), bool? spiceEssDfoResultsrecd = default(bool?), int? onholdtime = default(int?), string spiceOtherscreeningreason = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? spicePrimeInfoProvided = default(bool?), System.DateTimeOffset? followupby = default(System.DateTimeOffset?), string ticketnumber = default(string), bool? spicePrimeFurtherinvestigation = default(bool?), string _entitlementidValue = default(string), int? billedserviceunits = default(int?), bool? spiceFurtherinvestigationresultuploaded = default(bool?), bool? isescalated = default(bool?), System.DateTimeOffset? spiceEssPolygraphinterviewdate = default(System.DateTimeOffset?), bool? spiceSsqsent = default(bool?), bool? spiceEssCertCrcrequired = default(bool?), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? spiceCompletiondt = default(System.DateTimeOffset?), string _spiceClientValue = default(string), string processid = default(string), bool? spiceOtrlettersent = default(bool?), int? spiceDforesults = default(int?), bool? spiceAdditionalprimecheckresult = default(bool?), string _parentcaseidValue = default(string), int? spiceApplicanttype = default(int?), string entityimageUrl = default(string), bool? spiceAllrequiredcheckscomplete = default(bool?), string _primarycontactidValue = default(string), int? spiceReasonforscreening = default(int?), bool? spiceEssEmpVerifcompleted = default(bool?), bool? spiceCpicFurtherinvest = default(bool?), bool? spiceCornetchecked = default(bool?), string spiceConsent = default(string), bool? spiceEssRefrequired = default(bool?), bool? spiceChecked2id = default(bool?), int? caseorigincode = default(int?), object entityimage = default(object), bool? spiceEssDriabstractreceived = default(bool?), double? influencescore = default(double?), bool? spiceWFurtherReviewrequired = default(bool?), bool? decremententitlementterm = default(bool?), string _createdbyexternalpartyValue = default(string), string _spiceServiceidValue = default(string), int? numberofchildincidents = default(int?), bool? spiceEss3rdpartyChecksreq = default(bool?), string _subjectidValue = default(string), bool? spiceSpdinvestcompleted = default(bool?), double? sentimentvalue = default(double?), string _accountidValue = default(string), string _owningteamValue = default(string), bool? spiceJcChecked = default(bool?), string _modifiedbyexternalpartyValue = default(string), bool? spiceAdditionalprimecheckcomplete = default(bool?), bool? spiceEssSecurityinterrequired = default(bool?), int? customersatisfactioncode = default(int?), bool? spiceEssRefsenttoitv = default(bool?), object exchangerate = default(object), System.DateTimeOffset? resolveby = default(System.DateTimeOffset?), string spiceDupPrimeresultstosharewithspd = default(string), bool? spiceReportreadyforreview = default(bool?), int? spiceCrrustatus = default(int?), bool? spiceEss3rdpartyCheckscomptd = default(bool?), bool? spiceEssSsvVerifrequired = default(bool?), string incidentid = default(string), bool? spiceJustinchecked = default(bool?), string _createdbyValue = default(string), string description = default(string), bool? spiceCornetcheckrequired = default(bool?), int? spiceCornetresult = default(int?), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> incidentActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> incidentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> incidentActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> incidentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> incidentMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> incidentProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> incidentPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMappointment> incidentAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> incidentEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> incidentFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> incidentLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> incidentPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> incidentTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> incidentRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> incidentSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> incidentConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> incidentConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMqueueitem> incidentQueueItem = default(IList<MicrosoftDynamicsCRMqueueitem>), IList<MicrosoftDynamicsCRMannotation> incidentAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMsla slaidSla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMsla slainvokedidSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceIncident = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMserviceappointment> incidentServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMactioncard> incidentActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMcontact responsiblecontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMcontractdetail contractdetailid = default(MicrosoftDynamicsCRMcontractdetail), MicrosoftDynamicsCRMentitlement entitlementid = default(MicrosoftDynamicsCRMentitlement), IList<MicrosoftDynamicsCRMincidentresolution> incidentIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMpostfollow> incidentPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMpostregarding> incidentPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), MicrosoftDynamicsCRMincident existingcase = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentExistingcase = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident masterid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentMasterIncident = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident parentcaseid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentParentIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMlead> originatingCaseLead = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMknowledgearticleincident> knowledgearticleIncidents = default(IList<MicrosoftDynamicsCRMknowledgearticleincident>), IList<MicrosoftDynamicsCRMknowledgebaserecord> knowledgeBaseRecordIncident = default(IList<MicrosoftDynamicsCRMknowledgebaserecord>), IList<MicrosoftDynamicsCRMphonetocaseprocess> incidentPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMslakpiinstance firstresponsebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMslakpiinstance resolvebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMsocialprofile socialprofileid = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMopportunityclose> incidentOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> incidentOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> incidentQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> incidentSharePointDocumentLocations = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> incidentSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> bpfIncidentSpiceSpiceBusinesscaseprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess>), IList<MicrosoftDynamicsCRMspiceSpiceprocess> bpfIncidentSpiceSpiceprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceprocess>), MicrosoftDynamicsCRMaccount spiceApplicantId = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact spiceApplyingPersonId = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMspiceExportrequest> spiceExportrequestIncident = default(IList<MicrosoftDynamicsCRMspiceExportrequest>), IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> spiceIncidentSpiceAccountcaseassignment = default(IList<MicrosoftDynamicsCRMspiceAccountcaseassignment>), MicrosoftDynamicsCRMspiceMinistry spiceClient = default(MicrosoftDynamicsCRMspiceMinistry), MicrosoftDynamicsCRMspiceMinistryemployee spiceRequesterHiringManager = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceMinistryemployee spiceReturnResultto = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceServices spiceServiceId = default(MicrosoftDynamicsCRMspiceServices))
         {
-            this._slainvokedidValue = _slainvokedidValue;
-            AdoxioInspchecklistphototakennotes = adoxioInspchecklistphototakennotes;
-            AdoxioContactedpolicereconcerns = adoxioContactedpolicereconcerns;
-            AdoxioNoeasection1penaltychoice = adoxioNoeasection1penaltychoice;
-            AdoxioMapagentid2 = adoxioMapagentid2;
-            Statuscode = statuscode;
-            AdoxioNoeasentdate = adoxioNoeasentdate;
-            Entityimage = entityimage;
-            AdoxioInspchecklistsmelljarsnotes = adoxioInspchecklistsmelljarsnotes;
-            this._adoxioRegionalmanagerValue = _adoxioRegionalmanagerValue;
-            Influencescore = influencescore;
-            this._kbarticleidValue = _kbarticleidValue;
-            AdoxioServicehourswednesdayclose = adoxioServicehourswednesdayclose;
-            this._contactidValue = _contactidValue;
-            AdoxioInspectionservingitright = adoxioInspectionservingitright;
-            this._createdbyexternalpartyValue = _createdbyexternalpartyValue;
-            this._accountidValue = _accountidValue;
-            Actualserviceunits = actualserviceunits;
-            Versionnumber = versionnumber;
-            EntityimageUrl = entityimageUrl;
-            AdoxioMinorsserved = adoxioMinorsserved;
-            Processid = processid;
-            AdoxioServicehourssundayopen = adoxioServicehourssundayopen;
-            this._adoxioParentinspectionidValue = _adoxioParentinspectionidValue;
-            AdoxioEstablishmentcity = adoxioEstablishmentcity;
-            this._firstresponsebykpiidValue = _firstresponsebykpiidValue;
-            AdoxioDisorderlyorunlawfulactivities = adoxioDisorderlyorunlawfulactivities;
-            Decremententitlementterm = decremententitlementterm;
-            AdoxioInspchecklistphysicalsecurityoperating = adoxioInspchecklistphysicalsecurityoperating;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            AdoxioInspchecklistnootherbusinessnotes = adoxioInspchecklistnootherbusinessnotes;
-            this._adoxioLicenceValue = _adoxioLicenceValue;
-            AdoxioInspchecklistpackagingsealednotes = adoxioInspchecklistpackagingsealednotes;
-            Createdon = createdon;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            AdoxioCreatefollowup = adoxioCreatefollowup;
-            Billedserviceunits = billedserviceunits;
-            AdoxioInspchecklistproductnoselfservice = adoxioInspchecklistproductnoselfservice;
-            AdoxioInspectionliquorservice = adoxioInspectionliquorservice;
-            AdoxioEstablishmentaddress = adoxioEstablishmentaddress;
-            AdoxioInspchecklistpackagingroutine = adoxioInspchecklistpackagingroutine;
-            Customercontacted = customercontacted;
-            this._modifiedbyexternalpartyValue = _modifiedbyexternalpartyValue;
-            AdoxioInspchecklistnootherbusinessassociated = adoxioInspchecklistnootherbusinessassociated;
-            AdoxioServicehoursfridayopen = adoxioServicehoursfridayopen;
-            Title = title;
-            AdoxioServicehoursmondayclose = adoxioServicehoursmondayclose;
-            Caseorigincode = caseorigincode;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            AdoxioOperatingcontrarytolicence = adoxioOperatingcontrarytolicence;
-            AdoxioInspchecklistworkerqualificationnotes = adoxioInspchecklistworkerqualificationnotes;
-            AdoxioInspectionactivitiesconcludeddate = adoxioInspectionactivitiesconcludeddate;
-            AdoxioInspchecklistsmelljarsroutine = adoxioInspchecklistsmelljarsroutine;
-            AdoxioEstablishmentpostalcode = adoxioEstablishmentpostalcode;
-            AdoxioServicehoursfridayclose = adoxioServicehoursfridayclose;
-            AdoxioInspchecklistworkersverifiedroutine = adoxioInspchecklistworkersverifiedroutine;
-            Isescalated = isescalated;
-            Lastonholdtime = lastonholdtime;
-            this._adoxioApplicationValue = _adoxioApplicationValue;
-            this._primarycontactidValue = _primarycontactidValue;
-            AdoxioInspchecklistcannabisregisterroutine = adoxioInspchecklistcannabisregisterroutine;
-            Servicestage = servicestage;
-            Numberofchildincidents = numberofchildincidents;
-            this._customeridValue = _customeridValue;
-            Modifiedon = modifiedon;
-            Severitycode = severitycode;
-            AdoxioExternalinvestigationjobnumber = adoxioExternalinvestigationjobnumber;
-            AdoxioInspectionovercrowding = adoxioInspectionovercrowding;
-            AdoxioInspchecklistfloorplanroutine = adoxioInspchecklistfloorplanroutine;
-            this._createdbyValue = _createdbyValue;
-            AdoxioDiscussedmapprogram = adoxioDiscussedmapprogram;
-            AdoxioInspectiontimeoutmm = adoxioInspectiontimeoutmm;
-            AdoxioServicehourswednesdayopen = adoxioServicehourswednesdayopen;
-            this._modifiedbyValue = _modifiedbyValue;
-            this._contractdetailidValue = _contractdetailidValue;
-            this._entitlementidValue = _entitlementidValue;
-            AdoxioServicehourssaturdayopen = adoxioServicehourssaturdayopen;
-            this._parentcaseidValue = _parentcaseidValue;
-            Stageid = stageid;
-            AdoxioInspchecklistaccordancewithaipletter = adoxioInspchecklistaccordancewithaipletter;
-            this._masteridValue = _masteridValue;
-            this._adoxioInspectorValue = _adoxioInspectorValue;
-            this._owningteamValue = _owningteamValue;
-            Checkemail = checkemail;
-            Productserialnumber = productserialnumber;
-            AdoxioInspectionentertainment = adoxioInspectionentertainment;
-            AdoxioDrinksizesminpricing = adoxioDrinksizesminpricing;
-            Messagetypecode = messagetypecode;
-            Firstresponseslastatus = firstresponseslastatus;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            AdoxioInspchecklistadvertisingroutine = adoxioInspchecklistadvertisingroutine;
-            AdoxioNoeachoiceprocedure = adoxioNoeachoiceprocedure;
-            this._productidValue = _productidValue;
-            AdoxioServicehoursthursdayopen = adoxioServicehoursthursdayopen;
-            AdoxioInspchecklistfollowupinspectionrequired = adoxioInspchecklistfollowupinspectionrequired;
-            this._adoxioAdjudicatorValue = _adoxioAdjudicatorValue;
-            Onholdtime = onholdtime;
-            Resolveby = resolveby;
-            this._owninguserValue = _owninguserValue;
-            Routecase = routecase;
-            Isdecrementing = isdecrementing;
-            AdoxioInspchecklistproductnoselfservicenotes = adoxioInspchecklistproductnoselfservicenotes;
-            AdoxioInspectiontype = adoxioInspectiontype;
-            AdoxioMapagentid1 = adoxioMapagentid1;
-            AdoxioInspectionoutcome = adoxioInspectionoutcome;
-            this._slaidValue = _slaidValue;
-            Activitiescomplete = activitiescomplete;
-            AdoxioInspchecklistaccordancewithaipletternotes = adoxioInspchecklistaccordancewithaipletternotes;
-            this._contractidValue = _contractidValue;
-            AdoxioLicencepostedroutine = adoxioLicencepostedroutine;
-            this._adoxioRegionValue = _adoxioRegionValue;
-            this._adoxioInvestigationidValue = _adoxioInvestigationidValue;
-            AdoxioServicehoursstandardhours = adoxioServicehoursstandardhours;
-            this._subjectidValue = _subjectidValue;
-            Description = description;
-            AdoxioInspchecklistproductnotvisible = adoxioInspchecklistproductnotvisible;
-            Contractservicelevelcode = contractservicelevelcode;
-            Entityimageid = entityimageid;
-            AdoxioInspectionintoxication = adoxioInspectionintoxication;
-            Merged = merged;
-            AdoxioInspectionliquorlicence = adoxioInspectionliquorlicence;
-            AdoxioInspchecklistproductnotvisibleroutine = adoxioInspchecklistproductnotvisibleroutine;
-            this._adoxioLicenseeValue = _adoxioLicenseeValue;
-            AdoxioDateout = adoxioDateout;
-            AdoxioInspectionnumberofpatrons = adoxioInspectionnumberofpatrons;
-            this._adoxioEstablishmentValue = _adoxioEstablishmentValue;
-            Traversedpath = traversedpath;
-            Overriddencreatedon = overriddencreatedon;
-            AdoxioInspectiontimeouthh = adoxioInspectiontimeouthh;
-            AdoxioInspectiontimeinmm = adoxioInspectiontimeinmm;
-            AdoxioEmployeesconsumingliquor = adoxioEmployeesconsumingliquor;
-            AdoxioActualinspectiondate = adoxioActualinspectiondate;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            AdoxioInspchecklistsignmeetsrequirements = adoxioInspchecklistsignmeetsrequirements;
-            AdoxioExternalinvestigationfilenumber = adoxioExternalinvestigationfilenumber;
-            AdoxioInspchecklisttakeandsendphotos = adoxioInspchecklisttakeandsendphotos;
-            AdoxioInspchecklistsignmeetsrequirementsnotes = adoxioInspchecklistsignmeetsrequirementsnotes;
-            AdoxioComments = adoxioComments;
-            AdoxioContraventionsummary = adoxioContraventionsummary;
-            Customersatisfactioncode = customersatisfactioncode;
-            EntityimageTimestamp = entityimageTimestamp;
-            Followuptaskcreated = followuptaskcreated;
-            AdoxioCommunitydisturbance = adoxioCommunitydisturbance;
             this._owneridValue = _owneridValue;
-            AdoxioInspectionsminors = adoxioInspectionsminors;
-            AdoxioInspectiondate = adoxioInspectiondate;
-            AdoxioInspectionredlinefloorplan = adoxioInspectionredlinefloorplan;
-            AdoxioPackagingsealed = adoxioPackagingsealed;
-            AdoxioInspectionduedate = adoxioInspectionduedate;
-            Firstresponsesent = firstresponsesent;
-            AdoxioInspchecklistsignageadvertisingnotes = adoxioInspchecklistsignageadvertisingnotes;
-            AdoxioInspchecklistdepictsaipfloorplannotes = adoxioInspchecklistdepictsaipfloorplannotes;
-            AdoxioDisturbanceofpersonsinthevicinity = adoxioDisturbanceofpersonsinthevicinity;
-            Prioritycode = prioritycode;
-            AdoxioAlcoholsensematerial = adoxioAlcoholsensematerial;
-            Ticketnumber = ticketnumber;
-            AdoxioInspchecklistproductnotvisibleroutinenote = adoxioInspchecklistproductnotvisibleroutinenote;
-            AdoxioInspchecklistphysicalsecuritynotes = adoxioInspchecklistphysicalsecuritynotes;
-            Casetypecode = casetypecode;
-            Incidentstagecode = incidentstagecode;
-            AdoxioInspchecklistlicencepostednotes = adoxioInspchecklistlicencepostednotes;
-            AdoxioServicehoursthursdayclose = adoxioServicehoursthursdayclose;
-            this._existingcaseValue = _existingcaseValue;
-            Followupby = followupby;
-            this._socialprofileidValue = _socialprofileidValue;
-            Statecode = statecode;
-            Exchangerate = exchangerate;
-            AdoxioServicehoursmondayopen = adoxioServicehoursmondayopen;
-            AdoxioInspchecklistsecrequirementsroutine = adoxioInspchecklistsecrequirementsroutine;
-            AdoxioNoeanarrative = adoxioNoeanarrative;
-            Responseby = responseby;
-            AdoxioInspchecklistfloorplanroutinenotes = adoxioInspchecklistfloorplanroutinenotes;
-            AdoxioInspectionviolationticketsissued = adoxioInspectionviolationticketsissued;
-            AdoxioInspectioncompleteddate = adoxioInspectioncompleteddate;
-            AdoxioServicehourssaturdayclose = adoxioServicehourssaturdayclose;
-            Escalatedon = escalatedon;
-            AdoxioInspectiontimeinhh = adoxioInspectiontimeinhh;
-            AdoxioInspectionliquorregister = adoxioInspectionliquorregister;
-            Resolvebyslastatus = resolvebyslastatus;
-            AdoxioInspchecklistproductnotvisiblenotes = adoxioInspchecklistproductnotvisiblenotes;
-            Importsequencenumber = importsequencenumber;
-            Incidentid = incidentid;
-            AdoxioServicehourstuesdayclose = adoxioServicehourstuesdayclose;
-            AdoxioInspchecklistdepictsaipfloorplan = adoxioInspchecklistdepictsaipfloorplan;
-            AdoxioInspectionoccurrence = adoxioInspectionoccurrence;
+            SpiceEssDriverRecordsfound = spiceEssDriverRecordsfound;
+            this._contactidValue = _contactidValue;
+            Versionnumber = versionnumber;
+            SpiceEssSecurityinterconfirmed = spiceEssSecurityinterconfirmed;
+            SpiceEssCrcResuploaded = spiceEssCrcResuploaded;
+            SpiceEssCharcCvsareqd = spiceEssCharcCvsareqd;
+            EntityimageTimestamp = entityimageTimestamp;
             Blockedprofile = blockedprofile;
+            this._contractidValue = _contractidValue;
+            SpiceBusSpdinvestrequired = spiceBusSpdinvestrequired;
+            SpiceScreeningcomplexity = spiceScreeningcomplexity;
+            SpiceEssEduVerificationrequired = spiceEssEduVerificationrequired;
+            this._spiceReturnresulttoValue = _spiceReturnresulttoValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            SpiceFinalresult = spiceFinalresult;
+            SpicePrimeCheckrequired = spicePrimeCheckrequired;
+            this._slaidValue = _slaidValue;
+            SpiceConsentDtSent = spiceConsentDtSent;
+            SpiceOtrletterreceived = spiceOtrletterreceived;
+            SpiceAliasesfound = spiceAliasesfound;
+            SpiceSsqrequired = spiceSsqrequired;
+            SpiceCpicresults = spiceCpicresults;
+            SpiceSpdinvestigationresults = spiceSpdinvestigationresults;
+            SpiceCpicresultstosharewithspd = spiceCpicresultstosharewithspd;
+            SpiceEssDfoResults = spiceEssDfoResults;
+            SpiceEssInterPolygraphrequired = spiceEssInterPolygraphrequired;
+            SpiceTcDtSignatureConfirmed = spiceTcDtSignatureConfirmed;
+            SpiceBillingtext = spiceBillingtext;
+            SpicePrimeResults = spicePrimeResults;
+            SpiceLegalreviewcomplete = spiceLegalreviewcomplete;
+            Casetypecode = casetypecode;
+            SpiceEssSecurityinterresultsrecd = spiceEssSecurityinterresultsrecd;
+            Activitiescomplete = activitiescomplete;
+            SpiceCpiccheckrequired = spiceCpiccheckrequired;
+            SpiceRccRequestmade = spiceRccRequestmade;
+            Resolvebyslastatus = resolvebyslastatus;
+            this._spiceApplicantidValue = _spiceApplicantidValue;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            SpiceCreditScore = spiceCreditScore;
+            Incidentstagecode = incidentstagecode;
+            this._customeridValue = _customeridValue;
+            Checkemail = checkemail;
+            SpiceEssEduVerifresults = spiceEssEduVerifresults;
+            SpiceSsqdatereceived = spiceSsqdatereceived;
+            this._productidValue = _productidValue;
+            Customercontacted = customercontacted;
+            Traversedpath = traversedpath;
+            Entityimageid = entityimageid;
+            Firstresponsesent = firstresponsesent;
+            SpiceSsqreceived = spiceSsqreceived;
+            SpicePrimeChecked = spicePrimeChecked;
+            Responseby = responseby;
+            SpiceEssPolygraphresultsreceived = spiceEssPolygraphresultsreceived;
+            SpiceResultofscreening = spiceResultofscreening;
+            SpiceEssCreditcheckrequired = spiceEssCreditcheckrequired;
+            Title = title;
+            Importsequencenumber = importsequencenumber;
+            Merged = merged;
+            SpiceEssEduEmpverifrequired = spiceEssEduEmpverifrequired;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Sentimentvalue = sentimentvalue;
-            AdoxioInspchecklistcannabisregisternotes = adoxioInspchecklistcannabisregisternotes;
-            AdoxioInspchecklistsecurityoperationalnotes = adoxioInspchecklistsecurityoperationalnotes;
-            AdoxioDatein = adoxioDatein;
-            AdoxioInspectioncompletedate = adoxioInspectioncompletedate;
-            AdoxioPiecesofidchecked = adoxioPiecesofidchecked;
-            this._adoxioComplaintidValue = _adoxioComplaintidValue;
-            AdoxioServicehourstuesdayopen = adoxioServicehourstuesdayopen;
-            AdoxioServicehourssundayclose = adoxioServicehourssundayclose;
+            SpiceEssPolygraphinterviewconfirmed = spiceEssPolygraphinterviewconfirmed;
+            SpiceSsq = spiceSsq;
+            Escalatedon = escalatedon;
+            SpiceJustinReportuploaded = spiceJustinReportuploaded;
+            SpicePrimeresultstosharewithspd = spicePrimeresultstosharewithspd;
+            this._slainvokedidValue = _slainvokedidValue;
+            Contractservicelevelcode = contractservicelevelcode;
+            SpiceReadyforcrru = spiceReadyforcrru;
+            SpiceCpicchecked = spiceCpicchecked;
+            this._spiceApplyingpersonidValue = _spiceApplyingpersonidValue;
+            SpiceAdditionalprimeinformationprovided = spiceAdditionalprimeinformationprovided;
+            SpiceConsentformSent = spiceConsentformSent;
+            SpiceSsqreceiveddate = spiceSsqreceiveddate;
+            SpiceEssSsvVerified = spiceEssSsvVerified;
+            this._spiceRequesterhiringmanagerValue = _spiceRequesterhiringmanagerValue;
+            Followuptaskcreated = followuptaskcreated;
+            SpiceCharrefrequestsentdate = spiceCharrefrequestsentdate;
+            SpiceInvestigationrequired = spiceInvestigationrequired;
+            SpiceJcRccReceived = spiceJcRccReceived;
+            SpiceBusResultsreceived = spiceBusResultsreceived;
+            SpiceCannabisapplicanttype = spiceCannabisapplicanttype;
+            SpiceFurtherinvestigationcomplete = spiceFurtherinvestigationcomplete;
+            SpiceConsentDtReceived = spiceConsentDtReceived;
+            SpiceEssCharrefcomplete = spiceEssCharrefcomplete;
+            SpiceScreeningamount = spiceScreeningamount;
+            SpiceEssEduCredverrequired = spiceEssEduCredverrequired;
+            SpiceReadyforspdinvestigation = spiceReadyforspdinvestigation;
+            SpiceCpicrequestsent = spiceCpicrequestsent;
+            SpiceCoorsresults = spiceCoorsresults;
+            SpiceEssEduCredvercompleted = spiceEssEduCredvercompleted;
+            SpiceEssInterResultsreceived = spiceEssInterResultsreceived;
+            SpiceEssSecurityinterdate = spiceEssSecurityinterdate;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            SpiceJcCheckrequired = spiceJcCheckrequired;
+            this._existingcaseValue = _existingcaseValue;
+            this._socialprofileidValue = _socialprofileidValue;
+            this._contractdetailidValue = _contractdetailidValue;
+            Statuscode = statuscode;
+            Routecase = routecase;
+            SpiceConcapptype = spiceConcapptype;
+            SpiceScreeningamountBase = spiceScreeningamountBase;
+            Actualserviceunits = actualserviceunits;
+            SpiceLegalreviewreqd = spiceLegalreviewreqd;
+            SpiceConsentformReceived = spiceConsentformReceived;
+            SpiceAliasesadded = spiceAliasesadded;
+            SpiceEssCreditscore = spiceEssCreditscore;
+            SpiceEssCharcresreturned = spiceEssCharcresreturned;
+            Emailaddress = emailaddress;
+            SpiceSenttocpu = spiceSenttocpu;
+            SpiceEssRefrecdfromapplicant = spiceEssRefrecdfromapplicant;
+            Severitycode = severitycode;
+            SpiceVerficationexpiresby = spiceVerficationexpiresby;
+            SpiceChreferencerequestsent = spiceChreferencerequestsent;
+            SpiceCpicInfoprovided = spiceCpicInfoprovided;
+            SpiceOtrrequired = spiceOtrrequired;
+            SpiceApplicationstatus = spiceApplicationstatus;
+            SpiceBusFurtherreviewpackage = spiceBusFurtherreviewpackage;
+            SpiceSpdinvestigationcompletiondate = spiceSpdinvestigationcompletiondate;
+            this._owninguserValue = _owninguserValue;
+            this._masteridValue = _masteridValue;
+            SpiceBusFitandproperresultsent = spiceBusFitandproperresultsent;
+            SpiceCpuresultsuploaded = spiceCpuresultsuploaded;
+            SpiceWfReview = spiceWfReview;
+            SpiceEssDfoConfrecd = spiceEssDfoConfrecd;
+            SpiceWfTimestampldbletter = spiceWfTimestampldbletter;
+            SpiceAdditionalprimerequired = spiceAdditionalprimerequired;
+            this._modifiedbyValue = _modifiedbyValue;
+            SpiceAllassociateinformationreceived = spiceAllassociateinformationreceived;
+            SpiceDupCpicresultstospd = spiceDupCpicresultstospd;
+            SpiceEss3rdpartyIssuesidentified = spiceEss3rdpartyIssuesidentified;
+            Messagetypecode = messagetypecode;
+            Prioritycode = prioritycode;
+            SpiceBusFitandproper = spiceBusFitandproper;
+            Statecode = statecode;
+            Overriddencreatedon = overriddencreatedon;
+            Servicestage = servicestage;
+            SpiceConsentrequired = spiceConsentrequired;
+            this._firstresponsebykpiidValue = _firstresponsebykpiidValue;
+            this._kbarticleidValue = _kbarticleidValue;
+            SpiceEssCharcIntervconf = spiceEssCharcIntervconf;
+            SpiceServiceNumber = spiceServiceNumber;
+            SpiceEssDriversabstreqd = spiceEssDriversabstreqd;
+            Isdecrementing = isdecrementing;
+            SpiceResultssent = spiceResultssent;
+            Productserialnumber = productserialnumber;
+            Firstresponseslastatus = firstresponseslastatus;
+            SpiceSsqsentdate = spiceSsqsentdate;
             this._resolvebykpiidValue = _resolvebykpiidValue;
-            this._adoxioAreaValue = _adoxioAreaValue;
-            IncidentPostRegardings = incidentPostRegardings;
-            IncidentPostFollows = incidentPostFollows;
-            Masterid = masterid;
-            IncidentMasterIncident = incidentMasterIncident;
-            OriginatingCaseLead = originatingCaseLead;
-            Parentcaseid = parentcaseid;
-            IncidentParentIncident = incidentParentIncident;
+            SpicePrimeInternationalchecks = spicePrimeInternationalchecks;
+            SpiceEssEduVerifcompleted = spiceEssEduVerifcompleted;
+            Stageid = stageid;
+            SpiceJcResults = spiceJcResults;
+            SpiceFurtherinvestigationresults = spiceFurtherinvestigationresults;
+            SpiceNotfitandproperresultsent = spiceNotfitandproperresultsent;
+            SpiceCornetReportuploaded = spiceCornetReportuploaded;
+            SpiceCpuresultsreceived = spiceCpuresultsreceived;
+            SpiceEssInterviewdate = spiceEssInterviewdate;
+            SpiceSentforadditionalprime = spiceSentforadditionalprime;
+            SpiceEssDfoResultsrecd = spiceEssDfoResultsrecd;
+            Onholdtime = onholdtime;
+            SpiceOtherscreeningreason = spiceOtherscreeningreason;
+            Modifiedon = modifiedon;
+            SpicePrimeInfoProvided = spicePrimeInfoProvided;
+            Followupby = followupby;
+            Ticketnumber = ticketnumber;
+            SpicePrimeFurtherinvestigation = spicePrimeFurtherinvestigation;
+            this._entitlementidValue = _entitlementidValue;
+            Billedserviceunits = billedserviceunits;
+            SpiceFurtherinvestigationresultuploaded = spiceFurtherinvestigationresultuploaded;
+            Isescalated = isescalated;
+            SpiceEssPolygraphinterviewdate = spiceEssPolygraphinterviewdate;
+            SpiceSsqsent = spiceSsqsent;
+            SpiceEssCertCrcrequired = spiceEssCertCrcrequired;
+            Lastonholdtime = lastonholdtime;
+            Createdon = createdon;
+            SpiceCompletiondt = spiceCompletiondt;
+            this._spiceClientValue = _spiceClientValue;
+            Processid = processid;
+            SpiceOtrlettersent = spiceOtrlettersent;
+            SpiceDforesults = spiceDforesults;
+            SpiceAdditionalprimecheckresult = spiceAdditionalprimecheckresult;
+            this._parentcaseidValue = _parentcaseidValue;
+            SpiceApplicanttype = spiceApplicanttype;
+            EntityimageUrl = entityimageUrl;
+            SpiceAllrequiredcheckscomplete = spiceAllrequiredcheckscomplete;
+            this._primarycontactidValue = _primarycontactidValue;
+            SpiceReasonforscreening = spiceReasonforscreening;
+            SpiceEssEmpVerifcompleted = spiceEssEmpVerifcompleted;
+            SpiceCpicFurtherinvest = spiceCpicFurtherinvest;
+            SpiceCornetchecked = spiceCornetchecked;
+            SpiceConsent = spiceConsent;
+            SpiceEssRefrequired = spiceEssRefrequired;
+            SpiceChecked2id = spiceChecked2id;
+            Caseorigincode = caseorigincode;
+            Entityimage = entityimage;
+            SpiceEssDriabstractreceived = spiceEssDriabstractreceived;
+            Influencescore = influencescore;
+            SpiceWFurtherReviewrequired = spiceWFurtherReviewrequired;
+            Decremententitlementterm = decremententitlementterm;
+            this._createdbyexternalpartyValue = _createdbyexternalpartyValue;
+            this._spiceServiceidValue = _spiceServiceidValue;
+            Numberofchildincidents = numberofchildincidents;
+            SpiceEss3rdpartyChecksreq = spiceEss3rdpartyChecksreq;
+            this._subjectidValue = _subjectidValue;
+            SpiceSpdinvestcompleted = spiceSpdinvestcompleted;
+            Sentimentvalue = sentimentvalue;
+            this._accountidValue = _accountidValue;
+            this._owningteamValue = _owningteamValue;
+            SpiceJcChecked = spiceJcChecked;
+            this._modifiedbyexternalpartyValue = _modifiedbyexternalpartyValue;
+            SpiceAdditionalprimecheckcomplete = spiceAdditionalprimecheckcomplete;
+            SpiceEssSecurityinterrequired = spiceEssSecurityinterrequired;
+            Customersatisfactioncode = customersatisfactioncode;
+            SpiceEssRefsenttoitv = spiceEssRefsenttoitv;
+            Exchangerate = exchangerate;
+            Resolveby = resolveby;
+            SpiceDupPrimeresultstosharewithspd = spiceDupPrimeresultstosharewithspd;
+            SpiceReportreadyforreview = spiceReportreadyforreview;
+            SpiceCrrustatus = spiceCrrustatus;
+            SpiceEss3rdpartyCheckscomptd = spiceEss3rdpartyCheckscomptd;
+            SpiceEssSsvVerifrequired = spiceEssSsvVerifrequired;
+            Incidentid = incidentid;
+            SpiceJustinchecked = spiceJustinchecked;
+            this._createdbyValue = _createdbyValue;
+            Description = description;
+            SpiceCornetcheckrequired = spiceCornetcheckrequired;
+            SpiceCornetresult = spiceCornetresult;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Createdby = createdby;
+            Createdonbehalfby = createdonbehalfby;
+            Modifiedby = modifiedby;
             Modifiedonbehalfby = modifiedonbehalfby;
-            IncidentActivityParties = incidentActivityParties;
-            SlainvokedidSla = slainvokedidSla;
-            Transactioncurrencyid = transactioncurrencyid;
-            IncidentSocialActivities = incidentSocialActivities;
-            Firstresponsebykpiid = firstresponsebykpiid;
-            SlaidSla = slaidSla;
-            Productid = productid;
-            SlakpiinstanceIncident = slakpiinstanceIncident;
-            IncidentActioncard = incidentActioncard;
-            IncidentAppointments = incidentAppointments;
-            IncidentConnections2 = incidentConnections2;
-            IncidentServiceAppointments = incidentServiceAppointments;
+            Owninguser = owninguser;
             Owningteam = owningteam;
+            Ownerid = ownerid;
+            Owningbusinessunit = owningbusinessunit;
+            IncidentActivityPointers = incidentActivityPointers;
+            IncidentSyncErrors = incidentSyncErrors;
+            IncidentActivityParties = incidentActivityParties;
+            IncidentDuplicateMatchingRecord = incidentDuplicateMatchingRecord;
+            IncidentDuplicateBaseRecord = incidentDuplicateBaseRecord;
+            IncidentAsyncOperations = incidentAsyncOperations;
+            IncidentMailboxTrackingFolder = incidentMailboxTrackingFolder;
+            IncidentProcessSessions = incidentProcessSessions;
+            IncidentBulkDeleteFailures = incidentBulkDeleteFailures;
+            IncidentPrincipalobjectattributeaccess = incidentPrincipalobjectattributeaccess;
+            StageidProcessstage = stageidProcessstage;
+            IncidentAppointments = incidentAppointments;
+            IncidentEmails = incidentEmails;
+            IncidentFaxes = incidentFaxes;
+            IncidentLetters = incidentLetters;
+            IncidentPhonecalls = incidentPhonecalls;
+            IncidentTasks = incidentTasks;
+            IncidentRecurringAppointmentMasters = incidentRecurringAppointmentMasters;
+            IncidentSocialActivities = incidentSocialActivities;
+            IncidentConnections1 = incidentConnections1;
+            IncidentConnections2 = incidentConnections2;
+            IncidentQueueItem = incidentQueueItem;
+            IncidentAnnotation = incidentAnnotation;
+            SlaidSla = slaidSla;
+            SlainvokedidSla = slainvokedidSla;
+            SlakpiinstanceIncident = slakpiinstanceIncident;
+            IncidentServiceAppointments = incidentServiceAppointments;
+            CustomeridAccount = customeridAccount;
+            IncidentActioncard = incidentActioncard;
+            Responsiblecontactid = responsiblecontactid;
+            CustomeridContact = customeridContact;
+            Primarycontactid = primarycontactid;
+            Contractid = contractid;
             Contractdetailid = contractdetailid;
+            Entitlementid = entitlementid;
+            IncidentIncidentResolutions = incidentIncidentResolutions;
+            IncidentPostFollows = incidentPostFollows;
+            IncidentPostRegardings = incidentPostRegardings;
             Existingcase = existingcase;
             IncidentExistingcase = incidentExistingcase;
-            IncidentQueueItem = incidentQueueItem;
+            Masterid = masterid;
+            IncidentMasterIncident = incidentMasterIncident;
+            Parentcaseid = parentcaseid;
+            IncidentParentIncident = incidentParentIncident;
+            OriginatingCaseLead = originatingCaseLead;
+            Kbarticleid = kbarticleid;
+            KnowledgearticleIncidents = knowledgearticleIncidents;
             KnowledgeBaseRecordIncident = knowledgeBaseRecordIncident;
             IncidentPhonetocaseprocess = incidentPhonetocaseprocess;
-            IncidentIncidentResolutions = incidentIncidentResolutions;
-            IncidentEmails = incidentEmails;
-            StageidProcessstage = stageidProcessstage;
-            IncidentAsyncOperations = incidentAsyncOperations;
-            IncidentDuplicateMatchingRecord = incidentDuplicateMatchingRecord;
-            IncidentPhonecalls = incidentPhonecalls;
-            IncidentConnections1 = incidentConnections1;
-            Owningbusinessunit = owningbusinessunit;
-            CustomeridContact = customeridContact;
-            Subjectid = subjectid;
-            Entitlementid = entitlementid;
-            IncidentAnnotation = incidentAnnotation;
-            IncidentRecurringAppointmentMasters = incidentRecurringAppointmentMasters;
-            Socialprofileid = socialprofileid;
-            Createdby = createdby;
-            IncidentActivityPointers = incidentActivityPointers;
-            IncidentBulkDeleteFailures = incidentBulkDeleteFailures;
-            CustomeridAccount = customeridAccount;
-            Owninguser = owninguser;
+            Productid = productid;
+            Firstresponsebykpiid = firstresponsebykpiid;
             Resolvebykpiid = resolvebykpiid;
-            Primarycontactid = primarycontactid;
-            Responsiblecontactid = responsiblecontactid;
-            Createdonbehalfby = createdonbehalfby;
-            Ownerid = ownerid;
-            IncidentLetters = incidentLetters;
-            IncidentSyncErrors = incidentSyncErrors;
-            Modifiedby = modifiedby;
-            IncidentFaxes = incidentFaxes;
-            Contractid = contractid;
-            KnowledgearticleIncidents = knowledgearticleIncidents;
-            IncidentDuplicateBaseRecord = incidentDuplicateBaseRecord;
-            IncidentTasks = incidentTasks;
-            Kbarticleid = kbarticleid;
-            IncidentAbsScheduledprocessexecutions = incidentAbsScheduledprocessexecutions;
+            Socialprofileid = socialprofileid;
+            Subjectid = subjectid;
+            Transactioncurrencyid = transactioncurrencyid;
+            IncidentOpportunityCloses = incidentOpportunityCloses;
+            IncidentOrderCloses = incidentOrderCloses;
+            IncidentQuoteCloses = incidentQuoteCloses;
             IncidentSharePointDocumentLocations = incidentSharePointDocumentLocations;
-            AdoxioLicensee = adoxioLicensee;
-            AdoxioApplication = adoxioApplication;
-            AdoxioEstablishment = adoxioEstablishment;
-            AdoxioLicence = adoxioLicence;
-            AdoxioRegion = adoxioRegion;
-            AdoxioArea = adoxioArea;
-            AdoxioIncidentAdoxioLicencetype = adoxioIncidentAdoxioLicencetype;
-            AdoxioParentInspectionId = adoxioParentInspectionId;
-            AdoxioInspectionInspections = adoxioInspectionInspections;
-            AdoxioInspectionInspectors = adoxioInspectionInspectors;
-            AdoxioAdjudicator = adoxioAdjudicator;
-            AdoxioInspector = adoxioInspector;
-            AdoxioRegionalManager = adoxioRegionalManager;
-            AdoxioInspectionDocuments = adoxioInspectionDocuments;
-            AdoxioIncidentAdoxioContravention = adoxioIncidentAdoxioContravention;
-            AdoxioComplaintId = adoxioComplaintId;
-            AdoxioInvestigationId = adoxioInvestigationId;
-            AdoxioInspectionInvestigationactivities = adoxioInspectionInvestigationactivities;
-            AdoxioInspectionCompliancemeetings = adoxioInspectionCompliancemeetings;
+            IncidentSpiceRequiredcheckses = incidentSpiceRequiredcheckses;
+            BpfIncidentSpiceSpiceBusinesscaseprocess = bpfIncidentSpiceSpiceBusinesscaseprocess;
+            BpfIncidentSpiceSpiceprocess = bpfIncidentSpiceSpiceprocess;
+            SpiceApplicantId = spiceApplicantId;
+            SpiceApplyingPersonId = spiceApplyingPersonId;
+            SpiceExportrequestIncident = spiceExportrequestIncident;
+            SpiceIncidentSpiceAccountcaseassignment = spiceIncidentSpiceAccountcaseassignment;
+            SpiceClient = spiceClient;
+            SpiceRequesterHiringManager = spiceRequesterHiringManager;
+            SpiceReturnResultto = spiceReturnResultto;
+            SpiceServiceId = spiceServiceId;
             CustomInit();
         }
 
@@ -320,68 +349,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_slainvokedid_value")]
-        public string _slainvokedidValue { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistphototakennotes")]
-        public string AdoxioInspchecklistphototakennotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_contactedpolicereconcerns")]
-        public int? AdoxioContactedpolicereconcerns { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_noeasection1penaltychoice")]
-        public string AdoxioNoeasection1penaltychoice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_mapagentid2")]
-        public string AdoxioMapagentid2 { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_noeasentdate")]
-        public System.DateTimeOffset? AdoxioNoeasentdate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsmelljarsnotes")]
-        public string AdoxioInspchecklistsmelljarsnotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_regionalmanager_value")]
-        public string _adoxioRegionalmanagerValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "influencescore")]
-        public double? Influencescore { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_kbarticleid_value")]
-        public string _kbarticleidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourswednesdayclose")]
-        public int? AdoxioServicehourswednesdayclose { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_driver_recordsfound")]
+        public bool? SpiceEssDriverRecordsfound { get; set; }
 
         /// <summary>
         /// </summary>
@@ -390,633 +364,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionservingitright")]
-        public int? AdoxioInspectionservingitright { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdbyexternalparty_value")]
-        public string _createdbyexternalpartyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_accountid_value")]
-        public string _accountidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "actualserviceunits")]
-        public int? Actualserviceunits { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimage_url")]
-        public string EntityimageUrl { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_securityinterconfirmed")]
+        public bool? SpiceEssSecurityinterconfirmed { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_minorsserved")]
-        public int? AdoxioMinorsserved { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_crc_resuploaded")]
+        public bool? SpiceEssCrcResuploaded { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public string Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourssundayopen")]
-        public int? AdoxioServicehourssundayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_parentinspectionid_value")]
-        public string _adoxioParentinspectionidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_establishmentcity")]
-        public string AdoxioEstablishmentcity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_firstresponsebykpiid_value")]
-        public string _firstresponsebykpiidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_disorderlyorunlawfulactivities")]
-        public int? AdoxioDisorderlyorunlawfulactivities { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "decremententitlementterm")]
-        public bool? Decremententitlementterm { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistphysicalsecurityoperating")]
-        public int? AdoxioInspchecklistphysicalsecurityoperating { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistnootherbusinessnotes")]
-        public string AdoxioInspchecklistnootherbusinessnotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_licence_value")]
-        public string _adoxioLicenceValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistpackagingsealednotes")]
-        public string AdoxioInspchecklistpackagingsealednotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_createfollowup")]
-        public bool? AdoxioCreatefollowup { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billedserviceunits")]
-        public int? Billedserviceunits { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnoselfservice")]
-        public int? AdoxioInspchecklistproductnoselfservice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionliquorservice")]
-        public int? AdoxioInspectionliquorservice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_establishmentaddress")]
-        public string AdoxioEstablishmentaddress { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistpackagingroutine")]
-        public int? AdoxioInspchecklistpackagingroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customercontacted")]
-        public bool? Customercontacted { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedbyexternalparty_value")]
-        public string _modifiedbyexternalpartyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistnootherbusinessassociated")]
-        public int? AdoxioInspchecklistnootherbusinessassociated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursfridayopen")]
-        public int? AdoxioServicehoursfridayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursmondayclose")]
-        public int? AdoxioServicehoursmondayclose { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "caseorigincode")]
-        public int? Caseorigincode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_operatingcontrarytolicence")]
-        public int? AdoxioOperatingcontrarytolicence { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistworkerqualificationnotes")]
-        public string AdoxioInspchecklistworkerqualificationnotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionactivitiesconcludeddate")]
-        public System.DateTimeOffset? AdoxioInspectionactivitiesconcludeddate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsmelljarsroutine")]
-        public int? AdoxioInspchecklistsmelljarsroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_establishmentpostalcode")]
-        public string AdoxioEstablishmentpostalcode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursfridayclose")]
-        public int? AdoxioServicehoursfridayclose { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistworkersverifiedroutine")]
-        public int? AdoxioInspchecklistworkersverifiedroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isescalated")]
-        public bool? Isescalated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lastonholdtime")]
-        public System.DateTimeOffset? Lastonholdtime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_application_value")]
-        public string _adoxioApplicationValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_primarycontactid_value")]
-        public string _primarycontactidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistcannabisregisterroutine")]
-        public int? AdoxioInspchecklistcannabisregisterroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "servicestage")]
-        public int? Servicestage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "numberofchildincidents")]
-        public int? Numberofchildincidents { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_customerid_value")]
-        public string _customeridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "severitycode")]
-        public int? Severitycode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_externalinvestigationjobnumber")]
-        public string AdoxioExternalinvestigationjobnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionovercrowding")]
-        public int? AdoxioInspectionovercrowding { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistfloorplanroutine")]
-        public int? AdoxioInspchecklistfloorplanroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_discussedmapprogram")]
-        public int? AdoxioDiscussedmapprogram { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiontimeoutmm")]
-        public int? AdoxioInspectiontimeoutmm { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourswednesdayopen")]
-        public int? AdoxioServicehourswednesdayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contractdetailid_value")]
-        public string _contractdetailidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_entitlementid_value")]
-        public string _entitlementidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourssaturdayopen")]
-        public int? AdoxioServicehourssaturdayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_parentcaseid_value")]
-        public string _parentcaseidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistaccordancewithaipletter")]
-        public int? AdoxioInspchecklistaccordancewithaipletter { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_masterid_value")]
-        public string _masteridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_inspector_value")]
-        public string _adoxioInspectorValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningteam_value")]
-        public string _owningteamValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "checkemail")]
-        public bool? Checkemail { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "productserialnumber")]
-        public string Productserialnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionentertainment")]
-        public int? AdoxioInspectionentertainment { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_drinksizesminpricing")]
-        public int? AdoxioDrinksizesminpricing { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "messagetypecode")]
-        public int? Messagetypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "firstresponseslastatus")]
-        public int? Firstresponseslastatus { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistadvertisingroutine")]
-        public int? AdoxioInspchecklistadvertisingroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_noeachoiceprocedure")]
-        public string AdoxioNoeachoiceprocedure { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_productid_value")]
-        public string _productidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursthursdayopen")]
-        public int? AdoxioServicehoursthursdayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistfollowupinspectionrequired")]
-        public int? AdoxioInspchecklistfollowupinspectionrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_adjudicator_value")]
-        public string _adoxioAdjudicatorValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "onholdtime")]
-        public int? Onholdtime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resolveby")]
-        public System.DateTimeOffset? Resolveby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "routecase")]
-        public bool? Routecase { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isdecrementing")]
-        public bool? Isdecrementing { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnoselfservicenotes")]
-        public string AdoxioInspchecklistproductnoselfservicenotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiontype")]
-        public int? AdoxioInspectiontype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_mapagentid1")]
-        public string AdoxioMapagentid1 { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionoutcome")]
-        public int? AdoxioInspectionoutcome { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_slaid_value")]
-        public string _slaidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "activitiescomplete")]
-        public bool? Activitiescomplete { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistaccordancewithaipletternotes")]
-        public string AdoxioInspchecklistaccordancewithaipletternotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contractid_value")]
-        public string _contractidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_licencepostedroutine")]
-        public int? AdoxioLicencepostedroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_region_value")]
-        public string _adoxioRegionValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_investigationid_value")]
-        public string _adoxioInvestigationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursstandardhours")]
-        public bool? AdoxioServicehoursstandardhours { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_subjectid_value")]
-        public string _subjectidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnotvisible")]
-        public int? AdoxioInspchecklistproductnotvisible { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractservicelevelcode")]
-        public int? Contractservicelevelcode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionintoxication")]
-        public int? AdoxioInspectionintoxication { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "merged")]
-        public bool? Merged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionliquorlicence")]
-        public int? AdoxioInspectionliquorlicence { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnotvisibleroutine")]
-        public int? AdoxioInspchecklistproductnotvisibleroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_licensee_value")]
-        public string _adoxioLicenseeValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_dateout")]
-        public System.DateTimeOffset? AdoxioDateout { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionnumberofpatrons")]
-        public int? AdoxioInspectionnumberofpatrons { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_establishment_value")]
-        public string _adoxioEstablishmentValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traversedpath")]
-        public string Traversedpath { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiontimeouthh")]
-        public int? AdoxioInspectiontimeouthh { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiontimeinmm")]
-        public int? AdoxioInspectiontimeinmm { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_employeesconsumingliquor")]
-        public int? AdoxioEmployeesconsumingliquor { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_actualinspectiondate")]
-        public System.DateTimeOffset? AdoxioActualinspectiondate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsignmeetsrequirements")]
-        public int? AdoxioInspchecklistsignmeetsrequirements { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_externalinvestigationfilenumber")]
-        public string AdoxioExternalinvestigationfilenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklisttakeandsendphotos")]
-        public int? AdoxioInspchecklisttakeandsendphotos { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsignmeetsrequirementsnotes")]
-        public string AdoxioInspchecklistsignmeetsrequirementsnotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_comments")]
-        public string AdoxioComments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_contraventionsummary")]
-        public string AdoxioContraventionsummary { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customersatisfactioncode")]
-        public int? Customersatisfactioncode { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_charc_cvsareqd")]
+        public bool? SpiceEssCharcCvsareqd { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1025,88 +389,118 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "followuptaskcreated")]
-        public bool? Followuptaskcreated { get; set; }
+        [JsonProperty(PropertyName = "blockedprofile")]
+        public bool? Blockedprofile { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_communitydisturbance")]
-        public int? AdoxioCommunitydisturbance { get; set; }
+        [JsonProperty(PropertyName = "_contractid_value")]
+        public string _contractidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "spice_bus_spdinvestrequired")]
+        public bool? SpiceBusSpdinvestrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionsminors")]
-        public int? AdoxioInspectionsminors { get; set; }
+        [JsonProperty(PropertyName = "spice_screeningcomplexity")]
+        public int? SpiceScreeningcomplexity { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiondate")]
-        public System.DateTimeOffset? AdoxioInspectiondate { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_edu_verificationrequired")]
+        public bool? SpiceEssEduVerificationrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionredlinefloorplan")]
-        public int? AdoxioInspectionredlinefloorplan { get; set; }
+        [JsonProperty(PropertyName = "_spice_returnresultto_value")]
+        public string _spiceReturnresulttoValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_packagingsealed")]
-        public int? AdoxioPackagingsealed { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionduedate")]
-        public System.DateTimeOffset? AdoxioInspectionduedate { get; set; }
+        [JsonProperty(PropertyName = "spice_finalresult")]
+        public int? SpiceFinalresult { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "firstresponsesent")]
-        public bool? Firstresponsesent { get; set; }
+        [JsonProperty(PropertyName = "spice_prime_checkrequired")]
+        public bool? SpicePrimeCheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsignageadvertisingnotes")]
-        public string AdoxioInspchecklistsignageadvertisingnotes { get; set; }
+        [JsonProperty(PropertyName = "_slaid_value")]
+        public string _slaidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistdepictsaipfloorplannotes")]
-        public string AdoxioInspchecklistdepictsaipfloorplannotes { get; set; }
+        [JsonProperty(PropertyName = "spice_consent_dt_sent")]
+        public System.DateTimeOffset? SpiceConsentDtSent { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_disturbanceofpersonsinthevicinity")]
-        public bool? AdoxioDisturbanceofpersonsinthevicinity { get; set; }
+        [JsonProperty(PropertyName = "spice_otrletterreceived")]
+        public bool? SpiceOtrletterreceived { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "prioritycode")]
-        public int? Prioritycode { get; set; }
+        [JsonProperty(PropertyName = "spice_aliasesfound")]
+        public bool? SpiceAliasesfound { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_alcoholsensematerial")]
-        public int? AdoxioAlcoholsensematerial { get; set; }
+        [JsonProperty(PropertyName = "spice_ssqrequired")]
+        public bool? SpiceSsqrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ticketnumber")]
-        public string Ticketnumber { get; set; }
+        [JsonProperty(PropertyName = "spice_cpicresults")]
+        public int? SpiceCpicresults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnotvisibleroutinenote")]
-        public string AdoxioInspchecklistproductnotvisibleroutinenote { get; set; }
+        [JsonProperty(PropertyName = "spice_spdinvestigationresults")]
+        public int? SpiceSpdinvestigationresults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistphysicalsecuritynotes")]
-        public string AdoxioInspchecklistphysicalsecuritynotes { get; set; }
+        [JsonProperty(PropertyName = "spice_cpicresultstosharewithspd")]
+        public string SpiceCpicresultstosharewithspd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_results")]
+        public int? SpiceEssDfoResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_inter_polygraphrequired")]
+        public bool? SpiceEssInterPolygraphrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_tc_dt_signature_confirmed")]
+        public bool? SpiceTcDtSignatureConfirmed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_billingtext")]
+        public string SpiceBillingtext { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_results")]
+        public int? SpicePrimeResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_legalreviewcomplete")]
+        public bool? SpiceLegalreviewcomplete { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1115,98 +509,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incidentstagecode")]
-        public int? Incidentstagecode { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_securityinterresultsrecd")]
+        public bool? SpiceEssSecurityinterresultsrecd { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistlicencepostednotes")]
-        public string AdoxioInspchecklistlicencepostednotes { get; set; }
+        [JsonProperty(PropertyName = "activitiescomplete")]
+        public bool? Activitiescomplete { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursthursdayclose")]
-        public int? AdoxioServicehoursthursdayclose { get; set; }
+        [JsonProperty(PropertyName = "spice_cpiccheckrequired")]
+        public bool? SpiceCpiccheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_existingcase_value")]
-        public string _existingcaseValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "followupby")]
-        public System.DateTimeOffset? Followupby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_socialprofileid_value")]
-        public string _socialprofileidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehoursmondayopen")]
-        public int? AdoxioServicehoursmondayopen { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsecrequirementsroutine")]
-        public int? AdoxioInspchecklistsecrequirementsroutine { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_noeanarrative")]
-        public string AdoxioNoeanarrative { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "responseby")]
-        public System.DateTimeOffset? Responseby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistfloorplanroutinenotes")]
-        public string AdoxioInspchecklistfloorplanroutinenotes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionviolationticketsissued")]
-        public int? AdoxioInspectionviolationticketsissued { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectioncompleteddate")]
-        public string AdoxioInspectioncompleteddate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourssaturdayclose")]
-        public int? AdoxioServicehourssaturdayclose { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "escalatedon")]
-        public System.DateTimeOffset? Escalatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectiontimeinhh")]
-        public int? AdoxioInspectiontimeinhh { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionliquorregister")]
-        public int? AdoxioInspectionliquorregister { get; set; }
+        [JsonProperty(PropertyName = "spice_rcc_requestmade")]
+        public bool? SpiceRccRequestmade { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1215,8 +534,103 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistproductnotvisiblenotes")]
-        public string AdoxioInspchecklistproductnotvisiblenotes { get; set; }
+        [JsonProperty(PropertyName = "_spice_applicantid_value")]
+        public string _spiceApplicantidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_credit_score")]
+        public int? SpiceCreditScore { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incidentstagecode")]
+        public int? Incidentstagecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_customerid_value")]
+        public string _customeridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "checkemail")]
+        public bool? Checkemail { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_verifresults")]
+        public int? SpiceEssEduVerifresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqdatereceived")]
+        public System.DateTimeOffset? SpiceSsqdatereceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_productid_value")]
+        public string _productidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customercontacted")]
+        public bool? Customercontacted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "traversedpath")]
+        public string Traversedpath { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "firstresponsesent")]
+        public bool? Firstresponsesent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqreceived")]
+        public bool? SpiceSsqreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_checked")]
+        public bool? SpicePrimeChecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "responseby")]
+        public System.DateTimeOffset? Responseby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_polygraphresultsreceived")]
+        public bool? SpiceEssPolygraphresultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_resultofscreening")]
+        public int? SpiceResultofscreening { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_creditcheckrequired")]
+        public bool? SpiceEssCreditcheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1225,28 +639,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incidentid")]
-        public string Incidentid { get; set; }
+        [JsonProperty(PropertyName = "merged")]
+        public bool? Merged { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourstuesdayclose")]
-        public int? AdoxioServicehourstuesdayclose { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistdepictsaipfloorplan")]
-        public int? AdoxioInspchecklistdepictsaipfloorplan { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectionoccurrence")]
-        public int? AdoxioInspectionoccurrence { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "blockedprofile")]
-        public bool? Blockedprofile { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_edu_empverifrequired")]
+        public bool? SpiceEssEduEmpverifrequired { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1255,48 +654,443 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sentimentvalue")]
-        public double? Sentimentvalue { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewconfirmed")]
+        public bool? SpiceEssPolygraphinterviewconfirmed { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistcannabisregisternotes")]
-        public string AdoxioInspchecklistcannabisregisternotes { get; set; }
+        [JsonProperty(PropertyName = "spice_ssq")]
+        public string SpiceSsq { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspchecklistsecurityoperationalnotes")]
-        public string AdoxioInspchecklistsecurityoperationalnotes { get; set; }
+        [JsonProperty(PropertyName = "escalatedon")]
+        public System.DateTimeOffset? Escalatedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_datein")]
-        public System.DateTimeOffset? AdoxioDatein { get; set; }
+        [JsonProperty(PropertyName = "spice_justin_reportuploaded")]
+        public bool? SpiceJustinReportuploaded { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspectioncompletedate")]
-        public System.DateTimeOffset? AdoxioInspectioncompletedate { get; set; }
+        [JsonProperty(PropertyName = "spice_primeresultstosharewithspd")]
+        public string SpicePrimeresultstosharewithspd { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_piecesofidchecked")]
-        public int? AdoxioPiecesofidchecked { get; set; }
+        [JsonProperty(PropertyName = "_slainvokedid_value")]
+        public string _slainvokedidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_complaintid_value")]
-        public string _adoxioComplaintidValue { get; set; }
+        [JsonProperty(PropertyName = "contractservicelevelcode")]
+        public int? Contractservicelevelcode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourstuesdayopen")]
-        public int? AdoxioServicehourstuesdayopen { get; set; }
+        [JsonProperty(PropertyName = "spice_readyforcrru")]
+        public bool? SpiceReadyforcrru { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_servicehourssundayclose")]
-        public int? AdoxioServicehourssundayclose { get; set; }
+        [JsonProperty(PropertyName = "spice_cpicchecked")]
+        public bool? SpiceCpicchecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_applyingpersonid_value")]
+        public string _spiceApplyingpersonidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimeinformationprovided")]
+        public bool? SpiceAdditionalprimeinformationprovided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentform_sent")]
+        public bool? SpiceConsentformSent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqreceiveddate")]
+        public System.DateTimeOffset? SpiceSsqreceiveddate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_ssv_verified")]
+        public bool? SpiceEssSsvVerified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_requesterhiringmanager_value")]
+        public string _spiceRequesterhiringmanagerValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "followuptaskcreated")]
+        public bool? Followuptaskcreated { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_charrefrequestsentdate")]
+        public bool? SpiceCharrefrequestsentdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_investigationrequired")]
+        public bool? SpiceInvestigationrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_rcc_received")]
+        public bool? SpiceJcRccReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_resultsreceived")]
+        public bool? SpiceBusResultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cannabisapplicanttype")]
+        public int? SpiceCannabisapplicanttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_furtherinvestigationcomplete")]
+        public bool? SpiceFurtherinvestigationcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consent_dt_received")]
+        public System.DateTimeOffset? SpiceConsentDtReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charrefcomplete")]
+        public bool? SpiceEssCharrefcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_screeningamount")]
+        public object SpiceScreeningamount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_credverrequired")]
+        public bool? SpiceEssEduCredverrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_readyforspdinvestigation")]
+        public bool? SpiceReadyforspdinvestigation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpicrequestsent")]
+        public bool? SpiceCpicrequestsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_coorsresults")]
+        public int? SpiceCoorsresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_credvercompleted")]
+        public bool? SpiceEssEduCredvercompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_inter_resultsreceived")]
+        public bool? SpiceEssInterResultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterdate")]
+        public System.DateTimeOffset? SpiceEssSecurityinterdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_checkrequired")]
+        public bool? SpiceJcCheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_existingcase_value")]
+        public string _existingcaseValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_socialprofileid_value")]
+        public string _socialprofileidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_contractdetailid_value")]
+        public string _contractdetailidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "routecase")]
+        public bool? Routecase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_concapptype")]
+        public string SpiceConcapptype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_screeningamount_base")]
+        public object SpiceScreeningamountBase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "actualserviceunits")]
+        public int? Actualserviceunits { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_legalreviewreqd")]
+        public bool? SpiceLegalreviewreqd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentform_received")]
+        public bool? SpiceConsentformReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_aliasesadded")]
+        public bool? SpiceAliasesadded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_creditscore")]
+        public int? SpiceEssCreditscore { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charcresreturned")]
+        public int? SpiceEssCharcresreturned { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "emailaddress")]
+        public string Emailaddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_senttocpu")]
+        public bool? SpiceSenttocpu { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_refrecdfromapplicant")]
+        public bool? SpiceEssRefrecdfromapplicant { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "severitycode")]
+        public int? Severitycode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_verficationexpiresby")]
+        public System.DateTimeOffset? SpiceVerficationexpiresby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_chreferencerequestsent")]
+        public bool? SpiceChreferencerequestsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpic_infoprovided")]
+        public bool? SpiceCpicInfoprovided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otrrequired")]
+        public bool? SpiceOtrrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_applicationstatus")]
+        public int? SpiceApplicationstatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_furtherreviewpackage")]
+        public bool? SpiceBusFurtherreviewpackage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestigationcompletiondate")]
+        public System.DateTimeOffset? SpiceSpdinvestigationcompletiondate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_masterid_value")]
+        public string _masteridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_fitandproperresultsent")]
+        public bool? SpiceBusFitandproperresultsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpuresultsuploaded")]
+        public bool? SpiceCpuresultsuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_review")]
+        public bool? SpiceWfReview { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_confrecd")]
+        public bool? SpiceEssDfoConfrecd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_timestampldbletter")]
+        public System.DateTimeOffset? SpiceWfTimestampldbletter { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimerequired")]
+        public bool? SpiceAdditionalprimerequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_allassociateinformationreceived")]
+        public bool? SpiceAllassociateinformationreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_dup_cpicresultstospd")]
+        public string SpiceDupCpicresultstospd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_issuesidentified")]
+        public bool? SpiceEss3rdpartyIssuesidentified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "messagetypecode")]
+        public int? Messagetypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "prioritycode")]
+        public int? Prioritycode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_fitandproper")]
+        public bool? SpiceBusFitandproper { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicestage")]
+        public int? Servicestage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentrequired")]
+        public string SpiceConsentrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_firstresponsebykpiid_value")]
+        public string _firstresponsebykpiidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_kbarticleid_value")]
+        public string _kbarticleidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charc_intervconf")]
+        public bool? SpiceEssCharcIntervconf { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_service_number")]
+        public string SpiceServiceNumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driversabstreqd")]
+        public bool? SpiceEssDriversabstreqd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isdecrementing")]
+        public bool? Isdecrementing { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_resultssent")]
+        public bool? SpiceResultssent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productserialnumber")]
+        public string Productserialnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "firstresponseslastatus")]
+        public int? Firstresponseslastatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqsentdate")]
+        public System.DateTimeOffset? SpiceSsqsentdate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1305,43 +1099,418 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_adoxio_area_value")]
-        public string _adoxioAreaValue { get; set; }
+        [JsonProperty(PropertyName = "spice_prime_internationalchecks")]
+        public bool? SpicePrimeInternationalchecks { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incident_PostRegardings")]
-        public IList<MicrosoftDynamicsCRMpostregarding> IncidentPostRegardings { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_edu_verifcompleted")]
+        public bool? SpiceEssEduVerifcompleted { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incident_PostFollows")]
-        public IList<MicrosoftDynamicsCRMpostfollow> IncidentPostFollows { get; set; }
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "masterid")]
-        public MicrosoftDynamicsCRMincident Masterid { get; set; }
+        [JsonProperty(PropertyName = "spice_jc_results")]
+        public int? SpiceJcResults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incident_master_incident")]
-        public IList<MicrosoftDynamicsCRMincident> IncidentMasterIncident { get; set; }
+        [JsonProperty(PropertyName = "spice_furtherinvestigationresults")]
+        public int? SpiceFurtherinvestigationresults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "OriginatingCase_Lead")]
-        public IList<MicrosoftDynamicsCRMlead> OriginatingCaseLead { get; set; }
+        [JsonProperty(PropertyName = "spice_notfitandproperresultsent")]
+        public bool? SpiceNotfitandproperresultsent { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "parentcaseid")]
-        public MicrosoftDynamicsCRMincident Parentcaseid { get; set; }
+        [JsonProperty(PropertyName = "spice_cornet_reportuploaded")]
+        public bool? SpiceCornetReportuploaded { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incident_parent_incident")]
-        public IList<MicrosoftDynamicsCRMincident> IncidentParentIncident { get; set; }
+        [JsonProperty(PropertyName = "spice_cpuresultsreceived")]
+        public bool? SpiceCpuresultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_interviewdate")]
+        public System.DateTimeOffset? SpiceEssInterviewdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_sentforadditionalprime")]
+        public bool? SpiceSentforadditionalprime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_resultsrecd")]
+        public bool? SpiceEssDfoResultsrecd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "onholdtime")]
+        public int? Onholdtime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otherscreeningreason")]
+        public string SpiceOtherscreeningreason { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_info_provided")]
+        public bool? SpicePrimeInfoProvided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "followupby")]
+        public System.DateTimeOffset? Followupby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ticketnumber")]
+        public string Ticketnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_furtherinvestigation")]
+        public bool? SpicePrimeFurtherinvestigation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_entitlementid_value")]
+        public string _entitlementidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "billedserviceunits")]
+        public int? Billedserviceunits { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_furtherinvestigationresultuploaded")]
+        public bool? SpiceFurtherinvestigationresultuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isescalated")]
+        public bool? Isescalated { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewdate")]
+        public System.DateTimeOffset? SpiceEssPolygraphinterviewdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqsent")]
+        public bool? SpiceSsqsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cert_crcrequired")]
+        public bool? SpiceEssCertCrcrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastonholdtime")]
+        public System.DateTimeOffset? Lastonholdtime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_completiondt")]
+        public System.DateTimeOffset? SpiceCompletiondt { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_client_value")]
+        public string _spiceClientValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "processid")]
+        public string Processid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otrlettersent")]
+        public bool? SpiceOtrlettersent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_dforesults")]
+        public int? SpiceDforesults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimecheckresult")]
+        public bool? SpiceAdditionalprimecheckresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_parentcaseid_value")]
+        public string _parentcaseidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_applicanttype")]
+        public int? SpiceApplicanttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage_url")]
+        public string EntityimageUrl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_allrequiredcheckscomplete")]
+        public bool? SpiceAllrequiredcheckscomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_primarycontactid_value")]
+        public string _primarycontactidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_reasonforscreening")]
+        public int? SpiceReasonforscreening { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_emp_verifcompleted")]
+        public bool? SpiceEssEmpVerifcompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpic_furtherinvest")]
+        public bool? SpiceCpicFurtherinvest { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornetchecked")]
+        public bool? SpiceCornetchecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consent")]
+        public string SpiceConsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_refrequired")]
+        public bool? SpiceEssRefrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_checked_2id")]
+        public bool? SpiceChecked2id { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "caseorigincode")]
+        public int? Caseorigincode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage")]
+        public object Entityimage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driabstractreceived")]
+        public bool? SpiceEssDriabstractreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "influencescore")]
+        public double? Influencescore { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_w_further_reviewrequired")]
+        public bool? SpiceWFurtherReviewrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "decremententitlementterm")]
+        public bool? Decremententitlementterm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdbyexternalparty_value")]
+        public string _createdbyexternalpartyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_serviceid_value")]
+        public string _spiceServiceidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "numberofchildincidents")]
+        public int? Numberofchildincidents { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_checksreq")]
+        public bool? SpiceEss3rdpartyChecksreq { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_subjectid_value")]
+        public string _subjectidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestcompleted")]
+        public bool? SpiceSpdinvestcompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sentimentvalue")]
+        public double? Sentimentvalue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_accountid_value")]
+        public string _accountidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_checked")]
+        public bool? SpiceJcChecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedbyexternalparty_value")]
+        public string _modifiedbyexternalpartyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimecheckcomplete")]
+        public bool? SpiceAdditionalprimecheckcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterrequired")]
+        public bool? SpiceEssSecurityinterrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customersatisfactioncode")]
+        public int? Customersatisfactioncode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_refsenttoitv")]
+        public bool? SpiceEssRefsenttoitv { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resolveby")]
+        public System.DateTimeOffset? Resolveby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_dup_primeresultstosharewithspd")]
+        public string SpiceDupPrimeresultstosharewithspd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_reportreadyforreview")]
+        public bool? SpiceReportreadyforreview { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_crrustatus")]
+        public int? SpiceCrrustatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_checkscomptd")]
+        public bool? SpiceEss3rdpartyCheckscomptd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_ssv_verifrequired")]
+        public bool? SpiceEssSsvVerifrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incidentid")]
+        public string Incidentid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_justinchecked")]
+        public bool? SpiceJustinchecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornetcheckrequired")]
+        public bool? SpiceCornetcheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornetresult")]
+        public int? SpiceCornetresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdby")]
+        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1350,63 +1519,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incident_activity_parties")]
-        public IList<MicrosoftDynamicsCRMactivityparty> IncidentActivityParties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "slainvokedid_sla")]
-        public MicrosoftDynamicsCRMsla SlainvokedidSla { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "transactioncurrencyid")]
-        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_SocialActivities")]
-        public IList<MicrosoftDynamicsCRMsocialactivity> IncidentSocialActivities { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "firstresponsebykpiid")]
-        public MicrosoftDynamicsCRMslakpiinstance Firstresponsebykpiid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "slaid_sla")]
-        public MicrosoftDynamicsCRMsla SlaidSla { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "productid")]
-        public MicrosoftDynamicsCRMproduct Productid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "slakpiinstance_incident")]
-        public IList<MicrosoftDynamicsCRMslakpiinstance> SlakpiinstanceIncident { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incident_actioncard")]
-        public IList<MicrosoftDynamicsCRMactioncard> IncidentActioncard { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_Appointments")]
-        public IList<MicrosoftDynamicsCRMappointment> IncidentAppointments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incident_connections2")]
-        public IList<MicrosoftDynamicsCRMconnection> IncidentConnections2 { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_ServiceAppointments")]
-        public IList<MicrosoftDynamicsCRMserviceappointment> IncidentServiceAppointments { get; set; }
+        [JsonProperty(PropertyName = "owninguser")]
+        public MicrosoftDynamicsCRMsystemuser Owninguser { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1415,8 +1529,203 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "ownerid")]
+        public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "owningbusinessunit")]
+        public MicrosoftDynamicsCRMbusinessunit Owningbusinessunit { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_ActivityPointers")]
+        public IList<MicrosoftDynamicsCRMactivitypointer> IncidentActivityPointers { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> IncidentSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_activity_parties")]
+        public IList<MicrosoftDynamicsCRMactivityparty> IncidentActivityParties { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_DuplicateMatchingRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> IncidentDuplicateMatchingRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_DuplicateBaseRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> IncidentDuplicateBaseRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> IncidentAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_MailboxTrackingFolder")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> IncidentMailboxTrackingFolder { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> IncidentProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> IncidentBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> IncidentPrincipalobjectattributeaccess { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stageid_processstage")]
+        public MicrosoftDynamicsCRMprocessstage StageidProcessstage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Appointments")]
+        public IList<MicrosoftDynamicsCRMappointment> IncidentAppointments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Emails")]
+        public IList<MicrosoftDynamicsCRMemail> IncidentEmails { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Faxes")]
+        public IList<MicrosoftDynamicsCRMfax> IncidentFaxes { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Letters")]
+        public IList<MicrosoftDynamicsCRMletter> IncidentLetters { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Phonecalls")]
+        public IList<MicrosoftDynamicsCRMphonecall> IncidentPhonecalls { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Tasks")]
+        public IList<MicrosoftDynamicsCRMtask> IncidentTasks { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_RecurringAppointmentMasters")]
+        public IList<MicrosoftDynamicsCRMrecurringappointmentmaster> IncidentRecurringAppointmentMasters { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_SocialActivities")]
+        public IList<MicrosoftDynamicsCRMsocialactivity> IncidentSocialActivities { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_connections1")]
+        public IList<MicrosoftDynamicsCRMconnection> IncidentConnections1 { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_connections2")]
+        public IList<MicrosoftDynamicsCRMconnection> IncidentConnections2 { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_QueueItem")]
+        public IList<MicrosoftDynamicsCRMqueueitem> IncidentQueueItem { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_Annotation")]
+        public IList<MicrosoftDynamicsCRMannotation> IncidentAnnotation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "slaid_sla")]
+        public MicrosoftDynamicsCRMsla SlaidSla { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "slainvokedid_sla")]
+        public MicrosoftDynamicsCRMsla SlainvokedidSla { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "slakpiinstance_incident")]
+        public IList<MicrosoftDynamicsCRMslakpiinstance> SlakpiinstanceIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_ServiceAppointments")]
+        public IList<MicrosoftDynamicsCRMserviceappointment> IncidentServiceAppointments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customerid_account")]
+        public MicrosoftDynamicsCRMaccount CustomeridAccount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_actioncard")]
+        public IList<MicrosoftDynamicsCRMactioncard> IncidentActioncard { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "responsiblecontactid")]
+        public MicrosoftDynamicsCRMcontact Responsiblecontactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customerid_contact")]
+        public MicrosoftDynamicsCRMcontact CustomeridContact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "primarycontactid")]
+        public MicrosoftDynamicsCRMcontact Primarycontactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contractid")]
+        public MicrosoftDynamicsCRMcontract Contractid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "contractdetailid")]
         public MicrosoftDynamicsCRMcontractdetail Contractdetailid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entitlementid")]
+        public MicrosoftDynamicsCRMentitlement Entitlementid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Incident_IncidentResolutions")]
+        public IList<MicrosoftDynamicsCRMincidentresolution> IncidentIncidentResolutions { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_PostFollows")]
+        public IList<MicrosoftDynamicsCRMpostfollow> IncidentPostFollows { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_PostRegardings")]
+        public IList<MicrosoftDynamicsCRMpostregarding> IncidentPostRegardings { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1430,8 +1739,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Incident_QueueItem")]
-        public IList<MicrosoftDynamicsCRMqueueitem> IncidentQueueItem { get; set; }
+        [JsonProperty(PropertyName = "masterid")]
+        public MicrosoftDynamicsCRMincident Masterid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_master_incident")]
+        public IList<MicrosoftDynamicsCRMincident> IncidentMasterIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "parentcaseid")]
+        public MicrosoftDynamicsCRMincident Parentcaseid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incident_parent_incident")]
+        public IList<MicrosoftDynamicsCRMincident> IncidentParentIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "OriginatingCase_Lead")]
+        public IList<MicrosoftDynamicsCRMlead> OriginatingCaseLead { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "kbarticleid")]
+        public MicrosoftDynamicsCRMkbarticle Kbarticleid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "knowledgearticle_incidents")]
+        public IList<MicrosoftDynamicsCRMknowledgearticleincident> KnowledgearticleIncidents { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1445,98 +1784,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Incident_IncidentResolutions")]
-        public IList<MicrosoftDynamicsCRMincidentresolution> IncidentIncidentResolutions { get; set; }
+        [JsonProperty(PropertyName = "productid")]
+        public MicrosoftDynamicsCRMproduct Productid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Incident_Emails")]
-        public IList<MicrosoftDynamicsCRMemail> IncidentEmails { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid_processstage")]
-        public MicrosoftDynamicsCRMprocessstage StageidProcessstage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_AsyncOperations")]
-        public IList<MicrosoftDynamicsCRMasyncoperation> IncidentAsyncOperations { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_DuplicateMatchingRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> IncidentDuplicateMatchingRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_Phonecalls")]
-        public IList<MicrosoftDynamicsCRMphonecall> IncidentPhonecalls { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incident_connections1")]
-        public IList<MicrosoftDynamicsCRMconnection> IncidentConnections1 { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "owningbusinessunit")]
-        public MicrosoftDynamicsCRMbusinessunit Owningbusinessunit { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customerid_contact")]
-        public MicrosoftDynamicsCRMcontact CustomeridContact { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "subjectid")]
-        public MicrosoftDynamicsCRMsubject Subjectid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entitlementid")]
-        public MicrosoftDynamicsCRMentitlement Entitlementid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_Annotation")]
-        public IList<MicrosoftDynamicsCRMannotation> IncidentAnnotation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_RecurringAppointmentMasters")]
-        public IList<MicrosoftDynamicsCRMrecurringappointmentmaster> IncidentRecurringAppointmentMasters { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "socialprofileid")]
-        public MicrosoftDynamicsCRMsocialprofile Socialprofileid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdby")]
-        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_ActivityPointers")]
-        public IList<MicrosoftDynamicsCRMactivitypointer> IncidentActivityPointers { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_BulkDeleteFailures")]
-        public IList<MicrosoftDynamicsCRMbulkdeletefailure> IncidentBulkDeleteFailures { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customerid_account")]
-        public MicrosoftDynamicsCRMaccount CustomeridAccount { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "owninguser")]
-        public MicrosoftDynamicsCRMsystemuser Owninguser { get; set; }
+        [JsonProperty(PropertyName = "firstresponsebykpiid")]
+        public MicrosoftDynamicsCRMslakpiinstance Firstresponsebykpiid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1545,73 +1799,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "primarycontactid")]
-        public MicrosoftDynamicsCRMcontact Primarycontactid { get; set; }
+        [JsonProperty(PropertyName = "socialprofileid")]
+        public MicrosoftDynamicsCRMsocialprofile Socialprofileid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "responsiblecontactid")]
-        public MicrosoftDynamicsCRMcontact Responsiblecontactid { get; set; }
+        [JsonProperty(PropertyName = "subjectid")]
+        public MicrosoftDynamicsCRMsubject Subjectid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "transactioncurrencyid")]
+        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ownerid")]
-        public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
+        [JsonProperty(PropertyName = "incident_OpportunityCloses")]
+        public IList<MicrosoftDynamicsCRMopportunityclose> IncidentOpportunityCloses { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Incident_Letters")]
-        public IList<MicrosoftDynamicsCRMletter> IncidentLetters { get; set; }
+        [JsonProperty(PropertyName = "incident_OrderCloses")]
+        public IList<MicrosoftDynamicsCRMorderclose> IncidentOrderCloses { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Incident_SyncErrors")]
-        public IList<MicrosoftDynamicsCRMsyncerror> IncidentSyncErrors { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_Faxes")]
-        public IList<MicrosoftDynamicsCRMfax> IncidentFaxes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractid")]
-        public MicrosoftDynamicsCRMcontract Contractid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "knowledgearticle_incidents")]
-        public IList<MicrosoftDynamicsCRMknowledgearticleincident> KnowledgearticleIncidents { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_DuplicateBaseRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> IncidentDuplicateBaseRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Incident_Tasks")]
-        public IList<MicrosoftDynamicsCRMtask> IncidentTasks { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "kbarticleid")]
-        public MicrosoftDynamicsCRMkbarticle Kbarticleid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incident_abs_scheduledprocessexecutions")]
-        public IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> IncidentAbsScheduledprocessexecutions { get; set; }
+        [JsonProperty(PropertyName = "incident_QuoteCloses")]
+        public IList<MicrosoftDynamicsCRMquoteclose> IncidentQuoteCloses { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1620,98 +1834,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Licensee")]
-        public MicrosoftDynamicsCRMaccount AdoxioLicensee { get; set; }
+        [JsonProperty(PropertyName = "incident_spice_requiredcheckses")]
+        public IList<MicrosoftDynamicsCRMspiceRequiredchecks> IncidentSpiceRequiredcheckses { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Application")]
-        public MicrosoftDynamicsCRMadoxioApplication AdoxioApplication { get; set; }
+        [JsonProperty(PropertyName = "bpf_incident_spice_spice_businesscaseprocess")]
+        public IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> BpfIncidentSpiceSpiceBusinesscaseprocess { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Establishment")]
-        public MicrosoftDynamicsCRMadoxioEstablishment AdoxioEstablishment { get; set; }
+        [JsonProperty(PropertyName = "bpf_incident_spice_spiceprocess")]
+        public IList<MicrosoftDynamicsCRMspiceSpiceprocess> BpfIncidentSpiceSpiceprocess { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Licence")]
-        public MicrosoftDynamicsCRMadoxioLicences AdoxioLicence { get; set; }
+        [JsonProperty(PropertyName = "spice_ApplicantId")]
+        public MicrosoftDynamicsCRMaccount SpiceApplicantId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Region")]
-        public MicrosoftDynamicsCRMadoxioRegion AdoxioRegion { get; set; }
+        [JsonProperty(PropertyName = "spice_ApplyingPersonId")]
+        public MicrosoftDynamicsCRMcontact SpiceApplyingPersonId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Area")]
-        public MicrosoftDynamicsCRMadoxioArea AdoxioArea { get; set; }
+        [JsonProperty(PropertyName = "spice_exportrequest_incident")]
+        public IList<MicrosoftDynamicsCRMspiceExportrequest> SpiceExportrequestIncident { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_incident_adoxio_licencetype")]
-        public IList<MicrosoftDynamicsCRMadoxioLicencetype> AdoxioIncidentAdoxioLicencetype { get; set; }
+        [JsonProperty(PropertyName = "spice_incident_spice_accountcaseassignment")]
+        public IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> SpiceIncidentSpiceAccountcaseassignment { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_ParentInspectionId")]
-        public MicrosoftDynamicsCRMincident AdoxioParentInspectionId { get; set; }
+        [JsonProperty(PropertyName = "spice_Client")]
+        public MicrosoftDynamicsCRMspiceMinistry SpiceClient { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspection_inspections")]
-        public IList<MicrosoftDynamicsCRMincident> AdoxioInspectionInspections { get; set; }
+        [JsonProperty(PropertyName = "spice_RequesterHiringManager")]
+        public MicrosoftDynamicsCRMspiceMinistryemployee SpiceRequesterHiringManager { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspection_inspectors")]
-        public IList<MicrosoftDynamicsCRMsystemuser> AdoxioInspectionInspectors { get; set; }
+        [JsonProperty(PropertyName = "spice_ReturnResultto")]
+        public MicrosoftDynamicsCRMspiceMinistryemployee SpiceReturnResultto { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Adjudicator")]
-        public MicrosoftDynamicsCRMsystemuser AdoxioAdjudicator { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_Inspector")]
-        public MicrosoftDynamicsCRMsystemuser AdoxioInspector { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_RegionalManager")]
-        public MicrosoftDynamicsCRMsystemuser AdoxioRegionalManager { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspection_documents")]
-        public IList<MicrosoftDynamicsCRMadoxioDocument> AdoxioInspectionDocuments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_incident_adoxio_contravention")]
-        public IList<MicrosoftDynamicsCRMadoxioContravention> AdoxioIncidentAdoxioContravention { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_ComplaintId")]
-        public MicrosoftDynamicsCRMadoxioComplaint AdoxioComplaintId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_InvestigationId")]
-        public MicrosoftDynamicsCRMadoxioComplianceinvestigation AdoxioInvestigationId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspection_investigationactivities")]
-        public IList<MicrosoftDynamicsCRMadoxioInvestigationactivity> AdoxioInspectionInvestigationactivities { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "adoxio_inspection_compliancemeetings")]
-        public IList<MicrosoftDynamicsCRMadoxioCompliancemeeting> AdoxioInspectionCompliancemeetings { get; set; }
+        [JsonProperty(PropertyName = "spice_ServiceId")]
+        public MicrosoftDynamicsCRMspiceServices SpiceServiceId { get; set; }
 
     }
 }

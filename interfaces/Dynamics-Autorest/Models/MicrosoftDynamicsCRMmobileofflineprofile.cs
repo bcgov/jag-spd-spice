@@ -29,31 +29,31 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMmobileofflineprofile class.
         /// </summary>
-        public MicrosoftDynamicsCRMmobileofflineprofile(string selectedentitymetadata = default(string), string mobileofflineprofileid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? ismanaged = default(bool?), string stageid = default(string), string solutionid = default(string), string _modifiedbyValue = default(string), string name = default(string), string processid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string mobileofflineprofileidunique = default(string), string _createdonbehalfbyValue = default(string), int? componentstate = default(int?), string description = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string _organizationidValue = default(string), string traversedpath = default(string), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), bool? isvalidated = default(bool?), long? versionnumber = default(long?), string introducedversion = default(string), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMorganization> defaultMobileOfflineProfileOrganization = default(IList<MicrosoftDynamicsCRMorganization>), IList<MicrosoftDynamicsCRMmobileofflineprofileitem> mobileOfflineProfileMobileOfflineProfileItem = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitem>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsystemuser> mobileOfflineProfileSystemUser = default(IList<MicrosoftDynamicsCRMsystemuser>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMmobileofflineprofile(string _organizationidValue = default(string), long? versionnumber = default(long?), string mobileofflineprofileid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string introducedversion = default(string), string _createdonbehalfbyValue = default(string), string mobileofflineprofileidunique = default(string), string _modifiedbyValue = default(string), bool? isvalidated = default(bool?), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), string processid = default(string), string solutionid = default(string), string description = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string stageid = default(string), string name = default(string), string selectedentitymetadata = default(string), string traversedpath = default(string), bool? ismanaged = default(bool?), int? componentstate = default(int?), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMorganization> defaultMobileOfflineProfileOrganization = default(IList<MicrosoftDynamicsCRMorganization>), IList<MicrosoftDynamicsCRMmobileofflineprofileitem> mobileOfflineProfileMobileOfflineProfileItem = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitem>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsystemuser> mobileOfflineProfileSystemUser = default(IList<MicrosoftDynamicsCRMsystemuser>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            Selectedentitymetadata = selectedentitymetadata;
+            this._organizationidValue = _organizationidValue;
+            Versionnumber = versionnumber;
             Mobileofflineprofileid = mobileofflineprofileid;
             Modifiedon = modifiedon;
-            Ismanaged = ismanaged;
-            Stageid = stageid;
-            Solutionid = solutionid;
-            this._modifiedbyValue = _modifiedbyValue;
-            Name = name;
-            Processid = processid;
-            Overwritetime = overwritetime;
-            Mobileofflineprofileidunique = mobileofflineprofileidunique;
+            Introducedversion = introducedversion;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Componentstate = componentstate;
+            Mobileofflineprofileidunique = mobileofflineprofileidunique;
+            this._modifiedbyValue = _modifiedbyValue;
+            Isvalidated = isvalidated;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Overwritetime = overwritetime;
+            Publishedon = publishedon;
+            Processid = processid;
+            Solutionid = solutionid;
             Description = description;
             Createdon = createdon;
             this._createdbyValue = _createdbyValue;
-            this._organizationidValue = _organizationidValue;
+            Stageid = stageid;
+            Name = name;
+            Selectedentitymetadata = selectedentitymetadata;
             Traversedpath = traversedpath;
-            Publishedon = publishedon;
-            Isvalidated = isvalidated;
-            Versionnumber = versionnumber;
-            Introducedversion = introducedversion;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Ismanaged = ismanaged;
+            Componentstate = componentstate;
             Modifiedonbehalfby = modifiedonbehalfby;
             DefaultMobileOfflineProfileOrganization = defaultMobileOfflineProfileOrganization;
             MobileOfflineProfileMobileOfflineProfileItem = mobileOfflineProfileMobileOfflineProfileItem;
@@ -72,8 +72,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "selectedentitymetadata")]
-        public string Selectedentitymetadata { get; set; }
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -87,43 +92,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ismanaged")]
-        public bool? Ismanaged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "solutionid")]
-        public string Solutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public string Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overwritetime")]
-        public System.DateTimeOffset? Overwritetime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "mobileofflineprofileidunique")]
-        public string Mobileofflineprofileidunique { get; set; }
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
 
         /// <summary>
         /// </summary>
@@ -132,8 +102,43 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
+        [JsonProperty(PropertyName = "mobileofflineprofileidunique")]
+        public string Mobileofflineprofileidunique { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isvalidated")]
+        public bool? Isvalidated { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "publishedon")]
+        public System.DateTimeOffset? Publishedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "processid")]
+        public string Processid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -152,8 +157,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "selectedentitymetadata")]
+        public string Selectedentitymetadata { get; set; }
 
         /// <summary>
         /// </summary>
@@ -162,28 +177,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "publishedon")]
-        public System.DateTimeOffset? Publishedon { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isvalidated")]
-        public bool? Isvalidated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "introducedversion")]
-        public string Introducedversion { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
 
         /// <summary>
         /// </summary>

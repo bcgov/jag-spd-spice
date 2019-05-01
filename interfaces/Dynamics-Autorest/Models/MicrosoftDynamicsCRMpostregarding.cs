@@ -29,31 +29,32 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMpostregarding
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMpostregarding(string postregardingid = default(string), string _regardingobjectidValue = default(string), string _regardingobjectowningbusinessunitValue = default(string), System.DateTimeOffset? latestmanualpostmodifiedon = default(System.DateTimeOffset?), string _regardingobjectowneridValue = default(string), System.DateTimeOffset? latestautopostmodifiedon = default(System.DateTimeOffset?), string regardingobjecttypecodeforsharing = default(string), MicrosoftDynamicsCRMtask regardingobjectidTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMappointment regardingobjectidAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMphonecall regardingobjectidPhonecall = default(MicrosoftDynamicsCRMphonecall), MicrosoftDynamicsCRMincident regardingobjectidIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMrecurringappointmentmaster regardingobjectidRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), IList<MicrosoftDynamicsCRMpost> postPostRegardings = default(IList<MicrosoftDynamicsCRMpost>), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser regardingobjectidSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit regardingobjectowningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMcontact regardingobjectidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMopportunity regardingobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMteam regardingobjectidTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMknowledgearticle regardingobjectidKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMqueue regardingobjectidQueue = default(MicrosoftDynamicsCRMqueue), MicrosoftDynamicsCRMcompetitor regardingobjectidCompetitor = default(MicrosoftDynamicsCRMcompetitor))
+        public MicrosoftDynamicsCRMpostregarding(string postregardingid = default(string), System.DateTimeOffset? latestmanualpostmodifiedon = default(System.DateTimeOffset?), string regardingobjecttypecodeforsharing = default(string), string _regardingobjectidValue = default(string), string _regardingobjectowneridValue = default(string), System.DateTimeOffset? latestautopostmodifiedon = default(System.DateTimeOffset?), string _regardingobjectowningbusinessunitValue = default(string), MicrosoftDynamicsCRMtask regardingobjectidTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMappointment regardingobjectidAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMphonecall regardingobjectidPhonecall = default(MicrosoftDynamicsCRMphonecall), MicrosoftDynamicsCRMrecurringappointmentmaster regardingobjectidRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMincident regardingobjectidIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMopportunity regardingobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMcompetitor regardingobjectidCompetitor = default(MicrosoftDynamicsCRMcompetitor), IList<MicrosoftDynamicsCRMpost> postPostRegardings = default(IList<MicrosoftDynamicsCRMpost>), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser regardingobjectidSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit regardingobjectowningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMcontact regardingobjectidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMteam regardingobjectidTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMknowledgearticle regardingobjectidKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMqueue regardingobjectidQueue = default(MicrosoftDynamicsCRMqueue), MicrosoftDynamicsCRMprocesssession regardingobjectidProcesssession = default(MicrosoftDynamicsCRMprocesssession))
         {
             Postregardingid = postregardingid;
-            this._regardingobjectidValue = _regardingobjectidValue;
-            this._regardingobjectowningbusinessunitValue = _regardingobjectowningbusinessunitValue;
             Latestmanualpostmodifiedon = latestmanualpostmodifiedon;
+            Regardingobjecttypecodeforsharing = regardingobjecttypecodeforsharing;
+            this._regardingobjectidValue = _regardingobjectidValue;
             this._regardingobjectowneridValue = _regardingobjectowneridValue;
             Latestautopostmodifiedon = latestautopostmodifiedon;
-            Regardingobjecttypecodeforsharing = regardingobjecttypecodeforsharing;
+            this._regardingobjectowningbusinessunitValue = _regardingobjectowningbusinessunitValue;
             RegardingobjectidTask = regardingobjectidTask;
             RegardingobjectidAppointment = regardingobjectidAppointment;
             RegardingobjectidPhonecall = regardingobjectidPhonecall;
-            RegardingobjectidIncident = regardingobjectidIncident;
             RegardingobjectidRecurringappointmentmaster = regardingobjectidRecurringappointmentmaster;
+            RegardingobjectidLead = regardingobjectidLead;
+            RegardingobjectidIncident = regardingobjectidIncident;
+            RegardingobjectidOpportunity = regardingobjectidOpportunity;
+            RegardingobjectidCompetitor = regardingobjectidCompetitor;
             PostPostRegardings = postPostRegardings;
             RegardingobjectidAccount = regardingobjectidAccount;
             RegardingobjectidSystemuser = regardingobjectidSystemuser;
             Regardingobjectowningbusinessunit = regardingobjectowningbusinessunit;
             RegardingobjectidContact = regardingobjectidContact;
-            RegardingobjectidOpportunity = regardingobjectidOpportunity;
-            RegardingobjectidLead = regardingobjectidLead;
             RegardingobjectidTeam = regardingobjectidTeam;
             RegardingobjectidKnowledgearticle = regardingobjectidKnowledgearticle;
             RegardingobjectidQueue = regardingobjectidQueue;
-            RegardingobjectidCompetitor = regardingobjectidCompetitor;
+            RegardingobjectidProcesssession = regardingobjectidProcesssession;
             CustomInit();
         }
 
@@ -69,18 +70,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectid_value")]
-        public string _regardingobjectidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectowningbusinessunit_value")]
-        public string _regardingobjectowningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "latestmanualpostmodifiedon")]
         public System.DateTimeOffset? Latestmanualpostmodifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjecttypecodeforsharing")]
+        public string Regardingobjecttypecodeforsharing { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_regardingobjectid_value")]
+        public string _regardingobjectidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -94,8 +95,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjecttypecodeforsharing")]
-        public string Regardingobjecttypecodeforsharing { get; set; }
+        [JsonProperty(PropertyName = "_regardingobjectowningbusinessunit_value")]
+        public string _regardingobjectowningbusinessunitValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -114,13 +115,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_recurringappointmentmaster")]
+        public MicrosoftDynamicsCRMrecurringappointmentmaster RegardingobjectidRecurringappointmentmaster { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_lead")]
+        public MicrosoftDynamicsCRMlead RegardingobjectidLead { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "regardingobjectid_incident")]
         public MicrosoftDynamicsCRMincident RegardingobjectidIncident { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_recurringappointmentmaster")]
-        public MicrosoftDynamicsCRMrecurringappointmentmaster RegardingobjectidRecurringappointmentmaster { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_opportunity")]
+        public MicrosoftDynamicsCRMopportunity RegardingobjectidOpportunity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_competitor")]
+        public MicrosoftDynamicsCRMcompetitor RegardingobjectidCompetitor { get; set; }
 
         /// <summary>
         /// </summary>
@@ -149,16 +165,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_opportunity")]
-        public MicrosoftDynamicsCRMopportunity RegardingobjectidOpportunity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_lead")]
-        public MicrosoftDynamicsCRMlead RegardingobjectidLead { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "regardingobjectid_team")]
         public MicrosoftDynamicsCRMteam RegardingobjectidTeam { get; set; }
 
@@ -174,8 +180,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_competitor")]
-        public MicrosoftDynamicsCRMcompetitor RegardingobjectidCompetitor { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_processsession")]
+        public MicrosoftDynamicsCRMprocesssession RegardingobjectidProcesssession { get; set; }
 
     }
 }

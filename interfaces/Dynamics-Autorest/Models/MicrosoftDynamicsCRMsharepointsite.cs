@@ -29,52 +29,54 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsharepointsite class.
         /// </summary>
-        public MicrosoftDynamicsCRMsharepointsite(string userid = default(string), int? statecode = default(int?), int? validationstatus = default(int?), string _modifiedonbehalfbyValue = default(string), string absoluteurl = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string sitecollectionid = default(string), string _modifiedbyValue = default(string), object exchangerate = default(object), string _createdonbehalfbyValue = default(string), int? statuscode = default(int?), bool? isgridpresent = default(bool?), string _parentsiteValue = default(string), int? validationstatuserrorcode = default(int?), int? servicetype = default(int?), string _createdbyValue = default(string), string _owningteamValue = default(string), string _transactioncurrencyidValue = default(string), int? timezoneruleversionnumber = default(int?), string relativeurl = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string description = default(string), System.DateTimeOffset? lastvalidated = default(System.DateTimeOffset?), bool? isdefault = default(bool?), int? utcconversiontimezonecode = default(int?), bool? ispowerbisite = default(bool?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string sharepointsiteid = default(string), int? importsequencenumber = default(int?), string folderstructureentity = default(string), string name = default(string), string _owninguserValue = default(string), string _owneridValue = default(string), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointSiteDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsharepointsite parentsite = default(MicrosoftDynamicsCRMsharepointsite), IList<MicrosoftDynamicsCRMsharepointsite> sharepointsiteParentsiteSharepointsite = default(IList<MicrosoftDynamicsCRMsharepointsite>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointSiteDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> sharepointdocumentlocationParentSharepointsite = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> sharePointSiteAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsyncerror> sharePointSiteSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
+        public MicrosoftDynamicsCRMsharepointsite(int? statecode = default(int?), string _modifiedbyValue = default(string), int? validationstatus = default(int?), string _modifiedonbehalfbyValue = default(string), string absoluteurl = default(string), string _owninguserValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string name = default(string), string _createdonbehalfbyValue = default(string), string _parentsiteValue = default(string), bool? isgridpresent = default(bool?), int? validationstatuserrorcode = default(int?), bool? isdefault = default(bool?), int? servicetype = default(int?), string _createdbyValue = default(string), string _owningteamValue = default(string), string _transactioncurrencyidValue = default(string), string sitecollectionid = default(string), string relativeurl = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string _owningbusinessunitValue = default(string), string description = default(string), System.DateTimeOffset? lastvalidated = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string userid = default(string), bool? ispowerbisite = default(bool?), object exchangerate = default(object), long? versionnumber = default(long?), string sharepointsiteid = default(string), int? importsequencenumber = default(int?), string folderstructureentity = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _owneridValue = default(string), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMprocesssession> sharePointSiteProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointSiteDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsharepointsite parentsite = default(MicrosoftDynamicsCRMsharepointsite), IList<MicrosoftDynamicsCRMsharepointsite> sharepointsiteParentsiteSharepointsite = default(IList<MicrosoftDynamicsCRMsharepointsite>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> sharepointsitePrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointSiteDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> sharepointdocumentlocationParentSharepointsite = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> sharePointSiteAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsyncerror> sharePointSiteSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
         {
-            Userid = userid;
             Statecode = statecode;
+            this._modifiedbyValue = _modifiedbyValue;
             Validationstatus = validationstatus;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Absoluteurl = absoluteurl;
-            Modifiedon = modifiedon;
-            Sitecollectionid = sitecollectionid;
-            this._modifiedbyValue = _modifiedbyValue;
-            Exchangerate = exchangerate;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._owninguserValue = _owninguserValue;
+            Overriddencreatedon = overriddencreatedon;
             Statuscode = statuscode;
-            Isgridpresent = isgridpresent;
+            Name = name;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             this._parentsiteValue = _parentsiteValue;
+            Isgridpresent = isgridpresent;
             Validationstatuserrorcode = validationstatuserrorcode;
+            Isdefault = isdefault;
             Servicetype = servicetype;
             this._createdbyValue = _createdbyValue;
             this._owningteamValue = _owningteamValue;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Sitecollectionid = sitecollectionid;
             Relativeurl = relativeurl;
             Createdon = createdon;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             this._owningbusinessunitValue = _owningbusinessunitValue;
             Description = description;
             Lastvalidated = lastvalidated;
-            Isdefault = isdefault;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Userid = userid;
             Ispowerbisite = ispowerbisite;
-            Overriddencreatedon = overriddencreatedon;
+            Exchangerate = exchangerate;
             Versionnumber = versionnumber;
             Sharepointsiteid = sharepointsiteid;
             Importsequencenumber = importsequencenumber;
             Folderstructureentity = folderstructureentity;
-            Name = name;
-            this._owninguserValue = _owninguserValue;
+            Modifiedon = modifiedon;
             this._owneridValue = _owneridValue;
             Owninguser = owninguser;
             Owningteam = owningteam;
             Ownerid = ownerid;
             Modifiedby = modifiedby;
+            SharePointSiteProcessSessions = sharePointSiteProcessSessions;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
             SharePointSiteDuplicateMatchingRecord = sharePointSiteDuplicateMatchingRecord;
             Parentsite = parentsite;
             SharepointsiteParentsiteSharepointsite = sharepointsiteParentsiteSharepointsite;
+            SharepointsitePrincipalobjectattributeaccess = sharepointsitePrincipalobjectattributeaccess;
             Owningbusinessunit = owningbusinessunit;
             SharePointSiteDuplicateBaseRecord = sharePointSiteDuplicateBaseRecord;
             SharepointdocumentlocationParentSharepointsite = sharepointdocumentlocationParentSharepointsite;
@@ -92,13 +94,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "userid")]
-        public string Userid { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -117,28 +119,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sitecollectionid")]
-        public string Sitecollectionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -147,8 +134,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isgridpresent")]
-        public bool? Isgridpresent { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -157,8 +149,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "isgridpresent")]
+        public bool? Isgridpresent { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "validationstatuserrorcode")]
         public int? Validationstatuserrorcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isdefault")]
+        public bool? Isdefault { get; set; }
 
         /// <summary>
         /// </summary>
@@ -182,8 +184,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
+        [JsonProperty(PropertyName = "sitecollectionid")]
+        public string Sitecollectionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -194,6 +196,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -212,13 +219,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isdefault")]
-        public bool? Isdefault { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "userid")]
+        public string Userid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -227,8 +234,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -252,13 +259,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -287,6 +289,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "SharePointSite_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> SharePointSiteProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "createdby")]
         public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
 
@@ -309,6 +316,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "sharepointsite_parentsite_sharepointsite")]
         public IList<MicrosoftDynamicsCRMsharepointsite> SharepointsiteParentsiteSharepointsite { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sharepointsite_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> SharepointsitePrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>

@@ -29,18 +29,24 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMprivilege
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMprivilege(int? accessright = default(int?), bool? canbebasic = default(bool?), long? versionnumber = default(long?), string name = default(string), string privilegeid = default(string), bool? canbeentityreference = default(bool?), bool? canbeglobal = default(bool?), bool? canbeparententityreference = default(bool?), bool? canbelocal = default(bool?), bool? canbedeep = default(bool?), IList<MicrosoftDynamicsCRMroletemplate> roletemplateprivilegesAssociation = default(IList<MicrosoftDynamicsCRMroletemplate>), IList<MicrosoftDynamicsCRMrole> roleprivilegesAssociation = default(IList<MicrosoftDynamicsCRMrole>), IList<MicrosoftDynamicsCRMasyncoperation> privilegeAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> privilegeBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
+        public MicrosoftDynamicsCRMprivilege(string privilegerowid = default(string), int? accessright = default(int?), bool? canbebasic = default(bool?), long? versionnumber = default(long?), int? componentstate = default(int?), string privilegeid = default(string), bool? canbeentityreference = default(bool?), bool? canbeglobal = default(bool?), bool? canbedeep = default(bool?), string name = default(string), bool? canbeparententityreference = default(bool?), bool? ismanaged = default(bool?), string solutionid = default(string), string introducedversion = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), bool? canbelocal = default(bool?), IList<MicrosoftDynamicsCRMroletemplate> roletemplateprivilegesAssociation = default(IList<MicrosoftDynamicsCRMroletemplate>), IList<MicrosoftDynamicsCRMrole> roleprivilegesAssociation = default(IList<MicrosoftDynamicsCRMrole>), IList<MicrosoftDynamicsCRMasyncoperation> privilegeAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> privilegeBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
         {
+            Privilegerowid = privilegerowid;
             Accessright = accessright;
             Canbebasic = canbebasic;
             Versionnumber = versionnumber;
-            Name = name;
+            Componentstate = componentstate;
             Privilegeid = privilegeid;
             Canbeentityreference = canbeentityreference;
             Canbeglobal = canbeglobal;
-            Canbeparententityreference = canbeparententityreference;
-            Canbelocal = canbelocal;
             Canbedeep = canbedeep;
+            Name = name;
+            Canbeparententityreference = canbeparententityreference;
+            Ismanaged = ismanaged;
+            Solutionid = solutionid;
+            Introducedversion = introducedversion;
+            Overwritetime = overwritetime;
+            Canbelocal = canbelocal;
             RoletemplateprivilegesAssociation = roletemplateprivilegesAssociation;
             RoleprivilegesAssociation = roleprivilegesAssociation;
             PrivilegeAsyncOperations = privilegeAsyncOperations;
@@ -52,6 +58,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "privilegerowid")]
+        public string Privilegerowid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -70,8 +81,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -90,18 +101,43 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "canbedeep")]
+        public bool? Canbedeep { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "canbeparententityreference")]
         public bool? Canbeparententityreference { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "canbelocal")]
-        public bool? Canbelocal { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "canbedeep")]
-        public bool? Canbedeep { get; set; }
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "canbelocal")]
+        public bool? Canbelocal { get; set; }
 
         /// <summary>
         /// </summary>

@@ -27,19 +27,20 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMactioncarduserstate class.
         /// </summary>
-        public MicrosoftDynamicsCRMactioncarduserstate(object exchangerate = default(object), int? state = default(int?), string _owneridValue = default(string), string actioncarduserstateid = default(string), string _actioncardidValue = default(string), long? versionnumber = default(long?), int? timezoneruleversionnumber = default(int?), string _owningbusinessunitValue = default(string), System.DateTimeOffset? startdate = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string _transactioncurrencyidValue = default(string), MicrosoftDynamicsCRMactioncard actioncardid = default(MicrosoftDynamicsCRMactioncard), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMactioncarduserstate(string actioncarduserstateid = default(string), string _transactioncurrencyidValue = default(string), string _owneridValue = default(string), object exchangerate = default(object), string _owningbusinessunitValue = default(string), int? utcconversiontimezonecode = default(int?), long? versionnumber = default(long?), System.DateTimeOffset? startdate = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string _actioncardidValue = default(string), int? state = default(int?), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMactioncard actioncardid = default(MicrosoftDynamicsCRMactioncard), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
-            Exchangerate = exchangerate;
-            State = state;
-            this._owneridValue = _owneridValue;
             Actioncarduserstateid = actioncarduserstateid;
-            this._actioncardidValue = _actioncardidValue;
-            Versionnumber = versionnumber;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            Startdate = startdate;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            this._owneridValue = _owneridValue;
+            Exchangerate = exchangerate;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Versionnumber = versionnumber;
+            Startdate = startdate;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            this._actioncardidValue = _actioncardidValue;
+            State = state;
+            Ownerid = ownerid;
             Actioncardid = actioncardid;
             Transactioncurrencyid = transactioncurrencyid;
             CustomInit();
@@ -52,13 +53,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        [JsonProperty(PropertyName = "actioncarduserstateid")]
+        public string Actioncarduserstateid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "state")]
-        public int? State { get; set; }
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -67,23 +68,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "actioncarduserstateid")]
-        public string Actioncarduserstateid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_actioncardid_value")]
-        public string _actioncardidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -92,18 +78,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "startdate")]
-        public System.DateTimeOffset? Startdate { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "utcconversiontimezonecode")]
         public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "startdate")]
+        public System.DateTimeOffset? Startdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_actioncardid_value")]
+        public string _actioncardidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "state")]
+        public int? State { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ownerid")]
+        public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
 
         /// <summary>
         /// </summary>

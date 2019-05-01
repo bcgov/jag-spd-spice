@@ -27,100 +27,101 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMusersettings
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMusersettings(string numberseparator = default(string), int? timezonedaylightbias = default(int?), string homepagelayout = default(string), string _modifiedonbehalfbyValue = default(string), string homepagearea = default(string), int? defaultsearchexperience = default(int?), int? longdateformatcode = default(int?), int? timezonedaylightmonth = default(int?), int? reportscripterrors = default(int?), int? outlooksyncinterval = default(int?), int? timezonecode = default(int?), bool? usecrmformforcontact = default(bool?), long? versionnumber = default(long?), bool? getstartedpanecontentenabled = default(bool?), string dateseparator = default(string), string _createdonbehalfbyValue = default(string), bool? usecrmformfortask = default(bool?), string amdesignator = default(string), int? timezonestandarddayofweek = default(int?), int? defaultcalendarview = default(int?), int? advancedfindstartupmode = default(int?), string personalizationsettings = default(string), string defaultcountrycode = default(string), int? negativeformatcode = default(int?), bool? isresourcebookingexchangesyncenabled = default(bool?), int? negativecurrencyformatcode = default(int?), int? localeid = default(int?), string decimalsymbol = default(string), string numbergroupformat = default(string), string _modifiedbyValue = default(string), string userprofile = default(string), string _createdbyValue = default(string), bool? splitviewstate = default(bool?), string homepagesubarea = default(string), int? helplanguageid = default(int?), int? addressbooksyncinterval = default(int?), int? timezonebias = default(int?), int? autocreatecontactonpromote = default(int?), bool? usecrmformforappointment = default(bool?), string dateformatstring = default(string), int? trackingtokenid = default(int?), bool? issendasallowed = default(bool?), bool? isdefaultcountrycodecheckenabled = default(bool?), int? timezonedaylightdayofweek = default(int?), int? fullnameconventioncode = default(int?), System.DateTimeOffset? lastalertsviewedtime = default(System.DateTimeOffset?), int? timezonestandardbias = default(int?), int? timezonestandardmonth = default(int?), int? timezonestandardsecond = default(int?), int? timezonestandardminute = default(int?), int? timezonedaylighthour = default(int?), bool? isduplicatedetectionenabledwhengoingonline = default(bool?), string businessunitid = default(string), int? paginglimit = default(int?), int? timezonestandardday = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string systemuserid = default(string), int? uilanguageid = default(int?), string pmdesignator = default(string), string currencysymbol = default(string), int? timezonedaylightminute = default(int?), int? incomingemailfilteringmethod = default(int?), bool? usecrmformforemail = default(bool?), bool? isguidedhelpenabled = default(bool?), int? currencyformatcode = default(int?), int? timezonedaylightday = default(int?), int? nexttrackingnumber = default(int?), int? timezonedaylightsecond = default(int?), int? entityformmode = default(int?), int? datavalidationmodeforexporttoexcel = default(int?), int? visualizationpanelayout = default(int?), long? resourcebookingexchangesyncversion = default(long?), bool? showweeknumber = default(bool?), int? timezonestandardyear = default(int?), string timeformatstring = default(string), int? timeformatcode = default(int?), bool? ignoreunsolicitedemail = default(bool?), int? dateformatcode = default(int?), int? calendartype = default(int?), string timeseparator = default(string), string workdaystarttime = default(string), string _transactioncurrencyidValue = default(string), int? timezonestandardhour = default(int?), bool? isappsforcrmalertdismissed = default(bool?), string workdaystoptime = default(string), int? offlinesyncinterval = default(int?), int? timezonedaylightyear = default(int?), bool? synccontactcompany = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? isautodatacaptureenabled = default(bool?), string defaultdashboardid = default(string), bool? useimagestrips = default(bool?), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser systemuseridSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit businessunitidBusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMusersettings(string numberseparator = default(string), int? timezonedaylightbias = default(int?), string homepagelayout = default(string), int? timezonebias = default(int?), string homepagearea = default(string), int? defaultsearchexperience = default(int?), string timeseparator = default(string), int? longdateformatcode = default(int?), int? calendartype = default(int?), int? timezonecode = default(int?), bool? usecrmformforcontact = default(bool?), int? timezonedaylighthour = default(int?), long? versionnumber = default(long?), bool? getstartedpanecontentenabled = default(bool?), string dateseparator = default(string), int? uilanguageid = default(int?), string _createdonbehalfbyValue = default(string), int? reportscripterrors = default(int?), int? autocreatecontactonpromote = default(int?), string amdesignator = default(string), int? timezonestandarddayofweek = default(int?), string systemuserid = default(string), int? defaultcalendarview = default(int?), int? advancedfindstartupmode = default(int?), int? visualizationpanelayout = default(int?), string defaultcountrycode = default(string), int? negativeformatcode = default(int?), bool? isresourcebookingexchangesyncenabled = default(bool?), int? negativecurrencyformatcode = default(int?), int? timezonedaylightday = default(int?), bool? usecrmformfortask = default(bool?), string numbergroupformat = default(string), string _modifiedbyValue = default(string), int? offlinesyncinterval = default(int?), string userprofile = default(string), int? helplanguageid = default(int?), string homepagesubarea = default(string), int? addressbooksyncinterval = default(int?), string selectedglobalfilterid = default(string), string personalizationsettings = default(string), string dateformatstring = default(string), int? trackingtokenid = default(int?), bool? issendasallowed = default(bool?), bool? isdefaultcountrycodecheckenabled = default(bool?), int? timezonedaylightdayofweek = default(int?), int? fullnameconventioncode = default(int?), bool? splitviewstate = default(bool?), int? timezonedaylightsecond = default(int?), int? dateformatcode = default(int?), int? outlooksyncinterval = default(int?), int? timezonestandardmonth = default(int?), int? timezonestandardsecond = default(int?), int? timezonestandardbias = default(int?), string businessunitid = default(string), int? paginglimit = default(int?), int? timezonestandardday = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? isduplicatedetectionenabledwhengoingonline = default(bool?), int? timezonestandardminute = default(int?), int? timezonedaylightminute = default(int?), string _createdbyValue = default(string), int? localeid = default(int?), bool? usecrmformforappointment = default(bool?), string currencysymbol = default(string), bool? showweeknumber = default(bool?), bool? isguidedhelpenabled = default(bool?), int? currencyformatcode = default(int?), int? nexttrackingnumber = default(int?), bool? synccontactcompany = default(bool?), int? entityformmode = default(int?), int? datavalidationmodeforexporttoexcel = default(int?), string decimalsymbol = default(string), long? resourcebookingexchangesyncversion = default(long?), string defaultdashboardid = default(string), int? timezonestandardyear = default(int?), string timeformatstring = default(string), string pmdesignator = default(string), bool? ignoreunsolicitedemail = default(bool?), int? timezonedaylightmonth = default(int?), int? timeformatcode = default(int?), System.DateTimeOffset? lastalertsviewedtime = default(System.DateTimeOffset?), string workdaystarttime = default(string), string _transactioncurrencyidValue = default(string), int? timezonestandardhour = default(int?), bool? isappsforcrmalertdismissed = default(bool?), string workdaystoptime = default(string), int? timezonedaylightyear = default(int?), int? incomingemailfilteringmethod = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? isautodatacaptureenabled = default(bool?), bool? usecrmformforemail = default(bool?), bool? useimagestrips = default(bool?), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser systemuseridSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit businessunitidBusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Numberseparator = numberseparator;
             Timezonedaylightbias = timezonedaylightbias;
             Homepagelayout = homepagelayout;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Timezonebias = timezonebias;
             Homepagearea = homepagearea;
             Defaultsearchexperience = defaultsearchexperience;
+            Timeseparator = timeseparator;
             Longdateformatcode = longdateformatcode;
-            Timezonedaylightmonth = timezonedaylightmonth;
-            Reportscripterrors = reportscripterrors;
-            Outlooksyncinterval = outlooksyncinterval;
+            Calendartype = calendartype;
             Timezonecode = timezonecode;
             Usecrmformforcontact = usecrmformforcontact;
+            Timezonedaylighthour = timezonedaylighthour;
             Versionnumber = versionnumber;
             Getstartedpanecontentenabled = getstartedpanecontentenabled;
             Dateseparator = dateseparator;
+            Uilanguageid = uilanguageid;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Usecrmformfortask = usecrmformfortask;
+            Reportscripterrors = reportscripterrors;
+            Autocreatecontactonpromote = autocreatecontactonpromote;
             Amdesignator = amdesignator;
             Timezonestandarddayofweek = timezonestandarddayofweek;
+            Systemuserid = systemuserid;
             Defaultcalendarview = defaultcalendarview;
             Advancedfindstartupmode = advancedfindstartupmode;
-            Personalizationsettings = personalizationsettings;
+            Visualizationpanelayout = visualizationpanelayout;
             Defaultcountrycode = defaultcountrycode;
             Negativeformatcode = negativeformatcode;
             Isresourcebookingexchangesyncenabled = isresourcebookingexchangesyncenabled;
             Negativecurrencyformatcode = negativecurrencyformatcode;
-            Localeid = localeid;
-            Decimalsymbol = decimalsymbol;
+            Timezonedaylightday = timezonedaylightday;
+            Usecrmformfortask = usecrmformfortask;
             Numbergroupformat = numbergroupformat;
             this._modifiedbyValue = _modifiedbyValue;
+            Offlinesyncinterval = offlinesyncinterval;
             Userprofile = userprofile;
-            this._createdbyValue = _createdbyValue;
-            Splitviewstate = splitviewstate;
-            Homepagesubarea = homepagesubarea;
             Helplanguageid = helplanguageid;
+            Homepagesubarea = homepagesubarea;
             Addressbooksyncinterval = addressbooksyncinterval;
-            Timezonebias = timezonebias;
-            Autocreatecontactonpromote = autocreatecontactonpromote;
-            Usecrmformforappointment = usecrmformforappointment;
+            Selectedglobalfilterid = selectedglobalfilterid;
+            Personalizationsettings = personalizationsettings;
             Dateformatstring = dateformatstring;
             Trackingtokenid = trackingtokenid;
             Issendasallowed = issendasallowed;
             Isdefaultcountrycodecheckenabled = isdefaultcountrycodecheckenabled;
             Timezonedaylightdayofweek = timezonedaylightdayofweek;
             Fullnameconventioncode = fullnameconventioncode;
-            Lastalertsviewedtime = lastalertsviewedtime;
-            Timezonestandardbias = timezonestandardbias;
+            Splitviewstate = splitviewstate;
+            Timezonedaylightsecond = timezonedaylightsecond;
+            Dateformatcode = dateformatcode;
+            Outlooksyncinterval = outlooksyncinterval;
             Timezonestandardmonth = timezonestandardmonth;
             Timezonestandardsecond = timezonestandardsecond;
-            Timezonestandardminute = timezonestandardminute;
-            Timezonedaylighthour = timezonedaylighthour;
-            Isduplicatedetectionenabledwhengoingonline = isduplicatedetectionenabledwhengoingonline;
+            Timezonestandardbias = timezonestandardbias;
             Businessunitid = businessunitid;
             Paginglimit = paginglimit;
             Timezonestandardday = timezonestandardday;
             Createdon = createdon;
-            Systemuserid = systemuserid;
-            Uilanguageid = uilanguageid;
-            Pmdesignator = pmdesignator;
-            Currencysymbol = currencysymbol;
+            Isduplicatedetectionenabledwhengoingonline = isduplicatedetectionenabledwhengoingonline;
+            Timezonestandardminute = timezonestandardminute;
             Timezonedaylightminute = timezonedaylightminute;
-            Incomingemailfilteringmethod = incomingemailfilteringmethod;
-            Usecrmformforemail = usecrmformforemail;
+            this._createdbyValue = _createdbyValue;
+            Localeid = localeid;
+            Usecrmformforappointment = usecrmformforappointment;
+            Currencysymbol = currencysymbol;
+            Showweeknumber = showweeknumber;
             Isguidedhelpenabled = isguidedhelpenabled;
             Currencyformatcode = currencyformatcode;
-            Timezonedaylightday = timezonedaylightday;
             Nexttrackingnumber = nexttrackingnumber;
-            Timezonedaylightsecond = timezonedaylightsecond;
+            Synccontactcompany = synccontactcompany;
             Entityformmode = entityformmode;
             Datavalidationmodeforexporttoexcel = datavalidationmodeforexporttoexcel;
-            Visualizationpanelayout = visualizationpanelayout;
+            Decimalsymbol = decimalsymbol;
             Resourcebookingexchangesyncversion = resourcebookingexchangesyncversion;
-            Showweeknumber = showweeknumber;
+            Defaultdashboardid = defaultdashboardid;
             Timezonestandardyear = timezonestandardyear;
             Timeformatstring = timeformatstring;
-            Timeformatcode = timeformatcode;
+            Pmdesignator = pmdesignator;
             Ignoreunsolicitedemail = ignoreunsolicitedemail;
-            Dateformatcode = dateformatcode;
-            Calendartype = calendartype;
-            Timeseparator = timeseparator;
+            Timezonedaylightmonth = timezonedaylightmonth;
+            Timeformatcode = timeformatcode;
+            Lastalertsviewedtime = lastalertsviewedtime;
             Workdaystarttime = workdaystarttime;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
             Timezonestandardhour = timezonestandardhour;
             Isappsforcrmalertdismissed = isappsforcrmalertdismissed;
             Workdaystoptime = workdaystoptime;
-            Offlinesyncinterval = offlinesyncinterval;
             Timezonedaylightyear = timezonedaylightyear;
-            Synccontactcompany = synccontactcompany;
+            Incomingemailfilteringmethod = incomingemailfilteringmethod;
             Modifiedon = modifiedon;
             Isautodatacaptureenabled = isautodatacaptureenabled;
-            Defaultdashboardid = defaultdashboardid;
+            Usecrmformforemail = usecrmformforemail;
             Useimagestrips = useimagestrips;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Modifiedby = modifiedby;
             SystemuseridSystemuser = systemuseridSystemuser;
             Modifiedonbehalfby = modifiedonbehalfby;
@@ -153,8 +154,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "timezonebias")]
+        public int? Timezonebias { get; set; }
 
         /// <summary>
         /// </summary>
@@ -168,23 +169,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "timeseparator")]
+        public string Timeseparator { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "longdateformatcode")]
         public int? Longdateformatcode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonedaylightmonth")]
-        public int? Timezonedaylightmonth { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "reportscripterrors")]
-        public int? Reportscripterrors { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "outlooksyncinterval")]
-        public int? Outlooksyncinterval { get; set; }
+        [JsonProperty(PropertyName = "calendartype")]
+        public int? Calendartype { get; set; }
 
         /// <summary>
         /// </summary>
@@ -195,6 +191,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "usecrmformforcontact")]
         public bool? Usecrmformforcontact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezonedaylighthour")]
+        public int? Timezonedaylighthour { get; set; }
 
         /// <summary>
         /// </summary>
@@ -213,13 +214,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "uilanguageid")]
+        public int? Uilanguageid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfby_value")]
         public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "usecrmformfortask")]
-        public bool? Usecrmformfortask { get; set; }
+        [JsonProperty(PropertyName = "reportscripterrors")]
+        public int? Reportscripterrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "autocreatecontactonpromote")]
+        public int? Autocreatecontactonpromote { get; set; }
 
         /// <summary>
         /// </summary>
@@ -233,6 +244,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "systemuserid")]
+        public string Systemuserid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "defaultcalendarview")]
         public int? Defaultcalendarview { get; set; }
 
@@ -243,8 +259,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "personalizationsettings")]
-        public string Personalizationsettings { get; set; }
+        [JsonProperty(PropertyName = "visualizationpanelayout")]
+        public int? Visualizationpanelayout { get; set; }
 
         /// <summary>
         /// </summary>
@@ -268,13 +284,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "localeid")]
-        public int? Localeid { get; set; }
+        [JsonProperty(PropertyName = "timezonedaylightday")]
+        public int? Timezonedaylightday { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "decimalsymbol")]
-        public string Decimalsymbol { get; set; }
+        [JsonProperty(PropertyName = "usecrmformfortask")]
+        public bool? Usecrmformfortask { get; set; }
 
         /// <summary>
         /// </summary>
@@ -288,23 +304,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "offlinesyncinterval")]
+        public int? Offlinesyncinterval { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "userprofile")]
         public string Userprofile { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "splitviewstate")]
-        public bool? Splitviewstate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "homepagesubarea")]
-        public string Homepagesubarea { get; set; }
 
         /// <summary>
         /// </summary>
@@ -313,23 +319,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "homepagesubarea")]
+        public string Homepagesubarea { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "addressbooksyncinterval")]
         public int? Addressbooksyncinterval { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonebias")]
-        public int? Timezonebias { get; set; }
+        [JsonProperty(PropertyName = "selectedglobalfilterid")]
+        public string Selectedglobalfilterid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "autocreatecontactonpromote")]
-        public int? Autocreatecontactonpromote { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "usecrmformforappointment")]
-        public bool? Usecrmformforappointment { get; set; }
+        [JsonProperty(PropertyName = "personalizationsettings")]
+        public string Personalizationsettings { get; set; }
 
         /// <summary>
         /// </summary>
@@ -363,13 +369,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "lastalertsviewedtime")]
-        public System.DateTimeOffset? Lastalertsviewedtime { get; set; }
+        [JsonProperty(PropertyName = "splitviewstate")]
+        public bool? Splitviewstate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonestandardbias")]
-        public int? Timezonestandardbias { get; set; }
+        [JsonProperty(PropertyName = "timezonedaylightsecond")]
+        public int? Timezonedaylightsecond { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dateformatcode")]
+        public int? Dateformatcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "outlooksyncinterval")]
+        public int? Outlooksyncinterval { get; set; }
 
         /// <summary>
         /// </summary>
@@ -383,18 +399,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonestandardminute")]
-        public int? Timezonestandardminute { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezonedaylighthour")]
-        public int? Timezonedaylighthour { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isduplicatedetectionenabledwhengoingonline")]
-        public bool? Isduplicatedetectionenabledwhengoingonline { get; set; }
+        [JsonProperty(PropertyName = "timezonestandardbias")]
+        public int? Timezonestandardbias { get; set; }
 
         /// <summary>
         /// </summary>
@@ -418,23 +424,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "systemuserid")]
-        public string Systemuserid { get; set; }
+        [JsonProperty(PropertyName = "isduplicatedetectionenabledwhengoingonline")]
+        public bool? Isduplicatedetectionenabledwhengoingonline { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "uilanguageid")]
-        public int? Uilanguageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "pmdesignator")]
-        public string Pmdesignator { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "currencysymbol")]
-        public string Currencysymbol { get; set; }
+        [JsonProperty(PropertyName = "timezonestandardminute")]
+        public int? Timezonestandardminute { get; set; }
 
         /// <summary>
         /// </summary>
@@ -443,13 +439,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incomingemailfilteringmethod")]
-        public int? Incomingemailfilteringmethod { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "usecrmformforemail")]
-        public bool? Usecrmformforemail { get; set; }
+        [JsonProperty(PropertyName = "localeid")]
+        public int? Localeid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "usecrmformforappointment")]
+        public bool? Usecrmformforappointment { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "currencysymbol")]
+        public string Currencysymbol { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "showweeknumber")]
+        public bool? Showweeknumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -463,18 +474,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonedaylightday")]
-        public int? Timezonedaylightday { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "nexttrackingnumber")]
         public int? Nexttrackingnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezonedaylightsecond")]
-        public int? Timezonedaylightsecond { get; set; }
+        [JsonProperty(PropertyName = "synccontactcompany")]
+        public bool? Synccontactcompany { get; set; }
 
         /// <summary>
         /// </summary>
@@ -488,8 +494,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "visualizationpanelayout")]
-        public int? Visualizationpanelayout { get; set; }
+        [JsonProperty(PropertyName = "decimalsymbol")]
+        public string Decimalsymbol { get; set; }
 
         /// <summary>
         /// </summary>
@@ -498,8 +504,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "showweeknumber")]
-        public bool? Showweeknumber { get; set; }
+        [JsonProperty(PropertyName = "defaultdashboardid")]
+        public string Defaultdashboardid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -513,8 +519,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timeformatcode")]
-        public int? Timeformatcode { get; set; }
+        [JsonProperty(PropertyName = "pmdesignator")]
+        public string Pmdesignator { get; set; }
 
         /// <summary>
         /// </summary>
@@ -523,18 +529,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dateformatcode")]
-        public int? Dateformatcode { get; set; }
+        [JsonProperty(PropertyName = "timezonedaylightmonth")]
+        public int? Timezonedaylightmonth { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "calendartype")]
-        public int? Calendartype { get; set; }
+        [JsonProperty(PropertyName = "timeformatcode")]
+        public int? Timeformatcode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timeseparator")]
-        public string Timeseparator { get; set; }
+        [JsonProperty(PropertyName = "lastalertsviewedtime")]
+        public System.DateTimeOffset? Lastalertsviewedtime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -563,18 +569,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "offlinesyncinterval")]
-        public int? Offlinesyncinterval { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "timezonedaylightyear")]
         public int? Timezonedaylightyear { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "synccontactcompany")]
-        public bool? Synccontactcompany { get; set; }
+        [JsonProperty(PropertyName = "incomingemailfilteringmethod")]
+        public int? Incomingemailfilteringmethod { get; set; }
 
         /// <summary>
         /// </summary>
@@ -588,13 +589,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "defaultdashboardid")]
-        public string Defaultdashboardid { get; set; }
+        [JsonProperty(PropertyName = "usecrmformforemail")]
+        public bool? Usecrmformforemail { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "useimagestrips")]
         public bool? Useimagestrips { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>

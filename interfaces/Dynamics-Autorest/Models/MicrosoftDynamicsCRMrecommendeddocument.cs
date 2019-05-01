@@ -27,38 +27,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMrecommendeddocument class.
         /// </summary>
-        public MicrosoftDynamicsCRMrecommendeddocument(long? versionnumber = default(long?), string readurl = default(string), string externaldocumentid = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string contenttype = default(string), string _createdbyValue = default(string), string _transactioncurrencyidValue = default(string), string _createdonbehalfbyValue = default(string), string iconclassname = default(string), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), string editurl = default(string), string location = default(string), string fullname = default(string), string source = default(string), object exchangerate = default(object), string version = default(string), string _regardingobjectidValue = default(string), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), string associatedrecordname = default(string), string externalmodifiedby = default(string), string _organizationidValue = default(string), int? filesize = default(int?), string title = default(string), string absoluteurl = default(string), string author = default(string), string recommendeddocumentid = default(string), string filetype = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyidname = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMrecommendeddocument(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string filetype = default(string), string editurl = default(string), long? versionnumber = default(long?), string title = default(string), string _modifiedbyValue = default(string), string source = default(string), string externaldocumentid = default(string), int? timezoneruleversionnumber = default(int?), string _transactioncurrencyidValue = default(string), string iconclassname = default(string), string externalmodifiedby = default(string), string _organizationidValue = default(string), string readurl = default(string), string location = default(string), object exchangerate = default(object), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string version = default(string), string fullname = default(string), string author = default(string), string _createdbyValue = default(string), int? filesize = default(int?), string absoluteurl = default(string), string contenttype = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string recommendeddocumentid = default(string), string _regardingobjectidValue = default(string), string associatedrecordname = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyidname = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
-            Versionnumber = versionnumber;
-            Readurl = readurl;
-            Externaldocumentid = externaldocumentid;
             Createdon = createdon;
-            Modifiedon = modifiedon;
-            Contenttype = contenttype;
-            this._createdbyValue = _createdbyValue;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Iconclassname = iconclassname;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Utcconversiontimezonecode = utcconversiontimezonecode;
+            Filetype = filetype;
             Editurl = editurl;
-            Location = location;
-            Fullname = fullname;
-            Source = source;
-            Exchangerate = exchangerate;
-            Version = version;
-            this._regardingobjectidValue = _regardingobjectidValue;
+            Versionnumber = versionnumber;
+            Title = title;
             this._modifiedbyValue = _modifiedbyValue;
+            Source = source;
+            Externaldocumentid = externaldocumentid;
             Timezoneruleversionnumber = timezoneruleversionnumber;
-            Associatedrecordname = associatedrecordname;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Iconclassname = iconclassname;
             Externalmodifiedby = externalmodifiedby;
             this._organizationidValue = _organizationidValue;
-            Filesize = filesize;
-            Title = title;
-            Absoluteurl = absoluteurl;
+            Readurl = readurl;
+            Location = location;
+            Exchangerate = exchangerate;
+            Modifiedon = modifiedon;
+            Version = version;
+            Fullname = fullname;
             Author = author;
+            this._createdbyValue = _createdbyValue;
+            Filesize = filesize;
+            Absoluteurl = absoluteurl;
+            Contenttype = contenttype;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Recommendeddocumentid = recommendeddocumentid;
-            Filetype = filetype;
+            this._regardingobjectidValue = _regardingobjectidValue;
+            Associatedrecordname = associatedrecordname;
             Createdbyname = createdbyname;
             Createdonbehalfbyname = createdonbehalfbyname;
             Modifiedbyname = modifiedbyname;
@@ -75,58 +75,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "readurl")]
-        public string Readurl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "externaldocumentid")]
-        public string Externaldocumentid { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contenttype")]
-        public string Contenttype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "iconclassname")]
-        public string Iconclassname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -135,38 +85,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "filetype")]
+        public string Filetype { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "editurl")]
         public string Editurl { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "location")]
-        public string Location { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "fullname")]
-        public string Fullname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "source")]
-        public string Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "version")]
-        public string Version { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectid_value")]
-        public string _regardingobjectidValue { get; set; }
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
 
         /// <summary>
         /// </summary>
@@ -175,13 +110,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "source")]
+        public string Source { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "externaldocumentid")]
+        public string Externaldocumentid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "timezoneruleversionnumber")]
         public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "associatedrecordname")]
-        public string Associatedrecordname { get; set; }
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "iconclassname")]
+        public string Iconclassname { get; set; }
 
         /// <summary>
         /// </summary>
@@ -195,18 +145,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "filesize")]
-        public int? Filesize { get; set; }
+        [JsonProperty(PropertyName = "readurl")]
+        public string Readurl { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
+        [JsonProperty(PropertyName = "location")]
+        public string Location { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "absoluteurl")]
-        public string Absoluteurl { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "version")]
+        public string Version { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "fullname")]
+        public string Fullname { get; set; }
 
         /// <summary>
         /// </summary>
@@ -215,13 +180,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "filesize")]
+        public int? Filesize { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "absoluteurl")]
+        public string Absoluteurl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contenttype")]
+        public string Contenttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "recommendeddocumentid")]
         public string Recommendeddocumentid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "filetype")]
-        public string Filetype { get; set; }
+        [JsonProperty(PropertyName = "_regardingobjectid_value")]
+        public string _regardingobjectidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "associatedrecordname")]
+        public string Associatedrecordname { get; set; }
 
         /// <summary>
         /// </summary>

@@ -29,32 +29,32 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMactivitymimeattachment class.
         /// </summary>
-        public MicrosoftDynamicsCRMactivitymimeattachment(long? versionnumber = default(long?), string filename = default(string), string _attachmentidValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? filesize = default(int?), int? attachmentnumber = default(int?), string activitymimeattachmentid = default(string), string activitysubject = default(string), string _owninguserValue = default(string), bool? isfollowed = default(bool?), string objecttypecode = default(string), string activitymimeattachmentidunique = default(string), string mimetype = default(string), int? componentstate = default(int?), string subject = default(string), string _owneridValue = default(string), string _objectidValue = default(string), string solutionid = default(string), string _owningbusinessunitValue = default(string), string body = default(string), object bodyBinary = default(object), string attachmentcontentid = default(string), string anonymouslink = default(string), bool? ismanaged = default(bool?), IList<MicrosoftDynamicsCRMsyncerror> activityMimeAttachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMemail objectidEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMactivitypointer objectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMtemplate objectidTemplate = default(MicrosoftDynamicsCRMtemplate), MicrosoftDynamicsCRMattachment attachmentid = default(MicrosoftDynamicsCRMattachment), MicrosoftDynamicsCRMappointment objectidAppointment = default(MicrosoftDynamicsCRMappointment), IList<MicrosoftDynamicsCRMasyncoperation> activityMimeAttachmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> activityMimeAttachmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
+        public MicrosoftDynamicsCRMactivitymimeattachment(int? componentstate = default(int?), long? versionnumber = default(long?), string _owneridValue = default(string), string subject = default(string), int? filesize = default(int?), bool? isfollowed = default(bool?), bool? ismanaged = default(bool?), string activitymimeattachmentid = default(string), string _owninguserValue = default(string), string attachmentcontentid = default(string), string _attachmentidValue = default(string), string objecttypecode = default(string), string _owningbusinessunitValue = default(string), string _objectidValue = default(string), string activitymimeattachmentidunique = default(string), string mimetype = default(string), string activitysubject = default(string), string solutionid = default(string), int? attachmentnumber = default(int?), string anonymouslink = default(string), string filename = default(string), string body = default(string), object bodyBinary = default(object), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), IList<MicrosoftDynamicsCRMsyncerror> activityMimeAttachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMemail objectidEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMactivitypointer objectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMtemplate objectidTemplate = default(MicrosoftDynamicsCRMtemplate), MicrosoftDynamicsCRMattachment attachmentid = default(MicrosoftDynamicsCRMattachment), MicrosoftDynamicsCRMappointment objectidAppointment = default(MicrosoftDynamicsCRMappointment), IList<MicrosoftDynamicsCRMasyncoperation> activityMimeAttachmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> activityMimeAttachmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
         {
+            Componentstate = componentstate;
             Versionnumber = versionnumber;
-            Filename = filename;
-            this._attachmentidValue = _attachmentidValue;
-            Overwritetime = overwritetime;
+            this._owneridValue = _owneridValue;
+            Subject = subject;
             Filesize = filesize;
-            Attachmentnumber = attachmentnumber;
-            Activitymimeattachmentid = activitymimeattachmentid;
-            Activitysubject = activitysubject;
-            this._owninguserValue = _owninguserValue;
             Isfollowed = isfollowed;
+            Ismanaged = ismanaged;
+            Activitymimeattachmentid = activitymimeattachmentid;
+            this._owninguserValue = _owninguserValue;
+            Attachmentcontentid = attachmentcontentid;
+            this._attachmentidValue = _attachmentidValue;
             Objecttypecode = objecttypecode;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            this._objectidValue = _objectidValue;
             Activitymimeattachmentidunique = activitymimeattachmentidunique;
             Mimetype = mimetype;
-            Componentstate = componentstate;
-            Subject = subject;
-            this._owneridValue = _owneridValue;
-            this._objectidValue = _objectidValue;
+            Activitysubject = activitysubject;
             Solutionid = solutionid;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Attachmentnumber = attachmentnumber;
+            Anonymouslink = anonymouslink;
+            Filename = filename;
             Body = body;
             BodyBinary = bodyBinary;
-            Attachmentcontentid = attachmentcontentid;
-            Anonymouslink = anonymouslink;
-            Ismanaged = ismanaged;
+            Overwritetime = overwritetime;
             ActivityMimeAttachmentSyncErrors = activityMimeAttachmentSyncErrors;
             ObjectidEmail = objectidEmail;
             ObjectidActivitypointer = objectidActivitypointer;
@@ -73,23 +73,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "filename")]
-        public string Filename { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_attachmentid_value")]
-        public string _attachmentidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overwritetime")]
-        public System.DateTimeOffset? Overwritetime { get; set; }
+        [JsonProperty(PropertyName = "subject")]
+        public string Subject { get; set; }
 
         /// <summary>
         /// </summary>
@@ -98,8 +98,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "attachmentnumber")]
-        public int? Attachmentnumber { get; set; }
+        [JsonProperty(PropertyName = "isfollowed")]
+        public bool? Isfollowed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
@@ -108,23 +113,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "activitysubject")]
-        public string Activitysubject { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_owninguser_value")]
         public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isfollowed")]
-        public bool? Isfollowed { get; set; }
+        [JsonProperty(PropertyName = "attachmentcontentid")]
+        public string Attachmentcontentid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_attachmentid_value")]
+        public string _attachmentidValue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "objecttypecode")]
         public string Objecttypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_objectid_value")]
+        public string _objectidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -138,23 +153,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "subject")]
-        public string Subject { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_objectid_value")]
-        public string _objectidValue { get; set; }
+        [JsonProperty(PropertyName = "activitysubject")]
+        public string Activitysubject { get; set; }
 
         /// <summary>
         /// </summary>
@@ -163,8 +163,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
+        [JsonProperty(PropertyName = "attachmentnumber")]
+        public int? Attachmentnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "anonymouslink")]
+        public string Anonymouslink { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "filename")]
+        public string Filename { get; set; }
 
         /// <summary>
         /// </summary>
@@ -178,18 +188,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "attachmentcontentid")]
-        public string Attachmentcontentid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "anonymouslink")]
-        public string Anonymouslink { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ismanaged")]
-        public bool? Ismanaged { get; set; }
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
 
         /// <summary>
         /// </summary>

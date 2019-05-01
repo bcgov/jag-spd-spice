@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMopportunitycompetitors class.
         /// </summary>
-        public MicrosoftDynamicsCRMopportunitycompetitors(string opportunitycompetitorid = default(string), long? versionnumber = default(long?), string opportunityid = default(string), string competitorid = default(string))
+        public MicrosoftDynamicsCRMopportunitycompetitors(string opportunityid = default(string), string name = default(string), int? timezoneruleversionnumber = default(int?), string competitorid = default(string), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), long? versionnumber = default(long?), string opportunitycompetitorid = default(string), IList<MicrosoftDynamicsCRMasyncoperation> opportunitycompetitorsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> opportunitycompetitorsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> opportunitycompetitorsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> opportunitycompetitorsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
-            Opportunitycompetitorid = opportunitycompetitorid;
-            Versionnumber = versionnumber;
             Opportunityid = opportunityid;
+            Name = name;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Competitorid = competitorid;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Overriddencreatedon = overriddencreatedon;
+            Importsequencenumber = importsequencenumber;
+            Versionnumber = versionnumber;
+            Opportunitycompetitorid = opportunitycompetitorid;
+            OpportunitycompetitorsAsyncOperations = opportunitycompetitorsAsyncOperations;
+            OpportunitycompetitorsMailboxTrackingFolders = opportunitycompetitorsMailboxTrackingFolders;
+            OpportunitycompetitorsBulkDeleteFailures = opportunitycompetitorsBulkDeleteFailures;
+            OpportunitycompetitorsPrincipalObjectAttributeAccesses = opportunitycompetitorsPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -43,8 +54,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "opportunitycompetitorid")]
-        public string Opportunitycompetitorid { get; set; }
+        [JsonProperty(PropertyName = "opportunityid")]
+        public string Opportunityid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "competitorid")]
+        public string Competitorid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -53,13 +94,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "opportunityid")]
-        public string Opportunityid { get; set; }
+        [JsonProperty(PropertyName = "opportunitycompetitorid")]
+        public string Opportunitycompetitorid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "competitorid")]
-        public string Competitorid { get; set; }
+        [JsonProperty(PropertyName = "opportunitycompetitors_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> OpportunitycompetitorsAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "opportunitycompetitors_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> OpportunitycompetitorsMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "opportunitycompetitors_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> OpportunitycompetitorsBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "opportunitycompetitors_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> OpportunitycompetitorsPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

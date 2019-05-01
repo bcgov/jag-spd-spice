@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMcontactleads
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMcontactleads(string contactleadid = default(string), string leadid = default(string), string contactid = default(string), long? versionnumber = default(long?))
+        public MicrosoftDynamicsCRMcontactleads(System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string leadid = default(string), int? importsequencenumber = default(int?), long? versionnumber = default(long?), string name = default(string), string contactid = default(string), string contactleadid = default(string), int? utcconversiontimezonecode = default(int?), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMasyncoperation> contactleadsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> contactleadsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> contactleadsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> contactleadsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
-            Contactleadid = contactleadid;
+            Overriddencreatedon = overriddencreatedon;
             Leadid = leadid;
-            Contactid = contactid;
+            Importsequencenumber = importsequencenumber;
             Versionnumber = versionnumber;
+            Name = name;
+            Contactid = contactid;
+            Contactleadid = contactleadid;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            ContactleadsAsyncOperations = contactleadsAsyncOperations;
+            ContactleadsMailboxTrackingFolders = contactleadsMailboxTrackingFolders;
+            ContactleadsBulkDeleteFailures = contactleadsBulkDeleteFailures;
+            ContactleadsPrincipalObjectAttributeAccesses = contactleadsPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -43,8 +54,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "contactleadid")]
-        public string Contactleadid { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -53,13 +64,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "contactid")]
-        public string Contactid { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactid")]
+        public string Contactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactleadid")]
+        public string Contactleadid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactleads_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> ContactleadsAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactleads_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ContactleadsMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactleads_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ContactleadsBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contactleads_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ContactleadsPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

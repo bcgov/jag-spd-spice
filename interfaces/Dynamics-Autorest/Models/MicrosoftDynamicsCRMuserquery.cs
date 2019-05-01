@@ -29,32 +29,34 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMuserquery
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMuserquery(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statecode = default(int?), string fetchxml = default(string), string _modifiedbyValue = default(string), string advancedgroupby = default(string), string columnsetxml = default(string), string _owningteamValue = default(string), string layoutxml = default(string), string _createdonbehalfbyValue = default(string), string conditionalformatting = default(string), string userqueryid = default(string), int? querytype = default(int?), string returnedtypecode = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string _modifiedonbehalfbyValue = default(string), string description = default(string), long? versionnumber = default(long?), string _owninguserValue = default(string), string _parentqueryidValue = default(string), string name = default(string), string _createdbyValue = default(string), int? statuscode = default(int?), string _owneridValue = default(string), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> userQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMbulkdeletefailure> userQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> userQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMuserquery(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _owningteamValue = default(string), string returnedtypecode = default(string), int? querytype = default(int?), string advancedgroupby = default(string), string _parentqueryidValue = default(string), string columnsetxml = default(string), string fetchxml = default(string), string _owninguserValue = default(string), string description = default(string), string _modifiedbyValue = default(string), string conditionalformatting = default(string), int? statecode = default(int?), string name = default(string), string _modifiedonbehalfbyValue = default(string), string layoutjson = default(string), string layoutxml = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string userqueryid = default(string), long? versionnumber = default(long?), string _owningbusinessunitValue = default(string), string _owneridValue = default(string), string offlinesqlquery = default(string), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> userQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMbulkdeletefailure> userQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> userQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
         {
             Modifiedon = modifiedon;
-            Statecode = statecode;
-            Fetchxml = fetchxml;
-            this._modifiedbyValue = _modifiedbyValue;
-            Advancedgroupby = advancedgroupby;
-            Columnsetxml = columnsetxml;
-            this._owningteamValue = _owningteamValue;
-            Layoutxml = layoutxml;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Conditionalformatting = conditionalformatting;
-            Userqueryid = userqueryid;
-            Querytype = querytype;
-            Returnedtypecode = returnedtypecode;
-            Createdon = createdon;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Description = description;
-            Versionnumber = versionnumber;
-            this._owninguserValue = _owninguserValue;
-            this._parentqueryidValue = _parentqueryidValue;
-            Name = name;
-            this._createdbyValue = _createdbyValue;
             Statuscode = statuscode;
+            this._owningteamValue = _owningteamValue;
+            Returnedtypecode = returnedtypecode;
+            Querytype = querytype;
+            Advancedgroupby = advancedgroupby;
+            this._parentqueryidValue = _parentqueryidValue;
+            Columnsetxml = columnsetxml;
+            Fetchxml = fetchxml;
+            this._owninguserValue = _owninguserValue;
+            Description = description;
+            this._modifiedbyValue = _modifiedbyValue;
+            Conditionalformatting = conditionalformatting;
+            Statecode = statecode;
+            Name = name;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Layoutjson = layoutjson;
+            Layoutxml = layoutxml;
+            this._createdbyValue = _createdbyValue;
+            Createdon = createdon;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Userqueryid = userqueryid;
+            Versionnumber = versionnumber;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
             this._owneridValue = _owneridValue;
+            Offlinesqlquery = offlinesqlquery;
             Ownerid = ownerid;
             Modifiedby = modifiedby;
             Owningteam = owningteam;
@@ -81,28 +83,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "fetchxml")]
-        public string Fetchxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "advancedgroupby")]
-        public string Advancedgroupby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "columnsetxml")]
-        public string Columnsetxml { get; set; }
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -111,23 +93,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "layoutxml")]
-        public string Layoutxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "conditionalformatting")]
-        public string Conditionalformatting { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "userqueryid")]
-        public string Userqueryid { get; set; }
+        [JsonProperty(PropertyName = "returnedtypecode")]
+        public string Returnedtypecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -136,38 +103,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "returnedtypecode")]
-        public string Returnedtypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
+        [JsonProperty(PropertyName = "advancedgroupby")]
+        public string Advancedgroupby { get; set; }
 
         /// <summary>
         /// </summary>
@@ -176,8 +113,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "columnsetxml")]
+        public string Columnsetxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "fetchxml")]
+        public string Fetchxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "conditionalformatting")]
+        public string Conditionalformatting { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "layoutjson")]
+        public string Layoutjson { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "layoutxml")]
+        public string Layoutxml { get; set; }
 
         /// <summary>
         /// </summary>
@@ -186,13 +173,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "userqueryid")]
+        public string Userqueryid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_ownerid_value")]
         public string _owneridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "offlinesqlquery")]
+        public string Offlinesqlquery { get; set; }
 
         /// <summary>
         /// </summary>
