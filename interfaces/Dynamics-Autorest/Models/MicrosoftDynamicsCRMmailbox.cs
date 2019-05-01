@@ -29,95 +29,101 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMmailbox
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMmailbox(int? testemailconfigurationretrycount = default(int?), bool? isactsyncorgflagset = default(bool?), System.DateTimeOffset? lastmailboxforcedunlockoccurredon = default(System.DateTimeOffset?), bool? isforwardmailbox = default(bool?), string _emailserverprofileValue = default(string), bool? isemailaddressapprovedbyo365admin = default(bool?), bool? orgmarkedasprimaryforexchangesync = default(bool?), int? actdeliverymethod = default(int?), int? mailboxprocessingcontext = default(int?), int? outgoingemaildeliverymethod = default(int?), string entityimageid = default(string), int? incomingemaildeliverymethod = default(int?), string lastsyncerror = default(string), int? noactcount = default(int?), string mailboxid = default(string), int? timezoneruleversionnumber = default(int?), int? forcedunlockcount = default(int?), System.DateTimeOffset? lastsuccessfulsynccompletedon = default(System.DateTimeOffset?), System.DateTimeOffset? lastautodiscoveredon = default(System.DateTimeOffset?), string _owninguserValue = default(string), bool? enabledforoutgoingemail = default(bool?), string _modifiedbyValue = default(string), object entityimage = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _organizationidValue = default(string), int? lastduration = default(int?), bool? testemailconfigurationscheduled = default(bool?), int? itemsfailedforlastsync = default(int?), string officeappsdeploymenterror = default(string), bool? enabledforact = default(bool?), int? outgoingemailstatus = default(int?), int? lastsyncerrorcount = default(int?), string emailaddress = default(string), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? lastsyncerroroccurredon = default(System.DateTimeOffset?), bool? processanddeleteemails = default(bool?), int? itemsprocessedforlastsync = default(int?), long? entityimageTimestamp = default(long?), string folderhierarchy = default(string), System.DateTimeOffset? officeappsdeploymentcompleteon = default(System.DateTimeOffset?), System.DateTimeOffset? processinglastattemptedon = default(System.DateTimeOffset?), string username = default(string), bool? officeappsdeploymentscheduled = default(bool?), string _modifiedonbehalfbyValue = default(string), int? officeappsdeploymentstatus = default(int?), System.DateTimeOffset? postponesendinguntil = default(System.DateTimeOffset?), System.DateTimeOffset? postponetestemailconfigurationuntil = default(System.DateTimeOffset?), int? actstatus = default(int?), int? statuscode = default(int?), System.DateTimeOffset? lastsyncstartedon = default(System.DateTimeOffset?), int? processedtimes = default(int?), int? lastsyncerrorcode = default(int?), bool? ispasswordset = default(bool?), string _createdbyValue = default(string), string _owningteamValue = default(string), string _owneridValue = default(string), string lastsyncerrormachinename = default(string), string ewsurl = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? postponeofficeappsdeploymentuntil = default(System.DateTimeOffset?), System.DateTimeOffset? postponemailboxprocessinguntil = default(System.DateTimeOffset?), System.DateTimeOffset? processemailreceivedafter = default(System.DateTimeOffset?), System.DateTimeOffset? receivingpostponeduntil = default(System.DateTimeOffset?), int? emailrouteraccessapproval = default(int?), int? mailboxstatus = default(int?), int? noemailcount = default(int?), int? incomingemailstatus = default(int?), int? processingstatecode = default(int?), string password = default(string), bool? enabledforincomingemail = default(bool?), string name = default(string), string _owningbusinessunitValue = default(string), bool? isserviceaccount = default(bool?), int? statecode = default(int?), System.DateTimeOffset? testmailboxaccesscompletedon = default(System.DateTimeOffset?), string exchangesyncstatexml = default(string), string entityimageUrl = default(string), string _regardingobjectidValue = default(string), string undeliverablefolder = default(string), bool? allowemailconnectortousecredentials = default(bool?), int? averagetotalduration = default(int?), int? verboseloggingenabled = default(int?), System.DateTimeOffset? receivingpostponeduntilforact = default(System.DateTimeOffset?), string hostid = default(string), int? transientfailurecount = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser regardingobjectid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMemailserverprofile emailserverprofile = default(MicrosoftDynamicsCRMemailserverprofile), IList<MicrosoftDynamicsCRMsystemuser> systemuserDefaultmailboxMailbox = default(IList<MicrosoftDynamicsCRMsystemuser>), IList<MicrosoftDynamicsCRMqueue> queueDefaultmailboxMailbox = default(IList<MicrosoftDynamicsCRMqueue>), IList<MicrosoftDynamicsCRMtracelog> tracelogMailbox = default(IList<MicrosoftDynamicsCRMtracelog>), IList<MicrosoftDynamicsCRMactivitypointer> activitypointerSendermailboxidMailbox = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMasyncoperation> mailboxAsyncoperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMqueue regardingobjectidQueue = default(MicrosoftDynamicsCRMqueue), IList<MicrosoftDynamicsCRMemail> emailSendermailboxidMailbox = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMsyncerror> mailboxSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMannotation> mailboxAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> absScheduledprocessexecutionMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMabsScheduledprocessexecution>))
+        public MicrosoftDynamicsCRMmailbox(int? testemailconfigurationretrycount = default(int?), int? noactcount = default(int?), System.DateTimeOffset? processemailreceivedafter = default(System.DateTimeOffset?), string exchangesyncstatexml = default(string), bool? isforwardmailbox = default(bool?), string _emailserverprofileValue = default(string), bool? isemailaddressapprovedbyo365admin = default(bool?), string credentialinfo = default(string), int? actdeliverymethod = default(int?), int? mailboxprocessingcontext = default(int?), string dataencryptionkey = default(string), string folderhierarchy = default(string), string mailboxid = default(string), int? outgoingemaildeliverymethod = default(int?), int? exchangecontactsimportstatus = default(int?), System.DateTimeOffset? exchangecontactsimportcompletedon = default(System.DateTimeOffset?), bool? officeappsdeploymentscheduled = default(bool?), string entityimageid = default(string), int? timezoneruleversionnumber = default(int?), int? incomingemaildeliverymethod = default(int?), string _owneridValue = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? lastsuccessfulsynccompletedon = default(System.DateTimeOffset?), int? averagetotalduration = default(int?), string _owninguserValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string lastsyncerror = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? isdataencryptionkeyset = default(bool?), long? versionnumber = default(long?), bool? isserviceaccount = default(bool?), int? lastduration = default(int?), bool? testemailconfigurationscheduled = default(bool?), bool? processanddeleteemails = default(bool?), System.DateTimeOffset? receivingpostponeduntil = default(System.DateTimeOffset?), int? itemsfailedforlastsync = default(int?), string officeappsdeploymenterror = default(string), bool? enabledforact = default(bool?), int? outgoingemailstatus = default(int?), System.DateTimeOffset? postponemailboxprocessinguntil = default(System.DateTimeOffset?), int? lastsyncerrorcount = default(int?), string emailaddress = default(string), System.DateTimeOffset? lastsyncstartedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? lastsyncerroroccurredon = default(System.DateTimeOffset?), System.DateTimeOffset? postponeofficeappsdeploymentuntil = default(System.DateTimeOffset?), object entityimage = default(object), bool? allowemailconnectortousecredentials = default(bool?), int? itemsprocessedforlastsync = default(int?), long? entityimageTimestamp = default(long?), System.DateTimeOffset? officeappsdeploymentcompleteon = default(System.DateTimeOffset?), System.DateTimeOffset? processinglastattemptedon = default(System.DateTimeOffset?), string username = default(string), string _modifiedonbehalfbyValue = default(string), int? officeappsdeploymentstatus = default(int?), System.DateTimeOffset? postponesendinguntil = default(System.DateTimeOffset?), System.DateTimeOffset? postponetestemailconfigurationuntil = default(System.DateTimeOffset?), int? actstatus = default(int?), int? statuscode = default(int?), int? forcedunlockcount = default(int?), System.DateTimeOffset? receivingpostponeduntilforact = default(System.DateTimeOffset?), int? processedtimes = default(int?), bool? ispasswordset = default(bool?), string _createdbyValue = default(string), string _owningteamValue = default(string), bool? orgmarkedasprimaryforexchangesync = default(bool?), string lastsyncerrormachinename = default(string), string ewsurl = default(string), int? processingstatecode = default(int?), int? lastsyncerrorcode = default(int?), string _organizationidValue = default(string), string _createdonbehalfbyValue = default(string), int? emailrouteraccessapproval = default(int?), int? mailboxstatus = default(int?), int? noemailcount = default(int?), int? incomingemailstatus = default(int?), bool? enabledforoutgoingemail = default(bool?), string password = default(string), bool? enabledforincomingemail = default(bool?), bool? isexchangecontactsimportscheduled = default(bool?), int? transientfailurecount = default(int?), string _owningbusinessunitValue = default(string), string name = default(string), System.DateTimeOffset? lastautodiscoveredon = default(System.DateTimeOffset?), System.DateTimeOffset? testmailboxaccesscompletedon = default(System.DateTimeOffset?), string entityimageUrl = default(string), string _regardingobjectidValue = default(string), string undeliverablefolder = default(string), System.DateTimeOffset? lastmailboxforcedunlockoccurredon = default(System.DateTimeOffset?), bool? isactsyncorgflagset = default(bool?), int? verboseloggingenabled = default(int?), int? statecode = default(int?), string hostid = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser regardingobjectid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMemailserverprofile emailserverprofile = default(MicrosoftDynamicsCRMemailserverprofile), IList<MicrosoftDynamicsCRMsystemuser> systemuserDefaultmailboxMailbox = default(IList<MicrosoftDynamicsCRMsystemuser>), IList<MicrosoftDynamicsCRMqueue> queueDefaultmailboxMailbox = default(IList<MicrosoftDynamicsCRMqueue>), IList<MicrosoftDynamicsCRMbulkoperation> bulkoperationMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMbulkoperation>), IList<MicrosoftDynamicsCRMcampaignactivity> campaignactivityMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMcampaignactivity>), IList<MicrosoftDynamicsCRMcampaignresponse> campaignresponseMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMcampaignresponse>), IList<MicrosoftDynamicsCRMincidentresolution> incidentresolutionMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMserviceappointment> serviceappointmentMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMopportunityclose> opportunitycloseMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> ordercloseMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> quotecloseMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> spiceRequiredchecksMailboxSendermailboxid = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMtracelog> tracelogMailbox = default(IList<MicrosoftDynamicsCRMtracelog>), IList<MicrosoftDynamicsCRMactivitypointer> activitypointerSendermailboxidMailbox = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMasyncoperation> mailboxAsyncoperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMqueue regardingobjectidQueue = default(MicrosoftDynamicsCRMqueue), IList<MicrosoftDynamicsCRMemail> emailSendermailboxidMailbox = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMsyncerror> mailboxSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMannotation> mailboxAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> mailboxMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMprocesssession> mailboxProcesssessions = default(IList<MicrosoftDynamicsCRMprocesssession>))
         {
             Testemailconfigurationretrycount = testemailconfigurationretrycount;
-            Isactsyncorgflagset = isactsyncorgflagset;
-            Lastmailboxforcedunlockoccurredon = lastmailboxforcedunlockoccurredon;
+            Noactcount = noactcount;
+            Processemailreceivedafter = processemailreceivedafter;
+            Exchangesyncstatexml = exchangesyncstatexml;
             Isforwardmailbox = isforwardmailbox;
             this._emailserverprofileValue = _emailserverprofileValue;
             Isemailaddressapprovedbyo365admin = isemailaddressapprovedbyo365admin;
-            Orgmarkedasprimaryforexchangesync = orgmarkedasprimaryforexchangesync;
+            Credentialinfo = credentialinfo;
             Actdeliverymethod = actdeliverymethod;
             Mailboxprocessingcontext = mailboxprocessingcontext;
-            Outgoingemaildeliverymethod = outgoingemaildeliverymethod;
-            Entityimageid = entityimageid;
-            Incomingemaildeliverymethod = incomingemaildeliverymethod;
-            Lastsyncerror = lastsyncerror;
-            Noactcount = noactcount;
+            Dataencryptionkey = dataencryptionkey;
+            Folderhierarchy = folderhierarchy;
             Mailboxid = mailboxid;
+            Outgoingemaildeliverymethod = outgoingemaildeliverymethod;
+            Exchangecontactsimportstatus = exchangecontactsimportstatus;
+            Exchangecontactsimportcompletedon = exchangecontactsimportcompletedon;
+            Officeappsdeploymentscheduled = officeappsdeploymentscheduled;
+            Entityimageid = entityimageid;
             Timezoneruleversionnumber = timezoneruleversionnumber;
-            Forcedunlockcount = forcedunlockcount;
-            Lastsuccessfulsynccompletedon = lastsuccessfulsynccompletedon;
-            Lastautodiscoveredon = lastautodiscoveredon;
-            this._owninguserValue = _owninguserValue;
-            Enabledforoutgoingemail = enabledforoutgoingemail;
+            Incomingemaildeliverymethod = incomingemaildeliverymethod;
+            this._owneridValue = _owneridValue;
             this._modifiedbyValue = _modifiedbyValue;
-            Entityimage = entityimage;
+            Lastsuccessfulsynccompletedon = lastsuccessfulsynccompletedon;
+            Averagetotalduration = averagetotalduration;
+            this._owninguserValue = _owninguserValue;
+            Modifiedon = modifiedon;
+            Lastsyncerror = lastsyncerror;
             Createdon = createdon;
+            Isdataencryptionkeyset = isdataencryptionkeyset;
             Versionnumber = versionnumber;
-            this._organizationidValue = _organizationidValue;
+            Isserviceaccount = isserviceaccount;
             Lastduration = lastduration;
             Testemailconfigurationscheduled = testemailconfigurationscheduled;
+            Processanddeleteemails = processanddeleteemails;
+            Receivingpostponeduntil = receivingpostponeduntil;
             Itemsfailedforlastsync = itemsfailedforlastsync;
             Officeappsdeploymenterror = officeappsdeploymenterror;
             Enabledforact = enabledforact;
             Outgoingemailstatus = outgoingemailstatus;
+            Postponemailboxprocessinguntil = postponemailboxprocessinguntil;
             Lastsyncerrorcount = lastsyncerrorcount;
             Emailaddress = emailaddress;
+            Lastsyncstartedon = lastsyncstartedon;
             Utcconversiontimezonecode = utcconversiontimezonecode;
             Lastsyncerroroccurredon = lastsyncerroroccurredon;
-            Processanddeleteemails = processanddeleteemails;
+            Postponeofficeappsdeploymentuntil = postponeofficeappsdeploymentuntil;
+            Entityimage = entityimage;
+            Allowemailconnectortousecredentials = allowemailconnectortousecredentials;
             Itemsprocessedforlastsync = itemsprocessedforlastsync;
             EntityimageTimestamp = entityimageTimestamp;
-            Folderhierarchy = folderhierarchy;
             Officeappsdeploymentcompleteon = officeappsdeploymentcompleteon;
             Processinglastattemptedon = processinglastattemptedon;
             Username = username;
-            Officeappsdeploymentscheduled = officeappsdeploymentscheduled;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Officeappsdeploymentstatus = officeappsdeploymentstatus;
             Postponesendinguntil = postponesendinguntil;
             Postponetestemailconfigurationuntil = postponetestemailconfigurationuntil;
             Actstatus = actstatus;
             Statuscode = statuscode;
-            Lastsyncstartedon = lastsyncstartedon;
+            Forcedunlockcount = forcedunlockcount;
+            Receivingpostponeduntilforact = receivingpostponeduntilforact;
             Processedtimes = processedtimes;
-            Lastsyncerrorcode = lastsyncerrorcode;
             Ispasswordset = ispasswordset;
             this._createdbyValue = _createdbyValue;
             this._owningteamValue = _owningteamValue;
-            this._owneridValue = _owneridValue;
+            Orgmarkedasprimaryforexchangesync = orgmarkedasprimaryforexchangesync;
             Lastsyncerrormachinename = lastsyncerrormachinename;
             Ewsurl = ewsurl;
-            Modifiedon = modifiedon;
+            Processingstatecode = processingstatecode;
+            Lastsyncerrorcode = lastsyncerrorcode;
+            this._organizationidValue = _organizationidValue;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Postponeofficeappsdeploymentuntil = postponeofficeappsdeploymentuntil;
-            Postponemailboxprocessinguntil = postponemailboxprocessinguntil;
-            Processemailreceivedafter = processemailreceivedafter;
-            Receivingpostponeduntil = receivingpostponeduntil;
             Emailrouteraccessapproval = emailrouteraccessapproval;
             Mailboxstatus = mailboxstatus;
             Noemailcount = noemailcount;
             Incomingemailstatus = incomingemailstatus;
-            Processingstatecode = processingstatecode;
+            Enabledforoutgoingemail = enabledforoutgoingemail;
             Password = password;
             Enabledforincomingemail = enabledforincomingemail;
-            Name = name;
+            Isexchangecontactsimportscheduled = isexchangecontactsimportscheduled;
+            Transientfailurecount = transientfailurecount;
             this._owningbusinessunitValue = _owningbusinessunitValue;
-            Isserviceaccount = isserviceaccount;
-            Statecode = statecode;
+            Name = name;
+            Lastautodiscoveredon = lastautodiscoveredon;
             Testmailboxaccesscompletedon = testmailboxaccesscompletedon;
-            Exchangesyncstatexml = exchangesyncstatexml;
             EntityimageUrl = entityimageUrl;
             this._regardingobjectidValue = _regardingobjectidValue;
             Undeliverablefolder = undeliverablefolder;
-            Allowemailconnectortousecredentials = allowemailconnectortousecredentials;
-            Averagetotalduration = averagetotalduration;
+            Lastmailboxforcedunlockoccurredon = lastmailboxforcedunlockoccurredon;
+            Isactsyncorgflagset = isactsyncorgflagset;
             Verboseloggingenabled = verboseloggingenabled;
-            Receivingpostponeduntilforact = receivingpostponeduntilforact;
+            Statecode = statecode;
             Hostid = hostid;
-            Transientfailurecount = transientfailurecount;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
@@ -130,6 +136,15 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Emailserverprofile = emailserverprofile;
             SystemuserDefaultmailboxMailbox = systemuserDefaultmailboxMailbox;
             QueueDefaultmailboxMailbox = queueDefaultmailboxMailbox;
+            BulkoperationMailboxSendermailboxid = bulkoperationMailboxSendermailboxid;
+            CampaignactivityMailboxSendermailboxid = campaignactivityMailboxSendermailboxid;
+            CampaignresponseMailboxSendermailboxid = campaignresponseMailboxSendermailboxid;
+            IncidentresolutionMailboxSendermailboxid = incidentresolutionMailboxSendermailboxid;
+            ServiceappointmentMailboxSendermailboxid = serviceappointmentMailboxSendermailboxid;
+            OpportunitycloseMailboxSendermailboxid = opportunitycloseMailboxSendermailboxid;
+            OrdercloseMailboxSendermailboxid = ordercloseMailboxSendermailboxid;
+            QuotecloseMailboxSendermailboxid = quotecloseMailboxSendermailboxid;
+            SpiceRequiredchecksMailboxSendermailboxid = spiceRequiredchecksMailboxSendermailboxid;
             TracelogMailbox = tracelogMailbox;
             ActivitypointerSendermailboxidMailbox = activitypointerSendermailboxidMailbox;
             MailboxAsyncoperations = mailboxAsyncoperations;
@@ -137,8 +152,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
             EmailSendermailboxidMailbox = emailSendermailboxidMailbox;
             MailboxSyncErrors = mailboxSyncErrors;
             MailboxAnnotation = mailboxAnnotation;
+            MailboxMailboxTrackingFolder = mailboxMailboxTrackingFolder;
             Organizationid = organizationid;
-            AbsScheduledprocessexecutionMailboxSendermailboxid = absScheduledprocessexecutionMailboxSendermailboxid;
+            MailboxProcesssessions = mailboxProcesssessions;
             CustomInit();
         }
 
@@ -154,13 +170,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isactsyncorgflagset")]
-        public bool? Isactsyncorgflagset { get; set; }
+        [JsonProperty(PropertyName = "noactcount")]
+        public int? Noactcount { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "lastmailboxforcedunlockoccurredon")]
-        public System.DateTimeOffset? Lastmailboxforcedunlockoccurredon { get; set; }
+        [JsonProperty(PropertyName = "processemailreceivedafter")]
+        public System.DateTimeOffset? Processemailreceivedafter { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangesyncstatexml")]
+        public string Exchangesyncstatexml { get; set; }
 
         /// <summary>
         /// </summary>
@@ -179,8 +200,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "orgmarkedasprimaryforexchangesync")]
-        public bool? Orgmarkedasprimaryforexchangesync { get; set; }
+        [JsonProperty(PropertyName = "credentialinfo")]
+        public string Credentialinfo { get; set; }
 
         /// <summary>
         /// </summary>
@@ -194,28 +215,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "outgoingemaildeliverymethod")]
-        public int? Outgoingemaildeliverymethod { get; set; }
+        [JsonProperty(PropertyName = "dataencryptionkey")]
+        public string Dataencryptionkey { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incomingemaildeliverymethod")]
-        public int? Incomingemaildeliverymethod { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lastsyncerror")]
-        public string Lastsyncerror { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "noactcount")]
-        public int? Noactcount { get; set; }
+        [JsonProperty(PropertyName = "folderhierarchy")]
+        public string Folderhierarchy { get; set; }
 
         /// <summary>
         /// </summary>
@@ -224,33 +230,43 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "outgoingemaildeliverymethod")]
+        public int? Outgoingemaildeliverymethod { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangecontactsimportstatus")]
+        public int? Exchangecontactsimportstatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangecontactsimportcompletedon")]
+        public System.DateTimeOffset? Exchangecontactsimportcompletedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "officeappsdeploymentscheduled")]
+        public bool? Officeappsdeploymentscheduled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "timezoneruleversionnumber")]
         public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "forcedunlockcount")]
-        public int? Forcedunlockcount { get; set; }
+        [JsonProperty(PropertyName = "incomingemaildeliverymethod")]
+        public int? Incomingemaildeliverymethod { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "lastsuccessfulsynccompletedon")]
-        public System.DateTimeOffset? Lastsuccessfulsynccompletedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lastautodiscoveredon")]
-        public System.DateTimeOffset? Lastautodiscoveredon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "enabledforoutgoingemail")]
-        public bool? Enabledforoutgoingemail { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -259,8 +275,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        [JsonProperty(PropertyName = "lastsuccessfulsynccompletedon")]
+        public System.DateTimeOffset? Lastsuccessfulsynccompletedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "averagetotalduration")]
+        public int? Averagetotalduration { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastsyncerror")]
+        public string Lastsyncerror { get; set; }
 
         /// <summary>
         /// </summary>
@@ -269,13 +305,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "isdataencryptionkeyset")]
+        public bool? Isdataencryptionkeyset { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "isserviceaccount")]
+        public bool? Isserviceaccount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -286,6 +327,16 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "testemailconfigurationscheduled")]
         public bool? Testemailconfigurationscheduled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "processanddeleteemails")]
+        public bool? Processanddeleteemails { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "receivingpostponeduntil")]
+        public System.DateTimeOffset? Receivingpostponeduntil { get; set; }
 
         /// <summary>
         /// </summary>
@@ -309,6 +360,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "postponemailboxprocessinguntil")]
+        public System.DateTimeOffset? Postponemailboxprocessinguntil { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "lastsyncerrorcount")]
         public int? Lastsyncerrorcount { get; set; }
 
@@ -316,6 +372,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "emailaddress")]
         public string Emailaddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastsyncstartedon")]
+        public System.DateTimeOffset? Lastsyncstartedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -329,8 +390,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "processanddeleteemails")]
-        public bool? Processanddeleteemails { get; set; }
+        [JsonProperty(PropertyName = "postponeofficeappsdeploymentuntil")]
+        public System.DateTimeOffset? Postponeofficeappsdeploymentuntil { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage")]
+        public object Entityimage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "allowemailconnectortousecredentials")]
+        public bool? Allowemailconnectortousecredentials { get; set; }
 
         /// <summary>
         /// </summary>
@@ -341,11 +412,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "entityimage_timestamp")]
         public long? EntityimageTimestamp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "folderhierarchy")]
-        public string Folderhierarchy { get; set; }
 
         /// <summary>
         /// </summary>
@@ -361,11 +427,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "officeappsdeploymentscheduled")]
-        public bool? Officeappsdeploymentscheduled { get; set; }
 
         /// <summary>
         /// </summary>
@@ -399,18 +460,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "lastsyncstartedon")]
-        public System.DateTimeOffset? Lastsyncstartedon { get; set; }
+        [JsonProperty(PropertyName = "forcedunlockcount")]
+        public int? Forcedunlockcount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "receivingpostponeduntilforact")]
+        public System.DateTimeOffset? Receivingpostponeduntilforact { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "processedtimes")]
         public int? Processedtimes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lastsyncerrorcode")]
-        public int? Lastsyncerrorcode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -429,8 +490,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "orgmarkedasprimaryforexchangesync")]
+        public bool? Orgmarkedasprimaryforexchangesync { get; set; }
 
         /// <summary>
         /// </summary>
@@ -444,33 +505,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "processingstatecode")]
+        public int? Processingstatecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastsyncerrorcode")]
+        public int? Lastsyncerrorcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfby_value")]
         public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "postponeofficeappsdeploymentuntil")]
-        public System.DateTimeOffset? Postponeofficeappsdeploymentuntil { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "postponemailboxprocessinguntil")]
-        public System.DateTimeOffset? Postponemailboxprocessinguntil { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "processemailreceivedafter")]
-        public System.DateTimeOffset? Processemailreceivedafter { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "receivingpostponeduntil")]
-        public System.DateTimeOffset? Receivingpostponeduntil { get; set; }
 
         /// <summary>
         /// </summary>
@@ -494,8 +545,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "processingstatecode")]
-        public int? Processingstatecode { get; set; }
+        [JsonProperty(PropertyName = "enabledforoutgoingemail")]
+        public bool? Enabledforoutgoingemail { get; set; }
 
         /// <summary>
         /// </summary>
@@ -509,8 +560,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "isexchangecontactsimportscheduled")]
+        public bool? Isexchangecontactsimportscheduled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "transientfailurecount")]
+        public int? Transientfailurecount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -519,23 +575,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isserviceaccount")]
-        public bool? Isserviceaccount { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
+        [JsonProperty(PropertyName = "lastautodiscoveredon")]
+        public System.DateTimeOffset? Lastautodiscoveredon { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "testmailboxaccesscompletedon")]
         public System.DateTimeOffset? Testmailboxaccesscompletedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangesyncstatexml")]
-        public string Exchangesyncstatexml { get; set; }
 
         /// <summary>
         /// </summary>
@@ -554,13 +605,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "allowemailconnectortousecredentials")]
-        public bool? Allowemailconnectortousecredentials { get; set; }
+        [JsonProperty(PropertyName = "lastmailboxforcedunlockoccurredon")]
+        public System.DateTimeOffset? Lastmailboxforcedunlockoccurredon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "averagetotalduration")]
-        public int? Averagetotalduration { get; set; }
+        [JsonProperty(PropertyName = "isactsyncorgflagset")]
+        public bool? Isactsyncorgflagset { get; set; }
 
         /// <summary>
         /// </summary>
@@ -569,18 +620,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "receivingpostponeduntilforact")]
-        public System.DateTimeOffset? Receivingpostponeduntilforact { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "hostid")]
         public string Hostid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "transientfailurecount")]
-        public int? Transientfailurecount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -644,6 +690,51 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "bulkoperation_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMbulkoperation> BulkoperationMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignactivity_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMcampaignactivity> CampaignactivityMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignresponse_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMcampaignresponse> CampaignresponseMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incidentresolution_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMincidentresolution> IncidentresolutionMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "serviceappointment_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMserviceappointment> ServiceappointmentMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "opportunityclose_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMopportunityclose> OpportunitycloseMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "orderclose_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMorderclose> OrdercloseMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "quoteclose_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMquoteclose> QuotecloseMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_requiredchecks_mailbox_sendermailboxid")]
+        public IList<MicrosoftDynamicsCRMspiceRequiredchecks> SpiceRequiredchecksMailboxSendermailboxid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "tracelog_Mailbox")]
         public IList<MicrosoftDynamicsCRMtracelog> TracelogMailbox { get; set; }
 
@@ -679,13 +770,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "Mailbox_MailboxTrackingFolder")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> MailboxMailboxTrackingFolder { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "organizationid")]
         public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "abs_scheduledprocessexecution_mailbox_sendermailboxid")]
-        public IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> AbsScheduledprocessexecutionMailboxSendermailboxid { get; set; }
+        [JsonProperty(PropertyName = "mailbox_processsessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> MailboxProcesssessions { get; set; }
 
     }
 }

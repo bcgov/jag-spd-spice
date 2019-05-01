@@ -29,17 +29,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMlanguagelocale class.
         /// </summary>
-        public MicrosoftDynamicsCRMlanguagelocale(string region = default(string), string languagelocaleid = default(string), string language = default(string), string code = default(string), long? versionnumber = default(long?), int? statecode = default(int?), int? statuscode = default(int?), string _organizationidValue = default(string), string name = default(string), int? localeid = default(int?), IList<MicrosoftDynamicsCRMknowledgearticle> knowledgearticleLanguagelocaleid = default(IList<MicrosoftDynamicsCRMknowledgearticle>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
+        public MicrosoftDynamicsCRMlanguagelocale(string languagelocaleid = default(string), string region = default(string), string name = default(string), string language = default(string), string code = default(string), long? versionnumber = default(long?), int? statecode = default(int?), int? statuscode = default(int?), string _organizationidValue = default(string), int? localeid = default(int?), IList<MicrosoftDynamicsCRMknowledgearticle> knowledgearticleLanguagelocaleid = default(IList<MicrosoftDynamicsCRMknowledgearticle>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
         {
-            Region = region;
             Languagelocaleid = languagelocaleid;
+            Region = region;
+            Name = name;
             Language = language;
             Code = code;
             Versionnumber = versionnumber;
             Statecode = statecode;
             Statuscode = statuscode;
             this._organizationidValue = _organizationidValue;
-            Name = name;
             Localeid = localeid;
             KnowledgearticleLanguagelocaleid = knowledgearticleLanguagelocaleid;
             Organizationid = organizationid;
@@ -53,13 +53,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "languagelocaleid")]
+        public string Languagelocaleid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "region")]
         public string Region { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "languagelocaleid")]
-        public string Languagelocaleid { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
@@ -90,11 +95,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "_organizationid_value")]
         public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// </summary>

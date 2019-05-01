@@ -29,42 +29,49 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMphonetocaseprocess class.
         /// </summary>
-        public MicrosoftDynamicsCRMphonetocaseprocess(string _modifiedbyValue = default(string), int? statecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string traversedpath = default(string), int? statuscode = default(int?), string businessprocessflowinstanceid = default(string), int? duration = default(int?), int? importsequencenumber = default(int?), long? versionnumber = default(long?), string _createdbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), object exchangerate = default(object), string _organizationidValue = default(string), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), System.DateTimeOffset? activestagestartedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string _activestageidValue = default(string), string name = default(string), string _createdonbehalfbyValue = default(string), string _incidentidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _processidValue = default(string), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMincident incidentid = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMworkflow processid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMworkflowlog> workflowlogsPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMworkflowlog>), MicrosoftDynamicsCRMprocessstage activestageid = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMsyncerror> phoneToCaseProcessSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMphonetocaseprocess(int? timezoneruleversionnumber = default(int?), object exchangerate = default(object), string name = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? activestagestartedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? statecode = default(int?), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), int? duration = default(int?), string _organizationidValue = default(string), int? statuscode = default(int?), int? importsequencenumber = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _incidentidValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _activestageidValue = default(string), string businessprocessflowinstanceid = default(string), string traversedpath = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string _processidValue = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMprocessstage activestageid = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMworkflow processid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMsyncerror> phoneToCaseProcessSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> phonetocaseprocessAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMworkflowlog> workflowlogsPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMworkflowlog>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> phonetocaseprocessMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> phonetocaseprocessProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> phonetocaseprocessBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> phonetocaseprocessPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMincident incidentid = default(MicrosoftDynamicsCRMincident))
         {
-            this._modifiedbyValue = _modifiedbyValue;
-            Statecode = statecode;
-            Modifiedon = modifiedon;
-            Traversedpath = traversedpath;
-            Statuscode = statuscode;
-            Businessprocessflowinstanceid = businessprocessflowinstanceid;
-            Duration = duration;
-            Importsequencenumber = importsequencenumber;
-            Versionnumber = versionnumber;
-            this._createdbyValue = _createdbyValue;
-            Overriddencreatedon = overriddencreatedon;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Exchangerate = exchangerate;
-            this._organizationidValue = _organizationidValue;
-            Completedon = completedon;
+            Name = name;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
             Activestagestartedon = activestagestartedon;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            this._activestageidValue = _activestageidValue;
-            Name = name;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Statecode = statecode;
+            Completedon = completedon;
+            Duration = duration;
+            this._organizationidValue = _organizationidValue;
+            Statuscode = statuscode;
+            Importsequencenumber = importsequencenumber;
+            this._modifiedbyValue = _modifiedbyValue;
+            Overriddencreatedon = overriddencreatedon;
+            Versionnumber = versionnumber;
             this._incidentidValue = _incidentidValue;
+            Modifiedon = modifiedon;
+            this._activestageidValue = _activestageidValue;
+            Businessprocessflowinstanceid = businessprocessflowinstanceid;
+            Traversedpath = traversedpath;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Createdon = createdon;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             this._processidValue = _processidValue;
-            Transactioncurrencyid = transactioncurrencyid;
-            Organizationid = organizationid;
+            this._createdbyValue = _createdbyValue;
             Createdbyname = createdbyname;
-            Incidentid = incidentid;
             Createdonbehalfbyname = createdonbehalfbyname;
-            Modifiedonbehalfbyname = modifiedonbehalfbyname;
-            Processid = processid;
-            WorkflowlogsPhonetocaseprocess = workflowlogsPhonetocaseprocess;
-            Activestageid = activestageid;
-            PhoneToCaseProcessSyncErrors = phoneToCaseProcessSyncErrors;
             Modifiedbyname = modifiedbyname;
+            Modifiedonbehalfbyname = modifiedonbehalfbyname;
+            Organizationid = organizationid;
+            Activestageid = activestageid;
+            Processid = processid;
+            PhoneToCaseProcessSyncErrors = phoneToCaseProcessSyncErrors;
+            PhonetocaseprocessAsyncOperations = phonetocaseprocessAsyncOperations;
+            WorkflowlogsPhonetocaseprocess = workflowlogsPhonetocaseprocess;
+            PhonetocaseprocessMailboxTrackingFolders = phonetocaseprocessMailboxTrackingFolders;
+            PhonetocaseprocessProcessSession = phonetocaseprocessProcessSession;
+            PhonetocaseprocessBulkDeleteFailures = phonetocaseprocessBulkDeleteFailures;
+            PhonetocaseprocessPrincipalObjectAttributeAccesses = phonetocaseprocessPrincipalObjectAttributeAccesses;
+            Transactioncurrencyid = transactioncurrencyid;
+            Incidentid = incidentid;
             CustomInit();
         }
 
@@ -75,63 +82,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traversedpath")]
-        public string Traversedpath { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "businessprocessflowinstanceid")]
-        public string Businessprocessflowinstanceid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "duration")]
-        public int? Duration { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -140,13 +92,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "completedon")]
-        public System.DateTimeOffset? Completedon { get; set; }
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -160,18 +112,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_activestageid_value")]
-        public string _activestageidValue { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "completedon")]
+        public System.DateTimeOffset? Completedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "duration")]
+        public int? Duration { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -180,8 +162,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_activestageid_value")]
+        public string _activestageidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "businessprocessflowinstanceid")]
+        public string Businessprocessflowinstanceid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "traversedpath")]
+        public string Traversedpath { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -190,13 +202,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "transactioncurrencyid")]
-        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -205,13 +212,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "incidentid")]
-        public MicrosoftDynamicsCRMincident Incidentid { get; set; }
+        [JsonProperty(PropertyName = "createdonbehalfbyname")]
+        public MicrosoftDynamicsCRMsystemuser Createdonbehalfbyname { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdonbehalfbyname")]
-        public MicrosoftDynamicsCRMsystemuser Createdonbehalfbyname { get; set; }
+        [JsonProperty(PropertyName = "modifiedbyname")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedbyname { get; set; }
 
         /// <summary>
         /// </summary>
@@ -220,13 +227,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public MicrosoftDynamicsCRMworkflow Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "workflowlogs_phonetocaseprocess")]
-        public IList<MicrosoftDynamicsCRMworkflowlog> WorkflowlogsPhonetocaseprocess { get; set; }
+        [JsonProperty(PropertyName = "organizationid")]
+        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -235,13 +237,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "processid")]
+        public MicrosoftDynamicsCRMworkflow Processid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "PhoneToCaseProcess_SyncErrors")]
         public IList<MicrosoftDynamicsCRMsyncerror> PhoneToCaseProcessSyncErrors { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedbyname")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedbyname { get; set; }
+        [JsonProperty(PropertyName = "phonetocaseprocess_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> PhonetocaseprocessAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "workflowlogs_phonetocaseprocess")]
+        public IList<MicrosoftDynamicsCRMworkflowlog> WorkflowlogsPhonetocaseprocess { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "phonetocaseprocess_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> PhonetocaseprocessMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "phonetocaseprocess_ProcessSession")]
+        public IList<MicrosoftDynamicsCRMprocesssession> PhonetocaseprocessProcessSession { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "phonetocaseprocess_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> PhonetocaseprocessBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "phonetocaseprocess_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> PhonetocaseprocessPrincipalObjectAttributeAccesses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "transactioncurrencyid")]
+        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incidentid")]
+        public MicrosoftDynamicsCRMincident Incidentid { get; set; }
 
     }
 }

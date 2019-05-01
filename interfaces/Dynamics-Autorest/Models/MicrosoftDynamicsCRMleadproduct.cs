@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMleadproduct
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMleadproduct(string leadproductid = default(string), string productid = default(string), string leadid = default(string), long? versionnumber = default(long?))
+        public MicrosoftDynamicsCRMleadproduct(string leadproductid = default(string), string leadid = default(string), int? timezoneruleversionnumber = default(int?), long? versionnumber = default(long?), string productid = default(string), int? importsequencenumber = default(int?), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string name = default(string), IList<MicrosoftDynamicsCRMasyncoperation> leadproductAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> leadproductMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> leadproductBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> leadproductPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
             Leadproductid = leadproductid;
-            Productid = productid;
             Leadid = leadid;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Versionnumber = versionnumber;
+            Productid = productid;
+            Importsequencenumber = importsequencenumber;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Overriddencreatedon = overriddencreatedon;
+            Name = name;
+            LeadproductAsyncOperations = leadproductAsyncOperations;
+            LeadproductMailboxTrackingFolders = leadproductMailboxTrackingFolders;
+            LeadproductBulkDeleteFailures = leadproductBulkDeleteFailures;
+            LeadproductPrincipalObjectAttributeAccesses = leadproductPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -48,18 +59,63 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "productid")]
-        public string Productid { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "leadid")]
         public string Leadid { get; set; }
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productid")]
+        public string Productid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "leadproduct_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> LeadproductAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "leadproduct_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> LeadproductMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "leadproduct_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> LeadproductBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "leadproduct_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> LeadproductPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

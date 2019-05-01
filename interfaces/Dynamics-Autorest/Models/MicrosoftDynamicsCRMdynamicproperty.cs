@@ -29,58 +29,65 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMdynamicproperty class.
         /// </summary>
-        public MicrosoftDynamicsCRMdynamicproperty(string rootdynamicpropertyid = default(string), string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string defaultvaluestring = default(string), int? importsequencenumber = default(int?), string _basedynamicpropertyidValue = default(string), bool? isreadonly = default(bool?), int? defaultvalueinteger = default(int?), bool? isrequired = default(bool?), int? dmtimportstate = default(int?), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), int? maxvalueinteger = default(int?), double? maxvaluedouble = default(double?), string _modifiedbyValue = default(string), object minvaluedecimal = default(object), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), string name = default(string), object defaultvaluedecimal = default(object), int? maxlengthstring = default(int?), string description = default(string), object maxvaluedecimal = default(object), double? defaultvaluedouble = default(double?), string overwrittendynamicpropertyid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), double? minvaluedouble = default(double?), string _defaultvalueoptionsetValue = default(string), int? statuscode = default(int?), int? precision = default(int?), string dynamicpropertyid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _regardingobjectidValue = default(string), int? minvalueinteger = default(int?), bool? ishidden = default(bool?), long? versionnumber = default(long?), int? datatype = default(int?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMdynamicproperty basedynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), IList<MicrosoftDynamicsCRMdynamicproperty> dynamicpropertyBaseDynamicproperty = default(IList<MicrosoftDynamicsCRMdynamicproperty>), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> dynamicPropertyDynamicPropertyInstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMproductassociation regardingobjectidProductassociation = default(MicrosoftDynamicsCRMproductassociation), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMdynamicpropertyassociation> dynamicpropertyDynamicPropertyAssociation = default(IList<MicrosoftDynamicsCRMdynamicpropertyassociation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem> dynamicPropertyDynamicPropertyOptionSetItem = default(IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem>), MicrosoftDynamicsCRMdynamicpropertyoptionsetitem dynamicpropertyoptionsetvalueid = default(MicrosoftDynamicsCRMdynamicpropertyoptionsetitem), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMdynamicproperty(bool? isreadonly = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string dynamicpropertyid = default(string), string _basedynamicpropertyidValue = default(string), int? defaultvalueinteger = default(int?), long? versionnumber = default(long?), int? dmtimportstate = default(int?), int? utcconversiontimezonecode = default(int?), int? datatype = default(int?), int? statecode = default(int?), int? timezoneruleversionnumber = default(int?), int? maxvalueinteger = default(int?), object minvaluedecimal = default(object), string _modifiedbyValue = default(string), double? defaultvaluedouble = default(double?), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string rootdynamicpropertyid = default(string), double? minvaluedouble = default(double?), int? maxlengthstring = default(int?), string description = default(string), string overwrittendynamicpropertyid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string defaultvaluestring = default(string), string _defaultvalueoptionsetValue = default(string), double? maxvaluedouble = default(double?), int? statuscode = default(int?), int? importsequencenumber = default(int?), object defaultvaluedecimal = default(object), string _regardingobjectidValue = default(string), string _organizationidValue = default(string), bool? isrequired = default(bool?), int? precision = default(int?), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), int? minvalueinteger = default(int?), bool? ishidden = default(bool?), object maxvaluedecimal = default(object), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> dynamicpropertySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> dynamicpropertyAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> dynamicpropertyMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> dynamicpropertyBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> dynamicpropertyPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMdynamicproperty basedynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), IList<MicrosoftDynamicsCRMdynamicproperty> dynamicpropertyBaseDynamicproperty = default(IList<MicrosoftDynamicsCRMdynamicproperty>), MicrosoftDynamicsCRMdynamicpropertyoptionsetitem dynamicpropertyoptionsetvalueid = default(MicrosoftDynamicsCRMdynamicpropertyoptionsetitem), IList<MicrosoftDynamicsCRMdynamicpropertyassociation> dynamicpropertyDynamicPropertyAssociation = default(IList<MicrosoftDynamicsCRMdynamicpropertyassociation>), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> dynamicPropertyDynamicPropertyInstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem> dynamicPropertyDynamicPropertyOptionSetItem = default(IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem>), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMproductassociation regardingobjectidProductassociation = default(MicrosoftDynamicsCRMproductassociation))
         {
-            Rootdynamicpropertyid = rootdynamicpropertyid;
-            this._organizationidValue = _organizationidValue;
-            Createdon = createdon;
-            Defaultvaluestring = defaultvaluestring;
-            Importsequencenumber = importsequencenumber;
-            this._basedynamicpropertyidValue = _basedynamicpropertyidValue;
             Isreadonly = isreadonly;
+            Createdon = createdon;
+            Dynamicpropertyid = dynamicpropertyid;
+            this._basedynamicpropertyidValue = _basedynamicpropertyidValue;
             Defaultvalueinteger = defaultvalueinteger;
-            Isrequired = isrequired;
+            Versionnumber = versionnumber;
             Dmtimportstate = dmtimportstate;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Datatype = datatype;
             Statecode = statecode;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Maxvalueinteger = maxvalueinteger;
-            Maxvaluedouble = maxvaluedouble;
-            this._modifiedbyValue = _modifiedbyValue;
             Minvaluedecimal = minvaluedecimal;
-            this._createdbyValue = _createdbyValue;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._modifiedbyValue = _modifiedbyValue;
+            Defaultvaluedouble = defaultvaluedouble;
             Name = name;
-            Defaultvaluedecimal = defaultvaluedecimal;
+            Modifiedon = modifiedon;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Rootdynamicpropertyid = rootdynamicpropertyid;
+            Minvaluedouble = minvaluedouble;
             Maxlengthstring = maxlengthstring;
             Description = description;
-            Maxvaluedecimal = maxvaluedecimal;
-            Defaultvaluedouble = defaultvaluedouble;
             Overwrittendynamicpropertyid = overwrittendynamicpropertyid;
             Overriddencreatedon = overriddencreatedon;
-            Minvaluedouble = minvaluedouble;
+            Defaultvaluestring = defaultvaluestring;
             this._defaultvalueoptionsetValue = _defaultvalueoptionsetValue;
+            Maxvaluedouble = maxvaluedouble;
             Statuscode = statuscode;
-            Precision = precision;
-            Dynamicpropertyid = dynamicpropertyid;
-            Modifiedon = modifiedon;
+            Importsequencenumber = importsequencenumber;
+            Defaultvaluedecimal = defaultvaluedecimal;
             this._regardingobjectidValue = _regardingobjectidValue;
+            this._organizationidValue = _organizationidValue;
+            Isrequired = isrequired;
+            Precision = precision;
+            this._createdbyValue = _createdbyValue;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Minvalueinteger = minvalueinteger;
             Ishidden = ishidden;
-            Versionnumber = versionnumber;
-            Datatype = datatype;
+            Maxvaluedecimal = maxvaluedecimal;
+            Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
+            Modifiedby = modifiedby;
+            Modifiedonbehalfby = modifiedonbehalfby;
+            Organizationid = organizationid;
+            DynamicpropertySyncErrors = dynamicpropertySyncErrors;
+            DynamicpropertyAsyncOperations = dynamicpropertyAsyncOperations;
+            DynamicpropertyMailboxTrackingFolders = dynamicpropertyMailboxTrackingFolders;
+            DynamicpropertyBulkDeleteFailures = dynamicpropertyBulkDeleteFailures;
+            DynamicpropertyPrincipalObjectAttributeAccesses = dynamicpropertyPrincipalObjectAttributeAccesses;
             Basedynamicpropertyid = basedynamicpropertyid;
             DynamicpropertyBaseDynamicproperty = dynamicpropertyBaseDynamicproperty;
-            DynamicPropertyDynamicPropertyInstance = dynamicPropertyDynamicPropertyInstance;
-            Createdby = createdby;
-            RegardingobjectidProductassociation = regardingobjectidProductassociation;
-            RegardingobjectidProduct = regardingobjectidProduct;
-            Modifiedonbehalfby = modifiedonbehalfby;
-            DynamicpropertyDynamicPropertyAssociation = dynamicpropertyDynamicPropertyAssociation;
-            Organizationid = organizationid;
-            DynamicPropertyDynamicPropertyOptionSetItem = dynamicPropertyDynamicPropertyOptionSetItem;
             Dynamicpropertyoptionsetvalueid = dynamicpropertyoptionsetvalueid;
-            Modifiedby = modifiedby;
+            DynamicpropertyDynamicPropertyAssociation = dynamicpropertyDynamicPropertyAssociation;
+            DynamicPropertyDynamicPropertyInstance = dynamicPropertyDynamicPropertyInstance;
+            DynamicPropertyDynamicPropertyOptionSetItem = dynamicPropertyDynamicPropertyOptionSetItem;
+            RegardingobjectidProduct = regardingobjectidProduct;
+            RegardingobjectidProductassociation = regardingobjectidProductassociation;
             CustomInit();
         }
 
@@ -91,13 +98,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "rootdynamicpropertyid")]
-        public string Rootdynamicpropertyid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "isreadonly")]
+        public bool? Isreadonly { get; set; }
 
         /// <summary>
         /// </summary>
@@ -106,13 +108,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "defaultvaluestring")]
-        public string Defaultvaluestring { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
+        [JsonProperty(PropertyName = "dynamicpropertyid")]
+        public string Dynamicpropertyid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -121,18 +118,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isreadonly")]
-        public bool? Isreadonly { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "defaultvalueinteger")]
         public int? Defaultvalueinteger { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isrequired")]
-        public bool? Isrequired { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -141,13 +133,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "datatype")]
+        public int? Datatype { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "statecode")]
         public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -156,8 +158,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "maxvaluedouble")]
-        public double? Maxvaluedouble { get; set; }
+        [JsonProperty(PropertyName = "minvaluedecimal")]
+        public object Minvaluedecimal { get; set; }
 
         /// <summary>
         /// </summary>
@@ -166,18 +168,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "minvaluedecimal")]
-        public object Minvaluedecimal { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "defaultvaluedouble")]
+        public double? Defaultvaluedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -186,8 +178,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "defaultvaluedecimal")]
-        public object Defaultvaluedecimal { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "rootdynamicpropertyid")]
+        public string Rootdynamicpropertyid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "minvaluedouble")]
+        public double? Minvaluedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -201,16 +208,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "maxvaluedecimal")]
-        public object Maxvaluedecimal { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "defaultvaluedouble")]
-        public double? Defaultvaluedouble { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "overwrittendynamicpropertyid")]
         public string Overwrittendynamicpropertyid { get; set; }
 
@@ -221,8 +218,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "minvaluedouble")]
-        public double? Minvaluedouble { get; set; }
+        [JsonProperty(PropertyName = "defaultvaluestring")]
+        public string Defaultvaluestring { get; set; }
 
         /// <summary>
         /// </summary>
@@ -231,8 +228,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "maxvaluedouble")]
+        public double? Maxvaluedouble { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "statuscode")]
         public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultvaluedecimal")]
+        public object Defaultvaluedecimal { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_regardingobjectid_value")]
+        public string _regardingobjectidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isrequired")]
+        public bool? Isrequired { get; set; }
 
         /// <summary>
         /// </summary>
@@ -241,18 +268,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dynamicpropertyid")]
-        public string Dynamicpropertyid { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectid_value")]
-        public string _regardingobjectidValue { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -266,18 +288,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "maxvaluedecimal")]
+        public object Maxvaluedecimal { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "datatype")]
-        public int? Datatype { get; set; }
+        [JsonProperty(PropertyName = "createdby")]
+        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "createdonbehalfby")]
         public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "organizationid")]
+        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dynamicproperty_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> DynamicpropertySyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dynamicproperty_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> DynamicpropertyAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dynamicproperty_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> DynamicpropertyMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dynamicproperty_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> DynamicpropertyBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dynamicproperty_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> DynamicpropertyPrincipalObjectAttributeAccesses { get; set; }
 
         /// <summary>
         /// </summary>
@@ -291,28 +353,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "DynamicProperty_DynamicPropertyInstance")]
-        public IList<MicrosoftDynamicsCRMdynamicpropertyinstance> DynamicPropertyDynamicPropertyInstance { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdby")]
-        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_productassociation")]
-        public MicrosoftDynamicsCRMproductassociation RegardingobjectidProductassociation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_product")]
-        public MicrosoftDynamicsCRMproduct RegardingobjectidProduct { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "dynamicpropertyoptionsetvalueid")]
+        public MicrosoftDynamicsCRMdynamicpropertyoptionsetitem Dynamicpropertyoptionsetvalueid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -321,8 +363,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+        [JsonProperty(PropertyName = "DynamicProperty_DynamicPropertyInstance")]
+        public IList<MicrosoftDynamicsCRMdynamicpropertyinstance> DynamicPropertyDynamicPropertyInstance { get; set; }
 
         /// <summary>
         /// </summary>
@@ -331,13 +373,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dynamicpropertyoptionsetvalueid")]
-        public MicrosoftDynamicsCRMdynamicpropertyoptionsetitem Dynamicpropertyoptionsetvalueid { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_product")]
+        public MicrosoftDynamicsCRMproduct RegardingobjectidProduct { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_productassociation")]
+        public MicrosoftDynamicsCRMproductassociation RegardingobjectidProductassociation { get; set; }
 
     }
 }

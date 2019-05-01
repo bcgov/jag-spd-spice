@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,12 +29,21 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMaccountleads
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMaccountleads(string accountleadid = default(string), string leadid = default(string), string accountid = default(string), long? versionnumber = default(long?))
+        public MicrosoftDynamicsCRMaccountleads(long? versionnumber = default(long?), int? importsequencenumber = default(int?), int? timezoneruleversionnumber = default(int?), string accountleadid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string accountid = default(string), string name = default(string), string leadid = default(string), int? utcconversiontimezonecode = default(int?), IList<MicrosoftDynamicsCRMasyncoperation> accountleadsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> accountleadsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> accountleadsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> accountleadsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
-            Accountleadid = accountleadid;
-            Leadid = leadid;
-            Accountid = accountid;
             Versionnumber = versionnumber;
+            Importsequencenumber = importsequencenumber;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Accountleadid = accountleadid;
+            Overriddencreatedon = overriddencreatedon;
+            Accountid = accountid;
+            Name = name;
+            Leadid = leadid;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            AccountleadsAsyncOperations = accountleadsAsyncOperations;
+            AccountleadsMailboxTrackingFolders = accountleadsMailboxTrackingFolders;
+            AccountleadsBulkDeleteFailures = accountleadsBulkDeleteFailures;
+            AccountleadsPrincipalObjectAttributeAccesses = accountleadsPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -43,13 +54,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "accountleadid")]
         public string Accountleadid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "leadid")]
-        public string Leadid { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -58,8 +84,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "leadid")]
+        public string Leadid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "accountleads_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> AccountleadsAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "accountleads_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> AccountleadsMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "accountleads_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> AccountleadsBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "accountleads_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> AccountleadsPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,13 +29,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMservicecontractcontacts class.
         /// </summary>
-        public MicrosoftDynamicsCRMservicecontractcontacts(int? servicelevel = default(int?), string contactid = default(string), string servicecontractcontactid = default(string), long? versionnumber = default(long?), string contractid = default(string))
+        public MicrosoftDynamicsCRMservicecontractcontacts(string name = default(string), int? servicelevel = default(int?), string contactid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), int? utcconversiontimezonecode = default(int?), int? timezoneruleversionnumber = default(int?), string contractid = default(string), int? importsequencenumber = default(int?), string servicecontractcontactid = default(string), IList<MicrosoftDynamicsCRMasyncoperation> servicecontractcontactsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> servicecontractcontactsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> servicecontractcontactsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> servicecontractcontactsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
+            Name = name;
             Servicelevel = servicelevel;
             Contactid = contactid;
-            Servicecontractcontactid = servicecontractcontactid;
+            Overriddencreatedon = overriddencreatedon;
             Versionnumber = versionnumber;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Contractid = contractid;
+            Importsequencenumber = importsequencenumber;
+            Servicecontractcontactid = servicecontractcontactid;
+            ServicecontractcontactsAsyncOperations = servicecontractcontactsAsyncOperations;
+            ServicecontractcontactsMailboxTrackingFolders = servicecontractcontactsMailboxTrackingFolders;
+            ServicecontractcontactsBulkDeleteFailures = servicecontractcontactsBulkDeleteFailures;
+            ServicecontractcontactsPrincipalObjectAttributeAccesses = servicecontractcontactsPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -41,6 +52,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
@@ -54,8 +70,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "servicecontractcontactid")]
-        public string Servicecontractcontactid { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -64,8 +80,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "contractid")]
         public string Contractid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicecontractcontactid")]
+        public string Servicecontractcontactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicecontractcontacts_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> ServicecontractcontactsAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicecontractcontacts_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ServicecontractcontactsMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicecontractcontacts_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ServicecontractcontactsBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicecontractcontacts_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ServicecontractcontactsPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

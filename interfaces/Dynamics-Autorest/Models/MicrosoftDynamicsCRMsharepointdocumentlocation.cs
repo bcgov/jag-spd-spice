@@ -29,71 +29,66 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsharepointdocumentlocation class.
         /// </summary>
-        public MicrosoftDynamicsCRMsharepointdocumentlocation(int? importsequencenumber = default(int?), string description = default(string), string _owneridValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), string _owninguserValue = default(string), string absoluteurl = default(string), string name = default(string), string _createdbyValue = default(string), int? locationtype = default(int?), string _modifiedonbehalfbyValue = default(string), string _regardingobjectidValue = default(string), string _parentsiteorlocationValue = default(string), long? versionnumber = default(long?), int? timezoneruleversionnumber = default(int?), object exchangerate = default(object), int? statecode = default(int?), string _owningteamValue = default(string), string sitecollectionid = default(string), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string relativeurl = default(string), string userid = default(string), string _modifiedbyValue = default(string), string sharepointdocumentlocationid = default(string), int? servicetype = default(int?), string _createdonbehalfbyValue = default(string), int? statuscode = default(int?), MicrosoftDynamicsCRMknowledgearticle regardingobjectidKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMquote regardingobjectidQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMsharepointdocumentlocation parentsiteorlocationSharepointdocumentlocation = default(MicrosoftDynamicsCRMsharepointdocumentlocation), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> sharepointdocumentlocationParentSharepointdocumentlocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointDocumentLocationDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsalesliterature regardingobjectidSalesliterature = default(MicrosoftDynamicsCRMsalesliterature), MicrosoftDynamicsCRMopportunity regardingobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMsharepointsite parentsiteorlocationSharepointsite = default(MicrosoftDynamicsCRMsharepointsite), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMkbarticle regardingobjectidKbarticle = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointDocumentLocationDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsyncerror> sharePointDocumentLocationSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> sharePointDocumentLocationAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMadoxioApplication regardingobjectidAdoxioApplication = default(MicrosoftDynamicsCRMadoxioApplication), MicrosoftDynamicsCRMadoxioComplaint regardingobjectidAdoxioComplaint = default(MicrosoftDynamicsCRMadoxioComplaint), MicrosoftDynamicsCRMadoxioInvestigation regardingobjectidAdoxioInvestigation = default(MicrosoftDynamicsCRMadoxioInvestigation), MicrosoftDynamicsCRMadoxioLegalentity regardingobjectidAdoxioLegalentity = default(MicrosoftDynamicsCRMadoxioLegalentity), MicrosoftDynamicsCRMadoxioPersonalhistorysummary regardingobjectidAdoxioPersonalhistorysummary = default(MicrosoftDynamicsCRMadoxioPersonalhistorysummary), MicrosoftDynamicsCRMadoxioSpdexports regardingobjectidAdoxioSpdexports = default(MicrosoftDynamicsCRMadoxioSpdexports), MicrosoftDynamicsCRMadoxioWorker regardingobjectidAdoxioWorker = default(MicrosoftDynamicsCRMadoxioWorker), MicrosoftDynamicsCRMincident regardingobjectidIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMadoxioDocument regardingobjectidAdoxioDocument = default(MicrosoftDynamicsCRMadoxioDocument))
+        public MicrosoftDynamicsCRMsharepointdocumentlocation(string description = default(string), string _owneridValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _owningbusinessunitValue = default(string), string userid = default(string), string _transactioncurrencyidValue = default(string), int? locationtype = default(int?), string _owninguserValue = default(string), string absoluteurl = default(string), int? importsequencenumber = default(int?), string _createdbyValue = default(string), string name = default(string), string _modifiedonbehalfbyValue = default(string), string _regardingobjectidValue = default(string), string _parentsiteorlocationValue = default(string), long? versionnumber = default(long?), int? timezoneruleversionnumber = default(int?), int? utcconversiontimezonecode = default(int?), int? statecode = default(int?), string _owningteamValue = default(string), object exchangerate = default(object), string sitecollectionid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string relativeurl = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string sharepointdocumentlocationid = default(string), string _createdonbehalfbyValue = default(string), int? servicetype = default(int?), MicrosoftDynamicsCRMknowledgearticle regardingobjectidKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMopportunity regardingobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMquote regardingobjectidQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMsalesliterature regardingobjectidSalesliterature = default(MicrosoftDynamicsCRMsalesliterature), MicrosoftDynamicsCRMcontact regardingobjectidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMincident regardingobjectidIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> sharepointdocumentlocationPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsharepointdocumentlocation parentsiteorlocationSharepointdocumentlocation = default(MicrosoftDynamicsCRMsharepointdocumentlocation), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> sharepointdocumentlocationParentSharepointdocumentlocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointDocumentLocationDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsharepointsite parentsiteorlocationSharepointsite = default(MicrosoftDynamicsCRMsharepointsite), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMkbarticle regardingobjectidKbarticle = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMduplicaterecord> sharePointDocumentLocationDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMprocesssession> sharePointDocumentLocationProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsyncerror> sharePointDocumentLocationSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> sharePointDocumentLocationAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>))
         {
-            Importsequencenumber = importsequencenumber;
             Description = description;
             this._owneridValue = _owneridValue;
             Createdon = createdon;
+            Statuscode = statuscode;
             this._owningbusinessunitValue = _owningbusinessunitValue;
-            Modifiedon = modifiedon;
+            Userid = userid;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Locationtype = locationtype;
             this._owninguserValue = _owninguserValue;
             Absoluteurl = absoluteurl;
-            Name = name;
+            Importsequencenumber = importsequencenumber;
             this._createdbyValue = _createdbyValue;
-            Locationtype = locationtype;
+            Name = name;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._regardingobjectidValue = _regardingobjectidValue;
             this._parentsiteorlocationValue = _parentsiteorlocationValue;
             Versionnumber = versionnumber;
             Timezoneruleversionnumber = timezoneruleversionnumber;
-            Exchangerate = exchangerate;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             Statecode = statecode;
             this._owningteamValue = _owningteamValue;
+            Exchangerate = exchangerate;
             Sitecollectionid = sitecollectionid;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
             Overriddencreatedon = overriddencreatedon;
             Relativeurl = relativeurl;
-            Userid = userid;
+            Modifiedon = modifiedon;
             this._modifiedbyValue = _modifiedbyValue;
             Sharepointdocumentlocationid = sharepointdocumentlocationid;
-            Servicetype = servicetype;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Statuscode = statuscode;
+            Servicetype = servicetype;
             RegardingobjectidKnowledgearticle = regardingobjectidKnowledgearticle;
             Owninguser = owninguser;
             Owningteam = owningteam;
             Ownerid = ownerid;
             Owningbusinessunit = owningbusinessunit;
-            RegardingobjectidAccount = regardingobjectidAccount;
-            RegardingobjectidQuote = regardingobjectidQuote;
+            RegardingobjectidLead = regardingobjectidLead;
             RegardingobjectidProduct = regardingobjectidProduct;
+            RegardingobjectidOpportunity = regardingobjectidOpportunity;
+            RegardingobjectidQuote = regardingobjectidQuote;
+            RegardingobjectidSalesliterature = regardingobjectidSalesliterature;
+            RegardingobjectidContact = regardingobjectidContact;
+            RegardingobjectidIncident = regardingobjectidIncident;
+            RegardingobjectidAccount = regardingobjectidAccount;
+            SharepointdocumentlocationPrincipalobjectattributeaccess = sharepointdocumentlocationPrincipalobjectattributeaccess;
             ParentsiteorlocationSharepointdocumentlocation = parentsiteorlocationSharepointdocumentlocation;
             SharepointdocumentlocationParentSharepointdocumentlocation = sharepointdocumentlocationParentSharepointdocumentlocation;
             Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
-            RegardingobjectidLead = regardingobjectidLead;
             SharePointDocumentLocationDuplicateBaseRecord = sharePointDocumentLocationDuplicateBaseRecord;
             Createdby = createdby;
-            RegardingobjectidSalesliterature = regardingobjectidSalesliterature;
-            RegardingobjectidOpportunity = regardingobjectidOpportunity;
             ParentsiteorlocationSharepointsite = parentsiteorlocationSharepointsite;
             Modifiedonbehalfby = modifiedonbehalfby;
             RegardingobjectidKbarticle = regardingobjectidKbarticle;
             SharePointDocumentLocationDuplicateMatchingRecord = sharePointDocumentLocationDuplicateMatchingRecord;
+            SharePointDocumentLocationProcessSessions = sharePointDocumentLocationProcessSessions;
             Transactioncurrencyid = transactioncurrencyid;
             SharePointDocumentLocationSyncErrors = sharePointDocumentLocationSyncErrors;
             SharePointDocumentLocationAsyncOperations = sharePointDocumentLocationAsyncOperations;
-            RegardingobjectidAdoxioApplication = regardingobjectidAdoxioApplication;
-            RegardingobjectidAdoxioComplaint = regardingobjectidAdoxioComplaint;
-            RegardingobjectidAdoxioInvestigation = regardingobjectidAdoxioInvestigation;
-            RegardingobjectidAdoxioLegalentity = regardingobjectidAdoxioLegalentity;
-            RegardingobjectidAdoxioPersonalhistorysummary = regardingobjectidAdoxioPersonalhistorysummary;
-            RegardingobjectidAdoxioSpdexports = regardingobjectidAdoxioSpdexports;
-            RegardingobjectidAdoxioWorker = regardingobjectidAdoxioWorker;
-            RegardingobjectidIncident = regardingobjectidIncident;
-            RegardingobjectidAdoxioDocument = regardingobjectidAdoxioDocument;
             CustomInit();
         }
 
@@ -101,11 +96,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -124,18 +114,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_owningbusinessunit_value")]
         public string _owningbusinessunitValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "userid")]
+        public string Userid { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
         public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "locationtype")]
+        public int? Locationtype { get; set; }
 
         /// <summary>
         /// </summary>
@@ -149,8 +149,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -159,8 +159,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "locationtype")]
-        public int? Locationtype { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
@@ -189,8 +189,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -204,13 +204,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sitecollectionid")]
-        public string Sitecollectionid { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "sitecollectionid")]
+        public string Sitecollectionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -224,8 +224,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "userid")]
-        public string Userid { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -239,18 +239,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "servicetype")]
-        public int? Servicetype { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfby_value")]
         public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
+        [JsonProperty(PropertyName = "servicetype")]
+        public int? Servicetype { get; set; }
 
         /// <summary>
         /// </summary>
@@ -279,8 +274,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_account")]
-        public MicrosoftDynamicsCRMaccount RegardingobjectidAccount { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_lead")]
+        public MicrosoftDynamicsCRMlead RegardingobjectidLead { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_product")]
+        public MicrosoftDynamicsCRMproduct RegardingobjectidProduct { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_opportunity")]
+        public MicrosoftDynamicsCRMopportunity RegardingobjectidOpportunity { get; set; }
 
         /// <summary>
         /// </summary>
@@ -289,8 +294,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_product")]
-        public MicrosoftDynamicsCRMproduct RegardingobjectidProduct { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_salesliterature")]
+        public MicrosoftDynamicsCRMsalesliterature RegardingobjectidSalesliterature { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_contact")]
+        public MicrosoftDynamicsCRMcontact RegardingobjectidContact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_incident")]
+        public MicrosoftDynamicsCRMincident RegardingobjectidIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "regardingobjectid_account")]
+        public MicrosoftDynamicsCRMaccount RegardingobjectidAccount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sharepointdocumentlocation_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> SharepointdocumentlocationPrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>
@@ -314,11 +339,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_lead")]
-        public MicrosoftDynamicsCRMlead RegardingobjectidLead { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "SharePointDocumentLocation_DuplicateBaseRecord")]
         public IList<MicrosoftDynamicsCRMduplicaterecord> SharePointDocumentLocationDuplicateBaseRecord { get; set; }
 
@@ -326,16 +346,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "createdby")]
         public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_salesliterature")]
-        public MicrosoftDynamicsCRMsalesliterature RegardingobjectidSalesliterature { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_opportunity")]
-        public MicrosoftDynamicsCRMopportunity RegardingobjectidOpportunity { get; set; }
 
         /// <summary>
         /// </summary>
@@ -359,6 +369,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "SharePointDocumentLocation_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> SharePointDocumentLocationProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "transactioncurrencyid")]
         public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
 
@@ -371,51 +386,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "SharePointDocumentLocation_AsyncOperations")]
         public IList<MicrosoftDynamicsCRMasyncoperation> SharePointDocumentLocationAsyncOperations { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_application")]
-        public MicrosoftDynamicsCRMadoxioApplication RegardingobjectidAdoxioApplication { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_complaint")]
-        public MicrosoftDynamicsCRMadoxioComplaint RegardingobjectidAdoxioComplaint { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_investigation")]
-        public MicrosoftDynamicsCRMadoxioInvestigation RegardingobjectidAdoxioInvestigation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_legalentity")]
-        public MicrosoftDynamicsCRMadoxioLegalentity RegardingobjectidAdoxioLegalentity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_personalhistorysummary")]
-        public MicrosoftDynamicsCRMadoxioPersonalhistorysummary RegardingobjectidAdoxioPersonalhistorysummary { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_spdexports")]
-        public MicrosoftDynamicsCRMadoxioSpdexports RegardingobjectidAdoxioSpdexports { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_worker")]
-        public MicrosoftDynamicsCRMadoxioWorker RegardingobjectidAdoxioWorker { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_incident")]
-        public MicrosoftDynamicsCRMincident RegardingobjectidIncident { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_adoxio_document")]
-        public MicrosoftDynamicsCRMadoxioDocument RegardingobjectidAdoxioDocument { get; set; }
 
     }
 }

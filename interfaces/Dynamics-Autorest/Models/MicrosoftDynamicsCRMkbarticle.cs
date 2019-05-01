@@ -29,44 +29,47 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMkbarticle
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMkbarticle(string entityimageUrl = default(string), int? importsequencenumber = default(int?), string _transactioncurrencyidValue = default(string), string _organizationidValue = default(string), string _kbarticletemplateidValue = default(string), string _createdonbehalfbyValue = default(string), long? entityimageTimestamp = default(long?), string title = default(string), string entityimageid = default(string), long? versionnumber = default(long?), string _subjectidValue = default(string), object exchangerate = default(object), string keywords = default(string), int? statuscode = default(int?), string number = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string kbarticleid = default(string), string comments = default(string), string content = default(string), string _createdbyValue = default(string), object entityimage = default(object), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? languagecode = default(int?), string articlexml = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statecode = default(int?), string _modifiedbyValue = default(string), string description = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMannotation> kbArticleAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> kbArticleBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> kbArticleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMduplicaterecord> kbArticleDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMkbarticletemplate kbarticletemplateid = default(MicrosoftDynamicsCRMkbarticletemplate), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> kbArticleDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> kbArticleSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMkbarticlecomment> kbarticleComments = default(IList<MicrosoftDynamicsCRMkbarticlecomment>), IList<MicrosoftDynamicsCRMsyncerror> kbArticleSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMincident> kbarticleIncidents = default(IList<MicrosoftDynamicsCRMincident>))
+        public MicrosoftDynamicsCRMkbarticle(string articlexml = default(string), string _createdbyValue = default(string), int? statecode = default(int?), long? versionnumber = default(long?), string content = default(string), string _transactioncurrencyidValue = default(string), string kbarticleid = default(string), object entityimage = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? statuscode = default(int?), string title = default(string), string _modifiedonbehalfbyValue = default(string), object exchangerate = default(object), string _subjectidValue = default(string), string _modifiedbyValue = default(string), string comments = default(string), int? importsequencenumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string keywords = default(string), string _organizationidValue = default(string), long? entityimageTimestamp = default(long?), string entityimageid = default(string), string number = default(string), int? languagecode = default(int?), string _createdonbehalfbyValue = default(string), string description = default(string), string _kbarticletemplateidValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string entityimageUrl = default(string), IList<MicrosoftDynamicsCRMincident> kbarticleIncidents = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMannotation> kbArticleAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> kbArticleBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> kbArticleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMprocesssession> kbArticleProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMduplicaterecord> kbArticleDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMkbarticletemplate kbarticletemplateid = default(MicrosoftDynamicsCRMkbarticletemplate), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> kbarticlePrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMduplicaterecord> kbArticleDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> kbArticleSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMkbarticlecomment> kbarticleComments = default(IList<MicrosoftDynamicsCRMkbarticlecomment>), IList<MicrosoftDynamicsCRMsyncerror> kbArticleSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            EntityimageUrl = entityimageUrl;
-            Importsequencenumber = importsequencenumber;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            this._organizationidValue = _organizationidValue;
-            this._kbarticletemplateidValue = _kbarticletemplateidValue;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            EntityimageTimestamp = entityimageTimestamp;
-            Title = title;
-            Entityimageid = entityimageid;
-            Versionnumber = versionnumber;
-            this._subjectidValue = _subjectidValue;
-            Exchangerate = exchangerate;
-            Keywords = keywords;
-            Statuscode = statuscode;
-            Number = number;
-            Modifiedon = modifiedon;
-            Kbarticleid = kbarticleid;
-            Comments = comments;
-            Content = content;
-            this._createdbyValue = _createdbyValue;
-            Entityimage = entityimage;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Createdon = createdon;
-            Languagecode = languagecode;
             Articlexml = articlexml;
-            Overriddencreatedon = overriddencreatedon;
+            this._createdbyValue = _createdbyValue;
             Statecode = statecode;
+            Versionnumber = versionnumber;
+            Content = content;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Kbarticleid = kbarticleid;
+            Entityimage = entityimage;
+            Createdon = createdon;
+            Statuscode = statuscode;
+            Title = title;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Exchangerate = exchangerate;
+            this._subjectidValue = _subjectidValue;
             this._modifiedbyValue = _modifiedbyValue;
+            Comments = comments;
+            Importsequencenumber = importsequencenumber;
+            Overriddencreatedon = overriddencreatedon;
+            Keywords = keywords;
+            this._organizationidValue = _organizationidValue;
+            EntityimageTimestamp = entityimageTimestamp;
+            Entityimageid = entityimageid;
+            Number = number;
+            Languagecode = languagecode;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Description = description;
+            this._kbarticletemplateidValue = _kbarticletemplateidValue;
+            Modifiedon = modifiedon;
+            EntityimageUrl = entityimageUrl;
+            KbarticleIncidents = kbarticleIncidents;
             Createdonbehalfby = createdonbehalfby;
             KbArticleAnnotation = kbArticleAnnotation;
             KbArticleBulkDeleteFailures = kbArticleBulkDeleteFailures;
             KbArticleAsyncOperations = kbArticleAsyncOperations;
+            KbArticleProcessSessions = kbArticleProcessSessions;
             KbArticleDuplicateMatchingRecord = kbArticleDuplicateMatchingRecord;
             Kbarticletemplateid = kbarticletemplateid;
             Createdby = createdby;
+            KbarticlePrincipalobjectattributeaccess = kbarticlePrincipalobjectattributeaccess;
             KbArticleDuplicateBaseRecord = kbArticleDuplicateBaseRecord;
             KbArticleSharepointDocumentLocation = kbArticleSharepointDocumentLocation;
             Organizationid = organizationid;
@@ -76,7 +79,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Transactioncurrencyid = transactioncurrencyid;
             Modifiedby = modifiedby;
             Modifiedonbehalfby = modifiedonbehalfby;
-            KbarticleIncidents = kbarticleIncidents;
             CustomInit();
         }
 
@@ -87,98 +89,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimage_url")]
-        public string EntityimageUrl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_kbarticletemplateid_value")]
-        public string _kbarticletemplateidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_timestamp")]
-        public long? EntityimageTimestamp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_subjectid_value")]
-        public string _subjectidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "keywords")]
-        public string Keywords { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "number")]
-        public string Number { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "kbarticleid")]
-        public string Kbarticleid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "comments")]
-        public string Comments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "content")]
-        public string Content { get; set; }
+        [JsonProperty(PropertyName = "articlexml")]
+        public string Articlexml { get; set; }
 
         /// <summary>
         /// </summary>
@@ -187,13 +99,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "content")]
+        public string Content { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "kbarticleid")]
+        public string Kbarticleid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage")]
+        public object Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -202,23 +134,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "languagecode")]
-        public int? Languagecode { get; set; }
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "articlexml")]
-        public string Articlexml { get; set; }
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_subjectid_value")]
+        public string _subjectidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -227,8 +164,78 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "comments")]
+        public string Comments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "keywords")]
+        public string Keywords { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage_timestamp")]
+        public long? EntityimageTimestamp { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "number")]
+        public string Number { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "languagecode")]
+        public int? Languagecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_kbarticletemplateid_value")]
+        public string _kbarticletemplateidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage_url")]
+        public string EntityimageUrl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "kbarticle_incidents")]
+        public IList<MicrosoftDynamicsCRMincident> KbarticleIncidents { get; set; }
 
         /// <summary>
         /// </summary>
@@ -252,6 +259,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "KbArticle_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> KbArticleProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "KbArticle_DuplicateMatchingRecord")]
         public IList<MicrosoftDynamicsCRMduplicaterecord> KbArticleDuplicateMatchingRecord { get; set; }
 
@@ -264,6 +276,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "createdby")]
         public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "kbarticle_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> KbarticlePrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>
@@ -309,11 +326,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "modifiedonbehalfby")]
         public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "kbarticle_incidents")]
-        public IList<MicrosoftDynamicsCRMincident> KbarticleIncidents { get; set; }
 
     }
 }

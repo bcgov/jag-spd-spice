@@ -14,27 +14,27 @@ namespace Gov.Jag.Spice.Interfaces.Models
     /// <summary>
     /// solutioncomponent
     /// </summary>
-    public partial class MicrosoftDynamicsCRMsolutioncomponent
+    public partial class MicrosoftDynamicsCRMSolutioncomponent
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// MicrosoftDynamicsCRMsolutioncomponent class.
+        /// MicrosoftDynamicsCRMSolutioncomponent class.
         /// </summary>
-        public MicrosoftDynamicsCRMsolutioncomponent()
+        public MicrosoftDynamicsCRMSolutioncomponent()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// MicrosoftDynamicsCRMsolutioncomponent class.
+        /// MicrosoftDynamicsCRMSolutioncomponent class.
         /// </summary>
-        public MicrosoftDynamicsCRMsolutioncomponent(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? componenttype = default(int?), int? rootcomponentbehavior = default(int?), long? versionnumber = default(long?), string _modifiedonbehalfbyValue = default(string), bool? ismetadata = default(bool?), string rootsolutioncomponentid = default(string), string _createdonbehalfbyValue = default(string), string _createdbyValue = default(string), string _solutionidValue = default(string), string _modifiedbyValue = default(string), string solutioncomponentid = default(string), string objectid = default(string), MicrosoftDynamicsCRMsolution solutionid = default(MicrosoftDynamicsCRMsolution), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsolutioncomponent rootsolutioncomponentidSolutioncomponent = default(MicrosoftDynamicsCRMsolutioncomponent), IList<MicrosoftDynamicsCRMsolutioncomponent> solutioncomponentParentSolutioncomponent = default(IList<MicrosoftDynamicsCRMsolutioncomponent>))
+        public MicrosoftDynamicsCRMSolutioncomponent(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? componenttype = default(int?), int? rootcomponentbehavior = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _modifiedonbehalfbyValue = default(string), bool? ismetadata = default(bool?), string rootsolutioncomponentid = default(string), string _createdonbehalfbyValue = default(string), string _createdbyValue = default(string), string _solutionidValue = default(string), string _modifiedbyValue = default(string), string solutioncomponentid = default(string), string objectid = default(string), MicrosoftDynamicsCRMSolution solutionid = default(MicrosoftDynamicsCRMSolution), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMSolutioncomponent rootsolutioncomponentidSolutioncomponent = default(MicrosoftDynamicsCRMSolutioncomponent), IList<MicrosoftDynamicsCRMSolutioncomponent> solutioncomponentParentSolutioncomponent = default(IList<MicrosoftDynamicsCRMSolutioncomponent>))
         {
-            Modifiedon = modifiedon;
             Createdon = createdon;
             Componenttype = componenttype;
             Rootcomponentbehavior = rootcomponentbehavior;
+            Modifiedon = modifiedon;
             Versionnumber = versionnumber;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Ismetadata = ismetadata;
@@ -60,11 +60,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
 
@@ -77,6 +72,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "rootcomponentbehavior")]
         public int? Rootcomponentbehavior { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "solutionid")]
-        public MicrosoftDynamicsCRMsolution Solutionid { get; set; }
+        public MicrosoftDynamicsCRMSolution Solutionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -146,12 +146,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "rootsolutioncomponentid_solutioncomponent")]
-        public MicrosoftDynamicsCRMsolutioncomponent RootsolutioncomponentidSolutioncomponent { get; set; }
+        public MicrosoftDynamicsCRMSolutioncomponent RootsolutioncomponentidSolutioncomponent { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "solutioncomponent_parent_solutioncomponent")]
-        public IList<MicrosoftDynamicsCRMsolutioncomponent> SolutioncomponentParentSolutioncomponent { get; set; }
+        public IList<MicrosoftDynamicsCRMSolutioncomponent> SolutioncomponentParentSolutioncomponent { get; set; }
 
     }
 }

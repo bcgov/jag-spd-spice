@@ -29,17 +29,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMkbarticlecomment class.
         /// </summary>
-        public MicrosoftDynamicsCRMkbarticlecomment(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string organizationid = default(string), string _kbarticleidValue = default(string), string kbarticlecommentid = default(string), string commenttext = default(string), string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), string title = default(string), long? versionnumber = default(long?), string _createdbyValue = default(string), IList<MicrosoftDynamicsCRMbulkdeletefailure> kbArticleCommentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> kbArticleCommentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMkbarticlecomment(string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string organizationid = default(string), string kbarticlecommentid = default(string), string commenttext = default(string), string _createdonbehalfbyValue = default(string), string _kbarticleidValue = default(string), string title = default(string), long? versionnumber = default(long?), string _createdbyValue = default(string), IList<MicrosoftDynamicsCRMbulkdeletefailure> kbArticleCommentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> kbArticleCommentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMprocesssession> kbArticleCommentProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Createdon = createdon;
             Modifiedon = modifiedon;
             this._modifiedbyValue = _modifiedbyValue;
             Organizationid = organizationid;
-            this._kbarticleidValue = _kbarticleidValue;
             Kbarticlecommentid = kbarticlecommentid;
             Commenttext = commenttext;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._kbarticleidValue = _kbarticleidValue;
             Title = title;
             Versionnumber = versionnumber;
             this._createdbyValue = _createdbyValue;
@@ -49,6 +49,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             KbArticleCommentAsyncOperations = kbArticleCommentAsyncOperations;
             Modifiedonbehalfby = modifiedonbehalfby;
             Kbarticleid = kbarticleid;
+            KbArticleCommentProcessSessions = kbArticleCommentProcessSessions;
             Modifiedby = modifiedby;
             CustomInit();
         }
@@ -57,6 +58,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -80,11 +86,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_kbarticleid_value")]
-        public string _kbarticleidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "kbarticlecommentid")]
         public string Kbarticlecommentid { get; set; }
 
@@ -95,13 +96,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_kbarticleid_value")]
+        public string _kbarticleidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -147,6 +148,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "kbarticleid")]
         public MicrosoftDynamicsCRMkbarticle Kbarticleid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "KbArticleComment_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> KbArticleCommentProcessSessions { get; set; }
 
         /// <summary>
         /// </summary>

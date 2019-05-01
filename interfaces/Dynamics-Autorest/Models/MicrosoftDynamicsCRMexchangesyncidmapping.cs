@@ -27,24 +27,25 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMexchangesyncidmapping class.
         /// </summary>
-        public MicrosoftDynamicsCRMexchangesyncidmapping(int? objecttypecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? lastsyncerroroccurredon = default(System.DateTimeOffset?), string objectid = default(string), string _owninguserValue = default(string), int? tocrmchangetype = default(int?), int? retries = default(int?), bool? isdeletedinexchange = default(bool?), long? versionnumber = default(long?), int? lastsyncerrorcode = default(int?), string _owningbusinessunitValue = default(string), string _owneridValue = default(string), bool? isunlinkedincrm = default(bool?), string _owningteamValue = default(string), string exchangesyncidmappingid = default(string), int? fromcrmchangetype = default(int?), int? userdecision = default(int?), string exchangeentryid = default(string), string lastsyncerror = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit))
+        public MicrosoftDynamicsCRMexchangesyncidmapping(int? objecttypecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? lastsyncerroroccurredon = default(System.DateTimeOffset?), string objectid = default(string), string _owninguserValue = default(string), int? retries = default(int?), string itemsubject = default(string), bool? isdeletedinexchange = default(bool?), long? versionnumber = default(long?), int? fromcrmchangetype = default(int?), string _owningbusinessunitValue = default(string), int? tocrmchangetype = default(int?), string _owneridValue = default(string), string _owningteamValue = default(string), string exchangesyncidmappingid = default(string), bool? isunlinkedincrm = default(bool?), int? lastsyncerrorcode = default(int?), int? userdecision = default(int?), string exchangeentryid = default(string), string lastsyncerror = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit))
         {
             Objecttypecode = objecttypecode;
             Modifiedon = modifiedon;
             Lastsyncerroroccurredon = lastsyncerroroccurredon;
             Objectid = objectid;
             this._owninguserValue = _owninguserValue;
-            Tocrmchangetype = tocrmchangetype;
             Retries = retries;
+            Itemsubject = itemsubject;
             Isdeletedinexchange = isdeletedinexchange;
             Versionnumber = versionnumber;
-            Lastsyncerrorcode = lastsyncerrorcode;
+            Fromcrmchangetype = fromcrmchangetype;
             this._owningbusinessunitValue = _owningbusinessunitValue;
+            Tocrmchangetype = tocrmchangetype;
             this._owneridValue = _owneridValue;
-            Isunlinkedincrm = isunlinkedincrm;
             this._owningteamValue = _owningteamValue;
             Exchangesyncidmappingid = exchangesyncidmappingid;
-            Fromcrmchangetype = fromcrmchangetype;
+            Isunlinkedincrm = isunlinkedincrm;
+            Lastsyncerrorcode = lastsyncerrorcode;
             Userdecision = userdecision;
             Exchangeentryid = exchangeentryid;
             Lastsyncerror = lastsyncerror;
@@ -88,13 +89,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "tocrmchangetype")]
-        public int? Tocrmchangetype { get; set; }
+        [JsonProperty(PropertyName = "retries")]
+        public int? Retries { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "retries")]
-        public int? Retries { get; set; }
+        [JsonProperty(PropertyName = "itemsubject")]
+        public string Itemsubject { get; set; }
 
         /// <summary>
         /// </summary>
@@ -108,8 +109,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "lastsyncerrorcode")]
-        public int? Lastsyncerrorcode { get; set; }
+        [JsonProperty(PropertyName = "fromcrmchangetype")]
+        public int? Fromcrmchangetype { get; set; }
 
         /// <summary>
         /// </summary>
@@ -118,13 +119,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "tocrmchangetype")]
+        public int? Tocrmchangetype { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isunlinkedincrm")]
-        public bool? Isunlinkedincrm { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -138,8 +139,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "fromcrmchangetype")]
-        public int? Fromcrmchangetype { get; set; }
+        [JsonProperty(PropertyName = "isunlinkedincrm")]
+        public bool? Isunlinkedincrm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastsyncerrorcode")]
+        public int? Lastsyncerrorcode { get; set; }
 
         /// <summary>
         /// </summary>

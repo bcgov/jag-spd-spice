@@ -27,18 +27,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMappmoduleroles class.
         /// </summary>
-        public MicrosoftDynamicsCRMappmoduleroles(string solutionid = default(string), int? componentstate = default(int?), string appmoduleroleidunique = default(string), string introducedversion = default(string), long? versionnumber = default(long?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string appmoduleroleid = default(string), bool? ismanaged = default(bool?), string _appmoduleidValue = default(string), string _roleidValue = default(string))
+        public MicrosoftDynamicsCRMappmoduleroles(string solutionid = default(string), string appmoduleroleidunique = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), bool? ismanaged = default(bool?), string _appmoduleidValue = default(string), string _roleidValue = default(string), string introducedversion = default(string), string appmoduleroleid = default(string), long? versionnumber = default(long?), int? componentstate = default(int?))
         {
             Solutionid = solutionid;
-            Componentstate = componentstate;
             Appmoduleroleidunique = appmoduleroleidunique;
-            Introducedversion = introducedversion;
-            Versionnumber = versionnumber;
             Overwritetime = overwritetime;
-            Appmoduleroleid = appmoduleroleid;
             Ismanaged = ismanaged;
             this._appmoduleidValue = _appmoduleidValue;
             this._roleidValue = _roleidValue;
+            Introducedversion = introducedversion;
+            Appmoduleroleid = appmoduleroleid;
+            Versionnumber = versionnumber;
+            Componentstate = componentstate;
             CustomInit();
         }
 
@@ -54,33 +54,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "appmoduleroleidunique")]
         public string Appmoduleroleidunique { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "introducedversion")]
-        public string Introducedversion { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "overwritetime")]
         public System.DateTimeOffset? Overwritetime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "appmoduleroleid")]
-        public string Appmoduleroleid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -96,6 +76,26 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "_roleid_value")]
         public string _roleidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "appmoduleroleid")]
+        public string Appmoduleroleid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
 
     }
 }

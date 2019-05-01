@@ -29,22 +29,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMfieldpermission class.
         /// </summary>
-        public MicrosoftDynamicsCRMfieldpermission(string attributelogicalname = default(string), string fieldpermissionid = default(string), int? cancreate = default(int?), int? componentstate = default(int?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? canupdate = default(int?), string _organizationidValue = default(string), string fieldpermissionidunique = default(string), string solutionid = default(string), string _fieldsecurityprofileidValue = default(string), long? versionnumber = default(long?), string entityname = default(string), bool? ismanaged = default(bool?), int? canread = default(int?), IList<MicrosoftDynamicsCRMsyncerror> fieldPermissionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMfieldsecurityprofile fieldsecurityprofileid = default(MicrosoftDynamicsCRMfieldsecurityprofile))
+        public MicrosoftDynamicsCRMfieldpermission(bool? ismanaged = default(bool?), int? componentstate = default(int?), int? canupdate = default(int?), string fieldpermissionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), string entityname = default(string), int? canread = default(int?), string _organizationidValue = default(string), int? cancreate = default(int?), string _fieldsecurityprofileidValue = default(string), long? versionnumber = default(long?), string fieldpermissionidunique = default(string), string attributelogicalname = default(string), IList<MicrosoftDynamicsCRMsyncerror> fieldPermissionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMfieldsecurityprofile fieldsecurityprofileid = default(MicrosoftDynamicsCRMfieldsecurityprofile))
         {
-            Attributelogicalname = attributelogicalname;
-            Fieldpermissionid = fieldpermissionid;
-            Cancreate = cancreate;
+            Ismanaged = ismanaged;
             Componentstate = componentstate;
-            Overwritetime = overwritetime;
             Canupdate = canupdate;
-            this._organizationidValue = _organizationidValue;
-            Fieldpermissionidunique = fieldpermissionidunique;
+            Fieldpermissionid = fieldpermissionid;
+            Overwritetime = overwritetime;
             Solutionid = solutionid;
+            Entityname = entityname;
+            Canread = canread;
+            this._organizationidValue = _organizationidValue;
+            Cancreate = cancreate;
             this._fieldsecurityprofileidValue = _fieldsecurityprofileidValue;
             Versionnumber = versionnumber;
-            Entityname = entityname;
-            Ismanaged = ismanaged;
-            Canread = canread;
+            Fieldpermissionidunique = fieldpermissionidunique;
+            Attributelogicalname = attributelogicalname;
             FieldPermissionSyncErrors = fieldPermissionSyncErrors;
             Fieldsecurityprofileid = fieldsecurityprofileid;
             CustomInit();
@@ -57,18 +57,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "attributelogicalname")]
-        public string Attributelogicalname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "fieldpermissionid")]
-        public string Fieldpermissionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "cancreate")]
-        public int? Cancreate { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
@@ -77,13 +67,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "canupdate")]
+        public int? Canupdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "fieldpermissionid")]
+        public string Fieldpermissionid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "overwritetime")]
         public System.DateTimeOffset? Overwritetime { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "canupdate")]
-        public int? Canupdate { get; set; }
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityname")]
+        public string Entityname { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "canread")]
+        public int? Canread { get; set; }
 
         /// <summary>
         /// </summary>
@@ -92,13 +102,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "fieldpermissionidunique")]
-        public string Fieldpermissionidunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "solutionid")]
-        public string Solutionid { get; set; }
+        [JsonProperty(PropertyName = "cancreate")]
+        public int? Cancreate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -112,18 +117,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityname")]
-        public string Entityname { get; set; }
+        [JsonProperty(PropertyName = "fieldpermissionidunique")]
+        public string Fieldpermissionidunique { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ismanaged")]
-        public bool? Ismanaged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "canread")]
-        public int? Canread { get; set; }
+        [JsonProperty(PropertyName = "attributelogicalname")]
+        public string Attributelogicalname { get; set; }
 
         /// <summary>
         /// </summary>

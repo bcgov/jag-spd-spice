@@ -29,31 +29,36 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMsdkmessage
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessage(bool? autotransact = default(bool?), bool? workflowsdkstepenabled = default(bool?), long? versionnumber = default(long?), string _organizationidValue = default(string), bool? isreadonly = default(bool?), int? customizationlevel = default(int?), int? availability = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string categoryname = default(string), bool? isactive = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string sdkmessageid = default(string), string name = default(string), string _modifiedonbehalfbyValue = default(string), bool? isprivate = default(bool?), bool? isvalidforexecuteasync = default(bool?), string sdkmessageidunique = default(string), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), bool? template = default(bool?), string throttlesettings = default(string), bool? expand = default(bool?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessageidSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessagefilter> sdkmessageidSdkmessagefilter = default(IList<MicrosoftDynamicsCRMsdkmessagefilter>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMsdkmessage(string _organizationidValue = default(string), bool? isprivate = default(bool?), string _modifiedbyValue = default(string), string introducedversion = default(string), bool? workflowsdkstepenabled = default(bool?), bool? expand = default(bool?), int? availability = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? template = default(bool?), bool? isvalidforexecuteasync = default(bool?), string categoryname = default(string), bool? autotransact = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), bool? isactive = default(bool?), string _createdbyValue = default(string), string name = default(string), string _modifiedonbehalfbyValue = default(string), bool? ismanaged = default(bool?), int? customizationlevel = default(int?), string sdkmessageid = default(string), string sdkmessageidunique = default(string), string throttlesettings = default(string), string _createdonbehalfbyValue = default(string), string solutionid = default(string), int? componentstate = default(int?), long? versionnumber = default(long?), bool? isreadonly = default(bool?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessageidSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessagefilter> sdkmessageidSdkmessagefilter = default(IList<MicrosoftDynamicsCRMsdkmessagefilter>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            Autotransact = autotransact;
-            Workflowsdkstepenabled = workflowsdkstepenabled;
-            Versionnumber = versionnumber;
             this._organizationidValue = _organizationidValue;
-            Isreadonly = isreadonly;
-            Customizationlevel = customizationlevel;
+            Isprivate = isprivate;
+            this._modifiedbyValue = _modifiedbyValue;
+            Introducedversion = introducedversion;
+            Workflowsdkstepenabled = workflowsdkstepenabled;
+            Expand = expand;
             Availability = availability;
-            Createdon = createdon;
-            Categoryname = categoryname;
-            Isactive = isactive;
             Modifiedon = modifiedon;
+            Template = template;
+            Isvalidforexecuteasync = isvalidforexecuteasync;
+            Categoryname = categoryname;
+            Autotransact = autotransact;
+            Createdon = createdon;
+            Overwritetime = overwritetime;
+            Isactive = isactive;
             this._createdbyValue = _createdbyValue;
-            Sdkmessageid = sdkmessageid;
             Name = name;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Isprivate = isprivate;
-            Isvalidforexecuteasync = isvalidforexecuteasync;
+            Ismanaged = ismanaged;
+            Customizationlevel = customizationlevel;
+            Sdkmessageid = sdkmessageid;
             Sdkmessageidunique = sdkmessageidunique;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            Template = template;
             Throttlesettings = throttlesettings;
-            Expand = expand;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Solutionid = solutionid;
+            Componentstate = componentstate;
+            Versionnumber = versionnumber;
+            Isreadonly = isreadonly;
             Createdby = createdby;
             SdkmessageidSdkmessageprocessingstep = sdkmessageidSdkmessageprocessingstep;
             Createdonbehalfby = createdonbehalfby;
@@ -71,8 +76,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "autotransact")]
-        public bool? Autotransact { get; set; }
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isprivate")]
+        public bool? Isprivate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
 
         /// <summary>
         /// </summary>
@@ -81,23 +101,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isreadonly")]
-        public bool? Isreadonly { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customizationlevel")]
-        public int? Customizationlevel { get; set; }
+        [JsonProperty(PropertyName = "expand")]
+        public bool? Expand { get; set; }
 
         /// <summary>
         /// </summary>
@@ -106,8 +111,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "template")]
+        public bool? Template { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isvalidforexecuteasync")]
+        public bool? Isvalidforexecuteasync { get; set; }
 
         /// <summary>
         /// </summary>
@@ -116,23 +131,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "autotransact")]
+        public bool? Autotransact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "isactive")]
         public bool? Isactive { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_createdby_value")]
         public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sdkmessageid")]
-        public string Sdkmessageid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -146,13 +166,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isprivate")]
-        public bool? Isprivate { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isvalidforexecuteasync")]
-        public bool? Isvalidforexecuteasync { get; set; }
+        [JsonProperty(PropertyName = "customizationlevel")]
+        public int? Customizationlevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sdkmessageid")]
+        public string Sdkmessageid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -161,28 +186,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "template")]
-        public bool? Template { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "throttlesettings")]
         public string Throttlesettings { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "expand")]
-        public bool? Expand { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isreadonly")]
+        public bool? Isreadonly { get; set; }
 
         /// <summary>
         /// </summary>

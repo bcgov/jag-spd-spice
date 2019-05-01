@@ -204,8 +204,8 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {                    
-                    log.LogInformation("Creating Hangfire job for SPD Daily Export ...");
-                    RecurringJob.AddOrUpdate(() =>  new SpdUtils(Configuration, loggerFactory).SendExportJob(null), Cron.Daily);
+                    log.LogInformation("Creating Hangfire job for Send Results job ...");
+                    RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), Cron.MinuteInterval(15));
                     log.LogInformation("Hangfire Send Export job done.");
 
                 }

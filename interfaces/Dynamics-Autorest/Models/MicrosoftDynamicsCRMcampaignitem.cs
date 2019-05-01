@@ -7,6 +7,8 @@
 namespace Gov.Jag.Spice.Interfaces.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -27,16 +29,25 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMcampaignitem
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMcampaignitem(string entitytype = default(string), string _owneridValue = default(string), long? versionnumber = default(long?), string owningbusinessunit = default(string), string entityid = default(string), string campaignitemid = default(string), string owninguser = default(string), string _campaignidValue = default(string))
+        public MicrosoftDynamicsCRMcampaignitem(string owninguser = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string entityid = default(string), string owningbusinessunit = default(string), long? versionnumber = default(long?), string campaignitemid = default(string), int? importsequencenumber = default(int?), string name = default(string), string _campaignidValue = default(string), string _owneridValue = default(string), int? utcconversiontimezonecode = default(int?), string entitytype = default(string), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMasyncoperation> campaignitemAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> campaignitemMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> campaignitemBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> campaignitemPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
-            Entitytype = entitytype;
-            this._owneridValue = _owneridValue;
-            Versionnumber = versionnumber;
-            Owningbusinessunit = owningbusinessunit;
-            Entityid = entityid;
-            Campaignitemid = campaignitemid;
             Owninguser = owninguser;
+            Overriddencreatedon = overriddencreatedon;
+            Entityid = entityid;
+            Owningbusinessunit = owningbusinessunit;
+            Versionnumber = versionnumber;
+            Campaignitemid = campaignitemid;
+            Importsequencenumber = importsequencenumber;
+            Name = name;
             this._campaignidValue = _campaignidValue;
+            this._owneridValue = _owneridValue;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Entitytype = entitytype;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            CampaignitemAsyncOperations = campaignitemAsyncOperations;
+            CampaignitemMailboxTrackingFolders = campaignitemMailboxTrackingFolders;
+            CampaignitemBulkDeleteFailures = campaignitemBulkDeleteFailures;
+            CampaignitemPrincipalObjectAttributeAccesses = campaignitemPrincipalObjectAttributeAccesses;
             CustomInit();
         }
 
@@ -47,23 +58,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entitytype")]
-        public string Entitytype { get; set; }
+        [JsonProperty(PropertyName = "owninguser")]
+        public string Owninguser { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "owningbusinessunit")]
-        public string Owningbusinessunit { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -72,18 +73,73 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "owningbusinessunit")]
+        public string Owningbusinessunit { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "campaignitemid")]
         public string Campaignitemid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "owninguser")]
-        public string Owninguser { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_campaignid_value")]
         public string _campaignidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entitytype")]
+        public string Entitytype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignitem_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> CampaignitemAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignitem_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> CampaignitemMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignitem_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> CampaignitemBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignitem_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> CampaignitemPrincipalObjectAttributeAccesses { get; set; }
 
     }
 }

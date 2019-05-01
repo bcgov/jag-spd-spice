@@ -29,29 +29,41 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMbulkoperationlog class.
         /// </summary>
-        public MicrosoftDynamicsCRMbulkoperationlog(string additionalinfo = default(string), string owningbusinessunit = default(string), string owninguser = default(string), int? errornumber = default(int?), string bulkoperationlogid = default(string), string _bulkoperationidValue = default(string), string _regardingobjectidValue = default(string), string _createdobjectidValue = default(string), string _owneridValue = default(string), MicrosoftDynamicsCRMactivitypointer createdobjectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMcontact createdobjectidContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMbulkdeletefailure> bulkOperationLogBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMbulkoperation bulkoperationid = default(MicrosoftDynamicsCRMbulkoperation), MicrosoftDynamicsCRMaccount createdobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMactivitypointer bulkoperationidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMlead createdobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMopportunity createdobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMcontact regardingobjectidContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMasyncoperation> bulkOperationLogAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead))
+        public MicrosoftDynamicsCRMbulkoperationlog(string additionalinfo = default(string), string _createdobjectidValue = default(string), string _owningteamValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), long? versionnumber = default(long?), string _owninguserValue = default(string), string bulkoperationlogid = default(string), int? errornumber = default(int?), int? timezoneruleversionnumber = default(int?), int? importsequencenumber = default(int?), string _regardingobjectidValue = default(string), string _bulkoperationidValue = default(string), int? utcconversiontimezonecode = default(int?), string _owneridValue = default(string), string name = default(string), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMsyncerror> bulkoperationlogSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> bulkOperationLogAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> bulkoperationlogMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> bulkOperationLogBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> bulkoperationlogPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMaccount createdobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMaccount regardingobjectidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMactivitypointer bulkoperationidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMactivitypointer createdobjectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMbulkoperation bulkoperationid = default(MicrosoftDynamicsCRMbulkoperation), MicrosoftDynamicsCRMcontact createdobjectidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact regardingobjectidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMlead createdobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMlead regardingobjectidLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMopportunity createdobjectidOpportunity = default(MicrosoftDynamicsCRMopportunity))
         {
             Additionalinfo = additionalinfo;
-            Owningbusinessunit = owningbusinessunit;
-            Owninguser = owninguser;
-            Errornumber = errornumber;
-            Bulkoperationlogid = bulkoperationlogid;
-            this._bulkoperationidValue = _bulkoperationidValue;
-            this._regardingobjectidValue = _regardingobjectidValue;
             this._createdobjectidValue = _createdobjectidValue;
+            this._owningteamValue = _owningteamValue;
+            Overriddencreatedon = overriddencreatedon;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Versionnumber = versionnumber;
+            this._owninguserValue = _owninguserValue;
+            Bulkoperationlogid = bulkoperationlogid;
+            Errornumber = errornumber;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Importsequencenumber = importsequencenumber;
+            this._regardingobjectidValue = _regardingobjectidValue;
+            this._bulkoperationidValue = _bulkoperationidValue;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             this._owneridValue = _owneridValue;
-            CreatedobjectidActivitypointer = createdobjectidActivitypointer;
-            CreatedobjectidContact = createdobjectidContact;
+            Name = name;
+            Owninguser = owninguser;
+            Owningteam = owningteam;
+            BulkoperationlogSyncErrors = bulkoperationlogSyncErrors;
+            BulkOperationLogAsyncOperations = bulkOperationLogAsyncOperations;
+            BulkoperationlogMailboxTrackingFolders = bulkoperationlogMailboxTrackingFolders;
             BulkOperationLogBulkDeleteFailures = bulkOperationLogBulkDeleteFailures;
-            Bulkoperationid = bulkoperationid;
+            BulkoperationlogPrincipalObjectAttributeAccesses = bulkoperationlogPrincipalObjectAttributeAccesses;
             CreatedobjectidAccount = createdobjectidAccount;
             RegardingobjectidAccount = regardingobjectidAccount;
             BulkoperationidActivitypointer = bulkoperationidActivitypointer;
-            CreatedobjectidLead = createdobjectidLead;
-            CreatedobjectidOpportunity = createdobjectidOpportunity;
+            CreatedobjectidActivitypointer = createdobjectidActivitypointer;
+            Bulkoperationid = bulkoperationid;
+            CreatedobjectidContact = createdobjectidContact;
             RegardingobjectidContact = regardingobjectidContact;
-            BulkOperationLogAsyncOperations = bulkOperationLogAsyncOperations;
+            CreatedobjectidLead = createdobjectidLead;
             RegardingobjectidLead = regardingobjectidLead;
+            CreatedobjectidOpportunity = createdobjectidOpportunity;
             CustomInit();
         }
 
@@ -67,18 +79,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "owningbusinessunit")]
-        public string Owningbusinessunit { get; set; }
+        [JsonProperty(PropertyName = "_createdobjectid_value")]
+        public string _createdobjectidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "owninguser")]
-        public string Owninguser { get; set; }
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "errornumber")]
-        public int? Errornumber { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -87,8 +114,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_bulkoperationid_value")]
-        public string _bulkoperationidValue { get; set; }
+        [JsonProperty(PropertyName = "errornumber")]
+        public int? Errornumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -97,8 +134,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdobjectid_value")]
-        public string _createdobjectidValue { get; set; }
+        [JsonProperty(PropertyName = "_bulkoperationid_value")]
+        public string _bulkoperationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -107,13 +149,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdobjectid_activitypointer")]
-        public MicrosoftDynamicsCRMactivitypointer CreatedobjectidActivitypointer { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdobjectid_contact")]
-        public MicrosoftDynamicsCRMcontact CreatedobjectidContact { get; set; }
+        [JsonProperty(PropertyName = "owninguser")]
+        public MicrosoftDynamicsCRMsystemuser Owninguser { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "owningteam")]
+        public MicrosoftDynamicsCRMteam Owningteam { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bulkoperationlog_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> BulkoperationlogSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "BulkOperationLog_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> BulkOperationLogAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bulkoperationlog_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> BulkoperationlogMailboxTrackingFolders { get; set; }
 
         /// <summary>
         /// </summary>
@@ -122,8 +184,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "bulkoperationid")]
-        public MicrosoftDynamicsCRMbulkoperation Bulkoperationid { get; set; }
+        [JsonProperty(PropertyName = "bulkoperationlog_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> BulkoperationlogPrincipalObjectAttributeAccesses { get; set; }
 
         /// <summary>
         /// </summary>
@@ -142,13 +204,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdobjectid_lead")]
-        public MicrosoftDynamicsCRMlead CreatedobjectidLead { get; set; }
+        [JsonProperty(PropertyName = "createdobjectid_activitypointer")]
+        public MicrosoftDynamicsCRMactivitypointer CreatedobjectidActivitypointer { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdobjectid_opportunity")]
-        public MicrosoftDynamicsCRMopportunity CreatedobjectidOpportunity { get; set; }
+        [JsonProperty(PropertyName = "bulkoperationid")]
+        public MicrosoftDynamicsCRMbulkoperation Bulkoperationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdobjectid_contact")]
+        public MicrosoftDynamicsCRMcontact CreatedobjectidContact { get; set; }
 
         /// <summary>
         /// </summary>
@@ -157,13 +224,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "BulkOperationLog_AsyncOperations")]
-        public IList<MicrosoftDynamicsCRMasyncoperation> BulkOperationLogAsyncOperations { get; set; }
+        [JsonProperty(PropertyName = "createdobjectid_lead")]
+        public MicrosoftDynamicsCRMlead CreatedobjectidLead { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "regardingobjectid_lead")]
         public MicrosoftDynamicsCRMlead RegardingobjectidLead { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdobjectid_opportunity")]
+        public MicrosoftDynamicsCRMopportunity CreatedobjectidOpportunity { get; set; }
 
     }
 }

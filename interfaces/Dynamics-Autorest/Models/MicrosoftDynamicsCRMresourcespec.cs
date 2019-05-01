@@ -29,41 +29,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMresourcespec
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMresourcespec(int? requiredcount = default(int?), string _organizationidValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string constraints = default(string), string description = default(string), string resourcespecid = default(string), long? versionnumber = default(long?), bool? samesite = default(bool?), string objectiveexpression = default(string), string objecttypecode = default(string), string _businessunitidValue = default(string), string name = default(string), string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), double? effortrequired = default(double?), string _modifiedbyValue = default(string), string groupobjectid = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMconstraintbasedgroup groupobjectidConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMbusinessunit businessunitid = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMactivityparty> activityPartyResourceSpec = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMbulkdeletefailure> resourceSpecBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMteam groupobjectidTeam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMresource> resourcespecResources = default(IList<MicrosoftDynamicsCRMresource>), IList<MicrosoftDynamicsCRMannotation> resourceSpecAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMservice> resourceSpecServices = default(IList<MicrosoftDynamicsCRMservice>), IList<MicrosoftDynamicsCRMasyncoperation> resourceSpecAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>))
+        public MicrosoftDynamicsCRMresourcespec(string _modifiedonbehalfbyValue = default(string), string description = default(string), int? importsequencenumber = default(int?), string objecttypecode = default(string), long? versionnumber = default(long?), string _organizationidValue = default(string), string resourcespecid = default(string), string name = default(string), bool? samesite = default(bool?), int? utcconversiontimezonecode = default(int?), string groupobjectid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string constraints = default(string), string _createdbyValue = default(string), double? effortrequired = default(double?), string _createdonbehalfbyValue = default(string), string objectiveexpression = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? requiredcount = default(int?), string _businessunitidValue = default(string), int? timezoneruleversionnumber = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit businessunitid = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> resourcespecSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> resourceSpecAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> resourcespecMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> resourceSpecBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> resourcespecPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMannotation> resourceSpecAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMconstraintbasedgroup groupobjectidConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMactivityparty> activityPartyResourceSpec = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMresource> resourcespecResources = default(IList<MicrosoftDynamicsCRMresource>), IList<MicrosoftDynamicsCRMservice> resourceSpecServices = default(IList<MicrosoftDynamicsCRMservice>), MicrosoftDynamicsCRMteam groupobjectidTeam = default(MicrosoftDynamicsCRMteam))
         {
-            Requiredcount = requiredcount;
-            this._organizationidValue = _organizationidValue;
-            Modifiedon = modifiedon;
-            Createdon = createdon;
-            Constraints = constraints;
-            Description = description;
-            Resourcespecid = resourcespecid;
-            Versionnumber = versionnumber;
-            Samesite = samesite;
-            Objectiveexpression = objectiveexpression;
-            Objecttypecode = objecttypecode;
-            this._businessunitidValue = _businessunitidValue;
-            Name = name;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Effortrequired = effortrequired;
-            this._modifiedbyValue = _modifiedbyValue;
+            Description = description;
+            Importsequencenumber = importsequencenumber;
+            Objecttypecode = objecttypecode;
+            Versionnumber = versionnumber;
+            this._organizationidValue = _organizationidValue;
+            Resourcespecid = resourcespecid;
+            Name = name;
+            Samesite = samesite;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             Groupobjectid = groupobjectid;
+            Modifiedon = modifiedon;
+            Constraints = constraints;
             this._createdbyValue = _createdbyValue;
-            Organizationid = organizationid;
-            Modifiedonbehalfby = modifiedonbehalfby;
-            Createdonbehalfby = createdonbehalfby;
-            GroupobjectidConstraintbasedgroup = groupobjectidConstraintbasedgroup;
-            Businessunitid = businessunitid;
+            Effortrequired = effortrequired;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Objectiveexpression = objectiveexpression;
+            this._modifiedbyValue = _modifiedbyValue;
+            Overriddencreatedon = overriddencreatedon;
+            Createdon = createdon;
+            Requiredcount = requiredcount;
+            this._businessunitidValue = _businessunitidValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Createdby = createdby;
+            Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
-            ActivityPartyResourceSpec = activityPartyResourceSpec;
-            ResourceSpecBulkDeleteFailures = resourceSpecBulkDeleteFailures;
-            GroupobjectidTeam = groupobjectidTeam;
-            ResourcespecResources = resourcespecResources;
-            ResourceSpecAnnotation = resourceSpecAnnotation;
-            ResourceSpecServices = resourceSpecServices;
+            Modifiedonbehalfby = modifiedonbehalfby;
+            Businessunitid = businessunitid;
+            ResourcespecSyncErrors = resourcespecSyncErrors;
             ResourceSpecAsyncOperations = resourceSpecAsyncOperations;
+            ResourcespecMailboxTrackingFolders = resourcespecMailboxTrackingFolders;
+            ResourceSpecBulkDeleteFailures = resourceSpecBulkDeleteFailures;
+            ResourcespecPrincipalObjectAttributeAccesses = resourcespecPrincipalObjectAttributeAccesses;
+            ResourceSpecAnnotation = resourceSpecAnnotation;
+            GroupobjectidConstraintbasedgroup = groupobjectidConstraintbasedgroup;
+            Organizationid = organizationid;
+            ActivityPartyResourceSpec = activityPartyResourceSpec;
+            ResourcespecResources = resourcespecResources;
+            ResourceSpecServices = resourceSpecServices;
+            GroupobjectidTeam = groupobjectidTeam;
             CustomInit();
         }
 
@@ -74,28 +81,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "requiredcount")]
-        public int? Requiredcount { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "constraints")]
-        public string Constraints { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -104,23 +91,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "resourcespecid")]
-        public string Resourcespecid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "samesite")]
-        public bool? Samesite { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "objectiveexpression")]
-        public string Objectiveexpression { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -129,8 +101,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_businessunitid_value")]
-        public string _businessunitidValue { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcespecid")]
+        public string Resourcespecid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -139,23 +121,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "samesite")]
+        public bool? Samesite { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effortrequired")]
-        public double? Effortrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -164,33 +136,63 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "constraints")]
+        public string Constraints { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdby_value")]
         public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+        [JsonProperty(PropertyName = "effortrequired")]
+        public double? Effortrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "objectiveexpression")]
+        public string Objectiveexpression { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "groupobjectid_constraintbasedgroup")]
-        public MicrosoftDynamicsCRMconstraintbasedgroup GroupobjectidConstraintbasedgroup { get; set; }
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "businessunitid")]
-        public MicrosoftDynamicsCRMbusinessunit Businessunitid { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "requiredcount")]
+        public int? Requiredcount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_businessunitid_value")]
+        public string _businessunitidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -199,13 +201,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "createdonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "modifiedby")]
         public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ActivityPartyResourceSpec")]
-        public IList<MicrosoftDynamicsCRMactivityparty> ActivityPartyResourceSpec { get; set; }
+        [JsonProperty(PropertyName = "modifiedonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "businessunitid")]
+        public MicrosoftDynamicsCRMbusinessunit Businessunitid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcespec_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> ResourcespecSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ResourceSpec_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> ResourceSpecAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcespec_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ResourcespecMailboxTrackingFolders { get; set; }
 
         /// <summary>
         /// </summary>
@@ -214,13 +241,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "groupobjectid_team")]
-        public MicrosoftDynamicsCRMteam GroupobjectidTeam { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resourcespec_resources")]
-        public IList<MicrosoftDynamicsCRMresource> ResourcespecResources { get; set; }
+        [JsonProperty(PropertyName = "resourcespec_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ResourcespecPrincipalObjectAttributeAccesses { get; set; }
 
         /// <summary>
         /// </summary>
@@ -229,13 +251,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "groupobjectid_constraintbasedgroup")]
+        public MicrosoftDynamicsCRMconstraintbasedgroup GroupobjectidConstraintbasedgroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "organizationid")]
+        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ActivityPartyResourceSpec")]
+        public IList<MicrosoftDynamicsCRMactivityparty> ActivityPartyResourceSpec { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcespec_resources")]
+        public IList<MicrosoftDynamicsCRMresource> ResourcespecResources { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "resource_spec_services")]
         public IList<MicrosoftDynamicsCRMservice> ResourceSpecServices { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ResourceSpec_AsyncOperations")]
-        public IList<MicrosoftDynamicsCRMasyncoperation> ResourceSpecAsyncOperations { get; set; }
+        [JsonProperty(PropertyName = "groupobjectid_team")]
+        public MicrosoftDynamicsCRMteam GroupobjectidTeam { get; set; }
 
     }
 }

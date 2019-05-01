@@ -29,41 +29,41 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsimilarityrule class.
         /// </summary>
-        public MicrosoftDynamicsCRMsimilarityrule(System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), string solutionid = default(string), int? statuscode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), string name = default(string), string similarityruleid = default(string), string _createdonbehalfbyValue = default(string), string matchingentityname = default(string), int? timezoneruleversionnumber = default(int?), int? componentstate = default(int?), int? statecode = default(int?), string introducedversion = default(string), string fetchxmllist = default(string), string activerulefetchxml = default(string), int? maxkeywords = default(int?), int? utcconversiontimezonecode = default(int?), int? baseentitytypecode = default(int?), int? importsequencenumber = default(int?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string similarityruleidunique = default(string), object exchangerate = default(object), int? ngramsize = default(int?), string description = default(string), string baseentityname = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), int? matchingentitytypecode = default(int?), bool? excludeinactiverecords = default(bool?), string ruleconditionxml = default(string), bool? ismanaged = default(bool?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> similarityruleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMsimilarityrule(int? statuscode = default(int?), string similarityruleid = default(string), string similarityruleidunique = default(string), int? ngramsize = default(int?), int? baseentitytypecode = default(int?), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), bool? excludeinactiverecords = default(bool?), string ruleconditionxml = default(string), int? maxkeywords = default(int?), string activerulefetchxml = default(string), object exchangerate = default(object), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string name = default(string), int? componentstate = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string baseentityname = default(string), string solutionid = default(string), string introducedversion = default(string), int? utcconversiontimezonecode = default(int?), int? importsequencenumber = default(int?), string fetchxmllist = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string description = default(string), long? versionnumber = default(long?), string _organizationidValue = default(string), string _createdonbehalfbyValue = default(string), bool? ismanaged = default(bool?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string matchingentityname = default(string), int? matchingentitytypecode = default(int?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> similarityruleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
-            Overriddencreatedon = overriddencreatedon;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Solutionid = solutionid;
             Statuscode = statuscode;
-            Createdon = createdon;
-            this._organizationidValue = _organizationidValue;
-            Name = name;
             Similarityruleid = similarityruleid;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Matchingentityname = matchingentityname;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Componentstate = componentstate;
-            Statecode = statecode;
-            Introducedversion = introducedversion;
-            Fetchxmllist = fetchxmllist;
-            Activerulefetchxml = activerulefetchxml;
-            Maxkeywords = maxkeywords;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            Baseentitytypecode = baseentitytypecode;
-            Importsequencenumber = importsequencenumber;
-            Overwritetime = overwritetime;
             Similarityruleidunique = similarityruleidunique;
-            Exchangerate = exchangerate;
             Ngramsize = ngramsize;
-            Description = description;
-            Baseentityname = baseentityname;
-            Modifiedon = modifiedon;
-            Versionnumber = versionnumber;
-            Matchingentitytypecode = matchingentitytypecode;
+            Baseentitytypecode = baseentitytypecode;
+            Statecode = statecode;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Excludeinactiverecords = excludeinactiverecords;
             Ruleconditionxml = ruleconditionxml;
+            Maxkeywords = maxkeywords;
+            Activerulefetchxml = activerulefetchxml;
+            Exchangerate = exchangerate;
+            Overwritetime = overwritetime;
+            Name = name;
+            Componentstate = componentstate;
+            Overriddencreatedon = overriddencreatedon;
+            Baseentityname = baseentityname;
+            Solutionid = solutionid;
+            Introducedversion = introducedversion;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Importsequencenumber = importsequencenumber;
+            Fetchxmllist = fetchxmllist;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Createdon = createdon;
+            Description = description;
+            Versionnumber = versionnumber;
+            this._organizationidValue = _organizationidValue;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Ismanaged = ismanaged;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Modifiedon = modifiedon;
+            Matchingentityname = matchingentityname;
+            Matchingentitytypecode = matchingentitytypecode;
             Createdonbehalfby = createdonbehalfby;
             Modifiedonbehalfby = modifiedonbehalfby;
             SimilarityruleAsyncOperations = similarityruleAsyncOperations;
@@ -79,43 +79,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "solutionid")]
-        public string Solutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "statuscode")]
         public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
@@ -124,78 +89,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "matchingentityname")]
-        public string Matchingentityname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "introducedversion")]
-        public string Introducedversion { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "fetchxmllist")]
-        public string Fetchxmllist { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "activerulefetchxml")]
-        public string Activerulefetchxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "maxkeywords")]
-        public int? Maxkeywords { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "baseentitytypecode")]
-        public int? Baseentitytypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overwritetime")]
-        public System.DateTimeOffset? Overwritetime { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "similarityruleidunique")]
         public string Similarityruleidunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -204,28 +99,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "baseentitytypecode")]
+        public int? Baseentitytypecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "baseentityname")]
-        public string Baseentityname { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "matchingentitytypecode")]
-        public int? Matchingentitytypecode { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -239,8 +124,123 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "maxkeywords")]
+        public int? Maxkeywords { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "activerulefetchxml")]
+        public string Activerulefetchxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "baseentityname")]
+        public string Baseentityname { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "introducedversion")]
+        public string Introducedversion { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "fetchxmllist")]
+        public string Fetchxmllist { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "ismanaged")]
         public bool? Ismanaged { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "matchingentityname")]
+        public string Matchingentityname { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "matchingentitytypecode")]
+        public int? Matchingentitytypecode { get; set; }
 
         /// <summary>
         /// </summary>

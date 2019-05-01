@@ -29,36 +29,36 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMtracelog
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMtracelog(string tracelogid = default(string), int? level = default(int?), string _regardingobjectidValue = default(string), string traceparameterxml = default(string), string _regardingobjectowneridValue = default(string), string text = default(string), string tracedetailxml = default(string), string _regardingobjectowningbusinessunitValue = default(string), string errordetails = default(string), string _modifiedonbehalfbyValue = default(string), string machinename = default(string), string _createdbyValue = default(string), int? timezoneruleversionnumber = default(int?), string traceactionxml = default(string), string _organizationidValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? tracestatus = default(bool?), int? collationlevel = default(int?), int? utcconversiontimezonecode = default(int?), string errortypedisplay = default(string), int? tracecode = default(int?), bool? isunique = default(bool?), string _parenttracelogidValue = default(string), int? traceparameterhash = default(int?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? canbedeleted = default(bool?), MicrosoftDynamicsCRMmailbox regardingobjectidMailbox = default(MicrosoftDynamicsCRMmailbox), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtracelog parenttracelogid = default(MicrosoftDynamicsCRMtracelog), IList<MicrosoftDynamicsCRMtracelog> tracelogParentTracelog = default(IList<MicrosoftDynamicsCRMtracelog>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMemailserverprofile regardingobjectidEmailserverprofile = default(MicrosoftDynamicsCRMemailserverprofile))
+        public MicrosoftDynamicsCRMtracelog(bool? canbedeleted = default(bool?), int? collationlevel = default(int?), string traceparameterxml = default(string), int? timezoneruleversionnumber = default(int?), int? traceparameterhash = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string text = default(string), string _regardingobjectowningbusinessunitValue = default(string), int? level = default(int?), string tracedetailxml = default(string), int? utcconversiontimezonecode = default(int?), string _createdonbehalfbyValue = default(string), string _organizationidValue = default(string), int? tracecode = default(int?), string _createdbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string errortypedisplay = default(string), string _modifiedbyValue = default(string), string errordetails = default(string), string tracelogid = default(string), string traceactionxml = default(string), string machinename = default(string), bool? isunique = default(bool?), string _modifiedonbehalfbyValue = default(string), string _regardingobjectidValue = default(string), string _regardingobjectowneridValue = default(string), bool? tracestatus = default(bool?), string _parenttracelogidValue = default(string), MicrosoftDynamicsCRMmailbox regardingobjectidMailbox = default(MicrosoftDynamicsCRMmailbox), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtracelog parenttracelogid = default(MicrosoftDynamicsCRMtracelog), IList<MicrosoftDynamicsCRMtracelog> tracelogParentTracelog = default(IList<MicrosoftDynamicsCRMtracelog>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMemailserverprofile regardingobjectidEmailserverprofile = default(MicrosoftDynamicsCRMemailserverprofile))
         {
-            Tracelogid = tracelogid;
-            Level = level;
-            this._regardingobjectidValue = _regardingobjectidValue;
-            Traceparameterxml = traceparameterxml;
-            this._regardingobjectowneridValue = _regardingobjectowneridValue;
-            Text = text;
-            Tracedetailxml = tracedetailxml;
-            this._regardingobjectowningbusinessunitValue = _regardingobjectowningbusinessunitValue;
-            Errordetails = errordetails;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Machinename = machinename;
-            this._createdbyValue = _createdbyValue;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Traceactionxml = traceactionxml;
-            this._organizationidValue = _organizationidValue;
-            Modifiedon = modifiedon;
-            Tracestatus = tracestatus;
-            Collationlevel = collationlevel;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            Errortypedisplay = errortypedisplay;
-            Tracecode = tracecode;
-            Isunique = isunique;
-            this._parenttracelogidValue = _parenttracelogidValue;
-            Traceparameterhash = traceparameterhash;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            Createdon = createdon;
             Canbedeleted = canbedeleted;
+            Collationlevel = collationlevel;
+            Traceparameterxml = traceparameterxml;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Traceparameterhash = traceparameterhash;
+            Createdon = createdon;
+            Text = text;
+            this._regardingobjectowningbusinessunitValue = _regardingobjectowningbusinessunitValue;
+            Level = level;
+            Tracedetailxml = tracedetailxml;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._organizationidValue = _organizationidValue;
+            Tracecode = tracecode;
+            this._createdbyValue = _createdbyValue;
+            Modifiedon = modifiedon;
+            Errortypedisplay = errortypedisplay;
+            this._modifiedbyValue = _modifiedbyValue;
+            Errordetails = errordetails;
+            Tracelogid = tracelogid;
+            Traceactionxml = traceactionxml;
+            Machinename = machinename;
+            Isunique = isunique;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            this._regardingobjectidValue = _regardingobjectidValue;
+            this._regardingobjectowneridValue = _regardingobjectowneridValue;
+            Tracestatus = tracestatus;
+            this._parenttracelogidValue = _parenttracelogidValue;
             RegardingobjectidMailbox = regardingobjectidMailbox;
             Createdby = createdby;
             Modifiedby = modifiedby;
@@ -78,88 +78,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "tracelogid")]
-        public string Tracelogid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "level")]
-        public int? Level { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectid_value")]
-        public string _regardingobjectidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traceparameterxml")]
-        public string Traceparameterxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectownerid_value")]
-        public string _regardingobjectowneridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "text")]
-        public string Text { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "tracedetailxml")]
-        public string Tracedetailxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectowningbusinessunit_value")]
-        public string _regardingobjectowningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "errordetails")]
-        public string Errordetails { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "machinename")]
-        public string Machinename { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traceactionxml")]
-        public string Traceactionxml { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "tracestatus")]
-        public bool? Tracestatus { get; set; }
+        [JsonProperty(PropertyName = "canbedeleted")]
+        public bool? Canbedeleted { get; set; }
 
         /// <summary>
         /// </summary>
@@ -168,28 +88,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "traceparameterxml")]
+        public string Traceparameterxml { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "errortypedisplay")]
-        public string Errortypedisplay { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "tracecode")]
-        public int? Tracecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isunique")]
-        public bool? Isunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_parenttracelogid_value")]
-        public string _parenttracelogidValue { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -198,8 +103,63 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "text")]
+        public string Text { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_regardingobjectowningbusinessunit_value")]
+        public string _regardingobjectowningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "level")]
+        public int? Level { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "tracedetailxml")]
+        public string Tracedetailxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfby_value")]
         public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "tracecode")]
+        public int? Tracecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "errortypedisplay")]
+        public string Errortypedisplay { get; set; }
 
         /// <summary>
         /// </summary>
@@ -208,13 +168,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "errordetails")]
+        public string Errordetails { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "canbedeleted")]
-        public bool? Canbedeleted { get; set; }
+        [JsonProperty(PropertyName = "tracelogid")]
+        public string Tracelogid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "traceactionxml")]
+        public string Traceactionxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "machinename")]
+        public string Machinename { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isunique")]
+        public bool? Isunique { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_regardingobjectid_value")]
+        public string _regardingobjectidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_regardingobjectownerid_value")]
+        public string _regardingobjectowneridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "tracestatus")]
+        public bool? Tracestatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_parenttracelogid_value")]
+        public string _parenttracelogidValue { get; set; }
 
         /// <summary>
         /// </summary>
