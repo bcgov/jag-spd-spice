@@ -192,14 +192,14 @@
       "displayName": "Name",
       "description": "The name assigned to all of the resources defined in this template.",
       "required": true,
-      "value": "carla-sync-service"
+      "value": "spice-carla-sync-service"
     },
     {
       "name": "SOURCE_IMAGE_NAME",
       "displayName": "Source Image Name",
       "description": "The name of the image to use for this resource.",
       "required": true,
-      "value": "carla-sync-service"
+      "value": "spice-carla-sync-service"
     },
     {
       "name": "IMAGE_NAMESPACE",
