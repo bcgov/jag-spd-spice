@@ -1,7 +1,7 @@
-# CARLA Sync #
+# SPICE-CARLA Sync #
 ------------
 
-The purpose of the CARLA Sync microservice is send and receive communications to the LCRB CARLA system.
+The purpose of the SPICE-CARLA Sync microservice is send and receive communications to the LCRB CARLA system.
 
 ## Development ##
 

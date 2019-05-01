@@ -11,13 +11,13 @@ export GIT_REF="master"
 
 # The project components
 # - defaults to the support the Simple Project Structure
-export components=${components:-"carla-sync-service"}
+export components=${components:-"spice-carla-sync-service"}
 
 # The builds to be triggered after buildconfigs created (not auto-triggered)
 export builds=${builds:-""}
 
 # The images to be tagged after build
-export images=${images:-"carla-sync-service"}
+export images=${images:-"spice-carla-sync-service"}
 
 # The routes for the project
 export routes=${routes:-""}
