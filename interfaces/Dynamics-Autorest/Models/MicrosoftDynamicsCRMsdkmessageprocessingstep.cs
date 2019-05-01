@@ -29,38 +29,39 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsdkmessageprocessingstep class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessageprocessingstep(string _modifiedonbehalfbyValue = default(string), string _organizationidValue = default(string), string sdkmessageprocessingstepid = default(string), string _sdkmessagefilteridValue = default(string), string introducedversion = default(string), string _sdkmessageidValue = default(string), int? componentstate = default(int?), string configuration = default(string), int? customizationlevel = default(int?), int? statecode = default(int?), int? mode = default(int?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string solutionid = default(string), bool? asyncautodelete = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? canusereadonlyconnection = default(bool?), MicrosoftDynamicsCRMBooleanManagedProperty ishidden = default(MicrosoftDynamicsCRMBooleanManagedProperty), string _sdkmessageprocessingstepsecureconfigidValue = default(string), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? stage = default(int?), string filteringattributes = default(string), long? versionnumber = default(long?), int? supporteddeployment = default(int?), bool? ismanaged = default(bool?), string sdkmessageprocessingstepidunique = default(string), string _eventhandlerValue = default(string), int? rank = default(int?), string _impersonatinguseridValue = default(string), int? statuscode = default(int?), string _createdbyValue = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string description = default(string), MicrosoftDynamicsCRMsdkmessageprocessingstepsecureconfig sdkmessageprocessingstepsecureconfigid = default(MicrosoftDynamicsCRMsdkmessageprocessingstepsecureconfig), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessagefilter sdkmessagefilterid = default(MicrosoftDynamicsCRMsdkmessagefilter), MicrosoftDynamicsCRMsystemuser impersonatinguserid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMplugintype plugintypeid = default(MicrosoftDynamicsCRMplugintype), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMplugintype eventhandlerPlugintype = default(MicrosoftDynamicsCRMplugintype), IList<MicrosoftDynamicsCRMasyncoperation> sdkMessageProcessingStepAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsdkmessageprocessingstepimage> sdkmessageprocessingstepidSdkmessageprocessingstepimage = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstepimage>), MicrosoftDynamicsCRMserviceendpoint eventhandlerServiceendpoint = default(MicrosoftDynamicsCRMserviceendpoint))
+        public MicrosoftDynamicsCRMsdkmessageprocessingstep(string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), string sdkmessageprocessingstepid = default(string), MicrosoftDynamicsCRMBooleanManagedProperty ishidden = default(MicrosoftDynamicsCRMBooleanManagedProperty), string eventexpander = default(string), string introducedversion = default(string), string _sdkmessageidValue = default(string), int? componentstate = default(int?), string configuration = default(string), int? customizationlevel = default(int?), string filteringattributes = default(string), int? statecode = default(int?), string _organizationidValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _eventhandlerValue = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string solutionid = default(string), bool? asyncautodelete = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? canusereadonlyconnection = default(bool?), int? mode = default(int?), string _sdkmessagefilteridValue = default(string), int? rank = default(int?), string _sdkmessageprocessingstepsecureconfigidValue = default(string), string name = default(string), int? stage = default(int?), long? versionnumber = default(long?), int? supporteddeployment = default(int?), bool? ismanaged = default(bool?), string sdkmessageprocessingstepidunique = default(string), string _impersonatinguseridValue = default(string), int? statuscode = default(int?), string _createdbyValue = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string description = default(string), MicrosoftDynamicsCRMsdkmessageprocessingstepsecureconfig sdkmessageprocessingstepsecureconfigid = default(MicrosoftDynamicsCRMsdkmessageprocessingstepsecureconfig), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessagefilter sdkmessagefilterid = default(MicrosoftDynamicsCRMsdkmessagefilter), MicrosoftDynamicsCRMsystemuser impersonatinguserid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMplugintype plugintypeid = default(MicrosoftDynamicsCRMplugintype), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMplugintype eventhandlerPlugintype = default(MicrosoftDynamicsCRMplugintype), IList<MicrosoftDynamicsCRMasyncoperation> sdkMessageProcessingStepAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsdkmessageprocessingstepimage> sdkmessageprocessingstepidSdkmessageprocessingstepimage = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstepimage>), MicrosoftDynamicsCRMserviceendpoint eventhandlerServiceendpoint = default(MicrosoftDynamicsCRMserviceendpoint))
         {
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            this._organizationidValue = _organizationidValue;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Sdkmessageprocessingstepid = sdkmessageprocessingstepid;
-            this._sdkmessagefilteridValue = _sdkmessagefilteridValue;
+            Ishidden = ishidden;
+            Eventexpander = eventexpander;
             Introducedversion = introducedversion;
             this._sdkmessageidValue = _sdkmessageidValue;
             Componentstate = componentstate;
             Configuration = configuration;
             Customizationlevel = customizationlevel;
+            Filteringattributes = filteringattributes;
             Statecode = statecode;
-            Mode = mode;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._organizationidValue = _organizationidValue;
             Overwritetime = overwritetime;
+            this._eventhandlerValue = _eventhandlerValue;
             this._modifiedbyValue = _modifiedbyValue;
+            Modifiedon = modifiedon;
             Solutionid = solutionid;
             Asyncautodelete = asyncautodelete;
             Createdon = createdon;
             Canusereadonlyconnection = canusereadonlyconnection;
-            Ishidden = ishidden;
+            Mode = mode;
+            this._sdkmessagefilteridValue = _sdkmessagefilteridValue;
+            Rank = rank;
             this._sdkmessageprocessingstepsecureconfigidValue = _sdkmessageprocessingstepsecureconfigidValue;
             Name = name;
-            Modifiedon = modifiedon;
             Stage = stage;
-            Filteringattributes = filteringattributes;
             Versionnumber = versionnumber;
             Supporteddeployment = supporteddeployment;
             Ismanaged = ismanaged;
             Sdkmessageprocessingstepidunique = sdkmessageprocessingstepidunique;
-            this._eventhandlerValue = _eventhandlerValue;
-            Rank = rank;
             this._impersonatinguseridValue = _impersonatinguseridValue;
             Statuscode = statuscode;
             this._createdbyValue = _createdbyValue;
@@ -95,8 +96,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -105,8 +106,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_sdkmessagefilterid_value")]
-        public string _sdkmessagefilteridValue { get; set; }
+        [JsonProperty(PropertyName = "ishidden")]
+        public MicrosoftDynamicsCRMBooleanManagedProperty Ishidden { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "eventexpander")]
+        public string Eventexpander { get; set; }
 
         /// <summary>
         /// </summary>
@@ -135,18 +141,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "filteringattributes")]
+        public string Filteringattributes { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "statecode")]
         public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "mode")]
-        public int? Mode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -155,8 +161,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_eventhandler_value")]
+        public string _eventhandlerValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_modifiedby_value")]
         public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -180,8 +196,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ishidden")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Ishidden { get; set; }
+        [JsonProperty(PropertyName = "mode")]
+        public int? Mode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_sdkmessagefilterid_value")]
+        public string _sdkmessagefilteridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "rank")]
+        public int? Rank { get; set; }
 
         /// <summary>
         /// </summary>
@@ -195,18 +221,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "stage")]
         public int? Stage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "filteringattributes")]
-        public string Filteringattributes { get; set; }
 
         /// <summary>
         /// </summary>
@@ -227,16 +243,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "sdkmessageprocessingstepidunique")]
         public string Sdkmessageprocessingstepidunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_eventhandler_value")]
-        public string _eventhandlerValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "rank")]
-        public int? Rank { get; set; }
 
         /// <summary>
         /// </summary>

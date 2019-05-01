@@ -47,301 +47,6 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IAccounts Accounts { get; private set; }
 
         /// <summary>
-        /// Gets the ILicencetypeinvestigationset.
-        /// </summary>
-        public virtual ILicencetypeinvestigationset Licencetypeinvestigationset { get; private set; }
-
-        /// <summary>
-        /// Gets the IAgencycommunications.
-        /// </summary>
-        public virtual IAgencycommunications Agencycommunications { get; private set; }
-
-        /// <summary>
-        /// Gets the IAliases.
-        /// </summary>
-        public virtual IAliases Aliases { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicantsteps.
-        /// </summary>
-        public virtual IApplicantsteps Applicantsteps { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicationbpfmvpv2s.
-        /// </summary>
-        public virtual IApplicationbpfmvpv2s Applicationbpfmvpv2s { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicationinvoicehistories.
-        /// </summary>
-        public virtual IApplicationinvoicehistories Applicationinvoicehistories { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicationmodules.
-        /// </summary>
-        public virtual IApplicationmodules Applicationmodules { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplications.
-        /// </summary>
-        public virtual IApplications Applications { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicationtermsconditionslimitations.
-        /// </summary>
-        public virtual IApplicationtermsconditionslimitations Applicationtermsconditionslimitations { get; private set; }
-
-        /// <summary>
-        /// Gets the IApplicationtypes.
-        /// </summary>
-        public virtual IApplicationtypes Applicationtypes { get; private set; }
-
-        /// <summary>
-        /// Gets the IAreas.
-        /// </summary>
-        public virtual IAreas Areas { get; private set; }
-
-        /// <summary>
-        /// Gets the IBusinessaccounts.
-        /// </summary>
-        public virtual IBusinessaccounts Businessaccounts { get; private set; }
-
-        /// <summary>
-        /// Gets the ICitydistricts.
-        /// </summary>
-        public virtual ICitydistricts Citydistricts { get; private set; }
-
-        /// <summary>
-        /// Gets the IComplaintpublicbpfs.
-        /// </summary>
-        public virtual IComplaintpublicbpfs Complaintpublicbpfs { get; private set; }
-
-        /// <summary>
-        /// Gets the IComplaints.
-        /// </summary>
-        public virtual IComplaints Complaints { get; private set; }
-
-        /// <summary>
-        /// Gets the IComplianceinvestigations.
-        /// </summary>
-        public virtual IComplianceinvestigations Complianceinvestigations { get; private set; }
-
-        /// <summary>
-        /// Gets the ICompliancemeetings.
-        /// </summary>
-        public virtual ICompliancemeetings Compliancemeetings { get; private set; }
-
-        /// <summary>
-        /// Gets the IContraventionadmins.
-        /// </summary>
-        public virtual IContraventionadmins Contraventionadmins { get; private set; }
-
-        /// <summary>
-        /// Gets the IContraventions.
-        /// </summary>
-        public virtual IContraventions Contraventions { get; private set; }
-
-        /// <summary>
-        /// Gets the ICorporatehistorysummaries.
-        /// </summary>
-        public virtual ICorporatehistorysummaries Corporatehistorysummaries { get; private set; }
-
-        /// <summary>
-        /// Gets the ICorporateroles.
-        /// </summary>
-        public virtual ICorporateroles Corporateroles { get; private set; }
-
-        /// <summary>
-        /// Gets the ICustomautonumberdefinitions.
-        /// </summary>
-        public virtual ICustomautonumberdefinitions Customautonumberdefinitions { get; private set; }
-
-        /// <summary>
-        /// Gets the ICustomautonumberrequests.
-        /// </summary>
-        public virtual ICustomautonumberrequests Customautonumberrequests { get; private set; }
-
-        /// <summary>
-        /// Gets the IDocumentadmins.
-        /// </summary>
-        public virtual IDocumentadmins Documentadmins { get; private set; }
-
-        /// <summary>
-        /// Gets the IDocuments.
-        /// </summary>
-        public virtual IDocuments Documents { get; private set; }
-
-        /// <summary>
-        /// Gets the IEstablishments.
-        /// </summary>
-        public virtual IEstablishments Establishments { get; private set; }
-
-        /// <summary>
-        /// Gets the IFiainvestigationlogs.
-        /// </summary>
-        public virtual IFiainvestigationlogs Fiainvestigationlogs { get; private set; }
-
-        /// <summary>
-        /// Gets the IFundingsources.
-        /// </summary>
-        public virtual IFundingsources Fundingsources { get; private set; }
-
-        /// <summary>
-        /// Gets the IIncidentlicencetypeset.
-        /// </summary>
-        public virtual IIncidentlicencetypeset Incidentlicencetypeset { get; private set; }
-
-        /// <summary>
-        /// Gets the IInspectioninspectorsset.
-        /// </summary>
-        public virtual IInspectioninspectorsset Inspectioninspectorsset { get; private set; }
-
-        /// <summary>
-        /// Gets the IInterests.
-        /// </summary>
-        public virtual IInterests Interests { get; private set; }
-
-        /// <summary>
-        /// Gets the IInvestigationactivities.
-        /// </summary>
-        public virtual IInvestigationactivities Investigationactivities { get; private set; }
-
-        /// <summary>
-        /// Gets the IInvestigations.
-        /// </summary>
-        public virtual IInvestigations Investigations { get; private set; }
-
-        /// <summary>
-        /// Gets the ILegalentities.
-        /// </summary>
-        public virtual ILegalentities Legalentities { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencechangeapplications.
-        /// </summary>
-        public virtual ILicencechangeapplications Licencechangeapplications { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicenceses.
-        /// </summary>
-        public virtual ILicenceses Licenceses { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencetypeprerequisites.
-        /// </summary>
-        public virtual ILicencetypeprerequisites Licencetypeprerequisites { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencetypes.
-        /// </summary>
-        public virtual ILicencetypes Licencetypes { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencetypesapplicationtypesset.
-        /// </summary>
-        public virtual ILicencetypesapplicationtypesset Licencetypesapplicationtypesset { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencetypestepprerequisites.
-        /// </summary>
-        public virtual ILicencetypestepprerequisites Licencetypestepprerequisites { get; private set; }
-
-        /// <summary>
-        /// Gets the ILicencetypesteps.
-        /// </summary>
-        public virtual ILicencetypesteps Licencetypesteps { get; private set; }
-
-        /// <summary>
-        /// Gets the ILoans.
-        /// </summary>
-        public virtual ILoans Loans { get; private set; }
-
-        /// <summary>
-        /// Gets the ILocalgovindigenousnations.
-        /// </summary>
-        public virtual ILocalgovindigenousnations Localgovindigenousnations { get; private set; }
-
-        /// <summary>
-        /// Gets the IPersonalhistorysummaries.
-        /// </summary>
-        public virtual IPersonalhistorysummaries Personalhistorysummaries { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolicejurisdictions.
-        /// </summary>
-        public virtual IPolicejurisdictions Policejurisdictions { get; private set; }
-
-        /// <summary>
-        /// Gets the IPolicydocuments.
-        /// </summary>
-        public virtual IPolicydocuments Policydocuments { get; private set; }
-
-        /// <summary>
-        /// Gets the IPostalcodes.
-        /// </summary>
-        public virtual IPostalcodes Postalcodes { get; private set; }
-
-        /// <summary>
-        /// Gets the IPreviousaddresses.
-        /// </summary>
-        public virtual IPreviousaddresses Previousaddresses { get; private set; }
-
-        /// <summary>
-        /// Gets the IRegions.
-        /// </summary>
-        public virtual IRegions Regions { get; private set; }
-
-        /// <summary>
-        /// Gets the ISettings.
-        /// </summary>
-        public virtual ISettings Settings { get; private set; }
-
-        /// <summary>
-        /// Gets the ISpddatarows.
-        /// </summary>
-        public virtual ISpddatarows Spddatarows { get; private set; }
-
-        /// <summary>
-        /// Gets the ISpdexportses.
-        /// </summary>
-        public virtual ISpdexportses Spdexportses { get; private set; }
-
-        /// <summary>
-        /// Gets the ITaxandaccountings.
-        /// </summary>
-        public virtual ITaxandaccountings Taxandaccountings { get; private set; }
-
-        /// <summary>
-        /// Gets the ITermsconditionslimitationspresets.
-        /// </summary>
-        public virtual ITermsconditionslimitationspresets Termsconditionslimitationspresets { get; private set; }
-
-        /// <summary>
-        /// Gets the ITerritories.
-        /// </summary>
-        public virtual ITerritories Territories { get; private set; }
-
-        /// <summary>
-        /// Gets the ITiedhouseassociations.
-        /// </summary>
-        public virtual ITiedhouseassociations Tiedhouseassociations { get; private set; }
-
-        /// <summary>
-        /// Gets the ITiedhouseconnections.
-        /// </summary>
-        public virtual ITiedhouseconnections Tiedhouseconnections { get; private set; }
-
-        /// <summary>
-        /// Gets the IWorkerinvoicehistories.
-        /// </summary>
-        public virtual IWorkerinvoicehistories Workerinvoicehistories { get; private set; }
-
-        /// <summary>
-        /// Gets the IWorkers.
-        /// </summary>
-        public virtual IWorkers Workers { get; private set; }
-
-        /// <summary>
         /// Gets the IContacts.
         /// </summary>
         public virtual IContacts Contacts { get; private set; }
@@ -350,26 +55,6 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IInvoices.
         /// </summary>
         public virtual IInvoices Invoices { get; private set; }
-
-        /// <summary>
-        /// Gets the IMsdynapplicationknowledgearticleset.
-        /// </summary>
-        public virtual IMsdynapplicationknowledgearticleset Msdynapplicationknowledgearticleset { get; private set; }
-
-        /// <summary>
-        /// Gets the IMsdynapplicationknowledgebaserecset.
-        /// </summary>
-        public virtual IMsdynapplicationknowledgebaserecset Msdynapplicationknowledgebaserecset { get; private set; }
-
-        /// <summary>
-        /// Gets the IMsdynlicencetypeknowledgearticleset.
-        /// </summary>
-        public virtual IMsdynlicencetypeknowledgearticleset Msdynlicencetypeknowledgearticleset { get; private set; }
-
-        /// <summary>
-        /// Gets the IMsdynlicencetypeknowledgebaserecset.
-        /// </summary>
-        public virtual IMsdynlicencetypeknowledgebaserecset Msdynlicencetypeknowledgebaserecset { get; private set; }
 
         /// <summary>
         /// Gets the ISavedqueries.
@@ -385,6 +70,66 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the ISharepointsites.
         /// </summary>
         public virtual ISharepointsites Sharepointsites { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignments.
+        /// </summary>
+        public virtual IAccountcaseassignments Accountcaseassignments { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliaseses.
+        /// </summary>
+        public virtual IAliaseses Aliaseses { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactaccountset.
+        /// </summary>
+        public virtual IContactaccountset Contactaccountset { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestincidentset.
+        /// </summary>
+        public virtual IExportrequestincidentset Exportrequestincidentset { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequests.
+        /// </summary>
+        public virtual IExportrequests Exportrequests { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistries.
+        /// </summary>
+        public virtual IMinistries Ministries { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployees.
+        /// </summary>
+        public virtual IMinistryemployees Ministryemployees { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddresseses.
+        /// </summary>
+        public virtual IPreviousaddresseses Previousaddresseses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckses.
+        /// </summary>
+        public virtual IRequiredcheckses Requiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IServiceses.
+        /// </summary>
+        public virtual IServiceses Serviceses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinesscaseprocesses.
+        /// </summary>
+        public virtual IBusinesscaseprocesses Businesscaseprocesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IProcesses.
+        /// </summary>
+        public virtual IProcesses Processes { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the DynamicsClient class.
@@ -628,74 +373,23 @@ namespace Gov.Jag.Spice.Interfaces
         private void Initialize()
         {
             Accounts = new Accounts(this);
-            Licencetypeinvestigationset = new Licencetypeinvestigationset(this);
-            Agencycommunications = new Agencycommunications(this);
-            Aliases = new Aliases(this);
-            Applicantsteps = new Applicantsteps(this);
-            Applicationbpfmvpv2s = new Applicationbpfmvpv2s(this);
-            Applicationinvoicehistories = new Applicationinvoicehistories(this);
-            Applicationmodules = new Applicationmodules(this);
-            Applications = new Applications(this);
-            Applicationtermsconditionslimitations = new Applicationtermsconditionslimitations(this);
-            Applicationtypes = new Applicationtypes(this);
-            Areas = new Areas(this);
-            Businessaccounts = new Businessaccounts(this);
-            Citydistricts = new Citydistricts(this);
-            Complaintpublicbpfs = new Complaintpublicbpfs(this);
-            Complaints = new Complaints(this);
-            Complianceinvestigations = new Complianceinvestigations(this);
-            Compliancemeetings = new Compliancemeetings(this);
-            Contraventionadmins = new Contraventionadmins(this);
-            Contraventions = new Contraventions(this);
-            Corporatehistorysummaries = new Corporatehistorysummaries(this);
-            Corporateroles = new Corporateroles(this);
-            Customautonumberdefinitions = new Customautonumberdefinitions(this);
-            Customautonumberrequests = new Customautonumberrequests(this);
-            Documentadmins = new Documentadmins(this);
-            Documents = new Documents(this);
-            Establishments = new Establishments(this);
-            Fiainvestigationlogs = new Fiainvestigationlogs(this);
-            Fundingsources = new Fundingsources(this);
-            Incidentlicencetypeset = new Incidentlicencetypeset(this);
-            Inspectioninspectorsset = new Inspectioninspectorsset(this);
-            Interests = new Interests(this);
-            Investigationactivities = new Investigationactivities(this);
-            Investigations = new Investigations(this);
-            Legalentities = new Legalentities(this);
-            Licencechangeapplications = new Licencechangeapplications(this);
-            Licenceses = new Licenceses(this);
-            Licencetypeprerequisites = new Licencetypeprerequisites(this);
-            Licencetypes = new Licencetypes(this);
-            Licencetypesapplicationtypesset = new Licencetypesapplicationtypesset(this);
-            Licencetypestepprerequisites = new Licencetypestepprerequisites(this);
-            Licencetypesteps = new Licencetypesteps(this);
-            Loans = new Loans(this);
-            Localgovindigenousnations = new Localgovindigenousnations(this);
-            Personalhistorysummaries = new Personalhistorysummaries(this);
-            Policejurisdictions = new Policejurisdictions(this);
-            Policydocuments = new Policydocuments(this);
-            Postalcodes = new Postalcodes(this);
-            Previousaddresses = new Previousaddresses(this);
-            Regions = new Regions(this);
-            Settings = new Settings(this);
-            Spddatarows = new Spddatarows(this);
-            Spdexportses = new Spdexportses(this);
-            Taxandaccountings = new Taxandaccountings(this);
-            Termsconditionslimitationspresets = new Termsconditionslimitationspresets(this);
-            Territories = new Territories(this);
-            Tiedhouseassociations = new Tiedhouseassociations(this);
-            Tiedhouseconnections = new Tiedhouseconnections(this);
-            Workerinvoicehistories = new Workerinvoicehistories(this);
-            Workers = new Workers(this);
             Contacts = new Contacts(this);
             Invoices = new Invoices(this);
-            Msdynapplicationknowledgearticleset = new Msdynapplicationknowledgearticleset(this);
-            Msdynapplicationknowledgebaserecset = new Msdynapplicationknowledgebaserecset(this);
-            Msdynlicencetypeknowledgearticleset = new Msdynlicencetypeknowledgearticleset(this);
-            Msdynlicencetypeknowledgebaserecset = new Msdynlicencetypeknowledgebaserecset(this);
             Savedqueries = new Savedqueries(this);
             Sharepointdocumentlocations = new Sharepointdocumentlocations(this);
             Sharepointsites = new Sharepointsites(this);
+            Accountcaseassignments = new Accountcaseassignments(this);
+            Aliaseses = new Aliaseses(this);
+            Contactaccountset = new Contactaccountset(this);
+            Exportrequestincidentset = new Exportrequestincidentset(this);
+            Exportrequests = new Exportrequests(this);
+            Ministries = new Ministries(this);
+            Ministryemployees = new Ministryemployees(this);
+            Previousaddresseses = new Previousaddresseses(this);
+            Requiredcheckses = new Requiredcheckses(this);
+            Serviceses = new Serviceses(this);
+            Businesscaseprocesses = new Businesscaseprocesses(this);
+            Processes = new Processes(this);
             BaseUri = new System.Uri("https://wsgw.dev.jag.gov.bc.ca/clb/crmdev/api/data/v8.2");
             SerializationSettings = new JsonSerializerSettings
             {

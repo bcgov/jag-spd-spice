@@ -27,12 +27,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsystemusersyncmappingprofiles class.
         /// </summary>
-        public MicrosoftDynamicsCRMsystemusersyncmappingprofiles(string systemuserid = default(string), string syncattributemappingprofileid = default(string), string systemusersyncmappingprofileid = default(string), long? versionnumber = default(long?))
+        public MicrosoftDynamicsCRMsystemusersyncmappingprofiles(string systemusersyncmappingprofileid = default(string), string syncattributemappingprofileid = default(string), long? versionnumber = default(long?), string systemuserid = default(string))
         {
-            Systemuserid = systemuserid;
-            Syncattributemappingprofileid = syncattributemappingprofileid;
             Systemusersyncmappingprofileid = systemusersyncmappingprofileid;
+            Syncattributemappingprofileid = syncattributemappingprofileid;
             Versionnumber = versionnumber;
+            Systemuserid = systemuserid;
             CustomInit();
         }
 
@@ -43,8 +43,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "systemuserid")]
-        public string Systemuserid { get; set; }
+        [JsonProperty(PropertyName = "systemusersyncmappingprofileid")]
+        public string Systemusersyncmappingprofileid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -53,13 +53,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "systemusersyncmappingprofileid")]
-        public string Systemusersyncmappingprofileid { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "systemuserid")]
+        public string Systemuserid { get; set; }
 
     }
 }

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// Collection of adoxio_territories
+    /// Collection of territories
     /// </summary>
     public partial class TerritoriesGetResponseModel
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the TerritoriesGetResponseModel
         /// class.
         /// </summary>
-        public TerritoriesGetResponseModel(IList<MicrosoftDynamicsCRMadoxioTerritory> value = default(IList<MicrosoftDynamicsCRMadoxioTerritory>))
+        public TerritoriesGetResponseModel(IList<MicrosoftDynamicsCRMterritory> value = default(IList<MicrosoftDynamicsCRMterritory>))
         {
             Value = value;
             CustomInit();
@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<MicrosoftDynamicsCRMadoxioTerritory> Value { get; set; }
+        public IList<MicrosoftDynamicsCRMterritory> Value { get; set; }
 
     }
 }

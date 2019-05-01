@@ -29,104 +29,108 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMcontract
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMcontract(string _createdonbehalfbyValue = default(string), string _owningteamValue = default(string), string _billingaccountidValue = default(string), string contracttemplateabbreviation = default(string), object netprice = default(object), object exchangerate = default(object), string entityimageUrl = default(string), long? entityimageTimestamp = default(long?), object totalpriceBase = default(object), string _billtoaddressValue = default(string), System.DateTimeOffset? billingstarton = default(System.DateTimeOffset?), string _serviceaddressValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), object totalprice = default(object), long? versionnumber = default(long?), string _billingcontactidValue = default(string), System.DateTimeOffset? billingendon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _contracttemplateidValue = default(string), object entityimage = default(object), int? contractservicelevelcode = default(int?), object totaldiscount = default(object), int? timezoneruleversionnumber = default(int?), int? statecode = default(int?), string effectivitycalendar = default(string), string contractlanguage = default(string), string entityimageid = default(string), string _billingcustomeridValue = default(string), string _owningbusinessunitValue = default(string), int? importsequencenumber = default(int?), string contractnumber = default(string), string title = default(string), int? allotmenttypecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), int? utcconversiontimezonecode = default(int?), string contractid = default(string), string _customeridValue = default(string), object netpriceBase = default(object), string _accountidValue = default(string), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), int? billingfrequencycode = default(int?), string _createdbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string _originatingcontractValue = default(string), string _contactidValue = default(string), bool? usediscountaspercentage = default(bool?), string _owninguserValue = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? expireson = default(System.DateTimeOffset?), System.DateTimeOffset? cancelon = default(System.DateTimeOffset?), int? duration = default(int?), object totaldiscountBase = default(object), string _owneridValue = default(string), IList<MicrosoftDynamicsCRMcontact> servicecontractcontactsAssociation = default(IList<MicrosoftDynamicsCRMcontact>), MicrosoftDynamicsCRMaccount billingcustomeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMactivitypointer> contractActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), MicrosoftDynamicsCRMcustomeraddress serviceaddress = default(MicrosoftDynamicsCRMcustomeraddress), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> contractRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMactivityparty> contractActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMconnection> contractConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> contractConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMasyncoperation> contractAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMappointment> contractAppointments = default(IList<MicrosoftDynamicsCRMappointment>), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact billingcustomeridContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMduplicaterecord> contractDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMannotation> contractAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMserviceappointment> contractServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMcontractdetail> contractLineItems = default(IList<MicrosoftDynamicsCRMcontractdetail>), MicrosoftDynamicsCRMcontract originatingcontract = default(MicrosoftDynamicsCRMcontract), IList<MicrosoftDynamicsCRMcontract> contractOriginatingContract = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMsyncerror> contractSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMphonecall> contractPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMletter> contractLetters = default(IList<MicrosoftDynamicsCRMletter>), MicrosoftDynamicsCRMcustomeraddress billtoaddress = default(MicrosoftDynamicsCRMcustomeraddress), IList<MicrosoftDynamicsCRMsocialactivity> contractSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMfax> contractFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMtask> contractTasks = default(IList<MicrosoftDynamicsCRMtask>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> contractBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMduplicaterecord> contractDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMemail> contractEmails = default(IList<MicrosoftDynamicsCRMemail>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMincident> contractCases = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMcontracttemplate contracttemplateid = default(MicrosoftDynamicsCRMcontracttemplate), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> contractAbsScheduledprocessexecutions = default(IList<MicrosoftDynamicsCRMabsScheduledprocessexecution>))
+        public MicrosoftDynamicsCRMcontract(int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? billingstarton = default(System.DateTimeOffset?), object totaldiscount = default(object), object totalpriceBase = default(object), string title = default(string), string _owningbusinessunitValue = default(string), string entityimageUrl = default(string), string _billingaccountidValue = default(string), string contractid = default(string), string contractnumber = default(string), string _createdonbehalfbyValue = default(string), string _originatingcontractValue = default(string), string _billingcontactidValue = default(string), string _billtoaddressValue = default(string), string _modifiedonbehalfbyValue = default(string), string _contactidValue = default(string), string _createdbyValue = default(string), int? allotmenttypecode = default(int?), string _customeridValue = default(string), string _accountidValue = default(string), string effectivitycalendar = default(string), string _billingcustomeridValue = default(string), string entityimageid = default(string), int? billingfrequencycode = default(int?), string _contracttemplateidValue = default(string), object totalprice = default(object), string contractlanguage = default(string), string _modifiedbyValue = default(string), int? statuscode = default(int?), string emailaddress = default(string), object exchangerate = default(object), long? versionnumber = default(long?), string _owningteamValue = default(string), System.DateTimeOffset? billingendon = default(System.DateTimeOffset?), System.DateTimeOffset? cancelon = default(System.DateTimeOffset?), int? duration = default(int?), string _owninguserValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), object totaldiscountBase = default(object), object entityimage = default(object), long? entityimageTimestamp = default(long?), int? statecode = default(int?), string _serviceaddressValue = default(string), object netprice = default(object), string _owneridValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? contractservicelevelcode = default(int?), string contracttemplateabbreviation = default(string), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), int? importsequencenumber = default(int?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), object netpriceBase = default(object), bool? usediscountaspercentage = default(bool?), System.DateTimeOffset? expireson = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> contractActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> contractSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> contractActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> contractDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> contractDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> contractAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> contractMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> contractProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> contractBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> contractPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMappointment> contractAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> contractEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> contractFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> contractLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> contractPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> contractTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> contractRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> contractSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> contractConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> contractConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMannotation> contractAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMserviceappointment> contractServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMaccount billingcustomeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact billingcustomeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMincident> contractCases = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMcontractdetail> contractLineItems = default(IList<MicrosoftDynamicsCRMcontractdetail>), MicrosoftDynamicsCRMcontract originatingcontract = default(MicrosoftDynamicsCRMcontract), IList<MicrosoftDynamicsCRMcontract> contractOriginatingContract = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMcontact> servicecontractcontactsAssociation = default(IList<MicrosoftDynamicsCRMcontact>), MicrosoftDynamicsCRMcontracttemplate contracttemplateid = default(MicrosoftDynamicsCRMcontracttemplate), MicrosoftDynamicsCRMcustomeraddress billtoaddress = default(MicrosoftDynamicsCRMcustomeraddress), MicrosoftDynamicsCRMcustomeraddress serviceaddress = default(MicrosoftDynamicsCRMcustomeraddress), IList<MicrosoftDynamicsCRMspiceRequiredchecks> contractSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>))
         {
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._owningteamValue = _owningteamValue;
-            this._billingaccountidValue = _billingaccountidValue;
-            Contracttemplateabbreviation = contracttemplateabbreviation;
-            Netprice = netprice;
-            Exchangerate = exchangerate;
-            EntityimageUrl = entityimageUrl;
-            EntityimageTimestamp = entityimageTimestamp;
-            TotalpriceBase = totalpriceBase;
-            this._billtoaddressValue = _billtoaddressValue;
-            Billingstarton = billingstarton;
-            this._serviceaddressValue = _serviceaddressValue;
-            Modifiedon = modifiedon;
-            Statuscode = statuscode;
-            Totalprice = totalprice;
-            Versionnumber = versionnumber;
-            this._billingcontactidValue = _billingcontactidValue;
-            Billingendon = billingendon;
-            Createdon = createdon;
-            this._contracttemplateidValue = _contracttemplateidValue;
-            Entityimage = entityimage;
-            Contractservicelevelcode = contractservicelevelcode;
-            Totaldiscount = totaldiscount;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Statecode = statecode;
-            Effectivitycalendar = effectivitycalendar;
-            Contractlanguage = contractlanguage;
-            Entityimageid = entityimageid;
-            this._billingcustomeridValue = _billingcustomeridValue;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            Importsequencenumber = importsequencenumber;
-            Contractnumber = contractnumber;
-            Title = title;
-            Allotmenttypecode = allotmenttypecode;
-            Overriddencreatedon = overriddencreatedon;
-            this._modifiedbyValue = _modifiedbyValue;
             Utcconversiontimezonecode = utcconversiontimezonecode;
+            Billingstarton = billingstarton;
+            Totaldiscount = totaldiscount;
+            TotalpriceBase = totalpriceBase;
+            Title = title;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            EntityimageUrl = entityimageUrl;
+            this._billingaccountidValue = _billingaccountidValue;
             Contractid = contractid;
-            this._customeridValue = _customeridValue;
-            NetpriceBase = netpriceBase;
-            this._accountidValue = _accountidValue;
-            Activeon = activeon;
-            Billingfrequencycode = billingfrequencycode;
-            this._createdbyValue = _createdbyValue;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Contractnumber = contractnumber;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             this._originatingcontractValue = _originatingcontractValue;
+            this._billingcontactidValue = _billingcontactidValue;
+            this._billtoaddressValue = _billtoaddressValue;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._contactidValue = _contactidValue;
-            Usediscountaspercentage = usediscountaspercentage;
-            this._owninguserValue = _owninguserValue;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Expireson = expireson;
+            this._createdbyValue = _createdbyValue;
+            Allotmenttypecode = allotmenttypecode;
+            this._customeridValue = _customeridValue;
+            this._accountidValue = _accountidValue;
+            Effectivitycalendar = effectivitycalendar;
+            this._billingcustomeridValue = _billingcustomeridValue;
+            Entityimageid = entityimageid;
+            Billingfrequencycode = billingfrequencycode;
+            this._contracttemplateidValue = _contracttemplateidValue;
+            Totalprice = totalprice;
+            Contractlanguage = contractlanguage;
+            this._modifiedbyValue = _modifiedbyValue;
+            Statuscode = statuscode;
+            Emailaddress = emailaddress;
+            Exchangerate = exchangerate;
+            Versionnumber = versionnumber;
+            this._owningteamValue = _owningteamValue;
+            Billingendon = billingendon;
             Cancelon = cancelon;
             Duration = duration;
+            this._owninguserValue = _owninguserValue;
+            Modifiedon = modifiedon;
             TotaldiscountBase = totaldiscountBase;
+            Entityimage = entityimage;
+            EntityimageTimestamp = entityimageTimestamp;
+            Statecode = statecode;
+            this._serviceaddressValue = _serviceaddressValue;
+            Netprice = netprice;
             this._owneridValue = _owneridValue;
-            ServicecontractcontactsAssociation = servicecontractcontactsAssociation;
-            BillingcustomeridAccount = billingcustomeridAccount;
+            Overriddencreatedon = overriddencreatedon;
+            Contractservicelevelcode = contractservicelevelcode;
+            Contracttemplateabbreviation = contracttemplateabbreviation;
+            Activeon = activeon;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Importsequencenumber = importsequencenumber;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Createdon = createdon;
+            NetpriceBase = netpriceBase;
+            Usediscountaspercentage = usediscountaspercentage;
+            Expireson = expireson;
+            Createdby = createdby;
+            Createdonbehalfby = createdonbehalfby;
+            Modifiedby = modifiedby;
+            Modifiedonbehalfby = modifiedonbehalfby;
             Owninguser = owninguser;
-            ContractActivityPointers = contractActivityPointers;
-            Serviceaddress = serviceaddress;
-            ContractRecurringAppointmentMasters = contractRecurringAppointmentMasters;
             Owningteam = owningteam;
+            Ownerid = ownerid;
+            Owningbusinessunit = owningbusinessunit;
+            ContractActivityPointers = contractActivityPointers;
+            ContractSyncErrors = contractSyncErrors;
             ContractActivityParties = contractActivityParties;
+            ContractDuplicateMatchingRecord = contractDuplicateMatchingRecord;
+            ContractDuplicateBaseRecord = contractDuplicateBaseRecord;
+            ContractAsyncOperations = contractAsyncOperations;
+            ContractMailboxTrackingFolder = contractMailboxTrackingFolder;
+            ContractProcessSessions = contractProcessSessions;
+            ContractBulkDeleteFailures = contractBulkDeleteFailures;
+            ContractPrincipalobjectattributeaccess = contractPrincipalobjectattributeaccess;
+            Transactioncurrencyid = transactioncurrencyid;
+            ContractAppointments = contractAppointments;
+            ContractEmails = contractEmails;
+            ContractFaxes = contractFaxes;
+            ContractLetters = contractLetters;
+            ContractPhonecalls = contractPhonecalls;
+            ContractTasks = contractTasks;
+            ContractRecurringAppointmentMasters = contractRecurringAppointmentMasters;
+            ContractSocialActivities = contractSocialActivities;
             ContractConnections1 = contractConnections1;
             ContractConnections2 = contractConnections2;
-            Transactioncurrencyid = transactioncurrencyid;
-            ContractAsyncOperations = contractAsyncOperations;
-            ContractAppointments = contractAppointments;
-            CustomeridContact = customeridContact;
-            BillingcustomeridContact = billingcustomeridContact;
-            ContractDuplicateBaseRecord = contractDuplicateBaseRecord;
-            Owningbusinessunit = owningbusinessunit;
             ContractAnnotation = contractAnnotation;
             ContractServiceAppointments = contractServiceAppointments;
-            Modifiedonbehalfby = modifiedonbehalfby;
-            Modifiedby = modifiedby;
+            BillingcustomeridAccount = billingcustomeridAccount;
+            CustomeridAccount = customeridAccount;
+            BillingcustomeridContact = billingcustomeridContact;
+            CustomeridContact = customeridContact;
+            ContractCases = contractCases;
             ContractLineItems = contractLineItems;
             Originatingcontract = originatingcontract;
             ContractOriginatingContract = contractOriginatingContract;
-            ContractSyncErrors = contractSyncErrors;
-            ContractPhonecalls = contractPhonecalls;
-            Createdonbehalfby = createdonbehalfby;
-            ContractLetters = contractLetters;
-            Billtoaddress = billtoaddress;
-            ContractSocialActivities = contractSocialActivities;
-            ContractFaxes = contractFaxes;
-            ContractTasks = contractTasks;
-            Createdby = createdby;
-            ContractBulkDeleteFailures = contractBulkDeleteFailures;
-            ContractDuplicateMatchingRecord = contractDuplicateMatchingRecord;
-            ContractEmails = contractEmails;
-            CustomeridAccount = customeridAccount;
-            ContractCases = contractCases;
+            ServicecontractcontactsAssociation = servicecontractcontactsAssociation;
             Contracttemplateid = contracttemplateid;
-            Ownerid = ownerid;
-            ContractAbsScheduledprocessexecutions = contractAbsScheduledprocessexecutions;
+            Billtoaddress = billtoaddress;
+            Serviceaddress = serviceaddress;
+            ContractSpiceRequiredcheckses = contractSpiceRequiredcheckses;
             CustomInit();
         }
 
@@ -137,53 +141,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningteam_value")]
-        public string _owningteamValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_billingaccountid_value")]
-        public string _billingaccountidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contracttemplateabbreviation")]
-        public string Contracttemplateabbreviation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "netprice")]
-        public object Netprice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_url")]
-        public string EntityimageUrl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_timestamp")]
-        public long? EntityimageTimestamp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "totalprice_base")]
-        public object TotalpriceBase { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_billtoaddress_value")]
-        public string _billtoaddressValue { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -192,108 +151,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_serviceaddress_value")]
-        public string _serviceaddressValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "totalprice")]
-        public object Totalprice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_billingcontactid_value")]
-        public string _billingcontactidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billingendon")]
-        public System.DateTimeOffset? Billingendon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contracttemplateid_value")]
-        public string _contracttemplateidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractservicelevelcode")]
-        public int? Contractservicelevelcode { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "totaldiscount")]
         public object Totaldiscount { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effectivitycalendar")]
-        public string Effectivitycalendar { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractlanguage")]
-        public string Contractlanguage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_billingcustomerid_value")]
-        public string _billingcustomeridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractnumber")]
-        public string Contractnumber { get; set; }
+        [JsonProperty(PropertyName = "totalprice_base")]
+        public object TotalpriceBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -302,23 +166,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "allotmenttypecode")]
-        public int? Allotmenttypecode { get; set; }
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+        [JsonProperty(PropertyName = "entityimage_url")]
+        public string EntityimageUrl { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "_billingaccountid_value")]
+        public string _billingaccountidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -327,38 +186,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_customerid_value")]
-        public string _customeridValue { get; set; }
+        [JsonProperty(PropertyName = "contractnumber")]
+        public string Contractnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "netprice_base")]
-        public object NetpriceBase { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_accountid_value")]
-        public string _accountidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "activeon")]
-        public System.DateTimeOffset? Activeon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billingfrequencycode")]
-        public int? Billingfrequencycode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -367,28 +201,113 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_billingcontactid_value")]
+        public string _billingcontactidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_billtoaddress_value")]
+        public string _billtoaddressValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_contactid_value")]
         public string _contactidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "usediscountaspercentage")]
-        public bool? Usediscountaspercentage { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
+        [JsonProperty(PropertyName = "allotmenttypecode")]
+        public int? Allotmenttypecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
+        [JsonProperty(PropertyName = "_customerid_value")]
+        public string _customeridValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "expireson")]
-        public System.DateTimeOffset? Expireson { get; set; }
+        [JsonProperty(PropertyName = "_accountid_value")]
+        public string _accountidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "effectivitycalendar")]
+        public string Effectivitycalendar { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_billingcustomerid_value")]
+        public string _billingcustomeridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "billingfrequencycode")]
+        public int? Billingfrequencycode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_contracttemplateid_value")]
+        public string _contracttemplateidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "totalprice")]
+        public object Totalprice { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contractlanguage")]
+        public string Contractlanguage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "emailaddress")]
+        public string Emailaddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "billingendon")]
+        public System.DateTimeOffset? Billingendon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -402,8 +321,43 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "totaldiscount_base")]
         public object TotaldiscountBase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage")]
+        public object Entityimage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage_timestamp")]
+        public long? EntityimageTimestamp { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_serviceaddress_value")]
+        public string _serviceaddressValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "netprice")]
+        public object Netprice { get; set; }
 
         /// <summary>
         /// </summary>
@@ -412,13 +366,78 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "servicecontractcontacts_association")]
-        public IList<MicrosoftDynamicsCRMcontact> ServicecontractcontactsAssociation { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "billingcustomerid_account")]
-        public MicrosoftDynamicsCRMaccount BillingcustomeridAccount { get; set; }
+        [JsonProperty(PropertyName = "contractservicelevelcode")]
+        public int? Contractservicelevelcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contracttemplateabbreviation")]
+        public string Contracttemplateabbreviation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "activeon")]
+        public System.DateTimeOffset? Activeon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "netprice_base")]
+        public object NetpriceBase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "usediscountaspercentage")]
+        public bool? Usediscountaspercentage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "expireson")]
+        public System.DateTimeOffset? Expireson { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdby")]
+        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
 
         /// <summary>
         /// </summary>
@@ -427,13 +446,103 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "owningteam")]
+        public MicrosoftDynamicsCRMteam Owningteam { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ownerid")]
+        public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "owningbusinessunit")]
+        public MicrosoftDynamicsCRMbusinessunit Owningbusinessunit { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "Contract_ActivityPointers")]
         public IList<MicrosoftDynamicsCRMactivitypointer> ContractActivityPointers { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "serviceaddress")]
-        public MicrosoftDynamicsCRMcustomeraddress Serviceaddress { get; set; }
+        [JsonProperty(PropertyName = "Contract_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> ContractSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contract_activity_parties")]
+        public IList<MicrosoftDynamicsCRMactivityparty> ContractActivityParties { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_DuplicateMatchingRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> ContractDuplicateMatchingRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_DuplicateBaseRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> ContractDuplicateBaseRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> ContractAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_MailboxTrackingFolder")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ContractMailboxTrackingFolder { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> ContractProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ContractBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contract_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ContractPrincipalobjectattributeaccess { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "transactioncurrencyid")]
+        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Appointments")]
+        public IList<MicrosoftDynamicsCRMappointment> ContractAppointments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Emails")]
+        public IList<MicrosoftDynamicsCRMemail> ContractEmails { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Faxes")]
+        public IList<MicrosoftDynamicsCRMfax> ContractFaxes { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Letters")]
+        public IList<MicrosoftDynamicsCRMletter> ContractLetters { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Phonecalls")]
+        public IList<MicrosoftDynamicsCRMphonecall> ContractPhonecalls { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Contract_Tasks")]
+        public IList<MicrosoftDynamicsCRMtask> ContractTasks { get; set; }
 
         /// <summary>
         /// </summary>
@@ -442,13 +551,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "owningteam")]
-        public MicrosoftDynamicsCRMteam Owningteam { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contract_activity_parties")]
-        public IList<MicrosoftDynamicsCRMactivityparty> ContractActivityParties { get; set; }
+        [JsonProperty(PropertyName = "Contract_SocialActivities")]
+        public IList<MicrosoftDynamicsCRMsocialactivity> ContractSocialActivities { get; set; }
 
         /// <summary>
         /// </summary>
@@ -462,41 +566,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "transactioncurrencyid")]
-        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_AsyncOperations")]
-        public IList<MicrosoftDynamicsCRMasyncoperation> ContractAsyncOperations { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Appointments")]
-        public IList<MicrosoftDynamicsCRMappointment> ContractAppointments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customerid_contact")]
-        public MicrosoftDynamicsCRMcontact CustomeridContact { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billingcustomerid_contact")]
-        public MicrosoftDynamicsCRMcontact BillingcustomeridContact { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_DuplicateBaseRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> ContractDuplicateBaseRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "owningbusinessunit")]
-        public MicrosoftDynamicsCRMbusinessunit Owningbusinessunit { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "Contract_Annotation")]
         public IList<MicrosoftDynamicsCRMannotation> ContractAnnotation { get; set; }
 
@@ -507,13 +576,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "billingcustomerid_account")]
+        public MicrosoftDynamicsCRMaccount BillingcustomeridAccount { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
+        [JsonProperty(PropertyName = "customerid_account")]
+        public MicrosoftDynamicsCRMaccount CustomeridAccount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "billingcustomerid_contact")]
+        public MicrosoftDynamicsCRMcontact BillingcustomeridContact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customerid_contact")]
+        public MicrosoftDynamicsCRMcontact CustomeridContact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contract_cases")]
+        public IList<MicrosoftDynamicsCRMincident> ContractCases { get; set; }
 
         /// <summary>
         /// </summary>
@@ -532,73 +616,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Contract_SyncErrors")]
-        public IList<MicrosoftDynamicsCRMsyncerror> ContractSyncErrors { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Phonecalls")]
-        public IList<MicrosoftDynamicsCRMphonecall> ContractPhonecalls { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Letters")]
-        public IList<MicrosoftDynamicsCRMletter> ContractLetters { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billtoaddress")]
-        public MicrosoftDynamicsCRMcustomeraddress Billtoaddress { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_SocialActivities")]
-        public IList<MicrosoftDynamicsCRMsocialactivity> ContractSocialActivities { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Faxes")]
-        public IList<MicrosoftDynamicsCRMfax> ContractFaxes { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Tasks")]
-        public IList<MicrosoftDynamicsCRMtask> ContractTasks { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdby")]
-        public MicrosoftDynamicsCRMsystemuser Createdby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_BulkDeleteFailures")]
-        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ContractBulkDeleteFailures { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_DuplicateMatchingRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> ContractDuplicateMatchingRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "Contract_Emails")]
-        public IList<MicrosoftDynamicsCRMemail> ContractEmails { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customerid_account")]
-        public MicrosoftDynamicsCRMaccount CustomeridAccount { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contract_cases")]
-        public IList<MicrosoftDynamicsCRMincident> ContractCases { get; set; }
+        [JsonProperty(PropertyName = "servicecontractcontacts_association")]
+        public IList<MicrosoftDynamicsCRMcontact> ServicecontractcontactsAssociation { get; set; }
 
         /// <summary>
         /// </summary>
@@ -607,13 +626,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ownerid")]
-        public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
+        [JsonProperty(PropertyName = "billtoaddress")]
+        public MicrosoftDynamicsCRMcustomeraddress Billtoaddress { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "contract_abs_scheduledprocessexecutions")]
-        public IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> ContractAbsScheduledprocessexecutions { get; set; }
+        [JsonProperty(PropertyName = "serviceaddress")]
+        public MicrosoftDynamicsCRMcustomeraddress Serviceaddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contract_spice_requiredcheckses")]
+        public IList<MicrosoftDynamicsCRMspiceRequiredchecks> ContractSpiceRequiredcheckses { get; set; }
 
     }
 }

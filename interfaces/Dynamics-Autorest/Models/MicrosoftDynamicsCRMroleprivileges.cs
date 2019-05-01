@@ -27,18 +27,19 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMroleprivileges class.
         /// </summary>
-        public MicrosoftDynamicsCRMroleprivileges(string privilegeid = default(string), int? privilegedepthmask = default(int?), long? versionnumber = default(long?), bool? ismanaged = default(bool?), string roleprivilegeidunique = default(string), int? componentstate = default(int?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string roleprivilegeid = default(string), string solutionid = default(string), string roleid = default(string))
+        public MicrosoftDynamicsCRMroleprivileges(string privilegeid = default(string), string roleid = default(string), int? privilegedepthmask = default(int?), bool? ismanaged = default(bool?), MicrosoftDynamicsCRMBooleanManagedProperty canbedeleted = default(MicrosoftDynamicsCRMBooleanManagedProperty), string roleprivilegeidunique = default(string), string roleprivilegeid = default(string), string solutionid = default(string), long? versionnumber = default(long?), int? componentstate = default(int?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?))
         {
             Privilegeid = privilegeid;
+            Roleid = roleid;
             Privilegedepthmask = privilegedepthmask;
-            Versionnumber = versionnumber;
             Ismanaged = ismanaged;
+            Canbedeleted = canbedeleted;
             Roleprivilegeidunique = roleprivilegeidunique;
-            Componentstate = componentstate;
-            Overwritetime = overwritetime;
             Roleprivilegeid = roleprivilegeid;
             Solutionid = solutionid;
-            Roleid = roleid;
+            Versionnumber = versionnumber;
+            Componentstate = componentstate;
+            Overwritetime = overwritetime;
             CustomInit();
         }
 
@@ -54,13 +55,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "privilegedepthmask")]
-        public int? Privilegedepthmask { get; set; }
+        [JsonProperty(PropertyName = "roleid")]
+        public string Roleid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "privilegedepthmask")]
+        public int? Privilegedepthmask { get; set; }
 
         /// <summary>
         /// </summary>
@@ -69,18 +70,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "canbedeleted")]
+        public MicrosoftDynamicsCRMBooleanManagedProperty Canbedeleted { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "roleprivilegeidunique")]
         public string Roleprivilegeidunique { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overwritetime")]
-        public System.DateTimeOffset? Overwritetime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -94,8 +90,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "roleid")]
-        public string Roleid { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overwritetime")]
+        public System.DateTimeOffset? Overwritetime { get; set; }
 
     }
 }

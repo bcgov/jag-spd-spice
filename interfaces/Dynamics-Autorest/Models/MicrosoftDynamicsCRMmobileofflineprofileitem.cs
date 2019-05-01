@@ -29,44 +29,40 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMmobileofflineprofileitem class.
         /// </summary>
-        public MicrosoftDynamicsCRMmobileofflineprofileitem(bool? recordsownedbymyteam = default(bool?), bool? canbefollowed = default(bool?), string viewquery = default(string), int? entityobjecttypecode = default(int?), string stageid = default(string), string _createdbyValue = default(string), long? versionnumber = default(long?), bool? getrelatedentityrecords = default(bool?), string mobileofflineprofileitemid = default(string), string introducedversion = default(string), bool? isvisibleingrid = default(bool?), string profileitementityfilter = default(string), string _regardingobjectidValue = default(string), int? componentstate = default(int?), bool? ismanaged = default(bool?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string selectedentitymetadata = default(string), int? recorddistributioncriteria = default(int?), string _modifiedbyValue = default(string), string traversedpath = default(string), string _modifiedonbehalfbyValue = default(string), bool? recordsownedbymybusinessunit = default(bool?), string mobileofflineprofileitemidunique = default(string), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string selectedentitytypecode = default(string), string relationshipdata = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string name = default(string), string _organizationidValue = default(string), string processid = default(string), bool? isvalidated = default(bool?), string solutionid = default(string), bool? recordsownedbyme = default(bool?), string _profileitemruleValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMmobileofflineprofile regardingobjectid = default(MicrosoftDynamicsCRMmobileofflineprofile), IList<MicrosoftDynamicsCRMmobileofflineprofileitemassociation> mobileOfflineProfileItemMobileOfflineProfileItemAssociation = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitemassociation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsavedquery profileitemrule = default(MicrosoftDynamicsCRMsavedquery), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMmobileofflineprofileitem(string selectedentitymetadata = default(string), int? recorddistributioncriteria = default(int?), string mobileofflineprofileitemidunique = default(string), string _createdbyValue = default(string), long? versionnumber = default(long?), int? entityobjecttypecode = default(int?), string mobileofflineprofileitemid = default(string), string introducedversion = default(string), string _regardingobjectidValue = default(string), string profileitementityfilter = default(string), int? componentstate = default(int?), bool? isvisibleingrid = default(bool?), bool? ismanaged = default(bool?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), bool? recordsownedbymyteam = default(bool?), string _modifiedbyValue = default(string), string traversedpath = default(string), string _modifiedonbehalfbyValue = default(string), bool? recordsownedbymybusinessunit = default(bool?), string stageid = default(string), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), bool? recordsownedbyme = default(bool?), string _createdonbehalfbyValue = default(string), string selectedentitytypecode = default(string), string relationshipdata = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string name = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), string processid = default(string), bool? isvalidated = default(bool?), string solutionid = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMmobileofflineprofile regardingobjectid = default(MicrosoftDynamicsCRMmobileofflineprofile), IList<MicrosoftDynamicsCRMmobileofflineprofileitemassociation> mobileOfflineProfileItemMobileOfflineProfileItemAssociation = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitemassociation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsavedquery profileitemrule = default(MicrosoftDynamicsCRMsavedquery), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            Recordsownedbymyteam = recordsownedbymyteam;
-            Canbefollowed = canbefollowed;
-            Viewquery = viewquery;
-            Entityobjecttypecode = entityobjecttypecode;
-            Stageid = stageid;
-            this._createdbyValue = _createdbyValue;
-            Versionnumber = versionnumber;
-            Getrelatedentityrecords = getrelatedentityrecords;
-            Mobileofflineprofileitemid = mobileofflineprofileitemid;
-            Introducedversion = introducedversion;
-            Isvisibleingrid = isvisibleingrid;
-            Profileitementityfilter = profileitementityfilter;
-            this._regardingobjectidValue = _regardingobjectidValue;
-            Componentstate = componentstate;
-            Ismanaged = ismanaged;
-            Overwritetime = overwritetime;
             Selectedentitymetadata = selectedentitymetadata;
             Recorddistributioncriteria = recorddistributioncriteria;
+            Mobileofflineprofileitemidunique = mobileofflineprofileitemidunique;
+            this._createdbyValue = _createdbyValue;
+            Versionnumber = versionnumber;
+            Entityobjecttypecode = entityobjecttypecode;
+            Mobileofflineprofileitemid = mobileofflineprofileitemid;
+            Introducedversion = introducedversion;
+            this._regardingobjectidValue = _regardingobjectidValue;
+            Profileitementityfilter = profileitementityfilter;
+            Componentstate = componentstate;
+            Isvisibleingrid = isvisibleingrid;
+            Ismanaged = ismanaged;
+            Overwritetime = overwritetime;
+            Recordsownedbymyteam = recordsownedbymyteam;
             this._modifiedbyValue = _modifiedbyValue;
             Traversedpath = traversedpath;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Recordsownedbymybusinessunit = recordsownedbymybusinessunit;
-            Mobileofflineprofileitemidunique = mobileofflineprofileitemidunique;
+            Stageid = stageid;
             Publishedon = publishedon;
+            Recordsownedbyme = recordsownedbyme;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Selectedentitytypecode = selectedentitytypecode;
             Relationshipdata = relationshipdata;
-            Createdon = createdon;
             Modifiedon = modifiedon;
             Name = name;
+            Createdon = createdon;
             this._organizationidValue = _organizationidValue;
             Processid = processid;
             Isvalidated = isvalidated;
             Solutionid = solutionid;
-            Recordsownedbyme = recordsownedbyme;
-            this._profileitemruleValue = _profileitemruleValue;
             Createdonbehalfby = createdonbehalfby;
             Regardingobjectid = regardingobjectid;
             MobileOfflineProfileItemMobileOfflineProfileItemAssociation = mobileOfflineProfileItemMobileOfflineProfileItemAssociation;
@@ -85,28 +81,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "recordsownedbymyteam")]
-        public bool? Recordsownedbymyteam { get; set; }
+        [JsonProperty(PropertyName = "selectedentitymetadata")]
+        public string Selectedentitymetadata { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "canbefollowed")]
-        public bool? Canbefollowed { get; set; }
+        [JsonProperty(PropertyName = "recorddistributioncriteria")]
+        public int? Recorddistributioncriteria { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "viewquery")]
-        public string Viewquery { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityobjecttypecode")]
-        public int? Entityobjecttypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
+        [JsonProperty(PropertyName = "mobileofflineprofileitemidunique")]
+        public string Mobileofflineprofileitemidunique { get; set; }
 
         /// <summary>
         /// </summary>
@@ -120,8 +106,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "getrelatedentityrecords")]
-        public bool? Getrelatedentityrecords { get; set; }
+        [JsonProperty(PropertyName = "entityobjecttypecode")]
+        public int? Entityobjecttypecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -135,8 +121,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isvisibleingrid")]
-        public bool? Isvisibleingrid { get; set; }
+        [JsonProperty(PropertyName = "_regardingobjectid_value")]
+        public string _regardingobjectidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -145,13 +131,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_regardingobjectid_value")]
-        public string _regardingobjectidValue { get; set; }
+        [JsonProperty(PropertyName = "componentstate")]
+        public int? Componentstate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "componentstate")]
-        public int? Componentstate { get; set; }
+        [JsonProperty(PropertyName = "isvisibleingrid")]
+        public bool? Isvisibleingrid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -165,13 +151,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "selectedentitymetadata")]
-        public string Selectedentitymetadata { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "recorddistributioncriteria")]
-        public int? Recorddistributioncriteria { get; set; }
+        [JsonProperty(PropertyName = "recordsownedbymyteam")]
+        public bool? Recordsownedbymyteam { get; set; }
 
         /// <summary>
         /// </summary>
@@ -195,13 +176,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "mobileofflineprofileitemidunique")]
-        public string Mobileofflineprofileitemidunique { get; set; }
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "publishedon")]
         public System.DateTimeOffset? Publishedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "recordsownedbyme")]
+        public bool? Recordsownedbyme { get; set; }
 
         /// <summary>
         /// </summary>
@@ -220,11 +206,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "modifiedon")]
         public System.DateTimeOffset? Modifiedon { get; set; }
 
@@ -232,6 +213,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -252,16 +238,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "solutionid")]
         public string Solutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "recordsownedbyme")]
-        public bool? Recordsownedbyme { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_profileitemrule_value")]
-        public string _profileitemruleValue { get; set; }
 
         /// <summary>
         /// </summary>

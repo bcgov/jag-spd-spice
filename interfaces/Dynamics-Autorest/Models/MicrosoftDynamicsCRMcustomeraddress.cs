@@ -29,63 +29,65 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcustomeraddress class.
         /// </summary>
-        public MicrosoftDynamicsCRMcustomeraddress(string _modifiedbyValue = default(string), int? addresstypecode = default(int?), int? freighttermscode = default(int?), string stateorprovince = default(string), string line3 = default(string), string line2 = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string telephone3 = default(string), int? addressnumber = default(int?), string postofficebox = default(string), string telephone1 = default(string), int? utcoffset = default(int?), string _owninguserValue = default(string), int? importsequencenumber = default(int?), string fax = default(string), string line1 = default(string), int? utcconversiontimezonecode = default(int?), string _parentidValue = default(string), string telephone2 = default(string), object exchangerate = default(object), string country = default(string), string county = default(string), double? longitude = default(double?), string objecttypecode = default(string), string _createdbyValue = default(string), string primarycontactname = default(string), string _createdonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), long? versionnumber = default(long?), int? shippingmethodcode = default(int?), string city = default(string), string customeraddressid = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string upszone = default(string), string composite = default(string), string _transactioncurrencyidValue = default(string), string postalcode = default(string), double? latitude = default(double?), string _owneridValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string name = default(string), IList<MicrosoftDynamicsCRMbulkdeletefailure> customerAddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMcontract> customerAddressContractsAsServiceAddress = default(IList<MicrosoftDynamicsCRMcontract>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMaccount parentidAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMcontractdetail> customerAddressContractLineItems = default(IList<MicrosoftDynamicsCRMcontractdetail>), MicrosoftDynamicsCRMcontact parentidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> customerAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMcontract> customerAddressContractsAsBillingAddress = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMasyncoperation> customerAddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>))
+        public MicrosoftDynamicsCRMcustomeraddress(string _modifiedbyValue = default(string), int? addresstypecode = default(int?), string _owneridValue = default(string), string customeraddressid = default(string), string _createdonbehalfbyValue = default(string), string line2 = default(string), int? utcconversiontimezonecode = default(int?), int? addressnumber = default(int?), string postofficebox = default(string), string telephone1 = default(string), int? utcoffset = default(int?), string line3 = default(string), string _owninguserValue = default(string), int? importsequencenumber = default(int?), string line1 = default(string), long? versionnumber = default(long?), string _parentidValue = default(string), string postalcode = default(string), int? freighttermscode = default(int?), object exchangerate = default(object), string country = default(string), string county = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string stateorprovince = default(string), string _createdbyValue = default(string), string _transactioncurrencyidValue = default(string), int? shippingmethodcode = default(int?), string primarycontactname = default(string), string city = default(string), string fax = default(string), string _modifiedonbehalfbyValue = default(string), string objecttypecode = default(string), string telephone2 = default(string), string upszone = default(string), string composite = default(string), double? longitude = default(double?), int? timezoneruleversionnumber = default(int?), string telephone3 = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), double? latitude = default(double?), string name = default(string), IList<MicrosoftDynamicsCRMcontract> customerAddressContractsAsBillingAddress = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMcontract> customerAddressContractsAsServiceAddress = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMcontractdetail> customerAddressContractLineItems = default(IList<MicrosoftDynamicsCRMcontractdetail>), IList<MicrosoftDynamicsCRMbulkdeletefailure> customerAddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMprocesssession> customerAddressProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMaccount parentidAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact parentidContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> customerAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> customeraddressPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMasyncoperation> customerAddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>))
         {
             this._modifiedbyValue = _modifiedbyValue;
             Addresstypecode = addresstypecode;
-            Freighttermscode = freighttermscode;
-            Stateorprovince = stateorprovince;
-            Line3 = line3;
+            this._owneridValue = _owneridValue;
+            Customeraddressid = customeraddressid;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Line2 = line2;
-            Modifiedon = modifiedon;
-            Telephone3 = telephone3;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             Addressnumber = addressnumber;
             Postofficebox = postofficebox;
             Telephone1 = telephone1;
             Utcoffset = utcoffset;
+            Line3 = line3;
             this._owninguserValue = _owninguserValue;
             Importsequencenumber = importsequencenumber;
-            Fax = fax;
             Line1 = line1;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Versionnumber = versionnumber;
             this._parentidValue = _parentidValue;
-            Telephone2 = telephone2;
+            Postalcode = postalcode;
+            Freighttermscode = freighttermscode;
             Exchangerate = exchangerate;
             Country = country;
             County = county;
-            Longitude = longitude;
-            Objecttypecode = objecttypecode;
-            this._createdbyValue = _createdbyValue;
-            Primarycontactname = primarycontactname;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Versionnumber = versionnumber;
-            Shippingmethodcode = shippingmethodcode;
-            City = city;
-            Customeraddressid = customeraddressid;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Createdon = createdon;
             this._owningbusinessunitValue = _owningbusinessunitValue;
+            Stateorprovince = stateorprovince;
+            this._createdbyValue = _createdbyValue;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Shippingmethodcode = shippingmethodcode;
+            Primarycontactname = primarycontactname;
+            City = city;
+            Fax = fax;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Objecttypecode = objecttypecode;
+            Telephone2 = telephone2;
             Upszone = upszone;
             Composite = composite;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Postalcode = postalcode;
-            Latitude = latitude;
-            this._owneridValue = _owneridValue;
+            Longitude = longitude;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Telephone3 = telephone3;
+            Modifiedon = modifiedon;
             Overriddencreatedon = overriddencreatedon;
+            Latitude = latitude;
             Name = name;
+            CustomerAddressContractsAsBillingAddress = customerAddressContractsAsBillingAddress;
+            CustomerAddressContractsAsServiceAddress = customerAddressContractsAsServiceAddress;
+            CustomerAddressContractLineItems = customerAddressContractLineItems;
             CustomerAddressBulkDeleteFailures = customerAddressBulkDeleteFailures;
             Modifiedonbehalfby = modifiedonbehalfby;
-            CustomerAddressContractsAsServiceAddress = customerAddressContractsAsServiceAddress;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
             Transactioncurrencyid = transactioncurrencyid;
+            CustomerAddressProcessSessions = customerAddressProcessSessions;
             ParentidAccount = parentidAccount;
-            CustomerAddressContractLineItems = customerAddressContractLineItems;
             ParentidContact = parentidContact;
             Modifiedby = modifiedby;
             CustomerAddressSyncErrors = customerAddressSyncErrors;
-            CustomerAddressContractsAsBillingAddress = customerAddressContractsAsBillingAddress;
+            CustomeraddressPrincipalobjectattributeaccess = customeraddressPrincipalobjectattributeaccess;
             CustomerAddressAsyncOperations = customerAddressAsyncOperations;
             CustomInit();
         }
@@ -107,18 +109,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "freighttermscode")]
-        public int? Freighttermscode { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "stateorprovince")]
-        public string Stateorprovince { get; set; }
+        [JsonProperty(PropertyName = "customeraddressid")]
+        public string Customeraddressid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "line3")]
-        public string Line3 { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -127,13 +129,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "telephone3")]
-        public string Telephone3 { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -157,6 +154,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "line3")]
+        public string Line3 { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_owninguser_value")]
         public string _owninguserValue { get; set; }
 
@@ -167,18 +169,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "fax")]
-        public string Fax { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "line1")]
         public string Line1 { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -187,8 +184,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "telephone2")]
-        public string Telephone2 { get; set; }
+        [JsonProperty(PropertyName = "postalcode")]
+        public string Postalcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "freighttermscode")]
+        public int? Freighttermscode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -207,13 +209,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "longitude")]
-        public double? Longitude { get; set; }
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "objecttypecode")]
-        public string Objecttypecode { get; set; }
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stateorprovince")]
+        public string Stateorprovince { get; set; }
 
         /// <summary>
         /// </summary>
@@ -222,23 +229,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "primarycontactname")]
-        public string Primarycontactname { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -247,13 +239,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "primarycontactname")]
+        public string Primarycontactname { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "customeraddressid")]
-        public string Customeraddressid { get; set; }
+        [JsonProperty(PropertyName = "fax")]
+        public string Fax { get; set; }
 
         /// <summary>
         /// </summary>
@@ -262,13 +259,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "objecttypecode")]
+        public string Objecttypecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
+        [JsonProperty(PropertyName = "telephone2")]
+        public string Telephone2 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -282,23 +279,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
+        [JsonProperty(PropertyName = "longitude")]
+        public double? Longitude { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "postalcode")]
-        public string Postalcode { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "latitude")]
-        public double? Latitude { get; set; }
+        [JsonProperty(PropertyName = "telephone3")]
+        public string Telephone3 { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -307,8 +304,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "latitude")]
+        public double? Latitude { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customer_address_contracts_as_billing_address")]
+        public IList<MicrosoftDynamicsCRMcontract> CustomerAddressContractsAsBillingAddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customer_address_contracts_as_service_address")]
+        public IList<MicrosoftDynamicsCRMcontract> CustomerAddressContractsAsServiceAddress { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customer_address_contract_line_items")]
+        public IList<MicrosoftDynamicsCRMcontractdetail> CustomerAddressContractLineItems { get; set; }
 
         /// <summary>
         /// </summary>
@@ -319,11 +336,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "modifiedonbehalfby")]
         public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customer_address_contracts_as_service_address")]
-        public IList<MicrosoftDynamicsCRMcontract> CustomerAddressContractsAsServiceAddress { get; set; }
 
         /// <summary>
         /// </summary>
@@ -342,13 +354,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "parentid_account")]
-        public MicrosoftDynamicsCRMaccount ParentidAccount { get; set; }
+        [JsonProperty(PropertyName = "CustomerAddress_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> CustomerAddressProcessSessions { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "customer_address_contract_line_items")]
-        public IList<MicrosoftDynamicsCRMcontractdetail> CustomerAddressContractLineItems { get; set; }
+        [JsonProperty(PropertyName = "parentid_account")]
+        public MicrosoftDynamicsCRMaccount ParentidAccount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -367,8 +379,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "customer_address_contracts_as_billing_address")]
-        public IList<MicrosoftDynamicsCRMcontract> CustomerAddressContractsAsBillingAddress { get; set; }
+        [JsonProperty(PropertyName = "customeraddress_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> CustomeraddressPrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>

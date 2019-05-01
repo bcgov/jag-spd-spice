@@ -29,44 +29,44 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMtemplate
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMtemplate(string presentationxml = default(string), string _owningteamValue = default(string), string subjectpresentationxml = default(string), int? generationtypecode = default(int?), string _createdbyValue = default(string), string mimetype = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _owninguserValue = default(string), string _owneridValue = default(string), int? importsequencenumber = default(int?), string _owningbusinessunitValue = default(string), string description = default(string), string templateidunique = default(string), string body = default(string), string solutionid = default(string), string _modifiedbyValue = default(string), string templatetypecode = default(string), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? ispersonal = default(bool?), int? opencount = default(int?), int? componentstate = default(int?), string templateid = default(string), bool? ismanaged = default(bool?), int? openrate = default(int?), string title = default(string), int? replyrate = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string subject = default(string), bool? isrecommended = default(bool?), string introducedversion = default(string), int? replycount = default(int?), int? usedcount = default(int?), int? languagecode = default(int?), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> templateAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> templateBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMactivitymimeattachment> templateActivityMimeAttachments = default(IList<MicrosoftDynamicsCRMactivitymimeattachment>), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMsyncerror> templateSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMorganization> templateOrganization = default(IList<MicrosoftDynamicsCRMorganization>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMemail> emailEmailTemplate = default(IList<MicrosoftDynamicsCRMemail>))
+        public MicrosoftDynamicsCRMtemplate(int? openrate = default(int?), int? replyrate = default(int?), string subjectpresentationxml = default(string), string solutionid = default(string), int? generationtypecode = default(int?), string _createdbyValue = default(string), string mimetype = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? ismanaged = default(bool?), int? importsequencenumber = default(int?), string _owningbusinessunitValue = default(string), string _owneridValue = default(string), string description = default(string), string templateidunique = default(string), string body = default(string), string _modifiedbyValue = default(string), string _owningteamValue = default(string), string templatetypecode = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? ispersonal = default(bool?), int? componentstate = default(int?), int? usedcount = default(int?), string title = default(string), string _owninguserValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), bool? isrecommended = default(bool?), string introducedversion = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string templateid = default(string), int? replycount = default(int?), string presentationxml = default(string), string subject = default(string), int? languagecode = default(int?), long? versionnumber = default(long?), int? opencount = default(int?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> templateAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> templateBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMactivitymimeattachment> templateActivityMimeAttachments = default(IList<MicrosoftDynamicsCRMactivitymimeattachment>), IList<MicrosoftDynamicsCRMprocesssession> templateProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMsyncerror> templateSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMorganization> templateOrganization = default(IList<MicrosoftDynamicsCRMorganization>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMemail> emailEmailTemplate = default(IList<MicrosoftDynamicsCRMemail>))
         {
-            Presentationxml = presentationxml;
-            this._owningteamValue = _owningteamValue;
+            Openrate = openrate;
+            Replyrate = replyrate;
             Subjectpresentationxml = subjectpresentationxml;
+            Solutionid = solutionid;
             Generationtypecode = generationtypecode;
             this._createdbyValue = _createdbyValue;
             Mimetype = mimetype;
             Modifiedon = modifiedon;
-            this._owninguserValue = _owninguserValue;
-            this._owneridValue = _owneridValue;
+            Ismanaged = ismanaged;
             Importsequencenumber = importsequencenumber;
             this._owningbusinessunitValue = _owningbusinessunitValue;
+            this._owneridValue = _owneridValue;
             Description = description;
             Templateidunique = templateidunique;
             Body = body;
-            Solutionid = solutionid;
             this._modifiedbyValue = _modifiedbyValue;
+            this._owningteamValue = _owningteamValue;
             Templatetypecode = templatetypecode;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Iscustomizable = iscustomizable;
             Ispersonal = ispersonal;
-            Opencount = opencount;
             Componentstate = componentstate;
-            Templateid = templateid;
-            Ismanaged = ismanaged;
-            Openrate = openrate;
+            Usedcount = usedcount;
             Title = title;
-            Replyrate = replyrate;
-            Createdon = createdon;
+            this._owninguserValue = _owninguserValue;
             Overwritetime = overwritetime;
-            Subject = subject;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Isrecommended = isrecommended;
             Introducedversion = introducedversion;
+            Createdon = createdon;
+            Templateid = templateid;
             Replycount = replycount;
-            Usedcount = usedcount;
+            Presentationxml = presentationxml;
+            Subject = subject;
             Languagecode = languagecode;
             Versionnumber = versionnumber;
+            Opencount = opencount;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Createdby = createdby;
             Owningbusinessunit = owningbusinessunit;
@@ -76,6 +76,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Createdonbehalfby = createdonbehalfby;
             Owningteam = owningteam;
             TemplateActivityMimeAttachments = templateActivityMimeAttachments;
+            TemplateProcessSessions = templateProcessSessions;
             Ownerid = ownerid;
             TemplateSyncErrors = templateSyncErrors;
             Owninguser = owninguser;
@@ -92,18 +93,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "presentationxml")]
-        public string Presentationxml { get; set; }
+        [JsonProperty(PropertyName = "openrate")]
+        public int? Openrate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningteam_value")]
-        public string _owningteamValue { get; set; }
+        [JsonProperty(PropertyName = "replyrate")]
+        public int? Replyrate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "subjectpresentationxml")]
         public string Subjectpresentationxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "solutionid")]
+        public string Solutionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -127,13 +133,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "ismanaged")]
+        public bool? Ismanaged { get; set; }
 
         /// <summary>
         /// </summary>
@@ -144,6 +145,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "_owningbusinessunit_value")]
         public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -162,23 +168,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "solutionid")]
-        public string Solutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_modifiedby_value")]
         public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "templatetypecode")]
-        public string Templatetypecode { get; set; }
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "templatetypecode")]
+        public string Templatetypecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -192,28 +193,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "opencount")]
-        public int? Opencount { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "componentstate")]
         public int? Componentstate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "templateid")]
-        public string Templateid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ismanaged")]
-        public bool? Ismanaged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "openrate")]
-        public int? Openrate { get; set; }
+        [JsonProperty(PropertyName = "usedcount")]
+        public int? Usedcount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -222,13 +208,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "replyrate")]
-        public int? Replyrate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -237,8 +218,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "subject")]
-        public string Subject { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -252,13 +233,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "templateid")]
+        public string Templateid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "replycount")]
         public int? Replycount { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "usedcount")]
-        public int? Usedcount { get; set; }
+        [JsonProperty(PropertyName = "presentationxml")]
+        public string Presentationxml { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "subject")]
+        public string Subject { get; set; }
 
         /// <summary>
         /// </summary>
@@ -269,6 +265,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "opencount")]
+        public int? Opencount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -314,6 +315,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "template_activity_mime_attachments")]
         public IList<MicrosoftDynamicsCRMactivitymimeattachment> TemplateActivityMimeAttachments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "Template_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> TemplateProcessSessions { get; set; }
 
         /// <summary>
         /// </summary>

@@ -29,26 +29,32 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMresourcegroup
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMresourcegroup(string resourcegroupid = default(string), string name = default(string), string _organizationidValue = default(string), long? versionnumber = default(long?), string _businessunitidValue = default(string), string objecttypecode = default(string), int? grouptypecode = default(int?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMconnection> resourcegroupConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> resourcegroupConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMbusinessunit businessunitid = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMconstraintbasedgroup resourcegroupidConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), IList<MicrosoftDynamicsCRMbulkdeletefailure> resourceGroupBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMduplicaterecord> resourceGroupDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMteam resourcegroupidTeam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMduplicaterecord> resourceGroupDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsyncerror> resourceGroupSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> resourceGroupAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>))
+        public MicrosoftDynamicsCRMresourcegroup(long? versionnumber = default(long?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string name = default(string), int? utcconversiontimezonecode = default(int?), string _businessunitidValue = default(string), int? importsequencenumber = default(int?), string objecttypecode = default(string), string _organizationidValue = default(string), string resourcegroupid = default(string), int? timezoneruleversionnumber = default(int?), int? grouptypecode = default(int?), MicrosoftDynamicsCRMbusinessunit businessunitid = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> resourceGroupSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> resourceGroupAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> resourcegroupMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> resourceGroupBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> resourcegroupPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMconnection> resourcegroupConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> resourcegroupConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMconstraintbasedgroup resourcegroupidConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMduplicaterecord> resourceGroupDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> resourceGroupDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMteam resourcegroupidTeam = default(MicrosoftDynamicsCRMteam))
         {
-            Resourcegroupid = resourcegroupid;
-            Name = name;
-            this._organizationidValue = _organizationidValue;
             Versionnumber = versionnumber;
+            Overriddencreatedon = overriddencreatedon;
+            Name = name;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
             this._businessunitidValue = _businessunitidValue;
+            Importsequencenumber = importsequencenumber;
             Objecttypecode = objecttypecode;
+            this._organizationidValue = _organizationidValue;
+            Resourcegroupid = resourcegroupid;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             Grouptypecode = grouptypecode;
-            Organizationid = organizationid;
-            ResourcegroupConnections2 = resourcegroupConnections2;
-            ResourcegroupConnections1 = resourcegroupConnections1;
             Businessunitid = businessunitid;
-            ResourcegroupidConstraintbasedgroup = resourcegroupidConstraintbasedgroup;
-            ResourceGroupBulkDeleteFailures = resourceGroupBulkDeleteFailures;
-            ResourceGroupDuplicateBaseRecord = resourceGroupDuplicateBaseRecord;
-            ResourcegroupidTeam = resourcegroupidTeam;
-            ResourceGroupDuplicateMatchingRecord = resourceGroupDuplicateMatchingRecord;
             ResourceGroupSyncErrors = resourceGroupSyncErrors;
             ResourceGroupAsyncOperations = resourceGroupAsyncOperations;
+            ResourcegroupMailboxTrackingFolders = resourcegroupMailboxTrackingFolders;
+            ResourceGroupBulkDeleteFailures = resourceGroupBulkDeleteFailures;
+            ResourcegroupPrincipalObjectAttributeAccesses = resourcegroupPrincipalObjectAttributeAccesses;
+            ResourcegroupConnections1 = resourcegroupConnections1;
+            ResourcegroupConnections2 = resourcegroupConnections2;
+            ResourcegroupidConstraintbasedgroup = resourcegroupidConstraintbasedgroup;
+            Organizationid = organizationid;
+            ResourceGroupDuplicateBaseRecord = resourceGroupDuplicateBaseRecord;
+            ResourceGroupDuplicateMatchingRecord = resourceGroupDuplicateMatchingRecord;
+            ResourcegroupidTeam = resourcegroupidTeam;
             CustomInit();
         }
 
@@ -59,8 +65,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "resourcegroupid")]
-        public string Resourcegroupid { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -69,13 +80,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -84,8 +90,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "objecttypecode")]
         public string Objecttypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroupid")]
+        public string Resourcegroupid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -94,48 +120,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resourcegroup_connections2")]
-        public IList<MicrosoftDynamicsCRMconnection> ResourcegroupConnections2 { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resourcegroup_connections1")]
-        public IList<MicrosoftDynamicsCRMconnection> ResourcegroupConnections1 { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "businessunitid")]
         public MicrosoftDynamicsCRMbusinessunit Businessunitid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resourcegroupid_constraintbasedgroup")]
-        public MicrosoftDynamicsCRMconstraintbasedgroup ResourcegroupidConstraintbasedgroup { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ResourceGroup_BulkDeleteFailures")]
-        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ResourceGroupBulkDeleteFailures { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ResourceGroup_DuplicateBaseRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> ResourceGroupDuplicateBaseRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resourcegroupid_team")]
-        public MicrosoftDynamicsCRMteam ResourcegroupidTeam { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "ResourceGroup_DuplicateMatchingRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> ResourceGroupDuplicateMatchingRecord { get; set; }
 
         /// <summary>
         /// </summary>
@@ -146,6 +132,56 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "ResourceGroup_AsyncOperations")]
         public IList<MicrosoftDynamicsCRMasyncoperation> ResourceGroupAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroup_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> ResourcegroupMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ResourceGroup_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> ResourceGroupBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroup_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ResourcegroupPrincipalObjectAttributeAccesses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroup_connections1")]
+        public IList<MicrosoftDynamicsCRMconnection> ResourcegroupConnections1 { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroup_connections2")]
+        public IList<MicrosoftDynamicsCRMconnection> ResourcegroupConnections2 { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroupid_constraintbasedgroup")]
+        public MicrosoftDynamicsCRMconstraintbasedgroup ResourcegroupidConstraintbasedgroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "organizationid")]
+        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ResourceGroup_DuplicateBaseRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> ResourceGroupDuplicateBaseRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ResourceGroup_DuplicateMatchingRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> ResourceGroupDuplicateMatchingRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resourcegroupid_team")]
+        public MicrosoftDynamicsCRMteam ResourcegroupidTeam { get; set; }
 
     }
 }

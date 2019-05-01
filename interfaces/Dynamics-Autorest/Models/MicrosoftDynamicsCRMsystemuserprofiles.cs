@@ -27,12 +27,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsystemuserprofiles class.
         /// </summary>
-        public MicrosoftDynamicsCRMsystemuserprofiles(string systemuserprofileid = default(string), string fieldsecurityprofileid = default(string), string systemuserid = default(string), long? versionnumber = default(long?))
+        public MicrosoftDynamicsCRMsystemuserprofiles(string systemuserprofileid = default(string), long? versionnumber = default(long?), string systemuserid = default(string), string fieldsecurityprofileid = default(string))
         {
             Systemuserprofileid = systemuserprofileid;
-            Fieldsecurityprofileid = fieldsecurityprofileid;
-            Systemuserid = systemuserid;
             Versionnumber = versionnumber;
+            Systemuserid = systemuserid;
+            Fieldsecurityprofileid = fieldsecurityprofileid;
             CustomInit();
         }
 
@@ -48,8 +48,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "fieldsecurityprofileid")]
-        public string Fieldsecurityprofileid { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -58,8 +58,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "fieldsecurityprofileid")]
+        public string Fieldsecurityprofileid { get; set; }
 
     }
 }

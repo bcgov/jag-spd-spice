@@ -29,35 +29,35 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMbookableresourcebookingheader class.
         /// </summary>
-        public MicrosoftDynamicsCRMbookableresourcebookingheader(string _owningbusinessunitValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), int? statuscode = default(int?), string processid = default(string), string traversedpath = default(string), int? utcconversiontimezonecode = default(int?), string _createdonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), string _transactioncurrencyidValue = default(string), object exchangerate = default(object), string bookableresourcebookingheaderid = default(string), long? versionnumber = default(long?), int? statecode = default(int?), int? importsequencenumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string name = default(string), string stageid = default(string), string _owningteamValue = default(string), string _owninguserValue = default(string), string _modifiedbyValue = default(string), string _owneridValue = default(string), System.DateTimeOffset? starttime = default(System.DateTimeOffset?), int? duration = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? endtime = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> bookableresourcebookingheaderActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMappointment> bookableresourcebookingheaderAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> bookableresourcebookingheaderEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> bookableresourcebookingheaderFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> bookableresourcebookingheaderLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> bookableresourcebookingheaderPhoneCalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMserviceappointment> bookableresourcebookingheaderServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMtask> bookableresourcebookingheaderTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> bookableresourcebookingheaderRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> bookableresourcebookingheaderSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMduplicaterecord> bookableresourcebookingheaderDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> bookableresourcebookingheaderDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMannotation> bookableresourcebookingheaderAnnotations = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMasyncoperation> bookableresourcebookingheaderAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> bookableresourcebookingheaderBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMbookableresourcebooking> bookableresourcebookingheaderBookableresourcebookingHeader = default(IList<MicrosoftDynamicsCRMbookableresourcebooking>), IList<MicrosoftDynamicsCRMsyncerror> bookableResourceBookingHeaderSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> bookableresourcebookingheaderAbsScheduledprocessexecutions = default(IList<MicrosoftDynamicsCRMabsScheduledprocessexecution>))
+        public MicrosoftDynamicsCRMbookableresourcebookingheader(int? timezoneruleversionnumber = default(int?), string _owningteamValue = default(string), int? duration = default(int?), string stageid = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owninguserValue = default(string), string _transactioncurrencyidValue = default(string), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), string traversedpath = default(string), System.DateTimeOffset? starttime = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string processid = default(string), int? statecode = default(int?), int? utcconversiontimezonecode = default(int?), int? statuscode = default(int?), System.DateTimeOffset? endtime = default(System.DateTimeOffset?), string _owneridValue = default(string), object exchangerate = default(object), string _createdbyValue = default(string), string name = default(string), string _modifiedbyValue = default(string), string bookableresourcebookingheaderid = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> bookableresourcebookingheaderActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> bookableResourceBookingHeaderSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> bookableresourcebookingheaderDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> bookableresourcebookingheaderDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> bookableresourcebookingheaderAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> bookableresourcebookingheaderMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> bookableresourcebookingheaderProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> bookableresourcebookingheaderBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> bookableresourcebookingheaderPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMappointment> bookableresourcebookingheaderAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> bookableresourcebookingheaderEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> bookableresourcebookingheaderFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> bookableresourcebookingheaderLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> bookableresourcebookingheaderPhoneCalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> bookableresourcebookingheaderTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> bookableresourcebookingheaderRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> bookableresourcebookingheaderSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMannotation> bookableresourcebookingheaderAnnotations = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMbookableresourcebooking> bookableresourcebookingheaderBookableresourcebookingHeader = default(IList<MicrosoftDynamicsCRMbookableresourcebooking>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMbulkoperation> bookableresourcebookingheaderBulkOperations = default(IList<MicrosoftDynamicsCRMbulkoperation>), IList<MicrosoftDynamicsCRMcampaignactivity> bookableresourcebookingheaderCampaignActivities = default(IList<MicrosoftDynamicsCRMcampaignactivity>), IList<MicrosoftDynamicsCRMcampaignresponse> bookableresourcebookingheaderCampaignResponses = default(IList<MicrosoftDynamicsCRMcampaignresponse>), IList<MicrosoftDynamicsCRMincidentresolution> bookableresourcebookingheaderIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMserviceappointment> bookableresourcebookingheaderServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMopportunityclose> bookableresourcebookingheaderOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> bookableresourcebookingheaderOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> bookableresourcebookingheaderQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> bookableresourcebookingheaderSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>))
         {
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            Modifiedon = modifiedon;
-            this._createdbyValue = _createdbyValue;
-            Statuscode = statuscode;
-            Processid = processid;
-            Traversedpath = traversedpath;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Timezoneruleversionnumber = timezoneruleversionnumber;
+            this._owningteamValue = _owningteamValue;
+            Duration = duration;
+            Stageid = stageid;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Modifiedon = modifiedon;
+            Createdon = createdon;
+            this._owninguserValue = _owninguserValue;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Exchangerate = exchangerate;
-            Bookableresourcebookingheaderid = bookableresourcebookingheaderid;
             Versionnumber = versionnumber;
-            Statecode = statecode;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Traversedpath = traversedpath;
+            Starttime = starttime;
             Importsequencenumber = importsequencenumber;
             Overriddencreatedon = overriddencreatedon;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Name = name;
-            Stageid = stageid;
-            this._owningteamValue = _owningteamValue;
-            this._owninguserValue = _owninguserValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            this._owneridValue = _owneridValue;
-            Starttime = starttime;
-            Duration = duration;
-            Createdon = createdon;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Processid = processid;
+            Statecode = statecode;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Statuscode = statuscode;
             Endtime = endtime;
+            this._owneridValue = _owneridValue;
+            Exchangerate = exchangerate;
+            this._createdbyValue = _createdbyValue;
+            Name = name;
+            this._modifiedbyValue = _modifiedbyValue;
+            Bookableresourcebookingheaderid = bookableresourcebookingheaderid;
             Createdbyname = createdbyname;
             Createdonbehalfbyname = createdonbehalfbyname;
             Modifiedbyname = modifiedbyname;
@@ -67,24 +67,34 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Ownerid = ownerid;
             Owningbusinessunit = owningbusinessunit;
             BookableresourcebookingheaderActivityPointers = bookableresourcebookingheaderActivityPointers;
+            BookableResourceBookingHeaderSyncErrors = bookableResourceBookingHeaderSyncErrors;
+            BookableresourcebookingheaderDuplicateMatchingRecord = bookableresourcebookingheaderDuplicateMatchingRecord;
+            BookableresourcebookingheaderDuplicateBaseRecord = bookableresourcebookingheaderDuplicateBaseRecord;
+            BookableresourcebookingheaderAsyncOperations = bookableresourcebookingheaderAsyncOperations;
+            BookableresourcebookingheaderMailboxTrackingFolders = bookableresourcebookingheaderMailboxTrackingFolders;
+            BookableresourcebookingheaderProcessSession = bookableresourcebookingheaderProcessSession;
+            BookableresourcebookingheaderBulkDeleteFailures = bookableresourcebookingheaderBulkDeleteFailures;
+            BookableresourcebookingheaderPrincipalObjectAttributeAccesses = bookableresourcebookingheaderPrincipalObjectAttributeAccesses;
             BookableresourcebookingheaderAppointments = bookableresourcebookingheaderAppointments;
             BookableresourcebookingheaderEmails = bookableresourcebookingheaderEmails;
             BookableresourcebookingheaderFaxes = bookableresourcebookingheaderFaxes;
             BookableresourcebookingheaderLetters = bookableresourcebookingheaderLetters;
             BookableresourcebookingheaderPhoneCalls = bookableresourcebookingheaderPhoneCalls;
-            BookableresourcebookingheaderServiceAppointments = bookableresourcebookingheaderServiceAppointments;
             BookableresourcebookingheaderTasks = bookableresourcebookingheaderTasks;
             BookableresourcebookingheaderRecurringAppointmentMasters = bookableresourcebookingheaderRecurringAppointmentMasters;
             BookableresourcebookingheaderSocialActivities = bookableresourcebookingheaderSocialActivities;
-            BookableresourcebookingheaderDuplicateMatchingRecord = bookableresourcebookingheaderDuplicateMatchingRecord;
-            BookableresourcebookingheaderDuplicateBaseRecord = bookableresourcebookingheaderDuplicateBaseRecord;
             BookableresourcebookingheaderAnnotations = bookableresourcebookingheaderAnnotations;
-            BookableresourcebookingheaderAsyncOperations = bookableresourcebookingheaderAsyncOperations;
-            BookableresourcebookingheaderBulkDeleteFailures = bookableresourcebookingheaderBulkDeleteFailures;
             BookableresourcebookingheaderBookableresourcebookingHeader = bookableresourcebookingheaderBookableresourcebookingHeader;
-            BookableResourceBookingHeaderSyncErrors = bookableResourceBookingHeaderSyncErrors;
             Transactioncurrencyid = transactioncurrencyid;
-            BookableresourcebookingheaderAbsScheduledprocessexecutions = bookableresourcebookingheaderAbsScheduledprocessexecutions;
+            BookableresourcebookingheaderBulkOperations = bookableresourcebookingheaderBulkOperations;
+            BookableresourcebookingheaderCampaignActivities = bookableresourcebookingheaderCampaignActivities;
+            BookableresourcebookingheaderCampaignResponses = bookableresourcebookingheaderCampaignResponses;
+            BookableresourcebookingheaderIncidentResolutions = bookableresourcebookingheaderIncidentResolutions;
+            BookableresourcebookingheaderServiceAppointments = bookableresourcebookingheaderServiceAppointments;
+            BookableresourcebookingheaderOpportunityCloses = bookableresourcebookingheaderOpportunityCloses;
+            BookableresourcebookingheaderOrderCloses = bookableresourcebookingheaderOrderCloses;
+            BookableresourcebookingheaderQuoteCloses = bookableresourcebookingheaderQuoteCloses;
+            BookableresourcebookingheaderSpiceRequiredcheckses = bookableresourcebookingheaderSpiceRequiredcheckses;
             CustomInit();
         }
 
@@ -95,8 +105,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "duration")]
+        public int? Duration { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -105,38 +135,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public string Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traversedpath")]
-        public string Traversedpath { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -145,23 +150,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheaderid")]
-        public string Bookableresourcebookingheaderid { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "traversedpath")]
+        public string Traversedpath { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "starttime")]
+        public System.DateTimeOffset? Starttime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -175,33 +180,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "processid")]
+        public string Processid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningteam_value")]
-        public string _owningteamValue { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
+        [JsonProperty(PropertyName = "endtime")]
+        public System.DateTimeOffset? Endtime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -210,23 +215,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "starttime")]
-        public System.DateTimeOffset? Starttime { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "duration")]
-        public int? Duration { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "endtime")]
-        public System.DateTimeOffset? Endtime { get; set; }
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheaderid")]
+        public string Bookableresourcebookingheaderid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -275,6 +285,46 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "BookableResourceBookingHeader_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> BookableResourceBookingHeaderSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_DuplicateMatchingRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> BookableresourcebookingheaderDuplicateMatchingRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_DuplicateBaseRecord")]
+        public IList<MicrosoftDynamicsCRMduplicaterecord> BookableresourcebookingheaderDuplicateBaseRecord { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_AsyncOperations")]
+        public IList<MicrosoftDynamicsCRMasyncoperation> BookableresourcebookingheaderAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> BookableresourcebookingheaderMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_ProcessSession")]
+        public IList<MicrosoftDynamicsCRMprocesssession> BookableresourcebookingheaderProcessSession { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> BookableresourcebookingheaderBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_PrincipalObjectAttributeAccesses")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> BookableresourcebookingheaderPrincipalObjectAttributeAccesses { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "bookableresourcebookingheader_Appointments")]
         public IList<MicrosoftDynamicsCRMappointment> BookableresourcebookingheaderAppointments { get; set; }
 
@@ -300,11 +350,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_ServiceAppointments")]
-        public IList<MicrosoftDynamicsCRMserviceappointment> BookableresourcebookingheaderServiceAppointments { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "bookableresourcebookingheader_Tasks")]
         public IList<MicrosoftDynamicsCRMtask> BookableresourcebookingheaderTasks { get; set; }
 
@@ -320,28 +365,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_DuplicateMatchingRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> BookableresourcebookingheaderDuplicateMatchingRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_DuplicateBaseRecord")]
-        public IList<MicrosoftDynamicsCRMduplicaterecord> BookableresourcebookingheaderDuplicateBaseRecord { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "bookableresourcebookingheader_Annotations")]
         public IList<MicrosoftDynamicsCRMannotation> BookableresourcebookingheaderAnnotations { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_AsyncOperations")]
-        public IList<MicrosoftDynamicsCRMasyncoperation> BookableresourcebookingheaderAsyncOperations { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_BulkDeleteFailures")]
-        public IList<MicrosoftDynamicsCRMbulkdeletefailure> BookableresourcebookingheaderBulkDeleteFailures { get; set; }
 
         /// <summary>
         /// </summary>
@@ -350,18 +375,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "BookableResourceBookingHeader_SyncErrors")]
-        public IList<MicrosoftDynamicsCRMsyncerror> BookableResourceBookingHeaderSyncErrors { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "transactioncurrencyid")]
         public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "bookableresourcebookingheader_abs_scheduledprocessexecutions")]
-        public IList<MicrosoftDynamicsCRMabsScheduledprocessexecution> BookableresourcebookingheaderAbsScheduledprocessexecutions { get; set; }
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_BulkOperations")]
+        public IList<MicrosoftDynamicsCRMbulkoperation> BookableresourcebookingheaderBulkOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_CampaignActivities")]
+        public IList<MicrosoftDynamicsCRMcampaignactivity> BookableresourcebookingheaderCampaignActivities { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_CampaignResponses")]
+        public IList<MicrosoftDynamicsCRMcampaignresponse> BookableresourcebookingheaderCampaignResponses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_IncidentResolutions")]
+        public IList<MicrosoftDynamicsCRMincidentresolution> BookableresourcebookingheaderIncidentResolutions { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_ServiceAppointments")]
+        public IList<MicrosoftDynamicsCRMserviceappointment> BookableresourcebookingheaderServiceAppointments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_OpportunityCloses")]
+        public IList<MicrosoftDynamicsCRMopportunityclose> BookableresourcebookingheaderOpportunityCloses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_OrderCloses")]
+        public IList<MicrosoftDynamicsCRMorderclose> BookableresourcebookingheaderOrderCloses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_QuoteCloses")]
+        public IList<MicrosoftDynamicsCRMquoteclose> BookableresourcebookingheaderQuoteCloses { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bookableresourcebookingheader_spice_requiredcheckses")]
+        public IList<MicrosoftDynamicsCRMspiceRequiredchecks> BookableresourcebookingheaderSpiceRequiredcheckses { get; set; }
 
     }
 }

@@ -29,50 +29,93 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMconnection
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMconnection(int? record1objecttypecode = default(int?), string _transactioncurrencyidValue = default(string), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), string _record1roleidValue = default(string), System.DateTimeOffset? effectiveend = default(System.DateTimeOffset?), string entityimageUrl = default(string), string _modifiedbyValue = default(string), string name = default(string), object exchangerate = default(object), string _owningteamValue = default(string), int? importsequencenumber = default(int?), string _record2roleidValue = default(string), string _createdbyValue = default(string), int? record2objecttypecode = default(int?), string _owneridValue = default(string), string _owninguserValue = default(string), string _record1idValue = default(string), System.DateTimeOffset? effectivestart = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string description = default(string), long? versionnumber = default(long?), string entityimageid = default(string), long? entityimageTimestamp = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), object entityimage = default(object), int? statuscode = default(int?), string _owningbusinessunitValue = default(string), string _relatedconnectionidValue = default(string), string _record2idValue = default(string), bool? ismaster = default(bool?), string connectionid = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMknowledgearticle record1idKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMknowledgearticle record2idKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMentitlement record1idEntitlement = default(MicrosoftDynamicsCRMentitlement), MicrosoftDynamicsCRMentitlement record2idEntitlement = default(MicrosoftDynamicsCRMentitlement), MicrosoftDynamicsCRMknowledgebaserecord record1idKnowledgebaserecord = default(MicrosoftDynamicsCRMknowledgebaserecord), MicrosoftDynamicsCRMknowledgebaserecord record2idKnowledgebaserecord = default(MicrosoftDynamicsCRMknowledgebaserecord), MicrosoftDynamicsCRMcontact record1idContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMlead record2idLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMsocialactivity record2idSocialactivity = default(MicrosoftDynamicsCRMsocialactivity), MicrosoftDynamicsCRMtask record2idTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser record1idSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMaccount record2idAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMterritory record1idTerritory = default(MicrosoftDynamicsCRMterritory), MicrosoftDynamicsCRMsystemuser record2idSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam record2idTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMinvoice record1idInvoice = default(MicrosoftDynamicsCRMinvoice), MicrosoftDynamicsCRMquote record1idQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMterritory record2idTerritory = default(MicrosoftDynamicsCRMterritory), MicrosoftDynamicsCRMcampaignactivity record1idCampaignactivity = default(MicrosoftDynamicsCRMcampaignactivity), MicrosoftDynamicsCRMquote record2idQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMcampaignactivity record2idCampaignactivity = default(MicrosoftDynamicsCRMcampaignactivity), MicrosoftDynamicsCRMincident record2idIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMletter record2idLetter = default(MicrosoftDynamicsCRMletter), MicrosoftDynamicsCRMcontract record1idContract = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMresourcegroup record2idResourcegroup = default(MicrosoftDynamicsCRMresourcegroup), MicrosoftDynamicsCRMcontract record2idContract = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMserviceappointment record2idServiceappointment = default(MicrosoftDynamicsCRMserviceappointment), MicrosoftDynamicsCRMemail record1idEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMresourcegroup record1idResourcegroup = default(MicrosoftDynamicsCRMresourcegroup), MicrosoftDynamicsCRMlist record2idList = default(MicrosoftDynamicsCRMlist), MicrosoftDynamicsCRMsocialprofile record1idSocialprofile = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMpricelevel record2idPricelevel = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMtask record1idTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMcampaign record1idCampaign = default(MicrosoftDynamicsCRMcampaign), MicrosoftDynamicsCRMsalesorder record2idSalesorder = default(MicrosoftDynamicsCRMsalesorder), MicrosoftDynamicsCRMemail record2idEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMserviceappointment record1idServiceappointment = default(MicrosoftDynamicsCRMserviceappointment), MicrosoftDynamicsCRMcompetitor record2idCompetitor = default(MicrosoftDynamicsCRMcompetitor), MicrosoftDynamicsCRMsocialprofile record2idSocialprofile = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMproduct record2idProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMteam record1idTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMconnectionrole record2roleid = default(MicrosoftDynamicsCRMconnectionrole), MicrosoftDynamicsCRMgoal record2idGoal = default(MicrosoftDynamicsCRMgoal), MicrosoftDynamicsCRMposition record1idPosition = default(MicrosoftDynamicsCRMposition), MicrosoftDynamicsCRMrecurringappointmentmaster record1idRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), MicrosoftDynamicsCRMconstraintbasedgroup record2idConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMcompetitor record1idCompetitor = default(MicrosoftDynamicsCRMcompetitor), MicrosoftDynamicsCRMopportunity record2idOpportunity = default(MicrosoftDynamicsCRMopportunity), IList<MicrosoftDynamicsCRMasyncoperation> connectionAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMappointment record1idAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMlist record1idList = default(MicrosoftDynamicsCRMlist), MicrosoftDynamicsCRMincident record1idIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMfax record2idFax = default(MicrosoftDynamicsCRMfax), MicrosoftDynamicsCRMequipment record1idEquipment = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMinvoice record2idInvoice = default(MicrosoftDynamicsCRMinvoice), MicrosoftDynamicsCRMproduct record1idProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMconnection relatedconnectionid = default(MicrosoftDynamicsCRMconnection), IList<MicrosoftDynamicsCRMconnection> connectionRelatedConnection = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMrecurringappointmentmaster record2idRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), MicrosoftDynamicsCRMphonecall record1idPhonecall = default(MicrosoftDynamicsCRMphonecall), MicrosoftDynamicsCRMopportunity record1idOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMappointment record2idAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMgoal record1idGoal = default(MicrosoftDynamicsCRMgoal), MicrosoftDynamicsCRMsocialactivity record1idSocialactivity = default(MicrosoftDynamicsCRMsocialactivity), MicrosoftDynamicsCRMfax record1idFax = default(MicrosoftDynamicsCRMfax), MicrosoftDynamicsCRMposition record2idPosition = default(MicrosoftDynamicsCRMposition), MicrosoftDynamicsCRMconnectionrole record1roleid = default(MicrosoftDynamicsCRMconnectionrole), MicrosoftDynamicsCRMletter record1idLetter = default(MicrosoftDynamicsCRMletter), IList<MicrosoftDynamicsCRMsyncerror> connectionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMactivitypointer record2idActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMaccount record1idAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMlead record1idLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMconstraintbasedgroup record1idConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMcontact record2idContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMequipment record2idEquipment = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMactivitypointer record1idActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMcampaign record2idCampaign = default(MicrosoftDynamicsCRMcampaign), MicrosoftDynamicsCRMsalesorder record1idSalesorder = default(MicrosoftDynamicsCRMsalesorder), MicrosoftDynamicsCRMphonecall record2idPhonecall = default(MicrosoftDynamicsCRMphonecall), MicrosoftDynamicsCRMpricelevel record1idPricelevel = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMabsScheduledprocessexecution record1idAbsScheduledprocessexecution = default(MicrosoftDynamicsCRMabsScheduledprocessexecution), MicrosoftDynamicsCRMabsScheduledprocessexecution record2idAbsScheduledprocessexecution = default(MicrosoftDynamicsCRMabsScheduledprocessexecution))
+        public MicrosoftDynamicsCRMconnection(int? record1objecttypecode = default(int?), int? statuscode = default(int?), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), string _record1roleidValue = default(string), System.DateTimeOffset? effectiveend = default(System.DateTimeOffset?), string entityimageUrl = default(string), string name = default(string), string connectionid = default(string), object exchangerate = default(object), string _owningteamValue = default(string), string _createdbyValue = default(string), string _modifiedbyValue = default(string), int? record2objecttypecode = default(int?), string _createdonbehalfbyValue = default(string), string _owneridValue = default(string), string _owninguserValue = default(string), string _record1idValue = default(string), System.DateTimeOffset? effectivestart = default(System.DateTimeOffset?), string description = default(string), long? versionnumber = default(long?), string entityimageid = default(string), long? entityimageTimestamp = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), object entityimage = default(object), int? importsequencenumber = default(int?), string _owningbusinessunitValue = default(string), string _relatedconnectionidValue = default(string), string _record2idValue = default(string), bool? ismaster = default(bool?), string _record2roleidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), MicrosoftDynamicsCRMknowledgearticle record1idKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMknowledgearticle record2idKnowledgearticle = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMknowledgebaserecord record1idKnowledgebaserecord = default(MicrosoftDynamicsCRMknowledgebaserecord), MicrosoftDynamicsCRMknowledgebaserecord record2idKnowledgebaserecord = default(MicrosoftDynamicsCRMknowledgebaserecord), MicrosoftDynamicsCRMterritory record1idTerritory = default(MicrosoftDynamicsCRMterritory), MicrosoftDynamicsCRMterritory record2idTerritory = default(MicrosoftDynamicsCRMterritory), MicrosoftDynamicsCRMlead record1idLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMlead record2idLead = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMpricelevel record1idPricelevel = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMpricelevel record2idPricelevel = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMproduct record1idProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMproduct record2idProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMcampaign record1idCampaign = default(MicrosoftDynamicsCRMcampaign), MicrosoftDynamicsCRMcampaign record2idCampaign = default(MicrosoftDynamicsCRMcampaign), MicrosoftDynamicsCRMcampaignactivity record1idCampaignactivity = default(MicrosoftDynamicsCRMcampaignactivity), MicrosoftDynamicsCRMcampaignactivity record2idCampaignactivity = default(MicrosoftDynamicsCRMcampaignactivity), MicrosoftDynamicsCRMlist record1idList = default(MicrosoftDynamicsCRMlist), MicrosoftDynamicsCRMlist record2idList = default(MicrosoftDynamicsCRMlist), MicrosoftDynamicsCRMconstraintbasedgroup record1idConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMconstraintbasedgroup record2idConstraintbasedgroup = default(MicrosoftDynamicsCRMconstraintbasedgroup), MicrosoftDynamicsCRMcontract record1idContract = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMcontract record2idContract = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMentitlement record1idEntitlement = default(MicrosoftDynamicsCRMentitlement), MicrosoftDynamicsCRMentitlement record2idEntitlement = default(MicrosoftDynamicsCRMentitlement), MicrosoftDynamicsCRMentitlementchannel record1idEntitlementchannel = default(MicrosoftDynamicsCRMentitlementchannel), MicrosoftDynamicsCRMentitlementchannel record2idEntitlementchannel = default(MicrosoftDynamicsCRMentitlementchannel), MicrosoftDynamicsCRMentitlementtemplatechannel record1idEntitlementtemplatechannel = default(MicrosoftDynamicsCRMentitlementtemplatechannel), MicrosoftDynamicsCRMentitlementtemplatechannel record2idEntitlementtemplatechannel = default(MicrosoftDynamicsCRMentitlementtemplatechannel), MicrosoftDynamicsCRMequipment record1idEquipment = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMequipment record2idEquipment = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMincident record1idIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMincident record2idIncident = default(MicrosoftDynamicsCRMincident), MicrosoftDynamicsCRMresourcegroup record1idResourcegroup = default(MicrosoftDynamicsCRMresourcegroup), MicrosoftDynamicsCRMresourcegroup record2idResourcegroup = default(MicrosoftDynamicsCRMresourcegroup), MicrosoftDynamicsCRMserviceappointment record1idServiceappointment = default(MicrosoftDynamicsCRMserviceappointment), MicrosoftDynamicsCRMserviceappointment record2idServiceappointment = default(MicrosoftDynamicsCRMserviceappointment), MicrosoftDynamicsCRMinvoice record1idInvoice = default(MicrosoftDynamicsCRMinvoice), MicrosoftDynamicsCRMinvoice record2idInvoice = default(MicrosoftDynamicsCRMinvoice), MicrosoftDynamicsCRMopportunity record1idOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMopportunity record2idOpportunity = default(MicrosoftDynamicsCRMopportunity), MicrosoftDynamicsCRMquote record1idQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMquote record2idQuote = default(MicrosoftDynamicsCRMquote), MicrosoftDynamicsCRMsalesorder record1idSalesorder = default(MicrosoftDynamicsCRMsalesorder), MicrosoftDynamicsCRMsalesorder record2idSalesorder = default(MicrosoftDynamicsCRMsalesorder), MicrosoftDynamicsCRMcompetitor record1idCompetitor = default(MicrosoftDynamicsCRMcompetitor), MicrosoftDynamicsCRMcompetitor record2idCompetitor = default(MicrosoftDynamicsCRMcompetitor), MicrosoftDynamicsCRMmsdynPostalbum record1idMsdynPostalbum = default(MicrosoftDynamicsCRMmsdynPostalbum), MicrosoftDynamicsCRMmsdynPostalbum record2idMsdynPostalbum = default(MicrosoftDynamicsCRMmsdynPostalbum), MicrosoftDynamicsCRMspiceRequiredchecks record1idSpiceRequiredchecks = default(MicrosoftDynamicsCRMspiceRequiredchecks), MicrosoftDynamicsCRMspiceRequiredchecks record2idSpiceRequiredchecks = default(MicrosoftDynamicsCRMspiceRequiredchecks), MicrosoftDynamicsCRMcontact record1idContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsocialactivity record2idSocialactivity = default(MicrosoftDynamicsCRMsocialactivity), MicrosoftDynamicsCRMtask record2idTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser record1idSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMaccount record2idAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser record2idSystemuser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam record2idTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMletter record2idLetter = default(MicrosoftDynamicsCRMletter), MicrosoftDynamicsCRMemail record1idEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMsocialprofile record1idSocialprofile = default(MicrosoftDynamicsCRMsocialprofile), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> connectionPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtask record1idTask = default(MicrosoftDynamicsCRMtask), MicrosoftDynamicsCRMemail record2idEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMsocialprofile record2idSocialprofile = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMteam record1idTeam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMconnectionrole record2roleid = default(MicrosoftDynamicsCRMconnectionrole), MicrosoftDynamicsCRMgoal record2idGoal = default(MicrosoftDynamicsCRMgoal), MicrosoftDynamicsCRMposition record1idPosition = default(MicrosoftDynamicsCRMposition), MicrosoftDynamicsCRMrecurringappointmentmaster record1idRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), MicrosoftDynamicsCRMprocesssession record1idProcesssession = default(MicrosoftDynamicsCRMprocesssession), IList<MicrosoftDynamicsCRMasyncoperation> connectionAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMprocesssession> connectionProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMappointment record1idAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMfax record2idFax = default(MicrosoftDynamicsCRMfax), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMconnection relatedconnectionid = default(MicrosoftDynamicsCRMconnection), IList<MicrosoftDynamicsCRMconnection> connectionRelatedConnection = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMrecurringappointmentmaster record2idRecurringappointmentmaster = default(MicrosoftDynamicsCRMrecurringappointmentmaster), MicrosoftDynamicsCRMphonecall record1idPhonecall = default(MicrosoftDynamicsCRMphonecall), MicrosoftDynamicsCRMappointment record2idAppointment = default(MicrosoftDynamicsCRMappointment), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMgoal record1idGoal = default(MicrosoftDynamicsCRMgoal), MicrosoftDynamicsCRMsocialactivity record1idSocialactivity = default(MicrosoftDynamicsCRMsocialactivity), MicrosoftDynamicsCRMfax record1idFax = default(MicrosoftDynamicsCRMfax), MicrosoftDynamicsCRMposition record2idPosition = default(MicrosoftDynamicsCRMposition), MicrosoftDynamicsCRMconnectionrole record1roleid = default(MicrosoftDynamicsCRMconnectionrole), MicrosoftDynamicsCRMletter record1idLetter = default(MicrosoftDynamicsCRMletter), MicrosoftDynamicsCRMprocesssession record2idProcesssession = default(MicrosoftDynamicsCRMprocesssession), IList<MicrosoftDynamicsCRMsyncerror> connectionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMactivitypointer record2idActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMaccount record1idAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMcontact record2idContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMactivitypointer record1idActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMphonecall record2idPhonecall = default(MicrosoftDynamicsCRMphonecall))
         {
             Record1objecttypecode = record1objecttypecode;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Statuscode = statuscode;
             Statecode = statecode;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._record1roleidValue = _record1roleidValue;
             Effectiveend = effectiveend;
             EntityimageUrl = entityimageUrl;
-            this._modifiedbyValue = _modifiedbyValue;
             Name = name;
+            Connectionid = connectionid;
             Exchangerate = exchangerate;
             this._owningteamValue = _owningteamValue;
-            Importsequencenumber = importsequencenumber;
-            this._record2roleidValue = _record2roleidValue;
             this._createdbyValue = _createdbyValue;
+            this._modifiedbyValue = _modifiedbyValue;
             Record2objecttypecode = record2objecttypecode;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
             this._owneridValue = _owneridValue;
             this._owninguserValue = _owninguserValue;
             this._record1idValue = _record1idValue;
             Effectivestart = effectivestart;
-            Modifiedon = modifiedon;
             Description = description;
             Versionnumber = versionnumber;
             Entityimageid = entityimageid;
             EntityimageTimestamp = entityimageTimestamp;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Modifiedon = modifiedon;
             Overriddencreatedon = overriddencreatedon;
             Entityimage = entityimage;
-            Statuscode = statuscode;
+            Importsequencenumber = importsequencenumber;
             this._owningbusinessunitValue = _owningbusinessunitValue;
             this._relatedconnectionidValue = _relatedconnectionidValue;
             this._record2idValue = _record2idValue;
             Ismaster = ismaster;
-            Connectionid = connectionid;
+            this._record2roleidValue = _record2roleidValue;
             Createdon = createdon;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
             Record1idKnowledgearticle = record1idKnowledgearticle;
             Record2idKnowledgearticle = record2idKnowledgearticle;
-            Record1idEntitlement = record1idEntitlement;
-            Record2idEntitlement = record2idEntitlement;
             Record1idKnowledgebaserecord = record1idKnowledgebaserecord;
             Record2idKnowledgebaserecord = record2idKnowledgebaserecord;
-            Record1idContact = record1idContact;
+            Record1idTerritory = record1idTerritory;
+            Record2idTerritory = record2idTerritory;
+            Record1idLead = record1idLead;
             Record2idLead = record2idLead;
+            Record1idPricelevel = record1idPricelevel;
+            Record2idPricelevel = record2idPricelevel;
+            Record1idProduct = record1idProduct;
+            Record2idProduct = record2idProduct;
+            Record1idCampaign = record1idCampaign;
+            Record2idCampaign = record2idCampaign;
+            Record1idCampaignactivity = record1idCampaignactivity;
+            Record2idCampaignactivity = record2idCampaignactivity;
+            Record1idList = record1idList;
+            Record2idList = record2idList;
+            Record1idConstraintbasedgroup = record1idConstraintbasedgroup;
+            Record2idConstraintbasedgroup = record2idConstraintbasedgroup;
+            Record1idContract = record1idContract;
+            Record2idContract = record2idContract;
+            Record1idEntitlement = record1idEntitlement;
+            Record2idEntitlement = record2idEntitlement;
+            Record1idEntitlementchannel = record1idEntitlementchannel;
+            Record2idEntitlementchannel = record2idEntitlementchannel;
+            Record1idEntitlementtemplatechannel = record1idEntitlementtemplatechannel;
+            Record2idEntitlementtemplatechannel = record2idEntitlementtemplatechannel;
+            Record1idEquipment = record1idEquipment;
+            Record2idEquipment = record2idEquipment;
+            Record1idIncident = record1idIncident;
+            Record2idIncident = record2idIncident;
+            Record1idResourcegroup = record1idResourcegroup;
+            Record2idResourcegroup = record2idResourcegroup;
+            Record1idServiceappointment = record1idServiceappointment;
+            Record2idServiceappointment = record2idServiceappointment;
+            Record1idInvoice = record1idInvoice;
+            Record2idInvoice = record2idInvoice;
+            Record1idOpportunity = record1idOpportunity;
+            Record2idOpportunity = record2idOpportunity;
+            Record1idQuote = record1idQuote;
+            Record2idQuote = record2idQuote;
+            Record1idSalesorder = record1idSalesorder;
+            Record2idSalesorder = record2idSalesorder;
+            Record1idCompetitor = record1idCompetitor;
+            Record2idCompetitor = record2idCompetitor;
+            Record1idMsdynPostalbum = record1idMsdynPostalbum;
+            Record2idMsdynPostalbum = record2idMsdynPostalbum;
+            Record1idSpiceRequiredchecks = record1idSpiceRequiredchecks;
+            Record2idSpiceRequiredchecks = record2idSpiceRequiredchecks;
+            Record1idContact = record1idContact;
             Record2idSocialactivity = record2idSocialactivity;
             Record2idTask = record2idTask;
             Modifiedby = modifiedby;
@@ -80,57 +123,31 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Transactioncurrencyid = transactioncurrencyid;
             Record2idAccount = record2idAccount;
             Createdby = createdby;
-            Record1idTerritory = record1idTerritory;
             Record2idSystemuser = record2idSystemuser;
             Record2idTeam = record2idTeam;
-            Record1idInvoice = record1idInvoice;
-            Record1idQuote = record1idQuote;
-            Record2idTerritory = record2idTerritory;
-            Record1idCampaignactivity = record1idCampaignactivity;
-            Record2idQuote = record2idQuote;
-            Record2idCampaignactivity = record2idCampaignactivity;
-            Record2idIncident = record2idIncident;
             Record2idLetter = record2idLetter;
-            Record1idContract = record1idContract;
-            Record2idResourcegroup = record2idResourcegroup;
-            Record2idContract = record2idContract;
-            Record2idServiceappointment = record2idServiceappointment;
             Record1idEmail = record1idEmail;
-            Record1idResourcegroup = record1idResourcegroup;
-            Record2idList = record2idList;
             Record1idSocialprofile = record1idSocialprofile;
+            ConnectionPrincipalobjectattributeaccess = connectionPrincipalobjectattributeaccess;
             Createdonbehalfby = createdonbehalfby;
-            Record2idPricelevel = record2idPricelevel;
             Record1idTask = record1idTask;
-            Record1idCampaign = record1idCampaign;
-            Record2idSalesorder = record2idSalesorder;
             Record2idEmail = record2idEmail;
-            Record1idServiceappointment = record1idServiceappointment;
-            Record2idCompetitor = record2idCompetitor;
             Record2idSocialprofile = record2idSocialprofile;
-            Record2idProduct = record2idProduct;
             Record1idTeam = record1idTeam;
             Record2roleid = record2roleid;
             Record2idGoal = record2idGoal;
             Record1idPosition = record1idPosition;
             Record1idRecurringappointmentmaster = record1idRecurringappointmentmaster;
-            Record2idConstraintbasedgroup = record2idConstraintbasedgroup;
-            Record1idCompetitor = record1idCompetitor;
-            Record2idOpportunity = record2idOpportunity;
+            Record1idProcesssession = record1idProcesssession;
             ConnectionAsyncOperations = connectionAsyncOperations;
+            ConnectionProcessSessions = connectionProcessSessions;
             Record1idAppointment = record1idAppointment;
-            Record1idList = record1idList;
-            Record1idIncident = record1idIncident;
             Record2idFax = record2idFax;
-            Record1idEquipment = record1idEquipment;
             Modifiedonbehalfby = modifiedonbehalfby;
-            Record2idInvoice = record2idInvoice;
-            Record1idProduct = record1idProduct;
             Relatedconnectionid = relatedconnectionid;
             ConnectionRelatedConnection = connectionRelatedConnection;
             Record2idRecurringappointmentmaster = record2idRecurringappointmentmaster;
             Record1idPhonecall = record1idPhonecall;
-            Record1idOpportunity = record1idOpportunity;
             Record2idAppointment = record2idAppointment;
             Owningbusinessunit = owningbusinessunit;
             Record1idGoal = record1idGoal;
@@ -139,21 +156,14 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Record2idPosition = record2idPosition;
             Record1roleid = record1roleid;
             Record1idLetter = record1idLetter;
+            Record2idProcesssession = record2idProcesssession;
             ConnectionSyncErrors = connectionSyncErrors;
             Record2idActivitypointer = record2idActivitypointer;
             Record1idAccount = record1idAccount;
-            Record1idLead = record1idLead;
             Ownerid = ownerid;
-            Record1idConstraintbasedgroup = record1idConstraintbasedgroup;
             Record2idContact = record2idContact;
-            Record2idEquipment = record2idEquipment;
             Record1idActivitypointer = record1idActivitypointer;
-            Record2idCampaign = record2idCampaign;
-            Record1idSalesorder = record1idSalesorder;
             Record2idPhonecall = record2idPhonecall;
-            Record1idPricelevel = record1idPricelevel;
-            Record1idAbsScheduledprocessexecution = record1idAbsScheduledprocessexecution;
-            Record2idAbsScheduledprocessexecution = record2idAbsScheduledprocessexecution;
             CustomInit();
         }
 
@@ -169,8 +179,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -199,13 +209,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "connectionid")]
+        public string Connectionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -219,23 +229,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_record2roleid_value")]
-        public string _record2roleidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_createdby_value")]
         public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "record2objecttypecode")]
         public int? Record2objecttypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -259,11 +269,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
@@ -284,8 +289,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -299,8 +304,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -324,13 +329,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "connectionid")]
-        public string Connectionid { get; set; }
+        [JsonProperty(PropertyName = "_record2roleid_value")]
+        public string _record2roleidValue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "createdon")]
         public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -344,16 +354,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_entitlement")]
-        public MicrosoftDynamicsCRMentitlement Record1idEntitlement { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_entitlement")]
-        public MicrosoftDynamicsCRMentitlement Record2idEntitlement { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record1id_knowledgebaserecord")]
         public MicrosoftDynamicsCRMknowledgebaserecord Record1idKnowledgebaserecord { get; set; }
 
@@ -364,13 +364,238 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_contact")]
-        public MicrosoftDynamicsCRMcontact Record1idContact { get; set; }
+        [JsonProperty(PropertyName = "record1id_territory")]
+        public MicrosoftDynamicsCRMterritory Record1idTerritory { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_territory")]
+        public MicrosoftDynamicsCRMterritory Record2idTerritory { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_lead")]
+        public MicrosoftDynamicsCRMlead Record1idLead { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "record2id_lead")]
         public MicrosoftDynamicsCRMlead Record2idLead { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_pricelevel")]
+        public MicrosoftDynamicsCRMpricelevel Record1idPricelevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_pricelevel")]
+        public MicrosoftDynamicsCRMpricelevel Record2idPricelevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_product")]
+        public MicrosoftDynamicsCRMproduct Record1idProduct { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_product")]
+        public MicrosoftDynamicsCRMproduct Record2idProduct { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_campaign")]
+        public MicrosoftDynamicsCRMcampaign Record1idCampaign { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_campaign")]
+        public MicrosoftDynamicsCRMcampaign Record2idCampaign { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_campaignactivity")]
+        public MicrosoftDynamicsCRMcampaignactivity Record1idCampaignactivity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_campaignactivity")]
+        public MicrosoftDynamicsCRMcampaignactivity Record2idCampaignactivity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_list")]
+        public MicrosoftDynamicsCRMlist Record1idList { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_list")]
+        public MicrosoftDynamicsCRMlist Record2idList { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_constraintbasedgroup")]
+        public MicrosoftDynamicsCRMconstraintbasedgroup Record1idConstraintbasedgroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_constraintbasedgroup")]
+        public MicrosoftDynamicsCRMconstraintbasedgroup Record2idConstraintbasedgroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_contract")]
+        public MicrosoftDynamicsCRMcontract Record1idContract { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_contract")]
+        public MicrosoftDynamicsCRMcontract Record2idContract { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_entitlement")]
+        public MicrosoftDynamicsCRMentitlement Record1idEntitlement { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_entitlement")]
+        public MicrosoftDynamicsCRMentitlement Record2idEntitlement { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_entitlementchannel")]
+        public MicrosoftDynamicsCRMentitlementchannel Record1idEntitlementchannel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_entitlementchannel")]
+        public MicrosoftDynamicsCRMentitlementchannel Record2idEntitlementchannel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_entitlementtemplatechannel")]
+        public MicrosoftDynamicsCRMentitlementtemplatechannel Record1idEntitlementtemplatechannel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_entitlementtemplatechannel")]
+        public MicrosoftDynamicsCRMentitlementtemplatechannel Record2idEntitlementtemplatechannel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_equipment")]
+        public MicrosoftDynamicsCRMequipment Record1idEquipment { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_equipment")]
+        public MicrosoftDynamicsCRMequipment Record2idEquipment { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_incident")]
+        public MicrosoftDynamicsCRMincident Record1idIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_incident")]
+        public MicrosoftDynamicsCRMincident Record2idIncident { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_resourcegroup")]
+        public MicrosoftDynamicsCRMresourcegroup Record1idResourcegroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_resourcegroup")]
+        public MicrosoftDynamicsCRMresourcegroup Record2idResourcegroup { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_serviceappointment")]
+        public MicrosoftDynamicsCRMserviceappointment Record1idServiceappointment { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_serviceappointment")]
+        public MicrosoftDynamicsCRMserviceappointment Record2idServiceappointment { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_invoice")]
+        public MicrosoftDynamicsCRMinvoice Record1idInvoice { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_invoice")]
+        public MicrosoftDynamicsCRMinvoice Record2idInvoice { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_opportunity")]
+        public MicrosoftDynamicsCRMopportunity Record1idOpportunity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_opportunity")]
+        public MicrosoftDynamicsCRMopportunity Record2idOpportunity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_quote")]
+        public MicrosoftDynamicsCRMquote Record1idQuote { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_quote")]
+        public MicrosoftDynamicsCRMquote Record2idQuote { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_salesorder")]
+        public MicrosoftDynamicsCRMsalesorder Record1idSalesorder { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_salesorder")]
+        public MicrosoftDynamicsCRMsalesorder Record2idSalesorder { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_competitor")]
+        public MicrosoftDynamicsCRMcompetitor Record1idCompetitor { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_competitor")]
+        public MicrosoftDynamicsCRMcompetitor Record2idCompetitor { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_msdyn_postalbum")]
+        public MicrosoftDynamicsCRMmsdynPostalbum Record1idMsdynPostalbum { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_msdyn_postalbum")]
+        public MicrosoftDynamicsCRMmsdynPostalbum Record2idMsdynPostalbum { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_spice_requiredchecks")]
+        public MicrosoftDynamicsCRMspiceRequiredchecks Record1idSpiceRequiredchecks { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record2id_spice_requiredchecks")]
+        public MicrosoftDynamicsCRMspiceRequiredchecks Record2idSpiceRequiredchecks { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "record1id_contact")]
+        public MicrosoftDynamicsCRMcontact Record1idContact { get; set; }
 
         /// <summary>
         /// </summary>
@@ -409,11 +634,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_territory")]
-        public MicrosoftDynamicsCRMterritory Record1idTerritory { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record2id_systemuser")]
         public MicrosoftDynamicsCRMsystemuser Record2idSystemuser { get; set; }
 
@@ -424,63 +644,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_invoice")]
-        public MicrosoftDynamicsCRMinvoice Record1idInvoice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_quote")]
-        public MicrosoftDynamicsCRMquote Record1idQuote { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_territory")]
-        public MicrosoftDynamicsCRMterritory Record2idTerritory { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_campaignactivity")]
-        public MicrosoftDynamicsCRMcampaignactivity Record1idCampaignactivity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_quote")]
-        public MicrosoftDynamicsCRMquote Record2idQuote { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_campaignactivity")]
-        public MicrosoftDynamicsCRMcampaignactivity Record2idCampaignactivity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_incident")]
-        public MicrosoftDynamicsCRMincident Record2idIncident { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record2id_letter")]
         public MicrosoftDynamicsCRMletter Record2idLetter { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_contract")]
-        public MicrosoftDynamicsCRMcontract Record1idContract { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_resourcegroup")]
-        public MicrosoftDynamicsCRMresourcegroup Record2idResourcegroup { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_contract")]
-        public MicrosoftDynamicsCRMcontract Record2idContract { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_serviceappointment")]
-        public MicrosoftDynamicsCRMserviceappointment Record2idServiceappointment { get; set; }
 
         /// <summary>
         /// </summary>
@@ -489,18 +654,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_resourcegroup")]
-        public MicrosoftDynamicsCRMresourcegroup Record1idResourcegroup { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_list")]
-        public MicrosoftDynamicsCRMlist Record2idList { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record1id_socialprofile")]
         public MicrosoftDynamicsCRMsocialprofile Record1idSocialprofile { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "connection_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> ConnectionPrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>
@@ -509,23 +669,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record2id_pricelevel")]
-        public MicrosoftDynamicsCRMpricelevel Record2idPricelevel { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record1id_task")]
         public MicrosoftDynamicsCRMtask Record1idTask { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_campaign")]
-        public MicrosoftDynamicsCRMcampaign Record1idCampaign { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_salesorder")]
-        public MicrosoftDynamicsCRMsalesorder Record2idSalesorder { get; set; }
 
         /// <summary>
         /// </summary>
@@ -534,23 +679,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_serviceappointment")]
-        public MicrosoftDynamicsCRMserviceappointment Record1idServiceappointment { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_competitor")]
-        public MicrosoftDynamicsCRMcompetitor Record2idCompetitor { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record2id_socialprofile")]
         public MicrosoftDynamicsCRMsocialprofile Record2idSocialprofile { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_product")]
-        public MicrosoftDynamicsCRMproduct Record2idProduct { get; set; }
 
         /// <summary>
         /// </summary>
@@ -579,18 +709,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record2id_constraintbasedgroup")]
-        public MicrosoftDynamicsCRMconstraintbasedgroup Record2idConstraintbasedgroup { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_competitor")]
-        public MicrosoftDynamicsCRMcompetitor Record1idCompetitor { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_opportunity")]
-        public MicrosoftDynamicsCRMopportunity Record2idOpportunity { get; set; }
+        [JsonProperty(PropertyName = "record1id_processsession")]
+        public MicrosoftDynamicsCRMprocesssession Record1idProcesssession { get; set; }
 
         /// <summary>
         /// </summary>
@@ -599,18 +719,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "Connection_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> ConnectionProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "record1id_appointment")]
         public MicrosoftDynamicsCRMappointment Record1idAppointment { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_list")]
-        public MicrosoftDynamicsCRMlist Record1idList { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_incident")]
-        public MicrosoftDynamicsCRMincident Record1idIncident { get; set; }
 
         /// <summary>
         /// </summary>
@@ -619,23 +734,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_equipment")]
-        public MicrosoftDynamicsCRMequipment Record1idEquipment { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "modifiedonbehalfby")]
         public MicrosoftDynamicsCRMsystemuser Modifiedonbehalfby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_invoice")]
-        public MicrosoftDynamicsCRMinvoice Record2idInvoice { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_product")]
-        public MicrosoftDynamicsCRMproduct Record1idProduct { get; set; }
 
         /// <summary>
         /// </summary>
@@ -656,11 +756,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "record1id_phonecall")]
         public MicrosoftDynamicsCRMphonecall Record1idPhonecall { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_opportunity")]
-        public MicrosoftDynamicsCRMopportunity Record1idOpportunity { get; set; }
 
         /// <summary>
         /// </summary>
@@ -704,6 +799,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "record2id_processsession")]
+        public MicrosoftDynamicsCRMprocesssession Record2idProcesssession { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "Connection_SyncErrors")]
         public IList<MicrosoftDynamicsCRMsyncerror> ConnectionSyncErrors { get; set; }
 
@@ -719,18 +819,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record1id_lead")]
-        public MicrosoftDynamicsCRMlead Record1idLead { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "ownerid")]
         public MicrosoftDynamicsCRMprincipal Ownerid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_constraintbasedgroup")]
-        public MicrosoftDynamicsCRMconstraintbasedgroup Record1idConstraintbasedgroup { get; set; }
 
         /// <summary>
         /// </summary>
@@ -739,43 +829,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record2id_equipment")]
-        public MicrosoftDynamicsCRMequipment Record2idEquipment { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record1id_activitypointer")]
         public MicrosoftDynamicsCRMactivitypointer Record1idActivitypointer { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "record2id_campaign")]
-        public MicrosoftDynamicsCRMcampaign Record2idCampaign { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_salesorder")]
-        public MicrosoftDynamicsCRMsalesorder Record1idSalesorder { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "record2id_phonecall")]
         public MicrosoftDynamicsCRMphonecall Record2idPhonecall { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_pricelevel")]
-        public MicrosoftDynamicsCRMpricelevel Record1idPricelevel { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record1id_abs_scheduledprocessexecution")]
-        public MicrosoftDynamicsCRMabsScheduledprocessexecution Record1idAbsScheduledprocessexecution { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "record2id_abs_scheduledprocessexecution")]
-        public MicrosoftDynamicsCRMabsScheduledprocessexecution Record2idAbsScheduledprocessexecution { get; set; }
 
     }
 }

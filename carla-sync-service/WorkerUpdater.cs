@@ -47,54 +47,8 @@ namespace SpdSync
 
         public async Task UpdateSecurityClearance(PerformContext hangfireContext, WorkerScreeningResponse spdResponse, string id)
         {
-            var filter = "adoxio_workerjobnumber eq '" + id + "'";
-            List<string> expand = new List<string> { "adoxio_WorkerId" };
-            MicrosoftDynamicsCRMadoxioPersonalhistorysummary response = null;
-            try
-            {
-                response = _dynamics.Personalhistorysummaries.Get(filter: filter).Value.FirstOrDefault();
-            }
-            catch (OdataerrorException odee)
-            {
-                hangfireContext.WriteLine("Unable to get personal history summary.");
-                hangfireContext.WriteLine("Request:");
-                hangfireContext.WriteLine(odee.Request.Content);
-                hangfireContext.WriteLine("Response:");
-                hangfireContext.WriteLine(odee.Response.Content);
+            // update the security clearance for a worker.
 
-                _logger.LogError("Unable to get personal history summary.");
-                _logger.LogError("Request:");
-                _logger.LogError(odee.Request.Content);
-                _logger.LogError("Response:");
-                _logger.LogError(odee.Request.Content);
-                throw odee;
-            }
-
-            MicrosoftDynamicsCRMadoxioPersonalhistorysummary patchPHS = new MicrosoftDynamicsCRMadoxioPersonalhistorysummary
-            {
-                AdoxioSecuritystatus = (int)Enum.Parse(typeof(SecurityStatusPicklist), spdResponse.Result, true),
-                AdoxioCompletedon = spdResponse.DateProcessed
-            };
-
-            try
-            {
-                await _dynamics.Personalhistorysummaries.UpdateAsync(response.AdoxioPersonalhistorysummaryid, patchPHS);
-            }
-            catch (OdataerrorException odee)
-            {
-                hangfireContext.WriteLine("Unable to patch personal history summary.");
-                hangfireContext.WriteLine("Request:");
-                hangfireContext.WriteLine(odee.Request.Content);
-                hangfireContext.WriteLine("Response:");
-                hangfireContext.WriteLine(odee.Response.Content);
-
-                _logger.LogError("Unable to patch personal history summary.");
-                _logger.LogError("Request:");
-                _logger.LogError(odee.Request.Content);
-                _logger.LogError("Response:");
-                _logger.LogError(odee.Request.Content);
-                throw odee;
-            }
         }
     }
 
