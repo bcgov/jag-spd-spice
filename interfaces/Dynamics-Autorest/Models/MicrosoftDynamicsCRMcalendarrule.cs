@@ -27,48 +27,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMcalendarrule
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMcalendarrule(System.DateTimeOffset? effectiveintervalend = default(System.DateTimeOffset?), bool? ismodified = default(bool?), int? offset = default(int?), string _createdonbehalfbyValue = default(string), string _serviceidValue = default(string), long? versionnumber = default(long?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), string _createdbyValue = default(string), string groupdesignator = default(string), int? duration = default(int?), int? extentcode = default(int?), string description = default(string), double? effort = default(double?), System.DateTimeOffset? starttime = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? timecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _calendaridValue = default(string), System.DateTimeOffset? endtime = default(System.DateTimeOffset?), bool? isvaried = default(bool?), string _modifiedbyValue = default(string), string calendarruleid = default(string), int? timezonecode = default(int?), int? subcode = default(int?), string pattern = default(string), string businessunitid = default(string), string _innercalendaridValue = default(string), bool? issimple = default(bool?), System.DateTimeOffset? effectiveintervalstart = default(System.DateTimeOffset?), int? rank = default(int?), bool? isselected = default(bool?), string organizationid = default(string), MicrosoftDynamicsCRMcalendar calendarid = default(MicrosoftDynamicsCRMcalendar), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcalendar innercalendarid = default(MicrosoftDynamicsCRMcalendar), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMservice serviceid = default(MicrosoftDynamicsCRMservice))
+        public MicrosoftDynamicsCRMcalendarrule(string groupdesignator = default(string), int? rank = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? starttime = default(System.DateTimeOffset?), string _serviceidValue = default(string), string organizationid = default(string), bool? isselected = default(bool?), int? duration = default(int?), int? offset = default(int?), int? timecode = default(int?), string _innercalendaridValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? extentcode = default(int?), int? subcode = default(int?), bool? isvaried = default(bool?), System.DateTimeOffset? effectiveintervalstart = default(System.DateTimeOffset?), string name = default(string), System.DateTimeOffset? endtime = default(System.DateTimeOffset?), string _createdbyValue = default(string), bool? issimple = default(bool?), string calendarruleid = default(string), int? timezonecode = default(int?), string pattern = default(string), double? effort = default(double?), string description = default(string), bool? ismodified = default(bool?), string _modifiedbyValue = default(string), string _calendaridValue = default(string), string _modifiedonbehalfbyValue = default(string), string _createdonbehalfbyValue = default(string), long? versionnumber = default(long?), System.DateTimeOffset? effectiveintervalend = default(System.DateTimeOffset?), string businessunitid = default(string), MicrosoftDynamicsCRMservice serviceid = default(MicrosoftDynamicsCRMservice), MicrosoftDynamicsCRMcalendar calendarid = default(MicrosoftDynamicsCRMcalendar), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcalendar innercalendarid = default(MicrosoftDynamicsCRMcalendar), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
-            Effectiveintervalend = effectiveintervalend;
-            Ismodified = ismodified;
-            Offset = offset;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._serviceidValue = _serviceidValue;
-            Versionnumber = versionnumber;
-            Createdon = createdon;
-            Name = name;
-            this._createdbyValue = _createdbyValue;
             Groupdesignator = groupdesignator;
-            Duration = duration;
-            Extentcode = extentcode;
-            Description = description;
-            Effort = effort;
+            Rank = rank;
+            Createdon = createdon;
             Starttime = starttime;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            this._serviceidValue = _serviceidValue;
+            Organizationid = organizationid;
+            Isselected = isselected;
+            Duration = duration;
+            Offset = offset;
             Timecode = timecode;
+            this._innercalendaridValue = _innercalendaridValue;
             Modifiedon = modifiedon;
-            this._calendaridValue = _calendaridValue;
-            Endtime = endtime;
+            Extentcode = extentcode;
+            Subcode = subcode;
             Isvaried = isvaried;
-            this._modifiedbyValue = _modifiedbyValue;
+            Effectiveintervalstart = effectiveintervalstart;
+            Name = name;
+            Endtime = endtime;
+            this._createdbyValue = _createdbyValue;
+            Issimple = issimple;
             Calendarruleid = calendarruleid;
             Timezonecode = timezonecode;
-            Subcode = subcode;
             Pattern = pattern;
+            Effort = effort;
+            Description = description;
+            Ismodified = ismodified;
+            this._modifiedbyValue = _modifiedbyValue;
+            this._calendaridValue = _calendaridValue;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Versionnumber = versionnumber;
+            Effectiveintervalend = effectiveintervalend;
             Businessunitid = businessunitid;
-            this._innercalendaridValue = _innercalendaridValue;
-            Issimple = issimple;
-            Effectiveintervalstart = effectiveintervalstart;
-            Rank = rank;
-            Isselected = isselected;
-            Organizationid = organizationid;
+            Serviceid = serviceid;
             Calendarid = calendarid;
             Modifiedby = modifiedby;
             Modifiedonbehalfby = modifiedonbehalfby;
             Innercalendarid = innercalendarid;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
-            Serviceid = serviceid;
             CustomInit();
         }
 
@@ -79,33 +79,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "effectiveintervalend")]
-        public System.DateTimeOffset? Effectiveintervalend { get; set; }
+        [JsonProperty(PropertyName = "groupdesignator")]
+        public string Groupdesignator { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ismodified")]
-        public bool? Ismodified { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "offset")]
-        public int? Offset { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_serviceid_value")]
-        public string _serviceidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        [JsonProperty(PropertyName = "rank")]
+        public int? Rank { get; set; }
 
         /// <summary>
         /// </summary>
@@ -114,18 +94,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "starttime")]
+        public System.DateTimeOffset? Starttime { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "_serviceid_value")]
+        public string _serviceidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "groupdesignator")]
-        public string Groupdesignator { get; set; }
+        [JsonProperty(PropertyName = "organizationid")]
+        public string Organizationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isselected")]
+        public bool? Isselected { get; set; }
 
         /// <summary>
         /// </summary>
@@ -134,28 +119,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "extentcode")]
-        public int? Extentcode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effort")]
-        public double? Effort { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "starttime")]
-        public System.DateTimeOffset? Starttime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
+        [JsonProperty(PropertyName = "offset")]
+        public int? Offset { get; set; }
 
         /// <summary>
         /// </summary>
@@ -164,18 +129,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_innercalendarid_value")]
+        public string _innercalendaridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "modifiedon")]
         public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_calendarid_value")]
-        public string _calendaridValue { get; set; }
+        [JsonProperty(PropertyName = "extentcode")]
+        public int? Extentcode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "endtime")]
-        public System.DateTimeOffset? Endtime { get; set; }
+        [JsonProperty(PropertyName = "subcode")]
+        public int? Subcode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -184,8 +154,28 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
+        [JsonProperty(PropertyName = "effectiveintervalstart")]
+        public System.DateTimeOffset? Effectiveintervalstart { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "endtime")]
+        public System.DateTimeOffset? Endtime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "issimple")]
+        public bool? Issimple { get; set; }
 
         /// <summary>
         /// </summary>
@@ -199,13 +189,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "subcode")]
-        public int? Subcode { get; set; }
+        [JsonProperty(PropertyName = "pattern")]
+        public string Pattern { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "pattern")]
-        public string Pattern { get; set; }
+        [JsonProperty(PropertyName = "effort")]
+        public double? Effort { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ismodified")]
+        public bool? Ismodified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_calendarid_value")]
+        public string _calendaridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "effectiveintervalend")]
+        public System.DateTimeOffset? Effectiveintervalend { get; set; }
 
         /// <summary>
         /// </summary>
@@ -214,33 +244,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_innercalendarid_value")]
-        public string _innercalendaridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "issimple")]
-        public bool? Issimple { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveintervalstart")]
-        public System.DateTimeOffset? Effectiveintervalstart { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "rank")]
-        public int? Rank { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isselected")]
-        public bool? Isselected { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public string Organizationid { get; set; }
+        [JsonProperty(PropertyName = "serviceid")]
+        public MicrosoftDynamicsCRMservice Serviceid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -271,11 +276,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "createdonbehalfby")]
         public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "serviceid")]
-        public MicrosoftDynamicsCRMservice Serviceid { get; set; }
 
     }
 }

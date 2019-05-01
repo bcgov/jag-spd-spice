@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMInputArgument
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMInputArgument(int? count = default(int?), bool? isReadOnly = default(bool?), IList<string> keys = default(IList<string>), IList<object> values = default(IList<object>))
+        public MicrosoftDynamicsCRMInputArgument(int? count = default(int?), bool? isReadOnly = default(bool?), IList<string> keys = default(IList<string>), IList<MicrosoftDynamicsCRMObject> values = default(IList<MicrosoftDynamicsCRMObject>))
         {
             Count = count;
             IsReadOnly = isReadOnly;
@@ -61,7 +61,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "Values")]
-        public IList<object> Values { get; set; }
+        public IList<MicrosoftDynamicsCRMObject> Values { get; set; }
 
     }
 }

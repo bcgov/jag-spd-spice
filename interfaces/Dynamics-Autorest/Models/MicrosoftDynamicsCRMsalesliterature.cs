@@ -29,57 +29,60 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsalesliterature class.
         /// </summary>
-        public MicrosoftDynamicsCRMsalesliterature(string entityimageid = default(string), string keywords = default(string), string _employeecontactidValue = default(string), bool? iscustomerviewable = default(bool?), string description = default(string), string _modifiedbyValue = default(string), string _createdonbehalfbyValue = default(string), string _subjectidValue = default(string), long? entityimageTimestamp = default(long?), bool? hasattachments = default(bool?), int? timezoneruleversionnumber = default(int?), string stageid = default(string), int? utcconversiontimezonecode = default(int?), long? versionnumber = default(long?), string processid = default(string), System.DateTimeOffset? expirationdate = default(System.DateTimeOffset?), object entityimage = default(object), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string name = default(string), string traversedpath = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? literaturetypecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string salesliteratureid = default(string), string entityimageUrl = default(string), string _transactioncurrencyidValue = default(string), int? importsequencenumber = default(int?), object exchangerate = default(object), string _organizationidValue = default(string), IList<MicrosoftDynamicsCRMcampaign> campaignsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcampaign>), IList<MicrosoftDynamicsCRMcompetitor> competitorsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcompetitor>), IList<MicrosoftDynamicsCRMcampaignactivity> campaignactivitysalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcampaignactivity>), IList<MicrosoftDynamicsCRMproduct> productsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMproduct>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMsalesliteratureitem> salesLiteratureItems = default(IList<MicrosoftDynamicsCRMsalesliteratureitem>), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser employeecontactid = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> salesLiteratureBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMsyncerror> salesLiteratureSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> salesLiteratureSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> salesLiteratureAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMsalesliterature(string _createdbyValue = default(string), string _modifiedonbehalfbyValue = default(string), int? literaturetypecode = default(int?), int? utcconversiontimezonecode = default(int?), string entityimageid = default(string), System.DateTimeOffset? expirationdate = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string stageid = default(string), string _createdonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), string traversedpath = default(string), bool? iscustomerviewable = default(bool?), object entityimage = default(object), string keywords = default(string), object exchangerate = default(object), string _employeecontactidValue = default(string), int? importsequencenumber = default(int?), string salesliteratureid = default(string), bool? hasattachments = default(bool?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), long? entityimageTimestamp = default(long?), string description = default(string), string _subjectidValue = default(string), long? versionnumber = default(long?), string entityimageUrl = default(string), string name = default(string), string processid = default(string), string _transactioncurrencyidValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> salesLiteratureSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> salesLiteratureSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMasyncoperation> salesLiteratureAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> salesliteratureMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> salesLiteratureProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> salesLiteratureBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> salesliteraturePrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMproduct> productsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMproduct>), IList<MicrosoftDynamicsCRMcompetitor> competitorsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcompetitor>), IList<MicrosoftDynamicsCRMsalesliteratureitem> salesLiteratureItems = default(IList<MicrosoftDynamicsCRMsalesliteratureitem>), MicrosoftDynamicsCRMsystemuser employeecontactid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMcampaignactivity> campaignactivitysalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcampaignactivity>), IList<MicrosoftDynamicsCRMcampaign> campaignsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMcampaign>), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject))
         {
-            Entityimageid = entityimageid;
-            Keywords = keywords;
-            this._employeecontactidValue = _employeecontactidValue;
-            Iscustomerviewable = iscustomerviewable;
-            Description = description;
-            this._modifiedbyValue = _modifiedbyValue;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._subjectidValue = _subjectidValue;
-            EntityimageTimestamp = entityimageTimestamp;
-            Hasattachments = hasattachments;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            Stageid = stageid;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            Versionnumber = versionnumber;
-            Processid = processid;
-            Expirationdate = expirationdate;
-            Entityimage = entityimage;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Overriddencreatedon = overriddencreatedon;
-            Name = name;
-            Traversedpath = traversedpath;
             this._createdbyValue = _createdbyValue;
-            Createdon = createdon;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Literaturetypecode = literaturetypecode;
-            Modifiedon = modifiedon;
-            Salesliteratureid = salesliteratureid;
-            EntityimageUrl = entityimageUrl;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            Importsequencenumber = importsequencenumber;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Entityimageid = entityimageid;
+            Expirationdate = expirationdate;
+            this._modifiedbyValue = _modifiedbyValue;
+            Stageid = stageid;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            Traversedpath = traversedpath;
+            Iscustomerviewable = iscustomerviewable;
+            Entityimage = entityimage;
+            Keywords = keywords;
             Exchangerate = exchangerate;
+            this._employeecontactidValue = _employeecontactidValue;
+            Importsequencenumber = importsequencenumber;
+            Salesliteratureid = salesliteratureid;
+            Hasattachments = hasattachments;
+            Overriddencreatedon = overriddencreatedon;
+            Modifiedon = modifiedon;
+            Createdon = createdon;
             this._organizationidValue = _organizationidValue;
-            CampaignsalesliteratureAssociation = campaignsalesliteratureAssociation;
-            CompetitorsalesliteratureAssociation = competitorsalesliteratureAssociation;
-            CampaignactivitysalesliteratureAssociation = campaignactivitysalesliteratureAssociation;
-            ProductsalesliteratureAssociation = productsalesliteratureAssociation;
-            Transactioncurrencyid = transactioncurrencyid;
-            SalesLiteratureItems = salesLiteratureItems;
-            Subjectid = subjectid;
-            StageidProcessstage = stageidProcessstage;
-            Modifiedby = modifiedby;
-            Employeecontactid = employeecontactid;
-            SalesLiteratureBulkDeleteFailures = salesLiteratureBulkDeleteFailures;
-            SalesLiteratureSyncErrors = salesLiteratureSyncErrors;
+            EntityimageTimestamp = entityimageTimestamp;
+            Description = description;
+            this._subjectidValue = _subjectidValue;
+            Versionnumber = versionnumber;
+            EntityimageUrl = entityimageUrl;
+            Name = name;
+            Processid = processid;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
             Createdby = createdby;
-            SalesLiteratureSharepointDocumentLocation = salesLiteratureSharepointDocumentLocation;
-            Organizationid = organizationid;
-            Modifiedonbehalfby = modifiedonbehalfby;
-            SalesLiteratureAsyncOperations = salesLiteratureAsyncOperations;
             Createdonbehalfby = createdonbehalfby;
+            Modifiedby = modifiedby;
+            Modifiedonbehalfby = modifiedonbehalfby;
+            Organizationid = organizationid;
+            SalesLiteratureSyncErrors = salesLiteratureSyncErrors;
+            SalesLiteratureSharepointDocumentLocation = salesLiteratureSharepointDocumentLocation;
+            SalesLiteratureAsyncOperations = salesLiteratureAsyncOperations;
+            SalesliteratureMailboxTrackingFolders = salesliteratureMailboxTrackingFolders;
+            SalesLiteratureProcessSessions = salesLiteratureProcessSessions;
+            SalesLiteratureBulkDeleteFailures = salesLiteratureBulkDeleteFailures;
+            SalesliteraturePrincipalobjectattributeaccess = salesliteraturePrincipalobjectattributeaccess;
+            StageidProcessstage = stageidProcessstage;
+            ProductsalesliteratureAssociation = productsalesliteratureAssociation;
+            CompetitorsalesliteratureAssociation = competitorsalesliteratureAssociation;
+            SalesLiteratureItems = salesLiteratureItems;
+            Employeecontactid = employeecontactid;
+            Transactioncurrencyid = transactioncurrencyid;
+            CampaignactivitysalesliteratureAssociation = campaignactivitysalesliteratureAssociation;
+            CampaignsalesliteratureAssociation = campaignsalesliteratureAssociation;
+            Subjectid = subjectid;
             CustomInit();
         }
 
@@ -90,88 +93,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "keywords")]
-        public string Keywords { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_employeecontactid_value")]
-        public string _employeecontactidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "iscustomerviewable")]
-        public bool? Iscustomerviewable { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_subjectid_value")]
-        public string _subjectidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_timestamp")]
-        public long? EntityimageTimestamp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "hasattachments")]
-        public bool? Hasattachments { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public string Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "expirationdate")]
-        public System.DateTimeOffset? Expirationdate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -180,13 +103,43 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+        [JsonProperty(PropertyName = "literaturetypecode")]
+        public int? Literaturetypecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "expirationdate")]
+        public System.DateTimeOffset? Expirationdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -195,43 +148,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "iscustomerviewable")]
+        public bool? Iscustomerviewable { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
+        [JsonProperty(PropertyName = "entityimage")]
+        public object Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "literaturetypecode")]
-        public int? Literaturetypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "salesliteratureid")]
-        public string Salesliteratureid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_url")]
-        public string EntityimageUrl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
+        [JsonProperty(PropertyName = "keywords")]
+        public string Keywords { get; set; }
 
         /// <summary>
         /// </summary>
@@ -240,68 +168,83 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_employeecontactid_value")]
+        public string _employeecontactidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "salesliteratureid")]
+        public string Salesliteratureid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "hasattachments")]
+        public bool? Hasattachments { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_organizationid_value")]
         public string _organizationidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "campaignsalesliterature_association")]
-        public IList<MicrosoftDynamicsCRMcampaign> CampaignsalesliteratureAssociation { get; set; }
+        [JsonProperty(PropertyName = "entityimage_timestamp")]
+        public long? EntityimageTimestamp { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "competitorsalesliterature_association")]
-        public IList<MicrosoftDynamicsCRMcompetitor> CompetitorsalesliteratureAssociation { get; set; }
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "campaignactivitysalesliterature_association")]
-        public IList<MicrosoftDynamicsCRMcampaignactivity> CampaignactivitysalesliteratureAssociation { get; set; }
+        [JsonProperty(PropertyName = "_subjectid_value")]
+        public string _subjectidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "productsalesliterature_association")]
-        public IList<MicrosoftDynamicsCRMproduct> ProductsalesliteratureAssociation { get; set; }
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "transactioncurrencyid")]
-        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
+        [JsonProperty(PropertyName = "entityimage_url")]
+        public string EntityimageUrl { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "sales_literature_items")]
-        public IList<MicrosoftDynamicsCRMsalesliteratureitem> SalesLiteratureItems { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "subjectid")]
-        public MicrosoftDynamicsCRMsubject Subjectid { get; set; }
+        [JsonProperty(PropertyName = "processid")]
+        public string Processid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "stageid_processstage")]
-        public MicrosoftDynamicsCRMprocessstage StageidProcessstage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedby")]
-        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "employeecontactid")]
-        public MicrosoftDynamicsCRMsystemuser Employeecontactid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "SalesLiterature_BulkDeleteFailures")]
-        public IList<MicrosoftDynamicsCRMbulkdeletefailure> SalesLiteratureBulkDeleteFailures { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "SalesLiterature_SyncErrors")]
-        public IList<MicrosoftDynamicsCRMsyncerror> SalesLiteratureSyncErrors { get; set; }
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -310,13 +253,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "SalesLiterature_SharepointDocumentLocation")]
-        public IList<MicrosoftDynamicsCRMsharepointdocumentlocation> SalesLiteratureSharepointDocumentLocation { get; set; }
+        [JsonProperty(PropertyName = "createdonbehalfby")]
+        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "organizationid")]
-        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+        [JsonProperty(PropertyName = "modifiedby")]
+        public MicrosoftDynamicsCRMsystemuser Modifiedby { get; set; }
 
         /// <summary>
         /// </summary>
@@ -325,13 +268,88 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "organizationid")]
+        public MicrosoftDynamicsCRMorganization Organizationid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "SalesLiterature_SyncErrors")]
+        public IList<MicrosoftDynamicsCRMsyncerror> SalesLiteratureSyncErrors { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "SalesLiterature_SharepointDocumentLocation")]
+        public IList<MicrosoftDynamicsCRMsharepointdocumentlocation> SalesLiteratureSharepointDocumentLocation { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "SalesLiterature_AsyncOperations")]
         public IList<MicrosoftDynamicsCRMasyncoperation> SalesLiteratureAsyncOperations { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdonbehalfby")]
-        public MicrosoftDynamicsCRMsystemuser Createdonbehalfby { get; set; }
+        [JsonProperty(PropertyName = "salesliterature_MailboxTrackingFolders")]
+        public IList<MicrosoftDynamicsCRMmailboxtrackingfolder> SalesliteratureMailboxTrackingFolders { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "SalesLiterature_ProcessSessions")]
+        public IList<MicrosoftDynamicsCRMprocesssession> SalesLiteratureProcessSessions { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "SalesLiterature_BulkDeleteFailures")]
+        public IList<MicrosoftDynamicsCRMbulkdeletefailure> SalesLiteratureBulkDeleteFailures { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "salesliterature_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> SalesliteraturePrincipalobjectattributeaccess { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stageid_processstage")]
+        public MicrosoftDynamicsCRMprocessstage StageidProcessstage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "productsalesliterature_association")]
+        public IList<MicrosoftDynamicsCRMproduct> ProductsalesliteratureAssociation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "competitorsalesliterature_association")]
+        public IList<MicrosoftDynamicsCRMcompetitor> CompetitorsalesliteratureAssociation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sales_literature_items")]
+        public IList<MicrosoftDynamicsCRMsalesliteratureitem> SalesLiteratureItems { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "employeecontactid")]
+        public MicrosoftDynamicsCRMsystemuser Employeecontactid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "transactioncurrencyid")]
+        public MicrosoftDynamicsCRMtransactioncurrency Transactioncurrencyid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignactivitysalesliterature_association")]
+        public IList<MicrosoftDynamicsCRMcampaignactivity> CampaignactivitysalesliteratureAssociation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "campaignsalesliterature_association")]
+        public IList<MicrosoftDynamicsCRMcampaign> CampaignsalesliteratureAssociation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "subjectid")]
+        public MicrosoftDynamicsCRMsubject Subjectid { get; set; }
 
     }
 }

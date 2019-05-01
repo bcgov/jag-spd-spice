@@ -27,21 +27,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMdependency
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMdependency(string _requiredcomponentnodeidValue = default(string), string requiredcomponentparentid = default(string), double? requiredcomponentintroducedversion = default(double?), string requiredcomponentbasesolutionid = default(string), int? dependencytype = default(int?), int? requiredcomponenttype = default(int?), string dependentcomponentbasesolutionid = default(string), string _dependentcomponentnodeidValue = default(string), int? dependentcomponenttype = default(int?), string dependentcomponentobjectid = default(string), string requiredcomponentobjectid = default(string), string dependencyid = default(string), string dependentcomponentparentid = default(string))
+        public MicrosoftDynamicsCRMdependency(string requiredcomponentobjectid = default(string), long? versionnumber = default(long?), string requiredcomponentparentid = default(string), string dependentcomponentbasesolutionid = default(string), int? dependentcomponenttype = default(int?), string dependencyid = default(string), string dependentcomponentparentid = default(string), string _requiredcomponentnodeidValue = default(string), string _dependentcomponentnodeidValue = default(string), string requiredcomponentbasesolutionid = default(string), int? dependencytype = default(int?), string dependentcomponentobjectid = default(string), double? requiredcomponentintroducedversion = default(double?), int? requiredcomponenttype = default(int?))
         {
-            this._requiredcomponentnodeidValue = _requiredcomponentnodeidValue;
-            Requiredcomponentparentid = requiredcomponentparentid;
-            Requiredcomponentintroducedversion = requiredcomponentintroducedversion;
-            Requiredcomponentbasesolutionid = requiredcomponentbasesolutionid;
-            Dependencytype = dependencytype;
-            Requiredcomponenttype = requiredcomponenttype;
-            Dependentcomponentbasesolutionid = dependentcomponentbasesolutionid;
-            this._dependentcomponentnodeidValue = _dependentcomponentnodeidValue;
-            Dependentcomponenttype = dependentcomponenttype;
-            Dependentcomponentobjectid = dependentcomponentobjectid;
             Requiredcomponentobjectid = requiredcomponentobjectid;
+            Versionnumber = versionnumber;
+            Requiredcomponentparentid = requiredcomponentparentid;
+            Dependentcomponentbasesolutionid = dependentcomponentbasesolutionid;
+            Dependentcomponenttype = dependentcomponenttype;
             Dependencyid = dependencyid;
             Dependentcomponentparentid = dependentcomponentparentid;
+            this._requiredcomponentnodeidValue = _requiredcomponentnodeidValue;
+            this._dependentcomponentnodeidValue = _dependentcomponentnodeidValue;
+            Requiredcomponentbasesolutionid = requiredcomponentbasesolutionid;
+            Dependencytype = dependencytype;
+            Dependentcomponentobjectid = dependentcomponentobjectid;
+            Requiredcomponentintroducedversion = requiredcomponentintroducedversion;
+            Requiredcomponenttype = requiredcomponenttype;
             CustomInit();
         }
 
@@ -52,8 +53,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_requiredcomponentnodeid_value")]
-        public string _requiredcomponentnodeidValue { get; set; }
+        [JsonProperty(PropertyName = "requiredcomponentobjectid")]
+        public string Requiredcomponentobjectid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -62,8 +68,33 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "requiredcomponentintroducedversion")]
-        public double? Requiredcomponentintroducedversion { get; set; }
+        [JsonProperty(PropertyName = "dependentcomponentbasesolutionid")]
+        public string Dependentcomponentbasesolutionid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dependentcomponenttype")]
+        public int? Dependentcomponenttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dependencyid")]
+        public string Dependencyid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "dependentcomponentparentid")]
+        public string Dependentcomponentparentid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_requiredcomponentnodeid_value")]
+        public string _requiredcomponentnodeidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_dependentcomponentnodeid_value")]
+        public string _dependentcomponentnodeidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -77,43 +108,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "requiredcomponenttype")]
-        public int? Requiredcomponenttype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "dependentcomponentbasesolutionid")]
-        public string Dependentcomponentbasesolutionid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_dependentcomponentnodeid_value")]
-        public string _dependentcomponentnodeidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "dependentcomponenttype")]
-        public int? Dependentcomponenttype { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "dependentcomponentobjectid")]
         public string Dependentcomponentobjectid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "requiredcomponentobjectid")]
-        public string Requiredcomponentobjectid { get; set; }
+        [JsonProperty(PropertyName = "requiredcomponentintroducedversion")]
+        public double? Requiredcomponentintroducedversion { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dependencyid")]
-        public string Dependencyid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "dependentcomponentparentid")]
-        public string Dependentcomponentparentid { get; set; }
+        [JsonProperty(PropertyName = "requiredcomponenttype")]
+        public int? Requiredcomponenttype { get; set; }
 
     }
 }

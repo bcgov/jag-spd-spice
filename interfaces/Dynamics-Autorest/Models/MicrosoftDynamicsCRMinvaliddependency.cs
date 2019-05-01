@@ -27,16 +27,16 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMinvaliddependency class.
         /// </summary>
-        public MicrosoftDynamicsCRMinvaliddependency(int? existingcomponenttype = default(int?), int? existingdependencytype = default(int?), string missingcomponentid = default(string), int? missingcomponentlookuptype = default(int?), string invaliddependencyid = default(string), string missingcomponentinfo = default(string), bool? isexistingnoderequiredcomponent = default(bool?), int? missingcomponenttype = default(int?), string existingcomponentid = default(string))
+        public MicrosoftDynamicsCRMinvaliddependency(int? existingcomponenttype = default(int?), bool? isexistingnoderequiredcomponent = default(bool?), int? missingcomponentlookuptype = default(int?), string invaliddependencyid = default(string), int? missingcomponenttype = default(int?), string missingcomponentinfo = default(string), int? existingdependencytype = default(int?), string missingcomponentid = default(string), string existingcomponentid = default(string))
         {
             Existingcomponenttype = existingcomponenttype;
-            Existingdependencytype = existingdependencytype;
-            Missingcomponentid = missingcomponentid;
+            Isexistingnoderequiredcomponent = isexistingnoderequiredcomponent;
             Missingcomponentlookuptype = missingcomponentlookuptype;
             Invaliddependencyid = invaliddependencyid;
-            Missingcomponentinfo = missingcomponentinfo;
-            Isexistingnoderequiredcomponent = isexistingnoderequiredcomponent;
             Missingcomponenttype = missingcomponenttype;
+            Missingcomponentinfo = missingcomponentinfo;
+            Existingdependencytype = existingdependencytype;
+            Missingcomponentid = missingcomponentid;
             Existingcomponentid = existingcomponentid;
             CustomInit();
         }
@@ -53,13 +53,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "existingdependencytype")]
-        public int? Existingdependencytype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "missingcomponentid")]
-        public string Missingcomponentid { get; set; }
+        [JsonProperty(PropertyName = "isexistingnoderequiredcomponent")]
+        public bool? Isexistingnoderequiredcomponent { get; set; }
 
         /// <summary>
         /// </summary>
@@ -73,18 +68,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "missingcomponenttype")]
+        public int? Missingcomponenttype { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "missingcomponentinfo")]
         public string Missingcomponentinfo { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isexistingnoderequiredcomponent")]
-        public bool? Isexistingnoderequiredcomponent { get; set; }
+        [JsonProperty(PropertyName = "existingdependencytype")]
+        public int? Existingdependencytype { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "missingcomponenttype")]
-        public int? Missingcomponenttype { get; set; }
+        [JsonProperty(PropertyName = "missingcomponentid")]
+        public string Missingcomponentid { get; set; }
 
         /// <summary>
         /// </summary>

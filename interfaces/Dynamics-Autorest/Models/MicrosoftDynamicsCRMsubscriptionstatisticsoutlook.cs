@@ -27,11 +27,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsubscriptionstatisticsoutlook class.
         /// </summary>
-        public MicrosoftDynamicsCRMsubscriptionstatisticsoutlook(bool? fullsyncrequired = default(bool?), string subscriptionid = default(string), int? objecttypecode = default(int?))
+        public MicrosoftDynamicsCRMsubscriptionstatisticsoutlook(bool? fullsyncrequired = default(bool?), int? objecttypecode = default(int?), string subscriptionid = default(string))
         {
             Fullsyncrequired = fullsyncrequired;
-            Subscriptionid = subscriptionid;
             Objecttypecode = objecttypecode;
+            Subscriptionid = subscriptionid;
             CustomInit();
         }
 
@@ -47,13 +47,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "subscriptionid")]
-        public string Subscriptionid { get; set; }
+        [JsonProperty(PropertyName = "objecttypecode")]
+        public int? Objecttypecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "objecttypecode")]
-        public int? Objecttypecode { get; set; }
+        [JsonProperty(PropertyName = "subscriptionid")]
+        public string Subscriptionid { get; set; }
 
     }
 }

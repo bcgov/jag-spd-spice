@@ -31,9 +31,10 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         /// <param name="filterOperator">Possible values include: 'And',
         /// 'Or'</param>
-        public MicrosoftDynamicsCRMFilterExpression(string filterOperator = default(string), IList<MicrosoftDynamicsCRMConditionExpression> conditions = default(IList<MicrosoftDynamicsCRMConditionExpression>), IList<MicrosoftDynamicsCRMFilterExpression> filters = default(IList<MicrosoftDynamicsCRMFilterExpression>), bool? isQuickFindFilter = default(bool?))
+        public MicrosoftDynamicsCRMFilterExpression(string filterOperator = default(string), string filterHint = default(string), IList<MicrosoftDynamicsCRMConditionExpression> conditions = default(IList<MicrosoftDynamicsCRMConditionExpression>), IList<MicrosoftDynamicsCRMFilterExpression> filters = default(IList<MicrosoftDynamicsCRMFilterExpression>), bool? isQuickFindFilter = default(bool?))
         {
             FilterOperator = filterOperator;
+            FilterHint = filterHint;
             Conditions = conditions;
             Filters = filters;
             IsQuickFindFilter = isQuickFindFilter;
@@ -50,6 +51,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "FilterOperator")]
         public string FilterOperator { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "FilterHint")]
+        public string FilterHint { get; set; }
 
         /// <summary>
         /// </summary>

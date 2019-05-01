@@ -10,6 +10,7 @@ namespace Gov.Jag.Spice.Interfaces
     using System.Linq;
     using System.Net;
     using System.Net.Http;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Auto Generated
@@ -59,9 +60,55 @@ namespace Gov.Jag.Spice.Interfaces
             return result;
         }
 
+
+        /// <summary>
+        /// Get a Account by their Guid
+        /// </summary>
+        /// <param name="system"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<MicrosoftDynamicsCRMaccount> GetAccountById(Guid id)
+        {
+            MicrosoftDynamicsCRMaccount result;
+            try
+            {
+                // fetch from Dynamics.
+                result = await Accounts.GetByKeyAsync(id.ToString());
+            }
+            catch (OdataerrorException)
+            {
+                result = null;
+            }
+
+            // get the primary contact.
+            if (result != null && result.Primarycontactid == null && result._primarycontactidValue != null)
+            {
+                try
+                {
+                    result.Primarycontactid = await GetContactById(Guid.Parse(result._primarycontactidValue));
+                }
+                catch (OdataerrorException)
+                {
+                    result.Primarycontactid = null;
+                }
+            }
+            return result;
+        }
+
+        public async Task<MicrosoftDynamicsCRMcontact> GetContactById(Guid id)
+        {
+            MicrosoftDynamicsCRMcontact result;
+            try
+            {
+                // fetch from Dynamics.
+                result = await Contacts.GetByKeyAsync(id.ToString());
+            }
+            catch (OdataerrorException)
+            {
+                result = null;
+            }
+            return result;
+        }
+
     }
-
-    
-
-   
 }

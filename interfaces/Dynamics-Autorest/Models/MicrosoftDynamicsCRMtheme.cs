@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// Initializes a new instance of the MicrosoftDynamicsCRMtheme class.
         /// </summary>
-        public MicrosoftDynamicsCRMtheme(string headercolor = default(string), string name = default(string), string controlborder = default(string), string globallinkcolor = default(string), string navbarbackgroundcolor = default(string), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), string backgroundcolor = default(string), string _logoidValue = default(string), string _organizationidValue = default(string), bool? isdefaulttheme = default(bool?), object exchangerate = default(object), int? importsequencenumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string processcontrolcolor = default(string), string _transactioncurrencyidValue = default(string), bool? type = default(bool?), string hoverlinkeffect = default(string), int? utcconversiontimezonecode = default(int?), string defaultentitycolor = default(string), string logotooltip = default(string), string _createdonbehalfbyValue = default(string), string themeid = default(string), string defaultcustomentitycolor = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string selectedlinkeffect = default(string), string navbarshelfcolor = default(string), int? statecode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _createdbyValue = default(string), string controlshade = default(string), string _modifiedonbehalfbyValue = default(string), int? statuscode = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMasyncoperation> themeAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> themeBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMwebresource logoimage = default(MicrosoftDynamicsCRMwebresource))
+        public MicrosoftDynamicsCRMtheme(string headercolor = default(string), string name = default(string), string controlborder = default(string), string globallinkcolor = default(string), string navbarbackgroundcolor = default(string), string _modifiedbyValue = default(string), string backgroundcolor = default(string), string _logoidValue = default(string), string _organizationidValue = default(string), bool? isdefaulttheme = default(bool?), object exchangerate = default(object), int? importsequencenumber = default(int?), string pageheaderbackgroundcolor = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string processcontrolcolor = default(string), string panelheaderbackgroundcolor = default(string), string _transactioncurrencyidValue = default(string), int? statuscode = default(int?), bool? type = default(bool?), string hoverlinkeffect = default(string), int? utcconversiontimezonecode = default(int?), string accentcolor = default(string), string logotooltip = default(string), int? timezoneruleversionnumber = default(int?), string _createdonbehalfbyValue = default(string), string themeid = default(string), string defaultcustomentitycolor = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string defaultentitycolor = default(string), string selectedlinkeffect = default(string), string navbarshelfcolor = default(string), int? statecode = default(int?), string maincolor = default(string), long? versionnumber = default(long?), string _createdbyValue = default(string), string controlshade = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMasyncoperation> themeAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMprocesssession> themeProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> themeBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMwebresource logoimage = default(MicrosoftDynamicsCRMwebresource))
         {
             Headercolor = headercolor;
             Name = name;
@@ -35,40 +35,45 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Globallinkcolor = globallinkcolor;
             Navbarbackgroundcolor = navbarbackgroundcolor;
             this._modifiedbyValue = _modifiedbyValue;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
             Backgroundcolor = backgroundcolor;
             this._logoidValue = _logoidValue;
             this._organizationidValue = _organizationidValue;
             Isdefaulttheme = isdefaulttheme;
             Exchangerate = exchangerate;
             Importsequencenumber = importsequencenumber;
+            Pageheaderbackgroundcolor = pageheaderbackgroundcolor;
             Overriddencreatedon = overriddencreatedon;
             Processcontrolcolor = processcontrolcolor;
+            Panelheaderbackgroundcolor = panelheaderbackgroundcolor;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Statuscode = statuscode;
             Type = type;
             Hoverlinkeffect = hoverlinkeffect;
             Utcconversiontimezonecode = utcconversiontimezonecode;
-            Defaultentitycolor = defaultentitycolor;
+            Accentcolor = accentcolor;
             Logotooltip = logotooltip;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Themeid = themeid;
             Defaultcustomentitycolor = defaultcustomentitycolor;
             Createdon = createdon;
+            Defaultentitycolor = defaultentitycolor;
             Selectedlinkeffect = selectedlinkeffect;
             Navbarshelfcolor = navbarshelfcolor;
             Statecode = statecode;
-            Modifiedon = modifiedon;
+            Maincolor = maincolor;
             Versionnumber = versionnumber;
             this._createdbyValue = _createdbyValue;
             Controlshade = controlshade;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Statuscode = statuscode;
+            Modifiedon = modifiedon;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
             Modifiedonbehalfby = modifiedonbehalfby;
             Organizationid = organizationid;
             ThemeAsyncOperations = themeAsyncOperations;
+            ThemeProcessSession = themeProcessSession;
             ThemeBulkDeleteFailures = themeBulkDeleteFailures;
             Transactioncurrencyid = transactioncurrencyid;
             Logoimage = logoimage;
@@ -112,11 +117,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "backgroundcolor")]
         public string Backgroundcolor { get; set; }
 
@@ -147,6 +147,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "pageheaderbackgroundcolor")]
+        public string Pageheaderbackgroundcolor { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "overriddencreatedon")]
         public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
@@ -157,8 +162,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "panelheaderbackgroundcolor")]
+        public string Panelheaderbackgroundcolor { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
         public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -177,13 +192,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "defaultentitycolor")]
-        public string Defaultentitycolor { get; set; }
+        [JsonProperty(PropertyName = "accentcolor")]
+        public string Accentcolor { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "logotooltip")]
         public string Logotooltip { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -207,6 +227,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "defaultentitycolor")]
+        public string Defaultentitycolor { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "selectedlinkeffect")]
         public string Selectedlinkeffect { get; set; }
 
@@ -222,8 +247,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "maincolor")]
+        public string Maincolor { get; set; }
 
         /// <summary>
         /// </summary>
@@ -247,8 +272,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -279,6 +304,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "theme_AsyncOperations")]
         public IList<MicrosoftDynamicsCRMasyncoperation> ThemeAsyncOperations { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "theme_ProcessSession")]
+        public IList<MicrosoftDynamicsCRMprocesssession> ThemeProcessSession { get; set; }
 
         /// <summary>
         /// </summary>

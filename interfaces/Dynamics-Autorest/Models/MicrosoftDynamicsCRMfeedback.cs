@@ -29,40 +29,42 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMfeedback
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMfeedback(string _createdonbehalfbyValue = default(string), string _createdbyValue = default(string), int? statuscode = default(int?), string feedbackid = default(string), System.DateTimeOffset? closedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statecode = default(int?), int? rating = default(int?), string _regardingobjectidValue = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owneridValue = default(string), string _createdbycontactValue = default(string), string comments = default(string), int? maxrating = default(int?), string _closedbyValue = default(string), int? importsequencenumber = default(int?), int? source = default(int?), string _createdonbehalfbycontactValue = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _owningteamValue = default(string), long? versionnumber = default(long?), string _owninguserValue = default(string), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), object normalizedrating = default(object), int? minrating = default(int?), string _owningbusinessunitValue = default(string), object exchangerate = default(object), MicrosoftDynamicsCRMcontact contactId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact createdOnBehalfByContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedOnBehalfBy = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser closedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcontact createdByContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMfeedback feedbackId = default(MicrosoftDynamicsCRMfeedback), IList<MicrosoftDynamicsCRMfeedback> feedbackFeedback = default(IList<MicrosoftDynamicsCRMfeedback>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> feedbackSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMknowledgearticle knowledgeArticleId = default(MicrosoftDynamicsCRMknowledgearticle), MicrosoftDynamicsCRMabsScheduledprocessexecution regardingobjectidAbsScheduledprocessexecution = default(MicrosoftDynamicsCRMabsScheduledprocessexecution))
+        public MicrosoftDynamicsCRMfeedback(long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? closedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statecode = default(int?), string _regardingobjectidValue = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? rating = default(int?), string _createdbycontactValue = default(string), string comments = default(string), string feedbackid = default(string), int? maxrating = default(int?), string _closedbyValue = default(string), string _createdbyValue = default(string), int? importsequencenumber = default(int?), int? source = default(int?), string _owningbusinessunitValue = default(string), string _createdonbehalfbycontactValue = default(string), object exchangerate = default(object), string _owningteamValue = default(string), string _owninguserValue = default(string), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), object normalizedrating = default(object), int? minrating = default(int?), string _owneridValue = default(string), MicrosoftDynamicsCRMspiceRequiredchecks regardingobjectidSpiceRequiredchecks = default(MicrosoftDynamicsCRMspiceRequiredchecks), MicrosoftDynamicsCRMcontact contactId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact createdOnBehalfByContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> feedbackPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedOnBehalfBy = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser closedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcontact createdByContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMfeedback feedbackId = default(MicrosoftDynamicsCRMfeedback), IList<MicrosoftDynamicsCRMfeedback> feedbackFeedback = default(IList<MicrosoftDynamicsCRMfeedback>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> feedbackSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMknowledgearticle knowledgeArticleId = default(MicrosoftDynamicsCRMknowledgearticle))
         {
+            Versionnumber = versionnumber;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._createdbyValue = _createdbyValue;
+            Modifiedon = modifiedon;
             Statuscode = statuscode;
-            Feedbackid = feedbackid;
+            this._modifiedbyValue = _modifiedbyValue;
             Closedon = closedon;
             Overriddencreatedon = overriddencreatedon;
             Statecode = statecode;
-            Rating = rating;
             this._regardingobjectidValue = _regardingobjectidValue;
             Title = title;
             Createdon = createdon;
-            this._owneridValue = _owneridValue;
+            Rating = rating;
             this._createdbycontactValue = _createdbycontactValue;
             Comments = comments;
+            Feedbackid = feedbackid;
             Maxrating = maxrating;
             this._closedbyValue = _closedbyValue;
+            this._createdbyValue = _createdbyValue;
             Importsequencenumber = importsequencenumber;
             Source = source;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
             this._createdonbehalfbycontactValue = _createdonbehalfbycontactValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            Modifiedon = modifiedon;
+            Exchangerate = exchangerate;
             this._owningteamValue = _owningteamValue;
-            Versionnumber = versionnumber;
             this._owninguserValue = _owninguserValue;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
             Normalizedrating = normalizedrating;
             Minrating = minrating;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            Exchangerate = exchangerate;
+            this._owneridValue = _owneridValue;
+            RegardingobjectidSpiceRequiredchecks = regardingobjectidSpiceRequiredchecks;
             ContactId = contactId;
             CreatedOnBehalfByContact = createdOnBehalfByContact;
+            FeedbackPrincipalobjectattributeaccess = feedbackPrincipalobjectattributeaccess;
             Modifiedby = modifiedby;
             Ownerid = ownerid;
             Transactioncurrencyid = transactioncurrencyid;
@@ -76,7 +78,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Owningbusinessunit = owningbusinessunit;
             FeedbackSyncErrors = feedbackSyncErrors;
             KnowledgeArticleId = knowledgeArticleId;
-            RegardingobjectidAbsScheduledprocessexecution = regardingobjectidAbsScheduledprocessexecution;
             CustomInit();
         }
 
@@ -87,13 +88,18 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfby_value")]
         public string _createdonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -102,8 +108,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "feedbackid")]
-        public string Feedbackid { get; set; }
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -122,11 +128,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "rating")]
-        public int? Rating { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_regardingobjectid_value")]
         public string _regardingobjectidValue { get; set; }
 
@@ -142,8 +143,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "rating")]
+        public int? Rating { get; set; }
 
         /// <summary>
         /// </summary>
@@ -157,6 +158,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "feedbackid")]
+        public string Feedbackid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "maxrating")]
         public int? Maxrating { get; set; }
 
@@ -164,6 +170,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "_closedby_value")]
         public string _closedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -177,28 +188,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_createdonbehalfbycontact_value")]
         public string _createdonbehalfbycontactValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "_owningteam_value")]
         public string _owningteamValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -227,13 +233,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        [JsonProperty(PropertyName = "regardingobjectid_spice_requiredchecks")]
+        public MicrosoftDynamicsCRMspiceRequiredchecks RegardingobjectidSpiceRequiredchecks { get; set; }
 
         /// <summary>
         /// </summary>
@@ -244,6 +250,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "CreatedOnBehalfByContact")]
         public MicrosoftDynamicsCRMcontact CreatedOnBehalfByContact { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "feedback_principalobjectattributeaccess")]
+        public IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> FeedbackPrincipalobjectattributeaccess { get; set; }
 
         /// <summary>
         /// </summary>
@@ -309,11 +320,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "KnowledgeArticleId")]
         public MicrosoftDynamicsCRMknowledgearticle KnowledgeArticleId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "regardingobjectid_abs_scheduledprocessexecution")]
-        public MicrosoftDynamicsCRMabsScheduledprocessexecution RegardingobjectidAbsScheduledprocessexecution { get; set; }
 
     }
 }

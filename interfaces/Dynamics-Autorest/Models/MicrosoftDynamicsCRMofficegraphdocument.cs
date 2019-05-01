@@ -27,38 +27,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMofficegraphdocument class.
         /// </summary>
-        public MicrosoftDynamicsCRMofficegraphdocument(string previewimageurl = default(string), System.DateTimeOffset? modifiedtime = default(System.DateTimeOffset?), string fileextension = default(string), string readurl = default(string), string _organizationidValue = default(string), int? utcconversiontimezonecode = default(int?), string officegraphdocumentid = default(string), object exchangerate = default(object), System.DateTimeOffset? createdtime = default(System.DateTimeOffset?), string weblocationurl = default(string), string secondaryfileextension = default(string), int? rank = default(int?), string modifiedby = default(string), System.DateTimeOffset? documentlastmodifiedon = default(System.DateTimeOffset?), string authornames = default(string), string siteurl = default(string), string title = default(string), string createdby = default(string), string documentlastmodifiedby = default(string), string _modifiedonbehalfbyValue = default(string), string documentpreviewmetadata = default(string), int? querytype = default(int?), string documentid = default(string), int? viewcount = default(int?), string sitetitle = default(string), string _transactioncurrencyidValue = default(string), string _createdonbehalfbyValue = default(string), string filetype = default(string), long? versionnumber = default(long?), int? timezoneruleversionnumber = default(int?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMofficegraphdocument(string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), string modifiedby = default(string), string fileextension = default(string), string createdby = default(string), string readurl = default(string), int? viewcount = default(int?), string sitetitle = default(string), string documentid = default(string), string authornames = default(string), string _transactioncurrencyidValue = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? createdtime = default(System.DateTimeOffset?), string documentpreviewmetadata = default(string), System.DateTimeOffset? documentlastmodifiedon = default(System.DateTimeOffset?), string previewimageurl = default(string), int? rank = default(int?), string title = default(string), System.DateTimeOffset? modifiedtime = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _organizationidValue = default(string), string secondaryfileextension = default(string), int? querytype = default(int?), string weblocationurl = default(string), string filetype = default(string), int? timezoneruleversionnumber = default(int?), string siteurl = default(string), string officegraphdocumentid = default(string), object exchangerate = default(object), string documentlastmodifiedby = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
-            Previewimageurl = previewimageurl;
-            Modifiedtime = modifiedtime;
-            Fileextension = fileextension;
-            Readurl = readurl;
-            this._organizationidValue = _organizationidValue;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            Officegraphdocumentid = officegraphdocumentid;
-            Exchangerate = exchangerate;
-            Createdtime = createdtime;
-            Weblocationurl = weblocationurl;
-            Secondaryfileextension = secondaryfileextension;
-            Rank = rank;
-            Modifiedby = modifiedby;
-            Documentlastmodifiedon = documentlastmodifiedon;
-            Authornames = authornames;
-            Siteurl = siteurl;
-            Title = title;
-            Createdby = createdby;
-            Documentlastmodifiedby = documentlastmodifiedby;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            Documentpreviewmetadata = documentpreviewmetadata;
-            Querytype = querytype;
-            Documentid = documentid;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            Modifiedby = modifiedby;
+            Fileextension = fileextension;
+            Createdby = createdby;
+            Readurl = readurl;
             Viewcount = viewcount;
             Sitetitle = sitetitle;
+            Documentid = documentid;
+            Authornames = authornames;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            Filetype = filetype;
+            Createdtime = createdtime;
+            Documentpreviewmetadata = documentpreviewmetadata;
+            Documentlastmodifiedon = documentlastmodifiedon;
+            Previewimageurl = previewimageurl;
+            Rank = rank;
+            Title = title;
+            Modifiedtime = modifiedtime;
             Versionnumber = versionnumber;
+            this._organizationidValue = _organizationidValue;
+            Secondaryfileextension = secondaryfileextension;
+            Querytype = querytype;
+            Weblocationurl = weblocationurl;
+            Filetype = filetype;
             Timezoneruleversionnumber = timezoneruleversionnumber;
+            Siteurl = siteurl;
+            Officegraphdocumentid = officegraphdocumentid;
+            Exchangerate = exchangerate;
+            Documentlastmodifiedby = documentlastmodifiedby;
             Createdonbehalfby = createdonbehalfby;
             Modifiedonbehalfby = modifiedonbehalfby;
             Organizationid = organizationid;
@@ -73,28 +73,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "previewimageurl")]
-        public string Previewimageurl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedtime")]
-        public System.DateTimeOffset? Modifiedtime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "fileextension")]
-        public string Fileextension { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "readurl")]
-        public string Readurl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_organizationid_value")]
-        public string _organizationidValue { get; set; }
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -103,58 +83,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "officegraphdocumentid")]
-        public string Officegraphdocumentid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdtime")]
-        public System.DateTimeOffset? Createdtime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "weblocationurl")]
-        public string Weblocationurl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "secondaryfileextension")]
-        public string Secondaryfileextension { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "rank")]
-        public int? Rank { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "modifiedby")]
         public string Modifiedby { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "documentlastmodifiedon")]
-        public System.DateTimeOffset? Documentlastmodifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "authornames")]
-        public string Authornames { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "siteurl")]
-        public string Siteurl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
+        [JsonProperty(PropertyName = "fileextension")]
+        public string Fileextension { get; set; }
 
         /// <summary>
         /// </summary>
@@ -163,28 +98,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "documentlastmodifiedby")]
-        public string Documentlastmodifiedby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "documentpreviewmetadata")]
-        public string Documentpreviewmetadata { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "querytype")]
-        public int? Querytype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "documentid")]
-        public string Documentid { get; set; }
+        [JsonProperty(PropertyName = "readurl")]
+        public string Readurl { get; set; }
 
         /// <summary>
         /// </summary>
@@ -198,6 +113,16 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "documentid")]
+        public string Documentid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "authornames")]
+        public string Authornames { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
         public string _transactioncurrencyidValue { get; set; }
 
@@ -208,8 +133,38 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "filetype")]
-        public string Filetype { get; set; }
+        [JsonProperty(PropertyName = "createdtime")]
+        public System.DateTimeOffset? Createdtime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "documentpreviewmetadata")]
+        public string Documentpreviewmetadata { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "documentlastmodifiedon")]
+        public System.DateTimeOffset? Documentlastmodifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "previewimageurl")]
+        public string Previewimageurl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "rank")]
+        public int? Rank { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedtime")]
+        public System.DateTimeOffset? Modifiedtime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -218,8 +173,53 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_organizationid_value")]
+        public string _organizationidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "secondaryfileextension")]
+        public string Secondaryfileextension { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "querytype")]
+        public int? Querytype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "weblocationurl")]
+        public string Weblocationurl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "filetype")]
+        public string Filetype { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "timezoneruleversionnumber")]
         public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "siteurl")]
+        public string Siteurl { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "officegraphdocumentid")]
+        public string Officegraphdocumentid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangerate")]
+        public object Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "documentlastmodifiedby")]
+        public string Documentlastmodifiedby { get; set; }
 
         /// <summary>
         /// </summary>

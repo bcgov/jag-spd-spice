@@ -27,23 +27,23 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMdocumenttemplate class.
         /// </summary>
-        public MicrosoftDynamicsCRMdocumenttemplate(int? documenttype = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string name = default(string), string _modifiedonbehalfbyValue = default(string), string _createdbyValue = default(string), string associatedentitytypecode = default(string), string documenttemplateid = default(string), string clientdata = default(string), long? versionnumber = default(long?), string description = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), bool? status = default(bool?), string content = default(string), string _modifiedbyValue = default(string), int? languagecode = default(int?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMdocumenttemplate(int? documenttype = default(int?), string _modifiedbyValue = default(string), string name = default(string), string _modifiedonbehalfbyValue = default(string), string _createdbyValue = default(string), string associatedentitytypecode = default(string), string documenttemplateid = default(string), string clientdata = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string description = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), bool? status = default(bool?), string content = default(string), int? languagecode = default(int?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Documenttype = documenttype;
-            Modifiedon = modifiedon;
+            this._modifiedbyValue = _modifiedbyValue;
             Name = name;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._createdbyValue = _createdbyValue;
             Associatedentitytypecode = associatedentitytypecode;
             Documenttemplateid = documenttemplateid;
             Clientdata = clientdata;
+            Modifiedon = modifiedon;
             Versionnumber = versionnumber;
             Description = description;
             Createdon = createdon;
             this._organizationidValue = _organizationidValue;
             Status = status;
             Content = content;
-            this._modifiedbyValue = _modifiedbyValue;
             Languagecode = languagecode;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Createdonbehalfby = createdonbehalfby;
@@ -66,8 +66,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -101,6 +101,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
         public long? Versionnumber { get; set; }
 
@@ -128,11 +133,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "content")]
         public string Content { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
