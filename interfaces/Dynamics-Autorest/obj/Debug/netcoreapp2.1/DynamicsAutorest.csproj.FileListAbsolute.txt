@@ -1,0 +1,9 @@
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\bin\Debug\netcoreapp2.1\DynamicsAutorest.deps.json
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\bin\Debug\netcoreapp2.1\DynamicsAutorest.dll
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\bin\Debug\netcoreapp2.1\DynamicsAutorest.pdb
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.csprojAssemblyReference.cache
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.csproj.CoreCompileInputs.cache
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.AssemblyInfoInputs.cache
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.AssemblyInfo.cs
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.dll
+C:\Projects\JAG\LCRB\repo\jag-lcrb-carla-public\cllc-interfaces\Dynamics-Autorest\obj\Debug\netcoreapp2.1\DynamicsAutorest.pdb

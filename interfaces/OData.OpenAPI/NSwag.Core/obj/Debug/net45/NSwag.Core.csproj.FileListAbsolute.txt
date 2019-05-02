@@ -1,0 +1,13 @@
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\NSwag.Core.dll.config
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\NSwag.Core.xml
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\NSwag.Core.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\NSwag.Core.pdb
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\Newtonsoft.Json.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\bin\Debug\net45\NJsonSchema.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.csprojAssemblyReference.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.csproj.CoreCompileInputs.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.AssemblyInfoInputs.cache
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.AssemblyInfo.cs
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.csproj.CopyComplete
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.dll
+C:\Projects\LCLB\repo\OData.OpenAPI\Microsoft.OData.OpenAPI\NSwag.Core\obj\Debug\net45\NSwag.Core.pdb

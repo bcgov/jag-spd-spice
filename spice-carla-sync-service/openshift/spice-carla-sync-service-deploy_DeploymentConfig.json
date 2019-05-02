@@ -1,0 +1,186 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "apiVersion": "apps.openshift.io/v1",
+            "kind": "DeploymentConfig",
+            "metadata": {
+                "annotations": {
+                    "description": "Defines how to deploy spice-carla-sync-service"
+                },
+                "labels": {
+                    "template": "spice-carla-sync-service-deployment"
+                },
+                "name": "spice-carla-sync-service"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "name": "spice-carla-sync-service"
+                },
+                "strategy": {
+                    "type": "Rolling"
+                },
+                "template": {
+                    "metadata": {
+                        "labels": {
+                            "name": "spice-carla-sync-service"
+                        },
+                        "name": "spice-carla-sync-service"
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ASPNETCORE_ENVIRONMENT",
+                                        "value": "Production"
+                                    },
+                                    {
+                                        "name": "SMTP_HOST",
+                                        "value": "apps.smtp.gov.bc.ca"
+                                    },
+                                    {
+                                        "name": "SSG_USERNAME",
+                                        "value": "clb_uat"
+                                    },
+                                    {
+                                        "name": "SSG_PASSWORD",
+                                        "value": " "
+                                    },
+                                    {
+                                        "name": "DYNAMICS_ODATA_URI",
+                                        "value": "https://lclbcannabisdev.crm3.dynamics.com/api/data/v8.2/"
+                                    },
+                                    {
+                                        "name": "DYNAMICS_CLIENT_KEY",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "DYNAMICS_AAD_TENANT_ID",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "DYNAMICS_CLIENT_ID",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "JWT_VALID_ISSUER",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "JWT_VALID_AUDIENCE",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "JWT_TOKEN_KEY",
+                                        "value": "CHANGEME"
+                                    },
+                                    {
+                                        "name": "ENABLE_HANGFIRE_JOBS",
+                                        "value": ""
+                                    },
+                                    {
+                                        "name": "SHAREPOINT_ODATA_URI",
+                                        "value": ""
+                                    }
+                                ],
+                                "image": "",
+                                "liveinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/hc",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 10,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "spice-carla-sync-service",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/hc",
+                                        "port": 8080,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 10,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "100m",
+                                        "memory": "2Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "10m",
+                                        "memory": "512Mi"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "spice-carla-sync-service"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "spice-carla-sync-service:dev",
+                                "namespace": "zbam91-tools"
+                            }
+                        },
+                        "type": "ImageChange"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "description": "Exposes and load balances the application pods."
+                },
+                "labels": {
+                    "template": "spice-carla-sync-service-deployment"
+                },
+                "name": "spice-carla-sync-service"
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "8080-tcp",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "name": "spice-carla-sync-service"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            }
+        }
+    ]
+}
