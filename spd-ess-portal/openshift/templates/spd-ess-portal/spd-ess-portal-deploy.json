@@ -69,51 +69,6 @@
                     "value": "${ASPNETCORE_ENVIRONMENT}"
                   },
                   {
-                    "name": "DB_USER",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "database-user",
-                        "name": "${DATABASE_SERVICE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "DB_PASSWORD",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "database-password",
-                        "name": "${DATABASE_SERVICE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "DB_ADMIN_PASSWORD",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "database-admin-password",
-                        "name": "${DATABASE_SERVICE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "DB_DATABASE",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "database-name",
-                        "name": "${DATABASE_SERVICE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "DATABASE_SERVICE_NAME",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "database-service-name",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
                     "name": "DYNAMICS_NATIVE_ODATA_URI",
                     "valueFrom": {
                       "secretKeyRef": {
@@ -121,25 +76,7 @@
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
-                  },
-                  {
-                    "name": "PathBase",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "base-path",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "SMTP_HOST",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "smtp-host",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
+                  },                  
                   {
                     "name": "SSG_USERNAME",
                     "valueFrom": {
@@ -206,15 +143,6 @@
                     "value": "${SHAREPOINT_CERTIFICATE_FILENAME}"
                   },
                   {
-                    "name": "REDIS_SERVER",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "redis-server",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
                     "name": "DYNAMICS_ODATA_URI",
                     "valueFrom": {
                       "secretKeyRef": {
@@ -258,43 +186,7 @@
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
-                  },
-                  {
-                    "name": "BCEP_SERVICE_URL",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "bcep-service-url",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "BCEP_MERCHANT_ID",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "bcep-merchant-id",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "BCEP_HASH_KEY",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "bcep-hash-key",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "BCEP_CONF_PATH",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "bcep-conf-path",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
+                  },                                    
                   {
                     "name": "SHAREPOINT_ODATA_URI",
                     "valueFrom": {
@@ -316,14 +208,6 @@
                   {
                     "name": "SITEMINDER_LOGOUT_URL",
                     "value": "${SITEMINDER_LOGOUT_URL}"
-                  },
-                  {
-                    "name": "PDF_SERVICE_BASE_URI",
-                    "value": "${PDF_SERVICE_BASE_URI}"
-                  },
-                  {
-                    "name": "PDF_JWT_TOKEN",
-                    "value": "${PDF_JWT_TOKEN}"
                   },
                   {
                     "name": "BCEP_CONF_PATH_WORKER",
@@ -486,21 +370,21 @@
       "displayName": "Name",
       "description": "The name assigned to all of the resources defined in this template.",
       "required": true,
-      "value": "cllc-public"
+      "value": "spd-ess-portal"
     },
     {
       "name": "SOURCE_IMAGE_NAME",
       "displayName": "Source Image Name",
       "description": "The name of the image to use for this resource.",
       "required": true,
-      "value": "cllc-public"
+      "value": "spd-ess-portal"
     },
     {
       "name": "IMAGE_NAMESPACE",
       "displayName": "Image Namespace",
       "description": "The namespace of the OpenShift project containing the imagestream for the application.",
       "required": true,
-      "value": "lclb-cllc-tools"
+      "value": "zbam91-tools"
     },
     {
       "name": "TAG_NAME",
@@ -591,14 +475,7 @@
       "name": "SHOW_LOGIN",
       "required": true,
       "value": "true"
-    },
-    {
-      "description": "Boolean that shows CARLA Lite, e.g., false, if left blank a value will be defaulted.",
-      "displayName": "Is lite version",
-      "name": "IS_LITE_VERSION",
-      "required": true,
-      "value": "false"
-    },
+    },    
     {
       "description": "Boolean that shows Dashboard Lite for CARLA lite, e.g., false, if left blank a value will be defaulted.",
       "displayName": "Dashboard lite",
@@ -611,14 +488,13 @@
       "displayName": "Database service name",
       "description": "Database service name",
       "value": "mssql"
-    },
-    {
+    },    
+	{
       "name": "SECRET_RESOURCE_NAME",
       "displayName": "Secret resource name",
       "description": "Secret resource name",
-      "required": true,
-      "value": "cllc-public-preprod"
-    },
+      "value": "spd-ess-portal"
+    },  
     {
       "name": "SITEMINDER_LOGOUT_URL",
       "displayName": "Siteminder logout URL",
@@ -626,20 +502,7 @@
       "required": true,
       "value": "https://logon.gov.bc.ca/clp-cgi/logoff.cgi"
     },
-    {
-      "name": "PDF_SERVICE_BASE_URI",
-      "displayName": "URI to PDF Service",
-      "description": "URI to PDF Service, e.g., http://pdf-service:8080, if left blank a value will be defaulted.",
-      "required": true,
-      "value": "http://pdf-service:8080"
-    },
-    {
-      "name": "PDF_JWT_TOKEN",
-      "displayName": "JWT for PDF service",
-      "description": "JWT for PDF service.",
-      "required": true,
-      "value": ""
-    },
+    
     {
       "name": "BCEP_CONF_PATH_WORKER",
       "displayName": "Path to BCEP Conf",
