@@ -1,4 +1,4 @@
-APP_NAME = "spd-carla-sync-service"
+APP_NAME = "spice-carla-sync-service"
 PROJECT_NAMESPACE = "zbam91"
 
 class AppEnvironment {
