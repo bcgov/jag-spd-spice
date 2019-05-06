@@ -1,4 +1,5 @@
-﻿using Gov.Jag.Spice.Interfaces;
+﻿using CsvHelper;
+using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Hangfire.Console;
 using Hangfire.Server;
@@ -6,9 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpdSync;
 using SpdSync.models;
+using SpiceCarlaSync.models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 
 namespace Gov.Jag.Spice.CarlaSync
 {
@@ -34,7 +39,7 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            ImportWorkerRequests(hangfireContext, requests);
+            ImportWorkerRequestsToSMTP(hangfireContext, requests);
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -72,13 +77,121 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
-        private void ImportWorkerRequests(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        private void ImportWorkerRequestsToDynamics(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
-            foreach (WorkerScreeningRequest workerResponse in requests)
+            foreach (WorkerScreeningRequest workerRequest in requests)
             {
                 // add data to dynamics.
-                
+                // create a Contact which will be bound to the customer id field.
+                MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact();
+
+                contact.SpiceBcidcardnumber = workerRequest.BCIdCardNumber;
+                contact.SpiceDriverslicensenumber = int.Parse ( workerRequest.DriversLicence );
+                contact.Externaluseridentifier = workerRequest.RecordIdentifier;
+                contact.Gendercode = (int?) workerRequest.Gender;
+                    
+                MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident();
+
+                incident.SpiceApplicanttype = 525840001; // Cannabis  
+
+                incident.SpiceCannabisapplicanttype = 525840002; // Worker
+                incident.SpiceReasonforscreening = 525840001; // new check
+
+                // Screenings are Incidents in Dynamics.
+                _dynamics.Incidents.Create(incident);
+                                
             }
+        }
+
+        /// <summary>
+        /// Import responses to Dynamics.
+        /// </summary>
+        /// <returns></returns>
+        public void ImportWorkerRequestsToSMTP(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        {
+
+            List<CsvWorkerExport> export = new List<CsvWorkerExport>();
+
+            foreach (WorkerScreeningRequest workerRequest in requests)
+            {
+                CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
+                {
+                    Lcrbworkerjobid = workerRequest.RecordIdentifier,
+                    
+                    Legalsurname = workerRequest.Contact.LastName,
+                    Legalfirstname = workerRequest.Contact.FirstName,
+                    Legalmiddlename = workerRequest.Contact.MiddleName,
+                    Birthdate = workerRequest.BirthDate,
+                    
+                    Birthplacecity = workerRequest.Birthplace,
+                    Driverslicence = workerRequest.DriversLicence,
+                    Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
+                    Contactphone = workerRequest.Contact.ContactPhone,
+                    Personalemailaddress = workerRequest.Contact.ContactEmail,
+                    Addressline1 = workerRequest.Address.AddressStreet1,
+                    Addresscity = workerRequest.Address.City,
+                    Addressprovstate = workerRequest.Address.StateProvince,
+                    Addresscountry = workerRequest.Address.Country,
+                    Addresspostalcode = workerRequest.Address.Postal
+                };
+                //Selfdisclosure = workerRequest.SelfDisclosure,
+                //Gendermf = workerRequest.Gender,
+            }
+
+            // convert the list to a CSV document.
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+
+            using (var csv = new CsvWriter( sw ))
+            {
+                csv.WriteRecords( export );
+            }
+
+            sw.Flush();
+            sw.Close();
+            string csvData = sb.ToString();
+
+            var attachmentName = "Request_Worker.csv";
+
+
+            SendSPDEmail(csvData, attachmentName);
+
+        }
+
+        private bool SendSPDEmail(string attachmentContent, string attachmentName)
+        {
+            var emailSentSuccessfully = false;
+            var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
+            var email = Configuration["SPD_EXPORT_EMAIL"];
+            string body = $@"";
+
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))    // using UTF-8 encoding by default
+            using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
+            using (var message = new MailMessage("no-reply@gov.bc.ca", email))
+            {
+                writer.WriteLine(attachmentContent);
+                writer.Flush();
+                stream.Position = 0;     // read from the start of what was written
+
+                message.Subject = $"{attachmentName}";
+                message.Body = body;
+                message.IsBodyHtml = true;
+
+                message.Attachments.Add(new Attachment(stream, attachmentName, "text/csv"));
+
+                try
+                {
+                    mailClient.Send(message);
+                    emailSentSuccessfully = true;
+                }
+                catch (Exception)
+                {
+                    emailSentSuccessfully = false;
+                }
+
+            }
+            return emailSentSuccessfully;
         }
 
         /// <summary>
