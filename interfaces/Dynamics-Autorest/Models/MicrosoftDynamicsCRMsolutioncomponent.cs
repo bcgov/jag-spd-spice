@@ -14,22 +14,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
     /// <summary>
     /// solutioncomponent
     /// </summary>
-    public partial class MicrosoftDynamicsCRMSolutioncomponent
+    public partial class MicrosoftDynamicsCRMsolutioncomponent
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// MicrosoftDynamicsCRMSolutioncomponent class.
+        /// MicrosoftDynamicsCRMsolutioncomponent class.
         /// </summary>
-        public MicrosoftDynamicsCRMSolutioncomponent()
+        public MicrosoftDynamicsCRMsolutioncomponent()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// MicrosoftDynamicsCRMSolutioncomponent class.
+        /// MicrosoftDynamicsCRMsolutioncomponent class.
         /// </summary>
-        public MicrosoftDynamicsCRMSolutioncomponent(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? componenttype = default(int?), int? rootcomponentbehavior = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _modifiedonbehalfbyValue = default(string), bool? ismetadata = default(bool?), string rootsolutioncomponentid = default(string), string _createdonbehalfbyValue = default(string), string _createdbyValue = default(string), string _solutionidValue = default(string), string _modifiedbyValue = default(string), string solutioncomponentid = default(string), string objectid = default(string), MicrosoftDynamicsCRMSolution solutionid = default(MicrosoftDynamicsCRMSolution), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMSolutioncomponent rootsolutioncomponentidSolutioncomponent = default(MicrosoftDynamicsCRMSolutioncomponent), IList<MicrosoftDynamicsCRMSolutioncomponent> solutioncomponentParentSolutioncomponent = default(IList<MicrosoftDynamicsCRMSolutioncomponent>))
+        public MicrosoftDynamicsCRMsolutioncomponent(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? componenttype = default(int?), int? rootcomponentbehavior = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _modifiedonbehalfbyValue = default(string), bool? ismetadata = default(bool?), string rootsolutioncomponentid = default(string), string _createdonbehalfbyValue = default(string), string _createdbyValue = default(string), string _solutionidValue = default(string), string _modifiedbyValue = default(string), string solutioncomponentid = default(string), string objectid = default(string), MicrosoftDynamicsCRMsolution solutionid = default(MicrosoftDynamicsCRMsolution), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsolutioncomponent rootsolutioncomponentidSolutioncomponent = default(MicrosoftDynamicsCRMsolutioncomponent), IList<MicrosoftDynamicsCRMsolutioncomponent> solutioncomponentParentSolutioncomponent = default(IList<MicrosoftDynamicsCRMsolutioncomponent>))
         {
             Createdon = createdon;
             Componenttype = componenttype;
@@ -131,7 +131,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "solutionid")]
-        public MicrosoftDynamicsCRMSolution Solutionid { get; set; }
+        public MicrosoftDynamicsCRMsolution Solutionid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -146,12 +146,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "rootsolutioncomponentid_solutioncomponent")]
-        public MicrosoftDynamicsCRMSolutioncomponent RootsolutioncomponentidSolutioncomponent { get; set; }
+        public MicrosoftDynamicsCRMsolutioncomponent RootsolutioncomponentidSolutioncomponent { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "solutioncomponent_parent_solutioncomponent")]
-        public IList<MicrosoftDynamicsCRMSolutioncomponent> SolutioncomponentParentSolutioncomponent { get; set; }
+        public IList<MicrosoftDynamicsCRMsolutioncomponent> SolutioncomponentParentSolutioncomponent { get; set; }
 
     }
 }
