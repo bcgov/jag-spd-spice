@@ -135,8 +135,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     csvWorkerExport.Legalsurname = workerRequest.Contact.LastName;
                     csvWorkerExport.Legalfirstname = workerRequest.Contact.FirstName;
                     csvWorkerExport.Legalmiddlename = workerRequest.Contact.MiddleName;
-                    csvWorkerExport.Contactphone = workerRequest.Contact.ContactPhone;
-                    csvWorkerExport.Personalemailaddress = workerRequest.Contact.ContactEmail;
+                    csvWorkerExport.Contactphone = workerRequest.Contact.PhoneNumber;
+                    csvWorkerExport.Personalemailaddress = workerRequest.Contact.Email;
                 }
 
                 if (workerRequest.Address != null)
@@ -149,9 +149,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
 
                 export.Add(csvWorkerExport);
-            }
-
-            
+            }    
 
             // convert the list to a CSV document.
             StringBuilder sb = new StringBuilder();
