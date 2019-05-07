@@ -24,12 +24,13 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// Initializes a new instance of the ApplicationScreeningResponse
         /// class.
         /// </summary>
-        public ApplicationScreeningResponse(string recordIdentifier = default(string), string name = default(string), string result = default(string), System.DateTimeOffset? dateProcessed = default(System.DateTimeOffset?))
+        public ApplicationScreeningResponse(string recordIdentifier = default(string), string name = default(string), string result = default(string), System.DateTimeOffset? dateProcessed = default(System.DateTimeOffset?), System.DateTimeOffset? expiryDate = default(System.DateTimeOffset?))
         {
             RecordIdentifier = recordIdentifier;
             Name = name;
             Result = result;
             DateProcessed = dateProcessed;
+            ExpiryDate = expiryDate;
             CustomInit();
         }
 
@@ -57,6 +58,11 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "dateProcessed")]
         public System.DateTimeOffset? DateProcessed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "expiryDate")]
+        public System.DateTimeOffset? ExpiryDate { get; set; }
 
     }
 }
