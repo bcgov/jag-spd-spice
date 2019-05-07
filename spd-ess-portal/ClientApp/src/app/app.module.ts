@@ -58,6 +58,7 @@ import { DynamicsDataService } from './services/dynamics-data.service';
 import { StaticComponent } from './static/static.component';
 import { HomeComponent } from './home/home.component';
 import { PolicyDocumentDataService } from './services/policy-document-data.service';
+import { ScreeningRequestDataService } from './services/screening-request-data.service';
 
 import { StatusBadgeComponent } from './status-badge/status-badge.component';
 import { SurveyDataService } from './services/survey-data.service';
@@ -205,6 +206,7 @@ import { FieldComponent } from './shared/field/field.component';
     PaymentDataService,
     PolicyDocumentDataService,
     PreviousAddressDataService,
+    ScreeningRequestDataService,
     ServiceCardAuthGuard,
     SurveyDataService,
     TiedHouseConnectionsDataService,
