@@ -153,8 +153,18 @@ namespace Gov.Jag.Spice.CarlaSync
 
             var attachmentName = "Request_Worker.csv";
 
+            bool sentEmail = SendSPDEmail(csvData, attachmentName);
 
-            SendSPDEmail(csvData, attachmentName);
+            if (sentEmail)
+            {
+                hangfireContext.WriteLine($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+            else
+            {
+                hangfireContext.WriteLine($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
 
         }
 
