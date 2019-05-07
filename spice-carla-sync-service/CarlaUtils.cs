@@ -118,25 +118,40 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     Lcrbworkerjobid = workerRequest.RecordIdentifier,
                     
-                    Legalsurname = workerRequest.Contact.LastName,
-                    Legalfirstname = workerRequest.Contact.FirstName,
-                    Legalmiddlename = workerRequest.Contact.MiddleName,
+
                     Birthdate = workerRequest.BirthDate,
                     
                     Birthplacecity = workerRequest.Birthplace,
                     Driverslicence = workerRequest.DriversLicence,
                     Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
-                    Contactphone = workerRequest.Contact.ContactPhone,
-                    Personalemailaddress = workerRequest.Contact.ContactEmail,
-                    Addressline1 = workerRequest.Address.AddressStreet1,
-                    Addresscity = workerRequest.Address.City,
-                    Addressprovstate = workerRequest.Address.StateProvince,
-                    Addresscountry = workerRequest.Address.Country,
-                    Addresspostalcode = workerRequest.Address.Postal
+                    
+                    
                 };
                 //Selfdisclosure = workerRequest.SelfDisclosure,
                 //Gendermf = workerRequest.Gender,
+
+                if (workerRequest.Contact != null)
+                {
+                    csvWorkerExport.Legalsurname = workerRequest.Contact.LastName;
+                    csvWorkerExport.Legalfirstname = workerRequest.Contact.FirstName;
+                    csvWorkerExport.Legalmiddlename = workerRequest.Contact.MiddleName;
+                    csvWorkerExport.Contactphone = workerRequest.Contact.ContactPhone;
+                    csvWorkerExport.Personalemailaddress = workerRequest.Contact.ContactEmail;
+                }
+
+                if (workerRequest.Address != null)
+                {
+                    csvWorkerExport.Addressline1 = workerRequest.Address.AddressStreet1;
+                    csvWorkerExport.Addresscity = workerRequest.Address.City;
+                    csvWorkerExport.Addressprovstate = workerRequest.Address.StateProvince;
+                    csvWorkerExport.Addresscountry = workerRequest.Address.Country;
+                    csvWorkerExport.Addresspostalcode = workerRequest.Address.Postal;
+                }
+
+                export.Add(csvWorkerExport);
             }
+
+            
 
             // convert the list to a CSV document.
             StringBuilder sb = new StringBuilder();
