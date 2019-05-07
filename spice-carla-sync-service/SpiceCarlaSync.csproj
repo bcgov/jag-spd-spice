@@ -50,4 +50,7 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="models\ApplicationScreeningResponse.cs" />
+  </ItemGroup>
 </Project>
