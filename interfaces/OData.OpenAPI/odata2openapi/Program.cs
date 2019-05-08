@@ -198,7 +198,13 @@ namespace odata2openapi
                         bool ok2Delete = true;
                         string firstTagLower = firstTag.ToLower();
 
-                        if (firstTagLower.Equals("contacts") || firstTagLower.Equals("accounts") || firstTagLower.Equals("invoices") || firstTagLower.Equals("sharepointsites") || firstTagLower.Equals("savedqueries") || firstTagLower.Equals("sharepointdocumentlocations"))
+                        if (firstTagLower.Equals("contacts") || 
+                            firstTagLower.Equals("accounts") || 
+                            firstTagLower.Equals("invoices") || 
+                            firstTagLower.Equals("incidents") || 
+                            firstTagLower.Equals("sharepointsites") || 
+                            firstTagLower.Equals("savedqueries") || 
+                            firstTagLower.Equals("sharepointdocumentlocations"))
                         {
                             ok2Delete = false;
                         }

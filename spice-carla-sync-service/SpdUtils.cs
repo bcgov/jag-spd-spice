@@ -34,9 +34,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
         }
 
-        
-
-        
 
         private string AddZeroPadding(string input, int maxLength = 8)
         {
@@ -47,9 +44,6 @@ namespace Gov.Jag.Spice.CarlaSync
             return input;
         }
 
-        
-
-        
 
         private bool SendSPDEmail(string attachmentContent, string attachmentName)
         {
