@@ -27,8 +27,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     logging.AddDebug();
                     logging.AddEventSourceLogger();
                 })
+                .UseUrls(urls: "http://localhost:10000")
                 .UseStartup<Startup>()
-                .UseHealthChecks("/hc")
                 .Build();
     }
 }
