@@ -14,7 +14,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseHealthChecks("/hc")
+                .UseHealthChecks("/hc") // TODO replace this with the microsoft 2.2 hc pattern
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var env = hostingContext.HostingEnvironment;
@@ -28,7 +28,6 @@ namespace Gov.Jag.Spice.CarlaSync
                     logging.AddEventSourceLogger();
                 })
                 .UseStartup<Startup>()
-                .UseHealthChecks("/hc")
                 .Build();
     }
 }
