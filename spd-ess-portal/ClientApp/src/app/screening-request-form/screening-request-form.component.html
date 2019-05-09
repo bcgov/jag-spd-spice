@@ -1,0 +1,146 @@
+<section [formGroup]="form">
+  <h1>Screening Request Form</h1>
+  <p>
+    Please complete the fields below to submit a screening request. Your information will only be saved once you click the save button at the end of the page.
+  </p>
+  <div style="position: relative;">
+    <em style="float: right;" class="error-states">
+      * Required Fields
+    </em>
+  </div>
+
+  <section>
+    <h2 class="blue-header">Screening Request Information</h2>
+    <p class="header-description">
+      Provide details for the type of Enhanced Security Screening (ESS) required for the Candidate. For more information, refer to your Letter of Agreement (LOA).
+    </p>
+    <div class="row">
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Client Ministry" [required]="true" [showChevrons]="false"
+        [valid]="form.get('clientMinistry').valid || !form.get('clientMinistry').touched"
+        errorMessage="Please select a client ministry" [isFullWidth]="true">
+        <select class="form-control" formControlName="clientMinistry">
+          <option value="">Select a Ministry</option>
+          <option value="AttorneyGeneral">Ministry of the Attorney General</option>
+        </select>
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Program Area" [required]="true" [showChevrons]="false"
+        [valid]="form.get('programArea').valid || !form.get('programArea').touched"
+        errorMessage="Please select a program area" [isFullWidth]="true">
+        <select class="form-control" formControlName="programArea">
+            <option value="">Select a Program Area</option>
+            <option value="Corrections">Corrections</option>
+        </select>
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Screening Type" [required]="true" [showChevrons]="false"
+        [valid]="form.get('screeningType').valid || !form.get('screeningType').touched"
+        errorMessage="Please select a screening type" [isFullWidth]="true">
+        <select class="form-control" formControlName="screeningType">
+            <option value="">Select a Screening Type</option>
+            <option value="OptionA">HQ Initial Check (Option A)</option>
+        </select>
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Reason for Screening" [required]="true" [showChevrons]="false"
+        [valid]="form.get('reason').valid || !form.get('reason').touched"
+        errorMessage="Please select a reason for the screening" [isFullWidth]="true">
+        <select class="form-control" formControlName="reason">
+            <option value="">Select a Reason for Screening</option>
+            <option value="NewCheck">New Check</option>
+            <option value="Other">Other</option>
+        </select>
+      </app-field>
+
+      <app-field *ngIf="form.get('reason').value === 'other'" class="col-lg-4 col-md-6 col-xs-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
+        [valid]="form.get('otherReason').valid || !form.get('otherReason').touched"
+        errorMessage="Please enter a reason for the screening" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="otherReason">
+      </app-field>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="blue-header">Candidate Information</h2>
+    <p class="header-description">
+      Provide details for the candidate undergoing the screening.
+    </p>
+    <div class="row">
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate First Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('candidateFirstName').valid || !form.get('candidateFirstName').touched"
+        errorMessage="Please provide the candidate's first name" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="candidateFirstName">
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Middle Name" [required]="false" [showChevrons]="false" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="candidateMiddleName">
+      </app-field>
+
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Last Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('candidateLastName').valid || !form.get('candidateLastName').touched"
+        errorMessage="Please provide the candidate's last name" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="candidateLastName">
+      </app-field>
+
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Date of Birth" [required]="true" [showChevrons]="false"
+        [valid]="form.get('candidateDateOfBirth').valid || !form.get('candidateDateOfBirth').touched"
+        errorMessage="Please provide the candidate's date of birth" [isFullWidth]="true">
+        <input type="text" formControlName='candidateDateOfBirth'
+          style="width: 200px; background-color: #fff;" placeholder="yyyy-mm-dd" class="form-control"
+          [max]="maxDate" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
+        <mat-datepicker #picker></mat-datepicker>
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false"
+        [valid]="form.get('candidateEmail').valid || !form.get('candidateEmail').touched"
+        errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="candidateEmail">
+      </app-field>
+      
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Title of Position Candidate Will Be Screened For" [required]="true" [showChevrons]="false"
+        [valid]="form.get('candidatePosition').valid || !form.get('candidatePosition').touched"
+        errorMessage="Please enter the title of the position the candidate is being screened for" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="candidatePosition">
+      </app-field>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="blue-header">Return to Information</h2>
+    <p class="header-description">
+      Provide details for the contact who should receive the screening results.
+    </p>
+    <div class="row">
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Results To" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contactName').valid || !form.get('contactName').touched"
+        errorMessage="Please enter a name for the recipient of the results" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="contactName">
+      </app-field>
+
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Email Address" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contactEmail').valid || !form.get('contactEmail').touched"
+        errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
+        <input class="form-control" type="text" formControlName="contactEmail">
+      </app-field>
+    </div>
+  </section>
+  
+  <section>
+    <h2 class="blue-header">Declaration</h2>
+    <div>
+      <app-field [showChevrons]="false"
+        [valid]="form.get('photoIdConfirmation').valid || !form.get('photoIdConfirmation').touched"
+        errorMessage="Please confirm that two pieces of valid, government issued photo ID have been checked">
+        <mat-checkbox formControlName="photoIdConfirmation">By checking this box you confirm that two pieces of valid, government issued photo ID have been checked <span class="error-states">*</span></mat-checkbox>
+      </app-field>
+    </div>
+  </section>
+  
+  <div style="position: relative;">
+    <span style="float: right;">
+      <button (click)="gotoReview()" class="btn btn-primary mt-4">
+        <span>REVIEW </span>
+        <i class="fas fa-chevron-right"></i></button>
+    </span>
+  </div>
+</section>
