@@ -209,3 +209,13 @@ hr {
     display: flex;
     justify-content: space-between;
 }
+
+.mat-checkbox-layout {
+  white-space: normal !important;
+  font-weight: 400;
+
+  .mat-checkbox-label {
+    margin-left: 5px;
+    line-height: 20px;
+  }
+}
