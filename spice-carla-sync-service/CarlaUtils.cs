@@ -282,7 +282,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             using (var stream = new MemoryStream())
             using (var writer = new StreamWriter(stream))    // using UTF-8 encoding by default
-            using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"], 2525))
+            using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
             using (var message = new MailMessage("no-reply@gov.bc.ca", email))
             {
                 writer.WriteLine(attachmentContent);
