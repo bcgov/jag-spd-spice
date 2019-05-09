@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using SpiceCarlaSync.models;
 
 namespace SpdSync.models
 {
     public class ApplicationScreeningRequest
     {
-        public enum Spice_ApplicantType
-        {
-            Cannabis = 525840001,
-            ESS = 525840000
-        }
         [JsonConverter(typeof(StringEnumConverter))]
-        public Spice_ApplicantType ApplicantType { get; set; }
+        public SpiceApplicantType ApplicantType { get; set; }
         public bool UrgentPriority { get; set; }
         public string Name { get; set; }
         public string RecordIdentifier { get; set; }

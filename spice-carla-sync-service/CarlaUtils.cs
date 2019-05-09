@@ -79,45 +79,113 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <returns></returns>
         private void ImportApplicationRequestsToSMTP(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
-            var workers = new List<CsvWorkerExport>();
+            List<CsvAssociateExport> export = CreateBaseAssociatesExport(requests);
+            string attachmentName = "Associates_ScreeningRequest.csv";
+            string csvData = CreateAssociateCSV(export);
+            bool sentEmail = SendSPDEmail(csvData, attachmentName);
+
+            if (sentEmail)
+            {
+                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+            else
+            {
+                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+
+            List<CsvBusinessExport> businessExport = CreateBusinessExport(requests);
+            string businessAttachmentName = "Business_ScreeningRequest.csv";
+            string businessCsvData = CreateBusinessCSV(businessExport);
+            bool businessSentEmail = SendSPDEmail(businessCsvData, businessAttachmentName);
+
+            if (businessSentEmail)
+            {
+                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+            else
+            {
+                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+        }
+
+        private List<CsvBusinessExport> CreateBusinessExport(List<ApplicationScreeningRequest> requests)
+        {
+            List<CsvBusinessExport> export = new List<CsvBusinessExport>();
+
+            foreach (ApplicationScreeningRequest request in requests)
+            {
+                var business = new CsvBusinessExport()
+                {
+                    OrganizationName = request.ApplicantName,
+                    JobId = request.RecordIdentifier,
+                    BusinessNumber = request.BCeIDNumber,
+                    BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
+                    BusinessCity = request.BusinessAddress.City,
+                    BusinessStateProvince = request.BusinessAddress.StateProvince,
+                    BusinessCountry = request.BusinessAddress.Country,
+                    BusinessPostal = request.BusinessAddress.Postal,
+                    EstablishmentParcelId = request.Establishment.ParcelId,
+                    EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1,
+                    EstablishmentCity = request.Establishment.Address.City,
+                    EstablishmentStateProvince = request.Establishment.Address.StateProvince,
+                    EstablishmentCountry = request.Establishment.Address.Country,
+                    EstablishmentPostal = request.Establishment.Address.Postal,
+                    ContactPersonSurname = request.ContactPerson.LastName,
+                    ContactPersonFirstname = request.ContactPerson.FirstName,
+                    ContactPhone = request.ContactPerson.PhoneNumber,
+                    ContactEmail = request.ContactPerson.Email
+                };
+                export.Add(business);
+            }
+
+            return export;
+        }
+
+        private List<CsvAssociateExport> CreateBaseAssociatesExport(List<ApplicationScreeningRequest> requests)
+        {
+            List<CsvAssociateExport> export = new List<CsvAssociateExport>();
 
             foreach (ApplicationScreeningRequest ApplicationRequest in requests)
             {
-                var contactPerson = new CsvWorkerExport()
+                var contactPerson = new CsvAssociateExport()
                 {
+                    LCRBAssociateJobId = ApplicationRequest.ApplyingPerson.ContactId,
+                    LCRBBusinessJobId = ApplicationRequest.RecordIdentifier,
                     Legalsurname = ApplicationRequest.ContactPerson.LastName,
                     Legalfirstname = ApplicationRequest.ContactPerson.FirstName,
                     Legalmiddlename = ApplicationRequest.ContactPerson.MiddleName,
                     Contactphone = ApplicationRequest.ContactPerson.PhoneNumber,
                     Personalemailaddress = ApplicationRequest.ContactPerson.Email,
                 };
-                workers.Add(contactPerson);
-                var applyingPerson = new CsvWorkerExport()
+                export.Add(contactPerson);
+                var applyingPerson = new CsvAssociateExport()
                 {
+                    LCRBAssociateJobId = ApplicationRequest.ApplyingPerson.ContactId,
+                    LCRBBusinessJobId = ApplicationRequest.RecordIdentifier,
                     Legalsurname = ApplicationRequest.ApplyingPerson.LastName,
                     Legalfirstname = ApplicationRequest.ApplyingPerson.FirstName,
                     Legalmiddlename = ApplicationRequest.ApplyingPerson.MiddleName,
                     Contactphone = ApplicationRequest.ApplyingPerson.PhoneNumber,
                     Personalemailaddress = ApplicationRequest.ApplyingPerson.Email,
                 };
-                workers.Add(applyingPerson);
-                var associateWorkers = CreateWorkersFromAssociates(ApplicationRequest.Associates);
-                workers.AddRange(associateWorkers);
-
+                export.Add(applyingPerson);
+                var associates = CreateAssociatesExport(ApplicationRequest.RecordIdentifier, ApplicationRequest.Associates);
+                export.AddRange(associates);
             }
-
-            SendWorkersCSV(workers);
+            return export;
         }
 
-        private List<CsvWorkerExport> CreateWorkersFromAssociates(List<LegalEntity> associates)
+        private List<CsvAssociateExport> CreateAssociatesExport(string JobNumber, List<LegalEntity> associates)
         {
-            var workers = new List<CsvWorkerExport>();
+            List<CsvAssociateExport> export = new List<CsvAssociateExport>();
             foreach (var entity in associates)
             {
                 if(entity.IsIndividual)
                 {
-                    var newWorker = new CsvWorkerExport()
+                    var newWorker = new CsvAssociateExport()
                     {
+                        LCRBBusinessJobId = JobNumber,
+                        LCRBAssociateJobId = entity.Contact.ContactId,
                         Legalfirstname = entity.Contact.FirstName,
                         Legalsurname = entity.Contact.LastName,
                         Legalmiddlename = entity.Contact.MiddleName,
@@ -151,14 +219,14 @@ namespace Gov.Jag.Spice.CarlaSync
                         newWorker[$"Previouspostalcode{addressId}"] = address.Postal;
                         addressId++;
                     }
-                    workers.Add(newWorker);
+                    export.Add(newWorker);
                 }
                 else
                 {
-                    workers.AddRange(CreateWorkersFromAssociates(entity.Account.Associates));
+                    export.AddRange(CreateAssociatesExport(JobNumber, entity.Account.Associates));
                 }
             }
-            return workers;
+            return export;
         }
 
         /// <summary>
@@ -239,12 +307,23 @@ namespace Gov.Jag.Spice.CarlaSync
                 export.Add(csvWorkerExport);
             }
 
-            SendWorkersCSV(export);
+            string attachmentName = "Worker_ScreeningRequest.csv";
+            string csvData = CreateWorkerCSV(export);
+            bool sentEmail = SendSPDEmail(csvData, attachmentName);
 
+            if (sentEmail)
+            {
+                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
+            else
+            {
+                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+            }
         }
 
-        private bool SendWorkersCSV(List<CsvWorkerExport> workers)
+        private string CreateWorkerCSV(List<CsvWorkerExport> workers)
         {
+
             // convert the list to a CSV document.
             StringBuilder sb = new StringBuilder();
             StringWriter sw = new StringWriter(sb);
@@ -258,19 +337,43 @@ namespace Gov.Jag.Spice.CarlaSync
             sw.Close();
             string csvData = sb.ToString();
 
-            var attachmentName = "Request_Worker.csv";
+            return csvData;
+        }
 
-            bool sentEmail = SendSPDEmail(csvData, attachmentName);
+        private string CreateAssociateCSV(List<CsvAssociateExport> associates)
+        {
+            // convert the list to a CSV document.
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
 
-            if (sentEmail)
+            using (var csv = new CsvWriter(sw))
             {
-                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+                csv.WriteRecords(associates);
             }
-            else
+
+            sw.Flush();
+            sw.Close();
+            string csvData = sb.ToString();
+
+            return csvData;
+        }
+
+        private string CreateBusinessCSV(List<CsvBusinessExport> businesses)
+        {
+            // convert the list to a CSV document.
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+
+            using (var csv = new CsvWriter(sw))
             {
-                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
+                csv.WriteRecords(businesses);
             }
-            return sentEmail;
+
+            sw.Flush();
+            sw.Close();
+            string csvData = sb.ToString();
+
+            return csvData;
         }
 
         private bool SendSPDEmail(string attachmentContent, string attachmentName)
