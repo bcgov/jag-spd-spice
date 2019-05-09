@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SpiceCarlaSync.models
@@ -92,5 +93,23 @@ namespace SpiceCarlaSync.models
             public string Previousprovstatex { get; set; }
             public string Previouspostalcodex { get; set; }
             public string Previouscountryx { get; set; }
+
+        public object this[string propertyName]
+        {
+            get
+            {
+                Type myType = typeof(CsvWorkerExport);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                return myPropInfo.GetValue(this, null);
+            }
+            set
+            {
+                Type myType = typeof(CsvWorkerExport);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                myPropInfo.SetValue(this, value, null);
+
+            }
+
+        }
     }
 }

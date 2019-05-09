@@ -53,14 +53,14 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            ImportApplicationRequests(hangfireContext, requests);
+            ImportApplicationRequestsToSMTP(hangfireContext, requests);
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
         }
 
         /// <summary>
-        /// Import responses to Dynamics.
+        /// Import requests to Dynamics.
         /// </summary>
         /// <returns></returns>
         private void ImportApplicationRequests(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
@@ -71,6 +71,94 @@ namespace Gov.Jag.Spice.CarlaSync
                 // add data to dynamics
 
             }
+        }
+
+        /// <summary>
+        /// Import requests to SMTP
+        /// </summary>
+        /// <returns></returns>
+        private void ImportApplicationRequestsToSMTP(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        {
+            var workers = new List<CsvWorkerExport>();
+
+            foreach (ApplicationScreeningRequest ApplicationRequest in requests)
+            {
+                var contactPerson = new CsvWorkerExport()
+                {
+                    Legalsurname = ApplicationRequest.ContactPerson.LastName,
+                    Legalfirstname = ApplicationRequest.ContactPerson.FirstName,
+                    Legalmiddlename = ApplicationRequest.ContactPerson.MiddleName,
+                    Contactphone = ApplicationRequest.ContactPerson.PhoneNumber,
+                    Personalemailaddress = ApplicationRequest.ContactPerson.Email,
+                };
+                workers.Add(contactPerson);
+                var applyingPerson = new CsvWorkerExport()
+                {
+                    Legalsurname = ApplicationRequest.ApplyingPerson.LastName,
+                    Legalfirstname = ApplicationRequest.ApplyingPerson.FirstName,
+                    Legalmiddlename = ApplicationRequest.ApplyingPerson.MiddleName,
+                    Contactphone = ApplicationRequest.ApplyingPerson.PhoneNumber,
+                    Personalemailaddress = ApplicationRequest.ApplyingPerson.Email,
+                };
+                workers.Add(applyingPerson);
+                var associateWorkers = CreateWorkersFromAssociates(ApplicationRequest.Associates);
+                workers.AddRange(associateWorkers);
+
+            }
+
+            SendWorkersCSV(workers);
+        }
+
+        private List<CsvWorkerExport> CreateWorkersFromAssociates(List<LegalEntity> associates)
+        {
+            var workers = new List<CsvWorkerExport>();
+            foreach (var entity in associates)
+            {
+                if(entity.IsIndividual)
+                {
+                    var newWorker = new CsvWorkerExport()
+                    {
+                        Legalfirstname = entity.Contact.FirstName,
+                        Legalsurname = entity.Contact.LastName,
+                        Legalmiddlename = entity.Contact.MiddleName,
+                        Contactphone = entity.Contact.PhoneNumber,
+                        Personalemailaddress = entity.Contact.Email,
+                        Addressline1 = entity.Contact.Address.AddressStreet1,
+                        Addresscity = entity.Contact.Address.City,
+                        Addressprovstate = entity.Contact.Address.StateProvince,
+                        Addresscountry = entity.Contact.Address.Country,
+                        Addresspostalcode = entity.Contact.Address.Postal
+                    };
+
+                    /* Flatten up the aliases */
+                    var aliasId = 1;
+                    foreach (var alias in entity.Aliases)
+                    {
+                        newWorker[$"Alias{aliasId}surname"] = alias.Surname;
+                        newWorker[$"Alias{aliasId}middlename"] = alias.SecondName;
+                        newWorker[$"Alias{aliasId}firstname"] = alias.GivenName;
+                        aliasId++;
+                    }
+
+                    /* Flatten up the previous addresses */
+                    var addressId = 1;
+                    foreach (var address in entity.PreviousAddresses)
+                    {
+                        newWorker[$"Previousstreetaddress{addressId}"] = address.AddressStreet1;
+                        newWorker[$"Previouscity{addressId}"] = address.City;
+                        newWorker[$"Previousprovstate{addressId}"] = address.StateProvince;
+                        newWorker[$"Previouscountry{addressId}"] = address.Country;
+                        newWorker[$"Previouspostalcode{addressId}"] = address.Postal;
+                        addressId++;
+                    }
+                    workers.Add(newWorker);
+                }
+                else
+                {
+                    workers.AddRange(CreateWorkersFromAssociates(entity.Account.Associates));
+                }
+            }
+            return workers;
         }
 
         /// <summary>
@@ -149,15 +237,21 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
 
                 export.Add(csvWorkerExport);
-            }    
+            }
 
+            SendWorkersCSV(export);
+
+        }
+
+        private bool SendWorkersCSV(List<CsvWorkerExport> workers)
+        {
             // convert the list to a CSV document.
             StringBuilder sb = new StringBuilder();
             StringWriter sw = new StringWriter(sb);
 
-            using (var csv = new CsvWriter( sw ))
+            using (var csv = new CsvWriter(sw))
             {
-                csv.WriteRecords( export );
+                csv.WriteRecords(workers);
             }
 
             sw.Flush();
@@ -170,15 +264,13 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (sentEmail)
             {
-                hangfireContext.WriteLine($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
                 _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
             }
             else
             {
-                hangfireContext.WriteLine($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
                 _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
             }
-
+            return sentEmail;
         }
 
         private bool SendSPDEmail(string attachmentContent, string attachmentName)
