@@ -84,6 +84,7 @@ import { PreviousAddressDataService } from './services/previous-address-data.ser
 import { WorkerDataService } from './services/worker-data.service.';
 import { FieldComponent } from './shared/field/field.component';
 import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
+import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ScreeningRequestFormComponent } from './screening-request-form/screenin
     StatusBadgeComponent,
     TermsAndConditionsComponent,
     ScreeningRequestFormComponent,
+    ScreeningRequestReviewComponent,
   ],
   imports: [
     ChartsModule,
