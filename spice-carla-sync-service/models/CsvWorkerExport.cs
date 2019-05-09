@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
 
 namespace SpiceCarlaSync.models
 {
@@ -109,7 +112,6 @@ namespace SpiceCarlaSync.models
                 myPropInfo.SetValue(this, value, null);
 
             }
-
         }
     }
 }
