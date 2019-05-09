@@ -83,6 +83,7 @@ import { AliasDataService } from './services/alias-data.service';
 import { PreviousAddressDataService } from './services/previous-address-data.service';
 import { WorkerDataService } from './services/worker-data.service.';
 import { FieldComponent } from './shared/field/field.component';
+import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { FieldComponent } from './shared/field/field.component';
     StaticComponent,
     StatusBadgeComponent,
     TermsAndConditionsComponent,
+    ScreeningRequestFormComponent,
   ],
   imports: [
     ChartsModule,

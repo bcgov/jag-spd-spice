@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { ScreeningRequest } from '../../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../actions/current-screening-request.action';
 import { CurrentScreeningRequestState } from '../models/app-state';
 
@@ -11,10 +10,10 @@ export function reducer(state: CurrentScreeningRequestState = initialState, acti
 
     // Section 3
     switch (action.type) {
-        case CurrentScreeningRequestActions.CURRENT_SCREENING_REQUEST:
-            return { ...state };
         case CurrentScreeningRequestActions.SET_CURRENT_SCREENING_REQUEST:
             return { currentScreeningRequest: action.payload };
+        case CurrentScreeningRequestActions.CLEAR_CURRENT_SCREENING_REQUEST:
+            return { currentScreeningRequest: null };
         default:
             return state;
     }
