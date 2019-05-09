@@ -52,5 +52,6 @@
 
   <ItemGroup>
     <Compile Remove="models\ApplicationScreeningResponse.cs" />
+    <Compile Remove="models\CsvExport.cs" />
   </ItemGroup>
 </Project>
