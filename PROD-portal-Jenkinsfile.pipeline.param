@@ -8,4 +8,4 @@ NAME=prod-portal
 SOURCE_REPOSITORY_URL=https://github.com/bcgov/jag-spd-spice.git
 SOURCE_REPOSITORY_REF=master
 CONTEXT_DIR=
-JENKINSFILE_PATH=PROD-Jenkinsfile
+JENKINSFILE_PATH=PROD-portal-Jenkinsfile
