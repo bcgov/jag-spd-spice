@@ -12,6 +12,7 @@
       "metadata": {
         "name": "${NAME}",
         "labels": {
+          "app": "${NAME}",
           "template": "${NAME}-deployment"
         },
         "annotations": {

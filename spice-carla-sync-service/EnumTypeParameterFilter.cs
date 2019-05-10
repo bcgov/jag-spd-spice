@@ -15,7 +15,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (type.IsEnum)
             {
-                parameter.Extensions.Add("x-ms-enum", new { name = type.Name, modelAsString = false });
+                parameter.Extensions.Add("x-ms-enum", new { name = type.Name, modelAsString = true });
             }                
         }
     }    
