@@ -8,7 +8,7 @@ namespace SpiceCarlaSync
     {
         public CsvAssociateExportMap()
         {
-            Map(m => m.LCRBAssociateJobId).Name("LCRB ASSOCIATE JOB ID");
+            Map(m => m.Lcrbworkerjobid).Name("LCRB ASSOCIATE JOB ID");
             Map(m => m.LCRBBusinessJobId).Name("LCRB BUSINESS JOB ID");
             Map(m => m.Selfdisclosure).Name("SELF-DISCLOSURE YN");
             Map(m => m.Legalsurname).Name("SURNAME");
