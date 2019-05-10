@@ -85,6 +85,7 @@ import { WorkerDataService } from './services/worker-data.service.';
 import { FieldComponent } from './shared/field/field.component';
 import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
+import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ScreeningRequestReviewComponent } from './screening-request-review/scre
     TermsAndConditionsComponent,
     ScreeningRequestFormComponent,
     ScreeningRequestReviewComponent,
+    ScreeningRequestConfirmationComponent,
   ],
   imports: [
     ChartsModule,
