@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using SpdSync;
 using System.Collections.Generic;
 using SpdSync.models;
+using Newtonsoft.Json;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -32,8 +33,12 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         [HttpPost("receive")]
         public ActionResult ReceiveWorkerScreenings([FromBody] List<WorkerScreeningRequest> requests)
         {
+            _logger.LogError("Received worker screening data");
+            string jsonString = JsonConvert.SerializeObject(requests);
+            _logger.LogError(jsonString);
+
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).ReceiveWorkerImportJob(null, requests));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).ImportWorkerRequestsToSMTP(null, requests));
             _logger.LogInformation("Started receive worker screening job");
             return Ok();
         }       

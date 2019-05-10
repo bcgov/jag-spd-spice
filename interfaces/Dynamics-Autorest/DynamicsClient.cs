@@ -52,6 +52,11 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IContacts Contacts { get; private set; }
 
         /// <summary>
+        /// Gets the IIncidents.
+        /// </summary>
+        public virtual IIncidents Incidents { get; private set; }
+
+        /// <summary>
         /// Gets the IInvoices.
         /// </summary>
         public virtual IInvoices Invoices { get; private set; }
@@ -80,6 +85,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IAliaseses.
         /// </summary>
         public virtual IAliaseses Aliaseses { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanies.
+        /// </summary>
+        public virtual ICompanies Companies { get; private set; }
 
         /// <summary>
         /// Gets the IContactaccountset.
@@ -374,12 +384,14 @@ namespace Gov.Jag.Spice.Interfaces
         {
             Accounts = new Accounts(this);
             Contacts = new Contacts(this);
+            Incidents = new Incidents(this);
             Invoices = new Invoices(this);
             Savedqueries = new Savedqueries(this);
             Sharepointdocumentlocations = new Sharepointdocumentlocations(this);
             Sharepointsites = new Sharepointsites(this);
             Accountcaseassignments = new Accountcaseassignments(this);
             Aliaseses = new Aliaseses(this);
+            Companies = new Companies(this);
             Contactaccountset = new Contactaccountset(this);
             Exportrequestincidentset = new Exportrequestincidentset(this);
             Exportrequests = new Exportrequests(this);

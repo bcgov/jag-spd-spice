@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="12.1.2" />
-    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.1" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.2" />
     <PackageReference Include="Hangfire.Console" Version="1.4.2" />
     <PackageReference Include="Hangfire.MemoryStorage.Core" Version="1.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" />
@@ -24,9 +24,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="4.0.1" />    
-    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="4.0.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.console" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -52,4 +50,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="models\ApplicationScreeningResponse.cs" />
+    <Compile Remove="models\CsvExport.cs" />
+  </ItemGroup>
 </Project>

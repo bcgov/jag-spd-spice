@@ -49,6 +49,11 @@ namespace Gov.Jag.Spice.Interfaces
         IContacts Contacts { get; }
 
         /// <summary>
+        /// Gets the IIncidents.
+        /// </summary>
+        IIncidents Incidents { get; }
+
+        /// <summary>
         /// Gets the IInvoices.
         /// </summary>
         IInvoices Invoices { get; }
@@ -77,6 +82,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IAliaseses.
         /// </summary>
         IAliaseses Aliaseses { get; }
+
+        /// <summary>
+        /// Gets the ICompanies.
+        /// </summary>
+        ICompanies Companies { get; }
 
         /// <summary>
         /// Gets the IContactaccountset.
