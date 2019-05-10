@@ -227,8 +227,18 @@ namespace Gov.Jag.Spice.Interfaces
         {
             string sanitizedSiteminderId = GuidUtility.SanitizeGuidString(siteminderId);
             MicrosoftDynamicsCRMcontact result = null;
-            var contactsResponse = system.Contacts.Get(filter: "adoxio_externalid eq '" + sanitizedSiteminderId + "'");
-            result = contactsResponse.Value.FirstOrDefault();
+            try
+            {
+                // TODO - change this to the field that you will be using to match the external identifier.
+
+                var contactsResponse = system.Contacts.Get(filter: "adoxio_externalid eq '" + sanitizedSiteminderId + "'");
+                result = contactsResponse.Value.FirstOrDefault();
+            }
+            catch ( Exception)
+            {
+                result = null;
+            }
+            
             return result;
         }
 
