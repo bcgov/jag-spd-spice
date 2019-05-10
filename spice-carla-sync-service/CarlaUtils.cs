@@ -147,28 +147,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             foreach (ApplicationScreeningRequest ApplicationRequest in requests)
             {
-                var contactPerson = new CsvAssociateExport()
-                {
-                    LCRBAssociateJobId = ApplicationRequest.ApplyingPerson.ContactId,
-                    LCRBBusinessJobId = ApplicationRequest.RecordIdentifier,
-                    Legalsurname = ApplicationRequest.ContactPerson.LastName,
-                    Legalfirstname = ApplicationRequest.ContactPerson.FirstName,
-                    Legalmiddlename = ApplicationRequest.ContactPerson.MiddleName,
-                    Contactphone = ApplicationRequest.ContactPerson.PhoneNumber,
-                    Personalemailaddress = ApplicationRequest.ContactPerson.Email,
-                };
-                export.Add(contactPerson);
-                var applyingPerson = new CsvAssociateExport()
-                {
-                    LCRBAssociateJobId = ApplicationRequest.ApplyingPerson.ContactId,
-                    LCRBBusinessJobId = ApplicationRequest.RecordIdentifier,
-                    Legalsurname = ApplicationRequest.ApplyingPerson.LastName,
-                    Legalfirstname = ApplicationRequest.ApplyingPerson.FirstName,
-                    Legalmiddlename = ApplicationRequest.ApplyingPerson.MiddleName,
-                    Contactphone = ApplicationRequest.ApplyingPerson.PhoneNumber,
-                    Personalemailaddress = ApplicationRequest.ApplyingPerson.Email,
-                };
-                export.Add(applyingPerson);
                 var associates = CreateAssociatesExport(ApplicationRequest.RecordIdentifier, ApplicationRequest.Associates);
                 export.AddRange(associates);
             }
@@ -182,10 +160,10 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 if(entity.IsIndividual)
                 {
-                    var newWorker = new CsvAssociateExport()
+                    var newAssociate = new CsvAssociateExport()
                     {
                         LCRBBusinessJobId = JobNumber,
-                        LCRBAssociateJobId = entity.Contact.ContactId,
+                        Lcrbworkerjobid = entity.Contact.ContactId,
                         Legalfirstname = entity.Contact.FirstName,
                         Legalsurname = entity.Contact.LastName,
                         Legalmiddlename = entity.Contact.MiddleName,
@@ -195,16 +173,22 @@ namespace Gov.Jag.Spice.CarlaSync
                         Addresscity = entity.Contact.Address.City,
                         Addressprovstate = entity.Contact.Address.StateProvince,
                         Addresscountry = entity.Contact.Address.Country,
-                        Addresspostalcode = entity.Contact.Address.Postal
+                        Addresspostalcode = entity.Contact.Address.Postal,
+                        Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString(),
+                        Gendermf = ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
+                        Driverslicence = entity.Contact.DriversLicenceNumber,
+                        Bcidentificationcardnumber = entity.Contact.BCIdCardNumber,
+                        Birthplacecity = entity.Contact.Birthplace,
+                        Birthdate = entity.Contact.BirthDate
                     };
 
                     /* Flatten up the aliases */
                     var aliasId = 1;
                     foreach (var alias in entity.Aliases)
                     {
-                        newWorker[$"Alias{aliasId}surname"] = alias.Surname;
-                        newWorker[$"Alias{aliasId}middlename"] = alias.SecondName;
-                        newWorker[$"Alias{aliasId}firstname"] = alias.GivenName;
+                        newAssociate[$"Alias{aliasId}surname"] = alias.Surname;
+                        newAssociate[$"Alias{aliasId}middlename"] = alias.SecondName;
+                        newAssociate[$"Alias{aliasId}firstname"] = alias.GivenName;
                         aliasId++;
                     }
 
@@ -212,14 +196,14 @@ namespace Gov.Jag.Spice.CarlaSync
                     var addressId = 1;
                     foreach (var address in entity.PreviousAddresses)
                     {
-                        newWorker[$"Previousstreetaddress{addressId}"] = address.AddressStreet1;
-                        newWorker[$"Previouscity{addressId}"] = address.City;
-                        newWorker[$"Previousprovstate{addressId}"] = address.StateProvince;
-                        newWorker[$"Previouscountry{addressId}"] = address.Country;
-                        newWorker[$"Previouspostalcode{addressId}"] = address.Postal;
+                        newAssociate[$"Previousstreetaddress{addressId}"] = address.AddressStreet1;
+                        newAssociate[$"Previouscity{addressId}"] = address.City;
+                        newAssociate[$"Previousprovstate{addressId}"] = address.StateProvince;
+                        newAssociate[$"Previouscountry{addressId}"] = address.Country;
+                        newAssociate[$"Previouspostalcode{addressId}"] = address.Postal;
                         addressId++;
                     }
-                    export.Add(newWorker);
+                    export.Add(newAssociate);
                 }
                 else
                 {

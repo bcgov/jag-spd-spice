@@ -14,12 +14,15 @@ namespace SpdSync.models
         public string CompanyName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string DriversLicenceNumber { get; set; }
+        public string BCIdCardNumber { get; set; }
+        public DateTimeOffset? BirthDate { get; set; }
+        public string Birthplace { get; set; }
+
         [JsonConverter(typeof(StringEnumConverter))]
         public GeneralYesNo SelfDisclosure { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public AdoxioGenderCode Gender { get; set; }
-        public string DriversLicenceNumber { get; set; }
-        public string BCIdCardNumber { get; set; }
 
         public Address Address { get; set; }
     }
