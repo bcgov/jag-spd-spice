@@ -57,6 +57,8 @@ namespace Gov.Jag.Spice.CarlaSync
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
+                c.DescribeAllEnumsAsStrings();
+                c.SchemaFilter<EnumTypeSchemaFilter>();
             });
 
             services.AddIdentity<IdentityUser, IdentityRole>()
@@ -205,7 +207,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {                    
                     log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), Cron.MinuteInterval(15));
+                    RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), cronExpression: Cron.MinuteInterval(15));
                     log.LogInformation("Hangfire Send Export job done.");
 
                 }

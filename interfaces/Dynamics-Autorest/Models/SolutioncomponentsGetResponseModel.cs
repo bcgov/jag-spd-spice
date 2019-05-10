@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// SolutioncomponentsGetResponseModel class.
         /// </summary>
-        public SolutioncomponentsGetResponseModel(IList<MicrosoftDynamicsCRMSolutioncomponent> value = default(IList<MicrosoftDynamicsCRMSolutioncomponent>))
+        public SolutioncomponentsGetResponseModel(IList<MicrosoftDynamicsCRMsolutioncomponent> value = default(IList<MicrosoftDynamicsCRMsolutioncomponent>))
         {
             Value = value;
             CustomInit();
@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<MicrosoftDynamicsCRMSolutioncomponent> Value { get; set; }
+        public IList<MicrosoftDynamicsCRMsolutioncomponent> Value { get; set; }
 
     }
 }

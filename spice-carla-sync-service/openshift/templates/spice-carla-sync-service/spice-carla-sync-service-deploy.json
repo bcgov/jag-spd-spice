@@ -112,10 +112,14 @@
                     "name": "ENABLE_HANGFIRE_JOBS",
                     "value": ""
                   },
-				  {
+                  {
                     "name": "SHAREPOINT_ODATA_URI",
                     "value": ""
-                  }			                    
+                  },
+                  {
+                    "name": "SPD_EXPORT_EMAIL",
+                    "value": "${SPD_EXPORT_EMAIL}"
+                  }	
                 ],
                 "resources": {
                   "limits": {
@@ -245,7 +249,7 @@
       "displayName": "Memory Request",
       "description": "Starting amount of memory the container can use.",
       "value": "512Mi"
-    },   
+    },
     {
       "description": "Field for a test email.",
       "displayName": "Test Email",
@@ -257,7 +261,7 @@
       "name": "SMTP_HOST",
       "required": true,
       "value": "apps.smtp.gov.bc.ca"
-    },    
+    },
     {
       "description": "Username for SSG, e.g., clb_uat, if left blank a value will be defaulted.",
       "displayName": "SSG Username",
@@ -270,7 +274,7 @@
       "displayName": "SSG Password",
       "name": "SSG_PASSWORD",
       "required": true,
-	  "value": " "
+      "value": " "
     },
     {
       "description": "URI for Dynamics OData, e.g., https://lclbcannabisdev.crm3.dynamics.com/api/data/v8.2/, if left blank a value will be defaulted.",
@@ -279,47 +283,54 @@
       "required": true,
       "value": "https://lclbcannabisdev.crm3.dynamics.com/api/data/v8.2/"
     },
-	{
-		"description": "ADFS Dynamics Client Key (Property of an application user)",
-		"displayName": "DYNAMICS CLIENT KEY",
-		"name": "DYNAMICS_CLIENT_KEY",
-		"required": true,
-		"value": "CHANGEME"
-	},
-	{
-		"description": "ADFS Dynamics Tenant ID",
-		"displayName": "DYNAMICS AAD TENANT ID",
-		"name": "DYNAMICS_AAD_TENANT_ID",
-		"required": true,
-        "value": "CHANGEME"
-	},
-	{
-		"description": "ADFS Dynamics Client ID",
-		"displayName": "DYNAMICS CLIENT ID",
-		"name": "DYNAMICS_CLIENT_ID",
-		"required": true,
-        "value": "CHANGEME"
+    {
+      "description": "ADFS Dynamics Client Key (Property of an application user)",
+      "displayName": "DYNAMICS CLIENT KEY",
+      "name": "DYNAMICS_CLIENT_KEY",
+      "required": true,
+      "value": "CHANGEME"
     },
     {
-		"description": "String used to identify the issuer.  Usually a URL to a website.",
-		"displayName": "JWT VALID ISSUER",
-        "name": "JWT_VALID_ISSUER",
-		"required": true,
-        "value": "CHANGEME"
+      "description": "ADFS Dynamics Tenant ID",
+      "displayName": "DYNAMICS AAD TENANT ID",
+      "name": "DYNAMICS_AAD_TENANT_ID",
+      "required": true,
+      "value": "CHANGEME"
     },
     {
-		"description": "String used to identify the audience.",
-		"displayName": "JWT VALID AUDIENCE",
-        "name": "JWT_VALID_AUDIENCE",
-		"required": true,
-        "value": "CHANGEME"
+      "description": "ADFS Dynamics Client ID",
+      "displayName": "DYNAMICS CLIENT ID",
+      "name": "DYNAMICS_CLIENT_ID",
+      "required": true,
+      "value": "CHANGEME"
     },
     {
-		"description": "Secret/Key used to generate tokens.  Can be any text string, including the text form of a GUID.",
-		"displayName": "JWT Token Key",
-		"name": "JWT_TOKEN_KEY",
-		"required": true,
-		"value": "CHANGEME"
+      "description": "String used to identify the issuer.  Usually a URL to a website.",
+      "displayName": "JWT VALID ISSUER",
+      "name": "JWT_VALID_ISSUER",
+      "required": true,
+      "value": "CHANGEME"
+    },
+    {
+      "description": "String used to identify the audience.",
+      "displayName": "JWT VALID AUDIENCE",
+      "name": "JWT_VALID_AUDIENCE",
+      "required": true,
+      "value": "CHANGEME"
+    },
+    {
+      "description": "Secret/Key used to generate tokens.  Can be any text string, including the text form of a GUID.",
+      "displayName": "JWT Token Key",
+      "name": "JWT_TOKEN_KEY",
+      "required": true,
+      "value": "CHANGEME"
+    },
+    {
+      "description": "Email address used for legacy exports",
+      "displayName": "SPD_EXPORT_EMAIL",
+      "name": "SPD_EXPORT_EMAIL",
+      "required": true,
+      "value": "CHANGEME"
     }
   ]
 }
