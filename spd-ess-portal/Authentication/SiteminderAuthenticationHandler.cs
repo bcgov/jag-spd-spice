@@ -409,7 +409,7 @@ namespace Gov.Jag.Spice.Public.Authentication
 
                 _logger.LogDebug("Loading user external id = " + siteMinderGuid);
 
-                if (_dynamicsClient)
+                
                 userSettings.AuthenticatedUser = await _dynamicsClient.LoadUser(siteMinderGuid, context.Request.Headers, _logger);
                 _logger.LogDebug("After getting authenticated user = " + userSettings.GetJson());
 
