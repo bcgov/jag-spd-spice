@@ -21,7 +21,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     new
                     {
                         name = typeInfo.Name,
-                        modelAsString = false
+                        modelAsString = true
                     });
             }
         }
