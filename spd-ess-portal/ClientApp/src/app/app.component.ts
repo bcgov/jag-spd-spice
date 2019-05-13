@@ -1,17 +1,11 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 import { UserDataService } from './services/user-data.service';
 import { User } from './models/user.model';
-import { isDevMode } from '@angular/core';
-import { LegalEntityDataService } from './services/legal-entity-data.service';
-import { LegalEntity } from './models/legal-entity.model';
 import { Store } from '@ngrx/store';
 import { AppState } from './app-state/models/app-state';
-import { Observable } from '../../node_modules/rxjs';
 import * as CurrentUserActions from './app-state/actions/current-user.action';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,23 +13,15 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  businessProfiles: LegalEntity[];
-  title = '';
   previousUrl: string;
   public currentUser: User;
-  public isNewUser: boolean;
-  public isDevMode: boolean;
-  isAssociate = false;
-
 
   constructor(
     private renderer: Renderer2,
     private router: Router,
     private userDataService: UserDataService,
-    private store: Store<AppState>,
-    private adoxioLegalEntityDataService: LegalEntityDataService
+    private store: Store<AppState>
   ) {
-    this.isDevMode = isDevMode();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const prevSlug = this.previousUrl;
@@ -54,29 +40,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadUser();
-
-    this.store.select(state => state.legalEntitiesState)
-      .pipe(filter(state => !!state))
-      .subscribe(state => {
-        this.businessProfiles = state.legalEntities;
-      });
-
   }
 
   reloadUser() {
     this.userDataService.getCurrentUser()
       .subscribe((data: User) => {
         this.currentUser = data;
-        this.isNewUser = this.currentUser.isNewUser;
-
         this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(data));
-        // this.isAssociate = (this.currentUser.businessname == null);
-        // if (!this.isAssociate) {
-        //   this.adoxioLegalEntityDataService.getBusinessProfileSummary().subscribe(
-        //     res => {
-        //       this.businessProfiles = res;
-        //     });
-        // }
       });
   }
 
