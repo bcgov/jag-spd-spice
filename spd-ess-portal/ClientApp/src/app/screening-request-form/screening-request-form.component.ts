@@ -8,10 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
-import { ScreeningRequestDataService } from '../services/screening-request-data.service';
 
 import { User } from '../models/user.model';
-import { UserDataService } from '../services/user-data.service';
+import { Ministry } from '../models/ministry.model';
+import { ProgramArea } from '../models/program-area.model';
+import { ScreeningType } from '../models/screening-type.model';
+import { ScreeningReason } from '../models/screening-reason.model';
 
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -44,6 +46,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
   currentScreeningRequest: ScreeningRequest; // TODO: remove from here, add to confirm page
   form: FormGroup;
   currentUser: User;
+  ministryScreeningTypes: Ministry[];
+  screeningReasons: ScreeningReason[];
 
   loaded = false;
   maxDate = new Date();
@@ -52,8 +56,6 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private screeningRequestDataService: ScreeningRequestDataService,
-    private userDataService: UserDataService,
   ) {
     super();
   }
@@ -77,17 +79,26 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
     });
 
     this.setOtherReasonValidator();
-    
-    // initialize form values from store
-    this.store.select(state => state.currentScreeningRequestState).pipe(
+
+    this.store.select(state => state).pipe(
       filter(state => !!state))
       .subscribe(state => {
-        if (state.currentScreeningRequest) {
-          this.form.setValue(state.currentScreeningRequest);
+        // retrieve current user from store
+        this.currentUser = state.currentUserState.currentUser;
+
+        // retrieve dropdown data from store
+        this.ministryScreeningTypes = state.ministryScreeningTypesState.ministryScreeningTypes;
+        this.screeningReasons = state.screeningReasonsState.screeningReasons;
+
+        // initialize form values from store
+        if (state.currentScreeningRequestState.currentScreeningRequest) {
+          this.form.setValue(state.currentScreeningRequestState.currentScreeningRequest);
+        }
+
+        if (this.currentUser && this.ministryScreeningTypes && this.screeningReasons) {
+          this.loaded = true;
         }
       });
-
-    this.getCurrentUser();
   }
 
   setOtherReasonValidator() {
@@ -102,13 +113,6 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
         }
 
         otherReasonControl.updateValueAndValidity();
-      });
-  }
-
-  getCurrentUser() {
-    this.userDataService.getCurrentUser()
-      .subscribe((data: User) => {
-        this.currentUser = data;
       });
   }
 

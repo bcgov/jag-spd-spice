@@ -1,11 +1,15 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
+import { ScreeningRequestDataService } from './services/screening-request-data.service';
 import { UserDataService } from './services/user-data.service';
 import { User } from './models/user.model';
 import { Store } from '@ngrx/store';
+import { Subscription, forkJoin } from 'rxjs';
 import { AppState } from './app-state/models/app-state';
 import * as CurrentUserActions from './app-state/actions/current-user.action';
+import * as MinistryScreeningTypesActions from './app-state/actions/ministry-screening-types.action';
+import * as ScreeningReasonsActions from './app-state/actions/screening-reasons.action';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +20,12 @@ export class AppComponent implements OnInit {
   previousUrl: string;
   public currentUser: User;
 
+  busy: Subscription;
+
   constructor(
     private renderer: Renderer2,
     private router: Router,
+    private screeningRequestDataService: ScreeningRequestDataService,
     private userDataService: UserDataService,
     private store: Store<AppState>
   ) {
@@ -39,14 +46,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reloadUser();
-  }
-
-  reloadUser() {
-    this.userDataService.getCurrentUser()
-      .subscribe((data: User) => {
-        this.currentUser = data;
-        this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(data));
+    this.busy = forkJoin(
+        this.userDataService.getCurrentUser(),
+        this.screeningRequestDataService.getMinistryScreeningTypes(),
+        this.screeningRequestDataService.getScreeningReasons())
+      .subscribe(([ user, ministryScreeningTypes, screeningReasons ]) => {
+        this.currentUser = user;
+        this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
+        this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
+        this.store.dispatch(new ScreeningReasonsActions.SetScreeningReasonsAction(screeningReasons));
       });
   }
 
