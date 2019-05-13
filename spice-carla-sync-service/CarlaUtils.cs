@@ -175,7 +175,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         Addresscountry = entity.Contact.Address.Country,
                         Addresspostalcode = entity.Contact.Address.Postal,
                         Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString(),
-                        Gendermf = ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
+                        Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
                         Driverslicence = entity.Contact.DriversLicenceNumber,
                         Bcidentificationcardnumber = entity.Contact.BCIdCardNumber,
                         Birthplacecity = entity.Contact.Birthplace,
