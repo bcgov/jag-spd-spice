@@ -3,6 +3,8 @@ import { DynamicsAccount } from '../../models/dynamics-account.model';
 import { Application } from '../../models/application.model';
 import { User } from '../../models/user.model';
 import { ScreeningRequest } from '../../models/screening-request.model';
+import { Ministry } from '../../models/ministry.model';
+import { ScreeningReason } from '../../models/screening-reason.model';
 
 export interface AppState {
     legalEntitiesState: LegalEntitiesState;
@@ -12,6 +14,8 @@ export interface AppState {
     currentLegalEntityState: CurrentLegalEntityState;
     currentUserState: CurrentUserState;
     currentScreeningRequestState: CurrentScreeningRequestState;
+    ministryScreeningTypesState: MinistryScreeningTypesState;
+    screeningReasonsState: ScreeningReasonsState;
 }
 
 export interface LegalEntitiesState {
@@ -40,4 +44,12 @@ export interface CurrentLegalEntityState {
 
 export interface CurrentScreeningRequestState {
     currentScreeningRequest: ScreeningRequest;
+}
+
+export interface MinistryScreeningTypesState {
+    ministryScreeningTypes: Ministry[];
+}
+
+export interface ScreeningReasonsState {
+    screeningReasons: ScreeningReason[];
 }

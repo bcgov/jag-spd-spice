@@ -8,6 +8,8 @@ import * as applicationsStateReducer from './applications-reducer';
 import * as currentApplicationStateReducer from './current-application-reducer';
 import * as currentUserStateReducer from './current-user-reducer';
 import * as currentScreeningRequestStateReducer from './current-screening-request-reducer';
+import * as ministryScreeningTypesReducer from './ministry-screening-types-reducer';
+import * as screeningReasonsReducer from './screening-reasons-reducer';
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production
     ? [logger]
@@ -20,7 +22,9 @@ export const reducers: ActionReducerMap<AppState> = {
     applicationsState:  applicationsStateReducer.reducer,
     currentApplicaitonState: currentApplicationStateReducer.reducer,
     currentUserState: currentUserStateReducer.reducer,
-    currentScreeningRequestState: currentScreeningRequestStateReducer.reducer
+    currentScreeningRequestState: currentScreeningRequestStateReducer.reducer,
+    ministryScreeningTypesState: ministryScreeningTypesReducer.reducer,
+    screeningReasonsState: screeningReasonsReducer.reducer
 };
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
