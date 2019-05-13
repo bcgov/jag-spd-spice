@@ -306,8 +306,8 @@ namespace Gov.Jag.Spice.Public
                 }
             });
 
-            
-
+            // Static files that should only be accessible to the server can be placed in the App_Data folder
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(env.ContentRootPath, "App_Data"));
         }
 
         
