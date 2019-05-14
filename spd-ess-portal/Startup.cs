@@ -246,7 +246,7 @@ namespace Gov.Jag.Spice.Public
             }
             else
             {
-                app.UsePathBase("/spd-ess");
+                app.UsePathBase("/spdess");
             }
             if (!env.IsProduction())
             {
