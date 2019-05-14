@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\interfaces\Dynamics-Autorest\DynamicsAutorest.csproj" />
+    <ProjectReference Include="..\interfaces\CARLA\CarlaClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>

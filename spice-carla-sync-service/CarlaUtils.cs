@@ -1,20 +1,22 @@
 ﻿using CsvHelper;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
+using Gov.Lclb.Cllb.Interfaces;
+using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
 using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using SpdSync;
+using Microsoft.Rest;
 using SpdSync.models;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.CarlaSync
 {
@@ -24,12 +26,24 @@ namespace Gov.Jag.Spice.CarlaSync
 
         private IConfiguration Configuration { get; }
         private IDynamicsClient _dynamics;
+        public ICarlaClient CarlaClient;
+
 
         public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory)
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(SpdUtils));
             _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+
+            // TODO - move this into a seperate routine.
+
+            string carlaURI = Configuration["CARLA_URI"];
+            string token = Configuration["CARLA_JWT_TOKEN"];
+
+            // create JWT credentials
+            TokenCredentials credentials = new TokenCredentials(token);
+
+            CarlaClient = new CarlaClient(new Uri(carlaURI), credentials);
         }
 
         /// <summary>
@@ -392,6 +406,13 @@ namespace Gov.Jag.Spice.CarlaSync
 
             }
             return emailSentSuccessfully;
+        }
+
+        public async Task<bool> SendApplicationScreeningResult(List<ApplicationScreeningResponse> responses)
+        {
+            var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
+
+            return result.Response.StatusCode.ToString() == "Ok";
         }
 
         /// <summary>
