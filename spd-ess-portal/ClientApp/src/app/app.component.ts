@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   public currentUser: User;
 
   busy: Subscription;
+  error = false;
 
   constructor(
     private renderer: Renderer2,
@@ -55,6 +56,8 @@ export class AppComponent implements OnInit {
         this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
         this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
         this.store.dispatch(new ScreeningReasonsActions.SetScreeningReasonsAction(screeningReasons));
+      }, error => {
+        this.error = error;
       });
   }
 
