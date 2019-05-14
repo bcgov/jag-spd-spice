@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="loaded">
   <h1>Screening Request Form</h1>
   <p>
     Please review the information entered before submitting.
@@ -13,19 +13,19 @@
       <tbody>
         <tr>
           <td>Client Ministry</td>
-          <td><label>{{screeningRequest.clientMinistry}}</label></td>
+          <td><label>{{getMinistryName()}}</label></td>
         </tr>
         <tr>
           <td>Program Area</td>
-          <td><label>{{screeningRequest.programArea}}</label></td>
+          <td><label>{{getProgramAreaName()}}</label></td>
         </tr>
         <tr>
           <td>Screening Type</td>
-          <td><label>{{screeningRequest.screeningType}}</label></td>
+          <td><label>{{getScreeningTypeName()}}</label></td>
         </tr>
         <tr>
           <td>Reason for Screening</td>
-          <td><label>{{screeningRequest.reason}}</label></td>
+          <td><label>{{getScreeningReasonName()}}</label></td>
         </tr>
         <tr *ngIf="screeningRequest.reason === 'other'">
           <td>Other Reason for Screening</td>
