@@ -18,7 +18,8 @@
             "progress": true,
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "node_modules/ng-busy/src/style/busy.css",
@@ -80,7 +81,8 @@
               "src/styles.scss"
             ],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ]
           }
         },
