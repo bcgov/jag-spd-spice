@@ -57,8 +57,6 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
                 return BadRequest();
             }
             result.RecordIdentifier = applicationId;
-            result.DateProcessed = DateTimeOffset.Now;
-            result.ExpiryDate = DateTimeOffset.Now.AddYears(1);
 
             List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
             {
