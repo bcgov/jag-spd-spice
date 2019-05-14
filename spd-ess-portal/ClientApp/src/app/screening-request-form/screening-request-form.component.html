@@ -54,7 +54,7 @@
       <app-field *ngIf="form.get('reason').value === 'other'" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('otherReason').valid || !form.get('otherReason').touched"
         errorMessage="Please enter a reason for the screening" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="otherReason">
+        <input class="form-control" type="text" formControlName="otherReason" autocomplete="off">
       </app-field>
     </div>
   </section>
@@ -68,17 +68,17 @@
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate First Name" [required]="true" [showChevrons]="false"
         [valid]="form.get('candidateFirstName').valid || !form.get('candidateFirstName').touched"
         errorMessage="Please provide the candidate's first name" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="candidateFirstName">
+        <input class="form-control" type="text" formControlName="candidateFirstName" autocomplete="off">
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Middle Name" [required]="false" [showChevrons]="false" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="candidateMiddleName">
+        <input class="form-control" type="text" formControlName="candidateMiddleName" autocomplete="off">
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Last Name" [required]="true" [showChevrons]="false"
         [valid]="form.get('candidateLastName').valid || !form.get('candidateLastName').touched"
         errorMessage="Please provide the candidate's last name" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="candidateLastName">
+        <input class="form-control" type="text" formControlName="candidateLastName" autocomplete="off">
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Date of Birth" [required]="true" [showChevrons]="false"
@@ -86,20 +86,20 @@
         errorMessage="Please provide the candidate's date of birth" [isFullWidth]="true">
         <input type="text" formControlName='candidateDateOfBirth'
           style="width: 200px; background-color: #fff;" placeholder="yyyy-mm-dd" class="form-control"
-          [max]="maxDate" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
+          [max]="maxDate" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()" autocomplete="off">
         <mat-datepicker #picker></mat-datepicker>
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false"
         [valid]="form.get('candidateEmail').valid || !form.get('candidateEmail').touched"
         errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="candidateEmail">
+        <input class="form-control" type="text" formControlName="candidateEmail" autocomplete="off">
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Title of Position Candidate Will Be Screened For" [required]="true" [showChevrons]="false"
         [valid]="form.get('candidatePosition').valid || !form.get('candidatePosition').touched"
         errorMessage="Please enter the title of the position the candidate is being screened for" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="candidatePosition">
+        <input class="form-control" type="text" formControlName="candidatePosition" autocomplete="off">
       </app-field>
     </div>
   </section>
@@ -113,13 +113,13 @@
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Results To" [required]="true" [showChevrons]="false"
         [valid]="form.get('contactName').valid || !form.get('contactName').touched"
         errorMessage="Please enter a name for the recipient of the results" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="contactName">
+        <input class="form-control" type="text" formControlName="contactName" autocomplete="off">
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Email Address" [required]="true" [showChevrons]="false"
         [valid]="form.get('contactEmail').valid || !form.get('contactEmail').touched"
         errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
-        <input class="form-control" type="text" formControlName="contactEmail">
+        <input class="form-control" type="text" formControlName="contactEmail" autocomplete="off">
       </app-field>
     </div>
   </section>
