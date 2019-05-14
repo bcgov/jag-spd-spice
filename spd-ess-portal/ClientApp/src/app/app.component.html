@@ -28,7 +28,11 @@
 
   <main class="app-content">
     <div class="app-main">
-      <router-outlet></router-outlet>
+      <div *ngIf="error" class="text-center">
+        <h1>Site Error</h1>
+        <p>{{error}}</p>
+      </div>
+      <router-outlet *ngIf="!error"></router-outlet>
     </div>
   </main>
 
