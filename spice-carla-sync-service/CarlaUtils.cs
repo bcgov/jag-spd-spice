@@ -1,19 +1,22 @@
 ﻿using CsvHelper;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
+using Gov.Lclb.Cllb.Interfaces;
+using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
 using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using SpdSync;
+using Microsoft.Rest;
 using SpdSync.models;
+using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.CarlaSync
 {
@@ -23,12 +26,24 @@ namespace Gov.Jag.Spice.CarlaSync
 
         private IConfiguration Configuration { get; }
         private IDynamicsClient _dynamics;
+        public ICarlaClient CarlaClient;
+
 
         public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory)
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(SpdUtils));
             _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+
+            // TODO - move this into a seperate routine.
+
+            string carlaURI = Configuration["CARLA_URI"];
+            string token = Configuration["CARLA_JWT_TOKEN"];
+
+            // create JWT credentials
+            TokenCredentials credentials = new TokenCredentials(token);
+
+            CarlaClient = new CarlaClient(new Uri(carlaURI), credentials);
         }
 
         /// <summary>
@@ -174,12 +189,12 @@ namespace Gov.Jag.Spice.CarlaSync
                         Addressprovstate = entity.Contact.Address.StateProvince,
                         Addresscountry = entity.Contact.Address.Country,
                         Addresspostalcode = entity.Contact.Address.Postal,
-                        Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString(),
+                        Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString().Substring(0, 1),
                         Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
                         Driverslicence = entity.Contact.DriversLicenceNumber,
                         Bcidentificationcardnumber = entity.Contact.BCIdCardNumber,
                         Birthplacecity = entity.Contact.Birthplace,
-                        Birthdate = entity.Contact.BirthDate
+                        Birthdate = $"{entity.Contact.BirthDate:yyyy-MM-dd}"
                     };
 
                     /* Flatten up the aliases */
@@ -257,15 +272,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
                 {
                     Lcrbworkerjobid = workerRequest.RecordIdentifier,
-                    
-
-                    Birthdate = workerRequest.BirthDate,
-                    
+                    Birthdate = $"{workerRequest.BirthDate:yyyy-MM-dd}",
                     Birthplacecity = workerRequest.Birthplace,
                     Driverslicence = workerRequest.DriversLicence,
                     Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
-                    
-                    
                 };
                 //Selfdisclosure = workerRequest.SelfDisclosure,
                 //Gendermf = workerRequest.Gender,
@@ -332,6 +342,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             using (var csv = new CsvWriter(sw))
             {
+                csv.Configuration.RegisterClassMap<CsvAssociateExportMap>();
                 csv.WriteRecords(associates);
             }
 
@@ -350,6 +361,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             using (var csv = new CsvWriter(sw))
             {
+                csv.Configuration.RegisterClassMap<CsvBusinessExportMap>();
                 csv.WriteRecords(businesses);
             }
 
@@ -394,6 +406,13 @@ namespace Gov.Jag.Spice.CarlaSync
 
             }
             return emailSentSuccessfully;
+        }
+
+        public async Task<bool> SendApplicationScreeningResult(List<ApplicationScreeningResponse> responses)
+        {
+            var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
+
+            return result.Response.StatusCode.ToString() == "Ok";
         }
 
         /// <summary>

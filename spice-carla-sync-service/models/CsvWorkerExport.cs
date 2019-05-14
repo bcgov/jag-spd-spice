@@ -19,7 +19,7 @@ namespace SpiceCarlaSync.models
             public string Legalsurname { get; set; }
             public string Legalfirstname { get; set; }
             public string Legalmiddlename { get; set; }
-            public DateTimeOffset? Birthdate { get; set; }
+            public string Birthdate { get; set; }
             public string Gendermf { get; set; }
             public string Birthplacecity { get; set; }
             public string Driverslicence { get; set; }

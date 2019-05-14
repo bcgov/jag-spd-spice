@@ -6,6 +6,11 @@ using Microsoft.Extensions.Logging;
 using SpdSync;
 using System.Collections.Generic;
 using SpdSync.models;
+using System.IO;
+using System.Text;
+using Newtonsoft.Json;
+using Gov.Lclb.Cllb.Interfaces.Models;
+using System;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -44,11 +49,25 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("send/{applicationId}")]
-        public ActionResult SendApplicationScreeningResponse(string applicationId)
+        public ActionResult SendApplicationScreeningResponse([FromBody] ApplicationScreeningResponse result, string applicationId)
         {
-            // Process the updates received from the SPICE system.
-            //BackgroundJob.Enqueue(() => new SpiceUtils(Configuration, _loggerFactory).ReceiveImportJob(null, responses));
-            _logger.LogInformation("Started send Application Screening result job");
+            result.Result = result.Result.ToUpper();
+            if (result.Result != "PASS" && result.Result != "FAIL")
+            {
+                return BadRequest();
+            }
+            result.RecordIdentifier = applicationId;
+            result.DateProcessed = DateTimeOffset.Now;
+            result.ExpiryDate = DateTimeOffset.Now.AddYears(1);
+
+            List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
+            {
+                result
+            };
+
+            //Send the result to CARLA
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).SendApplicationScreeningResult(payload));
+            _logger.LogInformation($"Started send Application Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }
 
