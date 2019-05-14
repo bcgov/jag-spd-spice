@@ -59,9 +59,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// </param>
             /// <param name='applicationId'>
             /// </param>
-            public static void SendApplicationScreeningResponse(this ICarlaClient operations, string applicationId)
+            public static void SendApplicationScreeningRequest(this ICarlaClient operations, string applicationId)
             {
-                operations.SendApplicationScreeningResponseAsync(applicationId).GetAwaiter().GetResult();
+                operations.SendApplicationScreeningRequestAsync(applicationId).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -72,9 +72,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SendApplicationScreeningResponseAsync(this ICarlaClient operations, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task SendApplicationScreeningRequestAsync(this ICarlaClient operations, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SendApplicationScreeningResponseWithHttpMessagesAsync(applicationId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <param name='operations'>
@@ -85,9 +85,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse SendApplicationScreeningResponseWithHttpMessages(this ICarlaClient operations, string applicationId, Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse SendApplicationScreeningRequestWithHttpMessages(this ICarlaClient operations, string applicationId, Dictionary<string, List<string>> customHeaders = null)
             {
-                return operations.SendApplicationScreeningResponseWithHttpMessagesAsync(applicationId, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+                return operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationId, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
