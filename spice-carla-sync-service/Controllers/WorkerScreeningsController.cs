@@ -7,6 +7,7 @@ using SpdSync;
 using System.Collections.Generic;
 using SpdSync.models;
 using Newtonsoft.Json;
+using System;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -48,11 +49,24 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("send/{workerId}")]
-        public ActionResult SendWorkerScreeningResults(string workerId )
+        public ActionResult SendWorkerScreeningResults([FromBody] Gov.Lclb.Cllb.Interfaces.Models.WorkerScreeningResponse result, string workerId )
         {
-            // Process the updates received from the SPICE system.
-            //BackgroundJob.Enqueue(() => new SpiceUtils(Configuration, _loggerFactory).ReceiveImportJob(null, responses));
-            _logger.LogInformation("Started SendWorkerScreening job");
+            result.Result = result.Result.ToUpper();
+            if (result.Result != "PASS" && result.Result != "FAIL")
+            {
+                return BadRequest();
+            }
+            result.RecordIdentifier = workerId;
+            result.DateProcessed = DateTimeOffset.Now;            
+
+            List<Gov.Lclb.Cllb.Interfaces.Models.WorkerScreeningResponse> payload = new List<Gov.Lclb.Cllb.Interfaces.Models.WorkerScreeningResponse>()
+            {
+                result
+            };
+
+            //Send the result to CARLA
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).SendWorkerScreeningResult(payload));
+            _logger.LogInformation($"Started send Worker Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }
 
