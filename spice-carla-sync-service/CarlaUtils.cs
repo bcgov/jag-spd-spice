@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpdSync;
 using SpdSync.models;
+using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using System;
 using System.Collections.Generic;
@@ -174,12 +175,12 @@ namespace Gov.Jag.Spice.CarlaSync
                         Addressprovstate = entity.Contact.Address.StateProvince,
                         Addresscountry = entity.Contact.Address.Country,
                         Addresspostalcode = entity.Contact.Address.Postal,
-                        Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString(),
+                        Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString().Substring(0, 1),
                         Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
                         Driverslicence = entity.Contact.DriversLicenceNumber,
                         Bcidentificationcardnumber = entity.Contact.BCIdCardNumber,
                         Birthplacecity = entity.Contact.Birthplace,
-                        Birthdate = entity.Contact.BirthDate
+                        Birthdate = $"{entity.Contact.BirthDate:yyyy-MM-dd}"
                     };
 
                     /* Flatten up the aliases */
@@ -257,15 +258,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
                 {
                     Lcrbworkerjobid = workerRequest.RecordIdentifier,
-                    
-
-                    Birthdate = workerRequest.BirthDate,
-                    
+                    Birthdate = $"{workerRequest.BirthDate:yyyy-MM-dd}",
                     Birthplacecity = workerRequest.Birthplace,
                     Driverslicence = workerRequest.DriversLicence,
                     Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
-                    
-                    
                 };
                 //Selfdisclosure = workerRequest.SelfDisclosure,
                 //Gendermf = workerRequest.Gender,
@@ -332,6 +328,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             using (var csv = new CsvWriter(sw))
             {
+                csv.Configuration.RegisterClassMap<CsvAssociateExportMap>();
                 csv.WriteRecords(associates);
             }
 
@@ -350,6 +347,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             using (var csv = new CsvWriter(sw))
             {
+                csv.Configuration.RegisterClassMap<CsvBusinessExportMap>();
                 csv.WriteRecords(businesses);
             }
 
