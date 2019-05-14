@@ -132,11 +132,7 @@ namespace Gov.Jag.Spice.Public.Controllers
 
             string basePath = string.IsNullOrEmpty(Configuration["BASE_PATH"]) ? "" : Configuration["BASE_PATH"];
 
-            string url = "dashboard";
-
-            basePath += "/" + url;
-
-            return Redirect(basePath);
+            return Redirect(basePath + "/");
         }
 
     }
