@@ -116,6 +116,26 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       });
   }
 
+  getProgramAreas() {
+    const selectedMinistry = this.form.get('clientMinistry').value;
+    const results = this.ministryScreeningTypes.filter(m => m.value === selectedMinistry);
+    if (results.length === 0) {
+      return [];
+    } else {
+      return results[0].programAreas;
+    }
+  }
+
+  getScreeningTypes() {
+    const selectedProgram = this.form.get('programArea').value;
+    const results = this.getProgramAreas().filter(m => m.value === selectedProgram);
+    if (results.length === 0) {
+      return [];
+    } else {
+      return results[0].screeningTypes;
+    }
+  }
+
   gotoReview() {
     if (this.form.valid) {
       const value = <ScreeningRequest>{
@@ -139,5 +159,14 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
         screeningRequestControls[c].markAsTouched();
       }
     }
+  }
+
+  onMinistryChange() {
+    this.form.get('programArea').setValue('');
+    this.form.get('screeningType').setValue('');
+  }
+
+  onProgramAreaChange() {
+    this.form.get('screeningType').setValue('');
   }
 }
