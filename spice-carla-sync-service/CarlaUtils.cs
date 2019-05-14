@@ -415,6 +415,13 @@ namespace Gov.Jag.Spice.CarlaSync
             return result.Response.StatusCode.ToString() == "Ok";
         }
 
+        public async Task<bool> SendWorkerScreeningResult(List<Gov.Lclb.Cllb.Interfaces.Models.WorkerScreeningResponse> responses)
+        {
+            var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
+
+            return result.Response.StatusCode.ToString() == "Ok";
+        }
+
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
