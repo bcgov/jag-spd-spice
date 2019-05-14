@@ -15,7 +15,7 @@
       Provide details for the type of Enhanced Security Screening (ESS) required for the Candidate. For more information, refer to your Letter of Agreement (LOA).
     </p>
     <div class="row">
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Client Ministry" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-6 col-xs-12" label="Client Ministry" [required]="true" [showChevrons]="false"
         [valid]="form.get('clientMinistry').valid || !form.get('clientMinistry').touched"
         errorMessage="Please select a client ministry" [isFullWidth]="true">
         <select class="form-control" formControlName="clientMinistry" (change)="onMinistryChange()">
@@ -24,7 +24,7 @@
         </select>
       </app-field>
       
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Program Area" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-6 col-xs-12" label="Program Area" [required]="true" [showChevrons]="false"
         [valid]="form.get('programArea').valid || !form.get('programArea').touched"
         errorMessage="Please select a program area" [isFullWidth]="true">
         <select class="form-control" formControlName="programArea" (change)="onProgramAreaChange()">
@@ -33,7 +33,7 @@
         </select>
       </app-field>
       
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Screening Type" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-6 col-xs-12" label="Screening Type" [required]="true" [showChevrons]="false"
         [valid]="form.get('screeningType').valid || !form.get('screeningType').touched"
         errorMessage="Please select a screening type" [isFullWidth]="true">
         <select class="form-control" formControlName="screeningType">
@@ -42,7 +42,7 @@
         </select>
       </app-field>
       
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Reason for Screening" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-6 col-xs-12" label="Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('reason').valid || !form.get('reason').touched"
         errorMessage="Please select a reason for the screening" [isFullWidth]="true">
         <select class="form-control" formControlName="reason">
@@ -51,7 +51,7 @@
         </select>
       </app-field>
 
-      <app-field *ngIf="form.get('reason').value === 'other'" class="col-lg-4 col-md-6 col-xs-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
+      <app-field *ngIf="form.get('reason').value === 'other'" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('otherReason').valid || !form.get('otherReason').touched"
         errorMessage="Please enter a reason for the screening" [isFullWidth]="true">
         <input class="form-control" type="text" formControlName="otherReason">
