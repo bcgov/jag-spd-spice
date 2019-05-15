@@ -15,19 +15,17 @@ import { ProgramArea } from '../models/program-area.model';
 import { ScreeningType } from '../models/screening-type.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { StrictMomentDateAdapter } from '../strict-moment-date-adapter/strict-moment-date-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import * as _moment from 'moment';
-// tslint:disable-next-line:no-duplicate-imports
-import { defaultFormat as _rollupMoment } from 'moment';
+import * as moment from 'moment';
+import { Moment } from 'moment';
 import { FormBase } from '../shared/form-base';
-const moment = _rollupMoment || _moment;
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'LL',
+    dateInput: 'YYYY-MM-DD',
   },
   display: {
     dateInput: 'YYYY-MM-DD',
@@ -40,17 +38,23 @@ export const MY_FORMATS = {
 @Component({
   selector: 'app-screening-request-form',
   templateUrl: './screening-request-form.component.html',
-  styleUrls: ['./screening-request-form.component.scss']
+  styleUrls: ['./screening-request-form.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: StrictMomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ]
 })
 export class ScreeningRequestFormComponent extends FormBase implements OnInit {
   currentScreeningRequest: ScreeningRequest; // TODO: remove from here, add to confirm page
   form: FormGroup;
+  minDate: Moment;
+  maxDate: Moment;
+  startDate: Moment;
   currentUser: User;
   ministryScreeningTypes: Ministry[];
   screeningReasons: ScreeningReason[];
 
   loaded = false;
-  maxDate = new Date();
 
   constructor(private store: Store<AppState>,
     private router: Router,
@@ -61,6 +65,10 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
   }
 
   ngOnInit() {
+    this.minDate = moment().startOf('day').subtract(100, 'years');
+    this.maxDate = moment().startOf('day').subtract(10, 'years');
+    this.startDate = moment().startOf('day').subtract(18, 'years');
+
     this.form = this.fb.group({
       clientMinistry: ['', Validators.required],
       programArea: ['', Validators.required],
@@ -70,7 +78,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       candidateFirstName: ['', Validators.required],
       candidateMiddleName: [''],
       candidateLastName: ['', Validators.required],
-      candidateDateOfBirth: ['', Validators.required],
+      candidateDateOfBirth: ['', [Validators.required, this.dateRangeValidator(this.minDate, this.maxDate)]],
       candidateEmail: ['', [Validators.required, Validators.email]],
       candidatePosition: ['', Validators.required],
       contactName: ['', Validators.required],
@@ -114,6 +122,26 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
         otherReasonControl.updateValueAndValidity();
       });
+  }
+
+  getCandidateDateOfBirthValidity() {
+    return this.getCandidateDateOfBirthErrorMessage() === '';
+  }
+
+  getCandidateDateOfBirthErrorMessage() {
+    let control = this.form.get('candidateDateOfBirth');
+
+    if (control.valid || !control.touched) {
+      return '';
+    } else if (control.errors.required) {
+      return 'Please provide the candidate\'s date of birth in the format yyyy-mm-dd';
+    } else if (control.errors.beforeStart) {
+      return 'Candidate\'s date of birth must be within the last 100 years';
+    } else if (control.errors.afterEnd) {
+      return 'Candidate\'s date of birth must be at least 10 years ago';
+    } else {
+      return '';
+    }
   }
 
   getProgramAreas() {

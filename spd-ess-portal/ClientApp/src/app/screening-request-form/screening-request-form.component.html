@@ -82,12 +82,14 @@
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Date of Birth" [required]="true" [showChevrons]="false"
-        [valid]="form.get('candidateDateOfBirth').valid || !form.get('candidateDateOfBirth').touched"
-        errorMessage="Please provide the candidate's date of birth" [isFullWidth]="true">
+        [valid]="getCandidateDateOfBirthValidity()"
+        [errorMessage]="getCandidateDateOfBirthErrorMessage()"
+        [isFullWidth]="true">
         <input type="text" formControlName='candidateDateOfBirth'
-          style="width: 200px; background-color: #fff;" placeholder="yyyy-mm-dd" class="form-control"
-          [max]="maxDate" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()" autocomplete="off">
-        <mat-datepicker #picker></mat-datepicker>
+          style="width: 200px;" placeholder="yyyy-mm-dd" class="form-control"
+          [min]="minDate" [max]="maxDate" [matDatepicker]="picker" autocomplete="off">
+        <mat-datepicker-toggle matSuffix [for]="picker" tabindex="-1"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="multi-year" [startAt]="startDate"></mat-datepicker>
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false"
