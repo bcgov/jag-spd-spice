@@ -14,7 +14,7 @@ namespace SpiceCarlaSync
             Map(m => m.Selfdisclosure).Name("SELF DECLARATION Y/N");
             Map(m => m.Legalsurname).Name("LAST");
             Map(m => m.Legalfirstname).Name("FIRST");
-            Map(m => m.Legalmiddlename).Name("MIDDLER");
+            Map(m => m.Legalmiddlename).Name("MIDDLE");
             Map(m => m.Birthdate).Name("DOB");
             Map(m => m.Gendermf).Name("GENDER");
             Map(m => m.Birthplacecity).Name("BIRTH PLACE");
