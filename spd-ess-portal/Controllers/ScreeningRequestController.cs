@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Gov.Jag.Spice.Public.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -25,27 +27,21 @@ namespace Gov.Jag.Spice.Public.Controllers
         // GET: api/ScreeningRequest/MinistryScreeningTypes
         [Route("MinistryScreeningTypes")]
         [HttpGet]
-        public IActionResult GetMinistryScreeningTypes()
+        public async Task<IActionResult> GetMinistryScreeningTypes(CancellationToken cancellationToken)
         {
-            using (var streamReader = System.IO.File.OpenText(Path.Combine(_dataDirectory, "ministry-screening-types.json")))
-            {
-                var serializer = new JsonSerializer();
-                var data = serializer.Deserialize<List<Ministry>>(new JsonTextReader(streamReader));
-                return new JsonResult(data);
-            }
+            string text = await System.IO.File.ReadAllTextAsync(Path.Combine(_dataDirectory, "ministry-screening-types.json"), cancellationToken);
+            var data = JsonConvert.DeserializeObject<List<Ministry>>(text);
+            return new JsonResult(data);
         }
 
         // GET: api/ScreeningRequest/ScreeningReasons
         [Route("ScreeningReasons")]
         [HttpGet]
-        public IActionResult GetScreeningReasons()
+        public async Task<IActionResult> GetScreeningReasons(CancellationToken cancellationToken)
         {
-            using (var streamReader = System.IO.File.OpenText(Path.Combine(_dataDirectory, "screening-reasons.json")))
-            {
-                var serializer = new JsonSerializer();
-                var data = serializer.Deserialize<List<ScreeningReason>>(new JsonTextReader(streamReader));
-                return new JsonResult(data);
-            }
+            string text = await System.IO.File.ReadAllTextAsync(Path.Combine(_dataDirectory, "screening-reasons.json"), cancellationToken);
+            var data = JsonConvert.DeserializeObject<List<ScreeningReason>>(text);
+            return new JsonResult(data);
         }
     }
 }
