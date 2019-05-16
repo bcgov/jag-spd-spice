@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lclb-public-app": {
+    "spd-ess-portal": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -18,7 +18,8 @@
             "progress": true,
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "node_modules/ng-busy/src/style/busy.css",
@@ -51,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lclb-public-app:build"
+            "browserTarget": "spd-ess-portal:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lclb-public-app:build:production"
+              "browserTarget": "spd-ess-portal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lclb-public-app:build"
+            "browserTarget": "spd-ess-portal:build"
           }
         },
         "test": {
@@ -80,7 +81,8 @@
               "src/styles.scss"
             ],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ]
           }
         },
@@ -98,7 +100,7 @@
         }
       }
     },
-    "lclb-public-app-e2e": {
+    "spd-ess-portal-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -111,7 +113,7 @@
           },
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "lclb-public-app:serve"
+            "devServerTarget": "spd-ess-portal:serve"
           }
         },
         "lint": {
@@ -128,7 +130,7 @@
       }
     }
   },
-  "defaultProject": "lclb-public-app",
+  "defaultProject": "spd-ess-portal",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
