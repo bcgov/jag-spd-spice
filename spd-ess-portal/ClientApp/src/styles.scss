@@ -165,6 +165,7 @@ select.form-control:not([size]):not([multiple]) {
     padding: 10px 7px 7px 15px;
     font-size: 16px;
     font-weight: semi-bold;
+    margin-top: 2em;
 }
 
 hr {
@@ -208,4 +209,14 @@ hr {
 .space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.mat-checkbox-layout {
+  white-space: normal !important;
+  font-weight: 400;
+
+  .mat-checkbox-label {
+    margin-left: 5px;
+    line-height: 20px;
+  }
 }

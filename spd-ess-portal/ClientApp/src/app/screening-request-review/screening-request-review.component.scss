@@ -1,0 +1,21 @@
+.table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+.table > tbody > tr > td {
+  border: none;
+  line-height: 1;
+}
+
+.table > tbody > tr > td > label {
+  margin-bottom: 0;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #e1e8f2;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+  background-color: #f1f4fA;
+}
