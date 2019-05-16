@@ -1,0 +1,22 @@
+[
+  {
+    "name": "New Check",
+    "value": "newCheck"
+  },
+  {
+    "name": "Recheck",
+    "value": "recheck"
+  },
+  {
+    "name": "Lateral Transfer",
+    "value": "lateralTransfer"
+  },
+  {
+    "name": "Promotion",
+    "value": "promotion"
+  },
+  {
+    "name": "Other",
+    "value": "other"
+  }
+]

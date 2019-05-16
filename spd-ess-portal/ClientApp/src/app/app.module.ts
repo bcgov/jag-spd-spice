@@ -58,6 +58,7 @@ import { DynamicsDataService } from './services/dynamics-data.service';
 import { StaticComponent } from './static/static.component';
 import { HomeComponent } from './home/home.component';
 import { PolicyDocumentDataService } from './services/policy-document-data.service';
+import { ScreeningRequestDataService } from './services/screening-request-data.service';
 
 import { StatusBadgeComponent } from './status-badge/status-badge.component';
 import { SurveyDataService } from './services/survey-data.service';
@@ -82,6 +83,9 @@ import { AliasDataService } from './services/alias-data.service';
 import { PreviousAddressDataService } from './services/previous-address-data.service';
 import { WorkerDataService } from './services/worker-data.service.';
 import { FieldComponent } from './shared/field/field.component';
+import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
+import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
+import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +100,9 @@ import { FieldComponent } from './shared/field/field.component';
     StaticComponent,
     StatusBadgeComponent,
     TermsAndConditionsComponent,
+    ScreeningRequestFormComponent,
+    ScreeningRequestReviewComponent,
+    ScreeningRequestConfirmationComponent,
   ],
   imports: [
     ChartsModule,
@@ -205,6 +212,7 @@ import { FieldComponent } from './shared/field/field.component';
     PaymentDataService,
     PolicyDocumentDataService,
     PreviousAddressDataService,
+    ScreeningRequestDataService,
     ServiceCardAuthGuard,
     SurveyDataService,
     TiedHouseConnectionsDataService,

@@ -1,17 +1,15 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
+import { ScreeningRequestDataService } from './services/screening-request-data.service';
 import { UserDataService } from './services/user-data.service';
 import { User } from './models/user.model';
-import { isDevMode } from '@angular/core';
-import { LegalEntityDataService } from './services/legal-entity-data.service';
-import { LegalEntity } from './models/legal-entity.model';
 import { Store } from '@ngrx/store';
+import { Subscription, forkJoin } from 'rxjs';
 import { AppState } from './app-state/models/app-state';
-import { Observable } from '../../node_modules/rxjs';
 import * as CurrentUserActions from './app-state/actions/current-user.action';
-import { filter } from 'rxjs/operators';
+import * as MinistryScreeningTypesActions from './app-state/actions/ministry-screening-types.action';
+import * as ScreeningReasonsActions from './app-state/actions/screening-reasons.action';
 
 @Component({
   selector: 'app-root',
@@ -19,23 +17,19 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  businessProfiles: LegalEntity[];
-  title = '';
   previousUrl: string;
   public currentUser: User;
-  public isNewUser: boolean;
-  public isDevMode: boolean;
-  isAssociate = false;
 
+  busy: Subscription;
+  error = false;
 
   constructor(
     private renderer: Renderer2,
     private router: Router,
+    private screeningRequestDataService: ScreeningRequestDataService,
     private userDataService: UserDataService,
-    private store: Store<AppState>,
-    private adoxioLegalEntityDataService: LegalEntityDataService
+    private store: Store<AppState>
   ) {
-    this.isDevMode = isDevMode();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const prevSlug = this.previousUrl;
@@ -53,30 +47,17 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reloadUser();
-
-    this.store.select(state => state.legalEntitiesState)
-      .pipe(filter(state => !!state))
-      .subscribe(state => {
-        this.businessProfiles = state.legalEntities;
-      });
-
-  }
-
-  reloadUser() {
-    this.userDataService.getCurrentUser()
-      .subscribe((data: User) => {
-        this.currentUser = data;
-        this.isNewUser = this.currentUser.isNewUser;
-
-        this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(data));
-        // this.isAssociate = (this.currentUser.businessname == null);
-        // if (!this.isAssociate) {
-        //   this.adoxioLegalEntityDataService.getBusinessProfileSummary().subscribe(
-        //     res => {
-        //       this.businessProfiles = res;
-        //     });
-        // }
+    this.busy = forkJoin(
+        this.userDataService.getCurrentUser(),
+        this.screeningRequestDataService.getMinistryScreeningTypes(),
+        this.screeningRequestDataService.getScreeningReasons())
+      .subscribe(([ user, ministryScreeningTypes, screeningReasons ]) => {
+        this.currentUser = user;
+        this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
+        this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
+        this.store.dispatch(new ScreeningReasonsActions.SetScreeningReasonsAction(screeningReasons));
+      }, error => {
+        this.error = error;
       });
   }
 

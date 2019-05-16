@@ -1,4 +1,6 @@
 import { ValidatorFn, AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
 
 export const postalRegex = '(^\\d{5}([\-]\\d{4})?$)|(^[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]$)';
@@ -82,6 +84,22 @@ export class FormBase {
             }
             return (control.value !== null && control.value !== '') ? null : { 'required': { value: control.value } };
         };
+    }
+
+    public dateRangeValidator(startDate: Moment, endDate: Moment): ValidatorFn {
+      return (control: AbstractControl): { [key: string]: any } | null => {
+        let date = control.value;
+
+        if (date === '' || date === null) {
+          return null;
+        } else if (date.isBefore(startDate)) {
+          return { 'beforeStart': { value: control.value } };
+        } else if (date.isAfter(endDate)) {
+          return { 'afterEnd': { value: control.value } };
+        } else {
+          return null;
+        }
+      };
     }
 
     public trimValue(control: AbstractControl) {

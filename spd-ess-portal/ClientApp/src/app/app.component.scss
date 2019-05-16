@@ -57,6 +57,16 @@ $bootstrap-sass-asset-helper: true;
     background: #fff;
     flex: auto;
     padding-bottom: 80px;
+    max-width: 1200px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (max-width: 575.98px) {
+  .app-main {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
 }
 
 .sidebar-left,
@@ -295,4 +305,11 @@ button.btn-mobile {
     border: none;
     outline: none;
     background: #ddd;
+}
+
+.btn-primary {
+  font-family: 'myriad-pro', 'sans serif';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
 }
