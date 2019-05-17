@@ -10,7 +10,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
-    <RootNamespace>Gov.Lclb.Cllb.Public</RootNamespace>
+    <RootNamespace>Gov.Jag.Spice.Public</RootNamespace>
     <UserSecretsId>6E5C22DB-D6DA-4C9A-88B8-85CEA7E11268</UserSecretsId>
     <StartupObject>Gov.Jag.Spice.Public.Program</StartupObject>
 	<ProjectGuid>{8FE0A3D0-B466-41E3-91A9-3AB6207C15E5}</ProjectGuid>
