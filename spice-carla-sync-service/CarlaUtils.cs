@@ -95,25 +95,14 @@ namespace Gov.Jag.Spice.CarlaSync
         private void ImportApplicationRequestsToSMTP(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
             List<CsvAssociateExport> export = CreateBaseAssociatesExport(requests);
-            string attachmentName = "Associates_ScreeningRequest.csv";
-            string csvData = CreateAssociateCSV(export);
-            bool sentEmail = SendSPDEmail(csvData, attachmentName);
-
-            if (sentEmail)
-            {
-                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
-            else
-            {
-                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
+            Attachment associatesAttachment = Attachment.CreateAttachmentFromString(CreateAssociateCSV(export), "Associates_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
 
             List<CsvBusinessExport> businessExport = CreateBusinessExport(requests);
-            string businessAttachmentName = "Business_ScreeningRequest.csv";
-            string businessCsvData = CreateBusinessCSV(businessExport);
-            bool businessSentEmail = SendSPDEmail(businessCsvData, businessAttachmentName);
+            Attachment businessAttachment = Attachment.CreateAttachmentFromString(CreateBusinessCSV(businessExport), "Business_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
 
-            if (businessSentEmail)
+            bool sentEmail = SendSPDEmail(new List<Attachment>() { associatesAttachment, businessAttachment }, "New Cannabis Business Screening Request Received");
+
+            if (sentEmail)
             {
                 _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
             }
@@ -301,9 +290,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 export.Add(csvWorkerExport);
             }
 
-            string attachmentName = "Worker_ScreeningRequest.csv";
-            string csvData = CreateWorkerCSV(export);
-            bool sentEmail = SendSPDEmail(csvData, attachmentName);
+            Attachment attachment = Attachment.CreateAttachmentFromString(CreateWorkerCSV(export), "Worker_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
+            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received");
 
             if (sentEmail)
             {
@@ -372,27 +360,24 @@ namespace Gov.Jag.Spice.CarlaSync
             return csvData;
         }
 
-        private bool SendSPDEmail(string attachmentContent, string attachmentName)
+        private bool SendSPDEmail(List<Attachment> attachments, string subject)
         {
             var emailSentSuccessfully = false;
             var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
             var email = Configuration["SPD_EXPORT_EMAIL"];
             string body = $@"";
 
-            using (var stream = new MemoryStream())
-            using (var writer = new StreamWriter(stream))    // using UTF-8 encoding by default
             using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
             using (var message = new MailMessage("no-reply@gov.bc.ca", email))
             {
-                writer.WriteLine(attachmentContent);
-                writer.Flush();
-                stream.Position = 0;     // read from the start of what was written
-
-                message.Subject = $"{attachmentName}";
+                message.Subject = subject;
                 message.Body = body;
                 message.IsBodyHtml = true;
 
-                message.Attachments.Add(new Attachment(stream, attachmentName, "text/csv"));
+                foreach (var attachment in attachments)
+                {
+                    message.Attachments.Add(attachment);
+                }
 
                 try
                 {
