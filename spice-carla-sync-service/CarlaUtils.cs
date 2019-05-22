@@ -122,7 +122,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     OrganizationName = request.ApplicantName,
                     JobId = request.RecordIdentifier,
-                    BusinessNumber = request.BCeIDNumber,
+                    BusinessNumber = request.BusinessNumber,
                     BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
                     BusinessCity = request.BusinessAddress.City,
                     BusinessStateProvince = request.BusinessAddress.StateProvince,
