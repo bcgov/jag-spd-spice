@@ -23,7 +23,7 @@ namespace Gov.Jag.Spice.Public.Controllers
             HttpContext.Session.Clear();
 
             string logoutPath = string.IsNullOrEmpty(Configuration["SITEMINDER_LOGOUT_URL"]) ? "/" : Configuration["SITEMINDER_LOGOUT_URL"];
-            return Redirect(logoutPath + $"?returl={Configuration["BASE_URI"]}{Configuration["BASE_PATH"]}&retnow=1");
+            return Redirect(logoutPath);
         }
     }
 }
