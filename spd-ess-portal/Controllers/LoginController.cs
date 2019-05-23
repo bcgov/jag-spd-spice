@@ -1,12 +1,13 @@
 ﻿using Gov.Jag.Spice.Public.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -16,7 +17,6 @@ namespace Gov.Jag.Spice.Public.Controllers
         private readonly IConfiguration Configuration;
 
         private readonly IHostingEnvironment _env;
-        private readonly SiteMinderAuthOptions _options = new SiteMinderAuthOptions();
 
         public LoginController(IConfiguration configuration, IHostingEnvironment env)
         {
@@ -26,114 +26,50 @@ namespace Gov.Jag.Spice.Public.Controllers
 
         [HttpGet]
         [Authorize]
-        public ActionResult Login(string path)
+        public async Task<ActionResult> Login(string path)
         {
-            // check to see if we have a local path.  (do not allow a redirect to another website)
-            if (!string.IsNullOrEmpty(path) && (Url.IsLocalUrl(path) || (!_env.IsProduction() && path.Equals("headers"))))
+            if (!_env.IsProduction() && "headers".Equals(path, StringComparison.OrdinalIgnoreCase))
             {
-                // diagnostic feature for development - echo headers back.
-                if ((!_env.IsProduction()) && path.Equals("headers"))
-                {
-                    StringBuilder html = new StringBuilder();
-                    html.AppendLine("<html>");
-                    html.AppendLine("<body>");
-                    html.AppendLine("<b>Request Headers:</b>");
-                    html.AppendLine("<ul style=\"list-style-type:none\">");
-                    foreach (var item in Request.Headers)
-                    {
-                        html.AppendFormat("<li><b>{0}</b> = {1}</li>\r\n", item.Key, ExpandValue(item.Value));
-                    }
-                    html.AppendLine("</ul>");
-                    html.AppendLine("</body>");
-                    html.AppendLine("</html>");
-                    ContentResult contentResult = new ContentResult();
-                    contentResult.Content = html.ToString();
-                    contentResult.ContentType = "text/html";
-                    return contentResult;
-                }
-                return LocalRedirect(path);
+                return Content(string.Join(Environment.NewLine, Request.Headers.Select(header => $"{header.Key}={string.Join(",", header.Value.ToArray())}")), "text/plain", Encoding.UTF8);
             }
-            else
-            {
-                string basePath = string.IsNullOrEmpty(Configuration["BASE_PATH"]) ? "/" : Configuration["BASE_PATH"];
-                // we want to redirect to the dashboard.
-                string url = "dashboard";
 
-                return Redirect(basePath + "/" + url);
-            }
+            if (ControllerContext.HttpContext.User == null || !ControllerContext.HttpContext.User.Identity.IsAuthenticated) return Unauthorized();
+
+            return await Task.FromResult(LocalRedirect($"{Configuration["BASE_PATH"]}/{path}"));
         }
 
-        /// <summary>
-        /// Utility function used to expand headers.
-        /// </summary>
-        /// <param name="values"></param>
-        /// <returns></returns>
-        private static string ExpandValue(IEnumerable<string> values)
-        {
-            StringBuilder value = new StringBuilder();
-
-            foreach (string item in values)
-            {
-                if (value.Length > 0)
-                {
-                    value.Append(", ");
-                }
-                value.Append(item);
-            }
-            return value.ToString();
-        }
-
-        /// <summary>
-        /// Injects an authentication token cookie into the response for use with the 
-        /// SiteMinder authentication middleware
-        /// </summary>
         [HttpGet]
-        [Route("token/{userid}")]
+        [Route("token/{userName}")]
         [AllowAnonymous]
-        public virtual IActionResult GetDevAuthenticationCookie(string userId)
+        public async Task<IActionResult> LoginDevelopment(string userName)
         {
-            if (_env.IsProduction()) return BadRequest("This API is not available outside a development environment.");
+            if (_env.IsProduction() || string.IsNullOrWhiteSpace(userName)) return Unauthorized();
 
-            if (string.IsNullOrEmpty(userId)) return BadRequest("Missing required userid query parameter.");
-
-            if (userId.ToLower() == "default")
-                userId = _options.DevDefaultUserId;
-
-            // clear session
             HttpContext.Session.Clear();
 
-			// expire "dev" user cookie
-			string temp = HttpContext.Request.Cookies[_options.DevBCSCAuthenticationTokenKey];
-            if (temp == null)
-            {
-                temp = "";
-            }
-            Response.Cookies.Append(
-                _options.DevBCSCAuthenticationTokenKey,
-                temp,
-                new CookieOptions
-                {
-                    Path = "/",
-                    SameSite = SameSiteMode.None,
-                    Expires = DateTime.UtcNow.AddDays(-1)
-                }
-            );
-            // create new "dev" user cookie
-            Response.Cookies.Append(
-                _options.DevAuthenticationTokenKey,
-                userId,
-                new CookieOptions
-                {
-                    Path = "/",
-                    SameSite = SameSiteMode.None,
-                    Expires = DateTime.UtcNow.AddDays(7)
-                }
-            );
+            var secToken = await CreateDevTokenForIdir(userName);
 
-            string basePath = string.IsNullOrEmpty(Configuration["BASE_PATH"]) ? "" : Configuration["BASE_PATH"];
+            SiteMinderAuthenticationToken.AddToResponse(secToken, Response);
 
-            return Redirect(basePath + "/");
+            return LocalRedirect($"{Configuration["BASE_PATH"]}/login");
         }
 
+        private static async Task<SiteMinderAuthenticationToken> CreateDevTokenForIdir(string userName)
+        {
+            var guidBytes = Guid.Empty.ToByteArray();
+            guidBytes[guidBytes.Length - 1] += (byte)userName.GetHashCode();
+            return await Task.FromResult(new SiteMinderAuthenticationToken
+            {
+                smgov_userdisplayname = "Doe, John PSSG:EX",
+                smgov_userguid = new Guid(guidBytes).ToString(),
+                sm_universalid = userName,
+                sm_user = userName,
+                smgov_givenname = "John",
+                smgov_sn = "Doe",
+                smgov_company = "Ministry of Public Safety and Solicitor General",
+                smgov_orgcode = "PSSG",
+                smgov_department = "Corrections Branch",
+            });
+        }
     }
 }
