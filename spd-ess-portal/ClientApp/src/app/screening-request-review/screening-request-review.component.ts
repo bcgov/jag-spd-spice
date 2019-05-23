@@ -12,11 +12,6 @@ import { ScreeningRequestDataService } from '../services/screening-request-data.
 
 import { FormBase } from '../shared/form-base';
 
-import { Ministry } from '../models/ministry.model';
-import { ProgramArea } from '../models/program-area.model';
-import { ScreeningType } from '../models/screening-type.model';
-import { ScreeningReason } from '../models/screening-reason.model';
-
 @Component({
   selector: 'app-screening-request-review',
   templateUrl: './screening-request-review.component.html',
@@ -24,10 +19,7 @@ import { ScreeningReason } from '../models/screening-reason.model';
 })
 export class ScreeningRequestReviewComponent extends FormBase implements OnInit {
   screeningRequest: ScreeningRequest;
-  ministryScreeningTypes: Ministry[];
-  screeningReasons: ScreeningReason[];
 
-  loaded = false;
   valid = false;
 
   constructor(private store: Store<AppState>,
@@ -45,14 +37,6 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
         // retrieve screening request from store
         this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest || new ScreeningRequest();
         this.valid = Boolean(state.currentScreeningRequestState.currentScreeningRequest);
-
-        // retrieve dropdown data from store
-        this.ministryScreeningTypes = state.ministryScreeningTypesState.ministryScreeningTypes;
-        this.screeningReasons = state.screeningReasonsState.screeningReasons;
-
-        if (this.ministryScreeningTypes && this.screeningReasons) {
-          this.loaded = true;
-        }
       });
   }
 
@@ -69,52 +53,6 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
       });
 
     return subResult;
-  }
-
-  getMinistryName() {
-    const ministry = this.ministryScreeningTypes.filter(m => m.value === this.screeningRequest.clientMinistry);
-    if (ministry.length === 1) {
-      return ministry[0].name;
-    }
-    
-    return '';
-  }
-
-  getProgramAreaName() {
-    const ministry = this.ministryScreeningTypes.filter(m => m.value === this.screeningRequest.clientMinistry);
-    if (ministry.length === 1) {
-      const programArea = ministry[0].programAreas.filter(p => p.value === this.screeningRequest.programArea);
-      if (programArea.length === 1) {
-        return programArea[0].name;
-      }
-    }
-    
-    return '';
-  }
-
-  getScreeningTypeName() {
-    const ministry = this.ministryScreeningTypes.filter(m => m.value === this.screeningRequest.clientMinistry);
-    if (ministry.length === 1) {
-      const programArea = ministry[0].programAreas.filter(p => p.value === this.screeningRequest.programArea);
-      if (programArea.length === 1) {
-        const screeningType = programArea[0].screeningTypes.filter(t => t.value === this.screeningRequest.screeningType);
-        if (screeningType.length === 1)
-        {
-          return screeningType[0].name;
-        }
-      }
-    }
-    
-    return '';
-  }
-
-  getScreeningReasonName() {
-    const reason = this.screeningReasons.filter(m => m.value === this.screeningRequest.reason);
-    if (reason.length === 1) {
-      return reason[0].name;
-    }
-    
-    return '';
   }
 
   gotoForm() {

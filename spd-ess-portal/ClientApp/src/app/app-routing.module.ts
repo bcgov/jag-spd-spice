@@ -5,8 +5,6 @@ import { ScreeningRequestReviewComponent } from './screening-request-review/scre
 import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CanDeactivateGuard } from './services/can-deactivate-guard.service';
-import { BCeidAuthGuard } from './services/bceid-auth-guard.service';
-import { ServiceCardAuthGuard } from './services/service-card-auth-guard.service';
 
 
 const routes: Routes = [
