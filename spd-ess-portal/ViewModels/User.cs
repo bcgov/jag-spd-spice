@@ -7,21 +7,18 @@ namespace Gov.Jag.Spice.Public.ViewModels
 {
     public class User
     {
-        public string id { get; set; }
-        public string name { get; set; }
+        public string Id { get; set; }
 
-        public string firstname { get; set; }
+        public string DisplayName { get; set; }
 
-        public string lastname { get; set; }
+        public string GivenName { get; set; }
 
-        public string email { get; set; }
-        public string businessname { get; set; }
-        public bool isNewUser { get; set; }
-        public bool isContactCreated { get; set; }
-        public bool isAccountCreated { get; set; }
-        public bool isBceidConfirmed { get; set; }
-        public string contactid { get; set; }
-        public string accountid { get; set; }
-        public string UserType { get; set; }
+        public string LastName { get; set; }
+
+        public string Department { get; set; }
+
+        public string OrgCode { get; set; }
+
+        public string Company { get; set; }
     }
 }

@@ -20,7 +20,7 @@
         errorMessage="Please select a client ministry" [isFullWidth]="true">
         <select class="form-control" formControlName="clientMinistry" (change)="onMinistryChange()">
           <option value="">Select a Ministry</option>
-          <option *ngFor="let ministry of ministryScreeningTypes" [value]="ministry.value">{{ministry.name}}</option>
+          <option *ngFor="let ministry of ministryScreeningTypes" [value]="ministry.name">{{ministry.name}}</option>
         </select>
       </app-field>
       
@@ -29,7 +29,7 @@
         errorMessage="Please select a program area" [isFullWidth]="true">
         <select class="form-control" formControlName="programArea" (change)="onProgramAreaChange()">
           <option value="">Select a Program Area</option>
-          <option *ngFor="let program of getProgramAreas()" [value]="program.value">{{program.name}}</option>
+          <option *ngFor="let program of getProgramAreas()" [value]="program.name">{{program.name}}</option>
         </select>
       </app-field>
       
@@ -38,7 +38,7 @@
         errorMessage="Please select a screening type" [isFullWidth]="true">
         <select class="form-control" formControlName="screeningType">
           <option value="">Select a Screening Type</option>
-          <option *ngFor="let type of getScreeningTypes()" [value]="type.value">{{type.name}}</option>
+          <option *ngFor="let type of getScreeningTypes()" [value]="type">{{type}}</option>
         </select>
       </app-field>
       
@@ -47,11 +47,11 @@
         errorMessage="Please select a reason for the screening" [isFullWidth]="true">
         <select class="form-control" formControlName="reason">
           <option value="">Select a Reason for Screening</option>
-          <option *ngFor="let reason of screeningReasons" [value]="reason.value">{{reason.name}}</option>
+          <option *ngFor="let reason of screeningReasons" [value]="reason">{{reason}}</option>
         </select>
       </app-field>
 
-      <app-field *ngIf="form.get('reason').value === 'other'" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
+      <app-field *ngIf="form.get('reason').value === 'Other'" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('otherReason').valid || !form.get('otherReason').touched"
         errorMessage="Please enter a reason for the screening" [isFullWidth]="true">
         <input class="form-control" type="text" formControlName="otherReason" autocomplete="off">

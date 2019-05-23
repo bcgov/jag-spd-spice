@@ -1,342 +1,166 @@
 [
   {
     "name": "Ministry of the Attorney General",
-    "value": "attorneyGeneral",
     "programAreas": [
       {
         "name": "Liquor and Cannabis Regulation Branch (LCRB)",
-        "value": "liquorCannabisRegulation",
         "screeningTypes": [
-          {
-            "name": "Associate",
-            "value": "associate"
-          },
-          {
-            "name": "Business",
-            "value": "business"
-          },
-          {
-            "name": "Worker",
-            "value": "worker"
-          }
+          "Associate",
+          "Business",
+          "Worker"
         ]
       },
       {
         "name": "BC Liquor Distribution Branch (LDB)",
-        "value": "liquourDistribution",
         "screeningTypes": [
-          {
-            "name": "Workers",
-            "value": "workers"
-          }
+          "Workers"
         ]
       },
       {
         "name": "Criminal Justice Branch",
-        "value": "criminalJustice",
         "screeningTypes": [
-          {
-            "name": "BC Prosecution Services",
-            "value": "prosecutionServices"
-          }
+          "BC Prosecution Services"
         ]
       },
       {
         "name": "BC Sheriff Services",
-        "value": "sheriffServices",
         "screeningTypes": [
-          {
-            "name": "Initial Sheriff Checks",
-            "value": "initialSheriffChecks"
-          },
-          {
-            "name": "Sheriff Rechecks",
-            "value": "sheriffRechecks"
-          },
-          {
-            "name": "Senior Security Administrator (Option C)",
-            "value": "c"
-          },
-          {
-            "name": "Senior Security Administrator Recheck (Option D)",
-            "value": "d"
-          },
-          {
-            "name": "HQ & Admin + Rechecks (Option E)",
-            "value": "e"
-          }
+          "Initial Sheriff Checks",
+          "Sheriff Rechecks",
+          "Senior Security Administrator (Option C)",
+          "Senior Security Administrator Recheck (Option D)",
+          "HQ & Admin + Rechecks (Option E)"
         ]
       },
       {
         "name": "Court Services Branch",
-        "value": "courtServices",
         "screeningTypes": [
-          {
-            "name": "All Initial Checks & Rechecks",
-            "value": "all"
-          }
+          "All Initial Checks & Rechecks"
         ]
       },
       {
         "name": "Gaming Policy & Enforcement",
-        "value": "gamingPolicyEnforcement",
         "screeningTypes": [
-          {
-            "name": "Initial Checks",
-            "value": "initialChecks"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "Initial Checks",
+          "Rechecks"
         ]
       },
       {
         "name": "Independent Investigations Office",
-        "value": "independentInvestigationsOffice",
         "screeningTypes": [
-          {
-            "name": "Investigators/Directors (Option A)",
-            "value": "a"
-          },
-          {
-            "name": "Admin (Option B)",
-            "value": "b"
-          },
-          {
-            "name": "Recheck (Option C)",
-            "value": "c"
-          }
+          "Investigators/Directors (Option A)",
+          "Admin (Option B)",
+          "Recheck (Option C)"
         ]
       },
       {
         "name": "Information Services Branch",
-        "value": "informationServices",
         "screeningTypes": [
-          {
-            "name": "All Employees",
-            "value": "all"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "All Employees",
+          "Rechecks"
         ]
       },
       {
         "name": "The Public Guardian and Trustee",
-        "value": "publicGuardianTrustee",
         "screeningTypes": [
-          {
-            "name": "All Employees",
-            "value": "all"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "All Employees",
+          "Rechecks"
         ]
       },
       {
         "name": "Superior Courts Judiciary and Provincial Court of BC",
-        "value": "superiorCourtsJudiciaryProvincialCourt",
         "screeningTypes": [
-          {
-            "name": "Initial Check",
-            "value": "initialCheck"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "Initial Check",
+          "Rechecks"
         ]
       }
     ]
   },
   {
-    "name": "Ministry of Public Safety & Solicitor General",
-    "value": "publicSafetySolicitorGeneral",
+    "name": "Ministry of Public Safety and Solicitor General",
     "programAreas": [
       {
         "name": "BC Coroners Service (BCC)",
-        "value": "coronersService",
         "screeningTypes": [
-          {
-            "name": "Initial Check",
-            "value": "initialCheck"
-          },
-          {
-            "name": "Recheck",
-            "value": "recheck"
-          }
+          "Initial Check",
+          "Recheck"
         ]
       },
       {
         "name": "Corrections Branch",
-        "value": "corrections",
         "screeningTypes": [
-          {
-            "name": "HQ Initial Check (Option A)",
-            "value": "a"
-          },
-          {
-            "name": "HQ Recheck (Option B)",
-            "value": "b"
-          },
-          {
-            "name": "Custody Initial Check (Option C)",
-            "value": "c"
-          },
-          {
-            "name": "Custody Recheck (Option D)",
-            "value": "d"
-          },
-          {
-            "name": "Custody Admin/Finance (Option E)",
-            "value": "e"
-          },
-          {
-            "name": "Custody Admin/Finance Recheck (Option F)",
-            "value": "f"
-          },
-          {
-            "name": "Community Corrections Field Staff (Option G)",
-            "value": "g"
-          },
-          {
-            "name": "Community Corrections Field Staff Recheck (Option H)",
-            "value": "h"
-          },
-          {
-            "name": "Community Corrections Financial and Admin (Option I)",
-            "value": "i"
-          },
-          {
-            "name": "Community Corrections Financial and Admin Recheck (Option J)",
-            "value": "j"
-          }
+          "HQ Initial Check (Option A)",
+          "HQ Recheck (Option B)",
+          "Custody Initial Check (Option C)",
+          "Custody Recheck (Option D)",
+          "Custody Admin/Finance (Option E)",
+          "Custody Admin/Finance Recheck (Option F)",
+          "Community Corrections Field Staff (Option G)",
+          "Community Corrections Field Staff Recheck (Option H)",
+          "Community Corrections Financial and Admin (Option I)",
+          "Community Corrections Financial and Admin Recheck (Option J)"
         ]
       }
     ]
   },
   {
     "name": "Ministry of Environment & Climate Change Strategy",
-    "value": "environmentClimateChangeStrategy",
     "programAreas": [
       {
         "name": "Conservation Officer Services",
-        "value": "conservationOfficerServices",
         "screeningTypes": [
-          {
-            "name": "Conservation Officer Candidates (Option A)",
-            "value": "a"
-          },
-          {
-            "name": "Special Conservation Officers (Option B)",
-            "value": "b"
-          },
-          {
-            "name": "Conservation Officer Candidates (holding a valid security clearance) (Option C)",
-            "value": "c"
-          },
-          {
-            "name": "Conservation Officers (moving from one position to another) (Option D)",
-            "value": "d"
-          },
-          {
-            "name": "Auxiliary Conservation Officer (ACO) (Option E)",
-            "value": "e"
-          },
-          {
-            "name": "Conservation Officer Rechecks",
-            "value": "rechecks"
-          }
+          "Conservation Officer Candidates (Option A)",
+          "Special Conservation Officers (Option B)",
+          "Conservation Officer Candidates (holding a valid security clearance) (Option C)",
+          "Conservation Officers (moving from one position to another) (Option D)",
+          "Auxiliary Conservation Officer (ACO) (Option E)",
+          "Conservation Officer Rechecks"
         ]
       },
       {
         "name": "Special Conservation Officer",
-        "value": "specialConservationOfficer",
         "screeningTypes": [
-          {
-            "name": "SCO ACO - Recheck",
-            "value": "scoAcoRecheck"
-          }
+          "SCO ACO - Recheck"
         ]
       }
     ]
   },
   {
     "name": "Ministry of Children & Family Development",
-    "value": "childrenFamilyDevelopment",
     "programAreas": [
       {
         "name": "Youth Custody Services",
-        "value": "youthCustodyServices",
         "screeningTypes": [
-          {
-            "name": "Executive Office and Administration (Option A)",
-            "value": "a"
-          },
-          {
-            "name": "Assistant Executive Director YCS; etc... (Option B)",
-            "value": "b"
-          },
-          {
-            "name": "Correction Centre staff with Direct Responsibilities Including... (Option C)",
-            "value": "c"
-          },
-          {
-            "name": "Correction Centre staff with Direct Responsibilities Not Including... (Option D)",
-            "value": "d"
-          },
-          {
-            "name": "Re-checks for Options A, B, and D (Option E)",
-            "value": "e"
-          },
-          {
-            "name": "Re-checks for Option C (Option F)",
-            "value": "f"
-          }
+          "Executive Office and Administration (Option A)",
+          "Assistant Executive Director YCS; etc... (Option B)",
+          "Correction Centre staff with Direct Responsibilities Including... (Option C)",
+          "Correction Centre staff with Direct Responsibilities Not Including... (Option D)",
+          "Re-checks for Options A, B, and D (Option E)",
+          "Re-checks for Option C (Option F)"
         ]
       }
     ]
   },
   {
     "name": "Ministry of Citizen's Services",
-    "value": "citizensServices",
     "programAreas": [
       {
         "name": "Asset Investment Recovery",
-        "value": "assetInvestmentRecovery",
         "screeningTypes": [
-          {
-            "name": "Initial Checks",
-            "value": "initialChecks"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "Initial Checks",
+          "Rechecks"
         ]
       }
     ]
   },
   {
     "name": "BC Public Service Agency",
-    "value": "publicServiceAgency",
     "programAreas": [
       {
         "name": "Public Services Branch",
-        "value": "publicServices",
         "screeningTypes": [
-          {
-            "name": "All Employees",
-            "value": "allEmployees"
-          },
-          {
-            "name": "Rechecks",
-            "value": "rechecks"
-          }
+          "All Employees",
+          "Rechecks"
         ]
       }
     ]
