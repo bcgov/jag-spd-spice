@@ -50,7 +50,6 @@ import { LegalEntityDataService } from './services/legal-entity-data.service';
 import { LicenseDataService } from './services/license-data.service';
 import { PaymentDataService } from './services/payment-data.service';
 import { AppComponent } from './app.component';
-import { BceidConfirmationComponent } from './bceid-confirmation/bceid-confirmation.component';
 import { SearchBoxDirective } from './search-box/search-box.directive';
 import { GeneralDataService } from './general-data.service';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -74,8 +73,6 @@ import { NgBusyModule } from 'ng-busy';
 import { BsDatepickerModule, AlertModule } from 'ngx-bootstrap';
 import { TiedHouseConnectionsDataService } from './services/tied-house-connections-data.service';
 import { CanDeactivateGuard } from './services/can-deactivate-guard.service';
-import { BCeidAuthGuard } from './services/bceid-auth-guard.service';
-import { ServiceCardAuthGuard } from './services/service-card-auth-guard.service';
 import { metaReducers, reducers } from './app-state/reducers/reducers';
 import { StoreModule } from '@ngrx/store';
 import { TermsAndConditionsComponent } from './lite/terms-and-conditions/terms-and-conditions.component';
@@ -90,7 +87,6 @@ import { ScreeningRequestConfirmationComponent } from './screening-request-confi
 @NgModule({
   declarations: [
     AppComponent,
-    BceidConfirmationComponent,
     BreadcrumbComponent,   
     FieldComponent,
     FileUploaderComponent,    
@@ -201,7 +197,6 @@ import { ScreeningRequestConfirmationComponent } from './screening-request-confi
     LegalEntityDataService,
     LicenseDataService,
     AliasDataService,
-    BCeidAuthGuard,
     CanDeactivateGuard,
     ContactDataService,
     CookieService,
@@ -213,7 +208,6 @@ import { ScreeningRequestConfirmationComponent } from './screening-request-confi
     PolicyDocumentDataService,
     PreviousAddressDataService,
     ScreeningRequestDataService,
-    ServiceCardAuthGuard,
     SurveyDataService,
     TiedHouseConnectionsDataService,
     Title,
