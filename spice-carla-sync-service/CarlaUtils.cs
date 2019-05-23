@@ -22,6 +22,9 @@ namespace Gov.Jag.Spice.CarlaSync
 {
     public class CarlaUtils
     {
+        const int MAX_WORKER_ALIAS = 5; // maximum number of aliases to send in the CSV export.
+        const int MAX_WORKER_PREVIOUS_ADDRESS = 10;
+
         public ILogger _logger { get; }
 
         private IConfiguration Configuration { get; }
@@ -285,6 +288,43 @@ namespace Gov.Jag.Spice.CarlaSync
                     csvWorkerExport.Addressprovstate = workerRequest.Address.StateProvince;
                     csvWorkerExport.Addresscountry = workerRequest.Address.Country;
                     csvWorkerExport.Addresspostalcode = workerRequest.Address.Postal;
+                }
+
+                /* Flatten up the aliases */
+                var aliasId = 1;
+                foreach (var alias in workerRequest.Aliases)
+                {
+                    csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname;
+                    csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName;
+                    csvWorkerExport[$"Alias{aliasId}firstname"] = alias.GivenName;
+                    aliasId++;
+
+                    if (aliasId > MAX_WORKER_ALIAS)
+                    {
+                        break;
+                    }
+                }
+
+                /* Flatten up the previous addresses */
+                var addressId = 1;
+                foreach (var address in workerRequest.PreviousAddresses)
+                {
+                    string addressIdString = addressId.ToString();
+                    if (addressId == 10)
+                    {
+                        addressIdString = "x";
+                    }
+                    csvWorkerExport[$"Previousstreetaddress{addressIdString}"] = address.AddressStreet1;
+                    csvWorkerExport[$"Previouscity{addressIdString}"] = address.City;
+                    csvWorkerExport[$"Previousprovstate{addressIdString}"] = address.StateProvince;
+                    csvWorkerExport[$"Previouscountry{addressIdString}"] = address.Country;
+                    csvWorkerExport[$"Previouspostalcode{addressIdString}"] = address.Postal;
+                    addressId++;
+                    
+                    if (addressId > MAX_WORKER_PREVIOUS_ADDRESS)
+                    {
+                        break;
+                    }
                 }
 
                 export.Add(csvWorkerExport);
