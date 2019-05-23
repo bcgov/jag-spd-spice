@@ -98,12 +98,23 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
         this.ministryScreeningTypes = state.ministryScreeningTypesState.ministryScreeningTypes;
         this.screeningReasons = state.screeningReasonsState.screeningReasons;
 
-        // initialize form values from store
+        // initialize form with saved values from store
         if (state.currentScreeningRequestState.currentScreeningRequest) {
           this.form.setValue(state.currentScreeningRequestState.currentScreeningRequest);
         }
 
         if (this.currentUser && this.ministryScreeningTypes && this.screeningReasons) {
+          // initialize dropdown selections based on current user
+          let clientMinistry = this.ministryScreeningTypes.find(m => m.name === this.currentUser.company);
+          if (clientMinistry) {
+            this.form.get('clientMinistry').setValue(clientMinistry.name);
+
+            let programArea = this.getProgramAreas().find(m => m.name === this.currentUser.department);
+            if (programArea) {
+              this.form.get('programArea').setValue(programArea.name);
+            }
+          }
+          
           this.loaded = true;
         }
       });
