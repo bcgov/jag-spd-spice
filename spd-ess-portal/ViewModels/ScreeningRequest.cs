@@ -7,9 +7,10 @@ namespace Gov.Jag.Spice.Public.ViewModels
     public class ScreeningRequest
     {
         public string ClientMinistry { get; set; }
-        public string  ProgramArea { get; set; }
+        public string ProgramArea { get; set; }
         public string ScreeningType { get; set; }
         public string Reason { get; set; }
+        public string OtherReason { get; set; }
 
         public string CandidateFirstName { get; set; }
         public string CandidateMiddleName { get; set; }
