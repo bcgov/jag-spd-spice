@@ -1,11 +1,7 @@
 export class FileSystemItem
 {
-    id: string;
+    id: number;
     name: string;
-    documenttype: string;
     size: number;
-    serverrelativeurl: string;
-    timecreated: Date;
-    timelastmodified: Date;
-    downloadUrl: string;
+    file: File;
 }

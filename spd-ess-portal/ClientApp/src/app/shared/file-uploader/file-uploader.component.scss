@@ -1,12 +1,14 @@
 ::ng-deep .drop-zone {
-    border: 1px dashed #CCC !important;
-    background-color: #F2F2F2;
-    border-radius: 5PX !important;
-    padding-bottom: 20px;
+    border: 1px dashed #9fb6d9 !important;
+    background-color: #f1f4fa;
+    border-radius: 5px !important;
+    padding: 20px;
+    height: auto !important;
 }
 
 ::ng-deep .content {
     color: #424242 !important;
+    height: auto !important;
 }
 
 .file-list {
