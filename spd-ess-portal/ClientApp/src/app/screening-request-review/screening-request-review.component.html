@@ -88,6 +88,21 @@
       </tbody>
     </table>
   </section>
+  <section *ngIf="screeningRequest.files.length > 0">
+    <h2 class="blue-header">Documents</h2>
+    <table class="table table-striped">
+      <colgroup>
+        <col width="200px">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr *ngFor="let file of screeningRequest.files">
+          <td><mat-icon [inline]="true" class="icon" aria-label="attachment icon">attachment</mat-icon><span> {{file.name}}</span></td>
+          <td><em style="color: #A9A9A9">{{file.size}} kb</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
   
   <div style="position: relative;">
     <span>

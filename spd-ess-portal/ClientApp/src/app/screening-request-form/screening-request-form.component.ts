@@ -15,6 +15,8 @@ import { ProgramArea } from '../models/program-area.model';
 import { ScreeningType } from '../models/screening-type.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 
+import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
+
 import { StrictMomentDateAdapter } from '../strict-moment-date-adapter/strict-moment-date-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as moment from 'moment';
@@ -45,7 +47,7 @@ export const MY_FORMATS = {
   ]
 })
 export class ScreeningRequestFormComponent extends FormBase implements OnInit {
-  currentScreeningRequest: ScreeningRequest; // TODO: remove from here, add to confirm page
+  @ViewChild('documentUploader') documentUploader: FileUploaderComponent;
   form: FormGroup;
   minDate: Moment;
   maxDate: Moment;
@@ -87,9 +89,9 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
     });
 
     this.setOtherReasonValidator();
-
-    this.store.select(state => state).pipe(
-      filter(state => !!state))
+    
+    this.store.select(state => state)
+      .pipe(filter(state => !!state))
       .subscribe(state => {
         // retrieve current user from store
         this.currentUser = state.currentUserState.currentUser;
@@ -100,7 +102,9 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
         // initialize form with saved values from store
         if (state.currentScreeningRequestState.currentScreeningRequest) {
-          this.form.setValue(state.currentScreeningRequestState.currentScreeningRequest);
+          const { files, ...formValues } = state.currentScreeningRequestState.currentScreeningRequest;
+          this.form.setValue(formValues);
+          //this.documentUploader.files = files; // disabled until issues can be resolved
         }
 
         if (this.currentUser && this.ministryScreeningTypes && this.screeningReasons) {
@@ -170,7 +174,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
   gotoReview() {
     if (this.form.valid) {
       const value = <ScreeningRequest>{
-        ...this.form.value
+        ...this.form.value,
+        files: [...this.documentUploader.files],
       };
       this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
 

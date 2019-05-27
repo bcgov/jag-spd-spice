@@ -5,6 +5,7 @@ import { AppState } from '../app-state/models/app-state';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
@@ -44,9 +45,17 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
     const subResult = new Subject<boolean>();
 
     this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).subscribe(
-      res => {
-        this.store.dispatch(new CurrentScreeningRequestActions.ClearCurrentScreeningRequestAction());
-        subResult.next(true);
+      requestResult => {
+        if (requestResult.requestId) {
+          forkJoin(this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(requestResult.requestId, f.file))).subscribe(
+            null,
+            null,
+            () => {
+              this.store.dispatch(new CurrentScreeningRequestActions.ClearCurrentScreeningRequestAction());
+              subResult.next(true);
+            }
+          );
+        }
       },
       err => {
         subResult.next(false);
