@@ -34,15 +34,15 @@ namespace Gov.Jag.Spice.Public.Authentication
         {
             return new SiteMinderAuthenticationToken
             {
-                smgov_userguid = req.Headers["smgov_userguid"],
-                sm_universalid = req.Headers["sm_universalid"],
-                sm_user = req.Headers["sm_user"],
-                smgov_userdisplayname = req.Headers["smgov_userdisplayname"],
-                smgov_givenname = req.Headers["smgov_givenname"],
-                smgov_sn = req.Headers["smgov_sn"],
-                smgov_department = req.Headers["smgov_department"],
-                smgov_orgcode = req.Headers["smgov_orgcode"],
-                smgov_company = req.Headers["smgov_company"],
+                smgov_userguid = req.Headers["smgov_userguid"].ToString(),
+                sm_universalid = req.Headers["sm_universalid"].ToString(),
+                sm_user = req.Headers["sm_user"].ToString(),
+                smgov_userdisplayname = req.Headers["smgov_userdisplayname"].ToString(),
+                smgov_givenname = req.Headers["smgov_givenname"].ToString(),
+                smgov_sn = req.Headers["smgov_sn"].ToString(),
+                smgov_department = req.Headers["smgov_department"].ToString(),
+                smgov_orgcode = req.Headers["smgov_orgcode"].ToString(),
+                smgov_company = req.Headers["smgov_company"].ToString(),
             };
         }
 
