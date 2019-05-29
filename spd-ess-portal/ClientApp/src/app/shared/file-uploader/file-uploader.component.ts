@@ -79,7 +79,7 @@ export class FileUploaderComponent {
     this.files = this.files.filter(f => f.id !== file.id);
   }
 
-  browseFiles(browserMultiple, browserSingle) {
+  browseFiles(browserMultiple) {
     browserMultiple.click();
   }
 }
