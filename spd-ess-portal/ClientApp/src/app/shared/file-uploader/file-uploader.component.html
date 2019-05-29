@@ -7,6 +7,7 @@
       <input (change)="onBrowserFileSelect($event, fileBrowserM)" type="file" multiple style="display: none;" #fileBrowserM>
     </div>
   </file-drop>
+  <div *ngFor="let error of validationErrors" class="error-states error-container" style="word-break: break-all;" [innerHTML]="error"></div>
   <div style="margin-top: 5px; color: #2C679E;">
     <section *ngFor="let item of files" class="file-list">
       <span><mat-icon [inline]="true" class="icon" aria-label="attachment icon">attachment</mat-icon><span> {{ item.name }}</span></span>

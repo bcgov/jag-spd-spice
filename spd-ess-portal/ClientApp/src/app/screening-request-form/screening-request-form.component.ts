@@ -179,7 +179,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       };
       this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
 
-      this.router.navigate(['/review-submission']);
+      this.router.navigate(['/review-submission'], { skipLocationChange: true });
     } else {
       this.markAsTouched();
     }
