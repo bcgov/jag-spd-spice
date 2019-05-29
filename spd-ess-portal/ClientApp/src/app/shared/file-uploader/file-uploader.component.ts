@@ -14,11 +14,16 @@ export class FileUploaderComponent {
   @Input() fileTypes = 'DOC, XLS, PDF, JPG, or PNG';
   @Input() extensions: string[] = ['doc', 'xls', 'pdf', 'jpg', 'png'];
   @Input() uploadHeader = 'TO UPLOAD DOCUMENTS, DRAG FILES HERE OR';
+  @Input() maxFileCount = 10;
 
   fileSizeLimit = 1048576 * 25; // 25 MB
   fileSizeLimitReadable = '25 MB';
 
+  validationErrors: string[] = [];
+
   public dropped(event: UploadEvent) {
+    this.validationErrors = [];
+
     const files = event.files;
     for (const droppedFile of files) {
       if (droppedFile.fileEntry.isFile) {
@@ -33,6 +38,8 @@ export class FileUploaderComponent {
   }
 
   onBrowserFileSelect(event: any, input: any) {
+    this.validationErrors = [];
+
     const uploadedFiles = event.target.files;
     for (const file of uploadedFiles) {
       if (this.validateFile(file)) {
@@ -44,19 +51,24 @@ export class FileUploaderComponent {
   }
 
   validateFile(file: File): boolean {
-    const validExt = this.extensions.filter(ex => file.name.toLowerCase().endsWith(ex)).length > 0;
+    const validExt = this.extensions.filter(ex => file.name.toLowerCase().endsWith('.' + ex)).length > 0;
     if (!validExt) {
-      alert('File type not supported.');
+      this.validationErrors.push(`File type not supported. <em>[${file.name}]</em>`);
       return false;
     }
 
     if (file && file.name && file.name.length > 128) {
-      alert('File name must be 128 characters or less.');
+      this.validationErrors.push(`File name must be 128 characters or less. <em>[${file.name}]</em>`);
       return false;
     }
 
     if (file && file.size && file.size > this.fileSizeLimit) {
-      alert(`The specified file exceeds the maximum file size of ${this.fileSizeLimitReadable}.`);
+      this.validationErrors.push(`The specified file exceeds the maximum file size of ${this.fileSizeLimitReadable}. <em>[${file.name}]</em>`);
+      return false;
+    }
+    
+    if (this.maxFileCount && this.files.length >= this.maxFileCount) {
+      this.validationErrors.push(`File limit has been reached. The specified file has not been added. <em>[${file.name}]</em>`);
       return false;
     }
 

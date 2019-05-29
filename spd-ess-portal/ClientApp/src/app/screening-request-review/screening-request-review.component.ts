@@ -19,7 +19,7 @@ import { FormBase } from '../shared/form-base';
   styleUrls: ['./screening-request-review.component.scss']
 })
 export class ScreeningRequestReviewComponent extends FormBase implements OnInit {
-  screeningRequest: ScreeningRequest;
+  screeningRequest: ScreeningRequest = new ScreeningRequest();
 
   valid = false;
 
@@ -35,8 +35,14 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
     this.store.select(state => state).pipe(
       filter(state => !!state))
       .subscribe(state => {
-        // retrieve screening request from store
-        this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest || new ScreeningRequest();
+        if (state.currentScreeningRequestState.currentScreeningRequest) {
+          // retrieve screening request from store
+          this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest;
+        } else {
+          // when there is no screening request in the store (because this page has been refreshed or accessed directly via /review-submission)
+          // redirect to the screening request form page
+          this.router.navigate(['/'], { replaceUrl: true });
+        }
         this.valid = Boolean(state.currentScreeningRequestState.currentScreeningRequest);
       });
   }

@@ -178,7 +178,15 @@ hr {
 }
 
 .error-states {
-    color: #d8292f
+  color: #d8292f;
+
+  em {
+    color: #494949;
+  }
+}
+
+.error-container {
+  margin-top: 5px;
 }
 
 .error-summary {
