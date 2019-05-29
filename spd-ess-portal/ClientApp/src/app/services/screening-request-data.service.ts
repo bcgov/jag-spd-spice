@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
 import { Ministry } from '../models/ministry.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 import { ScreeningRequest } from '../models/screening-request.model';
@@ -24,7 +23,21 @@ export class ScreeningRequestDataService extends DataService {
    * @param data - screening request data
    */
   createScreeningRequest(data: any) {
-    return this.http.post<ScreeningRequest>('api/ScreeningRequest/', data, { headers: this.headers })
+    return this.http.post<any>('api/ScreeningRequest/', data, { headers: this.headers })
+      .pipe(catchError(this.handleError));
+  }
+
+  /**
+   * Upload a document associated with a screening request
+   * @param requestId - id of the screening request
+   * @param file - document
+   */
+  uploadDocument(requestId: any, file: File) {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    const headers: HttpHeaders = new HttpHeaders();
+
+    return this.http.post(`api/file/upload/${requestId}`, formData, { headers: headers })
       .pipe(catchError(this.handleError));
   }
 

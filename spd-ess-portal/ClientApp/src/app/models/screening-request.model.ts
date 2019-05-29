@@ -1,3 +1,5 @@
+import { FileSystemItem } from './file-system-item.model';
+
 export class ScreeningRequest {
   clientMinistry: string;
   programArea: string;
@@ -11,4 +13,5 @@ export class ScreeningRequest {
   candidatePosition: string;
   contactName: string;
   contactEmail: string;
+  files: FileSystemItem[] = [];
 }
