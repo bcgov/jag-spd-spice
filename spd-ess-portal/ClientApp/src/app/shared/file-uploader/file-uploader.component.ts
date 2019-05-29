@@ -14,6 +14,7 @@ export class FileUploaderComponent {
   @Input() fileTypes = 'DOC, XLS, PDF, JPG, or PNG';
   @Input() extensions: string[] = ['doc', 'xls', 'pdf', 'jpg', 'png'];
   @Input() uploadHeader = 'TO UPLOAD DOCUMENTS, DRAG FILES HERE OR';
+  @Input() maxFileCount = 10;
 
   fileSizeLimit = 1048576 * 25; // 25 MB
   fileSizeLimitReadable = '25 MB';
@@ -63,6 +64,11 @@ export class FileUploaderComponent {
 
     if (file && file.size && file.size > this.fileSizeLimit) {
       this.validationErrors.push(`The specified file exceeds the maximum file size of ${this.fileSizeLimitReadable}. <em>[${file.name}]</em>`);
+      return false;
+    }
+    
+    if (this.maxFileCount && this.files.length >= this.maxFileCount) {
+      this.validationErrors.push(`File limit has been reached. The specified file has not been added. <em>[${file.name}]</em>`);
       return false;
     }
 
