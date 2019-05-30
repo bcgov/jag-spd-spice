@@ -122,7 +122,7 @@
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Email Address" [required]="true" [showChevrons]="false"
         [valid]="form.get('contactEmail').valid || !form.get('contactEmail').touched"
-        errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
+        [errorMessage]="getContactEmailErrorMessage()" [isFullWidth]="true">
         <input id="contactEmail" class="form-control" type="text" formControlName="contactEmail" autocomplete="off">
       </app-field>
     </div>
