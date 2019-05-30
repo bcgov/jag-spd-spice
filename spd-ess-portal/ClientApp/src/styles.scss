@@ -232,3 +232,27 @@ hr {
 .mat-icon.mat-icon-inline {
   vertical-align: middle;
 }
+
+// fix busy overlay to work even when pages are scrolled down
+.ng-busy-default-sign {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 180px;
+  margin-left: -90px;
+}
+
+.ng-busy-backdrop {
+  position: fixed;
+}
+
+// styling for error messages in snackbars
+.snackbar-error {
+  background-color: #ffb0b3;
+  color: #840000;
+  font-weight: bold;
+
+  .mat-button {
+    color: #000000;
+  }
+}
