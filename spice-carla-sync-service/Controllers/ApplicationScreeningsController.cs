@@ -11,6 +11,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using System;
+using Gov.Jag.Spice.Interfaces;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -21,12 +22,14 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
+        private SharePointFileManager _sharepoint;
 
-        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory)
+        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;
             _logger = loggerFactory.CreateLogger(typeof(ApplicationScreeningsController));
+            _sharepoint = sharepoint;
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         public ActionResult ReceiveApplicationScreenings([FromBody] List<ApplicationScreeningRequest> requests)
         {
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).ReceiveApplicationImportJob(null, requests));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveApplicationImportJob(null, requests));
             _logger.LogInformation("Started receive Application Screenings import job");
             return Ok();
         }
@@ -64,7 +67,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             };
 
             //Send the result to CARLA
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).SendApplicationScreeningResult(payload));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).SendApplicationScreeningResult(payload));
             _logger.LogInformation($"Started send Application Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }

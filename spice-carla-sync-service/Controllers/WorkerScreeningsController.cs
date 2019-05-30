@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using SpdSync.models;
 using Newtonsoft.Json;
 using System;
+using Gov.Jag.Spice.Interfaces;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -18,12 +19,14 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
+        private SharePointFileManager _sharepoint;
 
-        public WorkerScreeningsController (IConfiguration configuration, ILoggerFactory loggerFactory)
+        public WorkerScreeningsController (IConfiguration configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;
             _logger = loggerFactory.CreateLogger(typeof(WorkerScreeningsController));
+            _sharepoint = sharepoint;
         }
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             _logger.LogError(jsonString);
 
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).ImportWorkerRequestsToSMTP(null, requests));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ImportWorkerRequestsToSMTP(null, requests));
             _logger.LogInformation("Started receive worker screening job");
             return Ok();
         }       
@@ -65,7 +68,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             };
 
             //Send the result to CARLA
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory).SendWorkerScreeningResult(payload));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).SendWorkerScreeningResult(payload));
             _logger.LogInformation($"Started send Worker Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }
