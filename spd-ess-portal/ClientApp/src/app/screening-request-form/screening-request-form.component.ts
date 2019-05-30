@@ -84,7 +84,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       candidateEmail: ['', [Validators.required, Validators.email]],
       candidatePosition: ['', Validators.required],
       contactName: ['', Validators.required],
-      contactEmail: ['', [Validators.required, Validators.email]],
+      contactEmail: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidateEmail')]],
       photoIdConfirmation: [false, Validators.requiredTrue],
     });
 
@@ -154,6 +154,20 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       return 'Candidate\'s date of birth must be within the last 100 years';
     } else if (control.errors.afterEnd) {
       return 'Candidate\'s date of birth must be at least 10 years ago';
+    } else {
+      return '';
+    }
+  }
+
+  getContactEmailErrorMessage() {
+    let control = this.form.get('contactEmail');
+
+    if (control.valid || !control.touched) {
+      return '';
+    } else if (control.errors.email) {
+      return 'Email address must be provided in a valid format';
+    } else if (control.errors.equal) {
+      return 'Email address cannot be the same as the candidate email address'
     } else {
       return '';
     }

@@ -11,8 +11,8 @@ import { FileSystemItem } from '@models/file-system-item.model';
 export class FileUploaderComponent {
   public files: FileSystemItem[] = [];
 
-  @Input() fileTypes = 'DOC, XLS, PDF, JPG, or PNG';
-  @Input() extensions: string[] = ['doc', 'xls', 'pdf', 'jpg', 'png'];
+  @Input() fileTypes = 'PDF, DOC, DOCX, XLS, XLSX, BMP, JPG, JPEG, PNG, TIF, or TIFF';
+  @Input() extensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'bmp', 'jpg', 'jpeg', 'png', 'tif', 'tiff'];
   @Input() uploadHeader = 'TO UPLOAD DOCUMENTS, DRAG FILES HERE OR';
   @Input() maxFileCount = 10;
 
