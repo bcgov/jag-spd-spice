@@ -22,6 +22,12 @@ namespace Gov.Jag.Spice.CarlaSync
 {
     public class CarlaUtils
     {
+        const string DOCUMENT_LIBRARY = "SPD Applications";
+        const string REQUESTS_PATH = "Requests";
+        const string RESULTS_PATH = "Results";
+        const string APPLICATIONS_PATH = "businesses";
+        const string ASSOCIATES_PATH = "associates";
+
         const int MAX_WORKER_ALIAS = 5; // maximum number of aliases to send in the CSV export.
         const int MAX_WORKER_PREVIOUS_ADDRESS = 10;
 
@@ -30,23 +36,62 @@ namespace Gov.Jag.Spice.CarlaSync
         private IConfiguration Configuration { get; }
         private IDynamicsClient _dynamics;
         public ICarlaClient CarlaClient;
+        public SharePointFileManager _sharepoint;
 
-
-        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory)
+        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(SpdUtils));
             _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            _sharepoint = sharepoint;
+            CarlaClient = SetupCarlaClient();
+            SetupSharepointFolders();
+        }
 
-            // TODO - move this into a seperate routine.
-
+        public CarlaClient SetupCarlaClient()
+        {
             string carlaURI = Configuration["CARLA_URI"];
             string token = Configuration["CARLA_JWT_TOKEN"];
 
             // create JWT credentials
             TokenCredentials credentials = new TokenCredentials(token);
 
-            CarlaClient = new CarlaClient(new Uri(carlaURI), credentials);
+            return new CarlaClient(new Uri(carlaURI), credentials);
+        }
+
+        public async void SetupSharepointFolders()
+        {
+            try
+            {
+                var documentLibraryExists = await _sharepoint.DocumentLibraryExists(DOCUMENT_LIBRARY);
+                if (!documentLibraryExists)
+                {
+                    _logger.LogInformation("Creating document library.");
+                    await _sharepoint.CreateDocumentLibrary(DOCUMENT_LIBRARY);
+                }
+
+                var foldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, REQUESTS_PATH);
+                if (!foldersExist)
+                {
+                    _logger.LogInformation("Creating request document folders.");
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH);
+                }
+
+                var foldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
+                if (!foldersExist)
+                {
+                    _logger.LogInformation("Creating result document folders.");
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error: " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -66,12 +111,12 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public void ReceiveApplicationImportJob(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        public async Task ReceiveApplicationImportJob(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            ImportApplicationRequestsToSMTP(hangfireContext, requests);
+            await SendApplicationRequestsToSharePoint(hangfireContext, requests);
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -92,72 +137,108 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         /// <summary>
-        /// Import requests to SMTP
+        /// Import requests to LCRB SharePoint
         /// </summary>
         /// <returns></returns>
-        private void ImportApplicationRequestsToSMTP(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        private async Task SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
-            List<CsvAssociateExport> export = CreateBaseAssociatesExport(requests);
-            Attachment associatesAttachment = Attachment.CreateAttachmentFromString(CreateAssociateCSV(export), "Associates_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
-
-            List<CsvBusinessExport> businessExport = CreateBusinessExport(requests);
-            Attachment businessAttachment = Attachment.CreateAttachmentFromString(CreateBusinessCSV(businessExport), "Business_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
-
-            bool sentEmail = SendSPDEmail(new List<Attachment>() { associatesAttachment, businessAttachment }, "New Cannabis Business Screening Request Received");
-
-            if (sentEmail)
+            int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            foreach (var request in requests)
             {
-                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
-            else
-            {
-                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
-        }
+                List<CsvAssociateExport> associateExports = CreateBaseAssociatesExport(request);
+                List<CsvBusinessExport> businessExports = CreateBusinessExport(request);
 
-        private List<CsvBusinessExport> CreateBusinessExport(List<ApplicationScreeningRequest> requests)
-        {
-            List<CsvBusinessExport> export = new List<CsvBusinessExport>();
-
-            foreach (ApplicationScreeningRequest request in requests)
-            {
-                var business = new CsvBusinessExport()
+                using (var mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem))
+                using (var csvWriter = new CsvWriter(writer))
                 {
-                    OrganizationName = request.ApplicantName,
-                    JobId = request.RecordIdentifier,
-                    BusinessNumber = request.BusinessNumber,
-                    BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
-                    BusinessCity = request.BusinessAddress.City,
-                    BusinessStateProvince = request.BusinessAddress.StateProvince,
-                    BusinessCountry = request.BusinessAddress.Country,
-                    BusinessPostal = request.BusinessAddress.Postal,
-                    EstablishmentParcelId = request.Establishment.ParcelId,
-                    EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1,
-                    EstablishmentCity = request.Establishment.Address.City,
-                    EstablishmentStateProvince = request.Establishment.Address.StateProvince,
-                    EstablishmentCountry = request.Establishment.Address.Country,
-                    EstablishmentPostal = request.Establishment.Address.Postal,
-                    ContactPersonSurname = request.ContactPerson.LastName,
-                    ContactPersonFirstname = request.ContactPerson.FirstName,
-                    ContactPhone = request.ContactPerson.PhoneNumber,
-                    ContactEmail = request.ContactPerson.Email
-                };
-                export.Add(business);
-            }
+                    csvWriter.Configuration.Delimiter = ";";
+                    csvWriter.Configuration.HasHeaderRecord = true;
+                    csvWriter.Configuration.AutoMap<CsvAssociateExport>();
 
-            return export;
+                    csvWriter.WriteHeader<CsvAssociateExport>();
+                    csvWriter.WriteRecords(associateExports);
+
+                    writer.Flush();
+                    mem.Position = 0;
+
+                    try
+                    {
+                        hangfireContext.WriteLine("Uploading business associates CSV.");
+                        _logger.LogInformation("Uploading business associates CSV.");
+                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, ASSOCIATES_PATH, mem, "text/csv");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("Error: " + ex.Message);
+                    }
+                }
+
+                using (var mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem))
+                using (var csvWriter = new CsvWriter(writer))
+                {
+                    csvWriter.Configuration.Delimiter = ";";
+                    csvWriter.Configuration.HasHeaderRecord = true;
+                    csvWriter.Configuration.AutoMap<CsvBusinessExport>();
+
+                    csvWriter.WriteHeader<CsvBusinessExport>();
+                    csvWriter.WriteRecords(businessExports);
+
+                    writer.Flush();
+                    mem.Position = 0;
+
+                    try
+                    {
+                        hangfireContext.WriteLine("Uploading business application CSV.");
+                        _logger.LogInformation("Uploading business application CSV.");
+                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, APPLICATIONS_PATH, mem, "text/csv");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("Error: " + ex.Message);
+                    }
+                }
+            }
         }
 
-        private List<CsvAssociateExport> CreateBaseAssociatesExport(List<ApplicationScreeningRequest> requests)
+        private List<CsvBusinessExport> CreateBusinessExport(ApplicationScreeningRequest request)
         {
-            List<CsvAssociateExport> export = new List<CsvAssociateExport>();
-
-            foreach (ApplicationScreeningRequest ApplicationRequest in requests)
+            List<CsvBusinessExport> exports = new List<CsvBusinessExport>();
+            CsvBusinessExport export = new CsvBusinessExport()
             {
-                var associates = CreateAssociatesExport(ApplicationRequest.RecordIdentifier, ApplicationRequest.Associates);
-                export.AddRange(associates);
-            }
-            return export;
+                OrganizationName = request.ApplicantName,
+                JobId = request.RecordIdentifier,
+                BusinessNumber = request.BusinessNumber,
+                BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
+                BusinessCity = request.BusinessAddress.City,
+                BusinessStateProvince = request.BusinessAddress.StateProvince,
+                BusinessCountry = request.BusinessAddress.Country,
+                BusinessPostal = request.BusinessAddress.Postal,
+                EstablishmentParcelId = request.Establishment.ParcelId,
+                EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1,
+                EstablishmentCity = request.Establishment.Address.City,
+                EstablishmentStateProvince = request.Establishment.Address.StateProvince,
+                EstablishmentCountry = request.Establishment.Address.Country,
+                EstablishmentPostal = request.Establishment.Address.Postal,
+                ContactPersonSurname = request.ContactPerson.LastName,
+                ContactPersonFirstname = request.ContactPerson.FirstName,
+                ContactPhone = request.ContactPerson.PhoneNumber,
+                ContactEmail = request.ContactPerson.Email
+            };
+            exports.Add(export);
+
+            return exports;
+        }
+
+        private List<CsvAssociateExport> CreateBaseAssociatesExport(ApplicationScreeningRequest request)
+        {
+            List<CsvAssociateExport> exports = new List<CsvAssociateExport>();
+
+            var associates = CreateAssociatesExport(request.RecordIdentifier, request.Associates);
+            exports.AddRange(associates);
+
+            return exports;
         }
 
         private List<CsvAssociateExport> CreateAssociatesExport(string JobNumber, List<LegalEntity> associates)
