@@ -95,6 +95,23 @@ namespace Gov.Jag.Spice.Interfaces
             return result;
         }
 
+        public MicrosoftDynamicsCRMcontact GetContactByExternalId(string externalId)
+        {
+            MicrosoftDynamicsCRMcontact result;
+            try
+            {
+                // fetch from Dynamics.
+                var contactsResponse = Contacts.Get(filter: "externaluseridentifier eq '" + externalId + "'");
+                result = contactsResponse.Value.FirstOrDefault();                
+            }
+            
+            catch (OdataerrorException)
+            {
+                result = null;
+            }
+            return result;
+        }
+
         public async Task<MicrosoftDynamicsCRMcontact> GetContactById(Guid id)
         {
             MicrosoftDynamicsCRMcontact result;
