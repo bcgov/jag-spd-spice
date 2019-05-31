@@ -167,7 +167,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
-                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, ASSOCIATES_PATH, mem, "text/csv");
+                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
@@ -194,7 +194,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         hangfireContext.WriteLine("Uploading business application CSV.");
                         _logger.LogInformation("Uploading business application CSV.");
-                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, APPLICATIONS_PATH, mem, "text/csv");
+                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
