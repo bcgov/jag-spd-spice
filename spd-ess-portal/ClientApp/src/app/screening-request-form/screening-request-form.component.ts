@@ -56,6 +56,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
   ministryScreeningTypes: Ministry[];
   screeningReasons: ScreeningReason[];
 
+  fileUploaderId = 'screeningRequestFiles';
   loaded = false;
 
   constructor(private store: Store<AppState>,
@@ -187,13 +188,18 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
   gotoReview() {
     if (this.form.valid) {
-      const value = <ScreeningRequest>{
-        ...this.form.value,
-        files: [...this.documentUploader.files],
-      };
-      this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
+      this.store.select(state => state.fileUploadsState.fileUploads).subscribe(fileUploads => {
+        const fileUploadSet = fileUploads.find(f => f.id === this.fileUploaderId);
 
-      this.router.navigate(['/review-submission'], { skipLocationChange: true });
+        const value = <ScreeningRequest>{
+          ...this.form.value,
+          files: fileUploadSet ? fileUploadSet.files : [],
+        };
+
+        this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
+
+        this.router.navigate(['/review-submission'], { skipLocationChange: true });
+      });
     } else {
       this.markAsTouched();
     }

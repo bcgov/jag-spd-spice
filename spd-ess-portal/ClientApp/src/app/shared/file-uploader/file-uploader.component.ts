@@ -1,16 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { AppState } from '../../app-state/models/app-state';
+import { Store } from '@ngrx/store';
 import { UploadEvent, FileSystemFileEntry } from 'ngx-file-drop';
 import { FileSystemItem } from '@models/file-system-item.model';
 
+import * as FileUploadsActions from '../../app-state/actions/file-uploads.action';
+
 
 @Component({
-  selector: 'app-file-uploader',
+  selector: 'app-file-uploader[id]',
   templateUrl: './file-uploader.component.html',
   styleUrls: ['./file-uploader.component.scss']
 })
-export class FileUploaderComponent {
-  public files: FileSystemItem[] = [];
+export class FileUploaderComponent implements OnInit, OnDestroy {
+  unsubscribe: Subject<void> = new Subject();
+  files: FileSystemItem[] = [];
 
+  @Input() id: string;
   @Input() fileTypes = 'PDF, DOC, DOCX, XLS, XLSX, BMP, JPG, JPEG, PNG, TIF, or TIFF';
   @Input() extensions: string[] = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'bmp', 'jpg', 'jpeg', 'png', 'tif', 'tiff'];
   @Input() uploadHeader = 'TO UPLOAD DOCUMENTS, DRAG FILES HERE OR';
@@ -20,6 +28,24 @@ export class FileUploaderComponent {
   fileSizeLimitReadable = '25 MB';
 
   validationErrors: string[] = [];
+
+  constructor(private store: Store<AppState>) { }
+  
+  ngOnInit() {
+    // subscribe to files from store
+    this.store.select(state => state.fileUploadsState.fileUploads)
+      .pipe(
+        takeUntil(this.unsubscribe),
+      ).subscribe(fileUploads => {
+        let fileUploadSet = fileUploads.find(f => f.id === this.id);
+        this.files = fileUploadSet ? fileUploadSet.files : [];
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+  }
 
   public dropped(event: UploadEvent) {
     this.validationErrors = [];
@@ -76,7 +102,8 @@ export class FileUploaderComponent {
   }
 
   addFile(file: File) {
-    this.files.push({ id: this.files.length, name: file.name, size: Math.trunc(file.size / 1024), file: file });
+    const fileSystemEntry = { id: this.files.length, name: file.name, size: Math.trunc(file.size / 1024), file: file };
+    this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: [...this.files, fileSystemEntry ] }));
   }
 
   public fileOver(event) {
@@ -88,7 +115,7 @@ export class FileUploaderComponent {
   }
 
   removeFile(file: FileSystemItem) {
-    this.files = this.files.filter(f => f.id !== file.id);
+    this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: this.files.filter(f => f.id !== file.id) }));
   }
 
   browseFiles(browserMultiple) {
