@@ -41,7 +41,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
         {
             this.Configuration = Configuration;
-            _logger = loggerFactory.CreateLogger(typeof(SpdUtils));
+            _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
             _dynamics = DynamicsUtil.SetupDynamics(Configuration);
             _sharepoint = sharepoint;
             CarlaClient = SetupCarlaClient();
@@ -90,7 +90,8 @@ namespace Gov.Jag.Spice.CarlaSync
             }
             catch (Exception ex)
             {
-                _logger.LogError("Error: " + ex.Message);
+                _logger.LogError("Error creating sharepoint document library and folders");
+                _logger.LogError("Exception Message: " + ex.Message);
             }
         }
 
@@ -170,6 +171,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (Exception ex)
                     {
+                        _logger.LogError("Error uploading business associates CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
                     }
                 }
@@ -196,6 +198,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (Exception ex)
                     {
+                        _logger.LogError("Error uploading business application CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
                     }
                 }
