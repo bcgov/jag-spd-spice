@@ -48,17 +48,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.busy = forkJoin(
-        this.userDataService.getCurrentUser(),
-        this.screeningRequestDataService.getMinistryScreeningTypes(),
-        this.screeningRequestDataService.getScreeningReasons())
-      .subscribe(([ user, ministryScreeningTypes, screeningReasons ]) => {
-        this.currentUser = user;
-        this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
-        this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
-        this.store.dispatch(new ScreeningReasonsActions.SetScreeningReasonsAction(screeningReasons));
-      }, error => {
-        this.error = error;
-      });
+      this.userDataService.getCurrentUser(),
+      this.screeningRequestDataService.getMinistryScreeningTypes(),
+      this.screeningRequestDataService.getScreeningReasons(),
+    ).subscribe(([ user, ministryScreeningTypes, screeningReasons ]) => {
+      this.currentUser = user;
+      this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
+      this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
+      this.store.dispatch(new ScreeningReasonsActions.SetScreeningReasonsAction(screeningReasons));
+    }, error => {
+      this.error = error;
+    });
   }
 
   isIE10orLower() {
