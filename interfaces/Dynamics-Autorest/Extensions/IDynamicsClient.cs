@@ -23,6 +23,7 @@ namespace Gov.Jag.Spice.Interfaces
         
         Task<MicrosoftDynamicsCRMaccount> GetAccountById(Guid id);
         Task<MicrosoftDynamicsCRMcontact> GetContactById(Guid id);
-                
+        MicrosoftDynamicsCRMcontact GetContactByExternalId(string externalId);
+
     }
 }

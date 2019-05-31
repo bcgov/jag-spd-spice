@@ -178,7 +178,15 @@ hr {
 }
 
 .error-states {
-    color: #d8292f
+  color: #d8292f;
+
+  em {
+    color: #494949;
+  }
+}
+
+.error-container {
+  margin-top: 5px;
 }
 
 .error-summary {
@@ -218,5 +226,33 @@ hr {
   .mat-checkbox-label {
     margin-left: 5px;
     line-height: 20px;
+  }
+}
+
+.mat-icon.mat-icon-inline {
+  vertical-align: middle;
+}
+
+// fix busy overlay to work even when pages are scrolled down
+.ng-busy-default-sign {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 180px;
+  margin-left: -90px;
+}
+
+.ng-busy-backdrop {
+  position: fixed;
+}
+
+// styling for error messages in snackbars
+.snackbar-error {
+  background-color: #ffb0b3;
+  color: #840000;
+  font-weight: bold;
+
+  .mat-button {
+    color: #000000;
   }
 }
