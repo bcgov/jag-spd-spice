@@ -5,6 +5,7 @@
     <StartupObject>Gov.Jag.Spice.CarlaSync.Program</StartupObject>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <UserSecretsId>84f2cea7-b800-4f92-917b-cb19229062d6</UserSecretsId>
+    <RootNamespace>Gov.Jag.Spice.CarlaSync</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +20,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
-    <PackageReference Include="Pop3" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.0.0-preview5.19227.9" />    
     <PackageReference Include="SplunkLogger" Version="1.1.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />

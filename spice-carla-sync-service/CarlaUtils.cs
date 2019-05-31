@@ -314,21 +314,57 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 // add data to dynamics.
                 // create a Contact which will be bound to the customer id field.
-                MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact();
+                MicrosoftDynamicsCRMcontact contact = null; 
 
-                contact.SpiceBcidcardnumber = workerRequest.BCIdCardNumber;
-                contact.SpiceDriverslicensenumber = int.Parse ( workerRequest.DriversLicence );
-                contact.Externaluseridentifier = workerRequest.RecordIdentifier;
-                contact.Gendercode = (int?) workerRequest.Gender;
+                if (workerRequest.Contact != null)
+                {
+                    
+                    contact = _dynamics.GetContactByExternalId(workerRequest.Contact.ContactId);
+
+                    if (contact == null)
+                    {                        
+                        contact = new MicrosoftDynamicsCRMcontact();
+                    }
+
+                    contact.Firstname = workerRequest.Contact.FirstName;
+                    contact.Lastname = workerRequest.Contact.LastName;
+                    contact.Birthdate = workerRequest.Contact.BirthDate;
+                    contact.Emailaddress1 = workerRequest.Contact.Email;
+                    if (workerRequest.Contact.Address != null)
+                    {
+                        contact.Address1Line1 = workerRequest.Contact.Address.AddressStreet1;
+                        contact.Address1Line2 = workerRequest.Contact.Address.AddressStreet2;
+                        contact.Address1City = workerRequest.Contact.Address.City;
+                        contact.Address1Stateorprovince = workerRequest.Contact.Address.StateProvince;
+                        contact.Address1Postalcode = workerRequest.Contact.Address.Postal;
+                        contact.Address1Country = workerRequest.Contact.Address.Country;
+                    }
+
+                    contact.SpiceBcidcardnumber = workerRequest.BCIdCardNumber;
+                    contact.SpiceDriverslicensenumber = int.Parse(workerRequest.DriversLicence);
+                    //contact.Externaluseridentifier = workerRequest.RecordIdentifier;
+                    contact.Gendercode = (int?)workerRequest.Gender;
+
+                    if (contact.Contactid == null) // new record
+                    {
+                        contact = _dynamics.Contacts.Create(contact);
+                    }
+                    else
+                    {
+                        _dynamics.Contacts.Update(contact.Contactid, contact);
+                    }
+
+                }
+                                
                     
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident();
 
                 incident.SpiceApplicanttype = 525840001; // Cannabis  
-
                 incident.SpiceCannabisapplicanttype = 525840002; // Worker
                 incident.SpiceReasonforscreening = 525840001; // new check
 
                 // Screenings are Incidents in Dynamics.
+
                 _dynamics.Incidents.Create(incident);
                                 
             }
