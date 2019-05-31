@@ -125,6 +125,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       ).subscribe(request => {
         const { files, ...formValues } = request;
         this.form.setValue(formValues);
+        this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.fileUploaderId, files: files }));
       }
     );
   }
