@@ -70,8 +70,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     await _sharepoint.CreateDocumentLibrary(DOCUMENT_LIBRARY);
                 }
 
-                var foldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, REQUESTS_PATH);
-                if (!foldersExist)
+                var requestsFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, REQUESTS_PATH);
+                if (!requestsFoldersExist)
                 {
                     _logger.LogInformation("Creating request document folders.");
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH);
@@ -79,8 +79,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH);
                 }
 
-                var foldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
-                if (!foldersExist)
+                var resultsFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
+                if (!resultsFoldersExist)
                 {
                     _logger.LogInformation("Creating result document folders.");
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH);
