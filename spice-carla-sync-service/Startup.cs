@@ -95,6 +95,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 // Change this line if you wish to have Hangfire use persistent storage.
                 config.UseMemoryStorage();
                 // enable console logs for jobs
+                
                 config.UseConsole();
             });
 
@@ -149,8 +150,12 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (startHangfire)
             {
+
+
                 // enable Hangfire, using the default authentication model (local connections only)
                 app.UseHangfireServer();
+
+                GlobalJobFilters.Filters.Add(new ProlongExpirationTimeAttribute());
 
                 DashboardOptions dashboardOptions = new DashboardOptions
                 {
