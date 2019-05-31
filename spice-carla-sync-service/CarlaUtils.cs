@@ -153,11 +153,11 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var writer = new StreamWriter(mem))
                 using (var csvWriter = new CsvWriter(writer))
                 {
-                    csvWriter.Configuration.Delimiter = ";";
                     csvWriter.Configuration.HasHeaderRecord = true;
                     csvWriter.Configuration.AutoMap<CsvAssociateExport>();
 
                     csvWriter.WriteHeader<CsvAssociateExport>();
+                    csvWriter.NextRecord();
                     csvWriter.WriteRecords(associateExports);
 
                     writer.Flush();
@@ -180,11 +180,11 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var writer = new StreamWriter(mem))
                 using (var csvWriter = new CsvWriter(writer))
                 {
-                    csvWriter.Configuration.Delimiter = ";";
                     csvWriter.Configuration.HasHeaderRecord = true;
                     csvWriter.Configuration.AutoMap<CsvBusinessExport>();
 
                     csvWriter.WriteHeader<CsvBusinessExport>();
+                    csvWriter.NextRecord();
                     csvWriter.WriteRecords(businessExports);
 
                     writer.Flush();
