@@ -4,7 +4,6 @@ using Hangfire.Console;
 using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Pop3;
 using SpdSync;
 using SpdSync.models;
 using System;

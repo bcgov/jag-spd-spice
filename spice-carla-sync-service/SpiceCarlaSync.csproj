@@ -5,6 +5,7 @@
     <StartupObject>Gov.Jag.Spice.CarlaSync.Program</StartupObject>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <UserSecretsId>84f2cea7-b800-4f92-917b-cb19229062d6</UserSecretsId>
+    <RootNamespace>Gov.Jag.Spice.CarlaSync</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
