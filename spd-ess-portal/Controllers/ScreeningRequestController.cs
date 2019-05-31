@@ -21,7 +21,7 @@ namespace Gov.Jag.Spice.Public.Controllers
         public IActionResult Post([FromBody] ScreeningRequest screeningRequest)
         {
             // TODO
-            return new JsonResult("Success");
+            return new JsonResult(new { requestId = 42 });
         }
 
         // GET: api/ScreeningRequest/MinistryScreeningTypes

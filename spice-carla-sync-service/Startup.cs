@@ -40,15 +40,15 @@ namespace Gov.Jag.Spice.CarlaSync
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddMvc(config =>
-            {                
+            {
                 if (!string.IsNullOrEmpty(Configuration["JWT_TOKEN_KEY"]))
                 {
-                     var policy = new AuthorizationPolicyBuilder()
-                                  .RequireAuthenticatedUser()
-                                  .Build();
-                     config.Filters.Add(new AuthorizeFilter(policy));
+                    var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                    config.Filters.Add(new AuthorizeFilter(policy));
                 }
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -85,7 +85,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 });
             }
 
-          
+            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]))
+            {
+                SetupSharePoint(services);
+            }
 
             services.AddHangfire(config =>
             {
@@ -102,7 +105,24 @@ namespace Gov.Jag.Spice.CarlaSync
                     ValueTask<IHealthCheckResult>(HealthCheckResult.Healthy("Ok")));
             });
         }
-        
+
+        private void SetupSharePoint(IServiceCollection services)
+        {
+            string ssgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
+            string ssgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
+
+            // add SharePoint.
+            string sharePointServerAppIdUri = Configuration["SHAREPOINT_SERVER_APPID_URI"];
+            string sharePointOdataUri = Configuration["SHAREPOINT_ODATA_URI"];
+            string sharePointWebname = Configuration["SHAREPOINT_WEBNAME"];
+            string sharePointAadTenantId = Configuration["SHAREPOINT_AAD_TENANTID"];
+            string sharePointClientId = Configuration["SHAREPOINT_CLIENT_ID"];
+            string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
+            string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
+            string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
+
+            services.AddTransient<SharePointFileManager>(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, ssgUsername, ssgPassword, sharePointNativeBaseURI));
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -140,10 +160,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 app.UseHangfireDashboard("/hangfire", dashboardOptions);
             }
 
-            if (!string.IsNullOrEmpty(Configuration["ENABLE_HANGFIRE_JOBS"]))
-            {
-                SetupHangfireJobs(app, loggerFactory);
-            }
+            //if (!string.IsNullOrEmpty(Configuration["ENABLE_HANGFIRE_JOBS"]))
+            //{
+            //    SetupHangfireJobs(app, loggerFactory);
+            //}
 
             app.UseAuthentication();
             app.UseMvc();
@@ -207,7 +227,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {                    
                     log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), cronExpression: Cron.MinuteInterval(15));
+                    //RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), cronExpression: Cron.MinuteInterval(15));
                     log.LogInformation("Hangfire Send Export job done.");
 
                 }

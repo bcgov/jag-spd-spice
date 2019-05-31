@@ -96,12 +96,6 @@ namespace Gov.Jag.Spice.Public
 
             });
 
-            // setup authorization
-            services.AddAuthorization(options =>
-            {    
-                options.AddPolicy("Business-User", policy =>
-                                  policy.RequireClaim(User.UserTypeClaim, "Business"));
-            });
             services.RegisterPermissionHandler();
             if (Configuration["KEY_RING_DIRECTORY"] != null)
             {
