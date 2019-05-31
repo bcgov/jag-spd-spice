@@ -107,8 +107,11 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            await SendWorkerRequestsToSharePoint(hangfireContext, requests);
-            //ImportWorkerRequestsToSMTP(hangfireContext, requests);
+            var sent = await SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            if (sent)
+            {
+                SendSPDEmail(new List<Attachment>(), "New worker screening request CSV", "There is a new CSV file in the Worker Request folder of the LCRB Sharepoint.");
+            }
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -122,7 +125,11 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            await SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            var sent = await SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            if (sent)
+            {
+                SendSPDEmail(new List<Attachment>(), "New application screening request CSV", "There are new CSV files in the Business and Associate Request folders of the LCRB Sharepoint.");
+            }
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -148,7 +155,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <returns>The worker requests to share point.</returns>
         /// <param name="hangfireContext">Hangfire context.</param>
         /// <param name="requests">Requests.</param>
-        private async Task SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        private async Task<bool> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             List<CsvWorkerExport> workersExports = CreateWorkersExport(requests);
@@ -171,12 +178,13 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     hangfireContext.WriteLine("Uploading workers CSV.");
                     _logger.LogInformation("Uploading workers CSV.");
-                    var upload = await _sharepoint.UploadFile($"associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                    return await _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError("Error uploading business associates CSV to sharepoint");
+                    _logger.LogError("Error uploading workers CSV to sharepoint");
                     _logger.LogError("Error: " + ex.Message);
+                    return false;
                 }
             }
         }
@@ -185,7 +193,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import requests to LCRB SharePoint
         /// </summary>
         /// <returns></returns>
-        private async Task SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        private async Task<bool> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             foreach (var request in requests)
@@ -211,12 +219,13 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
-                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
                         _logger.LogError("Error uploading business associates CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
+                        return false;
                     }
                 }
 
@@ -244,9 +253,11 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         _logger.LogError("Error uploading business application CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
+                        return false;
                     }
                 }
             }
+            return true;
         }
 
         private List<CsvWorkerExport> CreateWorkersExport(List<WorkerScreeningRequest> requests)
@@ -572,7 +583,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
 
             Attachment attachment = Attachment.CreateAttachmentFromString(CreateWorkerCSV(export), "Worker_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
-            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received");
+            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received", "");
 
             if (sentEmail)
             {
@@ -641,12 +652,11 @@ namespace Gov.Jag.Spice.CarlaSync
             return csvData;
         }
 
-        private bool SendSPDEmail(List<Attachment> attachments, string subject)
+        private bool SendSPDEmail(List<Attachment> attachments, string subject, string body)
         {
             var emailSentSuccessfully = false;
             var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
             var email = Configuration["SPD_EXPORT_EMAIL"];
-            string body = $@"";
 
             using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
             using (var message = new MailMessage("no-reply@gov.bc.ca", email))
