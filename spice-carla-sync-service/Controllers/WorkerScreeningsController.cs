@@ -42,7 +42,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             _logger.LogError(jsonString);
 
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ImportWorkerRequestsToSMTP(null, requests));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveWorkerImportJob(null, requests));
             _logger.LogInformation("Started receive worker screening job");
             return Ok();
         }       

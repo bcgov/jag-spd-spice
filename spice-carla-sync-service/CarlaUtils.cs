@@ -27,6 +27,7 @@ namespace Gov.Jag.Spice.CarlaSync
         const string RESULTS_PATH = "Results";
         const string APPLICATIONS_PATH = "businesses";
         const string ASSOCIATES_PATH = "associates";
+        const string WORKERS_PATH = "workers";
 
         const int MAX_WORKER_ALIAS = 5; // maximum number of aliases to send in the CSV export.
         const int MAX_WORKER_PREVIOUS_ADDRESS = 10;
@@ -77,7 +78,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH);
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH);
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH);
                 }
+
 
                 var resultsFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
                 if (!resultsFoldersExist)
@@ -86,6 +89,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH);
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
                     await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + WORKERS_PATH);
                 }
             }
             catch (Exception ex)
@@ -98,12 +102,16 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public void ReceiveWorkerImportJob(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        public async Task ReceiveWorkerImportJob(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            ImportWorkerRequestsToSMTP(hangfireContext, requests);
+            var sent = await SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            if (sent)
+            {
+                SendSPDEmail(new List<Attachment>(), "New worker screening request CSV", "There is a new CSV file in the Worker Request folder of the LCRB Sharepoint.");
+            }
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -117,7 +125,11 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            await SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            var sent = await SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            if (sent)
+            {
+                SendSPDEmail(new List<Attachment>(), "New application screening request CSV", "There are new CSV files in the Business and Associate Request folders of the LCRB Sharepoint.");
+            }
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -138,10 +150,50 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         /// <summary>
+        /// Sends the worker requests to share point.
+        /// </summary>
+        /// <returns>The worker requests to share point.</returns>
+        /// <param name="hangfireContext">Hangfire context.</param>
+        /// <param name="requests">Requests.</param>
+        private async Task<bool> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        {
+            int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            List<CsvWorkerExport> workersExports = CreateWorkersExport(requests);
+
+            using (var mem = new MemoryStream())
+            using (var writer = new StreamWriter(mem))
+            using (var csvWriter = new CsvWriter(writer))
+            {
+                csvWriter.Configuration.HasHeaderRecord = true;
+                csvWriter.Configuration.AutoMap<CsvWorkerExport>();
+
+                csvWriter.WriteHeader<CsvWorkerExport>();
+                csvWriter.NextRecord();
+                csvWriter.WriteRecords(workersExports);
+
+                writer.Flush();
+                mem.Position = 0;
+
+                try
+                {
+                    hangfireContext.WriteLine("Uploading workers CSV.");
+                    _logger.LogInformation("Uploading workers CSV.");
+                    return await _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError("Error uploading workers CSV to sharepoint");
+                    _logger.LogError("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
         /// Import requests to LCRB SharePoint
         /// </summary>
         /// <returns></returns>
-        private async Task SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        private async Task<bool> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             foreach (var request in requests)
@@ -167,12 +219,13 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
-                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
                         _logger.LogError("Error uploading business associates CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
+                        return false;
                     }
                 }
 
@@ -200,9 +253,88 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         _logger.LogError("Error uploading business application CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
+                        return false;
                     }
                 }
             }
+            return true;
+        }
+
+        private List<CsvWorkerExport> CreateWorkersExport(List<WorkerScreeningRequest> requests)
+        {
+            List<CsvWorkerExport> exports = new List<CsvWorkerExport>();
+
+            foreach (WorkerScreeningRequest workerRequest in requests)
+            {
+                CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
+                {
+                    Lcrbworkerjobid = workerRequest.RecordIdentifier,
+                    Birthdate = $"{workerRequest.BirthDate:yyyy-MM-dd}",
+                    Birthplacecity = workerRequest.Birthplace,
+                    Driverslicence = workerRequest.DriversLicence,
+                    Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
+                };
+                //Selfdisclosure = workerRequest.SelfDisclosure,
+                //Gendermf = workerRequest.Gender,
+
+                if (workerRequest.Contact != null)
+                {
+                    csvWorkerExport.Legalsurname = workerRequest.Contact.LastName;
+                    csvWorkerExport.Legalfirstname = workerRequest.Contact.FirstName;
+                    csvWorkerExport.Legalmiddlename = workerRequest.Contact.MiddleName;
+                    csvWorkerExport.Contactphone = workerRequest.Contact.PhoneNumber;
+                    csvWorkerExport.Personalemailaddress = workerRequest.Contact.Email;
+                }
+
+                if (workerRequest.Address != null)
+                {
+                    csvWorkerExport.Addressline1 = workerRequest.Address.AddressStreet1;
+                    csvWorkerExport.Addresscity = workerRequest.Address.City;
+                    csvWorkerExport.Addressprovstate = workerRequest.Address.StateProvince;
+                    csvWorkerExport.Addresscountry = workerRequest.Address.Country;
+                    csvWorkerExport.Addresspostalcode = workerRequest.Address.Postal;
+                }
+
+                /* Flatten up the aliases */
+                var aliasId = 1;
+                foreach (var alias in workerRequest.Aliases)
+                {
+                    csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname;
+                    csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName;
+                    csvWorkerExport[$"Alias{aliasId}firstname"] = alias.GivenName;
+                    aliasId++;
+
+                    if (aliasId > MAX_WORKER_ALIAS)
+                    {
+                        break;
+                    }
+                }
+
+                /* Flatten up the previous addresses */
+                var addressId = 1;
+                foreach (var address in workerRequest.PreviousAddresses)
+                {
+                    string addressIdString = addressId.ToString();
+                    if (addressId == 10)
+                    {
+                        addressIdString = "x";
+                    }
+                    csvWorkerExport[$"Previousstreetaddress{addressIdString}"] = address.AddressStreet1;
+                    csvWorkerExport[$"Previouscity{addressIdString}"] = address.City;
+                    csvWorkerExport[$"Previousprovstate{addressIdString}"] = address.StateProvince;
+                    csvWorkerExport[$"Previouscountry{addressIdString}"] = address.Country;
+                    csvWorkerExport[$"Previouspostalcode{addressIdString}"] = address.Postal;
+                    addressId++;
+
+                    if (addressId > MAX_WORKER_PREVIOUS_ADDRESS)
+                    {
+                        break;
+                    }
+                }
+
+                exports.Add(csvWorkerExport);
+            }
+            return exports;
         }
 
         private List<CsvBusinessExport> CreateBusinessExport(ApplicationScreeningRequest request)
@@ -451,7 +583,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
 
             Attachment attachment = Attachment.CreateAttachmentFromString(CreateWorkerCSV(export), "Worker_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
-            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received");
+            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received", "");
 
             if (sentEmail)
             {
@@ -520,12 +652,11 @@ namespace Gov.Jag.Spice.CarlaSync
             return csvData;
         }
 
-        private bool SendSPDEmail(List<Attachment> attachments, string subject)
+        private bool SendSPDEmail(List<Attachment> attachments, string subject, string body)
         {
             var emailSentSuccessfully = false;
             var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
             var email = Configuration["SPD_EXPORT_EMAIL"];
-            string body = $@"";
 
             using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
             using (var message = new MailMessage("no-reply@gov.bc.ca", email))
