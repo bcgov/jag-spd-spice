@@ -14,7 +14,7 @@ namespace SpdSync.models
         public string Name { get; set; }
         public string RecordIdentifier { get; set; }
         public string ApplicantName { get; set; }
-        public string BCeIDNumber { get; set; }
+        public string BusinessNumber { get; set; }
         public Account ApplicantAccount { get; set; }
         public Address BusinessAddress { get; set; }
         public Establishment Establishment { get; set; }

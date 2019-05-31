@@ -1,4 +1,5 @@
-<section *ngIf="loaded">
+<div [ngBusy]="{ busy: [ submittingForm, uploadingDocuments ], message: 'Submitting Form...', minDuration: 1500 }" (busyStop)="onBusyStop()"></div>
+<section>
   <h1>Screening Request Form</h1>
   <p>
     Please review the information entered before submitting.
@@ -13,21 +14,21 @@
       <tbody>
         <tr>
           <td>Client Ministry</td>
-          <td><label>{{getMinistryName()}}</label></td>
+          <td><label>{{screeningRequest.clientMinistry}}</label></td>
         </tr>
         <tr>
           <td>Program Area</td>
-          <td><label>{{getProgramAreaName()}}</label></td>
+          <td><label>{{screeningRequest.programArea}}</label></td>
         </tr>
         <tr>
           <td>Screening Type</td>
-          <td><label>{{getScreeningTypeName()}}</label></td>
+          <td><label>{{screeningRequest.screeningType}}</label></td>
         </tr>
         <tr>
           <td>Reason for Screening</td>
-          <td><label>{{getScreeningReasonName()}}</label></td>
+          <td><label>{{screeningRequest.reason}}</label></td>
         </tr>
-        <tr *ngIf="screeningRequest.reason === 'other'">
+        <tr *ngIf="screeningRequest.reason === 'Other'">
           <td>Other Reason for Screening</td>
           <td><label>{{screeningRequest.otherReason}}</label></td>
         </tr>
@@ -84,6 +85,21 @@
         <tr>
           <td>Return Email Address</td>
           <td><label>{{screeningRequest.contactEmail}}</label></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section *ngIf="screeningRequest.files.length > 0">
+    <h2 class="blue-header">Documents</h2>
+    <table class="table table-striped">
+      <colgroup>
+        <col width="200px">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr *ngFor="let file of screeningRequest.files">
+          <td><mat-icon [inline]="true" class="icon" aria-label="attachment icon">attachment</mat-icon><span> {{file.name}}</span></td>
+          <td><em style="color: #A9A9A9">{{file.size}} kb</em></td>
         </tr>
       </tbody>
     </table>

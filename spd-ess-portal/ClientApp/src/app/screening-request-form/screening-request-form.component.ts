@@ -15,6 +15,8 @@ import { ProgramArea } from '../models/program-area.model';
 import { ScreeningType } from '../models/screening-type.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 
+import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
+
 import { StrictMomentDateAdapter } from '../strict-moment-date-adapter/strict-moment-date-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as moment from 'moment';
@@ -45,7 +47,7 @@ export const MY_FORMATS = {
   ]
 })
 export class ScreeningRequestFormComponent extends FormBase implements OnInit {
-  currentScreeningRequest: ScreeningRequest; // TODO: remove from here, add to confirm page
+  @ViewChild('documentUploader') documentUploader: FileUploaderComponent;
   form: FormGroup;
   minDate: Moment;
   maxDate: Moment;
@@ -82,14 +84,14 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
       candidateEmail: ['', [Validators.required, Validators.email]],
       candidatePosition: ['', Validators.required],
       contactName: ['', Validators.required],
-      contactEmail: ['', [Validators.required, Validators.email]],
+      contactEmail: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidateEmail')]],
       photoIdConfirmation: [false, Validators.requiredTrue],
     });
 
     this.setOtherReasonValidator();
-
-    this.store.select(state => state).pipe(
-      filter(state => !!state))
+    
+    this.store.select(state => state)
+      .pipe(filter(state => !!state))
       .subscribe(state => {
         // retrieve current user from store
         this.currentUser = state.currentUserState.currentUser;
@@ -98,12 +100,25 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
         this.ministryScreeningTypes = state.ministryScreeningTypesState.ministryScreeningTypes;
         this.screeningReasons = state.screeningReasonsState.screeningReasons;
 
-        // initialize form values from store
+        // initialize form with saved values from store
         if (state.currentScreeningRequestState.currentScreeningRequest) {
-          this.form.setValue(state.currentScreeningRequestState.currentScreeningRequest);
+          const { files, ...formValues } = state.currentScreeningRequestState.currentScreeningRequest;
+          this.form.setValue(formValues);
+          //this.documentUploader.files = files; // disabled until issues can be resolved
         }
 
         if (this.currentUser && this.ministryScreeningTypes && this.screeningReasons) {
+          // initialize dropdown selections based on current user
+          let clientMinistry = this.ministryScreeningTypes.find(m => m.name === this.currentUser.company);
+          if (clientMinistry) {
+            this.form.get('clientMinistry').setValue(clientMinistry.name);
+
+            let programArea = this.getProgramAreas().find(m => m.name === this.currentUser.department);
+            if (programArea) {
+              this.form.get('programArea').setValue(programArea.name);
+            }
+          }
+          
           this.loaded = true;
         }
       });
@@ -114,7 +129,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
     this.form.get('reason').valueChanges
       .subscribe(reason => {
-        if (reason === 'other') {
+        if (reason === 'Other') {
           otherReasonControl.setValidators([Validators.required]);
         } else {
           otherReasonControl.setValidators(null);
@@ -144,34 +159,41 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
     }
   }
 
-  getProgramAreas() {
-    const selectedMinistry = this.form.get('clientMinistry').value;
-    const results = this.ministryScreeningTypes.filter(m => m.value === selectedMinistry);
-    if (results.length === 0) {
-      return [];
+  getContactEmailErrorMessage() {
+    let control = this.form.get('contactEmail');
+
+    if (control.valid || !control.touched) {
+      return '';
+    } else if (control.errors.email) {
+      return 'Email address must be provided in a valid format';
+    } else if (control.errors.equal) {
+      return 'Email address cannot be the same as the candidate email address'
     } else {
-      return results[0].programAreas;
+      return '';
     }
   }
 
+  getProgramAreas() {
+    const ministryName = this.form.get('clientMinistry').value;
+    const ministry = this.ministryScreeningTypes.find(m => m.name === ministryName);
+    return ministry ? ministry.programAreas : [];
+  }
+
   getScreeningTypes() {
-    const selectedProgram = this.form.get('programArea').value;
-    const results = this.getProgramAreas().filter(m => m.value === selectedProgram);
-    if (results.length === 0) {
-      return [];
-    } else {
-      return results[0].screeningTypes;
-    }
+    const programAreaName = this.form.get('programArea').value;
+    const programArea = this.getProgramAreas().find(m => m.name === programAreaName);
+    return programArea ? programArea.screeningTypes : [];
   }
 
   gotoReview() {
     if (this.form.valid) {
       const value = <ScreeningRequest>{
-        ...this.form.value
+        ...this.form.value,
+        files: [...this.documentUploader.files],
       };
       this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
 
-      this.router.navigate(['/review-submission']);
+      this.router.navigate(['/review-submission'], { skipLocationChange: true });
     } else {
       this.markAsTouched();
     }

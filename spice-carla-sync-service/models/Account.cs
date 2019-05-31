@@ -9,6 +9,8 @@ namespace SpdSync.models
     {
         public string AccountId { get; set; }
         public string Name { get; set; }
+        public string BCIncorporationNumber { get; set; }
+        public string BusinessNumber { get; set; }
         public List<LegalEntity> Associates { get; set; }
     }
 }

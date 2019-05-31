@@ -102,6 +102,25 @@ export class FormBase {
       };
     }
 
+    public notEqualFieldValidator(otherFieldName: string) : ValidatorFn {
+      return (control: AbstractControl): { [key: string]: any } | null => {
+        if (!control.parent) {
+          return null;
+        }
+        
+        const otherField = control.parent.get(otherFieldName);
+        if (!otherField) {
+          return null;
+        }
+
+        if (control.value === otherField.value) {
+          return { 'equal': { value: control.value }};
+        }
+
+        return null;
+      };
+    }
+
     public trimValue(control: AbstractControl) {
         const value = control.value;
         control.setValue('');
