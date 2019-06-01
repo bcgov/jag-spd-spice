@@ -113,7 +113,7 @@ export class FormBase {
           return null;
         }
 
-        if (control.value === otherField.value) {
+        if (control.value.toUpperCase() === otherField.value.toUpperCase()) {
           return { 'equal': { value: control.value }};
         }
 

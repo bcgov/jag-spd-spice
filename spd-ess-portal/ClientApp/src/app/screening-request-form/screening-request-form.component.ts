@@ -1,18 +1,15 @@
-
-import { filter } from 'rxjs/operators';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { combineLatest, Subject, Subscription } from 'rxjs';
+import { filter, take, takeUntil } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { AppState } from '../app-state/models/app-state';
 import { Store } from '@ngrx/store';
-import { FormBuilder, FormGroup, Validators, FormArray, ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
 
-import { User } from '../models/user.model';
 import { Ministry } from '../models/ministry.model';
-import { ProgramArea } from '../models/program-area.model';
-import { ScreeningType } from '../models/screening-type.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 
 import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
@@ -22,6 +19,8 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import * as moment from 'moment';
 import { Moment } from 'moment';
 import { FormBase } from '../shared/form-base';
+
+import * as FileUploadsActions from '../app-state/actions/file-uploads.action';
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
@@ -46,16 +45,18 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ]
 })
-export class ScreeningRequestFormComponent extends FormBase implements OnInit {
+export class ScreeningRequestFormComponent extends FormBase implements OnInit, OnDestroy {
   @ViewChild('documentUploader') documentUploader: FileUploaderComponent;
   form: FormGroup;
   minDate: Moment;
   maxDate: Moment;
   startDate: Moment;
-  currentUser: User;
   ministryScreeningTypes: Ministry[];
   screeningReasons: ScreeningReason[];
+  existingScreeningRequestSubscription: Subscription;
 
+  unsubscribe: Subject<void> = new Subject();
+  fileUploaderId = 'screeningRequestFiles';
   loaded = false;
 
   constructor(private store: Store<AppState>,
@@ -89,39 +90,49 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
     });
 
     this.setOtherReasonValidator();
-    
-    this.store.select(state => state)
-      .pipe(filter(state => !!state))
-      .subscribe(state => {
-        // retrieve current user from store
-        this.currentUser = state.currentUserState.currentUser;
 
-        // retrieve dropdown data from store
-        this.ministryScreeningTypes = state.ministryScreeningTypesState.ministryScreeningTypes;
-        this.screeningReasons = state.screeningReasonsState.screeningReasons;
+    // retrieve dropdown data from store
+    combineLatest(
+      this.store.select(state => state.currentUserState.currentUser),
+      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes),
+      this.store.select(state => state.screeningReasonsState.screeningReasons),
+    ).pipe(
+      filter(([ currentUser, ministryScreeningTypes, screeningReasons ]) => !!currentUser && !!ministryScreeningTypes && !!screeningReasons),
+      takeUntil(this.unsubscribe),
+    ).subscribe(([ currentUser, ministryScreeningTypes, screeningReasons ]) => {
+      this.ministryScreeningTypes = ministryScreeningTypes;
+      this.screeningReasons = screeningReasons;
 
-        // initialize form with saved values from store
-        if (state.currentScreeningRequestState.currentScreeningRequest) {
-          const { files, ...formValues } = state.currentScreeningRequestState.currentScreeningRequest;
-          this.form.setValue(formValues);
-          //this.documentUploader.files = files; // disabled until issues can be resolved
+      // initialize dropdown selections based on current user
+      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
+      if (clientMinistry) {
+        this.form.get('clientMinistry').setValue(clientMinistry.name);
+
+        const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
+        if (programArea) {
+          this.form.get('programArea').setValue(programArea.name);
         }
+      }
+      
+      this.loaded = true;
+    });
 
-        if (this.currentUser && this.ministryScreeningTypes && this.screeningReasons) {
-          // initialize dropdown selections based on current user
-          let clientMinistry = this.ministryScreeningTypes.find(m => m.name === this.currentUser.company);
-          if (clientMinistry) {
-            this.form.get('clientMinistry').setValue(clientMinistry.name);
+    // if there is an existing screening request in the store, retrieve it so it can be edited
+    this.existingScreeningRequestSubscription = this.store.select(state => state.currentScreeningRequestState.currentScreeningRequest)
+      .pipe(
+        filter(request => !!request),
+        takeUntil(this.unsubscribe),
+      ).subscribe(request => {
+        const { files, ...formValues } = request;
+        this.form.setValue(formValues);
+        this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.fileUploaderId, files: files }));
+      }
+    );
+  }
 
-            let programArea = this.getProgramAreas().find(m => m.name === this.currentUser.department);
-            if (programArea) {
-              this.form.get('programArea').setValue(programArea.name);
-            }
-          }
-          
-          this.loaded = true;
-        }
-      });
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   setOtherReasonValidator() {
@@ -187,13 +198,21 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
   gotoReview() {
     if (this.form.valid) {
-      const value = <ScreeningRequest>{
-        ...this.form.value,
-        files: [...this.documentUploader.files],
-      };
-      this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
+      this.store.select(state => state.fileUploadsState.fileUploads).pipe(take(1)).subscribe(fileUploads => {
+        const fileUploadSet = fileUploads.find(f => f.id === this.fileUploaderId);
 
-      this.router.navigate(['/review-submission'], { skipLocationChange: true });
+        const value = <ScreeningRequest>{
+          ...this.form.value,
+          files: fileUploadSet ? fileUploadSet.files : [],
+        };
+
+        this.existingScreeningRequestSubscription.unsubscribe();
+        
+        this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
+        this.store.dispatch(new FileUploadsActions.ClearFileUploadsAction(this.fileUploaderId));
+  
+        this.router.navigate(['/review-submission'], { skipLocationChange: true });
+      });
     } else {
       this.markAsTouched();
     }
@@ -218,5 +237,9 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit {
 
   onProgramAreaChange() {
     this.form.get('screeningType').setValue('');
+  }
+
+  onCandidateEmailChange() {
+    this.form.get('contactEmail').updateValueAndValidity();
   }
 }

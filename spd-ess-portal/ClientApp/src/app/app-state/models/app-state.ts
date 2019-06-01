@@ -5,6 +5,7 @@ import { User } from '../../models/user.model';
 import { ScreeningRequest } from '../../models/screening-request.model';
 import { Ministry } from '../../models/ministry.model';
 import { ScreeningReason } from '../../models/screening-reason.model';
+import { FileUploadSet } from '../../models/file-upload-set.model';
 
 export interface AppState {
     legalEntitiesState: LegalEntitiesState;
@@ -16,6 +17,7 @@ export interface AppState {
     currentScreeningRequestState: CurrentScreeningRequestState;
     ministryScreeningTypesState: MinistryScreeningTypesState;
     screeningReasonsState: ScreeningReasonsState;
+    fileUploadsState: FileUploadsState;
 }
 
 export interface LegalEntitiesState {
@@ -52,4 +54,8 @@ export interface MinistryScreeningTypesState {
 
 export interface ScreeningReasonsState {
     screeningReasons: ScreeningReason[];
+}
+
+export interface FileUploadsState {
+    fileUploads: FileUploadSet[];
 }
