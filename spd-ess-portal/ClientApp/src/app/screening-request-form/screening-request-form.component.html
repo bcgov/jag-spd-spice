@@ -94,7 +94,7 @@
         </div>
       </app-field>
       
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false" (change)="onCandidateEmailChange()"
         [valid]="form.get('candidateEmail').valid || !form.get('candidateEmail').touched"
         errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
         <input id="candidateEmail" class="form-control" type="text" formControlName="candidateEmail" autocomplete="off">
