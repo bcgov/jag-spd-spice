@@ -238,4 +238,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   onProgramAreaChange() {
     this.form.get('screeningType').setValue('');
   }
+
+  onCandidateEmailChange() {
+    this.form.get('contactEmail').updateValueAndValidity();
+  }
 }
