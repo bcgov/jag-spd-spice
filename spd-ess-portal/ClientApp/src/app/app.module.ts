@@ -43,26 +43,9 @@ import {
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 
-import { AccountDataService } from './services/account-data.service';
-import { ContactDataService } from './services/contact-data.service';
-import { ApplicationDataService } from './services/application-data.service';
-import { LegalEntityDataService } from './services/legal-entity-data.service';
-import { LicenseDataService } from './services/license-data.service';
-import { PaymentDataService } from './services/payment-data.service';
 import { AppComponent } from './app.component';
-import { SearchBoxDirective } from './search-box/search-box.directive';
-import { GeneralDataService } from './general-data.service';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { DynamicsDataService } from './services/dynamics-data.service';
-import { StaticComponent } from './static/static.component';
-import { HomeComponent } from './home/home.component';
-import { PolicyDocumentDataService } from './services/policy-document-data.service';
 import { ScreeningRequestDataService } from './services/screening-request-data.service';
 
-import { StatusBadgeComponent } from './status-badge/status-badge.component';
-import { SurveyDataService } from './services/survey-data.service';
-import { VoteDataService } from './services/vote-data.service';
-import { NewsletterDataService } from './services/newsletter-data.service';
 import { UserDataService } from './services/user-data.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FileDropModule } from 'ngx-file-drop';
@@ -71,14 +54,8 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
 import { NgBusyModule } from 'ng-busy';
 
 import { BsDatepickerModule, AlertModule } from 'ngx-bootstrap';
-import { TiedHouseConnectionsDataService } from './services/tied-house-connections-data.service';
-import { CanDeactivateGuard } from './services/can-deactivate-guard.service';
 import { metaReducers, reducers } from './app-state/reducers/reducers';
 import { StoreModule } from '@ngrx/store';
-import { TermsAndConditionsComponent } from './lite/terms-and-conditions/terms-and-conditions.component';
-import { AliasDataService } from './services/alias-data.service';
-import { PreviousAddressDataService } from './services/previous-address-data.service';
-import { WorkerDataService } from './services/worker-data.service.';
 import { FieldComponent } from './shared/field/field.component';
 import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
@@ -87,15 +64,9 @@ import { ScreeningRequestConfirmationComponent } from './screening-request-confi
 @NgModule({
   declarations: [
     AppComponent,
-    BreadcrumbComponent,   
     FieldComponent,
-    FileUploaderComponent,    
-    HomeComponent,
-    NotFoundComponent,    
-    SearchBoxDirective,
-    StaticComponent,
-    StatusBadgeComponent,
-    TermsAndConditionsComponent,
+    FileUploaderComponent,
+    NotFoundComponent,
     ScreeningRequestFormComponent,
     ScreeningRequestReviewComponent,
     ScreeningRequestConfirmationComponent,
@@ -192,28 +163,11 @@ import { ScreeningRequestConfirmationComponent } from './screening-request-confi
     ReactiveFormsModule,
   ],
   providers: [
-    AccountDataService,
-    ApplicationDataService,
-    LegalEntityDataService,
-    LicenseDataService,
-    AliasDataService,
-    CanDeactivateGuard,
-    ContactDataService,
     CookieService,
-    DynamicsDataService,
-    GeneralDataService,
-    NewsletterDataService,
     NgbDropdown,
-    PaymentDataService,
-    PolicyDocumentDataService,
-    PreviousAddressDataService,
     ScreeningRequestDataService,
-    SurveyDataService,
-    TiedHouseConnectionsDataService,
     Title,
     UserDataService,
-    VoteDataService,
-    WorkerDataService,
   ],  
   bootstrap: [AppComponent]
 })
