@@ -15,6 +15,7 @@ import { AppState } from '../app-state/models/app-state';
 import { Ministry } from '../models/ministry.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 import { ScreeningRequest } from '../models/screening-request.model';
+import { User } from '../models/user.model';
 import { FormBase } from '../shared/form-base';
 import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
 import { StrictMomentDateAdapter } from '../shared/strict-moment-date-adapter/strict-moment-date-adapter';
@@ -89,11 +90,10 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     // retrieve dropdown data from store
     combineLatest(
-      this.store.select(state => state.currentUserState.currentUser),
-      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes),
-      this.store.select(state => state.screeningReasonsState.screeningReasons),
+      this.store.select(state => state.currentUserState.currentUser).pipe(filter<User>((u): u is User => !!u)),
+      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes).pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
+      this.store.select(state => state.screeningReasonsState.screeningReasons).pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
     ).pipe(
-      filter(([ currentUser, ministryScreeningTypes, screeningReasons ]) => !!currentUser && !!ministryScreeningTypes && !!screeningReasons),
       takeUntil(this.unsubscribe),
     ).subscribe(([ currentUser, ministryScreeningTypes, screeningReasons ]) => {
       this.ministryScreeningTypes = ministryScreeningTypes;
@@ -101,12 +101,14 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
       // initialize dropdown selections based on current user
       const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
-      if (clientMinistry) {
-        this.form.get('clientMinistry').setValue(clientMinistry.name);
+      const clientMinistryControl = this.form.get('clientMinistry');
+      if (clientMinistry && clientMinistryControl) {
+        clientMinistryControl.setValue(clientMinistry.name);
 
         const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
-        if (programArea) {
-          this.form.get('programArea').setValue(programArea.name);
+        const programAreaControl = this.form.get('programArea');
+        if (programArea && programAreaControl) {
+          programAreaControl.setValue(programArea.name);
         }
       }
       
@@ -116,7 +118,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
     // if there is an existing screening request in the store, retrieve it so it can be edited
     this.existingScreeningRequestSubscription = this.store.select(state => state.currentScreeningRequestState.currentScreeningRequest)
       .pipe(
-        filter(request => !!request),
+        filter<ScreeningRequest>((r): r is ScreeningRequest => !!r),
         takeUntil(this.unsubscribe),
       ).subscribe(request => {
         const { files, ...formValues } = request;
@@ -132,10 +134,11 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   setOtherReasonValidator() {
+    const reasonControl = this.form.get('reason');
     const otherReasonControl = this.form.get('otherReason');
 
-    this.form.get('reason').valueChanges
-      .subscribe(reason => {
+    if (reasonControl && otherReasonControl) {
+      reasonControl.valueChanges.subscribe(reason => {
         if (reason === 'Other') {
           otherReasonControl.setValidators([Validators.required]);
         } else {
@@ -144,6 +147,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
         otherReasonControl.updateValueAndValidity();
       });
+    }
   }
 
   getCandidateDateOfBirthValidity() {
@@ -151,9 +155,9 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getCandidateDateOfBirthErrorMessage() {
-    let control = this.form.get('candidateDateOfBirth');
+    const control = this.form.get('candidateDateOfBirth');
 
-    if (control.valid || !control.touched) {
+    if (!control || control.valid || !control.touched || !control.errors) {
       return '';
     } else if (control.errors.required) {
       return 'Please provide the candidate\'s date of birth in the format yyyy-mm-dd';
@@ -169,7 +173,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   getContactEmailErrorMessage() {
     let control = this.form.get('contactEmail');
 
-    if (control.valid || !control.touched) {
+    if (!control || control.valid || !control.touched || !control.errors) {
       return '';
     } else if (control.errors.email) {
       return 'Email address must be provided in a valid format';
@@ -181,14 +185,22 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getProgramAreas() {
-    const ministryName = this.form.get('clientMinistry').value;
-    const ministry = this.ministryScreeningTypes.find(m => m.name === ministryName);
+    const clientMinistryControl = this.form.get('clientMinistry');
+    if (!clientMinistryControl) {
+      return [];
+    }
+
+    const ministry = this.ministryScreeningTypes.find(m => m.name === clientMinistryControl.value);
     return ministry ? ministry.programAreas : [];
   }
 
   getScreeningTypes() {
-    const programAreaName = this.form.get('programArea').value;
-    const programArea = this.getProgramAreas().find(m => m.name === programAreaName);
+    const programAreaControl = this.form.get('programArea');
+    if (!programAreaControl) {
+      return [];
+    }
+
+    const programArea = this.getProgramAreas().find(m => m.name === programAreaControl.value);
     return programArea ? programArea.screeningTypes : [];
   }
 
@@ -227,15 +239,28 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   onMinistryChange() {
-    this.form.get('programArea').setValue('');
-    this.form.get('screeningType').setValue('');
+    const programAreaControl = this.form.get('programArea');
+    if (programAreaControl) {
+      programAreaControl.setValue('');
+    }
+
+    const screeningTypeControl = this.form.get('screeningType');
+    if (screeningTypeControl) {
+      screeningTypeControl.setValue('');
+    }
   }
 
   onProgramAreaChange() {
-    this.form.get('screeningType').setValue('');
+    const screeningTypeControl = this.form.get('screeningType');
+    if (screeningTypeControl) {
+      screeningTypeControl.setValue('');
+    }
   }
 
   onCandidateEmailChange() {
-    this.form.get('contactEmail').updateValueAndValidity();
+    const contactEmailControl = this.form.get('contactEmail');
+    if (contactEmailControl) {
+      contactEmailControl.updateValueAndValidity();
+    }
   }
 }
