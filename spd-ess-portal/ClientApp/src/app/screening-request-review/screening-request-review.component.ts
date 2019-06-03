@@ -1,17 +1,16 @@
 
-import { filter } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../app-state/models/app-state';
-import { Store } from '@ngrx/store';
-import { Subject, Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Store } from '@ngrx/store';
+import { Subject, Subscription, forkJoin } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
+import { AppState } from '../app-state/models/app-state';
 
 import { ScreeningRequest } from '../models/screening-request.model';
-import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
 import { ScreeningRequestDataService } from '../services/screening-request-data.service';
-
 import { FormBase } from '../shared/form-base';
 
 @Component({
@@ -30,7 +29,6 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
 
   constructor(private store: Store<AppState>,
     private router: Router,
-    private route: ActivatedRoute,
     private screeningRequestDataService: ScreeningRequestDataService,
     private _snackBar: MatSnackBar,
   ) {

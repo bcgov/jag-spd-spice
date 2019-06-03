@@ -7,13 +7,13 @@ export const CLEAR_FILE_UPLOADS = 'CLEAR_FILE_UPLOADS';
 export class SetFileUploadsAction implements Action {
   readonly type = SET_FILE_UPLOADS;
 
-  constructor(public payload: FileUploadSet) {}
+  constructor(public payload: FileUploadSet) { }
 }
 
 export class ClearFileUploadsAction implements Action {
   readonly type = CLEAR_FILE_UPLOADS;
 
-  constructor(public payload: string) {}
+  constructor(public payload: string) { }
 }
 
 export type Actions =

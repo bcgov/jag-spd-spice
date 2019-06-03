@@ -1,26 +1,23 @@
-import { combineLatest, Subject, Subscription } from 'rxjs';
-import { filter, take, takeUntil } from 'rxjs/operators';
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { AppState } from '../app-state/models/app-state';
-import { Store } from '@ngrx/store';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subject, Subscription, combineLatest } from 'rxjs';
+import { filter, take, takeUntil } from 'rxjs/operators';
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
-import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
+import * as FileUploadsActions from '../app-state/actions/file-uploads.action';
+import { AppState } from '../app-state/models/app-state';
 
 import { Ministry } from '../models/ministry.model';
 import { ScreeningReason } from '../models/screening-reason.model';
-
-import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
-
-import { StrictMomentDateAdapter } from '../strict-moment-date-adapter/strict-moment-date-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import { ScreeningRequest } from '../models/screening-request.model';
 import { FormBase } from '../shared/form-base';
-
-import * as FileUploadsActions from '../app-state/actions/file-uploads.action';
+import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
+import { StrictMomentDateAdapter } from '../shared/strict-moment-date-adapter/strict-moment-date-adapter';
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
@@ -61,7 +58,6 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
   constructor(private store: Store<AppState>,
     private router: Router,
-    private route: ActivatedRoute,
     private fb: FormBuilder,
   ) {
     super();

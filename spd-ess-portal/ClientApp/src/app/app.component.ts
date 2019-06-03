@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ScreeningRequestDataService } from './services/screening-request-data.service';
-import { UserDataService } from './services/user-data.service';
-import { User } from './models/user.model';
 import { Store } from '@ngrx/store';
 import { Subscription, forkJoin } from 'rxjs';
-import { AppState } from './app-state/models/app-state';
+
 import * as CurrentUserActions from './app-state/actions/current-user.action';
 import * as MinistryScreeningTypesActions from './app-state/actions/ministry-screening-types.action';
 import * as ScreeningReasonsActions from './app-state/actions/screening-reasons.action';
+import { AppState } from './app-state/models/app-state';
+
+import { User } from './models/user.model';
+import { ScreeningRequestDataService } from './services/screening-request-data.service';
+import { UserDataService } from './services/user-data.service';
 
 @Component({
   selector: 'app-root',
@@ -16,16 +17,16 @@ import * as ScreeningReasonsActions from './app-state/actions/screening-reasons.
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public currentUser: User;
-
+  currentUser: User;
   busy: Subscription;
+
   error = false;
 
   constructor(
     private screeningRequestDataService: ScreeningRequestDataService,
     private userDataService: UserDataService,
     private store: Store<AppState>
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.busy = forkJoin(

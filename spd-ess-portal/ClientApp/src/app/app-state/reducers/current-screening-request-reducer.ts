@@ -1,5 +1,5 @@
-import { Action } from '@ngrx/store';
 import * as CurrentScreeningRequestActions from '../actions/current-screening-request.action';
+
 import { CurrentScreeningRequestState } from '../models/app-state';
 
 // Section 1
