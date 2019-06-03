@@ -1,5 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 import { ScreeningRequestDataService } from './services/screening-request-data.service';
 import { UserDataService } from './services/user-data.service';
@@ -17,34 +16,16 @@ import * as ScreeningReasonsActions from './app-state/actions/screening-reasons.
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  previousUrl: string;
   public currentUser: User;
 
   busy: Subscription;
   error = false;
 
   constructor(
-    private renderer: Renderer2,
-    private router: Router,
     private screeningRequestDataService: ScreeningRequestDataService,
     private userDataService: UserDataService,
     private store: Store<AppState>
-  ) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const prevSlug = this.previousUrl;
-        let nextSlug = event.url.slice(1);
-        if (!nextSlug) { nextSlug = 'home'; }
-        if (prevSlug) {
-          this.renderer.removeClass(document.body, 'ctx-' + prevSlug);
-        }
-        if (nextSlug) {
-          this.renderer.addClass(document.body, 'ctx-' + nextSlug);
-        }
-        this.previousUrl = nextSlug;
-      }
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.busy = forkJoin(

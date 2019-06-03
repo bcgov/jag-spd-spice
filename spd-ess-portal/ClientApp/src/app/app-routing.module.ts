@@ -4,7 +4,6 @@ import { ScreeningRequestFormComponent } from './screening-request-form/screenin
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
 import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CanDeactivateGuard } from './services/can-deactivate-guard.service';
 
 
 const routes: Routes = [
