@@ -1,13 +1,13 @@
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { AppState } from '../../app-state/models/app-state';
-import { Store } from '@ngrx/store';
-import { UploadEvent, FileSystemFileEntry } from 'ngx-file-drop';
-import { FileSystemItem } from '@models/file-system-item.model';
+import { FileSystemFileEntry, UploadEvent } from 'ngx-file-drop';
 
 import * as FileUploadsActions from '../../app-state/actions/file-uploads.action';
+import { AppState } from '../../app-state/models/app-state';
 
+import { FileSystemItem } from '../../models/file-system-item.model';
 
 @Component({
   selector: 'app-file-uploader[id]',

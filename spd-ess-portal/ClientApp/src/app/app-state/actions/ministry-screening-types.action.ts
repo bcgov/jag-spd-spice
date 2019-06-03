@@ -6,7 +6,7 @@ export const SET_MINISTRY_SCREENING_TYPES = 'SET_MINISTRY_SCREENING_TYPES';
 export class SetMinistryScreeningTypesAction implements Action {
   readonly type = SET_MINISTRY_SCREENING_TYPES;
 
-  constructor(public payload: Ministry[]) {}
+  constructor(public payload: Ministry[]) { }
 }
 
 export type Actions =
