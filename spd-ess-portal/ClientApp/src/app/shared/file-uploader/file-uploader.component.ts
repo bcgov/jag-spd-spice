@@ -106,20 +106,11 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: [...this.files, fileSystemEntry ] }));
   }
 
-  public fileOver(event) {
-    // console.log(event);
-  }
-
-  public fileLeave(event) {
-    // console.log(event);
-  }
-
   removeFile(file: FileSystemItem) {
     this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: this.files.filter(f => f.id !== file.id) }));
   }
 
-  browseFiles(browserMultiple) {
+  browseFiles(browserMultiple: HTMLInputElement) {
     browserMultiple.click();
   }
 }
-

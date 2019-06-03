@@ -25,7 +25,6 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
   submissionResult: Subject<boolean>;
 
   valid = false;
-  screeningRequestId = null;
 
   constructor(private store: Store<AppState>,
     private router: Router,
@@ -69,8 +68,8 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
 
   uploadDocuments(screeningRequestId: number) {
     this.uploadingDocuments = forkJoin(this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))).subscribe(
-      null,
-      err => this.submissionResult.error(err),
+      undefined,
+      (err: any) => this.submissionResult.error(err),
       () => this.submissionResult.next(true)
     );
   }
@@ -85,8 +84,8 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
 
   gotoSubmit() {
     this.save().subscribe(
-      null,
-      err => {
+      undefined,
+      (err: any) => {
         console.error(err);
 
         let ref = this._snackBar.open('Form Submission Failed', 'RETRY', { duration: 10000, horizontalPosition: 'center', verticalPosition: 'bottom', panelClass: 'snackbar-error' });

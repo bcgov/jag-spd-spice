@@ -13,19 +13,19 @@ export interface AppState {
 }
 
 export interface CurrentUserState {
-    currentUser: User;
+    currentUser: User | null;
 }
 
 export interface CurrentScreeningRequestState {
-    currentScreeningRequest: ScreeningRequest;
+    currentScreeningRequest: ScreeningRequest | null;
 }
 
 export interface MinistryScreeningTypesState {
-    ministryScreeningTypes: Ministry[];
+    ministryScreeningTypes: Ministry[] | null;
 }
 
 export interface ScreeningReasonsState {
-    screeningReasons: ScreeningReason[];
+    screeningReasons: ScreeningReason[] | null;
 }
 
 export interface FileUploadsState {
