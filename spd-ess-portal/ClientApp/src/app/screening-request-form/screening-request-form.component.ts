@@ -90,9 +90,12 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     // retrieve dropdown data from store
     combineLatest(
-      this.store.select(state => state.currentUserState.currentUser).pipe(filter<User>((u): u is User => !!u)),
-      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes).pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
-      this.store.select(state => state.screeningReasonsState.screeningReasons).pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
+      this.store.select(state => state.currentUserState.currentUser)
+        .pipe(filter<User>((u): u is User => !!u)),
+      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes)
+        .pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
+      this.store.select(state => state.screeningReasonsState.screeningReasons)
+        .pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
     ).pipe(
       takeUntil(this.unsubscribe),
     ).subscribe(([ currentUser, ministryScreeningTypes, screeningReasons ]) => {
@@ -111,7 +114,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
           programAreaControl.setValue(programArea.name);
         }
       }
-      
+
       this.loaded = true;
     });
 
@@ -171,14 +174,14 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getContactEmailErrorMessage() {
-    let control = this.form.get('contactEmail');
+    const control = this.form.get('contactEmail');
 
     if (!control || control.valid || !control.touched || !control.errors) {
       return '';
     } else if (control.errors.email) {
       return 'Email address must be provided in a valid format';
     } else if (control.errors.equal) {
-      return 'Email address cannot be the same as the candidate email address'
+      return 'Email address cannot be the same as the candidate email address';
     } else {
       return '';
     }
@@ -215,10 +218,10 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
         };
 
         this.existingScreeningRequestSubscription.unsubscribe();
-        
+
         this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
         this.store.dispatch(new FileUploadsActions.ClearFileUploadsAction(this.fileUploaderId));
-  
+
         this.router.navigate(['/review-submission'], { skipLocationChange: true });
       });
     } else {

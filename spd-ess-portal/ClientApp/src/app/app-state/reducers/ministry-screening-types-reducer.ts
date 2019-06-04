@@ -5,7 +5,10 @@ import { MinistryScreeningTypesState } from '../models/app-state';
 const initialState: MinistryScreeningTypesState = { ministryScreeningTypes: null };
 
 // Section 2
-export function reducer(state: MinistryScreeningTypesState = initialState, action: MinistryScreeningTypesActions.Actions): MinistryScreeningTypesState {
+export function reducer(
+  state: MinistryScreeningTypesState = initialState,
+  action: MinistryScreeningTypesActions.Actions
+): MinistryScreeningTypesState {
 
     // Section 3
     switch (action.type) {

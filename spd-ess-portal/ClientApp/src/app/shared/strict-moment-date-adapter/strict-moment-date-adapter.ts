@@ -16,7 +16,7 @@ export class StrictMomentDateAdapter extends MomentDateAdapter {
     }
 
     // use strict mode when parsing the date
-    let date = moment(value, parseFormat, this.locale, true);
+    const date = moment(value, parseFormat, this.locale, true);
     return date.isValid() ? date : this.invalid();
   }
 }

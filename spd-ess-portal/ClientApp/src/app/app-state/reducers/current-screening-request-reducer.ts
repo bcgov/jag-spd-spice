@@ -6,7 +6,10 @@ import { CurrentScreeningRequestState } from '../models/app-state';
 const initialState: CurrentScreeningRequestState = { currentScreeningRequest: null };
 
 // Section 2
-export function reducer(state: CurrentScreeningRequestState = initialState, action: CurrentScreeningRequestActions.Actions): CurrentScreeningRequestState {
+export function reducer(
+  state: CurrentScreeningRequestState = initialState,
+  action: CurrentScreeningRequestActions.Actions
+): CurrentScreeningRequestState {
 
     // Section 3
     switch (action.type) {

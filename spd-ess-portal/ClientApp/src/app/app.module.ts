@@ -11,7 +11,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BsDatepickerModule, AlertModule } from 'ngx-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { FileDropModule } from 'ngx-file-drop';
-import { 
+import {
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -73,11 +73,11 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     ScreeningRequestConfirmationComponent,
   ],
   imports: [
-    AlertModule.forRoot(),
+    AlertModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    BsDatepickerModule.forRoot(),
+    BsDatepickerModule,
     ChartsModule,
     CdkTableModule,
     FileDropModule,
@@ -116,7 +116,7 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     MatToolbarModule,
     MatTooltipModule,
     NgBusyModule,
-    NgbModule.forRoot(),
+    NgbModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
   ],
@@ -169,7 +169,7 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     ScreeningRequestDataService,
     Title,
     UserDataService,
-  ],  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

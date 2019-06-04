@@ -42,7 +42,8 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
           // retrieve screening request from store
           this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest;
         } else {
-          // when there is no screening request in the store (because this page has been refreshed or accessed directly via /review-submission)
+          // when there is no screening request in the store
+          // (because this page has been refreshed or accessed directly via /review-submission)
           // redirect to the screening request form page
           this.router.navigate(['/'], { replaceUrl: true });
         }
@@ -67,7 +68,9 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
   }
 
   uploadDocuments(screeningRequestId: number) {
-    this.uploadingDocuments = forkJoin(this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))).subscribe(
+    this.uploadingDocuments = forkJoin(
+      this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))
+    ).subscribe(
       undefined,
       (err: any) => this.submissionResult.error(err),
       () => this.submissionResult.next(true)
@@ -88,7 +91,13 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
       (err: any) => {
         console.error(err);
 
-        let ref = this._snackBar.open('Form Submission Failed', 'RETRY', { duration: 10000, horizontalPosition: 'center', verticalPosition: 'bottom', panelClass: 'snackbar-error' });
+        const ref = this._snackBar.open('Form Submission Failed', 'RETRY', {
+          duration: 10000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: 'snackbar-error'
+        });
+
         ref.onAction().subscribe(() => {
           this.gotoSubmit();
         });

@@ -1,5 +1,4 @@
-export class FileSystemItem
-{
+export class FileSystemItem {
     id: number;
     name: string;
     size: number;
