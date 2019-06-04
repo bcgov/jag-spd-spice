@@ -213,7 +213,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var csvWriter = new CsvWriter(writer))
                 {
                     csvWriter.Configuration.HasHeaderRecord = true;
-                    csvWriter.Configuration.AutoMap<CsvAssociateExport>();
+                    csvWriter.Configuration.RegisterClassMap<CsvAssociateExportMap>();
 
                     csvWriter.WriteHeader<CsvAssociateExport>();
                     csvWriter.NextRecord();
@@ -241,7 +241,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var csvWriter = new CsvWriter(writer))
                 {
                     csvWriter.Configuration.HasHeaderRecord = true;
-                    csvWriter.Configuration.AutoMap<CsvBusinessExport>();
+                    csvWriter.Configuration.RegisterClassMap<CsvBusinessExportMap>();
 
                     csvWriter.WriteHeader<CsvBusinessExport>();
                     csvWriter.NextRecord();

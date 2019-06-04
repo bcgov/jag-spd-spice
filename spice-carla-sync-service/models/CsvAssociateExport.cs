@@ -6,6 +6,9 @@ namespace SpiceCarlaSync.models
 {
     public class CsvAssociateExport : CsvWorkerExport
     {
+        const int MAX_ASSOCIATE_ALIAS = 5; // maximum number of aliases to send in the CSV export.
+        const int MAX_ASSOCIATE_PREVIOUS_ADDRESS = 10;
+
         public string LCRBBusinessJobId { get; set; }
 
         public static List<CsvAssociateExport> CreateListFromRequest(ApplicationScreeningRequest request)
@@ -24,23 +27,23 @@ namespace SpiceCarlaSync.models
                 {
                     var newAssociate = new CsvAssociateExport()
                     {
-                        LCRBBusinessJobId = jobNumber,
-                        Lcrbworkerjobid = entity.Contact.ContactId,
-                        Legalfirstname = entity.Contact.FirstName,
-                        Legalsurname = entity.Contact.LastName,
-                        Legalmiddlename = entity.Contact.MiddleName,
-                        Contactphone = entity.Contact.PhoneNumber,
-                        Personalemailaddress = entity.Contact.Email,
-                        Addressline1 = entity.Contact.Address.AddressStreet1,
-                        Addresscity = entity.Contact.Address.City,
-                        Addressprovstate = entity.Contact.Address.StateProvince,
-                        Addresscountry = entity.Contact.Address.Country,
-                        Addresspostalcode = entity.Contact.Address.Postal,
+                        LCRBBusinessJobId = jobNumber?.Replace(",", ""),
+                        Lcrbworkerjobid = entity.Contact.ContactId?.Replace(",", ""),
+                        Legalfirstname = entity.Contact.FirstName?.Replace(",", ""),
+                        Legalsurname = entity.Contact.LastName?.Replace(",", ""),
+                        Legalmiddlename = entity.Contact.MiddleName?.Replace(",", ""),
+                        Contactphone = entity.Contact.PhoneNumber?.Replace(",", ""),
+                        Personalemailaddress = entity.Contact.Email?.Replace(",", ""),
+                        Addressline1 = entity.Contact.Address.AddressStreet1?.Replace(",", ""),
+                        Addresscity = entity.Contact.Address.City?.Replace(",", ""),
+                        Addressprovstate = entity.Contact.Address.StateProvince?.Replace(",", ""),
+                        Addresscountry = entity.Contact.Address.Country?.Replace(",", ""),
+                        Addresspostalcode = entity.Contact.Address.Postal?.Replace(",", ""),
                         Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString().Substring(0, 1),
-                        Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString(),
-                        Driverslicence = entity.Contact.DriversLicenceNumber,
-                        Bcidentificationcardnumber = entity.Contact.BCIdCardNumber,
-                        Birthplacecity = entity.Contact.Birthplace,
+                        Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString().Substring(0, 1),
+                        Driverslicence = entity.Contact.DriversLicenceNumber?.Replace(",", ""),
+                        Bcidentificationcardnumber = entity.Contact.BCIdCardNumber?.Replace(",", ""),
+                        Birthplacecity = entity.Contact.Birthplace?.Replace(",", ""),
                         Birthdate = $"{entity.Contact.BirthDate:yyyy-MM-dd}"
                     };
 
@@ -48,22 +51,36 @@ namespace SpiceCarlaSync.models
                     var aliasId = 1;
                     foreach (var alias in entity.Aliases)
                     {
-                        newAssociate[$"Alias{aliasId}surname"] = alias.Surname;
-                        newAssociate[$"Alias{aliasId}middlename"] = alias.SecondName;
-                        newAssociate[$"Alias{aliasId}firstname"] = alias.GivenName;
+                        newAssociate[$"Alias{aliasId}surname"] = alias.Surname?.Replace(",", "");
+                        newAssociate[$"Alias{aliasId}middlename"] = alias.SecondName?.Replace(",", "");
+                        newAssociate[$"Alias{aliasId}firstname"] = alias.GivenName?.Replace(",", "");
                         aliasId++;
+                        if (aliasId > MAX_ASSOCIATE_ALIAS)
+                        {
+                            break;
+                        }
                     }
 
                     /* Flatten up the previous addresses */
                     var addressId = 1;
                     foreach (var address in entity.PreviousAddresses)
                     {
-                        newAssociate[$"Previousstreetaddress{addressId}"] = address.AddressStreet1;
-                        newAssociate[$"Previouscity{addressId}"] = address.City;
-                        newAssociate[$"Previousprovstate{addressId}"] = address.StateProvince;
-                        newAssociate[$"Previouscountry{addressId}"] = address.Country;
-                        newAssociate[$"Previouspostalcode{addressId}"] = address.Postal;
+                        string addressIdString = addressId.ToString();
+                        if (addressId == 10)
+                        {
+                            addressIdString = "x";
+                        }
+                        newAssociate[$"Previousstreetaddress{addressId}"] = address.AddressStreet1?.Replace(",", "");
+                        newAssociate[$"Previouscity{addressId}"] = address.City?.Replace(",", "");
+                        newAssociate[$"Previousprovstate{addressId}"] = address.StateProvince?.Replace(",", "");
+                        newAssociate[$"Previouscountry{addressId}"] = address.Country?.Replace(",", "");
+                        newAssociate[$"Previouspostalcode{addressId}"] = address.Postal?.Replace(",", "");
                         addressId++;
+
+                        if(addressId > MAX_ASSOCIATE_PREVIOUS_ADDRESS)
+                        {
+                            break;
+                        }
                     }
                     export.Add(newAssociate);
                 }

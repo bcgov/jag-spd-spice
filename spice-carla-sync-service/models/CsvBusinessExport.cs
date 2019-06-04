@@ -28,24 +28,24 @@ namespace SpiceCarlaSync.models
         {
             return new CsvBusinessExport()
             {
-                OrganizationName = request.ApplicantName,
-                JobId = request.RecordIdentifier,
-                BusinessNumber = request.BusinessNumber,
-                BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
-                BusinessCity = request.BusinessAddress.City,
-                BusinessStateProvince = request.BusinessAddress.StateProvince,
-                BusinessCountry = request.BusinessAddress.Country,
-                BusinessPostal = request.BusinessAddress.Postal,
-                EstablishmentParcelId = request.Establishment.ParcelId,
-                EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1,
-                EstablishmentCity = request.Establishment.Address.City,
-                EstablishmentStateProvince = request.Establishment.Address.StateProvince,
-                EstablishmentCountry = request.Establishment.Address.Country,
-                EstablishmentPostal = request.Establishment.Address.Postal,
-                ContactPersonSurname = request.ContactPerson.LastName,
-                ContactPersonFirstname = request.ContactPerson.FirstName,
-                ContactPhone = request.ContactPerson.PhoneNumber,
-                ContactEmail = request.ContactPerson.Email
+                OrganizationName = request.ApplicantName?.Replace(",", ""),
+                JobId = request.RecordIdentifier?.Replace(",", ""),
+                BusinessNumber = request.BusinessNumber?.Replace(",", ""),
+                BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1?.Replace(",", ""),
+                BusinessCity = request.BusinessAddress.City?.Replace(",", ""),
+                BusinessStateProvince = request.BusinessAddress.StateProvince?.Replace(",", ""),
+                BusinessCountry = request.BusinessAddress.Country?.Replace(",", ""),
+                BusinessPostal = request.BusinessAddress.Postal?.Replace(",", ""),
+                EstablishmentParcelId = request.Establishment.ParcelId?.Replace(",", ""),
+                EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1?.Replace(",", ""),
+                EstablishmentCity = request.Establishment.Address.City?.Replace(",", ""),
+                EstablishmentStateProvince = request.Establishment.Address.StateProvince?.Replace(",", ""),
+                EstablishmentCountry = request.Establishment.Address.Country?.Replace(",", ""),
+                EstablishmentPostal = request.Establishment.Address.Postal?.Replace(",", ""),
+                ContactPersonSurname = request.ContactPerson.LastName?.Replace(",", ""),
+                ContactPersonFirstname = request.ContactPerson.FirstName?.Replace(",", ""),
+                ContactPhone = request.ContactPerson.PhoneNumber?.Replace(",", ""),
+                ContactEmail = request.ContactPerson.Email?.Replace(",", "")
             };
         }
     }
