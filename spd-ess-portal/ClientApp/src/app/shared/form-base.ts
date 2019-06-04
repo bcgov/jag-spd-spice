@@ -6,7 +6,7 @@ export class FormBase {
 
     public dateRangeValidator(startDate: Moment, endDate: Moment): ValidatorFn {
       return (control: AbstractControl): { [key: string]: any } | null => {
-        let date = control.value;
+        const date = control.value;
 
         if (date === '' || date === null) {
           return null;
@@ -20,12 +20,12 @@ export class FormBase {
       };
     }
 
-    public notEqualFieldValidator(otherFieldName: string) : ValidatorFn {
+    public notEqualFieldValidator(otherFieldName: string): ValidatorFn {
       return (control: AbstractControl): { [key: string]: any } | null => {
         if (!control.parent) {
           return null;
         }
-        
+
         const otherField = control.parent.get(otherFieldName);
         if (!otherField) {
           return null;

@@ -30,14 +30,14 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
   validationErrors: string[] = [];
 
   constructor(private store: Store<AppState>) { }
-  
+
   ngOnInit() {
     // subscribe to files from store
     this.store.select(state => state.fileUploadsState.fileUploads)
       .pipe(
         takeUntil(this.unsubscribe),
       ).subscribe(fileUploads => {
-        let fileUploadSet = fileUploads.find(f => f.id === this.id);
+        const fileUploadSet = fileUploads.find(f => f.id === this.id);
         this.files = fileUploadSet ? fileUploadSet.files : [];
       });
   }
@@ -89,10 +89,11 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     }
 
     if (file && file.size && file.size > this.fileSizeLimit) {
-      this.validationErrors.push(`The specified file exceeds the maximum file size of ${this.fileSizeLimitReadable}. <em>[${file.name}]</em>`);
+      const limit = this.fileSizeLimitReadable;
+      this.validationErrors.push(`The specified file exceeds the maximum file size of ${limit}. <em>[${file.name}]</em>`);
       return false;
     }
-    
+
     if (this.maxFileCount && this.files.length >= this.maxFileCount) {
       this.validationErrors.push(`File limit has been reached. The specified file has not been added. <em>[${file.name}]</em>`);
       return false;

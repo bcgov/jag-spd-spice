@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class ScreeningRequestConfirmationComponent {
   constructor(private router: Router,
   ) { }
-  
+
   gotoForm() {
     this.router.navigate(['/']);
   }
