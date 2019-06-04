@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CdkTableModule } from '@angular/cdk/table';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import { NgBusyModule } from 'ng-busy';
-import { ChartsModule } from 'ng2-charts';
-import { BsDatepickerModule, AlertModule } from 'ngx-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { FileDropModule } from 'ngx-file-drop';
 import {
@@ -73,13 +69,9 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     ScreeningRequestConfirmationComponent,
   ],
   imports: [
-    AlertModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    BsDatepickerModule,
-    ChartsModule,
-    CdkTableModule,
     FileDropModule,
     FormsModule,
     HttpClientModule,
@@ -116,7 +108,6 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     MatToolbarModule,
     MatTooltipModule,
     NgBusyModule,
-    NgbModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
   ],
@@ -124,7 +115,6 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    CdkTableModule,
     FileDropModule,
     FormsModule,
     HttpClientModule,
@@ -160,12 +150,10 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    NgbModule,
     ReactiveFormsModule,
   ],
   providers: [
     CookieService,
-    NgbDropdown,
     ScreeningRequestDataService,
     Title,
     UserDataService,
