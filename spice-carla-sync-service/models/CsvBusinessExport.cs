@@ -1,4 +1,6 @@
 ﻿using System;
+using SpdSync.models;
+
 namespace SpiceCarlaSync.models
 {
     public class CsvBusinessExport
@@ -21,5 +23,30 @@ namespace SpiceCarlaSync.models
         public string ContactPersonFirstname { get; set; }
         public string ContactPhone { get; set; }
         public string ContactEmail { get; set; }
+
+        public static CsvBusinessExport CreateFromRequest(ApplicationScreeningRequest request)
+        {
+            return new CsvBusinessExport()
+            {
+                OrganizationName = request.ApplicantName,
+                JobId = request.RecordIdentifier,
+                BusinessNumber = request.BusinessNumber,
+                BusinessAddressStreet1 = request.BusinessAddress.AddressStreet1,
+                BusinessCity = request.BusinessAddress.City,
+                BusinessStateProvince = request.BusinessAddress.StateProvince,
+                BusinessCountry = request.BusinessAddress.Country,
+                BusinessPostal = request.BusinessAddress.Postal,
+                EstablishmentParcelId = request.Establishment.ParcelId,
+                EstablishmentAddressStreet1 = request.Establishment.Address.AddressStreet1,
+                EstablishmentCity = request.Establishment.Address.City,
+                EstablishmentStateProvince = request.Establishment.Address.StateProvince,
+                EstablishmentCountry = request.Establishment.Address.Country,
+                EstablishmentPostal = request.Establishment.Address.Postal,
+                ContactPersonSurname = request.ContactPerson.LastName,
+                ContactPersonFirstname = request.ContactPerson.FirstName,
+                ContactPhone = request.ContactPerson.PhoneNumber,
+                ContactEmail = request.ContactPerson.Email
+            };
+        }
     }
 }
