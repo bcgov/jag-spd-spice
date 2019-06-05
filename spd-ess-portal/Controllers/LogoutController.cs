@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -11,7 +10,7 @@ namespace Gov.Jag.Spice.Public.Controllers
     {
         private readonly IConfiguration Configuration;
 
-        public LogoutController(IConfiguration configuration, IHostingEnvironment env)
+        public LogoutController(IConfiguration configuration)
         {
             Configuration = configuration;
         }

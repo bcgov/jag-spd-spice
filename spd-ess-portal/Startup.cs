@@ -1,8 +1,5 @@
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Public.Authentication;
-using Gov.Jag.Spice.Public.Authorization;
-
-using Gov.Jag.Spice.Public.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -12,7 +9,6 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
@@ -24,7 +20,6 @@ using NWebsec.AspNetCore.Mvc;
 using NWebsec.AspNetCore.Mvc.Csp;
 using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.Public
@@ -41,7 +36,6 @@ namespace Gov.Jag.Spice.Public
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
             // add singleton to allow Controllers to query the Request object
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -85,18 +79,13 @@ namespace Gov.Jag.Spice.Public
                     opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
 
-
             // setup siteminder authentication (core 2.0)
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = SiteMinderAuthOptions.AuthenticationSchemeName;
                 options.DefaultChallengeScheme = SiteMinderAuthOptions.AuthenticationSchemeName;
-            }).AddSiteminderAuth(options =>
-            {
+            }).AddSiteminderAuth(options => { });
 
-            });
-
-            services.RegisterPermissionHandler();
             if (Configuration["KEY_RING_DIRECTORY"] != null)
             {
                 // setup key ring to persist in storage.
@@ -123,12 +112,10 @@ namespace Gov.Jag.Spice.Public
             });
 
             services.AddSession();
-
         }
 
         private void SetupDynamics(IServiceCollection services)
         {
-
             string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"];
             string aadTenantId = Configuration["DYNAMICS_AAD_TENANT_ID"];
             string serverAppIdUri = Configuration["DYNAMICS_SERVER_APP_ID_URI"];
@@ -142,26 +129,21 @@ namespace Gov.Jag.Spice.Public
             // authenticate using ADFS.
             if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
             {
-                var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/" + aadTenantId);
-                ClientCredential clientCredential = new ClientCredential(clientId, clientKey);
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/" + aadTenantId);
+                var clientCredential = new ClientCredential(clientId, clientKey);
                 var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
                 task.Wait();
                 authenticationResult = task.Result;
             }
 
-            
-
-            services.AddTransient(new Func<IServiceProvider, IDynamicsClient>((serviceProvider) =>
+            services.AddTransient(serviceProvider =>
             {
-
                 ServiceClientCredentials serviceClientCredentials = null;
 
                 if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
                 {
-                    var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/" + aadTenantId);
-                    ClientCredential clientCredential = new ClientCredential(clientId, clientKey);
+                    var authenticationContext = new AuthenticationContext("https://login.windows.net/" + aadTenantId);
+                    var clientCredential = new ClientCredential(clientId, clientKey);
                     var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
                     task.Wait();
                     authenticationResult = task.Result;
@@ -179,7 +161,6 @@ namespace Gov.Jag.Spice.Public
 
                 IDynamicsClient client = new DynamicsClient(new Uri(Configuration["DYNAMICS_ODATA_URI"]), serviceClientCredentials);
 
-
                 // set the native client URI
                 if (string.IsNullOrEmpty(Configuration["DYNAMICS_NATIVE_ODATA_URI"]))
                 {
@@ -191,7 +172,7 @@ namespace Gov.Jag.Spice.Public
                 }
 
                 return client;
-            }));
+            });
 
             // add SharePoint.
 
@@ -219,29 +200,21 @@ namespace Gov.Jag.Spice.Public
                 sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
             }
 
-            services.AddTransient<SharePointFileManager>(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, sharePointSsgUsername, sharePointSsgPassword, sharePointNativeBaseURI));
-
-            
+            services.AddTransient(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, sharePointSsgUsername, sharePointSsgPassword, sharePointNativeBaseURI));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            var log = loggerFactory.CreateLogger("Startup");
-
-            
-
+            var logger = loggerFactory.CreateLogger<Startup>();
 
             string pathBase = Configuration["BASE_PATH"];
+            if (string.IsNullOrEmpty(pathBase))
+            {
+                pathBase = "/spdess";
+            }
+            app.UsePathBase(pathBase);
 
-            if (!string.IsNullOrEmpty(pathBase))
-            {
-                app.UsePathBase(pathBase);
-            }
-            else
-            {
-                app.UsePathBase("/spdess");
-            }
             if (!env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
@@ -261,15 +234,16 @@ namespace Gov.Jag.Spice.Public
             app.UseXContentTypeOptions();
             app.UseXfo(xfo => xfo.Deny());
 
-            StaticFileOptions staticFileOptions = new StaticFileOptions();
-
-            staticFileOptions.OnPrepareResponse = ctx =>
+            var staticFileOptions = new StaticFileOptions
             {
-                ctx.Context.Response.Headers[HeaderNames.CacheControl] = "no-cache, no-store, must-revalidate, private";
-                ctx.Context.Response.Headers[HeaderNames.Pragma] = "no-cache";
-                ctx.Context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
-                ctx.Context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
-                ctx.Context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = "no-cache, no-store, must-revalidate, private";
+                    ctx.Context.Response.Headers[HeaderNames.Pragma] = "no-cache";
+                    ctx.Context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
+                    ctx.Context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
+                    ctx.Context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                }
             };
 
             app.UseStaticFiles(staticFileOptions);
@@ -303,7 +277,5 @@ namespace Gov.Jag.Spice.Public
             // Static files that should only be accessible to the server can be placed in the App_Data folder
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(env.ContentRootPath, "App_Data"));
         }
-
-        
     }
 }

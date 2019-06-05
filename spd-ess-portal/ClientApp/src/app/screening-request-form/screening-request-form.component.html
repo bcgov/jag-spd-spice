@@ -114,13 +114,19 @@
       Provide details for the contact who should receive the screening results.
     </p>
     <div class="row">
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Results To" [required]="true" [showChevrons]="false"
-        [valid]="form.get('contactName').valid || !form.get('contactName').touched"
-        errorMessage="Please enter a name for the recipient of the results" [isFullWidth]="true">
-        <input id="contactName" class="form-control" type="text" formControlName="contactName" autocomplete="off">
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient First Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contactFirstName').valid || !form.get('contactFirstName').touched"
+        errorMessage="Please enter a first name for the recipient of the results" [isFullWidth]="true">
+        <input id="contactFirstName" class="form-control" type="text" formControlName="contactFirstName" autocomplete="off">
       </app-field>
 
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Email Address" [required]="true" [showChevrons]="false"
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient Last Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contactLastName').valid || !form.get('contactLastName').touched"
+        errorMessage="Please enter a last name for the recipient of the results" [isFullWidth]="true">
+        <input id="contactLastName" class="form-control" type="text" formControlName="contactLastName" autocomplete="off">
+      </app-field>
+
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient Email Address" [required]="true" [showChevrons]="false"
         [valid]="form.get('contactEmail').valid || !form.get('contactEmail').touched"
         [errorMessage]="getContactEmailErrorMessage()" [isFullWidth]="true">
         <input id="contactEmail" class="form-control" type="text" formControlName="contactEmail" autocomplete="off">

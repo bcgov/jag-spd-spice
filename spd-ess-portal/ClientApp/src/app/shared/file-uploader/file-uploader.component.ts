@@ -1,13 +1,13 @@
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { AppState } from '../../app-state/models/app-state';
-import { Store } from '@ngrx/store';
-import { UploadEvent, FileSystemFileEntry } from 'ngx-file-drop';
-import { FileSystemItem } from '@models/file-system-item.model';
+import { FileSystemFileEntry, UploadEvent } from 'ngx-file-drop';
 
 import * as FileUploadsActions from '../../app-state/actions/file-uploads.action';
+import { AppState } from '../../app-state/models/app-state';
 
+import { FileSystemItem } from '../../models/file-system-item.model';
 
 @Component({
   selector: 'app-file-uploader[id]',
@@ -30,14 +30,14 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
   validationErrors: string[] = [];
 
   constructor(private store: Store<AppState>) { }
-  
+
   ngOnInit() {
     // subscribe to files from store
     this.store.select(state => state.fileUploadsState.fileUploads)
       .pipe(
         takeUntil(this.unsubscribe),
       ).subscribe(fileUploads => {
-        let fileUploadSet = fileUploads.find(f => f.id === this.id);
+        const fileUploadSet = fileUploads.find(f => f.id === this.id);
         this.files = fileUploadSet ? fileUploadSet.files : [];
       });
   }
@@ -89,10 +89,11 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     }
 
     if (file && file.size && file.size > this.fileSizeLimit) {
-      this.validationErrors.push(`The specified file exceeds the maximum file size of ${this.fileSizeLimitReadable}. <em>[${file.name}]</em>`);
+      const limit = this.fileSizeLimitReadable;
+      this.validationErrors.push(`The specified file exceeds the maximum file size of ${limit}. <em>[${file.name}]</em>`);
       return false;
     }
-    
+
     if (this.maxFileCount && this.files.length >= this.maxFileCount) {
       this.validationErrors.push(`File limit has been reached. The specified file has not been added. <em>[${file.name}]</em>`);
       return false;
@@ -106,20 +107,11 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: [...this.files, fileSystemEntry ] }));
   }
 
-  public fileOver(event) {
-    // console.log(event);
-  }
-
-  public fileLeave(event) {
-    // console.log(event);
-  }
-
   removeFile(file: FileSystemItem) {
     this.store.dispatch(new FileUploadsActions.SetFileUploadsAction({ id: this.id, files: this.files.filter(f => f.id !== file.id) }));
   }
 
-  browseFiles(browserMultiple) {
+  browseFiles(browserMultiple: HTMLInputElement) {
     browserMultiple.click();
   }
 }
-

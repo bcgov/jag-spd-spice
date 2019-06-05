@@ -3,16 +3,17 @@ using System;
 using System.Linq;
 using Gov.Jag.Spice.Public.Utils;
 
+// ReSharper disable InconsistentNaming
 namespace Gov.Jag.Spice.Public.Authentication
 {
     public static class SiteMinderClaimTypes
     {
-        public static string NAME = "sm.name";
-        public static string GIVEN_NAME = "sm.given_name";
-        public static string LAST_NAME = "sm.last_name";
-        public static string DEPARTMENT = "sm.department";
-        public static string ORG_CODE = "sm.org_code";
-        public static string COMPANY = "sm.company";
+        public const string NAME = "sm.name";
+        public const string GIVEN_NAME = "sm.given_name";
+        public const string LAST_NAME = "sm.last_name";
+        public const string DEPARTMENT = "sm.department";
+        public const string ORG_CODE = "sm.org_code";
+        public const string COMPANY = "sm.company";
     }
 
     public class SiteMinderAuthenticationToken
@@ -48,7 +49,7 @@ namespace Gov.Jag.Spice.Public.Authentication
 
         public static SiteMinderAuthenticationToken CreateForDev(HttpRequest req)
         {
-            var str = req.Cookies[SM_TOKEN_NAME]?.Base64Decode();
+            string str = req.Cookies[SM_TOKEN_NAME]?.Base64Decode();
             if (string.IsNullOrEmpty(str)) str = req.Headers[SM_TOKEN_NAME].ToString().Base64Decode();
             if (string.IsNullOrWhiteSpace(str)) return Anonymous;
 
@@ -69,7 +70,7 @@ namespace Gov.Jag.Spice.Public.Authentication
 
         public static void AddToResponse(SiteMinderAuthenticationToken token, HttpResponse res)
         {
-            res.Cookies.Append(SM_TOKEN_NAME, token.ToString().Base64Encode(), new CookieOptions()
+            res.Cookies.Append(SM_TOKEN_NAME, token.ToString().Base64Encode(), new CookieOptions
             {
                 SameSite = SameSiteMode.Strict,
                 Expires = DateTimeOffset.Now.AddSeconds(30),
@@ -87,7 +88,8 @@ namespace Gov.Jag.Spice.Public.Authentication
 
         public override string ToString()
         {
-            return $"smgov_userguid={smgov_userguid};" +
+            return 
+                $"smgov_userguid={smgov_userguid};" +
                 $"sm_universalid={sm_universalid};" +
                 $"smgov_userdisplayname={smgov_userdisplayname};" +
                 $"sm_user={sm_user};" +

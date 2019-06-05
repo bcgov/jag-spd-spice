@@ -1,6 +1,6 @@
 
 import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
-import { BrowserModule, By } from "@angular/platform-browser";
+import { BrowserModule } from '@angular/platform-browser';
 import { NotFoundComponent } from './not-found.component';
 
 let component: NotFoundComponent;

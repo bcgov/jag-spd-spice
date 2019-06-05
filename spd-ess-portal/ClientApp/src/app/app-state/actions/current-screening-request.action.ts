@@ -7,7 +7,7 @@ export const CLEAR_CURRENT_SCREENING_REQUEST = 'CLEAR_CURRENT_SCREENING_REQUEST'
 export class SetCurrentScreeningRequestAction implements Action {
   readonly type = SET_CURRENT_SCREENING_REQUEST;
 
-  constructor(public payload: ScreeningRequest) {}
+  constructor(public payload: ScreeningRequest) { }
 }
 
 export class ClearCurrentScreeningRequestAction implements Action {

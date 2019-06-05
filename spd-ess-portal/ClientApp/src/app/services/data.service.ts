@@ -1,9 +1,9 @@
-import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
 export class DataService {
 
-  apiPath = 'api/';
+  apiPath = 'api';
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
@@ -21,7 +21,6 @@ export class DataService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError('Something bad happened; please try again later.');
   }
 }

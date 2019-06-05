@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -11,8 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
-using Gov.Jag.Spice.Public.Authentication;
-using Gov.Jag.Spice.Public.Models;
+using Gov.Jag.Spice.Public.Utils;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -20,7 +18,6 @@ namespace Gov.Jag.Spice.Public.Controllers
     public class FileController : Controller
     {
         private readonly IConfiguration Configuration;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly SharePointFileManager _sharePointFileManager;
         private readonly ILogger _logger;
         private readonly IDynamicsClient _dynamicsClient;
@@ -28,10 +25,9 @@ namespace Gov.Jag.Spice.Public.Controllers
         public FileController(/*SharePointFileManager sharePointFileManager, */IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILoggerFactory loggerFactory/*, IDynamicsClient dynamicsClient */)
         {
             Configuration = configuration;
-            _httpContextAccessor = httpContextAccessor;
             //_sharePointFileManager = sharePointFileManager;
             //_dynamicsClient = dynamicsClient;
-            _logger = loggerFactory.CreateLogger(typeof(FileController));
+            _logger = loggerFactory.CreateLogger<FileController>();
         }
 
         private static string GetAccountFolderName(MicrosoftDynamicsCRMaccount account)
@@ -120,7 +116,7 @@ namespace Gov.Jag.Spice.Public.Controllers
             illegalInFileName = new Regex(@"[&:/\\|]");
             fileName = illegalInFileName.Replace(fileName, "-");
 
-            //fileName = FileSystemItemExtensions.CombineNameDocumentType(fileName, documentType);
+            //fileName = FileUtility.CombineNameDocumentType(fileName, documentType);
             //string folderName = await GetFolderName(entityName, entityId, _dynamicsClient);
             try
             {
@@ -144,11 +140,11 @@ namespace Gov.Jag.Spice.Public.Controllers
             {
                 case "account":
                     var account = await _dynamicsClient.GetAccountById(id);
-                    result = account != null && CurrentUserHasAccessToApplicationOwnedBy(account.Accountid);
+                    result = account != null;
                     break;
                 case "contact":
                     var contact = await _dynamicsClient.GetContactById(id);
-                    result = contact != null && CurrentUserHasAccessToContactOwnedBy(contact.Contactid);
+                    result = contact != null;
                     break;
             }
             return result;
@@ -336,48 +332,6 @@ namespace Gov.Jag.Spice.Public.Controllers
                     break;
             }
             return listTitle;
-        }
-
-        /// <summary>
-        /// Verify whether currently logged in user has access to this account id
-        /// </summary>
-        /// <returns>boolean</returns>
-        private bool CurrentUserHasAccessToApplicationOwnedBy(string accountId)
-        {
-            // get the current user.
-            string temp = _httpContextAccessor.HttpContext.Session.GetString("UserSettings");
-            UserSettings userSettings = JsonConvert.DeserializeObject<UserSettings>(temp);
-
-            // For now, check if the account id matches the user's account.
-            // TODO there may be some account relationships in the future
-            if (userSettings.AccountId != null && userSettings.AccountId.Length > 0)
-            {
-                return userSettings.AccountId == accountId;
-            }
-
-            // if current user doesn't have an account they are probably not logged in
-            return false;
-        }
-
-        /// <summary>
-        /// Verify whether currently logged in user has access to this contact id
-        /// </summary>
-        /// <returns>boolean</returns>
-        private bool CurrentUserHasAccessToContactOwnedBy(string contactId)
-        {
-            // get the current user.
-            string temp = _httpContextAccessor.HttpContext.Session.GetString("UserSettings");
-            UserSettings userSettings = JsonConvert.DeserializeObject<UserSettings>(temp);
-
-            // For now, check if the account id matches the user's account.
-            // TODO there may be some account relationships in the future
-            if (userSettings.ContactId != null && userSettings.ContactId.Length > 0)
-            {
-                return userSettings.ContactId == contactId;
-            }
-
-            // if current user doesn't have an account they are probably not logged in
-            return false;
         }
 
         private async Task CreateDocumentLibraryIfMissing(string listTitle, string documentTemplateUrl = null)

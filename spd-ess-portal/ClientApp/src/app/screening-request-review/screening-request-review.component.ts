@@ -1,17 +1,16 @@
 
-import { filter } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../app-state/models/app-state';
-import { Store } from '@ngrx/store';
-import { Subject, Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Store } from '@ngrx/store';
+import { Subject, Subscription, forkJoin } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
+import { AppState } from '../app-state/models/app-state';
 
 import { ScreeningRequest } from '../models/screening-request.model';
-import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
 import { ScreeningRequestDataService } from '../services/screening-request-data.service';
-
 import { FormBase } from '../shared/form-base';
 
 @Component({
@@ -26,11 +25,9 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
   submissionResult: Subject<boolean>;
 
   valid = false;
-  screeningRequestId = null;
 
   constructor(private store: Store<AppState>,
     private router: Router,
-    private route: ActivatedRoute,
     private screeningRequestDataService: ScreeningRequestDataService,
     private _snackBar: MatSnackBar,
   ) {
@@ -45,7 +42,8 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
           // retrieve screening request from store
           this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest;
         } else {
-          // when there is no screening request in the store (because this page has been refreshed or accessed directly via /review-submission)
+          // when there is no screening request in the store
+          // (because this page has been refreshed or accessed directly via /review-submission)
           // redirect to the screening request form page
           this.router.navigate(['/'], { replaceUrl: true });
         }
@@ -70,9 +68,11 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
   }
 
   uploadDocuments(screeningRequestId: number) {
-    this.uploadingDocuments = forkJoin(this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))).subscribe(
-      null,
-      err => this.submissionResult.error(err),
+    this.uploadingDocuments = forkJoin(
+      this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))
+    ).subscribe(
+      undefined,
+      (err: any) => this.submissionResult.error(err),
       () => this.submissionResult.next(true)
     );
   }
@@ -87,11 +87,17 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
 
   gotoSubmit() {
     this.save().subscribe(
-      null,
-      err => {
+      undefined,
+      (err: any) => {
         console.error(err);
 
-        let ref = this._snackBar.open('Form Submission Failed', 'RETRY', { duration: 10000, horizontalPosition: 'center', verticalPosition: 'bottom', panelClass: 'snackbar-error' });
+        const ref = this._snackBar.open('Form Submission Failed', 'RETRY', {
+          duration: 10000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: 'snackbar-error'
+        });
+
         ref.onAction().subscribe(() => {
           this.gotoSubmit();
         });
