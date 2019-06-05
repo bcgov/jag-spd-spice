@@ -58,7 +58,6 @@ namespace Gov.Jag.Spice.Public.Authentication
                 smAuthToken = SiteMinderAuthenticationToken.CreateForDev(Request);
                 Response.Cookies.Delete(SiteMinderAuthenticationToken.SM_TOKEN_NAME);
             }
-            _logger.LogDebug($"smAuthToken: {smAuthToken.ToString()}");
 
             string claims = Context.Session.GetString("app.principal");
             if (!string.IsNullOrEmpty(claims))
@@ -78,11 +77,12 @@ namespace Gov.Jag.Spice.Public.Authentication
                 var principal = CreatePrincipalFor(smAuthToken);
                 Context.Session.SetString("app.principal", principal.ToJwt());
                 _logger.LogDebug($"Success (new): {principal.Identity.Name}");
+                _logger.LogDebug($"smAuthToken: {smAuthToken}");
                 return AuthenticateResult.Success(new AuthenticationTicket(principal, SiteMinderAuthOptions.Scheme));
             }
             catch (ApplicationException e)
             {
-                _logger.LogError($"Fail to authenticate user with token '{smAuthToken.ToString()}': {e.Message}");
+                _logger.LogError($"Fail to authenticate user with smAuthToken '{smAuthToken}': {e.Message}");
                 return AuthenticateResult.Fail(e.Message);
             }
         }
