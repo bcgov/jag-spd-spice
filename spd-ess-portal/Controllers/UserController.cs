@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Claims;
 using Gov.Jag.Spice.Public.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -12,13 +11,6 @@ namespace Gov.Jag.Spice.Public.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IConfiguration Configuration;
-
-        public UserController(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         // GET: api/User/Current
         [HttpGet]
         [Route("Current")]

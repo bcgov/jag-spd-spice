@@ -1,8 +1,5 @@
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Public.Authentication;
-using Gov.Jag.Spice.Public.Authorization;
-
-using Gov.Jag.Spice.Public.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -12,7 +9,6 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
@@ -24,7 +20,6 @@ using NWebsec.AspNetCore.Mvc;
 using NWebsec.AspNetCore.Mvc.Csp;
 using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.Public
@@ -96,7 +91,6 @@ namespace Gov.Jag.Spice.Public
 
             });
 
-            services.RegisterPermissionHandler();
             if (Configuration["KEY_RING_DIRECTORY"] != null)
             {
                 // setup key ring to persist in storage.

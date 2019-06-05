@@ -1,9 +1,13 @@
-﻿namespace Gov.Jag.Spice.Public.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Gov.Jag.Spice.Public.Utils
 {
     /// <summary>
     /// ViewModel transforms.
     /// </summary>
-    public static class FileSystemItemExtensions
+    public static class FileUtility
     {
         const string NameDocumentTypeSeparator = "__";
 
