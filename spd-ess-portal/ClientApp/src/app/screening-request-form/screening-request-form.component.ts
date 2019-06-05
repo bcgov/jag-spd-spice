@@ -1,26 +1,24 @@
-import { combineLatest, Subject, Subscription } from 'rxjs';
-import { filter, take, takeUntil } from 'rxjs/operators';
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { AppState } from '../app-state/models/app-state';
-import { Store } from '@ngrx/store';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subject, Subscription, combineLatest } from 'rxjs';
+import { filter, take, takeUntil } from 'rxjs/operators';
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
-import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
+import * as FileUploadsActions from '../app-state/actions/file-uploads.action';
+import { AppState } from '../app-state/models/app-state';
 
 import { Ministry } from '../models/ministry.model';
 import { ScreeningReason } from '../models/screening-reason.model';
-
-import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
-
-import { StrictMomentDateAdapter } from '../strict-moment-date-adapter/strict-moment-date-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import { ScreeningRequest } from '../models/screening-request.model';
+import { User } from '../models/user.model';
 import { FormBase } from '../shared/form-base';
-
-import * as FileUploadsActions from '../app-state/actions/file-uploads.action';
+import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
+import { StrictMomentDateAdapter } from '../shared/strict-moment-date-adapter/strict-moment-date-adapter';
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
@@ -61,7 +59,6 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
   constructor(private store: Store<AppState>,
     private router: Router,
-    private route: ActivatedRoute,
     private fb: FormBuilder,
   ) {
     super();
@@ -84,7 +81,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       candidateDateOfBirth: ['', [Validators.required, this.dateRangeValidator(this.minDate, this.maxDate)]],
       candidateEmail: ['', [Validators.required, Validators.email]],
       candidatePosition: ['', Validators.required],
-      contactName: ['', Validators.required],
+      contactFirstName: ['', Validators.required],
+      contactLastName: ['', Validators.required],
       contactEmail: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidateEmail')]],
       photoIdConfirmation: [false, Validators.requiredTrue],
     });
@@ -93,11 +91,13 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     // retrieve dropdown data from store
     combineLatest(
-      this.store.select(state => state.currentUserState.currentUser),
-      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes),
-      this.store.select(state => state.screeningReasonsState.screeningReasons),
+      this.store.select(state => state.currentUserState.currentUser)
+        .pipe(filter<User>((u): u is User => !!u)),
+      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes)
+        .pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
+      this.store.select(state => state.screeningReasonsState.screeningReasons)
+        .pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
     ).pipe(
-      filter(([ currentUser, ministryScreeningTypes, screeningReasons ]) => !!currentUser && !!ministryScreeningTypes && !!screeningReasons),
       takeUntil(this.unsubscribe),
     ).subscribe(([ currentUser, ministryScreeningTypes, screeningReasons ]) => {
       this.ministryScreeningTypes = ministryScreeningTypes;
@@ -105,22 +105,24 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
       // initialize dropdown selections based on current user
       const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
-      if (clientMinistry) {
-        this.form.get('clientMinistry').setValue(clientMinistry.name);
+      const clientMinistryControl = this.form.get('clientMinistry');
+      if (clientMinistry && clientMinistryControl) {
+        clientMinistryControl.setValue(clientMinistry.name);
 
         const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
-        if (programArea) {
-          this.form.get('programArea').setValue(programArea.name);
+        const programAreaControl = this.form.get('programArea');
+        if (programArea && programAreaControl) {
+          programAreaControl.setValue(programArea.name);
         }
       }
-      
+
       this.loaded = true;
     });
 
     // if there is an existing screening request in the store, retrieve it so it can be edited
     this.existingScreeningRequestSubscription = this.store.select(state => state.currentScreeningRequestState.currentScreeningRequest)
       .pipe(
-        filter(request => !!request),
+        filter<ScreeningRequest>((r): r is ScreeningRequest => !!r),
         takeUntil(this.unsubscribe),
       ).subscribe(request => {
         const { files, ...formValues } = request;
@@ -136,10 +138,11 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   setOtherReasonValidator() {
+    const reasonControl = this.form.get('reason');
     const otherReasonControl = this.form.get('otherReason');
 
-    this.form.get('reason').valueChanges
-      .subscribe(reason => {
+    if (reasonControl && otherReasonControl) {
+      reasonControl.valueChanges.subscribe(reason => {
         if (reason === 'Other') {
           otherReasonControl.setValidators([Validators.required]);
         } else {
@@ -148,6 +151,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
         otherReasonControl.updateValueAndValidity();
       });
+    }
   }
 
   getCandidateDateOfBirthValidity() {
@@ -155,9 +159,9 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getCandidateDateOfBirthErrorMessage() {
-    let control = this.form.get('candidateDateOfBirth');
+    const control = this.form.get('candidateDateOfBirth');
 
-    if (control.valid || !control.touched) {
+    if (!control || control.valid || !control.touched || !control.errors) {
       return '';
     } else if (control.errors.required) {
       return 'Please provide the candidate\'s date of birth in the format yyyy-mm-dd';
@@ -171,28 +175,36 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getContactEmailErrorMessage() {
-    let control = this.form.get('contactEmail');
+    const control = this.form.get('contactEmail');
 
-    if (control.valid || !control.touched) {
+    if (!control || control.valid || !control.touched || !control.errors) {
       return '';
-    } else if (control.errors.email) {
+    } else if (control.errors.required || control.errors.email) {
       return 'Email address must be provided in a valid format';
     } else if (control.errors.equal) {
-      return 'Email address cannot be the same as the candidate email address'
+      return 'Email address cannot be the same as the candidate email address';
     } else {
       return '';
     }
   }
 
   getProgramAreas() {
-    const ministryName = this.form.get('clientMinistry').value;
-    const ministry = this.ministryScreeningTypes.find(m => m.name === ministryName);
+    const clientMinistryControl = this.form.get('clientMinistry');
+    if (!clientMinistryControl) {
+      return [];
+    }
+
+    const ministry = this.ministryScreeningTypes.find(m => m.name === clientMinistryControl.value);
     return ministry ? ministry.programAreas : [];
   }
 
   getScreeningTypes() {
-    const programAreaName = this.form.get('programArea').value;
-    const programArea = this.getProgramAreas().find(m => m.name === programAreaName);
+    const programAreaControl = this.form.get('programArea');
+    if (!programAreaControl) {
+      return [];
+    }
+
+    const programArea = this.getProgramAreas().find(m => m.name === programAreaControl.value);
     return programArea ? programArea.screeningTypes : [];
   }
 
@@ -207,10 +219,10 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
         };
 
         this.existingScreeningRequestSubscription.unsubscribe();
-        
+
         this.store.dispatch(new CurrentScreeningRequestActions.SetCurrentScreeningRequestAction(value));
         this.store.dispatch(new FileUploadsActions.ClearFileUploadsAction(this.fileUploaderId));
-  
+
         this.router.navigate(['/review-submission'], { skipLocationChange: true });
       });
     } else {
@@ -231,15 +243,28 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   onMinistryChange() {
-    this.form.get('programArea').setValue('');
-    this.form.get('screeningType').setValue('');
+    const programAreaControl = this.form.get('programArea');
+    if (programAreaControl) {
+      programAreaControl.setValue('');
+    }
+
+    const screeningTypeControl = this.form.get('screeningType');
+    if (screeningTypeControl) {
+      screeningTypeControl.setValue('');
+    }
   }
 
   onProgramAreaChange() {
-    this.form.get('screeningType').setValue('');
+    const screeningTypeControl = this.form.get('screeningType');
+    if (screeningTypeControl) {
+      screeningTypeControl.setValue('');
+    }
   }
 
   onCandidateEmailChange() {
-    this.form.get('contactEmail').updateValueAndValidity();
+    const contactEmailControl = this.form.get('contactEmail');
+    if (contactEmailControl) {
+      contactEmailControl.updateValueAndValidity();
+    }
   }
 }

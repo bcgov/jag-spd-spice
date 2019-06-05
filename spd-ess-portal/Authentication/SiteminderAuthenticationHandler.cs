@@ -17,7 +17,7 @@ namespace Gov.Jag.Spice.Public.Authentication
     public class SiteMinderAuthOptions : AuthenticationSchemeOptions
     {
         public const string AuthenticationSchemeName = "site-minder-auth";
-        public string Scheme => AuthenticationSchemeName;
+        public static string Scheme => AuthenticationSchemeName;
     }
 
     public static class SiteminderAuthenticationExtensions
@@ -36,8 +36,8 @@ namespace Gov.Jag.Spice.Public.Authentication
 
     public class SiteminderAuthenticationHandler : AuthenticationHandler<SiteMinderAuthOptions>
     {
-        private readonly ILogger logger;
-        private readonly IHostingEnvironment environment;
+        private readonly ILogger _logger;
+        private readonly IHostingEnvironment _environment;
 
         public SiteminderAuthenticationHandler(IOptionsMonitor<SiteMinderAuthOptions> configureOptions,
             ILoggerFactory loggerFactory,
@@ -46,30 +46,29 @@ namespace Gov.Jag.Spice.Public.Authentication
             IHostingEnvironment environment)
              : base(configureOptions, loggerFactory, encoder, clock)
         {
-            this.environment = environment;
-            logger = loggerFactory.CreateLogger(typeof(SiteminderAuthenticationHandler));
+            _environment = environment;
+            _logger = loggerFactory.CreateLogger<SiteminderAuthenticationHandler>();
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             var smAuthToken = SiteMinderAuthenticationToken.CreateFromFwdHeaders(Request);
-            if (!environment.IsProduction() && smAuthToken.IsAnonymous())
+            if (!_environment.IsProduction() && smAuthToken.IsAnonymous())
             {
                 smAuthToken = SiteMinderAuthenticationToken.CreateForDev(Request);
                 Response.Cookies.Delete(SiteMinderAuthenticationToken.SM_TOKEN_NAME);
             }
 
-            logger.LogDebug($"smAuthToken: {smAuthToken.ToString()}");
             string claims = Context.Session.GetString("app.principal");
             if (!string.IsNullOrEmpty(claims))
             {
                 var principal = claims.FromJwt();
-                logger.LogDebug($"Success (session): {principal.Identity.Name}");
-                return AuthenticateResult.Success(new AuthenticationTicket(principal, Options.Scheme));
+                _logger.LogDebug($"Success (session): {principal.Identity.Name}");
+                return AuthenticateResult.Success(new AuthenticationTicket(principal, SiteMinderAuthOptions.Scheme));
             }
             if (smAuthToken.IsAnonymous())
             {
-                logger.LogDebug($"NoResult");
+                _logger.LogDebug($"NoResult");
                 return AuthenticateResult.NoResult();
             }
 
@@ -77,17 +76,18 @@ namespace Gov.Jag.Spice.Public.Authentication
             {
                 var principal = CreatePrincipalFor(smAuthToken);
                 Context.Session.SetString("app.principal", principal.ToJwt());
-                logger.LogDebug($"Success (new): {principal.Identity.Name}");
-                return AuthenticateResult.Success(new AuthenticationTicket(principal, Options.Scheme));
+                _logger.LogDebug($"Success (new): {principal.Identity.Name}");
+                _logger.LogDebug($"smAuthToken: {smAuthToken}");
+                return AuthenticateResult.Success(new AuthenticationTicket(principal, SiteMinderAuthOptions.Scheme));
             }
             catch (ApplicationException e)
             {
-                logger.LogError($"Fail to authenticate user with token '{smAuthToken.ToString()}': {e.Message}");
+                _logger.LogError($"Fail to authenticate user with smAuthToken '{smAuthToken}': {e.Message}");
                 return AuthenticateResult.Fail(e.Message);
             }
         }
 
-        private ClaimsPrincipal CreatePrincipalFor(SiteMinderAuthenticationToken smAuthToken)
+        private static ClaimsPrincipal CreatePrincipalFor(SiteMinderAuthenticationToken smAuthToken)
         {
             var claims = new List<Claim>
             {
@@ -101,7 +101,7 @@ namespace Gov.Jag.Spice.Public.Authentication
                 new Claim(SiteMinderClaimTypes.COMPANY, smAuthToken.smgov_company)
             };
 
-            return new ClaimsPrincipal(new ClaimsIdentity(claims, Options.Scheme));
+            return new ClaimsPrincipal(new ClaimsIdentity(claims, SiteMinderAuthOptions.Scheme));
         }
     }
 
@@ -111,7 +111,7 @@ namespace Gov.Jag.Spice.Public.Authentication
         {
             var handler = new JwtSecurityTokenHandler();
             handler.OutboundClaimTypeMap.Clear();
-            var token = handler.CreateEncodedJwt(new SecurityTokenDescriptor
+            string token = handler.CreateEncodedJwt(new SecurityTokenDescriptor
             {
                 Subject = (ClaimsIdentity)principal.Identity,
                 Audience = "self",

@@ -11,6 +11,7 @@ namespace Gov.Jag.Spice.Public.ViewModels
         /// Base Path of the application
         /// </summary>
         public string BasePath { get; set; }
+
         /// <summary>
         /// Base URI for the application
         /// </summary>

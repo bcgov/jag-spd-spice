@@ -19,7 +19,8 @@ namespace Gov.Jag.Spice.Public.ViewModels
         public string CandidateEmail { get; set; }
         public string CandidatePosition { get; set; }
 
-        public string ContactName { get; set; }
+        public string ContactFirstName { get; set; }
+        public string ContactLastName { get; set; }
         public string ContactEmail { get; set; }
     }
 }

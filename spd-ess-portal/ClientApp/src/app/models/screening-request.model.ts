@@ -11,7 +11,8 @@ export class ScreeningRequest {
   candidateDateOfBirth: Date;
   candidateEmail: string;
   candidatePosition: string;
-  contactName: string;
+  contactFirstName: string;
+  contactLastName: string;
   contactEmail: string;
   files: FileSystemItem[] = [];
 }
