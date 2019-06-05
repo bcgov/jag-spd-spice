@@ -179,7 +179,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     if (!control || control.valid || !control.touched || !control.errors) {
       return '';
-    } else if (control.errors.email) {
+    } else if (control.errors.required || control.errors.email) {
       return 'Email address must be provided in a valid format';
     } else if (control.errors.equal) {
       return 'Email address cannot be the same as the candidate email address';
