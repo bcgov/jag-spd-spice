@@ -81,7 +81,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       candidateDateOfBirth: ['', [Validators.required, this.dateRangeValidator(this.minDate, this.maxDate)]],
       candidateEmail: ['', [Validators.required, Validators.email]],
       candidatePosition: ['', Validators.required],
-      contactName: ['', Validators.required],
+      contactFirstName: ['', Validators.required],
+      contactLastName: ['', Validators.required],
       contactEmail: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidateEmail')]],
       photoIdConfirmation: [false, Validators.requiredTrue],
     });
