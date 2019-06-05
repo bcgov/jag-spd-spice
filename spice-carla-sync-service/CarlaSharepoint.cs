@@ -1,317 +1,420 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.IO;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using CsvHelper;
-//using Gov.Jag.Spice.Interfaces;
-//using Hangfire.Console;
-//using Hangfire.Server;
-//using Microsoft.Extensions.Configuration;
-//using Microsoft.Extensions.Logging;
-//using SpdSync;
-//using SpdSync.models;
-//using SpiceCarlaSync.models;
-//using static Gov.Jag.Spice.Interfaces.SharePointFileManager;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using CsvHelper;
+using Gov.Jag.Spice.CarlaSync;
+using Gov.Jag.Spice.CarlaSync.models;
+using Gov.Jag.Spice.Interfaces;
+using Gov.Lclb.Cllb.Interfaces.Models;
+using Hangfire.Console;
+using Hangfire.Server;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using SpdSync;
+using SpdSync.models;
+using SpiceCarlaSync;
+using SpiceCarlaSync.models;
+using static Gov.Jag.Spice.Interfaces.SharePointFileManager;
 
-//namespace Gov.Lclb.Cllb.Interfaces
-//{
-//    public class FileSystemItem
-//    {
-//        public string id { get; set; }
-//        public string name { get; set; }
-//        public string documenttype { get; set; }
-//        public int size { get; set; }
-//        public string serverrelativeurl { get; set; }
-//        public DateTime timecreated { get; set; }
-//        public DateTime timelastmodified { get; set; }
-//    }
+namespace Gov.Lclb.Cllb.Interfaces
+{
+    public class FileSystemItem
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string documenttype { get; set; }
+        public int size { get; set; }
+        public string serverrelativeurl { get; set; }
+        public DateTime timecreated { get; set; }
+        public DateTime timelastmodified { get; set; }
+    }
 
-//    public class CarlaSharepoint
-//    {
-//        const string DOCUMENT_LIBRARY = "SPD Applications";
-//        const string REQUESTS_PATH = "Requests";
-//        const string RESULTS_PATH = "Results";
-//        const string BUSINESSES_PATH = "Businesses";
-//        const string ASSOCIATES_PATH = "Associates";
+    public class CarlaSharepoint
+    {
+        const string DOCUMENT_LIBRARY = "SPD Applications";
+        const string REQUESTS_PATH = "Requests";
+        const string RESULTS_PATH = "Results";
+        const string APPLICATIONS_PATH = "businesses";
+        const string ASSOCIATES_PATH = "associates";
+        const string WORKERS_PATH = "workers";
 
-//        public ILogger _logger { get; }
-//        private IConfiguration _configuration { get; }
-//        public SharePointFileManager _sharepoint;
+        public ILogger _logger { get; }
+        private IConfiguration _configuration { get; }
+        public SharePointFileManager _sharepoint;
+        public ICarlaClient _carlaClient;
 
-//        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
-//        {
-//            _configuration = Configuration;
-//            _sharepoint = sharepoint;
-//            _logger = loggerFactory.CreateLogger(typeof(CarlaSharepoint));
-//            //SetupSharepointFolders();
-//        }
+        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint, ICarlaClient carla)
+        {
+            _configuration = Configuration;
+            _sharepoint = sharepoint;
+            _logger = loggerFactory.CreateLogger(typeof(CarlaSharepoint));
+            _carlaClient = carla;
+            SetupSharepointFolders();
+        }
 
-//        /// <summary>
-//        /// Import requests to LCRB SharePoint
-//        /// </summary>
-//        /// <returns></returns>
-//        public async Task SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
-//        {
-//            int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-//            foreach (var request in requests)
-//            {
-//                List<CsvAssociateExport> associateExports = Jag.Spice.CarlaSync.CarlaUtils.CreateBaseAssociatesExport(request);
-//                List<CsvBusinessExport> businessExports = Jag.Spice.CarlaSync.CarlaUtils.CreateBusinessExport(request);
+        public async void SetupSharepointFolders()
+        {
+            try
+            {
+                var documentLibraryExists = await _sharepoint.DocumentLibraryExists(DOCUMENT_LIBRARY);
+                if (!documentLibraryExists)
+                {
+                    _logger.LogInformation("Creating document library.");
+                    await _sharepoint.CreateDocumentLibrary(DOCUMENT_LIBRARY);
+                }
 
-//                using (var mem = new MemoryStream())
-//                using (var writer = new StreamWriter(mem))
-//                using (var csvWriter = new CsvWriter(writer))
-//                {
-//                    csvWriter.Configuration.Delimiter = ";";
-//                    csvWriter.Configuration.HasHeaderRecord = true;
-//                    csvWriter.Configuration.AutoMap<CsvAssociateExport>();
+                var requestsFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, REQUESTS_PATH);
+                if (!requestsFoldersExist)
+                {
+                    _logger.LogInformation("Creating request document folders.");
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH);
+                }
 
-//                    csvWriter.WriteHeader<CsvAssociateExport>();
-//                    csvWriter.WriteRecords(associateExports);
 
-//                    writer.Flush();
-//                    mem.Position = 0;
+                var resultsFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
+                if (!resultsFoldersExist)
+                {
+                    _logger.LogInformation("Creating result document folders.");
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
+                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + WORKERS_PATH);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error creating sharepoint document library and folders");
+                _logger.LogError("Exception Message: " + ex.Message);
+            }
+        }
 
-//                    try
-//                    {
-//                        hangfireContext.WriteLine("Uploading business associates CSV.");
-//                        _logger.LogInformation("Uploading business associates CSV.");
-//                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        _logger.LogError("Error: " + ex.Message);
-//                    }
-//                }
+        /// <summary>
+        /// Import requests to LCRB SharePoint
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        {
+            int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            foreach (var request in requests)
+            {
+                List<CsvAssociateExport> associateExports = CsvAssociateExport.CreateListFromRequest(request);
+                List<CsvBusinessExport> businessExports = new List<CsvBusinessExport>
+                {
+                    CsvBusinessExport.CreateFromRequest(request)
+                };
 
-//                using (var mem = new MemoryStream())
-//                using (var writer = new StreamWriter(mem))
-//                using (var csvWriter = new CsvWriter(writer))
-//                {
-//                    csvWriter.Configuration.Delimiter = ";";
-//                    csvWriter.Configuration.HasHeaderRecord = true;
-//                    csvWriter.Configuration.AutoMap<CsvBusinessExport>();
+                using (var mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem))
+                using (var csvWriter = new CsvWriter(writer))
+                {
+                    csvWriter.Configuration.HasHeaderRecord = true;
+                    csvWriter.Configuration.RegisterClassMap<CsvAssociateExportMap>();
 
-//                    csvWriter.WriteHeader<CsvBusinessExport>();
-//                    csvWriter.WriteRecords(businessExports);
+                    csvWriter.WriteHeader<CsvAssociateExport>();
+                    csvWriter.NextRecord();
+                    csvWriter.WriteRecords(associateExports);
 
-//                    writer.Flush();
-//                    mem.Position = 0;
+                    writer.Flush();
+                    mem.Position = 0;
 
-//                    try
-//                    {
-//                        hangfireContext.WriteLine("Uploading business application CSV.");
-//                        _logger.LogInformation("Uploading business application CSV.");
-//                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + BUSINESSES_PATH, mem, "text/csv");
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        _logger.LogError("Error: " + ex.Message);
-//                    }
-//                }
-//            }
-//        }
+                    try
+                    {
+                        hangfireContext.WriteLine("Uploading business associates CSV.");
+                        _logger.LogInformation("Uploading business associates CSV.");
+                        await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("Error uploading business associates CSV to sharepoint");
+                        _logger.LogError("Error: " + ex.Message);
+                        return false;
+                    }
+                }
 
-//        /// <summary>
-//        /// Sets up the sharepoint folders if they don't already exist
-//        /// </summary>
-//        public async Task<bool> SetupSharepointFolders()
-//        {
-//            try
-//            {
-//                var documentLibraryExists = await _sharepoint.DocumentLibraryExists(DOCUMENT_LIBRARY);
-//                if (!documentLibraryExists)
-//                {
-//                    _logger.LogInformation("Creating document library.");
-//                    await _sharepoint.CreateDocumentLibrary(DOCUMENT_LIBRARY);
-//                }
+                using (var mem = new MemoryStream())
+                using (var writer = new StreamWriter(mem))
+                using (var csvWriter = new CsvWriter(writer))
+                {
+                    csvWriter.Configuration.HasHeaderRecord = true;
+                    csvWriter.Configuration.RegisterClassMap<CsvBusinessExportMap>();
 
-//                var reqFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, REQUESTS_PATH);
-//                if (!reqFoldersExist)
-//                {
-//                    _logger.LogInformation("Creating request document folders.");
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH);
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + BUSINESSES_PATH);
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH);
-//                }
+                    csvWriter.WriteHeader<CsvBusinessExport>();
+                    csvWriter.NextRecord();
+                    csvWriter.WriteRecords(businessExports);
 
-//                var resFoldersExist = await _sharepoint.FolderExists(DOCUMENT_LIBRARY, RESULTS_PATH);
-//                if (!resFoldersExist)
-//                {
-//                    _logger.LogInformation("Creating result document folders.");
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH);
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + BUSINESSES_PATH);
-//                    await _sharepoint.CreateFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
-//                }
+                    writer.Flush();
+                    mem.Position = 0;
 
-//                return true;
-//            }
-//            catch (Exception ex)
-//            {
-//                _logger.LogError("Error: " + ex.Message);
-//                return false;
-//            }
-//        }
+                    try
+                    {
+                        hangfireContext.WriteLine("Uploading business application CSV.");
+                        _logger.LogInformation("Uploading business application CSV.");
+                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("Error uploading business application CSV to sharepoint");
+                        _logger.LogError("Error: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
-//        /// <summary>
-//        /// Processes the results folders and sends new results to Carla for updating
-//        /// </summary>
-//        private async Task ProcessResultsFolders(PerformContext hangfireContext)
-//        {
-//            List<FileSystemItem> businessFiles = await getFileDetailsListInFolder(hangfireContext, DOCUMENT_LIBRARY, RESULTS_PATH + "/" + BUSINESSES_PATH);
-//            List<FileSystemItem> associatesFiles = await getFileDetailsListInFolder(hangfireContext, DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
+        /// <summary>
+        /// Sends the worker requests to share point.
+        /// </summary>
+        /// <returns>The worker requests to share point.</returns>
+        /// <param name="hangfireContext">Hangfire context.</param>
+        /// <param name="requests">Requests.</param>
+        public async Task<bool> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        {
+            int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            List<CsvWorkerExport> workersExports = new List<CsvWorkerExport>();
+            foreach (var request in requests)
+            {
+                workersExports.Add(CsvWorkerExport.CreateFromRequest(request));
+            }
 
-//            //// Look for files with unprocessed name
-//            //hangfireContext.WriteLine("Looking for unprocessed files.");
-//            //_logger.LogError("Looking for unprocessed files.");
-//            //var unprocessedFiles = businessFiles.Where(f => !f.name.StartsWith("processed_")).ToList();
-//            //foreach (var file in unprocessedFiles)
-//            //{
-//                //// Skip if file is not .csv
-//                //if (Path.GetExtension(file.name).ToLower() != ".csv")
-//                //{
-//                //    continue;
-//                //}
+            using (var mem = new MemoryStream())
+            using (var writer = new StreamWriter(mem))
+            using (var csvWriter = new CsvWriter(writer))
+            {
+                csvWriter.Configuration.HasHeaderRecord = true;
+                csvWriter.Configuration.AutoMap<CsvWorkerExport>();
 
-//                //string jobNumber = file.name.Split("_")[0];
+                csvWriter.WriteHeader<CsvWorkerExport>();
+                csvWriter.NextRecord();
+                csvWriter.WriteRecords(workersExports);
 
-//                //// Get the matching associates file
-//                //var associatesFile = businessFiles.Where(f => f.name.StartsWith(jobNumber)).ToList();
+                writer.Flush();
+                mem.Position = 0;
 
-//                //// Download file
-//                //hangfireContext.WriteLine("File found. Downloading file.");
-//                //_logger.LogError("File found. Downloading file.");
-//                //byte[] fileContents = await _sharepoint.DownloadFile(file.serverrelativeurl);
+                try
+                {
+                    hangfireContext.WriteLine("Uploading workers CSV.");
+                    _logger.LogInformation("Uploading workers CSV.");
+                    return await _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError("Error uploading workers CSV to sharepoint");
+                    _logger.LogError("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
 
-//                //// Update worker
-//                //hangfireContext.WriteLine("Updating worker.");
-//                //_logger.LogError("Updating worker.");
-//                //string data = System.Text.Encoding.Default.GetString(fileContents);
-//                //List<WorkerScreeningResponse> parsedData = WorkerResponseParser.ParseWorkerResponse(data, _logger);
+        /// <summary>
+        /// Processes the results folders and sends new results to Carla for updating
+        /// </summary>
+        public async Task ProcessResultsFolders(PerformContext hangfireContext)
+        {
+            List<FileSystemItem> businessFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
+            List<FileSystemItem> associatesFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
 
-//                //foreach (var spdResponse in parsedData)
-//                //{
-//                //    try
-//                //    {
-//                //        await UpdateSecurityClearance(hangfireContext, spdResponse, spdResponse.RecordIdentifier);
-//                //    }
-//                //    catch (SharePointRestException spre)
-//                //    {
-//                //        hangfireContext.WriteLine("Unable to update security clearance status due to SharePoint.");
-//                //        hangfireContext.WriteLine("Request:");
-//                //        hangfireContext.WriteLine(spre.Request.Content);
-//                //        hangfireContext.WriteLine("Response:");
-//                //        hangfireContext.WriteLine(spre.Response.Content);
+            List<ApplicationScreeningResponse> responses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
+            var result = await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
 
-//                //        _logger.LogError("Unable to update security clearance status due to SharePoint.");
-//                //        _logger.LogError("Request:");
-//                //        _logger.LogError(spre.Request.Content);
-//                //        _logger.LogError("Response:");
-//                //        _logger.LogError(spre.Response.Content);
-//                //        continue;
-//                //    }
-//                //    catch (Exception e)
-//                //    {
-//                //        hangfireContext.WriteLine("Unable to update security clearance status.");
-//                //        hangfireContext.WriteLine("Message:");
-//                //        hangfireContext.WriteLine(e.Message);
 
-//                //        _logger.LogError("Unable to update security clearance status.");
-//                //        _logger.LogError("Message:");
-//                //        _logger.LogError(e.Message);
-//                //        continue;
-//                //    }
-//                //}
+            // Worker results processing goes here
+        }
 
-//                //// Rename file
-//                //hangfireContext.WriteLine("Finished processing file.");
-//                //_logger.LogError($"Finished processing file {file.serverrelativeurl}");
-//                //_logger.LogError($"{parsedData.Count} records updated.");
+        private async Task<List<ApplicationScreeningResponse>> ProcessApplicationResults(PerformContext hangfireContext, List<FileSystemItem> businessFiles, List<FileSystemItem> associatesFiles)
+        {
+            List<ApplicationScreeningResponse> responses = new List<ApplicationScreeningResponse>();
+            // Look for files with unprocessed name
+            hangfireContext.WriteLine("Looking for unprocessed files.");
+            _logger.LogError("Looking for unprocessed files.");
+            var unprocessedFiles = businessFiles.Where(f => !f.name.StartsWith("processed_")).ToList();
+            foreach (var businessFile in unprocessedFiles)
+            {
+                // Skip if file is not .csv
+                if (Path.GetExtension(businessFile.name).ToLower() != ".csv")
+                {
+                    hangfireContext.WriteLine($"Business results file found but not of type csv.");
+                    _logger.LogError($"Business results file found but not of type csv.");
+                    continue;
+                }
 
-//                //string newserverrelativeurl = "";
-//                //int index = file.serverrelativeurl.LastIndexOf("/");
-//                //if (index > 0)
-//                //{
-//                //    newserverrelativeurl = file.serverrelativeurl.Substring(0, index);
+                string jobNumber = businessFile.name.Split("_")[0];
 
-//                //    // tag cases where the files were empty.
-//                //    if (parsedData.Count == 0)
-//                //    {
-//                //        newserverrelativeurl += "/" + "processed_empty_" + file.name;
-//                //    }
-//                //    else
-//                //    {
-//                //        newserverrelativeurl += "/" + "processed_" + file.name;
-//                //    }
-//                //}
+                // Get the matching associates file
+                var relevantAssociatesFiles = associatesFiles.Where(f => f.name.StartsWith(jobNumber)).ToList();
 
-//                //try
-//                //{
-//                //    await _sharePointFileManager.RenameFile(file.serverrelativeurl, newserverrelativeurl);
-//                //}
-//                //catch (SharePointRestException spre)
-//                //{
-//                //    hangfireContext.WriteLine("Unable to rename file.");
-//                //    hangfireContext.WriteLine("Request:");
-//                //    hangfireContext.WriteLine(spre.Request.Content);
-//                //    hangfireContext.WriteLine("Response:");
-//                //    hangfireContext.WriteLine(spre.Response.Content);
+                if (relevantAssociatesFiles.Count < 1)
+                {
+                    hangfireContext.WriteLine($"Associates file for job id {jobNumber} not found.");
+                    _logger.LogError($"Associates file for job id {jobNumber} not found.");
+                    continue;
+                }
+                else if (relevantAssociatesFiles.Count > 1)
+                {
+                    hangfireContext.WriteLine($"Too many associates files for job id {jobNumber} found.");
+                    _logger.LogError($"Too many associates file for job id {jobNumber} found.");
+                    continue;
+                }
 
-//                //    _logger.LogError("Unable to rename file.");
-//                //    _logger.LogError("Message:");
-//                //    _logger.LogError(spre.Message);
-//                //    throw spre;
-//                //}
-//            //}
-//        }
+                var associatesFile = relevantAssociatesFiles.First();
 
-//        private async Task<List<FileSystemItem>> getFileDetailsListInFolder(PerformContext hangfireContext, string libraryPath, string folderPath)
-//        {
-//            List<FileSystemItem> fileSystemItemVMList = new List<FileSystemItem>();
+                // Download file
+                hangfireContext.WriteLine("Business and associates files found. Downloading files.");
+                _logger.LogError("Business and associates Files found. Downloading files.");
+                byte[] associatesFileContents = await _sharepoint.DownloadFile(associatesFile.serverrelativeurl);
+                byte[] businessFileContents = await _sharepoint.DownloadFile(businessFile.serverrelativeurl);
 
-//            // Get the file details list in folder
-//            List<FileDetailsList> fileDetailsList = null;
-//            try
-//            {
-//                fileDetailsList = await _sharepoint.GetFileDetailsListInFolder(libraryPath, folderPath, "");
-//            }
-//            catch (SharePointRestException spre)
-//            {
-//                hangfireContext.WriteLine("Unable to get Sharepoint File List.");
-//                hangfireContext.WriteLine("Request:");
-//                hangfireContext.WriteLine(spre.Request.Content);
-//                hangfireContext.WriteLine("Response:");
-//                hangfireContext.WriteLine(spre.Response.Content);
+                // Parse file and add to responses list for further processing
+                hangfireContext.WriteLine("Updating application screening request.");
+                _logger.LogError("Updating application screening request.");
+                string businessData = System.Text.Encoding.Default.GetString(businessFileContents);
+                string associatesData = System.Text.Encoding.Default.GetString(associatesFileContents);
 
-//                _logger.LogError("Unable to get Sharepoint File List.");
-//                _logger.LogError("Request:");
-//                _logger.LogError(spre.Request.Content);
-//                _logger.LogError("Response:");
-//                _logger.LogError(spre.Request.Content);
-//                throw spre;
-//            }
+                responses.Add(ParseApplicationResponse(businessData, associatesData));
 
-//            if (fileDetailsList != null)
-//            {
-//                foreach (FileDetailsList fileDetails in fileDetailsList)
-//                {
-//                    FileSystemItem fileSystemItemVM = new FileSystemItem()
-//                    {
-//                        // remove the document type text from file name
-//                        name = fileDetails.Name,
-//                        // convert size from bytes (original) to KB
-//                        size = int.Parse(fileDetails.Length),
-//                        serverrelativeurl = fileDetails.ServerRelativeUrl,
-//                        timelastmodified = DateTime.Parse(fileDetails.TimeLastModified),
-//                        documenttype = fileDetails.DocumentType
-//                    };
+                //// Rename file
+                hangfireContext.WriteLine($"Finished processing job {jobNumber}.");
+                _logger.LogInformation($"Finished processing job {jobNumber}");
 
-//                    fileSystemItemVMList.Add(fileSystemItemVM);
-//                }
-//            }
+                string businessNewServerRelativeUrl = "";
+                int index = businessFile.serverrelativeurl.LastIndexOf("/");
+                if (index > 0)
+                {
+                    businessNewServerRelativeUrl = businessFile.serverrelativeurl.Substring(0, index) + "/processed_" + businessFile.name;
+                }
 
-//            return fileSystemItemVMList;
-//        }
-//    }
-//}
+                string associatesNewServerRelativeUrl = "";
+                index = associatesFile.serverrelativeurl.LastIndexOf("/");
+                if (index > 0)
+                {
+                    associatesNewServerRelativeUrl = associatesFile.serverrelativeurl.Substring(0, index) + "/processed_" + associatesFile.name;
+                }
+
+                try
+                {
+                    hangfireContext.WriteLine($"Renaming files for {jobNumber} to processed.");
+                    _logger.LogInformation($"Renaming files for {jobNumber} to processed.");
+                    await _sharepoint.RenameFile(businessFile.serverrelativeurl, businessNewServerRelativeUrl);
+                    await _sharepoint.RenameFile(associatesFile.serverrelativeurl, associatesNewServerRelativeUrl);
+                }
+                catch (SharePointRestException spre)
+                {
+                    hangfireContext.WriteLine("Unable to rename file.");
+                    hangfireContext.WriteLine("Request:");
+                    hangfireContext.WriteLine(spre.Request.Content);
+                    hangfireContext.WriteLine("Response:");
+                    hangfireContext.WriteLine(spre.Response.Content);
+
+                    _logger.LogError("Unable to rename file.");
+                    _logger.LogError("Message:");
+                    _logger.LogError(spre.Message);
+                    throw spre;
+                }
+            }
+            return responses;
+        }
+
+        public ApplicationScreeningResponse ParseApplicationResponse(string businessFileContent, string associatesFileContent)
+        {
+            CsvHelper.Configuration.Configuration config = new CsvHelper.Configuration.Configuration();
+            config.SanitizeForInjection = true;
+            config.IgnoreBlankLines = true;
+
+            config.TrimOptions = CsvHelper.Configuration.TrimOptions.Trim;
+            config.ShouldSkipRecord = record =>
+            {
+                return record.All(string.IsNullOrEmpty);
+            };
+
+            // fix for unexpected spaces in header
+            config.PrepareHeaderForMatch = (string header, int index) => header = header.Trim().ToLower();
+
+            TextReader businessTextReader = new StringReader(businessFileContent);
+            var businessCsv = new CsvReader(businessTextReader, config);
+            businessCsv.Configuration.RegisterClassMap<CsvBusinessImportMap>();
+
+            TextReader associatesTextReader = new StringReader(associatesFileContent);
+            var associatesCsv = new CsvReader(associatesTextReader, config);
+            associatesCsv.Configuration.RegisterClassMap<CsvAssociateImportMap>();
+
+            try
+            {
+                CsvBusinessImport businessImport = businessCsv.GetRecords<CsvBusinessImport>().ToList().First();
+                List<CsvAssociateImport> associatesImport = associatesCsv.GetRecords<CsvAssociateImport>().ToList();
+
+                ApplicationScreeningResponse response = new ApplicationScreeningResponse()
+                {
+                    RecordIdentifier = businessImport.LcrbBusinessJobId.PadLeft(6, '0'),
+                    Result = businessImport.Result,
+                    Associates = new List<Associate>()
+                };
+                foreach(var associate in associatesImport)
+                {
+                    response.Associates.Add(new Associate()
+                    {
+                        SpdJobId = associate.LcrbAssociateJobId,
+                        LastName = associate.Last,
+                        FirstName = associate.First,
+                        MiddleName = associate.Middle
+                    });
+                }
+                return response;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Error parsing worker response.");
+                _logger.LogError("Message:");
+                _logger.LogError(e.Message);
+                // return an empty list so we continue processing other files.
+                return new ApplicationScreeningResponse();
+            }
+        }
+
+        public async Task<List<FileSystemItem>> getFileDetailsListInFolder(string libraryPath, string folderPath)
+        {
+            List<FileSystemItem> fileSystemItemVMList = new List<FileSystemItem>();
+
+            // Get the file details list in folder
+            List<FileDetailsList> fileDetailsList = null;
+            try
+            {
+                fileDetailsList = await _sharepoint.GetFileDetailsListInFolder(libraryPath, folderPath, "");
+            }
+            catch (SharePointRestException spre)
+            {
+                _logger.LogError("Unable to get Sharepoint File List.");
+                _logger.LogError("Request:");
+                _logger.LogError(spre.Request.Content);
+                _logger.LogError("Response:");
+                _logger.LogError(spre.Request.Content);
+                throw spre;
+            }
+
+            if (fileDetailsList != null)
+            {
+                foreach (FileDetailsList fileDetails in fileDetailsList)
+                {
+                    FileSystemItem fileSystemItemVM = new FileSystemItem()
+                    {
+                        // remove the document type text from file name
+                        name = fileDetails.Name,
+                        // convert size from bytes (original) to KB
+                        size = int.Parse(fileDetails.Length),
+                        serverrelativeurl = fileDetails.ServerRelativeUrl,
+                        timelastmodified = DateTime.Parse(fileDetails.TimeLastModified),
+                        documenttype = fileDetails.DocumentType
+                    };
+
+                    fileSystemItemVMList.Add(fileSystemItemVM);
+                }
+            }
+
+            return fileSystemItemVMList;
+        }
+    }
+}
