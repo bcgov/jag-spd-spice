@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Public.Controllers
             Configuration = configuration;
             //_sharePointFileManager = sharePointFileManager;
             //_dynamicsClient = dynamicsClient;
-            _logger = loggerFactory.CreateLogger(typeof(FileController));
+            _logger = loggerFactory.CreateLogger<FileController>();
         }
 
         private static string GetAccountFolderName(MicrosoftDynamicsCRMaccount account)

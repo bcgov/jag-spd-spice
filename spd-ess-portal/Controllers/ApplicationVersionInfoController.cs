@@ -24,12 +24,12 @@ namespace Gov.Jag.Spice.Public.Controllers
         [HttpGet]        
         public ActionResult GetApplicationVersionInfo()
         {
-            Assembly assembly = this.GetType().GetTypeInfo().Assembly;
-            DateTime creationTime = System.IO.File.GetLastWriteTimeUtc(assembly.Location);
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            var assembly = GetType().GetTypeInfo().Assembly;
+            var creationTime = System.IO.File.GetLastWriteTimeUtc(assembly.Location);
+            var fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string fileVersion = fvi.FileVersion;
             
-            ApplicationVersionInfo avi = new ApplicationVersionInfo()
+            var avi = new ApplicationVersionInfo
             {
                 BaseUri = Configuration["BASE_URI"],
                 BasePath = Configuration["BASE_PATH"],
@@ -43,6 +43,5 @@ namespace Gov.Jag.Spice.Public.Controllers
 
             return Json(avi);
         }
-    
 	}
 }
