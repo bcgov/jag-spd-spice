@@ -28,7 +28,7 @@ namespace SpiceCarlaSync.models
                     var newAssociate = new CsvAssociateExport()
                     {
                         LCRBBusinessJobId = jobNumber?.Replace(",", ""),
-                        Lcrbworkerjobid = entity.Contact.ContactId?.Replace(",", ""),
+                        Lcrbworkerjobid = entity.Contact.SpdJobId?.Replace(",", ""),
                         Legalfirstname = entity.Contact.FirstName?.Replace(",", ""),
                         Legalsurname = entity.Contact.LastName?.Replace(",", ""),
                         Legalmiddlename = entity.Contact.MiddleName?.Replace(",", ""),

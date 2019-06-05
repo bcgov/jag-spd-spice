@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using System;
 using Gov.Jag.Spice.Interfaces;
+using Gov.Lclb.Cllb.Interfaces;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -54,20 +55,20 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         [HttpPost("send/{applicationId}")]
         public ActionResult SendApplicationScreeningResponse([FromBody] ApplicationScreeningResponse result, string applicationId)
         {
-            result.Result = result.Result.ToUpper();
-            if (result.Result != "PASS" && result.Result != "FAIL")
-            {
-                return BadRequest();
-            }
-            result.RecordIdentifier = applicationId;
+            //result.Result = result.Result.ToUpper();
+            //if (result.Result != "PASS" && result.Result != "FAIL")
+            //{
+            //    return BadRequest();
+            //}
+            //result.RecordIdentifier = applicationId;
 
-            List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
-            {
-                result
-            };
+            //List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
+            //{
+            //    result
+            //};\
 
             //Send the result to CARLA
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).SendApplicationScreeningResult(payload));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ProcessResults(null));
             _logger.LogInformation($"Started send Application Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }
