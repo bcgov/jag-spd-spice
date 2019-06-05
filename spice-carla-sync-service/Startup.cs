@@ -1,4 +1,5 @@
 ﻿using Gov.Jag.Spice.Interfaces;
+using Gov.Lclb.Cllb.Interfaces;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.MemoryStorage;
@@ -165,10 +166,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 app.UseHangfireDashboard("/hangfire", dashboardOptions);
             }
 
-            //if (!string.IsNullOrEmpty(Configuration["ENABLE_HANGFIRE_JOBS"]))
-            //{
-            //    SetupHangfireJobs(app, loggerFactory);
-            //}
+            if (!string.IsNullOrEmpty(Configuration["ENABLE_HANGFIRE_JOBS"]))
+            {
+                SetupHangfireJobs(app, loggerFactory);
+            }
 
             app.UseAuthentication();
             app.UseMvc();
@@ -230,11 +231,10 @@ namespace Gov.Jag.Spice.CarlaSync
             try
             {
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {                    
+                {
                     log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    //RecurringJob.AddOrUpdate(() =>  new CarlaUtils(Configuration, loggerFactory).SendResultsJob(null), cronExpression: Cron.MinuteInterval(15));
+                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<SharePointFileManager>()).ProcessResults(null), Cron.MinuteInterval(15));
                     log.LogInformation("Hangfire Send Export job done.");
-
                 }
             }
             catch (Exception e)
