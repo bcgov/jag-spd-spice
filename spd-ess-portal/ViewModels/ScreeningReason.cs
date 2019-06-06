@@ -5,18 +5,16 @@ using Newtonsoft.Json;
 
 namespace Gov.Jag.Spice.Public.ViewModels
 {
-    public class ProgramArea
+    public class ScreeningReason
     {
         public string Name { get; set; }
         public string Value { get; set; }
-        public List<ScreeningType> ScreeningTypes { get; set; }
 
         [JsonConstructor]
-        public ProgramArea(string name, List<string> screeningTypes)
+        public ScreeningReason(string name)
         {
             Name = name;
             Value = name;
-            ScreeningTypes = screeningTypes.Select(t => new ScreeningType(t)).ToList();
         }
     }
 }
