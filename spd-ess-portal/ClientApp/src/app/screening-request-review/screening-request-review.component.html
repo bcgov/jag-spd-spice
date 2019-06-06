@@ -14,19 +14,19 @@
       <tbody>
         <tr>
           <td>Client Ministry</td>
-          <td><label>{{screeningRequest.clientMinistry}}</label></td>
+          <td><label>{{clientMinistryName}}</label></td>
         </tr>
         <tr>
           <td>Program Area</td>
-          <td><label>{{screeningRequest.programArea}}</label></td>
+          <td><label>{{programAreaName}}</label></td>
         </tr>
         <tr>
           <td>Screening Type</td>
-          <td><label>{{screeningRequest.screeningType}}</label></td>
+          <td><label>{{screeningTypeName}}</label></td>
         </tr>
         <tr>
           <td>Reason for Screening</td>
-          <td><label>{{screeningRequest.reason}}</label></td>
+          <td><label>{{screeningReasonName}}</label></td>
         </tr>
         <tr *ngIf="screeningRequest.reason === 'Other'">
           <td>Other Reason for Screening</td>

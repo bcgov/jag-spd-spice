@@ -70,8 +70,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
     this.startDate = moment().startOf('day').subtract(18, 'years');
 
     this.form = this.fb.group({
-      clientMinistry: ['', Validators.required],
-      programArea: ['', Validators.required],
+      clientMinistry: [{ value: '', disabled: true }, Validators.required],
+      programArea: [{ value: '', disabled: true }, Validators.required],
       screeningType: ['', Validators.required],
       reason: ['', Validators.required],
       otherReason: [''],
@@ -107,12 +107,12 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
       const clientMinistryControl = this.form.get('clientMinistry');
       if (clientMinistry && clientMinistryControl) {
-        clientMinistryControl.setValue(clientMinistry.name);
+        clientMinistryControl.setValue(clientMinistry.value);
 
         const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
         const programAreaControl = this.form.get('programArea');
         if (programArea && programAreaControl) {
-          programAreaControl.setValue(programArea.name);
+          programAreaControl.setValue(programArea.value);
         }
       }
 
@@ -194,7 +194,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       return [];
     }
 
-    const ministry = this.ministryScreeningTypes.find(m => m.name === clientMinistryControl.value);
+    const ministry = this.ministryScreeningTypes.find(m => m.value === clientMinistryControl.value);
     return ministry ? ministry.programAreas : [];
   }
 
@@ -204,7 +204,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       return [];
     }
 
-    const programArea = this.getProgramAreas().find(m => m.name === programAreaControl.value);
+    const programArea = this.getProgramAreas().find(m => m.value === programAreaControl.value);
     return programArea ? programArea.screeningTypes : [];
   }
 
@@ -214,7 +214,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
         const fileUploadSet = fileUploads.find(f => f.id === this.fileUploaderId);
 
         const value = <ScreeningRequest>{
-          ...this.form.value,
+          ...this.form.getRawValue(),
           files: fileUploadSet ? fileUploadSet.files : [],
         };
 
