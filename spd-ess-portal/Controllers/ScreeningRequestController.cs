@@ -40,7 +40,7 @@ namespace Gov.Jag.Spice.Public.Controllers
         public async Task<IActionResult> GetScreeningReasons(CancellationToken cancellationToken)
         {
             string text = await System.IO.File.ReadAllTextAsync(Path.Combine(_dataDirectory, "screening-reasons.json"), cancellationToken);
-            var data = JsonConvert.DeserializeObject<List<string>>(text);
+            var data = JsonConvert.DeserializeObject<List<string>>(text).Select(r => new ScreeningReason(r));
             return new JsonResult(data);
         }
     }
