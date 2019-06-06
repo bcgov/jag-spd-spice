@@ -3,14 +3,6 @@
     "name": "Ministry of the Attorney General",
     "programAreas": [
       {
-        "name": "Liquor and Cannabis Regulation Branch (LCRB)",
-        "screeningTypes": [
-          "Associate",
-          "Business",
-          "Worker"
-        ]
-      },
-      {
         "name": "BC Liquor Distribution Branch (LDB)",
         "screeningTypes": [
           "Workers"
@@ -20,6 +12,13 @@
         "name": "Criminal Justice Branch",
         "screeningTypes": [
           "BC Prosecution Services"
+        ]
+      },
+      {
+        "name": "BC Prosecution Services",
+        "screeningTypes": [
+          "Initial Check",
+          "Recheck"
         ]
       },
       {
@@ -148,18 +147,6 @@
         "name": "Asset Investment Recovery",
         "screeningTypes": [
           "Initial Checks",
-          "Rechecks"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "BC Public Service Agency",
-    "programAreas": [
-      {
-        "name": "Public Services Branch",
-        "screeningTypes": [
-          "All Employees",
           "Rechecks"
         ]
       }
