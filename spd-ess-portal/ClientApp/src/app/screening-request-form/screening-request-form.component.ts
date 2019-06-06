@@ -70,8 +70,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
     this.startDate = moment().startOf('day').subtract(18, 'years');
 
     this.form = this.fb.group({
-      clientMinistry: ['', Validators.required],
-      programArea: ['', Validators.required],
+      clientMinistry: [{ value: '', disabled: true }, Validators.required],
+      programArea: [{ value: '', disabled: true }, Validators.required],
       screeningType: ['', Validators.required],
       reason: ['', Validators.required],
       otherReason: [''],
@@ -214,7 +214,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
         const fileUploadSet = fileUploads.find(f => f.id === this.fileUploaderId);
 
         const value = <ScreeningRequest>{
-          ...this.form.value,
+          ...this.form.getRawValue(),
           files: fileUploadSet ? fileUploadSet.files : [],
         };
 
