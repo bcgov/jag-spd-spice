@@ -216,22 +216,87 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// </summary>
         public async Task ProcessResultsFolders(PerformContext hangfireContext)
         {
+            // Process application screening results
             List<FileSystemItem> businessFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
             List<FileSystemItem> associatesFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
+            List<ApplicationScreeningResponse> applicationResponses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
+            var applicationResult = await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
 
-            List<ApplicationScreeningResponse> responses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
-            var result = await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
+            // Process worker screening results
+            List<FileSystemItem> workerFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + WORKERS_PATH);
+            List<WorkerScreeningResponse> workerResponses = await ProcessWorkerResults(hangfireContext, workerFiles);
+            var workerResult = await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+        }
 
+        private async Task<List<WorkerScreeningResponse>> ProcessWorkerResults(PerformContext hangfireContext, List<FileSystemItem> workerFiles)
+        {
+            List<WorkerScreeningResponse> responses = new List<WorkerScreeningResponse>();
+            // look for unprocessed response files
+            hangfireContext.WriteLine("Looking for unprocessed worker response files");
+            _logger.LogInformation("Looking for unprocessed worker response files.");
+            var unprocessedFiles = workerFiles.Where(f => !f.name.StartsWith("processed_")).ToList();
+            foreach(var file in unprocessedFiles)
+            {
+                if (Path.GetExtension(file.name).ToLower() != ".csv")
+                {
+                    hangfireContext.WriteLine($"Worker results file found but not of type csv.");
+                    _logger.LogError($"Worker results file found but not of type csv.");
+                    continue;
+                }
 
-            // Worker results processing goes here
+                // Download file
+                hangfireContext.WriteLine("Worker file found. Downloading files.");
+                _logger.LogError("Worker file found. Downloading files.");
+                byte[] fileContents = await _sharepoint.DownloadFile(file.serverrelativeurl);
+
+                // Parse file and add to responses list for further processing
+                hangfireContext.WriteLine("Updating worker screening result.");
+                _logger.LogError("Updating worker screening result.");
+                string workerData = System.Text.Encoding.Default.GetString(fileContents);
+
+                responses.Add(ParseWorkerResponse(workerData));
+
+                // Rename file
+                hangfireContext.WriteLine($"Finished processing {file.name}.");
+                _logger.LogInformation($"Finished processing job {file.name}");
+
+                string newServerRelativeUrl = "";
+                int index = file.serverrelativeurl.LastIndexOf("/");
+                if (index > 0)
+                {
+                    newServerRelativeUrl = file.serverrelativeurl.Substring(0, index) + "/processed_" + file.name;
+                }
+
+                try
+                {
+                    hangfireContext.WriteLine($"Renaming file {file.name} for to processed.");
+                    _logger.LogInformation($"Renaming file {file.name} for to processed.");
+                    await _sharepoint.RenameFile(file.serverrelativeurl, newServerRelativeUrl);
+                }
+                catch (SharePointRestException spre)
+                {
+                    hangfireContext.WriteLine("Unable to rename file.");
+                    hangfireContext.WriteLine("Request:");
+                    hangfireContext.WriteLine(spre.Request.Content);
+                    hangfireContext.WriteLine("Response:");
+                    hangfireContext.WriteLine(spre.Response.Content);
+
+                    _logger.LogError("Unable to rename file.");
+                    _logger.LogError("Message:");
+                    _logger.LogError(spre.Message);
+                    throw spre;
+                }
+            }
+
+            return responses;
         }
 
         private async Task<List<ApplicationScreeningResponse>> ProcessApplicationResults(PerformContext hangfireContext, List<FileSystemItem> businessFiles, List<FileSystemItem> associatesFiles)
         {
             List<ApplicationScreeningResponse> responses = new List<ApplicationScreeningResponse>();
             // Look for files with unprocessed name
-            hangfireContext.WriteLine("Looking for unprocessed files.");
-            _logger.LogError("Looking for unprocessed files.");
+            hangfireContext.WriteLine("Looking for unprocessed application files.");
+            _logger.LogInformation("Looking for unprocessed application files.");
             var unprocessedFiles = businessFiles.Where(f => !f.name.StartsWith("processed_")).ToList();
             foreach (var businessFile in unprocessedFiles)
             {
@@ -270,14 +335,14 @@ namespace Gov.Lclb.Cllb.Interfaces
                 byte[] businessFileContents = await _sharepoint.DownloadFile(businessFile.serverrelativeurl);
 
                 // Parse file and add to responses list for further processing
-                hangfireContext.WriteLine("Updating application screening request.");
-                _logger.LogError("Updating application screening request.");
+                hangfireContext.WriteLine("Updating application screening response.");
+                _logger.LogError("Updating application screening response.");
                 string businessData = System.Text.Encoding.Default.GetString(businessFileContents);
                 string associatesData = System.Text.Encoding.Default.GetString(associatesFileContents);
 
                 responses.Add(ParseApplicationResponse(businessData, associatesData));
 
-                //// Rename file
+                // Rename file
                 hangfireContext.WriteLine($"Finished processing job {jobNumber}.");
                 _logger.LogInformation($"Finished processing job {jobNumber}");
 
@@ -372,6 +437,47 @@ namespace Gov.Lclb.Cllb.Interfaces
                 _logger.LogError(e.Message);
                 // return an empty list so we continue processing other files.
                 return new ApplicationScreeningResponse();
+            }
+        }
+
+        public WorkerScreeningResponse ParseWorkerResponse(string fileContent)
+        {
+            CsvHelper.Configuration.Configuration config = new CsvHelper.Configuration.Configuration();
+            config.SanitizeForInjection = true;
+            config.IgnoreBlankLines = true;
+
+            config.TrimOptions = CsvHelper.Configuration.TrimOptions.Trim;
+            config.ShouldSkipRecord = record =>
+            {
+                return record.All(string.IsNullOrEmpty);
+            };
+
+            // fix for unexpected spaces in header
+            config.PrepareHeaderForMatch = (string header, int index) => header = header.Trim().ToLower();
+
+            TextReader textReader = new StringReader(fileContent);
+            var workerCsv = new CsvReader(textReader, config);
+            workerCsv.Configuration.RegisterClassMap<CsvWorkerImportMap>();
+
+            try
+            {
+                CsvWorkerImport import = workerCsv.GetRecords<CsvWorkerImport>().ToList().First();
+
+                WorkerScreeningResponse response = new WorkerScreeningResponse()
+                {
+                    RecordIdentifier = import.Lcrbworkerjobid,
+                    Result = import.Result
+                };
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Error parsing worker response.");
+                _logger.LogError("Message:");
+                _logger.LogError(e.Message);
+                // return an empty list so we continue processing other files.
+                return new WorkerScreeningResponse();
             }
         }
 
