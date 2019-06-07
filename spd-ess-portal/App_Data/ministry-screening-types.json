@@ -99,6 +99,14 @@
           "Community Corrections Financial and Admin (Option I)",
           "Community Corrections Financial and Admin Recheck (Option J)"
         ]
+      },
+      {
+        "comment": "THIS PROGRAM AREA IS INCLUDED FOR TESTING PURPOSES ONLY",
+        "name": "Security Programs and Police Technology",
+        "screeningTypes": [
+          "Initial Check",
+          "Recheck"
+        ]
       }
     ]
   },
