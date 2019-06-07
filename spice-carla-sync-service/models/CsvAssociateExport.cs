@@ -34,11 +34,11 @@ namespace SpiceCarlaSync.models
                         Legalmiddlename = entity.Contact.MiddleName?.Replace(",", ""),
                         Contactphone = entity.Contact.PhoneNumber?.Replace(",", ""),
                         Personalemailaddress = entity.Contact.Email?.Replace(",", ""),
-                        Addressline1 = entity.Contact.Address.AddressStreet1?.Replace(",", ""),
-                        Addresscity = entity.Contact.Address.City?.Replace(",", ""),
-                        Addressprovstate = entity.Contact.Address.StateProvince?.Replace(",", ""),
-                        Addresscountry = entity.Contact.Address.Country?.Replace(",", ""),
-                        Addresspostalcode = entity.Contact.Address.Postal?.Replace(",", ""),
+                        Addressline1 = !string.IsNullOrEmpty(entity.Contact.Address.AddressStreet1) ? entity.Contact.Address.AddressStreet1.Replace(",", "") : "N/A",
+                        Addresscity = !string.IsNullOrEmpty(entity.Contact.Address.City) ? entity.Contact.Address.City.Replace(",", "") : "N/A",
+                        Addressprovstate = !string.IsNullOrEmpty(entity.Contact.Address.StateProvince) ? entity.Contact.Address.StateProvince.Replace(",", "") : "N/A",
+                        Addresscountry = !string.IsNullOrEmpty(entity.Contact.Address.Country) ? entity.Contact.Address.Country.Replace(",", "") : "N/A",
+                        Addresspostalcode = !string.IsNullOrEmpty(entity.Contact.Address.Postal) ? entity.Contact.Address.Postal.Replace(",", "") : "N/A",
                         Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString().Substring(0, 1),
                         Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString().Substring(0, 1),
                         Driverslicence = entity.Contact.DriversLicenceNumber?.Replace(",", ""),
@@ -51,9 +51,24 @@ namespace SpiceCarlaSync.models
                     var aliasId = 1;
                     foreach (var alias in entity.Aliases)
                     {
-                        newAssociate[$"Alias{aliasId}surname"] = alias.Surname?.Replace(",", "");
+                        if (alias.Surname != null)
+                        {
+                            newAssociate[$"Alias{aliasId}surname"] = alias.Surname.Replace(",", "");
+                        }
+                        else
+                        {
+                            newAssociate[$"Alias{aliasId}surname"] = entity.Contact.LastName.Replace(",", "");
+                        }
+                        if (alias.GivenName != null)
+                        {
+                            newAssociate[$"Alias{aliasId}firstname"] = alias.GivenName.Replace(",", "");
+                        }
+                        else
+                        {
+                            newAssociate[$"Alias{aliasId}firstname"] = entity.Contact.FirstName.Replace(",", "");
+                        }
+
                         newAssociate[$"Alias{aliasId}middlename"] = alias.SecondName?.Replace(",", "");
-                        newAssociate[$"Alias{aliasId}firstname"] = alias.GivenName?.Replace(",", "");
                         aliasId++;
                         if (aliasId > MAX_ASSOCIATE_ALIAS)
                         {
@@ -70,11 +85,11 @@ namespace SpiceCarlaSync.models
                         {
                             addressIdString = "x";
                         }
-                        newAssociate[$"Previousstreetaddress{addressId}"] = address.AddressStreet1?.Replace(",", "");
-                        newAssociate[$"Previouscity{addressId}"] = address.City?.Replace(",", "");
-                        newAssociate[$"Previousprovstate{addressId}"] = address.StateProvince?.Replace(",", "");
-                        newAssociate[$"Previouscountry{addressId}"] = address.Country?.Replace(",", "");
-                        newAssociate[$"Previouspostalcode{addressId}"] = address.Postal?.Replace(",", "");
+                        newAssociate[$"Previousstreetaddress{addressId}"] = !string.IsNullOrEmpty(address.AddressStreet1) ? address.AddressStreet1.Replace(",", "") : "N/A";
+                        newAssociate[$"Previouscity{addressId}"] = !string.IsNullOrEmpty(address.City) ? address.City.Replace(",", "") : "N/A";
+                        newAssociate[$"Previousprovstate{addressId}"] = !string.IsNullOrEmpty(address.StateProvince) ? address.StateProvince.Replace(",", "") : "N/A";
+                        newAssociate[$"Previouscountry{addressId}"] = !string.IsNullOrEmpty(address.Country) ? address.Country.Replace(",", "") : "N/A";
+                        newAssociate[$"Previouspostalcode{addressId}"] = !string.IsNullOrEmpty(address.Postal) ? address.Postal.Replace(",", "") : "N/A";
                         addressId++;
 
                         if(addressId > MAX_ASSOCIATE_PREVIOUS_ADDRESS)

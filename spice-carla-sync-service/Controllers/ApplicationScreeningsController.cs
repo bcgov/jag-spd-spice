@@ -55,17 +55,17 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         [HttpPost("send/{applicationId}")]
         public ActionResult SendApplicationScreeningResponse([FromBody] ApplicationScreeningResponse result, string applicationId)
         {
-            //result.Result = result.Result.ToUpper();
-            //if (result.Result != "PASS" && result.Result != "FAIL")
-            //{
-            //    return BadRequest();
-            //}
-            //result.RecordIdentifier = applicationId;
+            result.Result = result.Result.ToUpper();
+            if (result.Result != "PASS" && result.Result != "FAIL")
+            {
+                return BadRequest();
+            }
+            result.RecordIdentifier = applicationId;
 
-            //List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
-            //{
-            //    result
-            //};\
+            List<ApplicationScreeningResponse> payload = new List<ApplicationScreeningResponse>()
+            {
+                result
+            };
 
             //Send the result to CARLA
             BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ProcessResults(null));
