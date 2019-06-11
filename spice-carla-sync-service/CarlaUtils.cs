@@ -327,6 +327,10 @@ namespace Gov.Jag.Spice.CarlaSync
 
         private bool SendSPDEmail(List<Attachment> attachments, string subject, string body)
         {
+            if (string.IsNullOrEmpty(Configuration["SPD_EXPORT_EMAIL"]))
+            {
+                return false;
+            }
             var emailSentSuccessfully = false;
             var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
             var email = Configuration["SPD_EXPORT_EMAIL"];
