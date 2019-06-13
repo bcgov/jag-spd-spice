@@ -104,6 +104,11 @@ namespace Gov.Jag.Spice.Interfaces
         IExportrequests Exportrequests { get; }
 
         /// <summary>
+        /// Gets the IGovministries.
+        /// </summary>
+        IGovministries Govministries { get; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         IMinistries Ministries { get; }
