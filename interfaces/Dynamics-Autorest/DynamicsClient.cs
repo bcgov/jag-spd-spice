@@ -107,6 +107,11 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IExportrequests Exportrequests { get; private set; }
 
         /// <summary>
+        /// Gets the IGovministries.
+        /// </summary>
+        public virtual IGovministries Govministries { get; private set; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         public virtual IMinistries Ministries { get; private set; }
@@ -395,6 +400,7 @@ namespace Gov.Jag.Spice.Interfaces
             Contactaccountset = new Contactaccountset(this);
             Exportrequestincidentset = new Exportrequestincidentset(this);
             Exportrequests = new Exportrequests(this);
+            Govministries = new Govministries(this);
             Ministries = new Ministries(this);
             Ministryemployees = new Ministryemployees(this);
             Previousaddresseses = new Previousaddresseses(this);
