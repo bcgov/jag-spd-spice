@@ -1,0 +1,35 @@
+<section>
+  <h1>Access Denied</h1>
+  <p>
+    SPD does not handle screening requests for your assigned Client Ministry and Program Area.
+    If you believe this is in error, please email a screenshot of the information below to the Public Security Screening Office at psso@gov.bc.ca
+  </p>
+  
+  <section>
+    <h2 class="blue-header">Your SiteMinder Information</h2>
+    <table class="table table-striped">
+      <colgroup>
+        <col width="200px">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>IDIR</td>
+          <td><label>{{user.id}}</label></td>
+        </tr>
+        <tr>
+          <td>Full Name</td>
+          <td><label>{{user.displayName}}</label></td>
+        </tr>
+        <tr>
+          <td>Client Ministry</td>
+          <td><label>{{user.company}}</label></td>
+        </tr>
+        <tr>
+          <td>Program Area</td>
+          <td><label>{{user.department}}</label></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
