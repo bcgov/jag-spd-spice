@@ -33,7 +33,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// 'Monitoring', 'Support', 'BackEnd', 'Secondary', 'CustomerTest',
         /// 'CustomerFreeTest', 'CustomerPreview', 'Placeholder', 'TestDrive',
         /// 'MsftInvestigation', 'EmailTrial', 'Default', 'Developer'</param>
-        public MicrosoftDynamicsCRMOrganizationInfo(string instanceType = default(string), IList<MicrosoftDynamicsCRMsolution> solutions = default(IList<MicrosoftDynamicsCRMsolution>))
+        public MicrosoftDynamicsCRMOrganizationInfo(string instanceType = default(string), IList<MicrosoftDynamicsCRMSolution> solutions = default(IList<MicrosoftDynamicsCRMSolution>))
         {
             InstanceType = instanceType;
             Solutions = solutions;
@@ -57,7 +57,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "Solutions")]
-        public IList<MicrosoftDynamicsCRMsolution> Solutions { get; set; }
+        public IList<MicrosoftDynamicsCRMSolution> Solutions { get; set; }
 
     }
 }

@@ -12,13 +12,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
     /// <summary>
     /// Solution
     /// </summary>
-    public partial class MicrosoftDynamicsCRMsolution
+    public partial class MicrosoftDynamicsCRMSolution
     {
         /// <summary>
         /// Initializes a new instance of the MicrosoftDynamicsCRMSolution
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMsolution()
+        public MicrosoftDynamicsCRMSolution()
         {
             CustomInit();
         }
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMSolution
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMsolution(string id = default(string), string versionNumber = default(string), string solutionUniqueName = default(string), string friendlyName = default(string), string publisherId = default(string), string publisherIdName = default(string), string publisherUniqueName = default(string))
+        public MicrosoftDynamicsCRMSolution(string id = default(string), string versionNumber = default(string), string solutionUniqueName = default(string), string friendlyName = default(string), string publisherId = default(string), string publisherIdName = default(string), string publisherUniqueName = default(string))
         {
             Id = id;
             VersionNumber = versionNumber;
