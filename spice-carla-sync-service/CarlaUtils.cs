@@ -43,7 +43,14 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
-            _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            if(!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            {
+                _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            }
+            else
+            {
+                _dynamics = null;
+            }
             CarlaClient = SetupCarlaClient();
             _carlaSharepoint = new CarlaSharepoint(Configuration, loggerFactory, sharepoint, CarlaClient);
         }
@@ -115,6 +122,11 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <returns></returns>
         private void ImportWorkerRequestsToDynamics(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
+            if(_dynamics == null)
+            {
+                hangfireContext.WriteLine("Dynamics not configured properly");
+                return;
+            }
             foreach (WorkerScreeningRequest workerRequest in requests)
             {
                 // add data to dynamics.
