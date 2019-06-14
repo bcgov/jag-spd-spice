@@ -43,7 +43,10 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
-            _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            if(!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            {
+                _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            }
             CarlaClient = SetupCarlaClient();
             _carlaSharepoint = new CarlaSharepoint(Configuration, loggerFactory, sharepoint, CarlaClient);
         }
