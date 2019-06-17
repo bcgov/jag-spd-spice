@@ -50,6 +50,7 @@ import { UserDataService } from './services/user-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
@@ -60,6 +61,7 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
 
 @NgModule({
   declarations: [
+    AccessDeniedComponent,
     AppComponent,
     FieldComponent,
     FileUploaderComponent,

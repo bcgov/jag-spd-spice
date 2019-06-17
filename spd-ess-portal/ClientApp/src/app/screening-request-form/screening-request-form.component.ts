@@ -113,10 +113,13 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
         const programAreaControl = this.form.get('programArea');
         if (programArea && programAreaControl) {
           programAreaControl.setValue(programArea.value);
+          this.loaded = true;
+        } else {
+          this.router.navigate(['/access-denied'], { skipLocationChange: true });
         }
+      } else {
+        this.router.navigate(['/access-denied'], { skipLocationChange: true });
       }
-
-      this.loaded = true;
     });
 
     // if there is an existing screening request in the store, retrieve it so it can be edited
