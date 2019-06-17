@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ScreeningRequestFormComponent } from './screening-request-form/screening-request-form.component';
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
 import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-
 
 const routes: Routes = [
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'request-submitted',
     component: ScreeningRequestConfirmationComponent
+  },
+  {
+    path: 'access-denied',
+    component: AccessDeniedComponent
   },
   { path: '**', component: NotFoundComponent }
 ];
