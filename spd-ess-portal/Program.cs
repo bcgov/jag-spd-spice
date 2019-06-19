@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Gov.Jag.Spice.Public
 {
@@ -27,12 +27,11 @@ namespace Gov.Jag.Spice.Public
                             .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
                     config.AddEnvironmentVariables();
                 })
-                .ConfigureLogging((hostingContext, logging) =>
+                .UseSerilog((hostingContext, loggerConfiguration) =>
                 {
-                    logging.AddConsole(options => options.IncludeScopes = true);
-                    logging.SetMinimumLevel(LogLevel.Debug);
-                    logging.AddDebug();
-                    logging.AddEventSourceLogger();
+                    loggerConfiguration
+                        .ReadFrom.Configuration(hostingContext.Configuration)
+                        .Enrich.FromLogContext();
                 })
                 .UseStartup<Startup>();
     }
