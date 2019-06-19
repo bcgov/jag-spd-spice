@@ -10,10 +10,6 @@ namespace Gov.Jag.Spice.Public.ViewModels
 
         public string DisplayName { get; set; }
 
-        public string GivenName { get; set; }
-
-        public string LastName { get; set; }
-
         public string Department { get; set; }
 
         public string OrgCode { get; set; }
