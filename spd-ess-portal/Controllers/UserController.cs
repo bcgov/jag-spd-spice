@@ -21,8 +21,6 @@ namespace Gov.Jag.Spice.Public.Controllers
             {
                 Id = principal.FindFirstValue(ClaimTypes.Upn),
                 DisplayName = principal.FindFirstValue(SiteMinderClaimTypes.NAME),
-                GivenName = principal.FindFirstValue(SiteMinderClaimTypes.GIVEN_NAME),
-                LastName = principal.FindFirstValue(SiteMinderClaimTypes.LAST_NAME),
                 Department = principal.FindFirstValue(SiteMinderClaimTypes.DEPARTMENT),
                 OrgCode = principal.FindFirstValue(SiteMinderClaimTypes.ORG_CODE),
                 Company = principal.FindFirstValue(SiteMinderClaimTypes.COMPANY),
