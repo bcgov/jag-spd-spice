@@ -16,17 +16,7 @@ namespace Gov.Jag.Spice.Public.Controllers
         [Route("Current")]
         public IActionResult Current()
         {
-            var principal = HttpContext.User;
-            var user = new ViewModels.User
-            {
-                Id = principal.FindFirstValue(ClaimTypes.Upn),
-                DisplayName = principal.FindFirstValue(SiteMinderClaimTypes.NAME),
-                GivenName = principal.FindFirstValue(SiteMinderClaimTypes.GIVEN_NAME),
-                LastName = principal.FindFirstValue(SiteMinderClaimTypes.LAST_NAME),
-                Department = principal.FindFirstValue(SiteMinderClaimTypes.DEPARTMENT),
-                OrgCode = principal.FindFirstValue(SiteMinderClaimTypes.ORG_CODE),
-                Company = principal.FindFirstValue(SiteMinderClaimTypes.COMPANY),
-            };
+            var user = new ViewModels.User(HttpContext.User);
 
             return new JsonResult(user);
         }
