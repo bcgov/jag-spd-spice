@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -20,6 +19,7 @@ using NWebsec.AspNetCore.Mvc.Csp;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Gov.Jag.Spice.Public.Utils;
 
 namespace Gov.Jag.Spice.Public
 {
@@ -36,7 +36,10 @@ namespace Gov.Jag.Spice.Public
         public void ConfigureServices(IServiceCollection services)
         {
             // add singleton to allow Controllers to query the Request object
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddHttpContextAccessor();
+
+            // add additional details when logging
+            services.AddScoped<LogEnrichmentFilter>();
 
             // determine if we wire up Dynamics.
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
@@ -47,15 +50,18 @@ namespace Gov.Jag.Spice.Public
             // Add a memory cache
             services.AddMemoryCache();
 
-            // for security reasons, the following headers are set.
             services.AddMvc(opts =>
             {
+                // add additional details when logging
+                opts.Filters.Add<LogEnrichmentFilter>();
+
                 // default deny
                 var policy = new AuthorizationPolicyBuilder()
                  .RequireAuthenticatedUser()
                  .Build();
                 opts.Filters.Add(new AuthorizeFilter(policy));
 
+                // for security reasons, the following headers are set.
                 opts.Filters.Add(typeof(NoCacheHttpHeadersAttribute));
                 opts.Filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
                 opts.Filters.Add(typeof(XContentTypeOptionsAttribute));
