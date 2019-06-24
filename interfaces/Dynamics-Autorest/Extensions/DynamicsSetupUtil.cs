@@ -90,10 +90,18 @@ namespace Gov.Jag.Spice.Interfaces
                 var _httpResponse = stsClient.PostAsync(adfsOauth2Uri, content).GetAwaiter().GetResult();
                 var _responseContent = _httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult(); 
                 // response should be in JSON format.
-                Dictionary<string, string> result = JsonConvert.DeserializeObject<Dictionary<string, string>>(_responseContent);
-                string token = result["access_token"];
-                // set the bearer token.
-                serviceClientCredentials = new TokenCredentials(token);
+                try
+                {
+                    Dictionary<string, string> result = JsonConvert.DeserializeObject<Dictionary<string, string>>(_responseContent);
+                    string token = result["access_token"];
+                    // set the bearer token.
+                    serviceClientCredentials = new TokenCredentials(token);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception ( e.Message + " " + _responseContent );
+                }
+                
             }
             else if (! string.IsNullOrEmpty(ssgUsername) && ! string.IsNullOrEmpty(ssgPassword))
             // Authenticate using BASIC authentication - used for API Gateways with BASIC authentication.  Add the NTLM user associated with the API gateway entry to Dynamics as a user.            
