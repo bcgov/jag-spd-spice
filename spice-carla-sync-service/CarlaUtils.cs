@@ -45,7 +45,7 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
             if(!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
-                _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+                _dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
             }
             else
             {
