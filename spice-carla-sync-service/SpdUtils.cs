@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(SpdUtils));
-            _dynamics = DynamicsUtil.SetupDynamics(Configuration);
+            _dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
 
         }
 
