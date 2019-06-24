@@ -124,6 +124,11 @@ namespace Gov.Jag.Spice.Interfaces
         IPreviousaddresseses Previousaddresseses { get; }
 
         /// <summary>
+        /// Gets the IReasonforscreenings.
+        /// </summary>
+        IReasonforscreenings Reasonforscreenings { get; }
+
+        /// <summary>
         /// Gets the IRequiredcheckses.
         /// </summary>
         IRequiredcheckses Requiredcheckses { get; }
