@@ -86,10 +86,23 @@ namespace Gov.Jag.Spice.CarlaSync
                 });
             }
 
+            // Setup Dynamics
+            if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            {
+                services.AddTransient(serviceProvider =>
+                {
+                    IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
+                    return client;
+                });
+            }
+
             if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]))
             {
                 SetupSharePoint(services);
             }
+
+            
+            
 
             services.AddHangfire(config =>
             {

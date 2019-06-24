@@ -120,62 +120,11 @@ namespace Gov.Jag.Spice.Public
         }
 
         private void SetupDynamics(IServiceCollection services)
-        {
-            string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"];
-            string aadTenantId = Configuration["DYNAMICS_AAD_TENANT_ID"];
-            string serverAppIdUri = Configuration["DYNAMICS_SERVER_APP_ID_URI"];
-            string clientKey = Configuration["DYNAMICS_CLIENT_KEY"];
-            string clientId = Configuration["DYNAMICS_CLIENT_ID"];
-
-            string ssgUsername = Configuration["SSG_USERNAME"];
-            string ssgPassword = Configuration["SSG_PASSWORD"];
-
-            AuthenticationResult authenticationResult = null;
-            // authenticate using ADFS.
-            if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/" + aadTenantId);
-                var clientCredential = new ClientCredential(clientId, clientKey);
-                var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
-                task.Wait();
-                authenticationResult = task.Result;
-            }
+        {            
 
             services.AddTransient(serviceProvider =>
-            {
-                ServiceClientCredentials serviceClientCredentials = null;
-
-                if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
-                {
-                    var authenticationContext = new AuthenticationContext("https://login.windows.net/" + aadTenantId);
-                    var clientCredential = new ClientCredential(clientId, clientKey);
-                    var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
-                    task.Wait();
-                    authenticationResult = task.Result;
-                    string token = authenticationResult.CreateAuthorizationHeader().Substring("Bearer ".Length);
-                    serviceClientCredentials = new TokenCredentials(token);
-                }
-                else
-                {
-                    serviceClientCredentials = new BasicAuthenticationCredentials()
-                    {
-                        UserName = ssgUsername,
-                        Password = ssgPassword
-                    };
-                }
-
-                IDynamicsClient client = new DynamicsClient(new Uri(Configuration["DYNAMICS_ODATA_URI"]), serviceClientCredentials);
-
-                // set the native client URI
-                if (string.IsNullOrEmpty(Configuration["DYNAMICS_NATIVE_ODATA_URI"]))
-                {
-                    client.NativeBaseUri = new Uri(Configuration["DYNAMICS_ODATA_URI"]);
-                }
-                else
-                {
-                    client.NativeBaseUri = new Uri(Configuration["DYNAMICS_NATIVE_ODATA_URI"]);
-                }
-
+            {                
+                IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
                 return client;
             });
 
@@ -189,20 +138,23 @@ namespace Gov.Jag.Spice.Public
             string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
             string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
             string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
+            string ssgUsername = Configuration["SSG_USERNAME"];  // BASIC authentication username
+            string ssgPassword = Configuration["SSG_PASSWORD"];  // BASIC authentication password
+
 
             // SharePoint could be using a different username / password.
 
-            string sharePointSsgUsername = ssgUsername;
-            string sharePointSsgPassword = ssgPassword;
+            string sharePointSsgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
+            string sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
 
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_SSG_USERNAME"]))
+            if (string.IsNullOrEmpty(sharePointSsgUsername))
             {
-                sharePointSsgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
+                sharePointSsgUsername = ssgUsername;
             }
 
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_SSG_PASSWORD"]))
+            if (string.IsNullOrEmpty(sharePointSsgPassword))
             {
-                sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
+                sharePointSsgPassword = ssgPassword;
             }
 
             services.AddTransient(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, sharePointSsgUsername, sharePointSsgPassword, sharePointNativeBaseURI));
