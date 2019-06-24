@@ -127,6 +127,11 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IPreviousaddresseses Previousaddresseses { get; private set; }
 
         /// <summary>
+        /// Gets the IReasonforscreenings.
+        /// </summary>
+        public virtual IReasonforscreenings Reasonforscreenings { get; private set; }
+
+        /// <summary>
         /// Gets the IRequiredcheckses.
         /// </summary>
         public virtual IRequiredcheckses Requiredcheckses { get; private set; }
@@ -404,6 +409,7 @@ namespace Gov.Jag.Spice.Interfaces
             Ministries = new Ministries(this);
             Ministryemployees = new Ministryemployees(this);
             Previousaddresseses = new Previousaddresseses(this);
+            Reasonforscreenings = new Reasonforscreenings(this);
             Requiredcheckses = new Requiredcheckses(this);
             Serviceses = new Serviceses(this);
             Businesscaseprocesses = new Businesscaseprocesses(this);
