@@ -2358,6 +2358,8 @@
                 "spice_ess_charc_cvsareqd desc",
                 "spice_associatecomplexity",
                 "spice_associatecomplexity desc",
+                "spice_spdinvestigationresults",
+                "spice_spdinvestigationresults desc",
                 "entityimage_timestamp",
                 "entityimage_timestamp desc",
                 "blockedprofile",
@@ -2392,8 +2394,6 @@
                 "spice_ssqrequired desc",
                 "spice_cpicresults",
                 "spice_cpicresults desc",
-                "spice_spdinvestigationresults",
-                "spice_spdinvestigationresults desc",
                 "spice_cpicresultstosharewithspd",
                 "spice_cpicresultstosharewithspd desc",
                 "spice_ess_dfo_results",
@@ -2654,6 +2654,8 @@
                 "stageid desc",
                 "spice_jc_results",
                 "spice_jc_results desc",
+                "spice_bus_level",
+                "spice_bus_level desc",
                 "spice_furtherinvestigationresults",
                 "spice_furtherinvestigationresults desc",
                 "spice_notfitandproperresultsent",
@@ -2720,6 +2722,8 @@
                 "_parentcaseid_value desc",
                 "spice_applicanttype",
                 "spice_applicanttype desc",
+                "_createdbyexternalparty_value",
+                "_createdbyexternalparty_value desc",
                 "entityimage_url",
                 "entityimage_url desc",
                 "spice_allrequiredcheckscomplete",
@@ -2750,8 +2754,8 @@
                 "spice_w_further_reviewrequired desc",
                 "decremententitlementterm",
                 "decremententitlementterm desc",
-                "_createdbyexternalparty_value",
-                "_createdbyexternalparty_value desc",
+                "spice_wf_investigation",
+                "spice_wf_investigation desc",
                 "spice_30daylettersent",
                 "spice_30daylettersent desc",
                 "_spice_serviceid_value",
@@ -2830,6 +2834,7 @@
                 "spice_ess_crc_resuploaded",
                 "spice_ess_charc_cvsareqd",
                 "spice_associatecomplexity",
+                "spice_spdinvestigationresults",
                 "entityimage_timestamp",
                 "blockedprofile",
                 "_contractid_value",
@@ -2847,7 +2852,6 @@
                 "spice_aliasesfound",
                 "spice_ssqrequired",
                 "spice_cpicresults",
-                "spice_spdinvestigationresults",
                 "spice_cpicresultstosharewithspd",
                 "spice_ess_dfo_results",
                 "spice_ess_inter_polygraphrequired",
@@ -2978,6 +2982,7 @@
                 "spice_ess_edu_verifcompleted",
                 "stageid",
                 "spice_jc_results",
+                "spice_bus_level",
                 "spice_furtherinvestigationresults",
                 "spice_notfitandproperresultsent",
                 "spice_cornet_reportuploaded",
@@ -3011,6 +3016,7 @@
                 "spice_additionalprimecheckresult",
                 "_parentcaseid_value",
                 "spice_applicanttype",
+                "_createdbyexternalparty_value",
                 "entityimage_url",
                 "spice_allrequiredcheckscomplete",
                 "_primarycontactid_value",
@@ -3026,7 +3032,7 @@
                 "spice_ess_driabstractreceived",
                 "spice_w_further_reviewrequired",
                 "decremententitlementterm",
-                "_createdbyexternalparty_value",
+                "spice_wf_investigation",
                 "spice_30daylettersent",
                 "_spice_serviceid_value",
                 "numberofchildincidents",
@@ -3234,6 +3240,7 @@
                 "spice_ess_crc_resuploaded",
                 "spice_ess_charc_cvsareqd",
                 "spice_associatecomplexity",
+                "spice_spdinvestigationresults",
                 "entityimage_timestamp",
                 "blockedprofile",
                 "_contractid_value",
@@ -3251,7 +3258,6 @@
                 "spice_aliasesfound",
                 "spice_ssqrequired",
                 "spice_cpicresults",
-                "spice_spdinvestigationresults",
                 "spice_cpicresultstosharewithspd",
                 "spice_ess_dfo_results",
                 "spice_ess_inter_polygraphrequired",
@@ -3382,6 +3388,7 @@
                 "spice_ess_edu_verifcompleted",
                 "stageid",
                 "spice_jc_results",
+                "spice_bus_level",
                 "spice_furtherinvestigationresults",
                 "spice_notfitandproperresultsent",
                 "spice_cornet_reportuploaded",
@@ -3415,6 +3422,7 @@
                 "spice_additionalprimecheckresult",
                 "_parentcaseid_value",
                 "spice_applicanttype",
+                "_createdbyexternalparty_value",
                 "entityimage_url",
                 "spice_allrequiredcheckscomplete",
                 "_primarycontactid_value",
@@ -3430,7 +3438,7 @@
                 "spice_ess_driabstractreceived",
                 "spice_w_further_reviewrequired",
                 "decremententitlementterm",
-                "_createdbyexternalparty_value",
+                "spice_wf_investigation",
                 "spice_30daylettersent",
                 "_spice_serviceid_value",
                 "numberofchildincidents",
@@ -8335,12 +8343,10 @@
                 "_createdby_value desc",
                 "spice_name",
                 "spice_name desc",
-                "spice_firstname",
-                "spice_firstname desc",
-                "timezoneruleversionnumber",
-                "timezoneruleversionnumber desc",
                 "_ownerid_value",
                 "_ownerid_value desc",
+                "timezoneruleversionnumber",
+                "timezoneruleversionnumber desc",
                 "createdon",
                 "createdon desc",
                 "importsequencenumber",
@@ -8377,9 +8383,8 @@
                 "_modifiedonbehalfby_value",
                 "_createdby_value",
                 "spice_name",
-                "spice_firstname",
-                "timezoneruleversionnumber",
                 "_ownerid_value",
+                "timezoneruleversionnumber",
                 "createdon",
                 "importsequencenumber",
                 "_createdonbehalfby_value",
@@ -8509,9 +8514,8 @@
                 "_modifiedonbehalfby_value",
                 "_createdby_value",
                 "spice_name",
-                "spice_firstname",
-                "timezoneruleversionnumber",
                 "_ownerid_value",
+                "timezoneruleversionnumber",
                 "createdon",
                 "importsequencenumber",
                 "_createdonbehalfby_value",
@@ -10159,10 +10163,10 @@
                 "utcconversiontimezonecode desc",
                 "spice_bus_lowfee_base",
                 "spice_bus_lowfee_base desc",
+                "overriddencreatedon",
+                "overriddencreatedon desc",
                 "spice_bus_highfee_base",
                 "spice_bus_highfee_base desc",
-                "spice_simple",
-                "spice_simple desc",
                 "_createdonbehalfby_value",
                 "_createdonbehalfby_value desc",
                 "spice_simple_base",
@@ -10173,6 +10177,8 @@
                 "statuscode desc",
                 "spice_noadjudication",
                 "spice_noadjudication desc",
+                "spice_simple",
+                "spice_simple desc",
                 "spice_noadjudication_base",
                 "spice_noadjudication_base desc",
                 "spice_screeningtype",
@@ -10195,8 +10201,8 @@
                 "spice_intermediate_base desc",
                 "_createdby_value",
                 "_createdby_value desc",
-                "overriddencreatedon",
-                "overriddencreatedon desc",
+                "spice_ser_applicanttype",
+                "spice_ser_applicanttype desc",
                 "_modifiedby_value",
                 "_modifiedby_value desc"
               ]
@@ -10224,13 +10230,14 @@
                 "spice_name",
                 "utcconversiontimezonecode",
                 "spice_bus_lowfee_base",
+                "overriddencreatedon",
                 "spice_bus_highfee_base",
-                "spice_simple",
                 "_createdonbehalfby_value",
                 "spice_simple_base",
                 "spice_bus_highfee",
                 "statuscode",
                 "spice_noadjudication",
+                "spice_simple",
                 "spice_noadjudication_base",
                 "spice_screeningtype",
                 "_organizationid_value",
@@ -10242,7 +10249,7 @@
                 "spice_adjudication_base",
                 "spice_intermediate_base",
                 "_createdby_value",
-                "overriddencreatedon",
+                "spice_ser_applicanttype",
                 "_modifiedby_value"
               ]
             }
@@ -10364,13 +10371,14 @@
                 "spice_name",
                 "utcconversiontimezonecode",
                 "spice_bus_lowfee_base",
+                "overriddencreatedon",
                 "spice_bus_highfee_base",
-                "spice_simple",
                 "_createdonbehalfby_value",
                 "spice_simple_base",
                 "spice_bus_highfee",
                 "statuscode",
                 "spice_noadjudication",
+                "spice_simple",
                 "spice_noadjudication_base",
                 "spice_screeningtype",
                 "_organizationid_value",
@@ -10382,7 +10390,7 @@
                 "spice_adjudication_base",
                 "spice_intermediate_base",
                 "_createdby_value",
-                "overriddencreatedon",
+                "spice_ser_applicanttype",
                 "_modifiedby_value"
               ]
             }
@@ -33851,6 +33859,10 @@
           "type": "integer",
           "x-nullable": true
         },
+        "spice_spdinvestigationresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
         "entityimage_timestamp": {
           "type": "integer",
           "format": "int64",
@@ -33917,10 +33929,6 @@
           "x-nullable": true
         },
         "spice_cpicresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_spdinvestigationresults": {
           "type": "integer",
           "x-nullable": true
         },
@@ -34442,6 +34450,10 @@
           "type": "integer",
           "x-nullable": true
         },
+        "spice_bus_level": {
+          "type": "integer",
+          "x-nullable": true
+        },
         "spice_furtherinvestigationresults": {
           "type": "integer",
           "x-nullable": true
@@ -34574,6 +34586,10 @@
           "type": "integer",
           "x-nullable": true
         },
+        "_createdbyexternalparty_value": {
+          "type": "string",
+          "x-nullable": true
+        },
         "entityimage_url": {
           "type": "string",
           "x-nullable": true
@@ -34633,8 +34649,8 @@
           "type": "boolean",
           "x-nullable": true
         },
-        "_createdbyexternalparty_value": {
-          "type": "string",
+        "spice_wf_investigation": {
+          "type": "boolean",
           "x-nullable": true
         },
         "spice_30daylettersent": {
@@ -64564,16 +64580,12 @@
           "type": "string",
           "x-nullable": true
         },
-        "spice_firstname": {
+        "_ownerid_value": {
           "type": "string",
           "x-nullable": true
         },
         "timezoneruleversionnumber": {
           "type": "integer",
-          "x-nullable": true
-        },
-        "_ownerid_value": {
-          "type": "string",
           "x-nullable": true
         },
         "createdon": {
@@ -65352,10 +65364,11 @@
         "spice_bus_lowfee_base": {
           "x-nullable": true
         },
-        "spice_bus_highfee_base": {
-          "x-nullable": true
+        "overriddencreatedon": {
+          "type": "string",
+          "format": "date-time"
         },
-        "spice_simple": {
+        "spice_bus_highfee_base": {
           "x-nullable": true
         },
         "_createdonbehalfby_value": {
@@ -65373,6 +65386,9 @@
           "x-nullable": true
         },
         "spice_noadjudication": {
+          "x-nullable": true
+        },
+        "spice_simple": {
           "x-nullable": true
         },
         "spice_noadjudication_base": {
@@ -65415,9 +65431,9 @@
           "type": "string",
           "x-nullable": true
         },
-        "overriddencreatedon": {
-          "type": "string",
-          "format": "date-time"
+        "spice_ser_applicanttype": {
+          "type": "integer",
+          "x-nullable": true
         },
         "_modifiedby_value": {
           "type": "string",
