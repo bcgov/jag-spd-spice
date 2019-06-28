@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMspiceServices
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceServices(object exchangerate = default(object), object spiceDifficult = default(object), object spiceAdjudication = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), long? versionnumber = default(long?), object spiceIntermediate = default(object), int? statecode = default(int?), string _spiceMinistryserviceidValue = default(string), int? importsequencenumber = default(int?), object spiceBusLowfee = default(object), string spiceName = default(string), int? utcconversiontimezonecode = default(int?), object spiceBusLowfeeBase = default(object), object spiceBusHighfeeBase = default(object), object spiceSimple = default(object), string _createdonbehalfbyValue = default(string), object spiceSimpleBase = default(object), object spiceBusHighfee = default(object), int? statuscode = default(int?), object spiceNoadjudication = default(object), object spiceNoadjudicationBase = default(object), int? spiceScreeningtype = default(int?), string _organizationidValue = default(string), object spiceDifficultBase = default(object), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string spiceServicesid = default(string), string _modifiedonbehalfbyValue = default(string), object spiceAdjudicationBase = default(object), object spiceIntermediateBase = default(object), string _createdbyValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> spiceServicesSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceServicesAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceServicesMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceServicesProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceServicesBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceServicesPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMspiceMinistry spiceMinistryServiceId = default(MicrosoftDynamicsCRMspiceMinistry), IList<MicrosoftDynamicsCRMincident> spiceSpiceServicesIncident = default(IList<MicrosoftDynamicsCRMincident>))
+        public MicrosoftDynamicsCRMspiceServices(object exchangerate = default(object), object spiceDifficult = default(object), object spiceAdjudication = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), long? versionnumber = default(long?), object spiceIntermediate = default(object), int? statecode = default(int?), string _spiceMinistryserviceidValue = default(string), int? importsequencenumber = default(int?), object spiceBusLowfee = default(object), string spiceName = default(string), int? utcconversiontimezonecode = default(int?), object spiceBusLowfeeBase = default(object), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), object spiceBusHighfeeBase = default(object), string _createdonbehalfbyValue = default(string), object spiceSimpleBase = default(object), object spiceBusHighfee = default(object), int? statuscode = default(int?), object spiceNoadjudication = default(object), object spiceSimple = default(object), object spiceNoadjudicationBase = default(object), int? spiceScreeningtype = default(int?), string _organizationidValue = default(string), object spiceDifficultBase = default(object), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string spiceServicesid = default(string), string _modifiedonbehalfbyValue = default(string), object spiceAdjudicationBase = default(object), object spiceIntermediateBase = default(object), string _createdbyValue = default(string), int? spiceSerApplicanttype = default(int?), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> spiceServicesSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceServicesAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceServicesMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceServicesProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceServicesBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceServicesPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMspiceMinistry spiceMinistryServiceId = default(MicrosoftDynamicsCRMspiceMinistry), IList<MicrosoftDynamicsCRMincident> spiceSpiceServicesIncident = default(IList<MicrosoftDynamicsCRMincident>))
         {
             Exchangerate = exchangerate;
             SpiceDifficult = spiceDifficult;
@@ -45,13 +45,14 @@ namespace Gov.Jag.Spice.Interfaces.Models
             SpiceName = spiceName;
             Utcconversiontimezonecode = utcconversiontimezonecode;
             SpiceBusLowfeeBase = spiceBusLowfeeBase;
+            Overriddencreatedon = overriddencreatedon;
             SpiceBusHighfeeBase = spiceBusHighfeeBase;
-            SpiceSimple = spiceSimple;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             SpiceSimpleBase = spiceSimpleBase;
             SpiceBusHighfee = spiceBusHighfee;
             Statuscode = statuscode;
             SpiceNoadjudication = spiceNoadjudication;
+            SpiceSimple = spiceSimple;
             SpiceNoadjudicationBase = spiceNoadjudicationBase;
             SpiceScreeningtype = spiceScreeningtype;
             this._organizationidValue = _organizationidValue;
@@ -63,7 +64,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             SpiceAdjudicationBase = spiceAdjudicationBase;
             SpiceIntermediateBase = spiceIntermediateBase;
             this._createdbyValue = _createdbyValue;
-            Overriddencreatedon = overriddencreatedon;
+            SpiceSerApplicanttype = spiceSerApplicanttype;
             this._modifiedbyValue = _modifiedbyValue;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
@@ -161,13 +162,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_highfee_base")]
-        public object SpiceBusHighfeeBase { get; set; }
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_simple")]
-        public object SpiceSimple { get; set; }
+        [JsonProperty(PropertyName = "spice_bus_highfee_base")]
+        public object SpiceBusHighfeeBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -193,6 +194,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "spice_noadjudication")]
         public object SpiceNoadjudication { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_simple")]
+        public object SpiceSimple { get; set; }
 
         /// <summary>
         /// </summary>
@@ -251,8 +257,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+        [JsonProperty(PropertyName = "spice_ser_applicanttype")]
+        public int? SpiceSerApplicanttype { get; set; }
 
         /// <summary>
         /// </summary>
