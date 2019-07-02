@@ -16,7 +16,7 @@
     </p>
     <div class="row">
       <app-field class="col-lg-6 col-xs-12" label="Client Ministry" [required]="true" [showChevrons]="false"
-        [valid]="form.get('clientMinistry').valid || !form.get('clientMinistry').touched"
+        [valid]="!form.get('clientMinistry').invalid || !form.get('clientMinistry').touched"
         errorMessage="Please select a client ministry" [isFullWidth]="true">
         <select id="clientMinistry" class="form-control" formControlName="clientMinistry" (change)="onMinistryChange()">
           <option value="">Select a Ministry</option>
@@ -25,7 +25,7 @@
       </app-field>
       
       <app-field class="col-lg-6 col-xs-12" label="Program Area" [required]="true" [showChevrons]="false"
-        [valid]="form.get('programArea').valid || !form.get('programArea').touched"
+        [valid]="!form.get('programArea').invalid || !form.get('programArea').touched"
         errorMessage="Please select a program area" [isFullWidth]="true">
         <select id="programArea" class="form-control" formControlName="programArea" (change)="onProgramAreaChange()">
           <option value="">Select a Program Area</option>
