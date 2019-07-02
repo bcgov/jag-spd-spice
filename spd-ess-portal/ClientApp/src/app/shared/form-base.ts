@@ -22,11 +22,11 @@ export class FormBase {
 
     public notEqualFieldValidator(otherFieldName: string): ValidatorFn {
       return (control: AbstractControl): { [key: string]: any } | null => {
-        if (!control.parent) {
+        if (!control.root) {
           return null;
         }
 
-        const otherField = control.parent.get(otherFieldName);
+        const otherField = control.root.get(otherFieldName);
         if (!otherField) {
           return null;
         }
