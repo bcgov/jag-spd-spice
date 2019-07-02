@@ -24,6 +24,7 @@ namespace Gov.Jag.Spice.Interfaces
         public const string ContactDocumentListTitle = "contact";
         public const string WorkertDocumentListTitle = "Worker Qualification";
         public const string WorkertDocumentUrlTitle = "adoxio_worker";
+        public const string ScreeningDocumentListTitle = "Screening";
 
         private AuthenticationResult authenticationResult;
 
