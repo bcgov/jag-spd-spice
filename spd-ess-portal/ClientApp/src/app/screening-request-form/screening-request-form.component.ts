@@ -104,12 +104,12 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       this.screeningReasons = screeningReasons;
 
       // initialize dropdown selections based on current user
-      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
+      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.ministry);
       const clientMinistryControl = this.form.get('clientMinistry');
       if (clientMinistry && clientMinistryControl) {
         clientMinistryControl.setValue(clientMinistry.value);
 
-        const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
+        const programArea = this.getProgramAreas().find(m => m.name === currentUser.programArea);
         const programAreaControl = this.form.get('programArea');
         if (programArea && programAreaControl) {
           programAreaControl.setValue(programArea.value);
