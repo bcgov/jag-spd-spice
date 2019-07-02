@@ -15,7 +15,7 @@ using Gov.Jag.Spice.Public.Utils;
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("api/[controller]")]
-    public class FileController : Controller
+    public class FileController : ControllerBase
     {
         private readonly IConfiguration Configuration;
         private readonly SharePointFileManager _sharePointFileManager;
@@ -129,7 +129,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 _logger.LogError(ex.Message);
                 return new NotFoundResult();
             }
-            return Json(fileName);
+            return new JsonResult(fileName);
         }
 
         private async Task<bool> CanAccessEntity(string entityName, string entityId)

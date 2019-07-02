@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("[controller]")]
-    public class LogoutController : Controller
+    public class LogoutController : ControllerBase
     {
         private readonly IConfiguration Configuration;
 
