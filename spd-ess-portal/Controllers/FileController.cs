@@ -22,11 +22,11 @@ namespace Gov.Jag.Spice.Public.Controllers
         private readonly SharePointFileManager _sharePointFileManager;
         private readonly IDynamicsClient _dynamicsClient;
 
-        public FileController(ILogger<FileController> logger, SharePointFileManager sharePointFileManager, IConfiguration configuration, IDynamicsClient dynamicsClient)
+        public FileController(ILogger<FileController> logger, IConfiguration configuration, IDynamicsClient dynamicsClient)
         {
             _logger = logger;
             Configuration = configuration;
-            _sharePointFileManager = sharePointFileManager;
+            _sharePointFileManager = null;
             _dynamicsClient = dynamicsClient;
         }
 
@@ -47,6 +47,12 @@ namespace Gov.Jag.Spice.Public.Controllers
         [DisableRequestSizeLimit]
         public async Task<IActionResult> UploadFile([FromRoute] string screeningId, [FromForm] IFormFile file)
         {
+            if (_sharePointFileManager == null)
+            {
+                _logger.LogWarning("Cannot upload file {FileName} for screening {ScreeningId} because no connection to SharePoint exists", file.Name, screeningId);
+                return new JsonResult(file.FileName);
+            }
+
             if (string.IsNullOrEmpty(screeningId))
             {
                 _logger.LogWarning("Cannot upload file without a screeningId");
