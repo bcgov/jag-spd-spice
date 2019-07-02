@@ -8,7 +8,7 @@ using System.Reflection;
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("api/[controller]")]
-    public class ApplicationVersionInfoController : Controller
+    public class ApplicationVersionInfoController : ControllerBase
     {
         private readonly IConfiguration Configuration;        
         
@@ -41,7 +41,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 FileVersion = fileVersion
             };
 
-            return Json(avi);
+            return new JsonResult(avi);
         }
 	}
 }

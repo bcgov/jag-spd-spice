@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("login")]
-    public class LoginController : Controller
+    public class LoginController : ControllerBase
     {
         private readonly IConfiguration Configuration;
 
