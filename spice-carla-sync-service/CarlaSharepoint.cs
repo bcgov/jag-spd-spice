@@ -297,7 +297,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             // Look for files with unprocessed name
             hangfireContext.WriteLine("Looking for unprocessed application files.");
             _logger.LogInformation("Looking for unprocessed application files.");
-            var unprocessedFiles = businessFiles.Where(f => !f.name.StartsWith("processed_")).ToList();
+            var unprocessedFiles = businessFiles.Where(f => !f.name.StartsWith("done_")).Where(f => !f.name.StartsWith("processed_")).ToList();
             foreach (var businessFile in unprocessedFiles)
             {
                 // Skip if file is not .csv
@@ -350,14 +350,14 @@ namespace Gov.Lclb.Cllb.Interfaces
                 int index = businessFile.serverrelativeurl.LastIndexOf("/");
                 if (index > 0)
                 {
-                    businessNewServerRelativeUrl = businessFile.serverrelativeurl.Substring(0, index) + "/processed_" + businessFile.name;
+                    businessNewServerRelativeUrl = businessFile.serverrelativeurl.Substring(0, index) + "/done_" + businessFile.name.Substring(0, businessFile.name.Length - 9) + ".csv";
                 }
 
                 string associatesNewServerRelativeUrl = "";
                 index = associatesFile.serverrelativeurl.LastIndexOf("/");
                 if (index > 0)
                 {
-                    associatesNewServerRelativeUrl = associatesFile.serverrelativeurl.Substring(0, index) + "/processed_" + associatesFile.name;
+                    associatesNewServerRelativeUrl = associatesFile.serverrelativeurl.Substring(0, index) + "/done_" + associatesFile.name.Substring(0, associatesFile.name.Length - 9) + ".csv";
                 }
 
                 try
