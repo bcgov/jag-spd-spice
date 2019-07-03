@@ -20,6 +20,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Gov.Jag.Spice.Public.Utils;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.Public
 {
@@ -121,7 +122,6 @@ namespace Gov.Jag.Spice.Public
 
         private void SetupDynamics(IServiceCollection services)
         {            
-
             services.AddTransient(serviceProvider =>
             {                
                 IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
@@ -130,34 +130,7 @@ namespace Gov.Jag.Spice.Public
 
             // add SharePoint.
 
-            string sharePointServerAppIdUri = Configuration["SHAREPOINT_SERVER_APPID_URI"];
-            string sharePointOdataUri = Configuration["SHAREPOINT_ODATA_URI"];
-            string sharePointWebname = Configuration["SHAREPOINT_WEBNAME"];
-            string sharePointAadTenantId = Configuration["SHAREPOINT_AAD_TENANTID"];
-            string sharePointClientId = Configuration["SHAREPOINT_CLIENT_ID"];
-            string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
-            string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
-            string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
-            string ssgUsername = Configuration["SSG_USERNAME"];  // BASIC authentication username
-            string ssgPassword = Configuration["SSG_PASSWORD"];  // BASIC authentication password
-
-
-            // SharePoint could be using a different username / password.
-
-            string sharePointSsgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
-            string sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
-
-            if (string.IsNullOrEmpty(sharePointSsgUsername))
-            {
-                sharePointSsgUsername = ssgUsername;
-            }
-
-            if (string.IsNullOrEmpty(sharePointSsgPassword))
-            {
-                sharePointSsgPassword = ssgPassword;
-            }
-
-            services.AddTransient(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, sharePointSsgUsername, sharePointSsgPassword, sharePointNativeBaseURI));
+            services.AddTransient(_ => new FileManager(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

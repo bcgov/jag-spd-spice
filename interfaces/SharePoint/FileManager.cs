@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Rest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -14,9 +15,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Gov.Jag.Spice.Interfaces
+namespace Gov.Jag.Spice.Interfaces.SharePoint
 {
-    public class SharePointFileManager
+    public class FileManager
     {
         public const string DefaultDocumentListTitle = "Account";
         public const string ApplicationDocumentListTitle = "Application";
@@ -34,70 +35,137 @@ namespace Gov.Jag.Spice.Interfaces
         public string ApiEndpoint { get; set; }
         public string NativeBaseUri { get; set; }
         string Authorization { get; set; }
-        private HttpClient client;
-        private string digest;
+        private HttpClient Client;
+        private string Digest;
+        private string FedAuthValue;
+        private CookieContainer _CookieContainer;
+        private HttpClientHandler _HttpClientHandler;
 
-        public SharePointFileManager(string serverAppIdUri,
-                                     string odataUri,
-                                     string webname,
-                                     string aadTenantId,
-                                     string clientId,
-                                     string certFileName,
-                                     string certPassword,
-                                     string ssgUsername,
-                                     string ssgPassword,
-                                     string nativeBaseUri)
+        public FileManager(IConfiguration Configuration)
         {
-            OdataUri = odataUri;
-            ServerAppIdUri = serverAppIdUri;
-            NativeBaseUri = nativeBaseUri;
-            WebName = webname;
+
+            // SharePoint configuration settings.
+
+            string sharePointServerAppIdUri = Configuration["SHAREPOINT_SERVER_APPID_URI"];
+            string sharePointOdataUri = Configuration["SHAREPOINT_ODATA_URI"];
+            string sharePointWebname = Configuration["SHAREPOINT_WEBNAME"];
+            string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
+
+            // ADFS using fed auth
+
+            string sharePointStsTokenUri = Configuration["SHAREPOINT_STS_TOKEN_URI"]; // Full URI to the STS service we will use to get the initial token.
+            string sharePointRelyingPartyIdentifier = Configuration["SHAREPOINT_RELYING_PARTY_IDENTIFIER"]; // use Fiddler to grab this from an interactive session.  Will normally start with urn:
+            string sharePointUsername = Configuration["SHAREPOINT_USERNAME"]; // Service account username.  Be sure to add this user to the SharePoint instance.
+            string sharePointPassword = Configuration["SHAREPOINT_PASSWORD"]; // Service account password
+
+            // SharePoint Online
+            string sharePointAadTenantId = Configuration["SHAREPOINT_AAD_TENANTID"];
+            string sharePointClientId = Configuration["SHAREPOINT_CLIENT_ID"];
+            string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
+            string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
+
+            // Basic Auth (SSG API Gateway)
+            string ssgUsername = Configuration["SSG_USERNAME"];  // BASIC authentication username
+            string ssgPassword = Configuration["SSG_PASSWORD"];  // BASIC authentication password
+
+            // sometimes SharePoint could be using a different username / password.
+            string sharePointSsgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
+            string sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
+
+            if (string.IsNullOrEmpty(sharePointSsgUsername))
+            {
+                sharePointSsgUsername = ssgUsername;
+            }
+
+            if (string.IsNullOrEmpty(sharePointSsgPassword))
+            {
+                sharePointSsgPassword = ssgPassword;
+            }
+
+            
+
+            OdataUri = sharePointOdataUri;
+            ServerAppIdUri = sharePointServerAppIdUri;
+            NativeBaseUri = sharePointNativeBaseURI;
+            WebName = sharePointWebname;
 
             // ensure the webname has a slash.
             if (!string.IsNullOrEmpty(WebName) && WebName[0] != '/')
             {
                 WebName = "/" + WebName;
             }
+            
+            ApiEndpoint = sharePointOdataUri + "/_api/";
+            FedAuthValue = null;
 
-            string listDataEndpoint = odataUri + "/_vti_bin/listdata.svc/";
-            ApiEndpoint = odataUri + "/_api/";
-
-            if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
+            // Scenario #1 - ADFS (2016) using FedAuth
+            if (!string.IsNullOrEmpty(sharePointAadTenantId)
+                && !string.IsNullOrEmpty(sharePointCertFileName)
+                && !string.IsNullOrEmpty(sharePointCertPassword)
+                && !string.IsNullOrEmpty(sharePointCertPassword)
+                )
             {
-
+                Authorization = null;
+                var samlST = Authentication.GetStsSamlToken(sharePointRelyingPartyIdentifier, sharePointUsername, sharePointPassword, sharePointStsTokenUri).GetAwaiter().GetResult();
+                FedAuthValue = Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier).GetAwaiter().GetResult();
+            }
+            // Scenario #2 - SharePoint Online (Cloud) using a Client Certificate
+            else if (!string.IsNullOrEmpty(sharePointAadTenantId) 
+                && !string.IsNullOrEmpty(sharePointCertFileName)
+                && !string.IsNullOrEmpty(sharePointCertPassword)
+                && !string.IsNullOrEmpty(sharePointCertPassword)
+                )
+            {
                 // add authentication.
                 var authenticationContext = new AuthenticationContext(
-                   "https://login.windows.net/" + aadTenantId);
+                   "https://login.windows.net/" + sharePointAadTenantId);
 
                 // Create the Client cert.
-                X509Certificate2 cert = new X509Certificate2(certFileName, certPassword);
-                ClientAssertionCertificate clientAssertionCertificate = new ClientAssertionCertificate(clientId, cert);
+                X509Certificate2 cert = new X509Certificate2(sharePointCertFileName, sharePointCertPassword);
+                ClientAssertionCertificate clientAssertionCertificate = new ClientAssertionCertificate(sharePointClientId, cert);
 
                 //ClientCredential clientCredential = new ClientCredential(clientId, clientKey);
-                var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientAssertionCertificate);
+                var task = authenticationContext.AcquireTokenAsync(sharePointServerAppIdUri, clientAssertionCertificate);
                 task.Wait();
                 authenticationResult = task.Result;
                 Authorization = authenticationResult.CreateAuthorizationHeader();
             }
             else
+            // Scenario #3 - Using an API Gateway with Basic Authentication.  The API Gateway will handle other authentication and have different credentials, which may be NTLM
             {
                 // authenticate using the SSG.                
-                string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(ssgUsername + ":" + ssgPassword));
+                string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(sharePointSsgUsername + ":" + sharePointSsgPassword));
                 Authorization = "Basic " + credentials;
-
             }
 
             // create the HttpClient that is used for our direct REST calls.
-            client = new HttpClient();
+            _CookieContainer = new CookieContainer();
+            _HttpClientHandler = new HttpClientHandler() { CookieContainer = _CookieContainer };
+            Client = new HttpClient(_HttpClientHandler);
 
-            client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
-            client.DefaultRequestHeaders.Add("Authorization", Authorization);
-            var digestTask = GetDigest(client);
-            digestTask.Wait();
-            digest = digestTask.Result;
-            if (digest != null)
+            // Standard headers for API access
+            Client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
+            Client.DefaultRequestHeaders.Add("OData-Version", "4.0");
+            Client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+
+            // Authorization header is used for Cloud or Basic API Gateway access
+            if (! string.IsNullOrEmpty (Authorization))
             {
-                client.DefaultRequestHeaders.Add("X-RequestDigest", digest);
+                Client.DefaultRequestHeaders.Add("Authorization", Authorization);
+            }
+
+            // Add a FedAuth cookie if we are using that (On Premise ADFS 2016)
+            if (!string.IsNullOrEmpty(FedAuthValue))
+            {
+                Uri uri = new Uri(sharePointOdataUri);
+                _CookieContainer.Add(new Cookie("FedAuth", FedAuthValue, "/", uri.Authority));
+            }
+
+            // Add a Digest header.  Needed for certain API operations
+            Digest = GetDigest(Client).GetAwaiter().GetResult();
+            if (Digest != null)
+            {
+                Client.DefaultRequestHeaders.Add("X-RequestDigest", Digest);
             }
         }
 
@@ -179,7 +247,7 @@ namespace Gov.Jag.Spice.Interfaces
             HttpRequestMessage _httpRequest =
                             new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/files");
             // make the request.
-            var _httpResponse = await client.SendAsync(_httpRequest);
+            var _httpResponse = await Client.SendAsync(_httpRequest);
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
 
             if ((int)_statusCode != 200)
@@ -267,7 +335,7 @@ namespace Gov.Jag.Spice.Interfaces
 
             // make the request.            
 
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.OK && _statusCode != HttpStatusCode.Created)
@@ -321,7 +389,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Content = strContent;
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.Created)
@@ -360,7 +428,7 @@ namespace Gov.Jag.Spice.Interfaces
                     endpointRequest.Headers.Add("IF-MATCH", "*");
                     endpointRequest.Headers.Add("X-HTTP-Method", "MERGE");
                     endpointRequest.Content = strContent;
-                    response = await client.SendAsync(endpointRequest);
+                    response = await Client.SendAsync(endpointRequest);
                     jsonString = await response.Content.ReadAsStringAsync();
                     response.EnsureSuccessStatusCode();
                 }
@@ -390,7 +458,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Content = strContent;
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.Created)
@@ -461,7 +529,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Headers.Add("X-HTTP-Method", "DELETE");
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -521,7 +589,7 @@ namespace Gov.Jag.Spice.Interfaces
             HttpRequestMessage endpointRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')");
                         
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == HttpStatusCode.OK)
@@ -549,7 +617,7 @@ namespace Gov.Jag.Spice.Interfaces
 
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == HttpStatusCode.OK)
@@ -628,7 +696,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Content = byteArrayContent;
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -751,7 +819,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Headers.Add("X-HTTP-Method", "DELETE");
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -792,7 +860,7 @@ namespace Gov.Jag.Spice.Interfaces
             endpointRequest.Headers.Add("IF-MATCH", "*");
 
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+            var response = await Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
