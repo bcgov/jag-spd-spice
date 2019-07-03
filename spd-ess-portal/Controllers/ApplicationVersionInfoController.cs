@@ -4,16 +4,19 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("api/[controller]")]
-    public class ApplicationVersionInfoController : Controller
+    public class ApplicationVersionInfoController : ControllerBase
     {
-        private readonly IConfiguration Configuration;        
-        
-        public ApplicationVersionInfoController(IConfiguration configuration)
+        private readonly ILogger<ApplicationVersionInfoController> _logger;
+        private readonly IConfiguration Configuration;
+
+        public ApplicationVersionInfoController(ILogger<ApplicationVersionInfoController> logger, IConfiguration configuration)
         {
+            _logger = logger;
             Configuration = configuration;                  
         }
 
@@ -41,7 +44,9 @@ namespace Gov.Jag.Spice.Public.Controllers
                 FileVersion = fileVersion
             };
 
-            return Json(avi);
+            _logger.LogInformation("Displaying application version information: {@VersionInformation}", avi);
+
+            return new JsonResult(avi);
         }
 	}
 }

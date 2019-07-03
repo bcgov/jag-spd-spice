@@ -28,7 +28,7 @@
           <td>Reason for Screening</td>
           <td><label>{{screeningReasonName}}</label></td>
         </tr>
-        <tr *ngIf="screeningRequest.reason === 'Other'">
+        <tr *ngIf="screeningRequest.otherReason">
           <td>Other Reason for Screening</td>
           <td><label>{{screeningRequest.otherReason}}</label></td>
         </tr>
@@ -45,27 +45,27 @@
       <tbody>
         <tr>
           <td>First Name</td>
-          <td><label>{{screeningRequest.candidateFirstName}}</label></td>
+          <td><label>{{screeningRequest.candidate.firstName}}</label></td>
         </tr>
         <tr>
           <td>Middle Name</td>
-          <td><label>{{screeningRequest.candidateMiddleName}}</label></td>
+          <td><label>{{screeningRequest.candidate.middleName}}</label></td>
         </tr>
         <tr>
           <td>Last Name</td>
-          <td><label>{{screeningRequest.candidateLastName}}</label></td>
+          <td><label>{{screeningRequest.candidate.lastName}}</label></td>
         </tr>
         <tr>
           <td>Date of Birth</td>
-          <td><label>{{screeningRequest.candidateDateOfBirth | date: 'yyyy-MM-dd'}}</label><em> {{screeningRequest.candidateDateOfBirth | date: 'MMMM d, yyyy'}}</em></td>
+          <td><label>{{screeningRequest.candidate.dateOfBirth | date: 'yyyy-MM-dd'}}</label><em> {{screeningRequest.candidate.dateOfBirth | date: 'MMMM d, yyyy'}}</em></td>
         </tr>
         <tr>
           <td>Email Address</td>
-          <td><label>{{screeningRequest.candidateEmail}}</label></td>
+          <td><label>{{screeningRequest.candidate.email}}</label></td>
         </tr>
         <tr>
           <td>Title of Position Screened For</td>
-          <td><label>{{screeningRequest.candidatePosition}}</label></td>
+          <td><label>{{screeningRequest.candidate.position}}</label></td>
         </tr>
       </tbody>
     </table>
@@ -80,15 +80,15 @@
       <tbody>
         <tr>
           <td>Recipient First Name</td>
-          <td><label>{{screeningRequest.contactFirstName}}</label></td>
+          <td><label>{{screeningRequest.contact.firstName}}</label></td>
         </tr>
         <tr>
           <td>Recipient Last Name</td>
-          <td><label>{{screeningRequest.contactLastName}}</label></td>
+          <td><label>{{screeningRequest.contact.lastName}}</label></td>
         </tr>
         <tr>
           <td>Recipient Email Address</td>
-          <td><label>{{screeningRequest.contactEmail}}</label></td>
+          <td><label>{{screeningRequest.contact.email}}</label></td>
         </tr>
       </tbody>
     </table>

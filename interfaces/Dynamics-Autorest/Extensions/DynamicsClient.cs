@@ -127,5 +127,19 @@ namespace Gov.Jag.Spice.Interfaces
             return result;
         }
 
+        public async Task<MicrosoftDynamicsCRMincident> GetScreeningById(Guid id)
+        {
+            MicrosoftDynamicsCRMincident result;
+            try
+            {
+                // fetch from Dynamics.
+                result = await Incidents.GetByKeyAsync(id.ToString());
+            }
+            catch (OdataerrorException)
+            {
+                result = null;
+            }
+            return result;
+        }
     }
 }

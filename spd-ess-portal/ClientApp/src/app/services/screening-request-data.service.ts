@@ -49,15 +49,15 @@ export class ScreeningRequestDataService extends DataService {
 
   /**
    * Upload a document associated with a screening request
-   * @param requestId - id of the screening request
+   * @param screeningId - id of the screening request
    * @param file - document
    */
-  uploadDocument(requestId: any, file: File) {
+  uploadDocument(screeningId: any, file: File) {
     const formData = new FormData();
     formData.append('file', file, file.name);
     const headers: HttpHeaders = new HttpHeaders();
 
-    const path = `${this.apiPath}/file/upload/${requestId}`;
+    const path = `${this.apiPath}/file/upload/${screeningId}`;
     return this.http.post<any>(path, formData, { headers: headers })
       .pipe(catchError(this.handleError));
   }

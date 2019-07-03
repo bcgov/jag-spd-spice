@@ -18,5 +18,15 @@ namespace Gov.Jag.Spice.Public.Utils
             var base64EncodedBytes = Convert.FromBase64String(s);
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
+        public static int? AsInt(this string s)
+        {
+            if (int.TryParse(s, out int result))
+            {
+                return result;
+            }
+
+            return null;
+        }
     }
 }

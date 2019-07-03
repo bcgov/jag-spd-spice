@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Security.Claims;
-using System.Threading;
 using System.Threading.Tasks;
-using Gov.Jag.Spice.Public.Authentication;
+using Gov.Jag.Spice.Interfaces;
+using Gov.Jag.Spice.Public.Utils;
 using Gov.Jag.Spice.Public.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -16,68 +15,105 @@ namespace Gov.Jag.Spice.Public.Controllers
     [ApiController]
     public class ScreeningRequestController : ControllerBase
     {
-        private readonly string _dataDirectory = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+        private readonly ILogger<ScreeningRequestController> _logger;
+        private readonly IDynamicsClient _dynamicsClient;
+
+        public ScreeningRequestController(ILogger<ScreeningRequestController> logger, IDynamicsClient dynamicsClient)
+        {
+            _logger = logger;
+            _dynamicsClient = dynamicsClient;
+        }
 
         // POST: api/ScreeningRequest
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ScreeningRequest screeningRequest, CancellationToken cancellationToken)
+        public async Task<IActionResult> Post([FromBody] ScreeningRequest screeningRequest)
         {
-            // validate that the client ministry and program area specified in the screening request match the values provided by SiteMinder
-            var principal = HttpContext.User;
-            string siteMinderClientMinistry = principal.FindFirstValue(SiteMinderClaimTypes.COMPANY);
-            string siteMinderProgramArea = principal.FindFirstValue(SiteMinderClaimTypes.DEPARTMENT);
-
-            var ministries = await GetMinistryScreeningTypeData(cancellationToken);
-
-            var ministry = ministries.Find(m => m.Name == siteMinderClientMinistry);
-            if (ministry == null)
+            try
             {
-                return Unauthorized();
-            }
+                var user = new User(HttpContext.User);
 
-            var programArea = ministry.ProgramAreas.Find(a => a.Name == siteMinderProgramArea);
-            if (programArea == null)
+                var ministries = await ScreeningRequest.GetMinistryScreeningTypesAsync(_dynamicsClient);
+
+                var siteMinderMinistry = ministries.FirstOrDefault(m => m.Name == user.Ministry);
+                var siteMinderProgramArea = siteMinderMinistry?.ProgramAreas.FirstOrDefault(a => a.Name == user.ProgramArea);
+                var screeningType = siteMinderProgramArea?.ScreeningTypes.Find(t => t.Value == screeningRequest.ScreeningType);
+
+                // ensure ministry and program area from siteminder match a ministry and program area in our system
+                if (siteMinderProgramArea == null)
+                {
+                    _logger.LogWarning(string.Join(Environment.NewLine, "Cannot find ministry and program area in database matching SiteMinder headers", "{@User}", "{@RetrievedMinistries}"), user, ministries);
+                    return Unauthorized();
+                }
+
+                // validate screening request
+                try
+                {
+                    bool validationResult = await screeningRequest.Validate(_dynamicsClient, siteMinderMinistry, siteMinderProgramArea);
+                    if (validationResult == false)
+                    {
+                        _logger.LogWarning("Validation failed for screening request {@ScreeningRequest} {@Ministry} {@ProgramArea}", screeningRequest, siteMinderMinistry, siteMinderProgramArea);
+                        return BadRequest();
+                    }
+                }
+                catch (DynamicsEntityNotFoundException ex)
+                {
+                    _logger.LogError(ex, "Validation failed for screening request {@ScreeningRequest} {@Ministry} {@ProgramArea}", screeningRequest, siteMinderMinistry, siteMinderProgramArea);
+                    return BadRequest();
+                }
+
+                // validate user
+                if (string.IsNullOrWhiteSpace(user.Email))
+                {
+                    _logger.LogWarning("Validation failed for user {@user} submitting screening request {@ScreeningRequest}", user, screeningRequest);
+                    return BadRequest();
+                }
+
+                // submit request to dynamics and return its new screeningId
+                string screeningId = await screeningRequest.Submit(_dynamicsClient, _logger, user, screeningType);
+
+                return new JsonResult(new { screeningId });
+            }
+            catch (Exception ex)
             {
-                return Unauthorized();
+                _logger.LogError(ex, "Failed to submit screening request {@ScreeningRequest}", screeningRequest);
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
-
-            if (screeningRequest.ClientMinistry != ministry.Value || screeningRequest.ProgramArea != programArea.Value)
-            {
-                return BadRequest();
-            }
-
-            // TODO
-            return new JsonResult(new { requestId = 42 });
         }
 
         // GET: api/ScreeningRequest/MinistryScreeningTypes
         [Route("MinistryScreeningTypes")]
         [HttpGet]
-        public async Task<IActionResult> GetMinistryScreeningTypes(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetMinistryScreeningTypes()
         {
-            var data = await GetMinistryScreeningTypeData(cancellationToken);
-            return new JsonResult(data);
+            try
+            {
+                var data = await ScreeningRequest.GetMinistryScreeningTypesAsync(_dynamicsClient);
+                _logger.LogInformation("Successfully retrieved ministry screening types {@Ministries}", data);
+                return new JsonResult(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to retrieve ministry screening types");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         // GET: api/ScreeningRequest/ScreeningReasons
         [Route("ScreeningReasons")]
         [HttpGet]
-        public async Task<IActionResult> GetScreeningReasons(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetScreeningReasons()
         {
-            var data = await GetScreeningReasonData(cancellationToken);
-            return new JsonResult(data);
-        }
-
-        private async Task<List<Ministry>> GetMinistryScreeningTypeData(CancellationToken cancellationToken)
-        {
-            string text = await System.IO.File.ReadAllTextAsync(Path.Combine(_dataDirectory, "ministry-screening-types.json"), cancellationToken);
-            return JsonConvert.DeserializeObject<List<Ministry>>(text);
-        }
-
-        private async Task<List<ScreeningReason>> GetScreeningReasonData(CancellationToken cancellationToken)
-        {
-            string text = await System.IO.File.ReadAllTextAsync(Path.Combine(_dataDirectory, "screening-reasons.json"), cancellationToken);
-            return JsonConvert.DeserializeObject<List<string>>(text).Select(r => new ScreeningReason(r)).ToList();
+            try
+            {
+                var data = await ScreeningRequest.GetScreeningReasonsAsync(_dynamicsClient);
+                _logger.LogInformation("Successfully retrieved screening reasons {@ScreeningReasons}", data);
+                return new JsonResult(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to retrieve screening reasons");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }

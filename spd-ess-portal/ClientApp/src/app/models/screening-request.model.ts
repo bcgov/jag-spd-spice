@@ -1,3 +1,5 @@
+import { Candidate } from './candidate.model';
+import { Contact } from './contact.model';
 import { FileSystemItem } from './file-system-item.model';
 
 export class ScreeningRequest {
@@ -5,14 +7,7 @@ export class ScreeningRequest {
   programArea: string;
   screeningType: string;
   reason: string;
-  candidateFirstName: string;
-  candidateMiddleName: string;
-  candidateLastName: string;
-  candidateDateOfBirth: Date;
-  candidateEmail: string;
-  candidatePosition: string;
-  contactFirstName: string;
-  contactLastName: string;
-  contactEmail: string;
+  candidate: Candidate;
+  contact: Contact;
   files: FileSystemItem[] = [];
 }

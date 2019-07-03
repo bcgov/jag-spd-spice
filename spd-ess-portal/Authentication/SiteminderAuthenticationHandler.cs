@@ -63,12 +63,12 @@ namespace Gov.Jag.Spice.Public.Authentication
             if (!string.IsNullOrEmpty(claims))
             {
                 var principal = claims.FromJwt();
-                _logger.LogDebug($"Success (session): {principal.Identity.Name}");
+                _logger.LogInformation("Successfully authenticated user {User} from session with authentication token {@SmAuthToken}", principal.Identity.Name, smAuthToken);
                 return AuthenticateResult.Success(new AuthenticationTicket(principal, SiteMinderAuthOptions.Scheme));
             }
             if (smAuthToken.IsAnonymous())
             {
-                _logger.LogDebug($"NoResult");
+                _logger.LogInformation("Did not authenticate anonymous user with authentication token {@SmAuthToken}", smAuthToken);
                 return AuthenticateResult.NoResult();
             }
 
@@ -76,13 +76,12 @@ namespace Gov.Jag.Spice.Public.Authentication
             {
                 var principal = CreatePrincipalFor(smAuthToken);
                 Context.Session.SetString("app.principal", principal.ToJwt());
-                _logger.LogDebug($"Success (new): {principal.Identity.Name}");
-                _logger.LogDebug($"smAuthToken: {smAuthToken}");
+                _logger.LogInformation("Successfully authenticated user {User} with authentication token {@SmAuthToken}", principal.Identity.Name, smAuthToken);
                 return AuthenticateResult.Success(new AuthenticationTicket(principal, SiteMinderAuthOptions.Scheme));
             }
             catch (ApplicationException e)
             {
-                _logger.LogError($"Fail to authenticate user with smAuthToken '{smAuthToken}': {e.Message}");
+                _logger.LogError(e, "Failed to authenticate user with authentication token {@SmAuthToken}", smAuthToken);
                 return AuthenticateResult.Fail(e.Message);
             }
         }
@@ -94,9 +93,11 @@ namespace Gov.Jag.Spice.Public.Authentication
                 new Claim(ClaimTypes.Sid, smAuthToken.smgov_userguid),
                 new Claim(ClaimTypes.Upn, smAuthToken.sm_universalid),
                 new Claim(SiteMinderClaimTypes.NAME, smAuthToken.smgov_userdisplayname),
+                new Claim(SiteMinderClaimTypes.GIVEN_NAME, smAuthToken.smgov_givenname),
+                new Claim(SiteMinderClaimTypes.SURNAME, smAuthToken.smgov_sn),
                 new Claim(SiteMinderClaimTypes.DEPARTMENT, smAuthToken.smgov_department),
-                new Claim(SiteMinderClaimTypes.ORG_CODE, smAuthToken.smgov_orgcode),
-                new Claim(SiteMinderClaimTypes.COMPANY, smAuthToken.smgov_company)
+                new Claim(SiteMinderClaimTypes.COMPANY, smAuthToken.smgov_company),
+                new Claim(SiteMinderClaimTypes.EMAIL, smAuthToken.smgov_useremail),
             };
 
             return new ClaimsPrincipal(new ClaimsIdentity(claims, SiteMinderAuthOptions.Scheme));

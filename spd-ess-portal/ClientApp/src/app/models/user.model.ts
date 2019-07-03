@@ -1,9 +1,11 @@
 export class User {
   id: string;
   displayName: string;
-  department: string;
-  orgCode: string;
-  company: string;
+  givenName: string;
+  surname: string;
+  ministry: string;
+  programArea: string;
+  email: string;
 
   constructor() { }
 }
