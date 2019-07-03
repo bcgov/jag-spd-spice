@@ -7,6 +7,7 @@ export class ScreeningRequest {
   programArea: string;
   screeningType: string;
   reason: string;
+  otherReason: string;
   candidate: Candidate;
   contact: Contact;
   files: FileSystemItem[] = [];
