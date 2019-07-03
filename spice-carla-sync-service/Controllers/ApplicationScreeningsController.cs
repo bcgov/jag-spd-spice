@@ -13,6 +13,7 @@ using Gov.Lclb.Cllb.Interfaces.Models;
 using System;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Lclb.Cllb.Interfaces;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -23,9 +24,9 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
-        private SharePointFileManager _sharepoint;
+        private FileManager _sharepoint;
 
-        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
+        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;

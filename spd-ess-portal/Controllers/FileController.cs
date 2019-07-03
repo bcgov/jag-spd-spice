@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Gov.Jag.Spice.Public.Utils;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -19,20 +20,20 @@ namespace Gov.Jag.Spice.Public.Controllers
     {
         private readonly ILogger<FileController> _logger;
         private readonly IConfiguration Configuration;
-        private readonly SharePointFileManager _sharePointFileManager;
+        private readonly FileManager _sharePointFileManager;
         private readonly IDynamicsClient _dynamicsClient;
 
-        public FileController(ILogger<FileController> logger, IConfiguration configuration, IDynamicsClient dynamicsClient)
+        public FileController(ILogger<FileController> logger, IConfiguration configuration, IDynamicsClient dynamicsClient, FileManager fileManager)
         {
             _logger = logger;
             Configuration = configuration;
-            _sharePointFileManager = null;
+            _sharePointFileManager = fileManager;
             _dynamicsClient = dynamicsClient;
         }
 
         private static string GetDocumentListTitle()
         {
-            return SharePointFileManager.ScreeningDocumentListTitle;
+            return FileManager.ScreeningDocumentListTitle;
         }
 
         private static string GetScreeningFolderName(MicrosoftDynamicsCRMincident screening)
