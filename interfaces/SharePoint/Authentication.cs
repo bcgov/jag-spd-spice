@@ -24,7 +24,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
      *
      */
 
-    class Authentication
+    static class Authentication
     {
 
         private static string GetXMLInnerText(XmlDocument doc, string tagName)
@@ -177,7 +177,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return samlRTString;
         }
 
-        private async static Task<string> GetStsSamlToken(string spSiteUrl, string username, string password, string stsUrl)
+        public async static Task<string> GetStsSamlToken(string spSiteUrl, string username, string password, string stsUrl)
         {
             // Makes a request that conforms with the WS-Trust standard to 
             // the Security Token Service to get a SAML security token back 
