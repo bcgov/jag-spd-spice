@@ -7,6 +7,7 @@ using CsvHelper;
 using Gov.Jag.Spice.CarlaSync;
 using Gov.Jag.Spice.CarlaSync.models;
 using Gov.Jag.Spice.Interfaces;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
 using Hangfire.Server;
@@ -16,7 +17,7 @@ using SpdSync;
 using SpdSync.models;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
-using static Gov.Jag.Spice.Interfaces.SharePointFileManager;
+using static Gov.Jag.Spice.Interfaces.SharePoint.FileManager;
 
 namespace Gov.Lclb.Cllb.Interfaces
 {
@@ -42,10 +43,10 @@ namespace Gov.Lclb.Cllb.Interfaces
 
         public ILogger _logger { get; }
         private IConfiguration _configuration { get; }
-        public SharePointFileManager _sharepoint;
+        public Jag.Spice.Interfaces.SharePoint.FileManager _sharepoint;
         public ICarlaClient _carlaClient;
 
-        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint, ICarlaClient carla)
+        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, Jag.Spice.Interfaces.SharePoint.FileManager sharepoint, ICarlaClient carla)
         {
             _configuration = Configuration;
             _sharepoint = sharepoint;

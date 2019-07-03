@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 using Gov.Lclb.Cllb.Interfaces;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
@@ -39,7 +40,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public ICarlaClient CarlaClient;
         public CarlaSharepoint _carlaSharepoint;
 
-        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
+        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
