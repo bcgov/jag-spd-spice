@@ -51,6 +51,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   startDate: Moment;
   ministryScreeningTypes: Ministry[];
   screeningReasons: ScreeningReason[];
+  otherScreeningReasonValue: string;
   existingScreeningRequestSubscription: Subscription;
 
   unsubscribe: Subject<void> = new Subject();
@@ -75,15 +76,19 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       screeningType: ['', Validators.required],
       reason: ['', Validators.required],
       otherReason: [''],
-      candidateFirstName: ['', Validators.required],
-      candidateMiddleName: [''],
-      candidateLastName: ['', Validators.required],
-      candidateDateOfBirth: ['', [Validators.required, this.dateRangeValidator(this.minDate, this.maxDate)]],
-      candidateEmail: ['', [Validators.required, Validators.email]],
-      candidatePosition: ['', Validators.required],
-      contactFirstName: ['', Validators.required],
-      contactLastName: ['', Validators.required],
-      contactEmail: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidateEmail')]],
+      candidate: this.fb.group({
+        firstName: ['', Validators.required],
+        middleName: [''],
+        lastName: ['', Validators.required],
+        dateOfBirth: ['', [Validators.required, this.dateRangeValidator(this.minDate, this.maxDate)]],
+        email: ['', [Validators.required, Validators.email]],
+        position: ['', Validators.required],
+      }),
+      contact: this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email, this.notEqualFieldValidator('candidate.email')]],
+      }),
       photoIdConfirmation: [false, Validators.requiredTrue],
     });
 
@@ -103,13 +108,16 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
       this.ministryScreeningTypes = ministryScreeningTypes;
       this.screeningReasons = screeningReasons;
 
+      const otherScreeningReason = screeningReasons.find(r => r.name === 'Other');
+      this.otherScreeningReasonValue = otherScreeningReason ? otherScreeningReason.value : '';
+
       // initialize dropdown selections based on current user
-      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.company);
+      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.ministry);
       const clientMinistryControl = this.form.get('clientMinistry');
       if (clientMinistry && clientMinistryControl) {
         clientMinistryControl.setValue(clientMinistry.value);
 
-        const programArea = this.getProgramAreas().find(m => m.name === currentUser.department);
+        const programArea = this.getProgramAreas().find(m => m.name === currentUser.programArea);
         const programAreaControl = this.form.get('programArea');
         if (programArea && programAreaControl) {
           programAreaControl.setValue(programArea.value);
@@ -146,7 +154,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     if (reasonControl && otherReasonControl) {
       reasonControl.valueChanges.subscribe(reason => {
-        if (reason === 'Other') {
+        if (reason === this.otherScreeningReasonValue) {
           otherReasonControl.setValidators([Validators.required]);
         } else {
           otherReasonControl.setValidators(null);
@@ -162,7 +170,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getCandidateDateOfBirthErrorMessage() {
-    const control = this.form.get('candidateDateOfBirth');
+    const control = this.form.get('candidate.dateOfBirth');
 
     if (!control || control.valid || !control.touched || !control.errors) {
       return '';
@@ -178,7 +186,7 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
   }
 
   getContactEmailErrorMessage() {
-    const control = this.form.get('contactEmail');
+    const control = this.form.get('contact.email');
 
     if (!control || control.valid || !control.touched || !control.errors) {
       return '';
@@ -264,8 +272,16 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
     }
   }
 
+  onReasonChange() {
+    const reasonControl = this.form.get('reason');
+    const otherReasonControl = this.form.get('otherReason');
+    if (reasonControl && otherReasonControl && reasonControl.value !== this.otherScreeningReasonValue) {
+      otherReasonControl.setValue('');
+    }
+  }
+
   onCandidateEmailChange() {
-    const contactEmailControl = this.form.get('contactEmail');
+    const contactEmailControl = this.form.get('contact.email');
     if (contactEmailControl) {
       contactEmailControl.updateValueAndValidity();
     }

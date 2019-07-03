@@ -10,10 +10,10 @@ namespace Gov.Jag.Spice.Public.Authentication
     {
         public const string NAME = "sm.name";
         public const string GIVEN_NAME = "sm.given_name";
-        public const string LAST_NAME = "sm.last_name";
+        public const string SURNAME = "sm.surname";
         public const string DEPARTMENT = "sm.department";
-        public const string ORG_CODE = "sm.org_code";
         public const string COMPANY = "sm.company";
+        public const string EMAIL = "sm.email";
     }
 
     public class SiteMinderAuthenticationToken
@@ -25,8 +25,8 @@ namespace Gov.Jag.Spice.Public.Authentication
         public string smgov_givenname;
         public string smgov_sn;
         public string smgov_department;
-        public string smgov_orgcode;
         public string smgov_company;
+        public string smgov_useremail;
 
         private static readonly SiteMinderAuthenticationToken Anonymous = new SiteMinderAuthenticationToken();
         public const string SM_TOKEN_NAME = "sm.token";
@@ -42,8 +42,8 @@ namespace Gov.Jag.Spice.Public.Authentication
                 smgov_givenname = req.Headers["smgov_givenname"].ToString(),
                 smgov_sn = req.Headers["smgov_sn"].ToString(),
                 smgov_department = req.Headers["smgov_department"].ToString(),
-                smgov_orgcode = req.Headers["smgov_orgcode"].ToString(),
                 smgov_company = req.Headers["smgov_company"].ToString(),
+                smgov_useremail = req.Headers["smgov_useremail"].ToString(),
             };
         }
 
@@ -63,8 +63,8 @@ namespace Gov.Jag.Spice.Public.Authentication
                 smgov_givenname = dict["smgov_givenname"],
                 smgov_sn = dict["smgov_sn"],
                 smgov_department = dict["smgov_department"],
-                smgov_orgcode = dict["smgov_orgcode"],
                 smgov_company = dict["smgov_company"],
+                smgov_useremail = dict["smgov_useremail"],
             };
         }
 
@@ -96,8 +96,8 @@ namespace Gov.Jag.Spice.Public.Authentication
                 $"smgov_givenname={smgov_givenname};" +
                 $"smgov_sn={smgov_sn};" +
                 $"smgov_department={smgov_department};" +
-                $"smgov_orgcode={smgov_orgcode};" +
-                $"smgov_company={smgov_company}";
+                $"smgov_company={smgov_company};" +
+                $"smgov_useremail={smgov_useremail}";
         }
     }
 }

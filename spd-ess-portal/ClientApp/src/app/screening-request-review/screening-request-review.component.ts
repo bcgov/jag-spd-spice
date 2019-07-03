@@ -100,8 +100,8 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit,
 
     this.submittingForm = this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).subscribe(
       result => {
-        if (result.requestId) {
-          this.uploadDocuments(result.requestId);
+        if (result.screeningId) {
+          this.uploadDocuments(result.screeningId);
         } else {
           this.submissionResult.error(new Error('requestId '));
         }
@@ -111,9 +111,9 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit,
     return this.submissionResult;
   }
 
-  uploadDocuments(screeningRequestId: number) {
+  uploadDocuments(screeningId: number) {
     this.uploadingDocuments = forkJoin(
-      this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))
+      this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningId, f.file))
     ).subscribe(
       undefined,
       (err: any) => this.submissionResult.error(err),
