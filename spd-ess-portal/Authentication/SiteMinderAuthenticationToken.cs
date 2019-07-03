@@ -26,7 +26,7 @@ namespace Gov.Jag.Spice.Public.Authentication
         public string smgov_sn;
         public string smgov_department;
         public string smgov_company;
-        public string smgov_useremail;
+        public string smgov_email;
 
         private static readonly SiteMinderAuthenticationToken Anonymous = new SiteMinderAuthenticationToken();
         public const string SM_TOKEN_NAME = "sm.token";
@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.Public.Authentication
                 smgov_sn = req.Headers["smgov_sn"].ToString(),
                 smgov_department = req.Headers["smgov_department"].ToString(),
                 smgov_company = req.Headers["smgov_company"].ToString(),
-                smgov_useremail = req.Headers["smgov_useremail"].ToString(),
+                smgov_email = req.Headers["smgov_email"].ToString(),
             };
         }
 
@@ -64,7 +64,7 @@ namespace Gov.Jag.Spice.Public.Authentication
                 smgov_sn = dict["smgov_sn"],
                 smgov_department = dict["smgov_department"],
                 smgov_company = dict["smgov_company"],
-                smgov_useremail = dict["smgov_useremail"],
+                smgov_email = dict["smgov_email"],
             };
         }
 
@@ -97,7 +97,7 @@ namespace Gov.Jag.Spice.Public.Authentication
                 $"smgov_sn={smgov_sn};" +
                 $"smgov_department={smgov_department};" +
                 $"smgov_company={smgov_company};" +
-                $"smgov_useremail={smgov_useremail}";
+                $"smgov_email={smgov_email}";
         }
     }
 }
