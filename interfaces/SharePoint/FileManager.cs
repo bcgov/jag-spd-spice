@@ -94,8 +94,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             {
                 WebName = "/" + WebName;
             }
-
-            //string listDataEndpoint = odataUri + "/_vti_bin/listdata.svc/";
+            
             ApiEndpoint = sharePointOdataUri + "/_api/";
             FedAuthValue = null;
 
@@ -107,6 +106,8 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 )
             {
                 Authorization = null;
+                var samlST = Authentication.GetStsSamlToken(sharePointRelyingPartyIdentifier, sharePointUsername, sharePointPassword, sharePointStsTokenUri).GetAwaiter().GetResult();
+                FedAuthValue = Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier).GetAwaiter().GetResult();
             }
             // Scenario #2 - SharePoint Online (Cloud) using a Client Certificate
             else if (!string.IsNullOrEmpty(sharePointAadTenantId) 
@@ -115,7 +116,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 && !string.IsNullOrEmpty(sharePointCertPassword)
                 )
             {
-
                 // add authentication.
                 var authenticationContext = new AuthenticationContext(
                    "https://login.windows.net/" + sharePointAadTenantId);
@@ -134,9 +134,8 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             // Scenario #3 - Using an API Gateway with Basic Authentication.  The API Gateway will handle other authentication and have different credentials, which may be NTLM
             {
                 // authenticate using the SSG.                
-                string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(ssgUsername + ":" + ssgPassword));
+                string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(sharePointSsgUsername + ":" + sharePointSsgPassword));
                 Authorization = "Basic " + credentials;
-
             }
 
             // create the HttpClient that is used for our direct REST calls.
@@ -154,7 +153,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             {
                 Client.DefaultRequestHeaders.Add("Authorization", Authorization);
             }
-
 
             // Add a FedAuth cookie if we are using that (On Premise ADFS 2016)
             if (!string.IsNullOrEmpty(FedAuthValue))
