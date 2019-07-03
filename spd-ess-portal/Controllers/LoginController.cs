@@ -75,7 +75,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 smgov_sn = "Doe",
                 smgov_company = "Ministry of Public Safety and Solicitor General",
                 smgov_department = "Security Programs and Police Technology",
-                smgov_useremail = "johndoe@fake.emailaddress",
+                smgov_email = "johndoe@fake.emailaddress",
             });
         }
     }
