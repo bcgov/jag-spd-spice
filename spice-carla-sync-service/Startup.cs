@@ -1,4 +1,5 @@
 ﻿using Gov.Jag.Spice.Interfaces;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 using Gov.Lclb.Cllb.Interfaces;
 using Hangfire;
 using Hangfire.Console;
@@ -122,21 +123,8 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         private void SetupSharePoint(IServiceCollection services)
-        {
-            string ssgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
-            string ssgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
-
-            // add SharePoint.
-            string sharePointServerAppIdUri = Configuration["SHAREPOINT_SERVER_APPID_URI"];
-            string sharePointOdataUri = Configuration["SHAREPOINT_ODATA_URI"];
-            string sharePointWebname = Configuration["SHAREPOINT_WEBNAME"];
-            string sharePointAadTenantId = Configuration["SHAREPOINT_AAD_TENANTID"];
-            string sharePointClientId = Configuration["SHAREPOINT_CLIENT_ID"];
-            string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
-            string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
-            string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
-
-            services.AddTransient<SharePointFileManager>(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, ssgUsername, ssgPassword, sharePointNativeBaseURI));
+        {            
+            services.AddTransient(_ => new FileManager(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -246,7 +234,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<SharePointFileManager>()).ProcessResults(null), Cron.MinuteInterval(5));
+                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "5 * * * *"); // Run every 5 minutes
                     log.LogInformation("Hangfire Send Export job done.");
                 }
             }
