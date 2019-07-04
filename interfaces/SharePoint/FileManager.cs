@@ -111,7 +111,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             else if (!string.IsNullOrEmpty(sharePointAadTenantId) 
                 && !string.IsNullOrEmpty(sharePointCertFileName)
                 && !string.IsNullOrEmpty(sharePointCertPassword)
-                && !string.IsNullOrEmpty(sharePointCertPassword)
+                && !string.IsNullOrEmpty(sharePointClientId)
                 )
             {
                 // add authentication.
