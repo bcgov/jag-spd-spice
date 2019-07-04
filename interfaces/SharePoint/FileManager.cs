@@ -80,9 +80,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             if (string.IsNullOrEmpty(sharePointSsgPassword))
             {
                 sharePointSsgPassword = ssgPassword;
-            }
-
-            
+            }            
 
             OdataUri = sharePointOdataUri;
             ServerAppIdUri = sharePointServerAppIdUri;
@@ -99,10 +97,10 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             FedAuthValue = null;
 
             // Scenario #1 - ADFS (2016) using FedAuth
-            if (!string.IsNullOrEmpty(sharePointAadTenantId)
-                && !string.IsNullOrEmpty(sharePointCertFileName)
-                && !string.IsNullOrEmpty(sharePointCertPassword)
-                && !string.IsNullOrEmpty(sharePointCertPassword)
+            if (!string.IsNullOrEmpty(sharePointRelyingPartyIdentifier)
+                && !string.IsNullOrEmpty(sharePointUsername)
+                && !string.IsNullOrEmpty(sharePointPassword)
+                && !string.IsNullOrEmpty(sharePointStsTokenUri)                
                 )
             {
                 Authorization = null;
