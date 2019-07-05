@@ -109,18 +109,11 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
         }
 
 
-        public static async Task<string> GetFedAuth(string samlSite, string token, string relyingPartyIdentifier)
+        public static async Task GetFedAuth(string samlSite, string token, string relyingPartyIdentifier, HttpClient client)
         {
             // Encoding.UTF8.GetString(token.Token, 0, token.Token.Length)
             string samlToken = WrapInSoapMessage(token, relyingPartyIdentifier);
-
-            var cookieContainer = new CookieContainer();
-
-            var handler = new HttpClientHandler() { UseCookies = true, AllowAutoRedirect = false, CookieContainer = cookieContainer };
-
-            var client = new HttpClient(handler);
-
-
+         
             string samlServer = samlSite.EndsWith("/") ? samlSite : samlSite + "/";
             Uri samlServerRoot = new Uri(samlServer);
 
@@ -138,11 +131,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             var _httpPostResponse = await client.PostAsync(sharepointSite.Wreply, content);
 
-            var cookies = cookieContainer.GetCookies(new Uri(sharepointSite.Wreply));           
-
-            string fedAuthCookieValue = cookies["FedAuth"].Value;
-
-            return fedAuthCookieValue;
         }
 
 
