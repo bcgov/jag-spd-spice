@@ -44,6 +44,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
         public FileManager(IConfiguration Configuration)
         {
+            // create the HttpClient that is used for our direct REST calls.
             _CookieContainer = new CookieContainer();
             _HttpClientHandler = new HttpClientHandler() { UseCookies = true, AllowAutoRedirect = false, CookieContainer = _CookieContainer };
             _Client = new HttpClient(_HttpClientHandler);
@@ -141,9 +142,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 // authenticate using the SSG.                
                 string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(sharePointSsgUsername + ":" + sharePointSsgPassword));
                 Authorization = "Basic " + credentials;
-            }
-
-            // create the HttpClient that is used for our direct REST calls.
+            }            
 
             // Add a Digest header.  Needed for certain API operations
             Digest = GetDigest(_Client).GetAwaiter().GetResult();
@@ -151,7 +150,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             {
                 _Client.DefaultRequestHeaders.Add("X-RequestDigest", Digest);
             }
-
 
             // Standard headers for API access
             _Client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
@@ -164,14 +162,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 
             }
             
-
-            // Add a FedAuth cookie if we are using that (On Premise ADFS 2016)
-            //if (!string.IsNullOrEmpty(FedAuthValue))
-            //{
-            //    Uri uri = new Uri(sharePointOdataUri);
-            //    _CookieContainer.Add(new Cookie("FedAuth", FedAuthValue, "/", uri.Authority));
-            //}
-
             
         }
 
@@ -336,11 +326,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 }
             };
             
-             relativeUrl = "";
-
-
-            //string jsonString = "{ '__metadata': { 'type': 'SP.Folder' }, 'ServerRelativeUrl': '" + relativeUrl + "'}";
-
             StringContent strContent = new StringContent("", Encoding.UTF8);
             strContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json;odata=verbose");
 
