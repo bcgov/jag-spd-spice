@@ -3,8 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { Subject, Subscription, combineLatest, forkJoin } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
+import { Observable, Subject, Subscription, combineLatest, forkJoin, throwError } from 'rxjs';
+import { filter, flatMap, takeUntil } from 'rxjs/operators';
 
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
 import { AppState } from '../app-state/models/app-state';
@@ -23,7 +23,6 @@ import { FormBase } from '../shared/form-base';
 export class ScreeningRequestReviewComponent extends FormBase implements OnInit, OnDestroy {
   screeningRequest: ScreeningRequest = new ScreeningRequest();
   submittingForm: Subscription;
-  uploadingDocuments: Subscription;
   submissionResult: Subject<boolean>;
 
   unsubscribe: Subject<void> = new Subject();
@@ -98,26 +97,25 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit,
   save(): Subject<boolean> {
     this.submissionResult = new Subject<boolean>();
 
-    this.submittingForm = this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).subscribe(
-      result => {
+    this.submittingForm = this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).pipe(
+      flatMap(result => {
         if (result.screeningId) {
-          this.uploadDocuments(result.screeningId);
+          return this.uploadDocuments(result.screeningId);
         } else {
-          this.submissionResult.error(new Error('requestId '));
+          return throwError('The screening request was submitted, but no screeningId was returned');
         }
-      },
-      err => this.submissionResult.error(err));
+      })
+    ).subscribe(
+      undefined,
+      err => this.submissionResult.error(err)
+    );
 
     return this.submissionResult;
   }
 
-  uploadDocuments(screeningId: number) {
-    this.uploadingDocuments = forkJoin(
+  uploadDocuments(screeningId: number): Observable<any> {
+    return forkJoin(
       this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningId, f.file))
-    ).subscribe(
-      undefined,
-      (err: any) => this.submissionResult.error(err),
-      () => this.submissionResult.next(true)
     );
   }
 
