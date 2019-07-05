@@ -19,14 +19,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 {
     public class FileManager
     {
-        public const string DefaultDocumentListTitle = "Account";
-        public const string ApplicationDocumentListTitle = "Application";
-        public const string ApplicationDocumentUrlTitle = "adoxio_application";
-        public const string ContactDocumentListTitle = "contact";
-        public const string WorkertDocumentListTitle = "Worker Qualification";
-        public const string WorkertDocumentUrlTitle = "adoxio_worker";
-        public const string ScreeningDocumentListTitle = "Screening";
-        public const string ScreeningDocumentUrlTitle = "incident";
+        
 
         private AuthenticationResult authenticationResult;
 
@@ -585,7 +578,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             HttpRequestMessage endpointRequest = new HttpRequestMessage
             {
-                Method = HttpMethod.Post,
+                Method = HttpMethod.Get,
                 RequestUri = new Uri(ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')"),
                 Headers = {
                     { "Accept", "application/json" }
@@ -639,13 +632,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return result;
         }
 
-        public async Task AddFile(String folderName, String fileName, Stream fileData, string contentType)
-        {
-            await this.AddFile(DefaultDocumentListTitle, folderName, fileName, fileData, contentType);
-        }
-
-
-
+     
         public async Task AddFile(String documentLibrary, String folderName, String fileName, Stream fileData, string contentType)
         {            
 
@@ -691,12 +678,19 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             }
             bool result = false;
             
-            // Delete is very similar to a GET.
+            
             string serverRelativeUrl = GetServerRelativeURL(listTitle, folderName);
 
-            HttpRequestMessage endpointRequest =
-    new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/Files/add(url='"
-    + EscapeApostrophe(name) + "',overwrite=true)");
+            HttpRequestMessage endpointRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/Files/add(url='"
+    + EscapeApostrophe(name) + "',overwrite=true)"),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };
+            
             // convert the stream into a byte array.
             MemoryStream ms = new MemoryStream();
             fileData.CopyTo(ms);

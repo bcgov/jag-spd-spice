@@ -17,7 +17,10 @@ namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("api/[controller]")]
     public class FileController : ControllerBase
-    {
+    {        
+        private const string ScreeningDocumentListTitle = "Screening";
+        private const string ScreeningDocumentUrlTitle = "incident";
+
         private readonly ILogger<FileController> _logger;
         private readonly IConfiguration Configuration;
         private readonly FileManager _sharePointFileManager;
@@ -31,10 +34,7 @@ namespace Gov.Jag.Spice.Public.Controllers
             _dynamicsClient = dynamicsClient;
         }
 
-        private static string GetDocumentListTitle()
-        {
-            return FileManager.ScreeningDocumentListTitle;
-        }
+
 
         private static string GetScreeningFolderName(MicrosoftDynamicsCRMincident screening)
         {
@@ -60,7 +60,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 return BadRequest();
             }
 
-            await CreateDocumentLibraryIfMissing(GetDocumentListTitle());
+            await CreateDocumentLibraryIfMissing(ScreeningDocumentListTitle, ScreeningDocumentUrlTitle);
 
             bool hasAccess = await CanAccessScreening(screeningId);
             if (!hasAccess)
@@ -90,7 +90,7 @@ namespace Gov.Jag.Spice.Public.Controllers
             string folderName = await GetFolderName(screeningId);
             try
             {
-                await _sharePointFileManager.AddFile(GetDocumentListTitle(), folderName, fileName, file.OpenReadStream(), file.ContentType);
+                await _sharePointFileManager.AddFile(ScreeningDocumentUrlTitle, folderName, fileName, file.OpenReadStream(), file.ContentType);
                 _logger.LogInformation("Successfully uploaded file {FileName} to folder {FolderName} on SharePoint", fileName, folderName);
             }
             catch (SharePointRestException ex)
@@ -119,12 +119,12 @@ namespace Gov.Jag.Spice.Public.Controllers
             await _dynamicsClient.Incidents.UpdateAsync(screeningId, patchScreening);
         }
 
-        private async Task CreateDocumentLibraryIfMissing(string listTitle)
+        private async Task CreateDocumentLibraryIfMissing(string listTitle, string folderName)
         {
             bool exists = await _sharePointFileManager.DocumentLibraryExists(listTitle);
             if (!exists)
             {
-                await _sharePointFileManager.CreateDocumentLibrary(listTitle);
+                await _sharePointFileManager.CreateDocumentLibrary(listTitle, folderName);
             }
         }
     }
