@@ -26,6 +26,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
         public const string WorkertDocumentListTitle = "Worker Qualification";
         public const string WorkertDocumentUrlTitle = "adoxio_worker";
         public const string ScreeningDocumentListTitle = "Screening";
+        public const string ScreeningDocumentUrlTitle = "incident";
 
         private AuthenticationResult authenticationResult;
 
@@ -35,7 +36,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
         public string ApiEndpoint { get; set; }
         public string NativeBaseUri { get; set; }
         string Authorization { get; set; }
-        private HttpClient Client;
+        private HttpClient _Client;
         private string Digest;
         private string FedAuthValue;
         private CookieContainer _CookieContainer;
@@ -43,6 +44,11 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
         public FileManager(IConfiguration Configuration)
         {
+            _CookieContainer = new CookieContainer();
+            _HttpClientHandler = new HttpClientHandler() { UseCookies = true, AllowAutoRedirect = false, CookieContainer = _CookieContainer };
+            _Client = new HttpClient(_HttpClientHandler);
+
+            _Client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
 
             // SharePoint configuration settings.
 
@@ -105,7 +111,8 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             {
                 Authorization = null;
                 var samlST = Authentication.GetStsSamlToken(sharePointRelyingPartyIdentifier, sharePointUsername, sharePointPassword, sharePointStsTokenUri).GetAwaiter().GetResult();
-                FedAuthValue = Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier).GetAwaiter().GetResult();
+                //FedAuthValue = 
+                    Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier, _Client).GetAwaiter().GetResult();
             }
             // Scenario #2 - SharePoint Online (Cloud) using a Client Certificate
             else if (!string.IsNullOrEmpty(sharePointAadTenantId) 
@@ -137,34 +144,35 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             }
 
             // create the HttpClient that is used for our direct REST calls.
-            _CookieContainer = new CookieContainer();
-            _HttpClientHandler = new HttpClientHandler() { CookieContainer = _CookieContainer };
-            Client = new HttpClient(_HttpClientHandler);
+
+            // Add a Digest header.  Needed for certain API operations
+            Digest = GetDigest(_Client).GetAwaiter().GetResult();
+            if (Digest != null)
+            {
+                _Client.DefaultRequestHeaders.Add("X-RequestDigest", Digest);
+            }
+
 
             // Standard headers for API access
-            Client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
-            Client.DefaultRequestHeaders.Add("OData-Version", "4.0");
-            Client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+            _Client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
+            _Client.DefaultRequestHeaders.Add("OData-Version", "4.0");
 
             // Authorization header is used for Cloud or Basic API Gateway access
             if (! string.IsNullOrEmpty (Authorization))
             {
-                Client.DefaultRequestHeaders.Add("Authorization", Authorization);
+                _Client.DefaultRequestHeaders.Add("Authorization", Authorization);
+                
             }
+            
 
             // Add a FedAuth cookie if we are using that (On Premise ADFS 2016)
-            if (!string.IsNullOrEmpty(FedAuthValue))
-            {
-                Uri uri = new Uri(sharePointOdataUri);
-                _CookieContainer.Add(new Cookie("FedAuth", FedAuthValue, "/", uri.Authority));
-            }
+            //if (!string.IsNullOrEmpty(FedAuthValue))
+            //{
+            //    Uri uri = new Uri(sharePointOdataUri);
+            //    _CookieContainer.Add(new Cookie("FedAuth", FedAuthValue, "/", uri.Authority));
+            //}
 
-            // Add a Digest header.  Needed for certain API operations
-            Digest = GetDigest(Client).GetAwaiter().GetResult();
-            if (Digest != null)
-            {
-                Client.DefaultRequestHeaders.Add("X-RequestDigest", Digest);
-            }
+            
         }
 
         public bool IsValid()
@@ -245,7 +253,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             HttpRequestMessage _httpRequest =
                             new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/files");
             // make the request.
-            var _httpResponse = await Client.SendAsync(_httpRequest);
+            var _httpResponse = await _Client.SendAsync(_httpRequest);
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
 
             if ((int)_statusCode != 200)
@@ -318,9 +326,16 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             string relativeUrl = $"{listTitle}/{folderName}";
 
-            HttpRequestMessage endpointRequest =
-                new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + $"web/folders/add('{relativeUrl}')");
 
+            HttpRequestMessage endpointRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(ApiEndpoint + $"web/folders/add('{relativeUrl}')"),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };
+            
              relativeUrl = "";
 
 
@@ -333,7 +348,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             // make the request.            
 
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.OK && _statusCode != HttpStatusCode.Created)
@@ -387,7 +402,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Content = strContent;
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.Created)
@@ -426,7 +441,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                     endpointRequest.Headers.Add("IF-MATCH", "*");
                     endpointRequest.Headers.Add("X-HTTP-Method", "MERGE");
                     endpointRequest.Content = strContent;
-                    response = await Client.SendAsync(endpointRequest);
+                    response = await _Client.SendAsync(endpointRequest);
                     jsonString = await response.Content.ReadAsStringAsync();
                     response.EnsureSuccessStatusCode();
                 }
@@ -456,7 +471,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Content = strContent;
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
             HttpStatusCode _statusCode = response.StatusCode;
 
             if (_statusCode != HttpStatusCode.Created)
@@ -527,7 +542,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Headers.Add("X-HTTP-Method", "DELETE");
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -582,12 +597,18 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             }
 
             serverRelativeUrl += Uri.EscapeUriString(listTitle) + "/" + Uri.EscapeUriString(folderName);
-            
 
-            HttpRequestMessage endpointRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')");
+            HttpRequestMessage endpointRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')"),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };           
                         
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == HttpStatusCode.OK)
@@ -611,11 +632,17 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             string title = Uri.EscapeUriString(listTitle);
             string query = $"web/lists/GetByTitle('{title}')";
 
-            HttpRequestMessage endpointRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + query);
-
-
+            HttpRequestMessage endpointRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri (ApiEndpoint + query),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };
+            
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == HttpStatusCode.OK)
@@ -694,7 +721,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Content = byteArrayContent;
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -817,7 +844,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Headers.Add("X-HTTP-Method", "DELETE");
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -858,7 +885,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             endpointRequest.Headers.Add("IF-MATCH", "*");
 
             // make the request.
-            var response = await Client.SendAsync(endpointRequest);
+            var response = await _Client.SendAsync(endpointRequest);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
