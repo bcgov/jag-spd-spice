@@ -106,7 +106,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 Authorization = null;
                 var samlST = Authentication.GetStsSamlToken(sharePointRelyingPartyIdentifier, sharePointUsername, sharePointPassword, sharePointStsTokenUri).GetAwaiter().GetResult();
                 //FedAuthValue = 
-                    Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier, _Client).GetAwaiter().GetResult();
+                    Authentication.GetFedAuth(sharePointOdataUri, samlST, sharePointRelyingPartyIdentifier, _Client, _CookieContainer).GetAwaiter().GetResult();
             }
             // Scenario #2 - SharePoint Online (Cloud) using a Client Certificate
             else if (!string.IsNullOrEmpty(sharePointAadTenantId) 

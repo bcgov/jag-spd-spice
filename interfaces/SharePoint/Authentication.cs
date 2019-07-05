@@ -108,8 +108,9 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return result;
         }
 
+       
 
-        public static async Task GetFedAuth(string samlSite, string token, string relyingPartyIdentifier, HttpClient client)
+        public static async Task GetFedAuth(string samlSite, string token, string relyingPartyIdentifier, HttpClient client, CookieContainer cookieContainer)
         {
             // Encoding.UTF8.GetString(token.Token, 0, token.Token.Length)
             string samlToken = WrapInSoapMessage(token, relyingPartyIdentifier);
@@ -121,7 +122,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             {
                 Wctx = samlServer + "_layouts/Authenticate.aspx?Source=%2F",
                 Wtrealm = samlServer,
-                Wreply = $"{samlServerRoot.Scheme}://{samlServerRoot.Host}/_trust/"
+                Wreply = $"{samlServer}_trust/"
             };
 
             // create the body of the POST
@@ -130,6 +131,17 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             var content = new StringContent(stringData, Encoding.UTF8, "application/x-www-form-urlencoded");
 
             var _httpPostResponse = await client.PostAsync(sharepointSite.Wreply, content);
+
+            var cookieUri = new Uri(sharepointSite.Wreply);
+
+            // if we are using an API gateway we need to restructure the fedAuth cookie.
+            if (! string.Equals (sharepointSite.Wreply, $"{cookieUri.Scheme}://{cookieUri.Authority}"))
+            {
+                var cookies = cookieContainer.GetCookies(cookieUri);
+                string fedAuthCookieValue = cookies["FedAuth"].Value;
+
+                cookieContainer.Add(new Uri($"{cookieUri.Scheme}://{cookieUri.Authority}"), new Cookie("FedAuth", fedAuthCookieValue, "/"));
+            }
 
         }
 
