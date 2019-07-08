@@ -11,6 +11,16 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
     "typeRoots": [
       "node_modules/@types"
     ],

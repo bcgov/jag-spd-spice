@@ -34,7 +34,12 @@
     <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0" />
     <PackageReference Include="NWebsec.AspNetCore.Mvc" Version="2.0.0" />
     <PackageReference Include="NWebsec.AspNetCore.Mvc.TagHelpers" Version="2.0.0" />
-    <PackageReference Include="SplunkLogger" Version="1.1.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Formatting.ElasticSearch" Version="7.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Splunk" Version="3.2.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.console" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -70,25 +75,9 @@
     <ProjectReference Include="..\interfaces\Dynamics-Autorest\DynamicsAutorest.csproj" />
     <ProjectReference Include="..\interfaces\SharePoint\SharePoint.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Contexts\ODataClient.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ODataClient.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
- 
-
-  <ItemGroup>
-    <Compile Update="Contexts\ODataClient.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ODataClient.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

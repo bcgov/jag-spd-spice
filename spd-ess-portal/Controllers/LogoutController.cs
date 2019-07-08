@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("[controller]")]
-    public class LogoutController : Controller
+    public class LogoutController : ControllerBase
     {
         private readonly IConfiguration Configuration;
 
-        public LogoutController(IConfiguration configuration, IHostingEnvironment env)
+        public LogoutController(IConfiguration configuration)
         {
             Configuration = configuration;
         }

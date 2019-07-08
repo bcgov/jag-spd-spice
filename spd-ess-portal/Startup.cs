@@ -1,22 +1,16 @@
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Public.Authentication;
-using Gov.Jag.Spice.Public.Authorization;
-
-using Gov.Jag.Spice.Public.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Rest;
@@ -24,8 +18,9 @@ using NWebsec.AspNetCore.Mvc;
 using NWebsec.AspNetCore.Mvc.Csp;
 using System;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
+using Gov.Jag.Spice.Public.Utils;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.Public
 {
@@ -41,9 +36,11 @@ namespace Gov.Jag.Spice.Public
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
             // add singleton to allow Controllers to query the Request object
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddHttpContextAccessor();
+
+            // add additional details when logging
+            services.AddScoped<LogEnrichmentFilter>();
 
             // determine if we wire up Dynamics.
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
@@ -54,15 +51,18 @@ namespace Gov.Jag.Spice.Public
             // Add a memory cache
             services.AddMemoryCache();
 
-            // for security reasons, the following headers are set.
             services.AddMvc(opts =>
             {
+                // add additional details when logging
+                opts.Filters.Add<LogEnrichmentFilter>();
+
                 // default deny
                 var policy = new AuthorizationPolicyBuilder()
                  .RequireAuthenticatedUser()
                  .Build();
                 opts.Filters.Add(new AuthorizeFilter(policy));
 
+                // for security reasons, the following headers are set.
                 opts.Filters.Add(typeof(NoCacheHttpHeadersAttribute));
                 opts.Filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
                 opts.Filters.Add(typeof(XContentTypeOptionsAttribute));
@@ -85,18 +85,13 @@ namespace Gov.Jag.Spice.Public
                     opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
 
-
             // setup siteminder authentication (core 2.0)
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = SiteMinderAuthOptions.AuthenticationSchemeName;
                 options.DefaultChallengeScheme = SiteMinderAuthOptions.AuthenticationSchemeName;
-            }).AddSiteminderAuth(options =>
-            {
+            }).AddSiteminderAuth(options => { });
 
-            });
-
-            services.RegisterPermissionHandler();
             if (Configuration["KEY_RING_DIRECTORY"] != null)
             {
                 // setup key ring to persist in storage.
@@ -123,125 +118,31 @@ namespace Gov.Jag.Spice.Public
             });
 
             services.AddSession();
-
         }
 
         private void SetupDynamics(IServiceCollection services)
-        {
-
-            string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"];
-            string aadTenantId = Configuration["DYNAMICS_AAD_TENANT_ID"];
-            string serverAppIdUri = Configuration["DYNAMICS_SERVER_APP_ID_URI"];
-            string clientKey = Configuration["DYNAMICS_CLIENT_KEY"];
-            string clientId = Configuration["DYNAMICS_CLIENT_ID"];
-
-            string ssgUsername = Configuration["SSG_USERNAME"];
-            string ssgPassword = Configuration["SSG_PASSWORD"];
-
-            AuthenticationResult authenticationResult = null;
-            // authenticate using ADFS.
-            if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
-            {
-                var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/" + aadTenantId);
-                ClientCredential clientCredential = new ClientCredential(clientId, clientKey);
-                var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
-                task.Wait();
-                authenticationResult = task.Result;
-            }
-
-            
-
-            services.AddTransient(new Func<IServiceProvider, IDynamicsClient>((serviceProvider) =>
-            {
-
-                ServiceClientCredentials serviceClientCredentials = null;
-
-                if (string.IsNullOrEmpty(ssgUsername) || string.IsNullOrEmpty(ssgPassword))
-                {
-                    var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/" + aadTenantId);
-                    ClientCredential clientCredential = new ClientCredential(clientId, clientKey);
-                    var task = authenticationContext.AcquireTokenAsync(serverAppIdUri, clientCredential);
-                    task.Wait();
-                    authenticationResult = task.Result;
-                    string token = authenticationResult.CreateAuthorizationHeader().Substring("Bearer ".Length);
-                    serviceClientCredentials = new TokenCredentials(token);
-                }
-                else
-                {
-                    serviceClientCredentials = new BasicAuthenticationCredentials()
-                    {
-                        UserName = ssgUsername,
-                        Password = ssgPassword
-                    };
-                }
-
-                IDynamicsClient client = new DynamicsClient(new Uri(Configuration["DYNAMICS_ODATA_URI"]), serviceClientCredentials);
-
-
-                // set the native client URI
-                if (string.IsNullOrEmpty(Configuration["DYNAMICS_NATIVE_ODATA_URI"]))
-                {
-                    client.NativeBaseUri = new Uri(Configuration["DYNAMICS_ODATA_URI"]);
-                }
-                else
-                {
-                    client.NativeBaseUri = new Uri(Configuration["DYNAMICS_NATIVE_ODATA_URI"]);
-                }
-
+        {            
+            services.AddTransient(serviceProvider =>
+            {                
+                IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
                 return client;
-            }));
+            });
 
             // add SharePoint.
 
-            string sharePointServerAppIdUri = Configuration["SHAREPOINT_SERVER_APPID_URI"];
-            string sharePointOdataUri = Configuration["SHAREPOINT_ODATA_URI"];
-            string sharePointWebname = Configuration["SHAREPOINT_WEBNAME"];
-            string sharePointAadTenantId = Configuration["SHAREPOINT_AAD_TENANTID"];
-            string sharePointClientId = Configuration["SHAREPOINT_CLIENT_ID"];
-            string sharePointCertFileName = Configuration["SHAREPOINT_CERTIFICATE_FILENAME"];
-            string sharePointCertPassword = Configuration["SHAREPOINT_CERTIFICATE_PASSWORD"];
-            string sharePointNativeBaseURI = Configuration["SHAREPOINT_NATIVE_BASE_URI"];
-
-            // SharePoint could be using a different username / password.
-
-            string sharePointSsgUsername = ssgUsername;
-            string sharePointSsgPassword = ssgPassword;
-
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_SSG_USERNAME"]))
-            {
-                sharePointSsgUsername = Configuration["SHAREPOINT_SSG_USERNAME"];
-            }
-
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_SSG_PASSWORD"]))
-            {
-                sharePointSsgPassword = Configuration["SHAREPOINT_SSG_PASSWORD"];
-            }
-
-            services.AddTransient<SharePointFileManager>(_ => new SharePointFileManager(sharePointServerAppIdUri, sharePointOdataUri, sharePointWebname, sharePointAadTenantId, sharePointClientId, sharePointCertFileName, sharePointCertPassword, sharePointSsgUsername, sharePointSsgPassword, sharePointNativeBaseURI));
-
-            
+            services.AddTransient(_ => new FileManager(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var log = loggerFactory.CreateLogger("Startup");
-
-            
-
-
             string pathBase = Configuration["BASE_PATH"];
+            if (string.IsNullOrEmpty(pathBase))
+            {
+                pathBase = "/spdess";
+            }
+            app.UsePathBase(pathBase);
 
-            if (!string.IsNullOrEmpty(pathBase))
-            {
-                app.UsePathBase(pathBase);
-            }
-            else
-            {
-                app.UsePathBase("/spdess");
-            }
             if (!env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
@@ -261,15 +162,16 @@ namespace Gov.Jag.Spice.Public
             app.UseXContentTypeOptions();
             app.UseXfo(xfo => xfo.Deny());
 
-            StaticFileOptions staticFileOptions = new StaticFileOptions();
-
-            staticFileOptions.OnPrepareResponse = ctx =>
+            var staticFileOptions = new StaticFileOptions
             {
-                ctx.Context.Response.Headers[HeaderNames.CacheControl] = "no-cache, no-store, must-revalidate, private";
-                ctx.Context.Response.Headers[HeaderNames.Pragma] = "no-cache";
-                ctx.Context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
-                ctx.Context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
-                ctx.Context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = "no-cache, no-store, must-revalidate, private";
+                    ctx.Context.Response.Headers[HeaderNames.Pragma] = "no-cache";
+                    ctx.Context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
+                    ctx.Context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
+                    ctx.Context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+                }
             };
 
             app.UseStaticFiles(staticFileOptions);
@@ -303,7 +205,5 @@ namespace Gov.Jag.Spice.Public
             // Static files that should only be accessible to the server can be placed in the App_Data folder
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(env.ContentRootPath, "App_Data"));
         }
-
-        
     }
 }

@@ -7,6 +7,7 @@ namespace SpdSync.models
 {
     public class Contact
     {
+        public string SpdJobId { get; set; }
         public string ContactId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -29,29 +29,30 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMspiceAccountcaseassignment class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceAccountcaseassignment(int? utcconversiontimezonecode = default(int?), string _owninguserValue = default(string), string _createdbyValue = default(string), string _modifiedbyValue = default(string), int? statuscode = default(int?), string _createdonbehalfbyValue = default(string), string _spiceBusinessidValue = default(string), int? statecode = default(int?), int? timezoneruleversionnumber = default(int?), string _spiceAssociatedcaseidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string _modifiedonbehalfbyValue = default(string), string spiceName = default(string), long? versionnumber = default(long?), string _spiceContactcaseassignmentidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string spiceAccountcaseassignmentid = default(string), string _owneridValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _owningteamValue = default(string), int? importsequencenumber = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> spiceAccountcaseassignmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceAccountcaseassignmentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceAccountcaseassignmentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceAccountcaseassignmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceAccountcaseassignmentMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceAccountcaseassignmentProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceAccountcaseassignmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceAccountcaseassignmentPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMaccount spiceBusinessId = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact spiceContactCaseAssignmentId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMincident spiceAssociatedCaseId = default(MicrosoftDynamicsCRMincident))
+        public MicrosoftDynamicsCRMspiceAccountcaseassignment(string _owneridValue = default(string), string _owninguserValue = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? statecode = default(int?), string _spiceAssociatedcaseidValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string _createdbyValue = default(string), string spiceName = default(string), int? statuscode = default(int?), string _owningteamValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string spicePosition = default(string), long? versionnumber = default(long?), int? utcconversiontimezonecode = default(int?), string _spiceBusinessidValue = default(string), string _owningbusinessunitValue = default(string), int? timezoneruleversionnumber = default(int?), string _spiceContactcaseassignmentidValue = default(string), string spiceAccountcaseassignmentid = default(string), int? importsequencenumber = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> spiceAccountcaseassignmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceAccountcaseassignmentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceAccountcaseassignmentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceAccountcaseassignmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceAccountcaseassignmentMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceAccountcaseassignmentProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceAccountcaseassignmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceAccountcaseassignmentPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMaccount spiceBusinessId = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact spiceContactCaseAssignmentId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMincident spiceAssociatedCaseId = default(MicrosoftDynamicsCRMincident))
         {
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            this._owninguserValue = _owninguserValue;
-            this._createdbyValue = _createdbyValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            Statuscode = statuscode;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            this._spiceBusinessidValue = _spiceBusinessidValue;
-            Statecode = statecode;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            this._spiceAssociatedcaseidValue = _spiceAssociatedcaseidValue;
-            Overriddencreatedon = overriddencreatedon;
-            this._owningbusinessunitValue = _owningbusinessunitValue;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            SpiceName = spiceName;
-            Versionnumber = versionnumber;
-            this._spiceContactcaseassignmentidValue = _spiceContactcaseassignmentidValue;
-            Createdon = createdon;
-            SpiceAccountcaseassignmentid = spiceAccountcaseassignmentid;
             this._owneridValue = _owneridValue;
+            this._owninguserValue = _owninguserValue;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Createdon = createdon;
+            Statecode = statecode;
+            this._spiceAssociatedcaseidValue = _spiceAssociatedcaseidValue;
             Modifiedon = modifiedon;
+            this._modifiedbyValue = _modifiedbyValue;
+            this._createdbyValue = _createdbyValue;
+            SpiceName = spiceName;
+            Statuscode = statuscode;
             this._owningteamValue = _owningteamValue;
+            Overriddencreatedon = overriddencreatedon;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            SpicePosition = spicePosition;
+            Versionnumber = versionnumber;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            this._spiceBusinessidValue = _spiceBusinessidValue;
+            this._owningbusinessunitValue = _owningbusinessunitValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            this._spiceContactcaseassignmentidValue = _spiceContactcaseassignmentidValue;
+            SpiceAccountcaseassignmentid = spiceAccountcaseassignmentid;
             Importsequencenumber = importsequencenumber;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
@@ -82,8 +83,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -92,73 +93,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_businessid_value")]
-        public string _spiceBusinessidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_associatedcaseid_value")]
-        public string _spiceAssociatedcaseidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
-        public string _owningbusinessunitValue { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
         public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_name")]
-        public string SpiceName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_contactcaseassignmentid_value")]
-        public string _spiceContactcaseassignmentidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -167,13 +103,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_accountcaseassignmentid")]
-        public string SpiceAccountcaseassignmentid { get; set; }
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
+        [JsonProperty(PropertyName = "_spice_associatedcaseid_value")]
+        public string _spiceAssociatedcaseidValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -182,8 +118,78 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_name")]
+        public string SpiceName { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "_owningteam_value")]
         public string _owningteamValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_position")]
+        public string SpicePosition { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public long? Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_businessid_value")]
+        public string _spiceBusinessidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningbusinessunit_value")]
+        public string _owningbusinessunitValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_contactcaseassignmentid_value")]
+        public string _spiceContactcaseassignmentidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_accountcaseassignmentid")]
+        public string SpiceAccountcaseassignmentid { get; set; }
 
         /// <summary>
         /// </summary>

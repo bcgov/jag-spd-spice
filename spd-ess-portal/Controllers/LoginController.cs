@@ -8,18 +8,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("login")]
-    public class LoginController : Controller
+    public class LoginController : ControllerBase
     {
+        private readonly ILogger<LoginController> _logger;
         private readonly IConfiguration Configuration;
 
         private readonly IHostingEnvironment _env;
 
-        public LoginController(IConfiguration configuration, IHostingEnvironment env)
+        public LoginController(ILogger<LoginController> logger, IConfiguration configuration, IHostingEnvironment env)
         {
+            _logger = logger;
             Configuration = configuration;
             _env = env;        
         }
@@ -30,7 +33,11 @@ namespace Gov.Jag.Spice.Public.Controllers
         {
             if (!_env.IsProduction() && "headers".Equals(path, StringComparison.OrdinalIgnoreCase))
             {
-                return Content(string.Join(Environment.NewLine, Request.Headers.Select(header => $"{header.Key}={string.Join(",", header.Value.ToArray())}")), "text/plain", Encoding.UTF8);
+                var headers = Request.Headers.Select(h => new { h.Key, Value = string.Join(",", h.Value.ToArray()) });
+
+                _logger.LogInformation("Displaying HTTP Headers: {@Headers}", headers);
+
+                return Content(string.Join(Environment.NewLine, headers.Select(h => $"{h.Key}={h.Value}")), "text/plain", Encoding.UTF8);
             }
 
             if (ControllerContext.HttpContext.User == null || !ControllerContext.HttpContext.User.Identity.IsAuthenticated) return Unauthorized();
@@ -67,8 +74,8 @@ namespace Gov.Jag.Spice.Public.Controllers
                 smgov_givenname = "John",
                 smgov_sn = "Doe",
                 smgov_company = "Ministry of Public Safety and Solicitor General",
-                smgov_orgcode = "PSSG",
-                smgov_department = "Corrections Branch",
+                smgov_department = "Security Programs and Police Technology",
+                smgov_email = "johndoe@fake.emailaddress",
             });
         }
     }

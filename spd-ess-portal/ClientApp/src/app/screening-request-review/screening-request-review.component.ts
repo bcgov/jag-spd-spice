@@ -1,17 +1,18 @@
 
-import { filter } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { AppState } from '../app-state/models/app-state';
-import { Store } from '@ngrx/store';
-import { Subject, Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Store } from '@ngrx/store';
+import { Observable, Subject, Subscription, combineLatest, forkJoin, throwError } from 'rxjs';
+import { filter, flatMap, takeUntil } from 'rxjs/operators';
 
-import { ScreeningRequest } from '../models/screening-request.model';
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
-import { ScreeningRequestDataService } from '../services/screening-request-data.service';
+import { AppState } from '../app-state/models/app-state';
 
+import { Ministry } from '../models/ministry.model';
+import { ScreeningReason } from '../models/screening-reason.model';
+import { ScreeningRequest } from '../models/screening-request.model';
+import { ScreeningRequestDataService } from '../services/screening-request-data.service';
 import { FormBase } from '../shared/form-base';
 
 @Component({
@@ -19,18 +20,20 @@ import { FormBase } from '../shared/form-base';
   templateUrl: './screening-request-review.component.html',
   styleUrls: ['./screening-request-review.component.scss']
 })
-export class ScreeningRequestReviewComponent extends FormBase implements OnInit {
+export class ScreeningRequestReviewComponent extends FormBase implements OnInit, OnDestroy {
   screeningRequest: ScreeningRequest = new ScreeningRequest();
   submittingForm: Subscription;
-  uploadingDocuments: Subscription;
   submissionResult: Subject<boolean>;
 
+  unsubscribe: Subject<void> = new Subject();
   valid = false;
-  screeningRequestId = null;
+  clientMinistryName: string | null = null;
+  programAreaName: string | null = null;
+  screeningTypeName: string | null = null;
+  screeningReasonName: string | null = null;
 
   constructor(private store: Store<AppState>,
     private router: Router,
-    private route: ActivatedRoute,
     private screeningRequestDataService: ScreeningRequestDataService,
     private _snackBar: MatSnackBar,
   ) {
@@ -38,42 +41,81 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
   }
 
   ngOnInit() {
-    this.store.select(state => state).pipe(
-      filter(state => !!state))
-      .subscribe(state => {
-        if (state.currentScreeningRequestState.currentScreeningRequest) {
+    this.store.select(state => state.currentScreeningRequestState.currentScreeningRequest).pipe(
+      takeUntil(this.unsubscribe),
+    ).subscribe(currentScreeningRequest => {
+        if (currentScreeningRequest) {
           // retrieve screening request from store
-          this.screeningRequest = state.currentScreeningRequestState.currentScreeningRequest;
+          this.screeningRequest = currentScreeningRequest;
         } else {
-          // when there is no screening request in the store (because this page has been refreshed or accessed directly via /review-submission)
+          // when there is no screening request in the store
+          // (because this page has been refreshed or accessed directly via /review-submission)
           // redirect to the screening request form page
           this.router.navigate(['/'], { replaceUrl: true });
         }
-        this.valid = Boolean(state.currentScreeningRequestState.currentScreeningRequest);
+        this.valid = Boolean(currentScreeningRequest);
       });
+
+    // retrieve names for dropdown values
+    combineLatest(
+      this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes)
+        .pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
+      this.store.select(state => state.screeningReasonsState.screeningReasons)
+        .pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
+    ).pipe(
+      takeUntil(this.unsubscribe),
+    ).subscribe(([ ministryScreeningTypes, screeningReasons ]) => {
+      const clientMinistry = ministryScreeningTypes.find(m => m.value === this.screeningRequest.clientMinistry);
+
+      if (clientMinistry) {
+        this.clientMinistryName = clientMinistry.name;
+        const programArea = clientMinistry.programAreas.find(a => a.value === this.screeningRequest.programArea);
+
+        if (programArea) {
+          this.programAreaName = programArea.name;
+          const screeningType = programArea.screeningTypes.find(t => t.value === this.screeningRequest.screeningType);
+
+          if (screeningType) {
+            this.screeningTypeName = screeningType.name;
+          }
+        }
+      }
+
+      const screeningReason = screeningReasons.find(r => r.value === this.screeningRequest.reason);
+
+      if (screeningReason) {
+        this.screeningReasonName = screeningReason.name;
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   save(): Subject<boolean> {
     this.submissionResult = new Subject<boolean>();
 
-    this.submittingForm = this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).subscribe(
-      result => {
-        if (result.requestId) {
-          this.uploadDocuments(result.requestId);
+    this.submittingForm = this.screeningRequestDataService.createScreeningRequest(this.screeningRequest).pipe(
+      flatMap(result => {
+        if (result.screeningId) {
+          return this.uploadDocuments(result.screeningId);
         } else {
-          this.submissionResult.error(new Error('requestId '));
+          return throwError('The screening request was submitted, but no screeningId was returned');
         }
-      },
-      err => this.submissionResult.error(err));
+      })
+    ).subscribe(
+      undefined,
+      err => this.submissionResult.error(err)
+    );
 
     return this.submissionResult;
   }
 
-  uploadDocuments(screeningRequestId: number) {
-    this.uploadingDocuments = forkJoin(this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningRequestId, f.file))).subscribe(
-      null,
-      err => this.submissionResult.error(err),
-      () => this.submissionResult.next(true)
+  uploadDocuments(screeningId: number): Observable<any> {
+    return forkJoin(
+      this.screeningRequest.files.map(f => this.screeningRequestDataService.uploadDocument(screeningId, f.file))
     );
   }
 
@@ -87,11 +129,17 @@ export class ScreeningRequestReviewComponent extends FormBase implements OnInit 
 
   gotoSubmit() {
     this.save().subscribe(
-      null,
-      err => {
+      undefined,
+      (err: any) => {
         console.error(err);
 
-        let ref = this._snackBar.open('Form Submission Failed', 'RETRY', { duration: 10000, horizontalPosition: 'center', verticalPosition: 'bottom', panelClass: 'snackbar-error' });
+        const ref = this._snackBar.open('Form Submission Failed', 'RETRY', {
+          duration: 10000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: 'snackbar-error'
+        });
+
         ref.onAction().subscribe(() => {
           this.gotoSubmit();
         });

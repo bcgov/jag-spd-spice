@@ -104,6 +104,11 @@ namespace Gov.Jag.Spice.Interfaces
         IExportrequests Exportrequests { get; }
 
         /// <summary>
+        /// Gets the IGovministries.
+        /// </summary>
+        IGovministries Govministries { get; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         IMinistries Ministries { get; }
@@ -117,6 +122,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IPreviousaddresseses.
         /// </summary>
         IPreviousaddresseses Previousaddresseses { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreenings.
+        /// </summary>
+        IReasonforscreenings Reasonforscreenings { get; }
 
         /// <summary>
         /// Gets the IRequiredcheckses.

@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,382 +8,117 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
-using Gov.Jag.Spice.Public.Authentication;
-using Gov.Jag.Spice.Public.Models;
+using Gov.Jag.Spice.Public.Utils;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
     [Route("api/[controller]")]
-    public class FileController : Controller
-    {
-        private readonly IConfiguration Configuration;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly SharePointFileManager _sharePointFileManager;
-        private readonly ILogger _logger;
+    public class FileController : ControllerBase
+    {        
+        private const string ScreeningDocumentListTitle = "Screening";
+        private const string ScreeningDocumentUrlTitle = "incident";
+
+        private readonly ILogger<FileController> _logger;
+        private readonly FileManager _sharePointFileManager;
         private readonly IDynamicsClient _dynamicsClient;
 
-        public FileController(/*SharePointFileManager sharePointFileManager, */IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILoggerFactory loggerFactory/*, IDynamicsClient dynamicsClient */)
+        public FileController(ILogger<FileController> logger, IDynamicsClient dynamicsClient, FileManager fileManager)
         {
-            Configuration = configuration;
-            _httpContextAccessor = httpContextAccessor;
-            //_sharePointFileManager = sharePointFileManager;
-            //_dynamicsClient = dynamicsClient;
-            _logger = loggerFactory.CreateLogger(typeof(FileController));
+            _logger = logger;
+            _sharePointFileManager = fileManager;
+            _dynamicsClient = dynamicsClient;
         }
 
-        private static string GetAccountFolderName(MicrosoftDynamicsCRMaccount account)
+        private static string GetScreeningFolderName(MicrosoftDynamicsCRMincident screening)
         {
-            string accountIdCleaned = account.Accountid.ToString().ToUpper().Replace("-", "");
-            string folderName = $"{account.Accountid}_{accountIdCleaned}";
+            string screeningIdCleaned = screening.Incidentid.ToUpper().Replace("-", "");
+            string folderName = $"{screening.Title}_{screeningIdCleaned}";
             return folderName;
         }
 
-        private static string GetContactFolderName(MicrosoftDynamicsCRMcontact contact)
-        {
-            string applicationIdCleaned = contact.Contactid.ToString().ToUpper().Replace("-", "");
-            string folderName = $"contact_{applicationIdCleaned}";
-            return folderName;
-        }
-
-        /// <summary>
-        /// Get a document location by reference
-        /// </summary>
-        /// <param name="relativeUrl"></param>
-        /// <returns></returns>
-        private string GetDocumentLocationReferenceByRelativeURL(string relativeUrl)
-        {
-            string result = null;
-            string sanitized = relativeUrl.Replace("'", "''");
-            // first see if one exists.
-            var locations = _dynamicsClient.Sharepointdocumentlocations.Get(filter: "relativeurl eq '" + sanitized + "'");
-
-            var location = locations.Value.FirstOrDefault();
-
-            if (location == null)
-            {
-                MicrosoftDynamicsCRMsharepointdocumentlocation newRecord = new MicrosoftDynamicsCRMsharepointdocumentlocation()
-                {
-                    Relativeurl = relativeUrl
-                };
-                // create a new document location.
-                try
-                {
-                    location = _dynamicsClient.Sharepointdocumentlocations.Create(newRecord);
-                }
-                catch (OdataerrorException odee)
-                {
-                    _logger.LogError("Error creating document location");
-                    _logger.LogError("Request:");
-                    _logger.LogError(odee.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(odee.Response.Content);
-                }
-            }
-
-            if (location != null)
-            {
-                result = location.Sharepointdocumentlocationid;
-            }
-
-            return result;
-        }
-
-        [HttpPost("upload/{requestId}")]
+        [HttpPost("upload/{screeningId}")]
         // allow large uploads
         [DisableRequestSizeLimit]
-        public async Task<IActionResult> UploadFile([FromRoute] string requestId, [FromForm]IFormFile file)
+        public async Task<IActionResult> UploadFile([FromRoute] string screeningId, [FromForm] IFormFile file)
         {
-            ViewModels.FileSystemItem result = null;
-            
-            if (string.IsNullOrEmpty(requestId))
+            if (string.IsNullOrEmpty(screeningId))
             {
+                _logger.LogWarning("Cannot upload file without a screeningId");
                 return BadRequest();
             }
 
-            //await CreateDocumentLibraryIfMissing(GetDocumentListTitle(entityName), GetDocumentTemplateUrlPart(entityName));
-
-            //var hasAccess = await CanAccessEntity(entityName, entityId);
-            //if (!hasAccess)
-            //{
-            //    return new NotFoundResult();
-            //}
-
-            //// Update modifiedon to current time
-            //UpdateEntityModifiedOnDate(entityName, entityId, true);
-
-            // Sanitize file name
-            Regex illegalInFileName = new Regex(@"[#%*<>?{}~¿""]");
-            string fileName = illegalInFileName.Replace(file.FileName, "");
-            illegalInFileName = new Regex(@"[&:/\\|]");
-            fileName = illegalInFileName.Replace(fileName, "-");
-
-            //fileName = FileSystemItemExtensions.CombineNameDocumentType(fileName, documentType);
-            //string folderName = await GetFolderName(entityName, entityId, _dynamicsClient);
             try
             {
-                //await _sharePointFileManager.AddFile(GetDocumentTemplateUrlPart(entityName), folderName, fileName, file.OpenReadStream(), file.ContentType);
+                bool documentLibraryExists = await _sharePointFileManager.DocumentLibraryExists(ScreeningDocumentListTitle);
+                if (!documentLibraryExists)
+                {
+                    await _sharePointFileManager.CreateDocumentLibrary(ScreeningDocumentListTitle, ScreeningDocumentUrlTitle);
+                    _logger.LogInformation("Successfully created document library {ScreeningDocumentListTitle} on SharePoint", ScreeningDocumentListTitle);
+                }
+                else
+                {
+                    _logger.LogInformation("Successfully retrieved document library {ScreeningDocumentListTitle} on SharePoint", ScreeningDocumentListTitle);
+                }
+
+                // update screening modification time to current time
+                await UpdateScreeningModifiedOnDate(screeningId);
+                _logger.LogInformation("Successfully updated last modification date for screening {ScreeningId}", screeningId);
+
+                // retrieve folder name
+                var screening = await _dynamicsClient.GetScreeningById(Guid.Parse(screeningId));
+                string folderName = GetScreeningFolderName(screening);
+                _logger.LogInformation("Successfully retrieved SharePoint folder name {FolderName} for screening {ScreeningId}", folderName, screeningId);
+
+                // format file name
+                string fileName = SanitizeFileName(file.FileName);
+                fileName = FileUtility.CombineNameDocumentType(fileName, "WebUpload");
+
+                // upload to SharePoint
+                await _sharePointFileManager.AddFile(ScreeningDocumentUrlTitle, folderName, fileName, file.OpenReadStream(), file.ContentType);
+                _logger.LogInformation("Successfully uploaded file {FileName} to folder {FolderName} on SharePoint", fileName, folderName);
+
+                return new JsonResult(fileName);
             }
             catch (SharePointRestException ex)
             {
-                _logger.LogError("Error uploading file to SharePoint");
-                _logger.LogError(ex.Response.Content);
-                _logger.LogError(ex.Message);
-                return new NotFoundResult();
-            }
-            return Json(fileName);
-        }
+                _logger.LogError(ex,
+                    string.Join(Environment.NewLine, "Failed to upload file {FileName} for screening {ScreeningId}", "Request: {@Request}", "Response: {@Response}"),
+                    file.Name,
+                    screeningId,
+                    ex.Request,
+                    ex.Response);
 
-        private async Task<bool> CanAccessEntity(string entityName, string entityId)
-        {
-            var result = false;
-            var id = Guid.Parse(entityId);
-            switch (entityName.ToLower())
-            {
-                case "account":
-                    var account = await _dynamicsClient.GetAccountById(id);
-                    result = account != null && CurrentUserHasAccessToApplicationOwnedBy(account.Accountid);
-                    break;
-                case "contact":
-                    var contact = await _dynamicsClient.GetContactById(id);
-                    result = contact != null && CurrentUserHasAccessToContactOwnedBy(contact.Contactid);
-                    break;
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return result;
-        }
-        private async Task<bool> CanAccessEntityFile(string entityName, string entityId, string documentType, string serverRelativeUrl)
-        {
-            var result = await CanAccessEntity(entityName, entityId);
-            //get list of files for entity
-            var files = await getFileDetailsListInFolder(entityId, entityName, documentType);
-            //confirm the serverRelativeUrl is in one of the files
-            var hasFile = files.Any(f => f.serverrelativeurl == serverRelativeUrl);
-            return result && hasFile;
-        }
-
-        private static async Task<string> GetFolderName(string entityName, string entityId, IDynamicsClient _dynamicsClient)
-        {
-            var folderName = "";
-            switch (entityName.ToLower())
+            catch (OdataerrorException ex)
             {
-                case "account":
-                    var account = await _dynamicsClient.GetAccountById(Guid.Parse(entityId));
-                    folderName = GetAccountFolderName(account);
-                    break;
-                case "contact":
-                    var contact = await _dynamicsClient.GetContactById(Guid.Parse(entityId));
-                    folderName = GetContactFolderName(contact);
-                    break;
+                _logger.LogError(ex,
+                    string.Join(Environment.NewLine, "Failed to upload file {FileName} for screening {ScreeningId}", "{@ErrorBody}"),
+                    file.Name,
+                    screeningId,
+                    ex.Body);
+
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return folderName;
-        }
-
-        private void UpdateEntityModifiedOnDate(string entityName, string entityId, bool setUploadedFromPortal = false)
-        {
-            switch (entityName.ToLower())
+            catch (Exception ex)
             {
-                case "contact":
-                    var patchContact = new MicrosoftDynamicsCRMcontact();
-                    try
-                    {
-                        _dynamicsClient.Contacts.Update(entityId, patchContact);
-                    }
-                    catch (OdataerrorException odee)
-                    {
-                        _logger.LogError("Error updating Contact");
-                        _logger.LogError("Request:");
-                        _logger.LogError(odee.Request.Content);
-                        _logger.LogError("Response:");
-                        _logger.LogError(odee.Response.Content);
-                        // fail if we can't create.
-                        throw (odee);
-                    }
-                    break;
+                _logger.LogError(ex, "Failed to upload file {FileName} for screening {ScreeningId}", file.Name, screeningId);
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
 
-        [HttpGet("{entityId}/download-file/{entityName}/{fileName}")]
-        public async Task<IActionResult> DownloadFile(string entityId, string entityName, [FromQuery]string serverRelativeUrl, [FromQuery]string documentType)
+        private static string SanitizeFileName(string fileName)
         {
-            // get the file.
-            if (string.IsNullOrEmpty(serverRelativeUrl) || string.IsNullOrEmpty(documentType) || string.IsNullOrEmpty(entityId) || string.IsNullOrEmpty(entityName))
-            {
-                return BadRequest();
-            }
-
-            var hasAccess = await CanAccessEntityFile(entityName, entityId, documentType, serverRelativeUrl);
-            if (!hasAccess)
-            {
-                return new NotFoundResult();
-            }
-
-            byte[] fileContents = await _sharePointFileManager.DownloadFile(serverRelativeUrl);
-            return new FileContentResult(fileContents, "application/octet-stream");
-
+            fileName = new Regex(@"[#%*<>?{}~¿""]").Replace(fileName, "");
+            fileName = new Regex(@"[&:/\\|]").Replace(fileName, "-");
+            return fileName;
         }
 
-        /// <summary>
-        /// Get the file details list in folder associated to the application folder and document type
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <param name="documentType"></param>
-        /// <returns></returns>
-        [HttpGet("{entityId}/attachments/{entityName}/{documentType}")]
-        public async Task<IActionResult> GetFileDetailsListInFolder([FromRoute] string entityId, [FromRoute] string entityName, [FromRoute] string documentType)
+        private async Task UpdateScreeningModifiedOnDate(string screeningId)
         {
-            if (string.IsNullOrEmpty(entityId) || string.IsNullOrEmpty(entityName) || string.IsNullOrEmpty(documentType))
-            {
-                return BadRequest();
-            }
-
-            List<ViewModels.FileSystemItem> fileSystemItemVMList = await getFileDetailsListInFolder(entityId, entityName, documentType);
-
-            var hasAccess = await CanAccessEntity(entityName, entityId);
-            if (!hasAccess)
-            {
-                return new NotFoundResult();
-            }
-
-            return Json(fileSystemItemVMList);
-        }
-
-        private async Task<List<ViewModels.FileSystemItem>> getFileDetailsListInFolder(string entityId, string entityName, string documentType)
-        {
-            List<ViewModels.FileSystemItem> fileSystemItemVMList = new List<ViewModels.FileSystemItem>();
-
-            if (string.IsNullOrEmpty(entityId) || string.IsNullOrEmpty(entityName) || string.IsNullOrEmpty(documentType))
-            {
-                return fileSystemItemVMList;
-            }
-
-            try
-            {
-                await CreateDocumentLibraryIfMissing(GetDocumentListTitle(entityName), GetDocumentTemplateUrlPart(entityName));
-
-                string folderName = await GetFolderName(entityName, entityId, _dynamicsClient); ;
-                // Get the file details list in folder
-                List<SharePointFileManager.FileDetailsList> fileDetailsList = null;
-                try
-                {
-                    fileDetailsList = await _sharePointFileManager.GetFileDetailsListInFolder(GetDocumentTemplateUrlPart(entityName), folderName, documentType);
-                }
-                catch (SharePointRestException spre)
-                {
-                    _logger.LogError("Error getting SharePoint File List");
-                    _logger.LogError("Request URI:");
-                    _logger.LogError(spre.Request.RequestUri.ToString());
-                    _logger.LogError("Response:");
-                    _logger.LogError(spre.Response.Content);
-                    throw new Exception("Unable to get Sharepoint File List.");
-                }
-
-                if (fileDetailsList != null)
-                {
-                    foreach (SharePointFileManager.FileDetailsList fileDetails in fileDetailsList)
-                    {
-                        ViewModels.FileSystemItem fileSystemItemVM = new ViewModels.FileSystemItem()
-                        {
-                            // remove the document type text from file name
-                            name = fileDetails.Name.Substring(fileDetails.Name.IndexOf("__") + 2),
-                            // convert size from bytes (original) to KB
-                            size = int.Parse(fileDetails.Length),
-                            serverrelativeurl = fileDetails.ServerRelativeUrl,
-                            timelastmodified = DateTime.Parse(fileDetails.TimeLastModified),
-                            documenttype = fileDetails.DocumentType
-                        };
-
-                        fileSystemItemVMList.Add(fileSystemItemVM);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                _logger.LogError("Error getting SharePoint File List");
-                
-                _logger.LogError(e.Message);
-            }
-
-            return fileSystemItemVMList;
-        }
-
-        private static string GetDocumentListTitle(string entityName)
-        {
-            var listTitle = "";
-            switch (entityName.ToLower())
-            {
-                case "account":
-                    listTitle = SharePointFileManager.DefaultDocumentListTitle;
-                    break;
-                case "contact":
-                    listTitle = SharePointFileManager.ContactDocumentListTitle;
-                    break;
-            }
-            return listTitle;
-        }
-
-        private static string GetDocumentTemplateUrlPart(string entityName)
-        {
-            var listTitle = "";
-            switch (entityName.ToLower())
-            {
-                case "account":
-                    listTitle = SharePointFileManager.DefaultDocumentListTitle;
-                    break;
-                case "contact":
-                    listTitle = SharePointFileManager.ContactDocumentListTitle;
-                    break;
-            }
-            return listTitle;
-        }
-
-        /// <summary>
-        /// Verify whether currently logged in user has access to this account id
-        /// </summary>
-        /// <returns>boolean</returns>
-        private bool CurrentUserHasAccessToApplicationOwnedBy(string accountId)
-        {
-            // get the current user.
-            string temp = _httpContextAccessor.HttpContext.Session.GetString("UserSettings");
-            UserSettings userSettings = JsonConvert.DeserializeObject<UserSettings>(temp);
-
-            // For now, check if the account id matches the user's account.
-            // TODO there may be some account relationships in the future
-            if (userSettings.AccountId != null && userSettings.AccountId.Length > 0)
-            {
-                return userSettings.AccountId == accountId;
-            }
-
-            // if current user doesn't have an account they are probably not logged in
-            return false;
-        }
-
-        /// <summary>
-        /// Verify whether currently logged in user has access to this contact id
-        /// </summary>
-        /// <returns>boolean</returns>
-        private bool CurrentUserHasAccessToContactOwnedBy(string contactId)
-        {
-            // get the current user.
-            string temp = _httpContextAccessor.HttpContext.Session.GetString("UserSettings");
-            UserSettings userSettings = JsonConvert.DeserializeObject<UserSettings>(temp);
-
-            // For now, check if the account id matches the user's account.
-            // TODO there may be some account relationships in the future
-            if (userSettings.ContactId != null && userSettings.ContactId.Length > 0)
-            {
-                return userSettings.ContactId == contactId;
-            }
-
-            // if current user doesn't have an account they are probably not logged in
-            return false;
-        }
-
-        private async Task CreateDocumentLibraryIfMissing(string listTitle, string documentTemplateUrl = null)
-        {
-            var exists = await _sharePointFileManager.DocumentLibraryExists(listTitle);
-            if (!exists)
-            {
-                await _sharePointFileManager.CreateDocumentLibrary(listTitle, documentTemplateUrl);
-            }
+            var patchScreening = new MicrosoftDynamicsCRMincident();
+            await _dynamicsClient.Incidents.UpdateAsync(screeningId, patchScreening);
         }
     }
 }

@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using System;
 using Gov.Jag.Spice.Interfaces;
+using Gov.Lclb.Cllb.Interfaces;
+using Gov.Jag.Spice.Interfaces.SharePoint;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
@@ -22,9 +24,9 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
-        private SharePointFileManager _sharepoint;
+        private FileManager _sharepoint;
 
-        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, SharePointFileManager sharepoint)
+        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;
@@ -67,7 +69,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             };
 
             //Send the result to CARLA
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).SendApplicationScreeningResult(payload));
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ProcessResults(null));
             _logger.LogInformation($"Started send Application Screening result for job: {result.RecordIdentifier}");
             return Ok();
         }
