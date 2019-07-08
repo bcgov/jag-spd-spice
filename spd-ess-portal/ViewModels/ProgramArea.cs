@@ -8,6 +8,6 @@ namespace Gov.Jag.Spice.Public.ViewModels
     {
         public string Name { get; set; }
         public string Value { get; set; }
-        public List<string> ScreeningTypes { get; set; }
+        public List<ScreeningType> ScreeningTypes { get; set; }
     }
 }

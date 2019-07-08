@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Gov.Jag.Spice.Interfaces;
+using Gov.Jag.Spice.Interfaces.Models;
+using Gov.Jag.Spice.Public.Models.Extensions;
+using Gov.Jag.Spice.Public.Utils;
+using Microsoft.Extensions.Logging;
 
 namespace Gov.Jag.Spice.Public.ViewModels
 {
@@ -12,14 +18,196 @@ namespace Gov.Jag.Spice.Public.ViewModels
         public string Reason { get; set; }
         public string OtherReason { get; set; }
 
-        public string CandidateFirstName { get; set; }
-        public string CandidateMiddleName { get; set; }
-        public string CandidateLastName { get; set; }
-        public DateTime CandidateDateOfBirth { get; set; }
-        public string CandidateEmail { get; set; }
-        public string CandidatePosition { get; set; }
+        public Candidate Candidate { get; set; }
 
-        public string ContactName { get; set; }
-        public string ContactEmail { get; set; }
+        public Contact Contact { get; set; }
+
+        public async Task<bool> Validate(IDynamicsClient dynamicsClient, Ministry siteMinderMinistry, ProgramArea siteMinderProgramArea)
+        {
+            // validate nested data exists
+            if (Candidate == null || Contact == null)
+            {
+                return false;
+            }
+
+            // validate required properties
+            var requiredProperties = new string[]
+            {
+                ClientMinistry,
+                ProgramArea,
+                ScreeningType,
+                Reason,
+                Candidate.FirstName,
+                Candidate.LastName,
+                Candidate.Email,
+                Candidate.Position,
+                Contact.FirstName,
+                Contact.LastName,
+                Contact.Email,
+            };
+
+            if (requiredProperties.Any(string.IsNullOrWhiteSpace))
+            {
+                return false;
+            }
+
+            // validate range for candidate date of birth
+            if (Candidate.DateOfBirth < DateTime.Today.AddYears(-100) || Candidate.DateOfBirth > DateTime.Today.AddYears(-10))
+            {
+                return false;
+            }
+
+            // validate ministry and program area match the values from siteminder
+            if (ClientMinistry != siteMinderMinistry.Value || ProgramArea != siteMinderProgramArea.Value)
+            {
+                return false;
+            }
+
+            // validate screening type matches one of the screening types for the program area
+            if (!siteMinderProgramArea.ScreeningTypes.Any(t => t.Value == ScreeningType))
+            {
+                return false;
+            }
+
+            // validate screening reason matches one of the possible screening reasons
+            var screeningReason = await DynamicsUtility.GetScreeningReasonAsync(dynamicsClient, Reason);
+            if (screeningReason == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<string> Submit(IDynamicsClient dynamicsClient, ILogger logger, User user, ScreeningType screeningType)
+        {
+            var candidate = await ObtainCandidate(dynamicsClient, logger);
+            var submitter = await ObtainSubmitter(dynamicsClient, logger, user);
+            var contact = await ObtainContact(dynamicsClient, logger);
+
+            try
+            {
+                var screeningRequest = await DynamicsUtility.CreateScreeningRequestAsync(
+                    dynamicsClient, 
+                    this,
+                    candidate.Contactid,
+                    submitter.Contactid,
+                    contact.SpiceMinistryemployeeid,
+                    screeningType.ApplicantType,
+                    screeningType.CannabisApplicantType
+                );
+
+                logger.LogInformation("Successfully created screening request {ScreeningId} from view model {@ScreeningRequest}", screeningRequest.Incidentid, this);
+
+                return screeningRequest.Incidentid;
+            }
+            catch (OdataerrorException ex)
+            {
+                logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create screening request incident", "{@ErrorBody}"), ex.Body);
+                throw;
+            }
+        }
+
+        public static async Task<IEnumerable<Ministry>> GetMinistryScreeningTypesAsync(IDynamicsClient dynamicsClient)
+        {
+            var getMinistries = DynamicsUtility.GetMinistriesAsync(dynamicsClient);
+            var getProgramAreas = DynamicsUtility.GetProgramAreasAsync(dynamicsClient);
+            var getScreeningTypes = DynamicsUtility.GetScreeningTypesAsync(dynamicsClient);
+
+            var screeningTypes = (await getScreeningTypes).ToList();
+            var programAreas = (await getProgramAreas).ToList();
+            var ministries = (await getMinistries).ToList();
+
+            foreach (var programArea in programAreas)
+            {
+                programArea.SpiceSpiceMinistrySpiceServices =
+                    screeningTypes.Where(t => t._spiceMinistryserviceidValue == programArea.SpiceMinistryid).ToList();
+            }
+
+            foreach (var ministry in ministries)
+            {
+                ministry.SpiceGovministrySpiceMinistry =
+                    programAreas.Where(a => a._spiceGovministryidValue == ministry.SpiceGovministryid).ToList();
+            }
+
+            return ministries.Select(m => m.ToViewModel());
+        }
+
+        public static async Task<IEnumerable<ScreeningReason>> GetScreeningReasonsAsync(IDynamicsClient dynamicsClient)
+        {
+            return (await DynamicsUtility.GetScreeningReasonsAsync(dynamicsClient)).Select(a => a.ToViewModel());
+        }
+
+        private async Task<MicrosoftDynamicsCRMcontact> ObtainCandidate(IDynamicsClient dynamicsClient, ILogger logger)
+        {
+            var candidate = await DynamicsUtility.GetCandidateAsync(dynamicsClient, Candidate);
+            if (candidate == null)
+            {
+                try
+                {
+                    candidate = await DynamicsUtility.CreateCandidateAsync(dynamicsClient, Candidate);
+                    logger.LogInformation("Successfully created candidate {CandidateId} from view model {@Candidate}", candidate.Contactid, Candidate);
+                }
+                catch (OdataerrorException ex)
+                {
+                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create candidate from view model {@Candidate}", "{@ErrorBody}"), Candidate, ex.Body);
+                    throw;
+                }
+            }
+            else
+            {
+                logger.LogInformation("Successfully retrieved existing candidate {CandidateId} from view model {@Candidate}", candidate.Contactid, Candidate);
+            }
+
+            return candidate;
+        }
+
+        private async Task<MicrosoftDynamicsCRMcontact> ObtainSubmitter(IDynamicsClient dynamicsClient, ILogger logger, User user)
+        {
+            var submitter = await DynamicsUtility.GetSubmitterAsync(dynamicsClient, user);
+            if (submitter == null)
+            {
+                try
+                {
+                    submitter = await DynamicsUtility.CreateSubmitterAsync(dynamicsClient, user);
+                    logger.LogInformation("Successfully created submitter {SubmitterId} from view model {@Submitter}", submitter.Contactid, user);
+                }
+                catch (OdataerrorException ex)
+                {
+                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create submitter from view model {@Submitter}", "{@ErrorBody}"), user, ex.Body);
+                    throw;
+                }
+            }
+            else
+            {
+                logger.LogInformation("Successfully retrieved existing submitter {SubmitterId} from view model {@Submitter}", submitter.Contactid, user);
+            }
+
+            return submitter;
+        }
+
+        private async Task<MicrosoftDynamicsCRMspiceMinistryemployee> ObtainContact(IDynamicsClient dynamicsClient, ILogger logger)
+        {
+            var contact = await DynamicsUtility.GetContactAsync(dynamicsClient, Contact);
+            if (contact == null)
+            {
+                try
+                {
+                    contact = await DynamicsUtility.CreateContactAsync(dynamicsClient, Contact, ProgramArea);
+                    logger.LogInformation("Successfully created contact {ContactId} from view model {@Contact}", contact.SpiceMinistryemployeeid, Contact);
+                }
+                catch (OdataerrorException ex)
+                {
+                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create contact from view model {@Contact}", "{@ErrorBody}"), Contact, ex.Body);
+                    throw;
+                }
+            }
+            else
+            {
+                logger.LogInformation("Successfully retrieved existing contact {ContactId} from view model {@Contact}", contact.SpiceMinistryemployeeid, Contact);
+            }
+
+            return contact;
+        }
     }
 }

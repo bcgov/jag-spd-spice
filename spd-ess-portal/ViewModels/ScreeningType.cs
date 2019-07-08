@@ -8,5 +8,7 @@ namespace Gov.Jag.Spice.Public.ViewModels
     {
         public string Name { get; set; }
         public string Value { get; set; }
+        public int? ApplicantType { get; set; }
+        public int? CannabisApplicantType { get; set; }
     }
 }

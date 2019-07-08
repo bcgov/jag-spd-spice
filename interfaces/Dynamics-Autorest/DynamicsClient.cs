@@ -107,6 +107,11 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IExportrequests Exportrequests { get; private set; }
 
         /// <summary>
+        /// Gets the IGovministries.
+        /// </summary>
+        public virtual IGovministries Govministries { get; private set; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         public virtual IMinistries Ministries { get; private set; }
@@ -120,6 +125,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IPreviousaddresseses.
         /// </summary>
         public virtual IPreviousaddresseses Previousaddresseses { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreenings.
+        /// </summary>
+        public virtual IReasonforscreenings Reasonforscreenings { get; private set; }
 
         /// <summary>
         /// Gets the IRequiredcheckses.
@@ -395,9 +405,11 @@ namespace Gov.Jag.Spice.Interfaces
             Contactaccountset = new Contactaccountset(this);
             Exportrequestincidentset = new Exportrequestincidentset(this);
             Exportrequests = new Exportrequests(this);
+            Govministries = new Govministries(this);
             Ministries = new Ministries(this);
             Ministryemployees = new Ministryemployees(this);
             Previousaddresseses = new Previousaddresseses(this);
+            Reasonforscreenings = new Reasonforscreenings(this);
             Requiredcheckses = new Requiredcheckses(this);
             Serviceses = new Serviceses(this);
             Businesscaseprocesses = new Businesscaseprocesses(this);

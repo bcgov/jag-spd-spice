@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gov.Jag.Spice.Interfaces
+namespace Gov.Jag.Spice.Interfaces.SharePoint
 {
     using Microsoft.Rest;
 

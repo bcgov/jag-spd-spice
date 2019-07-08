@@ -16,20 +16,20 @@
     </p>
     <div class="row">
       <app-field class="col-lg-6 col-xs-12" label="Client Ministry" [required]="true" [showChevrons]="false"
-        [valid]="form.get('clientMinistry').valid || !form.get('clientMinistry').touched"
+        [valid]="!form.get('clientMinistry').invalid || !form.get('clientMinistry').touched"
         errorMessage="Please select a client ministry" [isFullWidth]="true">
         <select id="clientMinistry" class="form-control" formControlName="clientMinistry" (change)="onMinistryChange()">
           <option value="">Select a Ministry</option>
-          <option *ngFor="let ministry of ministryScreeningTypes" [value]="ministry.name">{{ministry.name}}</option>
+          <option *ngFor="let ministry of ministryScreeningTypes" [value]="ministry.value">{{ministry.name}}</option>
         </select>
       </app-field>
       
       <app-field class="col-lg-6 col-xs-12" label="Program Area" [required]="true" [showChevrons]="false"
-        [valid]="form.get('programArea').valid || !form.get('programArea').touched"
+        [valid]="!form.get('programArea').invalid || !form.get('programArea').touched"
         errorMessage="Please select a program area" [isFullWidth]="true">
         <select id="programArea" class="form-control" formControlName="programArea" (change)="onProgramAreaChange()">
           <option value="">Select a Program Area</option>
-          <option *ngFor="let program of getProgramAreas()" [value]="program.name">{{program.name}}</option>
+          <option *ngFor="let program of getProgramAreas()" [value]="program.value">{{program.name}}</option>
         </select>
       </app-field>
       
@@ -38,20 +38,20 @@
         errorMessage="Please select a screening type" [isFullWidth]="true">
         <select id="screeningType" class="form-control" formControlName="screeningType">
           <option value="">Select a Screening Type</option>
-          <option *ngFor="let type of getScreeningTypes()" [value]="type">{{type}}</option>
+          <option *ngFor="let type of getScreeningTypes()" [value]="type.value">{{type.name}}</option>
         </select>
       </app-field>
       
       <app-field class="col-lg-6 col-xs-12" label="Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('reason').valid || !form.get('reason').touched"
         errorMessage="Please select a reason for the screening" [isFullWidth]="true">
-        <select id="reason" class="form-control" formControlName="reason">
+        <select id="reason" class="form-control" formControlName="reason" (change)="onReasonChange()">
           <option value="">Select a Reason for Screening</option>
-          <option *ngFor="let reason of screeningReasons" [value]="reason">{{reason}}</option>
+          <option *ngFor="let reason of screeningReasons" [value]="reason.value">{{reason.name}}</option>
         </select>
       </app-field>
 
-      <app-field *ngIf="form.get('reason').value === 'Other'" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
+      <app-field *ngIf="form.get('reason').value === otherScreeningReasonValue" class="col-lg-12" label="Other Reason for Screening" [required]="true" [showChevrons]="false"
         [valid]="form.get('otherReason').valid || !form.get('otherReason').touched"
         errorMessage="Please enter a reason for the screening" [isFullWidth]="true">
         <input id="otherReason" class="form-control" type="text" formControlName="otherReason" autocomplete="off">
@@ -59,26 +59,26 @@
     </div>
   </section>
 
-  <section>
+  <section formGroupName="candidate">
     <h2 class="blue-header">Candidate Information</h2>
     <p class="header-description">
       Provide details for the candidate undergoing the screening.
     </p>
     <div class="row">
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate First Name" [required]="true" [showChevrons]="false"
-        [valid]="form.get('candidateFirstName').valid || !form.get('candidateFirstName').touched"
+        [valid]="form.get('candidate.firstName').valid || !form.get('candidate.firstName').touched"
         errorMessage="Please provide the candidate's first name" [isFullWidth]="true">
-        <input id="candidateFirstName" class="form-control" type="text" formControlName="candidateFirstName" autocomplete="off">
+        <input id="candidateFirstName" class="form-control" type="text" formControlName="firstName" autocomplete="off">
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Middle Name" [required]="false" [showChevrons]="false" [isFullWidth]="true">
-        <input id="candidateMiddleName" class="form-control" type="text" formControlName="candidateMiddleName" autocomplete="off">
+        <input id="candidateMiddleName" class="form-control" type="text" formControlName="middleName" autocomplete="off">
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Last Name" [required]="true" [showChevrons]="false"
-        [valid]="form.get('candidateLastName').valid || !form.get('candidateLastName').touched"
+        [valid]="form.get('candidate.lastName').valid || !form.get('candidate.lastName').touched"
         errorMessage="Please provide the candidate's last name" [isFullWidth]="true">
-        <input id="candidateLastName" class="form-control" type="text" formControlName="candidateLastName" autocomplete="off">
+        <input id="candidateLastName" class="form-control" type="text" formControlName="lastName" autocomplete="off">
       </app-field>
 
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Date of Birth" [required]="true" [showChevrons]="false"
@@ -86,7 +86,7 @@
         [errorMessage]="getCandidateDateOfBirthErrorMessage()"
         [isFullWidth]="true">
         <div style="display: flex; align-items: center;">
-          <input id="candidateDateOfBirth" type="text" formControlName='candidateDateOfBirth'
+          <input id="candidateDateOfBirth" type="text" formControlName='dateOfBirth'
             placeholder="yyyy-mm-dd" class="form-control"
             [min]="minDate" [max]="maxDate" [matDatepicker]="picker" autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker" tabindex="-1"></mat-datepicker-toggle>
@@ -94,36 +94,42 @@
         </div>
       </app-field>
       
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false"
-        [valid]="form.get('candidateEmail').valid || !form.get('candidateEmail').touched"
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Candidate Email Address" [required]="true" [showChevrons]="false" (change)="onCandidateEmailChange()"
+        [valid]="form.get('candidate.email').valid || !form.get('candidate.email').touched"
         errorMessage="Email address must be provided in a valid format" [isFullWidth]="true">
-        <input id="candidateEmail" class="form-control" type="text" formControlName="candidateEmail" autocomplete="off">
+        <input id="candidateEmail" class="form-control" type="text" formControlName="email" autocomplete="off">
       </app-field>
       
       <app-field class="col-lg-4 col-md-6 col-xs-12" label="Title of Position Candidate Will Be Screened For" [required]="true" [showChevrons]="false"
-        [valid]="form.get('candidatePosition').valid || !form.get('candidatePosition').touched"
+        [valid]="form.get('candidate.position').valid || !form.get('candidate.position').touched"
         errorMessage="Please enter the title of the position the candidate is being screened for" [isFullWidth]="true">
-        <input id="candidatePosition" class="form-control" type="text" formControlName="candidatePosition" autocomplete="off">
+        <input id="candidatePosition" class="form-control" type="text" formControlName="position" autocomplete="off">
       </app-field>
     </div>
   </section>
 
-  <section>
+  <section formGroupName="contact">
     <h2 class="blue-header">Return to Information</h2>
     <p class="header-description">
       Provide details for the contact who should receive the screening results.
     </p>
     <div class="row">
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Results To" [required]="true" [showChevrons]="false"
-        [valid]="form.get('contactName').valid || !form.get('contactName').touched"
-        errorMessage="Please enter a name for the recipient of the results" [isFullWidth]="true">
-        <input id="contactName" class="form-control" type="text" formControlName="contactName" autocomplete="off">
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient First Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contact.firstName').valid || !form.get('contact.firstName').touched"
+        errorMessage="Please enter a first name for the recipient of the results" [isFullWidth]="true">
+        <input id="contactFirstName" class="form-control" type="text" formControlName="firstName" autocomplete="off">
       </app-field>
 
-      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Return Email Address" [required]="true" [showChevrons]="false"
-        [valid]="form.get('contactEmail').valid || !form.get('contactEmail').touched"
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient Last Name" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contact.lastName').valid || !form.get('contact.lastName').touched"
+        errorMessage="Please enter a last name for the recipient of the results" [isFullWidth]="true">
+        <input id="contactLastName" class="form-control" type="text" formControlName="lastName" autocomplete="off">
+      </app-field>
+
+      <app-field class="col-lg-4 col-md-6 col-xs-12" label="Recipient Email Address" [required]="true" [showChevrons]="false"
+        [valid]="form.get('contact.email').valid || !form.get('contact.email').touched"
         [errorMessage]="getContactEmailErrorMessage()" [isFullWidth]="true">
-        <input id="contactEmail" class="form-control" type="text" formControlName="contactEmail" autocomplete="off">
+        <input id="contactEmail" class="form-control" type="text" formControlName="email" autocomplete="off">
       </app-field>
     </div>
   </section>
@@ -133,7 +139,7 @@
     <p class="header-description">
       Provide relevant documents for the screening as per your Letter of Agreement, e.g. a resume and/or conditional offer letter.
     </p>
-    <app-file-uploader #documentUploader></app-file-uploader>
+    <app-file-uploader [id]="fileUploaderId" #documentUploader></app-file-uploader>
   </section>
   
   <section>

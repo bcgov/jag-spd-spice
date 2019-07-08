@@ -2,6 +2,7 @@
 
 namespace SpdSync.models
 {
+    /*
     public class WorkerScreeningResponse
     {
         public string RecordIdentifier { get; set; }
@@ -12,4 +13,5 @@ namespace SpdSync.models
         public string Result { get; set; }
         public DateTimeOffset DateProcessed { get; set; }
     }
+    */
 }
