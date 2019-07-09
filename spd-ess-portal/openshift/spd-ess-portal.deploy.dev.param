@@ -1,0 +1,18 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: spd-ess-portal
+# JSON Template File: templates/spd-ess-portal.deploy.json
+#=========================================================
+#NAME=spd-ess-portal
+#IMAGE_NAMESPACE=zbam91-tools
+#SOURCE_IMAGE_NAME=spd-ess-portal
+TAG_NAME=dev
+ASPNETCORE_ENVIRONMENT=Staging
+SITEMINDER_LOGOUT_URL=https://logontest.gov.bc.ca/clp-cgi/logoff.cgi
+#CPU_LIMIT=1
+#MEMORY_LIMIT=6Gi
+#CPU_REQUEST=1
+#MEMORY_REQUEST=4Gi
+#SECRET_RESOURCE_NAME=spd-ess-portal
+KEY_RING_DIRECTORY=
+#KEY_RING_STORAGE_NAME=key-ring
