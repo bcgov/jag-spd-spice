@@ -70,40 +70,12 @@
                     "value": "${ASPNETCORE_ENVIRONMENT}"
                   },
                   {
-                    "name": "DYNAMICS_NATIVE_ODATA_URI",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "dynamics-native-odata-uri",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },                  
-                  {
-                    "name": "SSG_USERNAME",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "ssg-username",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
+                    "name": "SITEMINDER_LOGOUT_URL",
+                    "value": "${SITEMINDER_LOGOUT_URL}"
                   },
                   {
-                    "name": "SSG_PASSWORD",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "ssg-password",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
-                  },
-                  {
-                    "name": "ENCRYPTION_KEY",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "key": "encryption-key",
-                        "name": "${SECRET_RESOURCE_NAME}"
-                      }
-                    }
+                    "name": "KEY_RING_DIRECTORY",
+                    "value": "${KEY_RING_DIRECTORY}"
                   },
                   {
                     "name": "BASE_URI",
@@ -115,33 +87,13 @@
                     }
                   },
                   {
-                    "name": "SHAREPOINT_SERVER_APPID_URI",
+                    "name": "BASE_PATH",
                     "valueFrom": {
                       "secretKeyRef": {
-                        "key": "sharepoint-server-appid-uri",
+                        "key": "base-path",
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
-                  },
-                  {
-                    "name": "SHAREPOINT_WEBNAME",
-                    "value": "${SHAREPOINT_WEBNAME}"
-                  },
-                  {
-                    "name": "SHAREPOINT_AAD_TENANTID",
-                    "value": "${SHAREPOINT_AAD_TENANTID}"
-                  },
-                  {
-                    "name": "SHAREPOINT_CLIENT_ID",
-                    "value": "${SHAREPOINT_CLIENT_ID}"
-                  },
-                  {
-                    "name": "SHAREPOINT_CERTIFICATE_PASSWORD",
-                    "value": "${SHAREPOINT_CERTIFICATE_PASSWORD}"
-                  },
-                  {
-                    "name": "SHAREPOINT_CERTIFICATE_FILENAME",
-                    "value": "${SHAREPOINT_CERTIFICATE_FILENAME}"
                   },
                   {
                     "name": "DYNAMICS_ODATA_URI",
@@ -153,41 +105,68 @@
                     }
                   },
                   {
-                    "name": "BCEID_SERVICE_SVCID",
+                    "name": "DYNAMICS_NATIVE_ODATA_URI",
                     "valueFrom": {
                       "secretKeyRef": {
-                        "key": "bceid-service-svcid",
+                        "key": "dynamics-native-odata-uri",
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
                   },
                   {
-                    "name": "BCEID_SERVICE_URL",
+                    "name": "ADFS_OAUTH2_URI",
                     "valueFrom": {
                       "secretKeyRef": {
-                        "key": "bceid-service-url",
+                        "key": "adfs-oath2-uri",
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
                   },
                   {
-                    "name": "BCEID_SERVICE_USER",
+                    "name": "DYNAMICS_APP_GROUP_RESOURCE",
                     "valueFrom": {
                       "secretKeyRef": {
-                        "key": "bceid-service-user",
+                        "key": "dynamics-app-group-resource",
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
                   },
                   {
-                    "name": "BCEID_SERVICE_PASSWD",
+                    "name": "DYNAMICS_APP_GROUP_CLIENT_ID",
                     "valueFrom": {
                       "secretKeyRef": {
-                        "key": "bceid-service-passwd",
+                        "key": "dynamics-app-group-client-id",
                         "name": "${SECRET_RESOURCE_NAME}"
                       }
                     }
-                  },                                    
+                  },
+                  {
+                    "name": "DYNAMICS_APP_GROUP_SECRET",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "dynamics-app-group-secret",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
+                  },
+                  {
+                    "name": "DYNAMICS_USERNAME",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "dynamics-username",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
+                  },
+                  {
+                    "name": "DYNAMICS_PASSWORD",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "dynamics-password",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
+                  },
                   {
                     "name": "SHAREPOINT_ODATA_URI",
                     "valueFrom": {
@@ -207,12 +186,40 @@
                     }
                   },
                   {
-                    "name": "SITEMINDER_LOGOUT_URL",
-                    "value": "${SITEMINDER_LOGOUT_URL}"
+                    "name": "SHAREPOINT_STS_TOKEN_URI",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "sharepoint-sts-token-uri",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
                   },
                   {
-                    "name": "BCEP_CONF_PATH_WORKER",
-                    "value": "${BCEP_CONF_PATH_WORKER}"
+                    "name": "SHAREPOINT_RELYING_PARTY_IDENTIFIER",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "sharepoint-relying-party-identifier",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
+                  },
+                  {
+                    "name": "SHAREPOINT_USERNAME",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "sharepoint-username",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
+                  },
+                  {
+                    "name": "SHAREPOINT_PASSWORD",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "sharepoint-password",
+                        "name": "${SECRET_RESOURCE_NAME}"
+                      }
+                    }
                   }
                 ],
                 "resources": {
@@ -309,27 +316,6 @@
       }
     },
     {
-      "apiVersion": "v1",
-      "kind": "Route",
-      "metadata": {
-        "name": "${NAME}-siteminder-route",
-        "labels": {
-          "app": "${NAME}-siteminder-route"
-        }
-      },
-      "spec": {
-        "host": "${SITEMINDER_APPLICATION_DOMAIN}",
-        "port": {
-          "targetPort": "8080-tcp"
-        },
-        "to": {
-          "kind": "Service",
-          "name": "${NAME}",
-          "weight": 100
-        }
-      }
-    },
-    {
       "kind": "HorizontalPodAutoscaler",
       "apiVersion": "autoscaling/v1",
       "metadata": {
@@ -374,18 +360,18 @@
       "value": "spd-ess-portal"
     },
     {
-      "name": "SOURCE_IMAGE_NAME",
-      "displayName": "Source Image Name",
-      "description": "The name of the image to use for this resource.",
-      "required": true,
-      "value": "spd-ess-portal"
-    },
-    {
       "name": "IMAGE_NAMESPACE",
       "displayName": "Image Namespace",
       "description": "The namespace of the OpenShift project containing the imagestream for the application.",
       "required": true,
       "value": "zbam91-tools"
+    },
+    {
+      "name": "SOURCE_IMAGE_NAME",
+      "displayName": "Source Image Name",
+      "description": "The name of the image to use for this resource.",
+      "required": true,
+      "value": "spd-ess-portal"
     },
     {
       "name": "TAG_NAME",
@@ -397,9 +383,16 @@
     {
       "name": "ASPNETCORE_ENVIRONMENT",
       "displayName": "AspNetCore Environment",
-      "description": "The ASP Net Core deployment environment setting.",
+      "description": "The ASP.NET Core deployment environment setting.",
       "required": true,
-      "value": "Production"
+      "value": "Staging"
+    },
+    {
+      "name": "SITEMINDER_LOGOUT_URL",
+      "displayName": "SiteMinder logout URL",
+      "description": "URL used to log out of SiteMinder. The default value is https://logontest.gov.bc.ca/clp-cgi/logoff.cgi. This should be overridden for the prod environment.",
+      "required": true,
+      "value": "https://logontest.gov.bc.ca/clp-cgi/logoff.cgi"
     },
     {
       "name": "CPU_LIMIT",
@@ -425,103 +418,24 @@
       "description": "Starting amount of memory the container can use.",
       "value": "2Gi"
     },
-    {
-      "description": "The endpoint used for SiteMinder routed access to the application.",
-      "displayName": "SiteMinder Application Domain",
-      "name": "SITEMINDER_APPLICATION_DOMAIN",
-      "value": "cannabis-licensing-dev.pathfinder.bcgov"
-    },
-    {
-      "description": "The exposed hostname that will route to the service, e.g., myappname.pathfinder.gov.bc.ca, if left blank a value will be defaulted.",
-      "displayName": "Application Domain",
-      "name": "APPLICATION_DOMAIN",
-      "value": "lclb-cllc-dev.pathfinder.gov.bc.ca"
-    },
-    {
-      "description": "Webname for Sharepoint, e.g., cannabisdev, if left blank a value will be defaulted.",
-      "displayName": "Sharepoint Webname",
-      "name": "SHAREPOINT_WEBNAME",
-      "required": false,
-      "value": "cannabisdev"
-    },
-    {
-      "description": "Sharepoint Tenant ID and Dynamics Tenant ID, e.g., bcgovtrial.onmicrosoft.com, if left blank a value will be defaulted.",
-      "displayName": "AAD Tennant ID",
-      "name": "SHAREPOINT_AAD_TENANTID",
-      "required": false,
-      "value": "bcgovtrial.onmicrosoft.com"
-    },
-    {
-      "description": "Sharepoint Clien ID",
-      "displayName": "Sharepoint Client ID",
-      "name": "SHAREPOINT_CLIENT_ID",
-      "required": false
-    },
-    {
-      "description": "Sharepoint Certificate Password",
-      "displayName": "Sharepoint Certificate Password",
-      "name": "SHAREPOINT_CERTIFICATE_PASSWORD",
-      "required": false
-    },
-    {
-      "description": "Filename for BCGovTrial.pfx, e.g., /sharepointcert/BCGovTrial.pfx, if left blank a value will be defaulted.",
-      "displayName": "Sharepoint Certificate Filename",
-      "name": "SHAREPOINT_CERTIFICATE_FILENAME",
-      "required": false,
-      "value": "/sharepointcert/BCGovTrial.pfx"
-    },
-    {
-      "description": "Boolean that shows login, e.g., true, if left blank a value will be defaulted.",
-      "displayName": "Show login",
-      "name": "SHOW_LOGIN",
-      "required": true,
-      "value": "true"
-    },    
-    {
-      "description": "Boolean that shows Dashboard Lite for CARLA lite, e.g., false, if left blank a value will be defaulted.",
-      "displayName": "Dashboard lite",
-      "name": "DASHBOARD_LITE",
-      "required": true,
-      "value": "false"
-    },
-    {
-      "name": "DATABASE_SERVICE_NAME",
-      "displayName": "Database service name",
-      "description": "Database service name",
-      "value": "mssql"
-    },    
 	{
       "name": "SECRET_RESOURCE_NAME",
       "displayName": "Secret resource name",
-      "description": "Secret resource name",
+      "description": "Name of the secret resource for the project.",
+      "required": true,
       "value": "spd-ess-portal"
-    },  
-    {
-      "name": "SITEMINDER_LOGOUT_URL",
-      "displayName": "Siteminder logout URL",
-      "description": "Siteminder logout URL, e.g., https://logon.gov.bc.ca/clp-cgi/logoff.cgi, if left blank a value will be defaulted. Note this url is for prod and should be changed for dev and test.",
-      "required": true,
-      "value": "https://logon.gov.bc.ca/clp-cgi/logoff.cgi"
-    },
-    
-    {
-      "name": "BCEP_CONF_PATH_WORKER",
-      "displayName": "Path to BCEP Conf",
-      "description": "Path to BCEP Conf, e.g., /worker-registration/payment-confirmation, if left blank a value will be defaulted.",
-      "required": true,
-      "value": "/worker-registration/payment-confirmation"
     },
     {
       "name": "KEY_RING_DIRECTORY",
       "displayName": "Key Ring Directory",
-      "description": "Persistent storage directory for key ring, e.g., /key-ring, if left blank a value will be defaulted.",
+      "description": "Persistent storage directory for key ring. The default value is /key-ring.",
       "required": true,
       "value": "/key-ring"
     },
     {
       "name": "KEY_RING_STORAGE_NAME",
       "displayName": "Key Ring Directory Name",
-      "description": "Persistent storage directory name for key ring, e.g., key-ring, if left blank a value will be defaulted.",
+      "description": "Persistent storage directory name for key ring. The default value is key-ring.",
       "required": true,
       "value": "key-ring"
     }
