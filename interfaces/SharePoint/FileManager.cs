@@ -762,7 +762,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             HttpRequestMessage endpointRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "contextinfo");
             
             // make the request.
-            var response = await client.SendAsync(endpointRequest);
+             var response = await client.SendAsync(endpointRequest);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == HttpStatusCode.OK && jsonString.Length > 1)
