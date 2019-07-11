@@ -103,20 +103,6 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         /// <summary>
-        /// Import requests to Dynamics.
-        /// </summary>
-        /// <returns></returns>
-        private void ImportApplicationRequests(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
-        {
-            foreach (ApplicationScreeningRequest WorkerRequest in requests)
-            {
-
-                // add data to dynamics
-
-            }
-        }
-
-        /// <summary>
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
