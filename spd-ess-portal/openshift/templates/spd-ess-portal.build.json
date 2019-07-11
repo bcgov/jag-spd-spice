@@ -124,6 +124,25 @@
       "value": ""
     },
     {
+      "name": "DOTNET_STARTUP_PROJECT",
+      "displayName": "DotNet Startup Project",
+      "description": "The path to the startup project for the .Net application.",
+      "required": true,
+      "value": "spd-ess-portal/spd-ess-portal.csproj"
+    },
+	{
+      "name": "UAT_BUILD",
+      "displayName": "UAT Build",
+      "description": "1 if true",
+      "value": ""
+    },
+	{
+      "name": "PROD_BUILD",
+      "displayName": "Prod Build",
+      "description": "1 if true",
+      "value": ""
+    },
+    {
       "name": "SOURCE_IMAGE_KIND",
       "displayName": "Source Image Kind",
       "description": "The 'kind' (type) of the  source image; typically ImageStreamTag, or DockerImage.",
@@ -143,13 +162,6 @@
       "description": "The tag of the source image.",
       "required": true,
       "value": "latest"
-    },
-    {
-      "name": "DOTNET_STARTUP_PROJECT",
-      "displayName": "DotNet Startup Project",
-      "description": "The path to the startup project for the .Net application.",
-      "required": true,
-      "value": "spd-ess-portal/spd-ess-portal.csproj"
     },
     {
       "name": "OUTPUT_IMAGE_TAG",
@@ -185,18 +197,6 @@
       "description": "The resources Memory request (in Mi, Gi, etc) for this build.",
       "required": true,
       "value": "4Gi"
-    },
-	{
-      "name": "UAT_BUILD",
-      "displayName": "UAT Build",
-      "description": "1 if true",      
-      "value": ""
-    },
-	{
-      "name": "PROD_BUILD",
-      "displayName": "Prod Build",
-      "description": "1 if true",      
-      "value": ""
-    }     
+    }
   ]
 }

@@ -1,0 +1,20 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: spd-ess-portal
+# JSON Template File: templates/spd-ess-portal.build.json
+#=========================================================
+#NAME=spd-ess-portal
+#GIT_REPO_URL=https://github.com/bcgov/jag-spd-spice.git
+GIT_REF=master
+UAT_BUILD=
+PROD_BUILD=1
+OUTPUT_IMAGE_TAG=prod
+#SOURCE_CONTEXT_DIR=
+#DOTNET_STARTUP_PROJECT=spd-ess-portal/spd-ess-portal.csproj
+#SOURCE_IMAGE_KIND=DockerImage
+#SOURCE_IMAGE_NAME=registry.access.redhat.com/dotnet/dotnet-22-rhel7
+#SOURCE_IMAGE_TAG=latest
+#CPU_LIMIT=1
+#MEMORY_LIMIT=6Gi
+#CPU_REQUEST=1
+#MEMORY_REQUEST=4Gi
