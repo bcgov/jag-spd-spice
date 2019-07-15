@@ -132,7 +132,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                     contact.Firstname = workerRequest.Contact.FirstName;
                     contact.Lastname = workerRequest.Contact.LastName;
-                    contact.Birthdate = workerRequest.Contact.BirthDate;
+                    contact.SpiceDateofbirth = workerRequest.Contact.BirthDate;
                     contact.Emailaddress1 = workerRequest.Contact.Email;
                     if (workerRequest.Contact.Address != null)
                     {

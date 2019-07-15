@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Gov.Jag.Spice.CarlaSync.models;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
@@ -45,7 +46,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     SpiceName = applicationRequest.ApplicantAccount.Name,
                     //SpiceBusinesstypes = applicationRequest.ApplicantAccount.
-                    //SpiceAddress = NOT USED IN CARLA
                     SpiceStreet = applicationRequest.BusinessAddress.AddressStreet1,
                     SpiceCity = applicationRequest.BusinessAddress.City,
                     SpiceProvince = applicationRequest.BusinessAddress.StateProvince,
@@ -80,41 +80,36 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 string accountEntityUri = _dynamicsClient.GetEntityURI("accounts", account.Accountid);
 
+                string servicesFilter = "spice_name eq 'Cannabis Applicant (Business)'";
+                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
+
+                string clientFilter = "spice_name eq 'LCRB'";
+                var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+                string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
+
                 MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
                 {
                     SpiceCannabisapplicanttype = (int)CannabisApplicantType.Business,
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     Prioritycode = (int)PriorityCode.Normal,
-                    CustomerIdAccountOdataBind = accountEntityUri
+                    CustomerIdAccountOdataBind = accountEntityUri,
+                    ServiceIdOdataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    ClientOdataBind = clientEntityUri
                 });
 
                 foreach (var associate in applicationRequest.Associates)
                 {
-                    CreateAssociate(accountEntityUri, incident.Incidentid, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
                 }
 
             }
         }
 
-        public void CreateAssociate(string accountEntityUri, string screeningId, LegalEntity associateEntity)
+        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity)
         {
             if (associateEntity.IsIndividual)
             {
-                // TODO
-                // make unique
-                // spdjobid?
-                // Drivers licence expecting int
-                // gender and self disclosure enumes
-                // previous addresses
-                // aliases
-                // title
-                // positions
-                // tied house
-                // interest percentage
-                // appointment date
-                // number voting shares
-                // birthdate
-                MicrosoftDynamicsCRMcontact associate = _dynamicsClient.Contacts.Create(new MicrosoftDynamicsCRMcontact()
+                MicrosoftDynamicsCRMcontact associate = new MicrosoftDynamicsCRMcontact()
                 {
                     Firstname = associateEntity.Contact.FirstName,
                     Middlename = associateEntity.Contact.MiddleName,
@@ -123,33 +118,71 @@ namespace Gov.Jag.Spice.CarlaSync
                     Telephone1 = associateEntity.Contact.PhoneNumber,
                     //SpiceDriverslicensenumber = associateEntity.Contact.DriversLicenceNumber,
                     SpiceBcidcardnumber = associateEntity.Contact.BCIdCardNumber,
-                    //Birthdate = associateEntity.Contact.BirthDate,
+                    SpiceDateofbirth = associateEntity.Contact.BirthDate.Value.UtcDateTime,
                     SpiceBirthplace = associateEntity.Contact.Birthplace,
-                    //SpiceSelfdisclosed = associateEntity.Contact.SelfDisclosure,
-                    //Gendercode = associateEntity.Contact.Gender,
+                    SpiceSelfdisclosed = associateEntity.Contact.SelfDisclosure == GeneralYesNo.Yes,
                     Address1Line1 = associateEntity.Contact.Address.AddressStreet1,
                     Address1Line2 = associateEntity.Contact.Address.AddressStreet2,
                     Address1Line3 = associateEntity.Contact.Address.AddressStreet3,
                     Address1City = associateEntity.Contact.Address.City,
                     Address1Postalcode = associateEntity.Contact.Address.Postal,
                     Address1Stateorprovince = associateEntity.Contact.Address.StateProvince,
-                    Address1Country = associateEntity.Contact.Address.Country
-                });
+                    Address1Country = associateEntity.Contact.Address.Country,
+                    SpiceContactSpicePreviousaddresses = new List<MicrosoftDynamicsCRMspicePreviousaddresses>(),
+                    SpiceContactSpiceAliases = new List<MicrosoftDynamicsCRMspiceAliases>(),
+                    SpicePositiontitle = associateEntity.Title
+                };
+
+                if ((int)associateEntity.Contact.Gender != 0)
+                {
+                    associate.Gendercode = (int)associateEntity.Contact.Gender;
+                }
+
+                foreach (var address in associateEntity.PreviousAddresses)
+                {
+                    associate.SpiceContactSpicePreviousaddresses.Add(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                    {
+                        SpiceName = address.AddressStreet1,
+                        SpiceCity = address.City,
+                        SpiceStateprovince = address.StateProvince,
+                        SpiceZippostalcode = address.Postal,
+                        SpiceCountry = address.Country,
+                        SpiceStartdate = address.FromDate,
+                        SpiceEnddate = address.ToDate
+                    });
+                }
+
+                foreach (var alias in associateEntity.Aliases)
+                {
+                    associate.SpiceContactSpiceAliases.Add(new MicrosoftDynamicsCRMspiceAliases()
+                    {
+                        SpiceName = alias.GivenName,
+                        SpiceMiddlename = alias.SecondName,
+                        SpiceLastname = alias.Surname,
+                    });
+                }
+
+                associate = _dynamicsClient.Contacts.Create(associate);
 
                 MicrosoftDynamicsCRMspiceAccountcaseassignment accountContact = _dynamicsClient.Accountcaseassignments.Create(new MicrosoftDynamicsCRMspiceAccountcaseassignment()
                 {
                     SpiceName = associateEntity.Contact.FirstName,
                     SpiceBusinessIdODataBind = accountEntityUri,
-                    //SpiceBusinessIdODataBind = _dynamicsClient.GetEntityURI("accounts", account.Accountid),
-                    SpiceContactCaseAssignmentIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid)
+                    SpiceContactCaseAssignmentIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
+                    SpicePosition = GetLegalEntityPositions(associateEntity.Positions)
                 });
+
+                string servicesFilter = "spice_name eq 'Cannabis Associate'";
+                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
 
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
                 {
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     SpiceCannabisapplicanttype = (int)CannabisApplicantType.Associate,
                     CustomerIdContactOdataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
-                    ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId)
+                    ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
+                    ServiceIdOdataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    ClientOdataBind = clientEntityUri
                 };
 
                 MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
@@ -158,9 +191,54 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 foreach (var associate in associateEntity.Account.Associates)
                 {
-                    CreateAssociate(accountEntityUri, screeningId, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, screeningId, associate);
                 }
             }
+        }
+
+        public string GetLegalEntityPositions(List<string> positions)
+        {
+            List<int> positionValues = new List<int>();
+            foreach (var position in positions)
+            {
+                if (position == "director")
+                {
+                    positionValues.Add((int)Positions.Director);
+                }
+                if (position == "officer")
+                {
+                    positionValues.Add((int)Positions.Officer);
+                }
+                if (position == "senior manager")
+                {
+                    positionValues.Add((int)Positions.SeniorManager);
+                }
+                if (position == "key personnel")
+                {
+                    positionValues.Add((int)Positions.KeyPersonnel);
+                }
+                if (position == "shareholder")
+                {
+                    positionValues.Add((int)Positions.Shareholder);
+                }
+                if (position == "owner")
+                {
+                    positionValues.Add((int)Positions.Owner);
+                }
+                if (position == "trustee")
+                {
+                    positionValues.Add((int)Positions.Trustee);
+                }
+                if (position == "deemed associate")
+                {
+                    positionValues.Add((int)Positions.DeemedAssociate);
+                }
+                if (position == "partner")
+                {
+                    positionValues.Add((int)Positions.Partner);
+                }
+            }
+            return string.Join(", ", positionValues);
         }
     }
 }
