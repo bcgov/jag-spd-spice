@@ -104,20 +104,6 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         /// <summary>
-        /// Import requests to Dynamics.
-        /// </summary>
-        /// <returns></returns>
-        private void ImportApplicationRequests(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
-        {
-            foreach (ApplicationScreeningRequest WorkerRequest in requests)
-            {
-
-                // add data to dynamics
-
-            }
-        }
-
-        /// <summary>
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
@@ -146,7 +132,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                     contact.Firstname = workerRequest.Contact.FirstName;
                     contact.Lastname = workerRequest.Contact.LastName;
-                    contact.Birthdate = workerRequest.Contact.BirthDate;
+                    contact.SpiceDateofbirth = workerRequest.Contact.BirthDate;
                     contact.Emailaddress1 = workerRequest.Contact.Email;
                     if (workerRequest.Contact.Address != null)
                     {
