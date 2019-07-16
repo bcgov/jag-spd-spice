@@ -93,7 +93,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     Prioritycode = (int)PriorityCode.Normal,
                     CustomerIdAccountOdataBind = accountEntityUri,
-                    ServiceIdOdataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                     ClientOdataBind = clientEntityUri
                 });
 
@@ -179,9 +179,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     SpiceCannabisapplicanttype = (int)CannabisApplicantType.Associate,
-                    CustomerIdContactOdataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
+                    CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
-                    ServiceIdOdataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                     ClientOdataBind = clientEntityUri
                 };
 
