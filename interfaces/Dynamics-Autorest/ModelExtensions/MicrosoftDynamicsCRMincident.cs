@@ -11,6 +11,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         public string CustomerIdContactOdataBind { get; set; }
         [JsonProperty(PropertyName = "parentcaseid@odata.bind")]
         public string ParentCaseIdOdataBind { get; set; }
+
         [JsonProperty(PropertyName = "spice_ServiceId@odata.bind")]
         public string ServiceIdOdataBind { get; set; }
         [JsonProperty(PropertyName = "spice_Client@odata.bind")]
