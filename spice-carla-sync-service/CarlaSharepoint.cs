@@ -97,10 +97,13 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <summary>
         /// Import requests to LCRB SharePoint
         /// </summary>
-        /// <returns></returns>
-        public async Task<bool> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        /// <returns>success, business file path, associates file path</returns>
+        public async Task<(bool, string, string)> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            bool resp = false;
+            string associatesFilepath = "";
+            string businessFilepath = "";
             foreach (var request in requests)
             {
                 List<CsvAssociateExport> associateExports = CsvAssociateExport.CreateListFromRequest(request);
@@ -127,13 +130,13 @@ namespace Gov.Lclb.Cllb.Interfaces
                     {
                         hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
-                        await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
                         _logger.LogError("Error uploading business associates CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
-                        return false;
+                        return (false, "", "");
                     }
                 }
 
@@ -155,17 +158,17 @@ namespace Gov.Lclb.Cllb.Interfaces
                     {
                         hangfireContext.WriteLine("Uploading business application CSV.");
                         _logger.LogInformation("Uploading business application CSV.");
-                        var upload = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                        (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
                         _logger.LogError("Error uploading business application CSV to sharepoint");
                         _logger.LogError("Error: " + ex.Message);
-                        return false;
+                        return (false, "", "");
                     }
                 }
             }
-            return true;
+            return (resp, businessFilepath, associatesFilepath);
         }
 
         /// <summary>
@@ -174,7 +177,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <returns>The worker requests to share point.</returns>
         /// <param name="hangfireContext">Hangfire context.</param>
         /// <param name="requests">Requests.</param>
-        public async Task<bool> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        public async Task<(bool, string)> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             List<CsvWorkerExport> workersExports = new List<CsvWorkerExport>();
@@ -207,7 +210,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 {
                     _logger.LogError("Error uploading workers CSV to sharepoint");
                     _logger.LogError("Error: " + ex.Message);
-                    return false;
+                    return (false, "");
                 }
             }
         }

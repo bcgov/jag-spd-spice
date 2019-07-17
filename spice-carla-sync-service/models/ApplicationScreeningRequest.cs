@@ -10,6 +10,7 @@ namespace SpdSync.models
     {
         [JsonConverter(typeof(StringEnumConverter))]
         public SpiceApplicantType ApplicantType { get; set; }
+        public string ApplicationType { get; set; }
         public bool UrgentPriority { get; set; }
         public string Name { get; set; }
         public string RecordIdentifier { get; set; }

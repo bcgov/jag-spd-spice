@@ -28,8 +28,5 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         [JsonProperty(PropertyName = "parentcaseid@odata.bind")]
         public string ParentCaseIdOdataBind { get; set; }
-
-        [JsonProperty(PropertyName = "spice_Client@odata.bind")]
-        public string ClientOdataBind { get; set; }
     }
 }
