@@ -76,9 +76,17 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger.LogError("Starting SPICE Import Job.");
 
             var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
-            if (sent)
+            foreach (var request in requests)
             {
-                SendSPDEmail(new List<Attachment>(), "New worker screening request CSV", "There is a new CSV file in the Worker Request folder of the LCRB Sharepoint.");
+                if (sent)
+                {
+                    string fullFilepath = Configuration["SHAREPOINT_NATIVE_BASE_URI"] + filepath;
+                    SendSPDEmail(
+                        new List<Attachment>(),
+                        $"New Worker Security Screening requested for {request.Contact.SpdJobId}",
+                        "<p>LCRB has sent a request for a worker screening for " + request.Contact.SpdJobId + ".<p>" +
+                        "<p>A CSV file has been placed in Sharepoint <a href='" + fullFilepath + "'>here</a></p>");
+                }
             }
 
             hangfireContext.WriteLine("Done.");
