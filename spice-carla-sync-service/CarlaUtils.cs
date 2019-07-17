@@ -75,10 +75,18 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var sent = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
-            if (sent)
+            var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            foreach (var request in requests)
             {
-                SendSPDEmail(new List<Attachment>(), "New worker screening request CSV", "There is a new CSV file in the Worker Request folder of the LCRB Sharepoint.");
+                if (sent)
+                {
+                    string fullFilepath = Configuration["SHAREPOINT_NATIVE_BASE_URI"] + filepath;
+                    SendSPDEmail(
+                        new List<Attachment>(),
+                        $"New Worker Security Screening requested for {request.Contact.SpdJobId}",
+                        "<p>LCRB has sent a request for a worker screening for " + request.Contact.SpdJobId + ".<p>" +
+                        "<p>A CSV file has been placed in Sharepoint <a href='" + fullFilepath + "'>here</a></p>");
+                }
             }
 
             hangfireContext.WriteLine("Done.");
@@ -93,11 +101,23 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var sent = await _carlaSharepoint.SendApplicationRequestsToSharePoint(hangfireContext, requests);
-            if (sent)
+            var (sent, businessFilepath, associatesFilepath) = await _carlaSharepoint.SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            foreach (var request in requests)
             {
-                SendSPDEmail(new List<Attachment>(), "New application screening request CSV", "There are new CSV files in the Business and Associate Request folders of the LCRB Sharepoint.");
+                if (sent)
+                {
+                    string fullBusinessFilepath = Configuration["SHAREPOINT_NATIVE_BASE_URI"] + businessFilepath;
+                    string fullAssociatesFilepath = Configuration["SHAREPOINT_NATIVE_BASE_URI"] + associatesFilepath;
+                    SendSPDEmail(
+                        new List<Attachment>(),
+                        $"New {request.ApplicantType} Security Screening requested for {request.RecordIdentifier}",
+                        "<p>LCRB has sent a request for an " + request.ApplicantType + " security screening for Application " + request.RecordIdentifier + ".</p>" +
+                        "<p>CSV files have been placed in SharePoint for:</p><ul>" + 
+                        "<li>Business: <a href='" + fullBusinessFilepath + "'>here</a></li>" +
+                        "<li>Associates: <a href='" + fullAssociatesFilepath + "'>here</a></li></ul>");
+                }
             }
+
 
             hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
@@ -338,8 +358,8 @@ namespace Gov.Jag.Spice.CarlaSync
             using (var message = new MailMessage("no-reply@gov.bc.ca", email))
             {
                 message.Subject = subject;
-                message.Body = body;
                 message.IsBodyHtml = true;
+                message.Body = body;
 
                 foreach (var attachment in attachments)
                 {
