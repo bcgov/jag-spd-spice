@@ -135,7 +135,13 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 // authenticate using the SSG.                
                 string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(sharePointSsgUsername + ":" + sharePointSsgPassword));
                 Authorization = "Basic " + credentials;
-            }            
+            }
+
+            // Authorization header is used for Cloud or Basic API Gateway access
+            if (!string.IsNullOrEmpty(Authorization))
+            {
+                _Client.DefaultRequestHeaders.Add("Authorization", Authorization);
+            }
 
             // Add a Digest header.  Needed for certain API operations
             Digest = GetDigest(_Client).GetAwaiter().GetResult();
@@ -147,13 +153,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             // Standard headers for API access
             _Client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
             _Client.DefaultRequestHeaders.Add("OData-Version", "4.0");
-
-            // Authorization header is used for Cloud or Basic API Gateway access
-            if (! string.IsNullOrEmpty (Authorization))
-            {
-                _Client.DefaultRequestHeaders.Add("Authorization", Authorization);
-                
-            }
             
             
         }
@@ -670,11 +669,11 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
         /// <param name="fileData"></param>
         /// <param name="contentType"></param>
         /// <returns></returns>
-        public async Task<bool> UploadFile(string name, string listTitle, string folderName, Stream fileData, string contentType)
+        public async Task<(bool, string)> UploadFile(string name, string listTitle, string folderName, Stream fileData, string contentType)
         {
             if (!IsValid())
             {
-                return false;
+                return (false, "");
             }
             bool result = false;
             
@@ -721,7 +720,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 }
                 throw ex;
             }
-            return result;
+            return (result, serverRelativeUrl + "/" + name);
         }
 
         /// <summary>

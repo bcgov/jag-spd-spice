@@ -94,7 +94,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     Prioritycode = (int)PriorityCode.Normal,
                     CustomerIdAccountOdataBind = accountEntityUri,
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
-                    ClientOdataBind = clientEntityUri
+                    SpiceClientIdODataBind = clientEntityUri
                 });
 
                 foreach (var associate in applicationRequest.Associates)
@@ -182,7 +182,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
-                    ClientOdataBind = clientEntityUri
+                    SpiceClientIdODataBind = clientEntityUri
                 };
 
                 MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
