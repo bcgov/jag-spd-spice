@@ -46,8 +46,12 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         {
             // Process the updates received from the SPICE system.
             BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveApplicationImportJob(null, requests));
-            DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _dynamicsClient);
-            dynamicsUtils.ImportApplicationRequests(requests);
+            if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            {
+                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _dynamicsClient);
+                dynamicsUtils.ImportApplicationRequests(requests);
+            }
+
             _logger.LogInformation("Started receive Application Screenings import job");
             return Ok();
         }
