@@ -27,13 +27,13 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private FileManager _sharepoint;
         private IDynamicsClient _dynamicsClient;
 
-        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint, IDynamicsClient dynamicsClient)
+        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint, IServiceProvider serviceProvider)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;
             _logger = loggerFactory.CreateLogger(typeof(ApplicationScreeningsController));
             _sharepoint = sharepoint;
-            _dynamicsClient = dynamicsClient;
+            _dynamicsClient = (IDynamicsClient)serviceProvider.GetService(typeof(IDynamicsClient));
         }
 
         /// <summary>
