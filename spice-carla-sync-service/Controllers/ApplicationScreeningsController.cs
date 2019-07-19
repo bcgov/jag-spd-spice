@@ -48,7 +48,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveApplicationImportJob(null, requests));
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
-                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _dynamicsClient);
+                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
                 dynamicsUtils.ImportApplicationRequests(requests);
             }
 
