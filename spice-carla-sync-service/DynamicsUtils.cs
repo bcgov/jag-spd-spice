@@ -31,16 +31,6 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             foreach (ApplicationScreeningRequest applicationRequest in requests)
             {
-                /* Create 
-                 * - company
-                 *  - account (includes contact person)
-                 *   - account screening
-                 *   - associates
-                 *    - associate screening                
-                 * 
-                 */                
-
-
                 // TODO Look up if company exists already
                 MicrosoftDynamicsCRMspiceCompany company = _dynamicsClient.Companies.Create(new MicrosoftDynamicsCRMspiceCompany()
                 {
@@ -102,6 +92,80 @@ namespace Gov.Jag.Spice.CarlaSync
                     CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
                 }
 
+            }
+        }
+
+        internal void ImportWorkerRequests(List<WorkerScreeningRequest> requests)
+        {
+            foreach(WorkerScreeningRequest workerRequest in requests)
+            {
+                MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+                {
+                    Firstname = workerRequest.Contact.FirstName,
+                    Middlename = workerRequest.Contact.MiddleName,
+                    Lastname = workerRequest.Contact.LastName,
+                    Emailaddress1 = workerRequest.Contact.Email,
+                    Telephone1 = workerRequest.Contact.PhoneNumber,
+                    SpiceDateofbirth = workerRequest.BirthDate,
+                    SpiceBirthplace = workerRequest.Birthplace,
+                    SpiceSelfdisclosed = workerRequest.SelfDisclosure == GeneralYesNo.Yes,
+                    Address1Line1 = workerRequest.Contact.Address.AddressStreet1,
+                    Address1Line2 = workerRequest.Contact.Address.AddressStreet2,
+                    Address1Line3 = workerRequest.Contact.Address.AddressStreet3,
+                    Address1City = workerRequest.Contact.Address.City,
+                    Address1Postalcode = workerRequest.Contact.Address.Postal,
+                    Address1Stateorprovince = workerRequest.Contact.Address.StateProvince,
+                    Address1Country = workerRequest.Contact.Address.Country,
+                    SpiceContactSpicePreviousaddresses = new List<MicrosoftDynamicsCRMspicePreviousaddresses>(),
+                    SpiceContactSpiceAliases = new List<MicrosoftDynamicsCRMspiceAliases>(),
+                };
+                if ((int)workerRequest.Gender != 0)
+                {
+                    contact.Gendercode = (int)workerRequest.Gender;
+                }
+
+                foreach (var address in workerRequest.PreviousAddresses)
+                {
+                    contact.SpiceContactSpicePreviousaddresses.Add(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                    {
+                        SpiceName = address.AddressStreet1,
+                        SpiceCity = address.City,
+                        SpiceStateprovince = address.StateProvince,
+                        SpiceZippostalcode = address.Postal,
+                        SpiceCountry = address.Country,
+                        SpiceStartdate = address.FromDate,
+                        SpiceEnddate = address.ToDate
+                    });
+                }
+
+                foreach (var alias in workerRequest.Aliases)
+                {
+                    contact.SpiceContactSpiceAliases.Add(new MicrosoftDynamicsCRMspiceAliases()
+                    {
+                        SpiceName = alias.GivenName,
+                        SpiceMiddlename = alias.SecondName,
+                        SpiceLastname = alias.Surname,
+                    });
+                }
+
+                contact = _dynamicsClient.Contacts.Create(contact);
+
+                string servicesFilter = "spice_name eq 'Cannabis Worker'";
+                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
+
+                string clientFilter = "spice_name eq 'LCRB'";
+                var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+                string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
+
+                MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
+                {
+                    SpiceCannabisapplicanttype = (int)CannabisApplicantType.Worker,
+                    SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
+                    Prioritycode = (int)PriorityCode.Normal,
+                    SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    SpiceClientIdODataBind = clientEntityUri,
+                    CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", contact.Contactid)
+                });
             }
         }
 
