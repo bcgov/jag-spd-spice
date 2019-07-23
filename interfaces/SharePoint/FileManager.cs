@@ -232,8 +232,14 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             }
 
             string _responseContent = null;
-            HttpRequestMessage _httpRequest =
-                            new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/files");
+            HttpRequestMessage _httpRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(ApiEndpoint + "web/getFolderByServerRelativeUrl('" + EscapeApostrophe(serverRelativeUrl) + "')/files"),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };
             // make the request.
             var _httpResponse = await _Client.SendAsync(_httpRequest);
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
@@ -269,7 +275,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 throw jre;
             }
             // get JSON response objects into a list
-            List<JToken> responseResults = responseObject["d"]["results"].Children().ToList();
+            List<JToken> responseResults = responseObject["value"].Children().ToList();
             // create file details list to add from response
             List<FileDetailsList> fileDetailsList = new List<FileDetailsList>();
             // create .NET objects
