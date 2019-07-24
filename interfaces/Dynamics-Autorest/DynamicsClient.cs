@@ -17,7 +17,7 @@ namespace Gov.Jag.Spice.Interfaces
 
     /// <summary>
     /// This OData service is located at
-    /// https://wsgw.dev.jag.gov.bc.ca/clb/crmdev/api/data/v8.2/
+    /// https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/
     /// </summary>
     public partial class DynamicsClient : ServiceClient<DynamicsClient>, IDynamicsClient
     {
@@ -110,6 +110,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IGovministries.
         /// </summary>
         public virtual IGovministries Govministries { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypes.
+        /// </summary>
+        public virtual ILcrblicencetypes Lcrblicencetypes { get; private set; }
 
         /// <summary>
         /// Gets the IMinistries.
@@ -406,6 +411,7 @@ namespace Gov.Jag.Spice.Interfaces
             Exportrequestincidentset = new Exportrequestincidentset(this);
             Exportrequests = new Exportrequests(this);
             Govministries = new Govministries(this);
+            Lcrblicencetypes = new Lcrblicencetypes(this);
             Ministries = new Ministries(this);
             Ministryemployees = new Ministryemployees(this);
             Previousaddresseses = new Previousaddresseses(this);
@@ -414,7 +420,7 @@ namespace Gov.Jag.Spice.Interfaces
             Serviceses = new Serviceses(this);
             Businesscaseprocesses = new Businesscaseprocesses(this);
             Processes = new Processes(this);
-            BaseUri = new System.Uri("https://wsgw.dev.jag.gov.bc.ca/clb/crmdev/api/data/v8.2");
+            BaseUri = new System.Uri("https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

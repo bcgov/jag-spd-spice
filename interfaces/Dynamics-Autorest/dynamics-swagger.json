@@ -2,11 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "OData Service for namespace Microsoft.Dynamics.CRM",
-    "description": "This OData service is located at https://wsgw.dev.jag.gov.bc.ca/clb/crmdev/api/data/v8.2/",
+    "description": "This OData service is located at https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/",
     "version": "1.0.1"
   },
-  "host": "wsgw.dev.jag.gov.bc.ca",
-  "basePath": "/clb/crmdev/api/data/v8.2/",
+  "host": "spd-spice.dev.jag.gov.bc.ca",
+  "basePath": "/api/data/v9.0/",
   "schemes": [
     "https"
   ],
@@ -164,6 +164,8 @@
                 "businesstypecode desc",
                 "address2_line3",
                 "address2_line3 desc",
+                "spice_carla_account",
+                "spice_carla_account desc",
                 "address2_utcoffset",
                 "address2_utcoffset desc",
                 "donotphone",
@@ -441,6 +443,7 @@
                 "fax",
                 "businesstypecode",
                 "address2_line3",
+                "spice_carla_account",
                 "address2_utcoffset",
                 "donotphone",
                 "exchangerate",
@@ -778,6 +781,7 @@
                 "fax",
                 "businesstypecode",
                 "address2_line3",
+                "spice_carla_account",
                 "address2_utcoffset",
                 "donotphone",
                 "exchangerate",
@@ -1243,8 +1247,8 @@
                 "address2_addresstypecode desc",
                 "address1_composite",
                 "address1_composite desc",
-                "telephone2",
-                "telephone2 desc",
+                "spice_portalcontactidentifier",
+                "spice_portalcontactidentifier desc",
                 "yomimiddlename",
                 "yomimiddlename desc",
                 "_modifiedonbehalfby_value",
@@ -1415,6 +1419,8 @@
                 "donotphone desc",
                 "address3_upszone",
                 "address3_upszone desc",
+                "telephone2",
+                "telephone2 desc",
                 "contactid",
                 "contactid desc",
                 "aging30",
@@ -1505,6 +1511,8 @@
                 "_defaultpricelevelid_value desc",
                 "_slaid_value",
                 "_slaid_value desc",
+                "spice_driverslicencenum",
+                "spice_driverslicencenum desc",
                 "address1_postalcode",
                 "address1_postalcode desc",
                 "address3_line3",
@@ -1593,7 +1601,7 @@
                 "address2_freighttermscode",
                 "address2_addresstypecode",
                 "address1_composite",
-                "telephone2",
+                "spice_portalcontactidentifier",
                 "yomimiddlename",
                 "_modifiedonbehalfby_value",
                 "jobtitle",
@@ -1679,6 +1687,7 @@
                 "address2_telephone3",
                 "donotphone",
                 "address3_upszone",
+                "telephone2",
                 "contactid",
                 "aging30",
                 "address2_upszone",
@@ -1724,6 +1733,7 @@
                 "spice_positiontitle",
                 "_defaultpricelevelid_value",
                 "_slaid_value",
+                "spice_driverslicencenum",
                 "address1_postalcode",
                 "address3_line3",
                 "overriddencreatedon",
@@ -1978,7 +1988,7 @@
                 "address2_freighttermscode",
                 "address2_addresstypecode",
                 "address1_composite",
-                "telephone2",
+                "spice_portalcontactidentifier",
                 "yomimiddlename",
                 "_modifiedonbehalfby_value",
                 "jobtitle",
@@ -2064,6 +2074,7 @@
                 "address2_telephone3",
                 "donotphone",
                 "address3_upszone",
+                "telephone2",
                 "contactid",
                 "aging30",
                 "address2_upszone",
@@ -2109,6 +2120,7 @@
                 "spice_positiontitle",
                 "_defaultpricelevelid_value",
                 "_slaid_value",
+                "spice_driverslicencenum",
                 "address1_postalcode",
                 "address3_line3",
                 "overriddencreatedon",
@@ -2380,6 +2392,8 @@
                 "spice_finalresult desc",
                 "spice_prime_checkrequired",
                 "spice_prime_checkrequired desc",
+                "contractservicelevelcode",
+                "contractservicelevelcode desc",
                 "_slaid_value",
                 "_slaid_value desc",
                 "_spice_reasonforscreeningid_value",
@@ -2392,6 +2406,8 @@
                 "spice_aliasesfound desc",
                 "spice_ssqrequired",
                 "spice_ssqrequired desc",
+                "spice_otherscreeningreason",
+                "spice_otherscreeningreason desc",
                 "spice_cpicresults",
                 "spice_cpicresults desc",
                 "spice_cpicresultstosharewithspd",
@@ -2480,12 +2496,10 @@
                 "spice_primeresultstosharewithspd desc",
                 "_slainvokedid_value",
                 "_slainvokedid_value desc",
-                "contractservicelevelcode",
-                "contractservicelevelcode desc",
+                "spice_workersreadyforlcrb",
+                "spice_workersreadyforlcrb desc",
                 "spice_readyforcrru",
                 "spice_readyforcrru desc",
-                "spice_cpicchecked",
-                "spice_cpicchecked desc",
                 "_spice_applyingpersonid_value",
                 "_spice_applyingpersonid_value desc",
                 "spice_additionalprimeinformationprovided",
@@ -2624,6 +2638,8 @@
                 "servicestage desc",
                 "spice_consentrequired",
                 "spice_consentrequired desc",
+                "spice_businessreadyforlcrb",
+                "spice_businessreadyforlcrb desc",
                 "_firstresponsebykpiid_value",
                 "_firstresponsebykpiid_value desc",
                 "_kbarticleid_value",
@@ -2662,6 +2678,8 @@
                 "spice_notfitandproperresultsent desc",
                 "spice_cornet_reportuploaded",
                 "spice_cornet_reportuploaded desc",
+                "_spice_lcrblicencetypeid_value",
+                "_spice_lcrblicencetypeid_value desc",
                 "spice_cpuresultsreceived",
                 "spice_cpuresultsreceived desc",
                 "spice_30daylettersenddate",
@@ -2676,8 +2694,6 @@
                 "spice_ess_dfo_resultsrecd desc",
                 "onholdtime",
                 "onholdtime desc",
-                "spice_otherscreeningreason",
-                "spice_otherscreeningreason desc",
                 "modifiedon",
                 "modifiedon desc",
                 "spice_prime_info_provided",
@@ -2730,8 +2746,6 @@
                 "spice_allrequiredcheckscomplete desc",
                 "_primarycontactid_value",
                 "_primarycontactid_value desc",
-                "spice_reasonforscreening",
-                "spice_reasonforscreening desc",
                 "spice_ess_emp_verifcompleted",
                 "spice_ess_emp_verifcompleted desc",
                 "spice_cpic_furtherinvest",
@@ -2845,12 +2859,14 @@
                 "timezoneruleversionnumber",
                 "spice_finalresult",
                 "spice_prime_checkrequired",
+                "contractservicelevelcode",
                 "_slaid_value",
                 "_spice_reasonforscreeningid_value",
                 "spice_consent_dt_sent",
                 "spice_otrletterreceived",
                 "spice_aliasesfound",
                 "spice_ssqrequired",
+                "spice_otherscreeningreason",
                 "spice_cpicresults",
                 "spice_cpicresultstosharewithspd",
                 "spice_ess_dfo_results",
@@ -2895,9 +2911,8 @@
                 "spice_justin_reportuploaded",
                 "spice_primeresultstosharewithspd",
                 "_slainvokedid_value",
-                "contractservicelevelcode",
+                "spice_workersreadyforlcrb",
                 "spice_readyforcrru",
-                "spice_cpicchecked",
                 "_spice_applyingpersonid_value",
                 "spice_additionalprimeinformationprovided",
                 "spice_consentform_sent",
@@ -2967,6 +2982,7 @@
                 "overriddencreatedon",
                 "servicestage",
                 "spice_consentrequired",
+                "spice_businessreadyforlcrb",
                 "_firstresponsebykpiid_value",
                 "_kbarticleid_value",
                 "spice_ess_charc_intervconf",
@@ -2986,6 +3002,7 @@
                 "spice_furtherinvestigationresults",
                 "spice_notfitandproperresultsent",
                 "spice_cornet_reportuploaded",
+                "_spice_lcrblicencetypeid_value",
                 "spice_cpuresultsreceived",
                 "spice_30daylettersenddate",
                 "spice_bs_fitandproper",
@@ -2993,7 +3010,6 @@
                 "spice_sentforadditionalprime",
                 "spice_ess_dfo_resultsrecd",
                 "onholdtime",
-                "spice_otherscreeningreason",
                 "modifiedon",
                 "spice_prime_info_provided",
                 "followupby",
@@ -3020,7 +3036,6 @@
                 "entityimage_url",
                 "spice_allrequiredcheckscomplete",
                 "_primarycontactid_value",
-                "spice_reasonforscreening",
                 "spice_ess_emp_verifcompleted",
                 "spice_cpic_furtherinvest",
                 "spice_cornetchecked",
@@ -3152,7 +3167,8 @@
                 "spice_RequesterHiringManager",
                 "spice_ReturnResultto",
                 "spice_ServiceId",
-                "spice_ReasonforScreeningId"
+                "spice_ReasonforScreeningId",
+                "spice_LCRBLicenceTypeId"
               ]
             }
           }
@@ -3251,12 +3267,14 @@
                 "timezoneruleversionnumber",
                 "spice_finalresult",
                 "spice_prime_checkrequired",
+                "contractservicelevelcode",
                 "_slaid_value",
                 "_spice_reasonforscreeningid_value",
                 "spice_consent_dt_sent",
                 "spice_otrletterreceived",
                 "spice_aliasesfound",
                 "spice_ssqrequired",
+                "spice_otherscreeningreason",
                 "spice_cpicresults",
                 "spice_cpicresultstosharewithspd",
                 "spice_ess_dfo_results",
@@ -3301,9 +3319,8 @@
                 "spice_justin_reportuploaded",
                 "spice_primeresultstosharewithspd",
                 "_slainvokedid_value",
-                "contractservicelevelcode",
+                "spice_workersreadyforlcrb",
                 "spice_readyforcrru",
-                "spice_cpicchecked",
                 "_spice_applyingpersonid_value",
                 "spice_additionalprimeinformationprovided",
                 "spice_consentform_sent",
@@ -3373,6 +3390,7 @@
                 "overriddencreatedon",
                 "servicestage",
                 "spice_consentrequired",
+                "spice_businessreadyforlcrb",
                 "_firstresponsebykpiid_value",
                 "_kbarticleid_value",
                 "spice_ess_charc_intervconf",
@@ -3392,6 +3410,7 @@
                 "spice_furtherinvestigationresults",
                 "spice_notfitandproperresultsent",
                 "spice_cornet_reportuploaded",
+                "_spice_lcrblicencetypeid_value",
                 "spice_cpuresultsreceived",
                 "spice_30daylettersenddate",
                 "spice_bs_fitandproper",
@@ -3399,7 +3418,6 @@
                 "spice_sentforadditionalprime",
                 "spice_ess_dfo_resultsrecd",
                 "onholdtime",
-                "spice_otherscreeningreason",
                 "modifiedon",
                 "spice_prime_info_provided",
                 "followupby",
@@ -3426,7 +3444,6 @@
                 "entityimage_url",
                 "spice_allrequiredcheckscomplete",
                 "_primarycontactid_value",
-                "spice_reasonforscreening",
                 "spice_ess_emp_verifcompleted",
                 "spice_cpic_furtherinvest",
                 "spice_cornetchecked",
@@ -3558,7 +3575,8 @@
                 "spice_RequesterHiringManager",
                 "spice_ReturnResultto",
                 "spice_ServiceId",
-                "spice_ReasonforScreeningId"
+                "spice_ReasonforScreeningId",
+                "spice_LCRBLicenceTypeId"
               ]
             }
           }
@@ -7905,6 +7923,353 @@
         }
       }
     },
+    "/spice_lcrblicencetypes": {
+      "get": {
+        "tags": [
+          "lcrblicencetypes"
+        ],
+        "summary": "Get entities from spice_lcrblicencetypes",
+        "operationId": "Lcrblicencetypes_Get",
+        "parameters": [
+          {
+            "name": "$top",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "type": "boolean"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "_createdby_value",
+                "_createdby_value desc",
+                "_createdonbehalfby_value",
+                "_createdonbehalfby_value desc",
+                "createdon",
+                "createdon desc",
+                "_owninguser_value",
+                "_owninguser_value desc",
+                "_ownerid_value",
+                "_ownerid_value desc",
+                "utcconversiontimezonecode",
+                "utcconversiontimezonecode desc",
+                "_modifiedby_value",
+                "_modifiedby_value desc",
+                "spice_name",
+                "spice_name desc",
+                "_owningteam_value",
+                "_owningteam_value desc",
+                "_modifiedonbehalfby_value",
+                "_modifiedonbehalfby_value desc",
+                "statuscode",
+                "statuscode desc",
+                "statecode",
+                "statecode desc",
+                "overriddencreatedon",
+                "overriddencreatedon desc",
+                "timezoneruleversionnumber",
+                "timezoneruleversionnumber desc",
+                "modifiedon",
+                "modifiedon desc",
+                "versionnumber",
+                "versionnumber desc",
+                "_owningbusinessunit_value",
+                "_owningbusinessunit_value desc",
+                "importsequencenumber",
+                "importsequencenumber desc",
+                "spice_lcrblicencetypeid",
+                "spice_lcrblicencetypeid desc"
+              ]
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "_createdby_value",
+                "_createdonbehalfby_value",
+                "createdon",
+                "_owninguser_value",
+                "_ownerid_value",
+                "utcconversiontimezonecode",
+                "_modifiedby_value",
+                "spice_name",
+                "_owningteam_value",
+                "_modifiedonbehalfby_value",
+                "statuscode",
+                "statecode",
+                "overriddencreatedon",
+                "timezoneruleversionnumber",
+                "modifiedon",
+                "versionnumber",
+                "_owningbusinessunit_value",
+                "importsequencenumber",
+                "spice_lcrblicencetypeid"
+              ]
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "*",
+                "createdby",
+                "createdonbehalfby",
+                "modifiedby",
+                "modifiedonbehalfby",
+                "owninguser",
+                "owningteam",
+                "ownerid",
+                "owningbusinessunit",
+                "spice_lcrblicencetype_SyncErrors",
+                "spice_lcrblicencetype_DuplicateMatchingRecord",
+                "spice_lcrblicencetype_DuplicateBaseRecord",
+                "spice_lcrblicencetype_AsyncOperations",
+                "spice_lcrblicencetype_MailboxTrackingFolders",
+                "spice_lcrblicencetype_ProcessSession",
+                "spice_lcrblicencetype_BulkDeleteFailures",
+                "spice_lcrblicencetype_PrincipalObjectAttributeAccesses",
+                "spice_lcrblicencetype_incident"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "schema": {
+              "$ref": "#/definitions/Lcrblicencetypes_GetResponseModel"
+            }
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/odata.error" },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "lcrblicencetypes"
+        ],
+        "summary": "Add new entity to spice_lcrblicencetypes",
+        "operationId": "Lcrblicencetypes_Create",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+            },
+            "description": "New entity"
+          },
+          {
+            "name": "Prefer",
+            "in": "header",
+            "description": "Required in order for the service to return a JSON representation of the object.",
+            "type": "string",
+            "default": "return=representation"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "schema": {
+              "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+            }
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/odata.error" },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/spice_lcrblicencetypes({spice_lcrblicencetypeid})": {
+      "get": {
+        "tags": [
+          "lcrblicencetypes"
+        ],
+        "summary": "Get entity from spice_lcrblicencetypes by key",
+        "operationId": "Lcrblicencetypes_GetByKey",
+        "parameters": [
+          {
+            "name": "spice_lcrblicencetypeid",
+            "in": "path",
+            "required": true,
+            "description": "key: spice_lcrblicencetypeid",
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "_createdby_value",
+                "_createdonbehalfby_value",
+                "createdon",
+                "_owninguser_value",
+                "_ownerid_value",
+                "utcconversiontimezonecode",
+                "_modifiedby_value",
+                "spice_name",
+                "_owningteam_value",
+                "_modifiedonbehalfby_value",
+                "statuscode",
+                "statecode",
+                "overriddencreatedon",
+                "timezoneruleversionnumber",
+                "modifiedon",
+                "versionnumber",
+                "_owningbusinessunit_value",
+                "importsequencenumber",
+                "spice_lcrblicencetypeid"
+              ]
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "*",
+                "createdby",
+                "createdonbehalfby",
+                "modifiedby",
+                "modifiedonbehalfby",
+                "owninguser",
+                "owningteam",
+                "ownerid",
+                "owningbusinessunit",
+                "spice_lcrblicencetype_SyncErrors",
+                "spice_lcrblicencetype_DuplicateMatchingRecord",
+                "spice_lcrblicencetype_DuplicateBaseRecord",
+                "spice_lcrblicencetype_AsyncOperations",
+                "spice_lcrblicencetype_MailboxTrackingFolders",
+                "spice_lcrblicencetype_ProcessSession",
+                "spice_lcrblicencetype_BulkDeleteFailures",
+                "spice_lcrblicencetype_PrincipalObjectAttributeAccesses",
+                "spice_lcrblicencetype_incident"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "schema": {
+              "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+            }
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/odata.error" },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "lcrblicencetypes"
+        ],
+        "summary": "Delete entity from spice_lcrblicencetypes",
+        "operationId": "Lcrblicencetypes_Delete",
+        "parameters": [
+          {
+            "name": "spice_lcrblicencetypeid",
+            "in": "path",
+            "required": true,
+            "description": "key: spice_lcrblicencetypeid",
+            "type": "string"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "ETag",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/odata.error" },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "lcrblicencetypes"
+        ],
+        "summary": "Update entity in spice_lcrblicencetypes",
+        "operationId": "Lcrblicencetypes_Update",
+        "parameters": [
+          {
+            "name": "spice_lcrblicencetypeid",
+            "in": "path",
+            "required": true,
+            "description": "key: spice_lcrblicencetypeid",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+            },
+            "description": "New property values"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/odata.error" },
+            "description": ""
+          }
+        }
+      }
+    },
     "/spice_ministries": {
       "get": {
         "tags": [
@@ -11513,6 +11878,10 @@
           "x-nullable": true
         },
         "address2_line3": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_carla_account": {
           "type": "string",
           "x-nullable": true
         },
@@ -15470,6 +15839,9 @@
         "regardingobjectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
         },
+        "regardingobjectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+        },
         "regardingobjectid_report": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.report"
         },
@@ -18035,6 +18407,9 @@
         "regardingobjectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
         },
+        "regardingobjectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+        },
         "regardingobjectid_customeraddress": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.customeraddress"
         },
@@ -19454,6 +19829,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+          }
+        },
+        "business_unit_spice_lcrblicencetype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
           }
         },
         "BusinessUnit_SyncErrors": {
@@ -24022,7 +24403,7 @@
           "type": "string",
           "x-nullable": true
         },
-        "telephone2": {
+        "spice_portalcontactidentifier": {
           "type": "string",
           "x-nullable": true
         },
@@ -24360,6 +24741,10 @@
           "type": "string",
           "x-nullable": true
         },
+        "telephone2": {
+          "type": "string",
+          "x-nullable": true
+        },
         "contactid": {
           "type": "string",
           "x-nullable": true
@@ -24534,6 +24919,10 @@
           "x-nullable": true
         },
         "_slaid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_driverslicencenum": {
           "type": "string",
           "x-nullable": true
         },
@@ -27435,6 +27824,12 @@
         },
         "baserecordid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+        },
+        "duplicaterecordid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+        },
+        "baserecordid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
         },
         "baserecordid_goalrollupquery": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.goalrollupquery"
@@ -33904,6 +34299,10 @@
           "type": "boolean",
           "x-nullable": true
         },
+        "contractservicelevelcode": {
+          "type": "integer",
+          "x-nullable": true
+        },
         "_slaid_value": {
           "type": "string",
           "x-nullable": true
@@ -33926,6 +34325,10 @@
         },
         "spice_ssqrequired": {
           "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_otherscreeningreason": {
+          "type": "string",
           "x-nullable": true
         },
         "spice_cpicresults": {
@@ -34104,15 +34507,11 @@
           "type": "string",
           "x-nullable": true
         },
-        "contractservicelevelcode": {
+        "spice_workersreadyforlcrb": {
           "type": "integer",
           "x-nullable": true
         },
         "spice_readyforcrru": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_cpicchecked": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -34390,6 +34789,10 @@
           "type": "string",
           "x-nullable": true
         },
+        "spice_businessreadyforlcrb": {
+          "type": "integer",
+          "x-nullable": true
+        },
         "_firstresponsebykpiid_value": {
           "type": "string",
           "x-nullable": true
@@ -34466,6 +34869,10 @@
           "type": "boolean",
           "x-nullable": true
         },
+        "_spice_lcrblicencetypeid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
         "spice_cpuresultsreceived": {
           "type": "boolean",
           "x-nullable": true
@@ -34492,10 +34899,6 @@
         },
         "onholdtime": {
           "type": "integer",
-          "x-nullable": true
-        },
-        "spice_otherscreeningreason": {
-          "type": "string",
           "x-nullable": true
         },
         "modifiedon": {
@@ -34600,10 +35003,6 @@
         },
         "_primarycontactid_value": {
           "type": "string",
-          "x-nullable": true
-        },
-        "spice_reasonforscreening": {
-          "type": "integer",
           "x-nullable": true
         },
         "spice_ess_emp_verifcompleted": {
@@ -35136,6 +35535,9 @@
         },
         "spice_ReasonforScreeningId": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+        },
+        "spice_LCRBLicenceTypeId": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
         }
       }
     },
@@ -41079,6 +41481,9 @@
         },
         "regardingobjectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+        },
+        "regardingobjectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
         },
         "modifiedonbehalfby": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
@@ -47955,6 +48360,12 @@
             "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
           }
         },
+        "owner_spice_lcrblicencetype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        },
         "owner_personaldocumenttemplates": {
           "type": "array",
           "items": {
@@ -50612,6 +51023,9 @@
         "objectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
         },
+        "objectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+        },
         "objectid_letter": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.letter"
         },
@@ -51154,6 +51568,9 @@
         },
         "regardingobjectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+        },
+        "regardingobjectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
         },
         "regardingobjectid_queue": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.queue"
@@ -64321,6 +64738,167 @@
         }
       }
     },
+    "Microsoft.Dynamics.CRM.spice_lcrblicencetype": {
+      "title": "spice_lcrblicencetype",
+      "type": "object",
+      "properties": {
+        "_createdby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_createdonbehalfby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "createdon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "_owninguser_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_ownerid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "utcconversiontimezonecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_modifiedby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_owningteam_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_modifiedonbehalfby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "statuscode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "statecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "overriddencreatedon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezoneruleversionnumber": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "modifiedon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "versionnumber": {
+          "type": "integer",
+          "format": "int64",
+          "x-nullable": true
+        },
+        "_owningbusinessunit_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "importsequencenumber": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_lcrblicencetypeid": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "createdby": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
+        },
+        "createdonbehalfby": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
+        },
+        "modifiedby": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
+        },
+        "modifiedonbehalfby": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
+        },
+        "owninguser": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.systemuser"
+        },
+        "owningteam": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.team"
+        },
+        "ownerid": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.principal"
+        },
+        "owningbusinessunit": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.businessunit"
+        },
+        "spice_lcrblicencetype_SyncErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.syncerror"
+          }
+        },
+        "spice_lcrblicencetype_DuplicateMatchingRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.duplicaterecord"
+          }
+        },
+        "spice_lcrblicencetype_DuplicateBaseRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.duplicaterecord"
+          }
+        },
+        "spice_lcrblicencetype_AsyncOperations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.asyncoperation"
+          }
+        },
+        "spice_lcrblicencetype_MailboxTrackingFolders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.mailboxtrackingfolder"
+          }
+        },
+        "spice_lcrblicencetype_ProcessSession": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.processsession"
+          }
+        },
+        "spice_lcrblicencetype_BulkDeleteFailures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.bulkdeletefailure"
+          }
+        },
+        "spice_lcrblicencetype_PrincipalObjectAttributeAccesses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.principalobjectattributeaccess"
+          }
+        },
+        "spice_lcrblicencetype_incident": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.incident"
+          }
+        }
+      }
+    },
     "Microsoft.Dynamics.CRM.spice_ministry": {
       "title": "spice_ministry",
       "type": "object",
@@ -66491,6 +67069,9 @@
         },
         "regardingobjectid_spice_reasonforscreening": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+        },
+        "regardingobjectid_spice_lcrblicencetype": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
         },
         "regardingobjectid_ExpiredProcess_syncerror": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.expiredprocess"
@@ -70390,6 +70971,36 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+          }
+        },
+        "lk_spice_lcrblicencetype_createdby": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        },
+        "lk_spice_lcrblicencetype_createdonbehalfby": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        },
+        "lk_spice_lcrblicencetype_modifiedby": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        },
+        "lk_spice_lcrblicencetype_modifiedonbehalfby": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        },
+        "user_spice_lcrblicencetype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
           }
         },
         "lk_slakpiinstancebase_createdonbehalfby": {
@@ -74540,6 +75151,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_reasonforscreening"
+          }
+        },
+        "team_spice_lcrblicencetype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
           }
         },
         "team_DuplicateRules": {
@@ -89180,6 +89797,18 @@
         }
       }
     },
+    "Lcrblicencetypes_GetResponseModel": {
+      "title": "Collection of spice_lcrblicencetypes",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_lcrblicencetype"
+          }
+        }
+      }
+    },
     "Ministries_GetResponseModel": {
       "title": "Collection of spice_ministries",
       "type": "object",
@@ -90590,6 +91219,9 @@
     },
     {
       "name": "spice_govministries"
+    },
+    {
+      "name": "spice_lcrblicencetypes"
     },
     {
       "name": "spice_ministries"

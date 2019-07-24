@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicsAutorest", "..\interfaces\Dynamics-Autorest\DynamicsAutorest.csproj", "{309D775B-CF5B-4194-9E63-3410A95D20F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicsAutorest", "..\interfaces\Dynamics-Autorest\DynamicsAutorest.csproj", "{309D775B-CF5B-4194-9E63-3410A95D20F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharePoint", "..\interfaces\SharePoint\SharePoint.csproj", "{119DD60D-7160-4500-8BA1-E79FCEB40FFC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarlaClient", "..\interfaces\CARLA\CarlaClient.csproj", "{8766C58F-8616-4D94-A9A8-CDF8E2187AD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarlaClient", "..\interfaces\CARLA\CarlaClient.csproj", "{8766C58F-8616-4D94-A9A8-CDF8E2187AD4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiceCarlaSync", "SpiceCarlaSync.csproj", "{9996C1B8-248E-4717-A542-A44D059BA3AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePoint", "..\interfaces\SharePoint\SharePoint.csproj", "{06F0C6FE-9D69-4BB4-9A40-FC2327CD8841}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{309D775B-CF5B-4194-9E63-3410A95D20F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{309D775B-CF5B-4194-9E63-3410A95D20F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{309D775B-CF5B-4194-9E63-3410A95D20F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{119DD60D-7160-4500-8BA1-E79FCEB40FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{119DD60D-7160-4500-8BA1-E79FCEB40FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{119DD60D-7160-4500-8BA1-E79FCEB40FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{119DD60D-7160-4500-8BA1-E79FCEB40FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8766C58F-8616-4D94-A9A8-CDF8E2187AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8766C58F-8616-4D94-A9A8-CDF8E2187AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8766C58F-8616-4D94-A9A8-CDF8E2187AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{9996C1B8-248E-4717-A542-A44D059BA3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9996C1B8-248E-4717-A542-A44D059BA3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9996C1B8-248E-4717-A542-A44D059BA3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F0C6FE-9D69-4BB4-9A40-FC2327CD8841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F0C6FE-9D69-4BB4-9A40-FC2327CD8841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F0C6FE-9D69-4BB4-9A40-FC2327CD8841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F0C6FE-9D69-4BB4-9A40-FC2327CD8841}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
