@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces
 
     /// <summary>
     /// This OData service is located at
-    /// https://wsgw.dev.jag.gov.bc.ca/clb/crmdev/api/data/v8.2/
+    /// https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/
     /// </summary>
     public partial interface IDynamicsClient : System.IDisposable
     {
@@ -107,6 +107,11 @@ namespace Gov.Jag.Spice.Interfaces
         /// Gets the IGovministries.
         /// </summary>
         IGovministries Govministries { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypes.
+        /// </summary>
+        ILcrblicencetypes Lcrblicencetypes { get; }
 
         /// <summary>
         /// Gets the IMinistries.

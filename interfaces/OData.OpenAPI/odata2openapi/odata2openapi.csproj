@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <UserSecretsId>39a46bda-223e-4ee4-9dbc-2b7c477888c7</UserSecretsId>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>6E5C22DB-D6DA-4C9A-88B8-85CEA7E11268</UserSecretsId>
     <StartupObject>odata2openapi.Program</StartupObject>
   </PropertyGroup>
 
@@ -15,12 +15,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1" />
-    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.1" />
     <PackageReference Include="Microsoft.OData.Edm" Version="7.5.0" />
     <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.20" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Dynamics-Autorest\DynamicsAutorest.csproj" />
     <ProjectReference Include="..\Microsoft.OData.OpenAPI\Microsoft.OData.OpenAPI.csproj" />
     <ProjectReference Include="..\NSwag.Core\NSwag.Core.csproj" />
   </ItemGroup>
