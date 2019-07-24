@@ -10,15 +10,9 @@ namespace Gov.Jag.Spice.Interfaces
 {
     public static class DynamicsSetupUtil
     {
-        public static IDynamicsClient SetupDynamics(IConfiguration Configuration)
+
+        public static ServiceClientCredentials GetServiceClientCredentials(IConfiguration Configuration)
         {
-            string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"]; // Dynamics ODATA endpoint
-
-            if (string.IsNullOrEmpty(dynamicsOdataUri))
-            {
-                throw new Exception("Configuration setting DYNAMICS_ODATA_URI is blank.");
-            }
-
             // Cloud - x.dynamics.com
             string aadTenantId = Configuration["DYNAMICS_AAD_TENANT_ID"]; // Cloud AAD Tenant ID
             string serverAppIdUri = Configuration["DYNAMICS_SERVER_APP_ID_URI"]; // Cloud Server App ID URI
@@ -37,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces
             string ssgUsername = Configuration["SSG_USERNAME"];  // BASIC authentication username
             string ssgPassword = Configuration["SSG_PASSWORD"];  // BASIC authentication password
 
-            
+
 
             ServiceClientCredentials serviceClientCredentials = null;
             if (!string.IsNullOrEmpty(appRegistrationClientId) && !string.IsNullOrEmpty(appRegistrationClientKey) && !string.IsNullOrEmpty(serverAppIdUri) && !string.IsNullOrEmpty(aadTenantId))
@@ -54,12 +48,12 @@ namespace Gov.Jag.Spice.Interfaces
             }
             if (!string.IsNullOrEmpty(adfsOauth2Uri) &&
                 !string.IsNullOrEmpty(applicationGroupResource) &&
-                !string.IsNullOrEmpty(applicationGroupClientId) && 
-                !string.IsNullOrEmpty(applicationGroupSecret) && 
-                !string.IsNullOrEmpty(serviceAccountUsername) && 
-                !string.IsNullOrEmpty(serviceAccountPassword) )
+                !string.IsNullOrEmpty(applicationGroupClientId) &&
+                !string.IsNullOrEmpty(applicationGroupSecret) &&
+                !string.IsNullOrEmpty(serviceAccountUsername) &&
+                !string.IsNullOrEmpty(serviceAccountPassword))
             // ADFS 2016 authentication - using an Application Group Client ID and Secret, plus service account credentials.
-            {                
+            {
                 // create a new HTTP client that is just used to get a token.
                 var stsClient = new HttpClient();
 
@@ -88,7 +82,7 @@ namespace Gov.Jag.Spice.Interfaces
                 var content = new FormUrlEncodedContent(pairs);
                 // send the request to the ADFS server
                 var _httpResponse = stsClient.PostAsync(adfsOauth2Uri, content).GetAwaiter().GetResult();
-                var _responseContent = _httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult(); 
+                var _responseContent = _httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                 // response should be in JSON format.
                 try
                 {
@@ -99,11 +93,11 @@ namespace Gov.Jag.Spice.Interfaces
                 }
                 catch (Exception e)
                 {
-                    throw new Exception ( e.Message + " " + _responseContent );
+                    throw new Exception(e.Message + " " + _responseContent);
                 }
-                
+
             }
-            else if (! string.IsNullOrEmpty(ssgUsername) && ! string.IsNullOrEmpty(ssgPassword))
+            else if (!string.IsNullOrEmpty(ssgUsername) && !string.IsNullOrEmpty(ssgPassword))
             // Authenticate using BASIC authentication - used for API Gateways with BASIC authentication.  Add the NTLM user associated with the API gateway entry to Dynamics as a user.            
             {
                 serviceClientCredentials = new BasicAuthenticationCredentials()
@@ -116,6 +110,25 @@ namespace Gov.Jag.Spice.Interfaces
             {
                 throw new Exception("No configured connection to Dynamics.");
             }
+
+            return serviceClientCredentials;
+        }
+
+        /// <summary>
+        /// Setup a Dynamics client.
+        /// </summary>
+        /// <param name="Configuration"></param>
+        /// <returns></returns>
+        public static IDynamicsClient SetupDynamics(IConfiguration Configuration)
+        {
+            string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"]; // Dynamics ODATA endpoint
+
+            if (string.IsNullOrEmpty(dynamicsOdataUri))
+            {
+                throw new Exception("Configuration setting DYNAMICS_ODATA_URI is blank.");
+            }
+
+            ServiceClientCredentials serviceClientCredentials = GetServiceClientCredentials(Configuration);
 
             IDynamicsClient client = new DynamicsClient(new Uri(dynamicsOdataUri), serviceClientCredentials);
 
