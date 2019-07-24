@@ -25,13 +25,15 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
         private FileManager _sharepoint;
+        private IDynamicsClient _dynamicsClient;
 
-        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
+        public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint, IServiceProvider serviceProvider)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;
             _logger = loggerFactory.CreateLogger(typeof(ApplicationScreeningsController));
             _sharepoint = sharepoint;
+            _dynamicsClient = (IDynamicsClient)serviceProvider.GetService(typeof(IDynamicsClient));
         }
 
         /// <summary>
@@ -44,6 +46,12 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         {
             // Process the updates received from the SPICE system.
             BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveApplicationImportJob(null, requests));
+            if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            {
+                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
+                dynamicsUtils.ImportApplicationRequests(requests);
+            }
+
             _logger.LogInformation("Started receive Application Screenings import job");
             return Ok();
         }

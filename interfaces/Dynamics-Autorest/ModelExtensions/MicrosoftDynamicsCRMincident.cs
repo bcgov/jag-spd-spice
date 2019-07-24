@@ -1,7 +1,5 @@
+﻿using System;
 using Newtonsoft.Json;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
@@ -24,5 +22,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         [JsonProperty(PropertyName = "spice_ReturnResultto@odata.bind")]
         public string SpiceReturnToIdODataBind { get; set; }
+
+        [JsonProperty(PropertyName = "customerid_account@odata.bind")]
+        public string CustomerIdAccountOdataBind { get; set; }
+
+        [JsonProperty(PropertyName = "parentcaseid@odata.bind")]
+        public string ParentCaseIdOdataBind { get; set; }
     }
 }
