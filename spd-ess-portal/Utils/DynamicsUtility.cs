@@ -63,28 +63,28 @@ namespace Gov.Jag.Spice.Public.Utils
                 throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceReasonforscreening), filter);
             }
 
-            return entities.SingleOrDefault();
+            return entities.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetCandidateAsync(IDynamicsClient dynamicsClient, Candidate candidate)
         {
             string filter = $"fullname eq '{candidate.FirstName} {candidate.LastName}' and middlename eq '{candidate.MiddleName}' and spice_dateofbirth eq {candidate.DateOfBirth.ToString("o")} and emailaddress1 eq '{candidate.Email}' and spice_positiontitle eq '{candidate.Position}'";
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
-            return entities.SingleOrDefault();
+            return entities.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetSubmitterAsync(IDynamicsClient dynamicsClient, User user)
         {
-            string filter = $"emailaddress1 eq '{user.Email}'";
+            string filter = $"spice_portalcontactidentifier eq '{user.Id}'";
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
-            return entities.SingleOrDefault();
+            return entities.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMspiceMinistryemployee> GetContactAsync(IDynamicsClient dynamicsClient, Contact contact)
         {
             string filter = $"spice_name eq '{contact.FirstName}' and spice_lastname eq '{contact.LastName}' and spice_email eq '{contact.Email}'";
             var entity = (await dynamicsClient.Ministryemployees.GetAsync(filter: filter)).Value;
-            return entity.SingleOrDefault();
+            return entity.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMcontact> CreateCandidateAsync(IDynamicsClient dynamicsClient, Candidate candidate)
@@ -112,6 +112,8 @@ namespace Gov.Jag.Spice.Public.Utils
                 Firstname = user.GivenName,
                 Lastname = user.Surname,
                 Emailaddress1 = user.Email,
+                SpicePortalcontactidentifier = user.Id
+
             };
 
             entity = await dynamicsClient.Contacts.CreateAsync(entity);
