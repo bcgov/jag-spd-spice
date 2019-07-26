@@ -185,7 +185,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 incident.SpiceApplicanttype = 525840001; // Cannabis  
                 incident.SpiceCannabisapplicanttype = 525840002; // Worker
-                
 
                 // Screenings are Incidents in Dynamics.
 
