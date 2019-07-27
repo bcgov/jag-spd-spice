@@ -2,11 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "OData Service for namespace Microsoft.Dynamics.CRM",
-    "description": "This OData service is located at https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/",
+    "description": "This OData service is located at https://wsgw.dev.jag.gov.bc.ca/spdcss/spd-spice-dev/api/data/v9.0/",
     "version": "1.0.1"
   },
-  "host": "spd-spice.dev.jag.gov.bc.ca",
-  "basePath": "/api/data/v9.0/",
+  "host": "wsgw.dev.jag.gov.bc.ca",
+  "basePath": "/spdcss/spd-spice-dev/api/data/v9.0/",
   "schemes": [
     "https"
   ],
@@ -79925,7 +79925,8 @@
         "HasAttachments": {
           "type": "array",
           "items": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           }
         },
         "EntityCollection": {
@@ -80013,7 +80014,8 @@
         "RelationshipIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "AttributeId": {
@@ -80255,7 +80257,8 @@
         "Values": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -80267,7 +80270,8 @@
         "Columns": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -80299,7 +80303,8 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -80311,7 +80316,8 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -80323,7 +80329,8 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -80458,7 +80465,8 @@
         "LocaleIds": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "integer",
+            "nullable": true
           }
         }
       }
@@ -80508,7 +80516,8 @@
         "RetrieveDeprovisionedLanguages": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "integer",
+            "nullable": true
           }
         }
       }
@@ -80557,7 +80566,8 @@
         "RetrieveInstalledLanguagePacks": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "integer",
+            "nullable": true
           }
         }
       }
@@ -80709,7 +80719,8 @@
         "RetrieveProvisionedLanguages": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "integer",
+            "nullable": true
           }
         }
       }
@@ -81820,7 +81831,8 @@
         "KeyAttributes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "IsCustomizable": {
@@ -81959,7 +81971,8 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "Format": {
@@ -82399,7 +82412,8 @@
         "Sites": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -82411,7 +82425,8 @@
         "Appointments": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "ResourceId": {
@@ -82522,7 +82537,8 @@
         "ComputedProperties": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "AttributeCrmDisplayName": {
@@ -82793,7 +82809,8 @@
         "Columns": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -83365,7 +83382,8 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "Format": {
@@ -83675,7 +83693,8 @@
         "FilterLanguages": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "integer",
+            "nullable": true
           }
         },
         "MissingLabelBehavior": {
@@ -83772,7 +83791,8 @@
         "PropertyNames": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -84379,7 +84399,8 @@
         "InvalidNewValueAttributes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "DeletedAttributes": {
@@ -84627,7 +84648,8 @@
         "KeyAttributes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "IsCustomizable": {
@@ -85207,7 +85229,8 @@
         "Attributes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "Values": {
@@ -85290,7 +85313,8 @@
         "InvalidNewPrivileges": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "AuditRecord": {
@@ -85397,7 +85421,8 @@
         "MetadataNames": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "GetDefault": {
@@ -85414,7 +85439,8 @@
         "Exclude": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "AppId": {
@@ -85508,7 +85534,8 @@
         "QueryColumnSet": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "Data": {
@@ -85575,7 +85602,8 @@
         "EntityIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -85591,7 +85619,8 @@
         "Attributes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "EntityAlias": {
@@ -85708,13 +85737,15 @@
         "bpfIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "dashboardIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "appEntityInfo": {
@@ -85736,7 +85767,8 @@
         "ChartIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "Forms": {
@@ -85808,7 +85840,8 @@
         "MobileOfflineProfileIds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       }
@@ -85997,7 +86030,8 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "IsRangeBased": {
