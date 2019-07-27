@@ -36,20 +36,31 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 foreach (ApplicationScreeningRequest applicationRequest in requests)
                 {
-                    // TODO Look up if company exists already
-                    MicrosoftDynamicsCRMspiceCompany company = _dynamicsClient.Companies.Create(new MicrosoftDynamicsCRMspiceCompany()
+                    // Company
+                    string uniqueFilter = "spice_carla_company eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
+                    CompaniesGetResponseModel companiesResponse = _dynamicsClient.Companies.Get(1, filter: uniqueFilter);
+                    MicrosoftDynamicsCRMspiceCompany company;
+                    if (companiesResponse.Value.Count > 0)
                     {
-                        SpiceName = applicationRequest.ApplicantAccount.Name,
-                        //SpiceBusinesstypes = applicationRequest.,
-                        SpiceStreet = applicationRequest.BusinessAddress.AddressStreet1,
-                        SpiceCity = applicationRequest.BusinessAddress.City,
-                        SpiceProvince = applicationRequest.BusinessAddress.StateProvince,
-                        SpiceCountry = applicationRequest.BusinessAddress.Country,
-                        SpicePostalcode = applicationRequest.BusinessAddress.Postal
-                    });
-
+                        company = companiesResponse.Value[0];
+                    }
+                    else
+                    {
+                        company = _dynamicsClient.Companies.Create(new MicrosoftDynamicsCRMspiceCompany()
+                        {
+                            SpiceCarlaCompany = applicationRequest.ApplicantAccount.AccountId,
+                            SpiceName = applicationRequest.ApplicantAccount.Name,
+                            SpiceBusinesstypes = (int)Enum.Parse(typeof(BusinessTypes), applicationRequest.ApplicantAccount.BusinessType),
+                            SpiceStreet = applicationRequest.BusinessAddress.AddressStreet1,
+                            SpiceCity = applicationRequest.BusinessAddress.City,
+                            SpiceProvince = applicationRequest.BusinessAddress.StateProvince,
+                            SpiceCountry = applicationRequest.BusinessAddress.Country,
+                            SpicePostalcode = applicationRequest.BusinessAddress.Postal
+                        });
+                    }
+                     
                     // Contact person
-                    string uniqueFilter = "externaluseridentifier eq '" + applicationRequest.ContactPerson.ContactId + "'";
+                    uniqueFilter = "externaluseridentifier eq '" + applicationRequest.ContactPerson.ContactId + "'";
                     ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
                     MicrosoftDynamicsCRMcontact contactPerson;
                     if (contactResponse.Value.Count > 0)
@@ -103,7 +114,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
                     string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
 
-                    MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
+
+                    MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
                     {
                         SpiceCannabisapplicanttype = (int)CannabisApplicantType.Business,
                         SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
@@ -111,7 +123,19 @@ namespace Gov.Jag.Spice.CarlaSync
                         CustomerIdAccountOdataBind = accountEntityUri,
                         SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                         SpiceClientIdODataBind = clientEntityUri
-                    });
+                    };
+
+                    LcrblicencetypesGetResponseModel response = _dynamicsClient.Lcrblicencetypes.Get(filter: "spice_name eq '" + applicationRequest.ApplicationType + "'");
+                    if (response.Value.Count > 0)
+                    {
+                        incident.LCRBLicenceTypeIdOdataBind = _dynamicsClient.GetEntityURI("spice_lcrblicencetypes", response.Value[0].SpiceLcrblicencetypeid);
+                    }
+                    else
+                    {
+                        _logger.LogError($"Licence type {applicationRequest.ApplicationType} not found");
+                    }
+
+                    incident = _dynamicsClient.Incidents.Create(incident);
 
                     foreach (var associate in applicationRequest.Associates)
                     {
@@ -354,3 +378,4 @@ namespace Gov.Jag.Spice.CarlaSync
         }
     }
 }
+
