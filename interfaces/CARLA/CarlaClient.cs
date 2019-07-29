@@ -379,6 +379,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             }
             cancellationToken.ThrowIfCancellationRequested();
             _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+
+
+
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
