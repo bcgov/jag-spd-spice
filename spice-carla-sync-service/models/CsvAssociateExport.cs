@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using SpdSync.models;
+﻿using System.Collections.Generic;
 
 namespace SpiceCarlaSync.models
 {
@@ -11,7 +9,7 @@ namespace SpiceCarlaSync.models
 
         public string LCRBBusinessJobId { get; set; }
 
-        public static List<CsvAssociateExport> CreateListFromRequest(ApplicationScreeningRequest request)
+        public static List<CsvAssociateExport> CreateListFromRequest(IncompleteApplicationScreening request)
         {
             List<CsvAssociateExport> export = new List<CsvAssociateExport>();
             export.AddRange(CreateFromAssociatesList(request.RecordIdentifier, request.Associates));
