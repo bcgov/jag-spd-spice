@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using Gov.Jag.Spice.CarlaSync.models;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.Rest;
-using SpdSync.models;
 using SpiceCarlaSync.models;
 
 namespace Gov.Jag.Spice.CarlaSync
@@ -30,9 +25,9 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import requests to Dynamics.
         /// </summary>
         /// <returns></returns>
-        public void ImportApplicationRequests(List<ApplicationScreeningRequest> requests)
+        public void ImportApplicationRequests(List<IncompleteApplicationScreening> requests)
         {
-            foreach (ApplicationScreeningRequest applicationRequest in requests)
+            foreach (IncompleteApplicationScreening applicationRequest in requests)
             {
                 // Company
                 string uniqueFilter = "spice_carla_company eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
@@ -264,9 +259,9 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
-        internal void ImportWorkerRequests(List<WorkerScreeningRequest> requests)
+        internal void ImportWorkerRequests(List<IncompleteWorkerScreening> requests)
         {
-            foreach (WorkerScreeningRequest workerRequest in requests)
+            foreach (IncompleteWorkerScreening workerRequest in requests)
             {
                 string uniqueFilter = "externaluseridentifier eq '" + workerRequest.Contact.ContactId + "'";
                 ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);

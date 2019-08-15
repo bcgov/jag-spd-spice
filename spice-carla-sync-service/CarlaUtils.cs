@@ -9,7 +9,6 @@ using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Rest;
-using SpdSync.models;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using System;
@@ -70,7 +69,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public async Task ReceiveWorkerImportJob(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        public async Task ReceiveWorkerImportJob(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
@@ -96,7 +95,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public async Task ReceiveApplicationImportJob(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        public async Task ReceiveApplicationImportJob(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
@@ -127,14 +126,14 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
-        private void ImportWorkerRequestsToDynamics(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        private void ImportWorkerRequestsToDynamics(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             if(_dynamics == null)
             {
                 hangfireContext.WriteLine("Dynamics not configured properly");
                 return;
             }
-            foreach (WorkerScreeningRequest workerRequest in requests)
+            foreach (IncompleteWorkerScreening workerRequest in requests)
             {
                 // add data to dynamics.
                 // create a Contact which will be bound to the customer id field.
@@ -197,12 +196,12 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import responses to Dynamics.
         /// </summary>
         /// <returns></returns>
-        public void ImportWorkerRequestsToSMTP(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        public void ImportWorkerRequestsToSMTP(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
 
             List<CsvWorkerExport> export = new List<CsvWorkerExport>();
 
-            foreach (WorkerScreeningRequest workerRequest in requests)
+            foreach (IncompleteWorkerScreening workerRequest in requests)
             {
                 CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
                 {
@@ -384,14 +383,14 @@ namespace Gov.Jag.Spice.CarlaSync
             await _carlaSharepoint.ProcessResultsFolders(hangfireContext);
         }
 
-        public async Task<bool> SendApplicationScreeningResult(List<ApplicationScreeningResponse> responses)
+        public async Task<bool> SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
         {
             var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
 
             return result.Response.StatusCode.ToString() == "Ok";
         }
 
-        public async Task<bool> SendWorkerScreeningResult(List<Gov.Lclb.Cllb.Interfaces.Models.WorkerScreeningResponse> responses)
+        public async Task<bool> SendWorkerScreeningResult(List<CompletedWorkerScreening> responses)
         {
             var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
 

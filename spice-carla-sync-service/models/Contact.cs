@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SpiceCarlaSync.models;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
     public class Contact
     {

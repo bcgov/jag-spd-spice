@@ -11,22 +11,22 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ApplicationScreeningResponse
+    public partial class CompletedApplicationScreening
     {
         /// <summary>
-        /// Initializes a new instance of the ApplicationScreeningResponse
+        /// Initializes a new instance of the CompletedApplicationScreening
         /// class.
         /// </summary>
-        public ApplicationScreeningResponse()
+        public CompletedApplicationScreening()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ApplicationScreeningResponse
+        /// Initializes a new instance of the CompletedApplicationScreening
         /// class.
         /// </summary>
-        public ApplicationScreeningResponse(string recordIdentifier = default(string), string result = default(string), IList<Associate> associates = default(IList<Associate>))
+        public CompletedApplicationScreening(string recordIdentifier = default(string), string result = default(string), IList<Associate> associates = default(IList<Associate>))
         {
             RecordIdentifier = recordIdentifier;
             Result = result;
