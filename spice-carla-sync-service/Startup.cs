@@ -102,9 +102,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 SetupSharePoint(services);
             }
 
-            
-            
-
             services.AddHangfire(config =>
             {
                 // Change this line if you wish to have Hangfire use persistent storage.
@@ -152,8 +149,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (startHangfire)
             {
-
-
                 // enable Hangfire, using the default authentication model (local connections only)
                 app.UseHangfireServer();
 
