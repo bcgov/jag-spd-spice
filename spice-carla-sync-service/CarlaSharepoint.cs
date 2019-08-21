@@ -219,12 +219,18 @@ namespace Gov.Lclb.Cllb.Interfaces
             List<FileSystemItem> businessFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
             List<FileSystemItem> associatesFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
             List<CompletedApplicationScreening> applicationResponses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
-            var applicationResult = await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+            if(applicationResponses.Count > 0)
+            {
+                await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+            }
 
             // Process worker screening results
             List<FileSystemItem> workerFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + WORKERS_PATH);
             List<CompletedWorkerScreening> workerResponses = await ProcessWorkerResults(hangfireContext, workerFiles);
-            var workerResult = await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+            if(workerResponses.Count > 0)
+            {
+                await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+            }
         }
 
         private async Task<List<CompletedWorkerScreening>> ProcessWorkerResults(PerformContext hangfireContext, List<FileSystemItem> workerFiles)
