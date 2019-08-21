@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Gov.Jag.Spice.CarlaSync.models
+namespace SpiceCarlaSync.models
 {
     public enum BusinessTypes
     {

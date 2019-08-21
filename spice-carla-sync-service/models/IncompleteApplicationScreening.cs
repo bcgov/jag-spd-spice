@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SpiceCarlaSync.models;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
-    public class ApplicationScreeningRequest
+    public class IncompleteApplicationScreening
     {
         [JsonConverter(typeof(StringEnumConverter))]
         public SpiceApplicantType ApplicantType { get; set; }

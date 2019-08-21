@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SpiceCarlaSync.models;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
-    public class WorkerScreeningRequest
+    public class IncompleteWorkerScreening
     {
         public string RecordIdentifier { get; set; }
         public string Name { get; set; }

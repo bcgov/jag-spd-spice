@@ -1,19 +1,11 @@
 ﻿using Gov.Jag.Spice.Interfaces;
-using Gov.Jag.Spice.Interfaces.Models;
-using Hangfire.Console;
-using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using SpdSync;
-using SpdSync.models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.CarlaSync
 {

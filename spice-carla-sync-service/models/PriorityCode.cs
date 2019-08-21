@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Gov.Jag.Spice.CarlaSync.models
+namespace SpiceCarlaSync.models
 {
     public enum PriorityCode
     {

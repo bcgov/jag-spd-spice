@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
     public class LegalEntity
     {
