@@ -10,7 +10,7 @@
 //{
 //    public class WorkerResponseParser
 //    {
-//        static public List<WorkerScreeningResponse> ParseWorkerResponse (string csvData, ILogger _logger)
+//        static public List<SpiceWorkerScreeningResponse> ParseWorkerResponse (string csvData, ILogger _logger)
 //        {
 //            CsvHelper.Configuration.Configuration config = new CsvHelper.Configuration.Configuration();
 //            config.SanitizeForInjection = true;
@@ -31,7 +31,7 @@
 
 //            try
 //            {
-//                List<WorkerScreeningResponse> result = csv.GetRecords<WorkerScreeningResponse>().ToList();
+//                List<SpiceWorkerScreeningResponse> result = csv.GetRecords<SpiceWorkerScreeningResponse>().ToList();
 //                return result;
 //            }
 //            catch (Exception e)
@@ -40,7 +40,7 @@
 //                _logger.LogError("Message:");
 //                _logger.LogError(e.Message);
 //                // return an empty list so we continue processing other files.
-//               return new List<WorkerScreeningResponse>();
+//               return new List<SpiceWorkerScreeningResponse>();
 //            }
 //        }
 //    }

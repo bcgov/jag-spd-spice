@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using SpiceCarlaSync.models;
 
-namespace Gov.Jag.Spice.CarlaSync
+namespace SpiceCarlaSync
 {
     public class CsvWorkerImportMap : ClassMap<CsvWorkerImport>
     {
