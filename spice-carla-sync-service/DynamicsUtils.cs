@@ -29,6 +29,11 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             foreach (IncompleteApplicationScreening applicationRequest in requests)
             {
+                if (applicationRequest.ApplicantAccount == null)
+                {
+                    _logger.LogError("Application sent without a valid account");
+                    return;
+                }
                 // Company
                 string uniqueFilter = "spice_carla_company eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
                 CompaniesGetResponseModel companiesResponse;
