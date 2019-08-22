@@ -399,7 +399,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         Telephone1 = associateEntity.Contact.PhoneNumber,
                         SpiceDriverslicencenum = associateEntity.Contact.DriversLicenceNumber,
                         SpiceBcidcardnumber = associateEntity.Contact.BCIdCardNumber,
-                        SpiceDateofbirth = associateEntity.Contact.BirthDate.Value.UtcDateTime,
+                        SpiceDateofbirth = associateEntity.Contact.BirthDate?.UtcDateTime,
                         SpiceBirthplace = associateEntity.Contact.Birthplace,
                         SpiceSelfdisclosed = associateEntity.Contact.SelfDisclosure == GeneralYesNo.Yes,
                         Address1Line1 = associateEntity.Contact.Address.AddressStreet1,
