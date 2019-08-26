@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using CsvHelper;
-using SpdSync.models;
 
 namespace SpiceCarlaSync.models
 {
@@ -118,7 +111,7 @@ namespace SpiceCarlaSync.models
             }
         }
 
-        public static CsvWorkerExport CreateFromRequest(WorkerScreeningRequest workerRequest)
+        public static CsvWorkerExport CreateFromRequest(IncompleteWorkerScreening workerRequest)
         {
             CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
             {

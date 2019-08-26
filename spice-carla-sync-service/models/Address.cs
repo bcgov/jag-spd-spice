@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
     public class Address
     {

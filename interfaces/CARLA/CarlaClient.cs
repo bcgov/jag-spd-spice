@@ -322,7 +322,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<ApplicationScreeningResponse> results = default(IList<ApplicationScreeningResponse>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -419,7 +419,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             return _result;
         }
 
-        /// <param name='applicationId'>
+        /// <param name='applicationIdString'>
+        /// </param>
+        /// <param name='bearer'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -439,11 +441,11 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SendApplicationScreeningRequestWithHttpMessagesAsync(string applicationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> SendApplicationScreeningRequestWithHttpMessagesAsync(string applicationIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (applicationId == null)
+            if (applicationIdString == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "applicationId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "applicationIdString");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -452,14 +454,24 @@ namespace Gov.Lclb.Cllb.Interfaces
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("applicationId", applicationId);
+                tracingParameters.Add("applicationIdString", applicationIdString);
+                tracingParameters.Add("bearer", bearer);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "SendApplicationScreeningRequest", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/ApplicationScreenings/send/{applicationId}").ToString();
-            _url = _url.Replace("{applicationId}", System.Uri.EscapeDataString(applicationId));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/ApplicationScreenings/send/{applicationIdString}").ToString();
+            _url = _url.Replace("{applicationIdString}", System.Uri.EscapeDataString(applicationIdString));
+            List<string> _queryParameters = new List<string>();
+            if (bearer != null)
+            {
+                _queryParameters.Add(string.Format("bearer={0}", System.Uri.EscapeDataString(bearer)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -684,7 +696,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<WorkerScreeningResponse> results = default(IList<WorkerScreeningResponse>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -781,7 +793,11 @@ namespace Gov.Lclb.Cllb.Interfaces
             return _result;
         }
 
+        /// <param name='workerIdString'>
+        /// </param>
         /// <param name='workerId'>
+        /// </param>
+        /// <param name='bearer'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -801,11 +817,11 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string workerId = default(string), string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (workerId == null)
+            if (workerIdString == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workerId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "workerIdString");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -815,13 +831,28 @@ namespace Gov.Lclb.Cllb.Interfaces
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("workerId", workerId);
+                tracingParameters.Add("bearer", bearer);
+                tracingParameters.Add("workerIdString", workerIdString);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "SendWorkerScreeningRequest", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/WorkerScreenings/send/{workerId}").ToString();
-            _url = _url.Replace("{workerId}", System.Uri.EscapeDataString(workerId));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/WorkerScreenings/send/{workerIdString}").ToString();
+            _url = _url.Replace("{workerIdString}", System.Uri.EscapeDataString(workerIdString));
+            List<string> _queryParameters = new List<string>();
+            if (workerId != null)
+            {
+                _queryParameters.Add(string.Format("workerId={0}", System.Uri.EscapeDataString(workerId)));
+            }
+            if (bearer != null)
+            {
+                _queryParameters.Add(string.Format("bearer={0}", System.Uri.EscapeDataString(bearer)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

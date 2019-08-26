@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using Gov.Jag.Spice.CarlaSync.models;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.Rest;
-using SpdSync.models;
 using SpiceCarlaSync.models;
 
 namespace Gov.Jag.Spice.CarlaSync
@@ -30,97 +25,269 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import requests to Dynamics.
         /// </summary>
         /// <returns></returns>
-        public void ImportApplicationRequests(List<ApplicationScreeningRequest> requests)
+        public void ImportApplicationRequests(List<IncompleteApplicationScreening> requests)
         {
-            try
+            foreach (IncompleteApplicationScreening applicationRequest in requests)
             {
-                foreach (ApplicationScreeningRequest applicationRequest in requests)
+                if (applicationRequest.ApplicantAccount == null)
                 {
-                    // TODO Look up if company exists already
-                    MicrosoftDynamicsCRMspiceCompany company = _dynamicsClient.Companies.Create(new MicrosoftDynamicsCRMspiceCompany()
-                    {
-                        SpiceName = applicationRequest.ApplicantAccount.Name,
-                        //SpiceBusinesstypes = applicationRequest.ApplicantAccount.
-                        SpiceStreet = applicationRequest.BusinessAddress.AddressStreet1,
-                        SpiceCity = applicationRequest.BusinessAddress.City,
-                        SpiceProvince = applicationRequest.BusinessAddress.StateProvince,
-                        SpiceCountry = applicationRequest.BusinessAddress.Country,
-                        SpicePostalcode = applicationRequest.BusinessAddress.Postal
-                    });
-
-                    // TODO Look up if dupe first
-                    // Contact person
-                    MicrosoftDynamicsCRMcontact contactPerson = _dynamicsClient.Contacts.Create(new MicrosoftDynamicsCRMcontact()
-                    {
-                        Firstname = applicationRequest.ContactPerson.FirstName,
-                        Middlename = applicationRequest.ContactPerson.MiddleName,
-                        Lastname = applicationRequest.ContactPerson.LastName,
-                        Emailaddress1 = applicationRequest.ContactPerson.Email,
-                        Telephone1 = applicationRequest.ContactPerson.PhoneNumber
-                    });
-
-                    MicrosoftDynamicsCRMaccount account = _dynamicsClient.Accounts.Create(new MicrosoftDynamicsCRMaccount()
-                    {
-                        Name = applicationRequest.ApplicantAccount.Name,
-                        Address1Line1 = applicationRequest.BusinessAddress.AddressStreet1,
-                        Address1City = applicationRequest.BusinessAddress.City,
-                        Address1Country = applicationRequest.BusinessAddress.Country,
-                        Address1Postalcode = applicationRequest.BusinessAddress.Postal,
-                        SpiceLcrbjobid = applicationRequest.RecordIdentifier,
-                        SpiceParcelidnumber = applicationRequest.Establishment.ParcelId,
-                        SpiceBccorpregnumber = applicationRequest.ApplicantAccount.BCIncorporationNumber,
-                        SpiceCompanyIdOdataBind = _dynamicsClient.GetEntityURI("spice_companies", company.SpiceCompanyid),
-                        PrimaryContactIdOdataBind = _dynamicsClient.GetEntityURI("contacts", contactPerson.Contactid)
-                    });
-
-                    string accountEntityUri = _dynamicsClient.GetEntityURI("accounts", account.Accountid);
-
-                    string servicesFilter = "spice_name eq 'Cannabis Applicant (Business)'";
-                    var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
-
-                    string clientFilter = "spice_name eq 'LCRB'";
-                    var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
-                    string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
-
-                    MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
-                    {
-                        SpiceCannabisapplicanttype = (int)CannabisApplicantType.Business,
-                        SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
-                        Prioritycode = (int)PriorityCode.Normal,
-                        CustomerIdAccountOdataBind = accountEntityUri,
-                        SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
-                        SpiceClientIdODataBind = clientEntityUri
-                    });
-
-                    foreach (var associate in applicationRequest.Associates)
-                    {
-                        CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
-                    }
-
+                    _logger.LogError("Application sent without a valid account");
+                    return;
                 }
-            }
-            catch (OdataerrorException e)
-            {
-                _logger.LogError(e.Message);
+                // Company
+                string uniqueFilter = "spice_carla_company eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
+                CompaniesGetResponseModel companiesResponse;
+                try
+                {
+                    companiesResponse = _dynamicsClient.Companies.Get(1, filter: uniqueFilter);
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to query companies");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+                MicrosoftDynamicsCRMspiceCompany company;
+                if (companiesResponse.Value.Count > 0)
+                {
+                    company = companiesResponse.Value[0];
+                }
+                else
+                {
+                    try
+                    {
+                        company = _dynamicsClient.Companies.Create(new MicrosoftDynamicsCRMspiceCompany()
+                        {
+                            SpiceCarlaCompany = applicationRequest.ApplicantAccount.AccountId,
+                            SpiceName = applicationRequest.ApplicantAccount.Name,
+                            SpiceBusinesstypes = (int)Enum.Parse(typeof(BusinessTypes), applicationRequest.ApplicantAccount.BusinessType),
+                            SpiceStreet = applicationRequest.BusinessAddress.AddressStreet1,
+                            SpiceCity = applicationRequest.BusinessAddress.City,
+                            SpiceProvince = applicationRequest.BusinessAddress.StateProvince,
+                            SpiceCountry = applicationRequest.BusinessAddress.Country,
+                            SpicePostalcode = applicationRequest.BusinessAddress.Postal
+                        });
+                    }
+                    catch (OdataerrorException e)
+                    {
+                        _logger.LogError("Failed to create new account");
+                        _logger.LogError(e.Message);
+                        _logger.LogError("Request:");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError("Response:");
+                        _logger.LogError(e.Response.Content);
+                        return;
+                    }
+                }
+                 
+                // Contact person
+                uniqueFilter = "externaluseridentifier eq '" + applicationRequest.ContactPerson.ContactId + "'";
+                ContactsGetResponseModel contactResponse;
+                try
+                {
+                     contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to query contacts");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+                MicrosoftDynamicsCRMcontact contactPerson;
+                if (contactResponse.Value.Count > 0)
+                {
+                    contactPerson = contactResponse.Value[0];
+                }
+                else
+                {
+                    try
+                    {
+                        contactPerson = _dynamicsClient.Contacts.Create(new MicrosoftDynamicsCRMcontact()
+                        {
+                            Externaluseridentifier = applicationRequest.ContactPerson.ContactId,
+                            Firstname = applicationRequest.ContactPerson.FirstName,
+                            Middlename = applicationRequest.ContactPerson.MiddleName,
+                            Lastname = applicationRequest.ContactPerson.LastName,
+                            Emailaddress1 = applicationRequest.ContactPerson.Email,
+                            Telephone1 = applicationRequest.ContactPerson.PhoneNumber
+                        });
+                    }
+                    catch (OdataerrorException e)
+                    {
+                        _logger.LogError("Failed to create new account");
+                        _logger.LogError(e.Message);
+                        _logger.LogError("Request:");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError("Response:");
+                        _logger.LogError(e.Response.Content);
+                        return;
+                    }
+                }
+
+
+                uniqueFilter = "spice_carla_account eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
+                AccountsGetResponseModel accountResponse;
+                try
+                {
+                    accountResponse = _dynamicsClient.Accounts.Get(1, filter: uniqueFilter);
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to query accounts");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+                MicrosoftDynamicsCRMaccount account;
+                if (accountResponse.Value.Count > 10)
+                {
+                    account = accountResponse.Value[0];
+                }
+                else
+                {
+                    try
+                    {
+                        account = _dynamicsClient.Accounts.Create(new MicrosoftDynamicsCRMaccount()
+                        {
+                            SpiceCarlaAccount = applicationRequest.ApplicantAccount.AccountId,
+                            Name = applicationRequest.ApplicantAccount.Name,
+                            Address1Line1 = applicationRequest.BusinessAddress.AddressStreet1,
+                            Address1City = applicationRequest.BusinessAddress.City,
+                            Address1Country = applicationRequest.BusinessAddress.Country,
+                            Address1Postalcode = applicationRequest.BusinessAddress.Postal,
+                            SpiceLcrbjobid = applicationRequest.RecordIdentifier,
+                            SpiceParcelidnumber = applicationRequest.Establishment.ParcelId,
+                            SpiceBccorpregnumber = applicationRequest.ApplicantAccount.BCIncorporationNumber,
+                            SpiceCompanyIdOdataBind = _dynamicsClient.GetEntityURI("spice_companies", company.SpiceCompanyid),
+                            PrimaryContactIdOdataBind = _dynamicsClient.GetEntityURI("contacts", contactPerson.Contactid)
+                        });
+                    }
+                    catch (OdataerrorException e)
+                    {
+                        _logger.LogError("Failed to create new account");
+                        _logger.LogError(e.Message);
+                        _logger.LogError("Request:");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError("Response:");
+                        _logger.LogError(e.Response.Content);
+                        return;
+                    }
+                }
+
+                string accountEntityUri = _dynamicsClient.GetEntityURI("accounts", account.Accountid);
+
+                string servicesFilter = "spice_name eq 'Cannabis Applicant (Business)'";
+                MicrosoftDynamicsCRMspiceServices service;
+                try
+                {
+                    service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to query services");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+
+                string clientFilter = "spice_name eq 'LCRB'";
+                MicrosoftDynamicsCRMspiceMinistry client;
+                try
+                {
+                   client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to query companies");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+                string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
+
+                MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
+                {
+                    SpiceCannabisapplicanttype = (int)CannabisApplicantType.Business,
+                    SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
+                    Prioritycode = (int)PriorityCode.Normal,
+                    CustomerIdAccountOdataBind = accountEntityUri,
+                    SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
+                    SpiceClientIdODataBind = clientEntityUri
+                };
+
+                LcrblicencetypesGetResponseModel response = _dynamicsClient.Lcrblicencetypes.Get(filter: "spice_name eq '" + applicationRequest.ApplicationType + "'");
+                if (response.Value.Count > 0)
+                {
+                    incident.LCRBLicenceTypeIdOdataBind = _dynamicsClient.GetEntityURI("spice_lcrblicencetypes", response.Value[0].SpiceLcrblicencetypeid);
+                }
+                else
+                {
+                    _logger.LogError($"Licence type {applicationRequest.ApplicationType} not found");
+                }
+
+                try
+                {
+                    incident = _dynamicsClient.Incidents.Create(incident);
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to create new account");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
+
+                foreach (var associate in applicationRequest.Associates)
+                {
+                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
+                }
             }
         }
 
-        internal void ImportWorkerRequests(List<WorkerScreeningRequest> requests)
+        internal void ImportWorkerRequests(List<IncompleteWorkerScreening> requests)
         {
-            try
+            foreach (IncompleteWorkerScreening workerRequest in requests)
             {
-                foreach (WorkerScreeningRequest workerRequest in requests)
+                string uniqueFilter = "externaluseridentifier eq '" + workerRequest.Contact.ContactId + "'";
+                ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                MicrosoftDynamicsCRMcontact contact;
+                if (contactResponse.Value.Count > 0)
                 {
-                    MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+                    contact = contactResponse.Value[0];
+                }
+                else
+                {
+                    contact = new MicrosoftDynamicsCRMcontact()
                     {
+                        Externaluseridentifier = workerRequest.Contact.ContactId,
                         Firstname = workerRequest.Contact.FirstName,
                         Middlename = workerRequest.Contact.MiddleName,
                         Lastname = workerRequest.Contact.LastName,
                         Emailaddress1 = workerRequest.Contact.Email,
                         Telephone1 = workerRequest.Contact.PhoneNumber,
-                        SpiceDateofbirth = workerRequest.BirthDate,
-                        SpiceBirthplace = workerRequest.Birthplace,
-                        SpiceSelfdisclosed = workerRequest.SelfDisclosure == GeneralYesNo.Yes,
+                        SpiceDateofbirth = workerRequest.Contact.BirthDate,
+                        SpiceBirthplace = workerRequest.Contact.Birthplace,
+                        SpiceSelfdisclosed = workerRequest.Contact.SelfDisclosure == GeneralYesNo.Yes,
                         Address1Line1 = workerRequest.Contact.Address.AddressStreet1,
                         Address1Line2 = workerRequest.Contact.Address.AddressStreet2,
                         Address1Line3 = workerRequest.Contact.Address.AddressStreet3,
@@ -133,7 +300,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     };
                     if ((int)workerRequest.Gender != 0)
                     {
-                        contact.Gendercode = (int)workerRequest.Gender;
+                        contact.Gendercode = (int)workerRequest.Contact.Gender;
                     }
 
                     foreach (var address in workerRequest.PreviousAddresses)
@@ -159,15 +326,32 @@ namespace Gov.Jag.Spice.CarlaSync
                             SpiceLastname = alias.Surname,
                         });
                     }
+                    try
+                    {
+                        contact = _dynamicsClient.Contacts.Create(contact);
+                    }
+                    catch (OdataerrorException e)
+                    {
+                        _logger.LogError("Failed to create new account");
+                        _logger.LogError(e.Message);
+                        _logger.LogError("Request:");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError("Response:");
+                        _logger.LogError(e.Response.Content);
+                        return;
+                    }
 
-                    contact = _dynamicsClient.Contacts.Create(contact);
+                }
 
-                    string servicesFilter = "spice_name eq 'Cannabis Worker'";
-                    var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
 
-                    string clientFilter = "spice_name eq 'LCRB'";
-                    var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+                string servicesFilter = "spice_name eq 'Cannabis Worker'";
+                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
 
+                string clientFilter = "spice_name eq 'LCRB'";
+                var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+
+                try
+                {
                     MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
                     {
                         SpiceCannabisapplicanttype = (int)CannabisApplicantType.Worker,
@@ -178,10 +362,16 @@ namespace Gov.Jag.Spice.CarlaSync
                         CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", contact.Contactid)
                     });
                 }
-            }
-            catch (OdataerrorException e)
-            {
-                _logger.LogError(e.Message);
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError("Failed to create new account");
+                    _logger.LogError(e.Message);
+                    _logger.LogError("Request:");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError("Response:");
+                    _logger.LogError(e.Response.Content);
+                    return;
+                }
             }
         }
 
@@ -189,68 +379,89 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             if (associateEntity.IsIndividual)
             {
-                MicrosoftDynamicsCRMcontact associate = new MicrosoftDynamicsCRMcontact()
+                // Contact
+                string uniqueFilter = "externaluseridentifier eq '" + associateEntity.Contact.ContactId + "'";
+                ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                MicrosoftDynamicsCRMcontact associate;
+                if (contactResponse.Value.Count > 0)
                 {
-                    Firstname = associateEntity.Contact.FirstName,
-                    Middlename = associateEntity.Contact.MiddleName,
-                    Lastname = associateEntity.Contact.LastName,
-                    Emailaddress1 = associateEntity.Contact.Email,
-                    Telephone1 = associateEntity.Contact.PhoneNumber,
-                    //SpiceDriverslicensenumber = associateEntity.Contact.DriversLicenceNumber,
-                    SpiceBcidcardnumber = associateEntity.Contact.BCIdCardNumber,
-                    SpiceDateofbirth = associateEntity.Contact.BirthDate.Value.UtcDateTime,
-                    SpiceBirthplace = associateEntity.Contact.Birthplace,
-                    SpiceSelfdisclosed = associateEntity.Contact.SelfDisclosure == GeneralYesNo.Yes,
-                    Address1Line1 = associateEntity.Contact.Address.AddressStreet1,
-                    Address1Line2 = associateEntity.Contact.Address.AddressStreet2,
-                    Address1Line3 = associateEntity.Contact.Address.AddressStreet3,
-                    Address1City = associateEntity.Contact.Address.City,
-                    Address1Postalcode = associateEntity.Contact.Address.Postal,
-                    Address1Stateorprovince = associateEntity.Contact.Address.StateProvince,
-                    Address1Country = associateEntity.Contact.Address.Country,
-                    SpiceContactSpicePreviousaddresses = new List<MicrosoftDynamicsCRMspicePreviousaddresses>(),
-                    SpiceContactSpiceAliases = new List<MicrosoftDynamicsCRMspiceAliases>(),
-                    SpicePositiontitle = associateEntity.Title
-                };
+                    associate = contactResponse.Value[0];
+                }
+                else
+                {
+                    associate = new MicrosoftDynamicsCRMcontact()
+                    {
+                        Externaluseridentifier = associateEntity.Contact.ContactId,
+                        Firstname = associateEntity.Contact.FirstName,
+                        Middlename = associateEntity.Contact.MiddleName,
+                        Lastname = associateEntity.Contact.LastName,
+                        Emailaddress1 = associateEntity.Contact.Email,
+                        Telephone1 = associateEntity.Contact.PhoneNumber,
+                        SpiceDriverslicencenum = associateEntity.Contact.DriversLicenceNumber,
+                        SpiceBcidcardnumber = associateEntity.Contact.BCIdCardNumber,
+                        SpiceDateofbirth = associateEntity.Contact.BirthDate?.UtcDateTime,
+                        SpiceBirthplace = associateEntity.Contact.Birthplace,
+                        SpiceSelfdisclosed = associateEntity.Contact.SelfDisclosure == GeneralYesNo.Yes,
+                        Address1Line1 = associateEntity.Contact.Address.AddressStreet1,
+                        Address1Line2 = associateEntity.Contact.Address.AddressStreet2,
+                        Address1Line3 = associateEntity.Contact.Address.AddressStreet3,
+                        Address1City = associateEntity.Contact.Address.City,
+                        Address1Postalcode = associateEntity.Contact.Address.Postal,
+                        Address1Stateorprovince = associateEntity.Contact.Address.StateProvince,
+                        Address1Country = associateEntity.Contact.Address.Country,
+                        SpiceContactSpicePreviousaddresses = new List<MicrosoftDynamicsCRMspicePreviousaddresses>(),
+                        SpiceContactSpiceAliases = new List<MicrosoftDynamicsCRMspiceAliases>(),
+                        SpicePositiontitle = associateEntity.Title
+                    };
 
-                if ((int)associateEntity.Contact.Gender != 0)
-                {
-                    associate.Gendercode = (int)associateEntity.Contact.Gender;
+                    if ((int)associateEntity.Contact.Gender != 0)
+                    {
+                        associate.Gendercode = (int)associateEntity.Contact.Gender;
+                    }
+
+                    foreach (var address in associateEntity.PreviousAddresses)
+                    {
+                        associate.SpiceContactSpicePreviousaddresses.Add(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                        {
+                            SpiceName = address.AddressStreet1,
+                            SpiceCity = address.City,
+                            SpiceStateprovince = address.StateProvince,
+                            SpiceZippostalcode = address.Postal,
+                            SpiceCountry = address.Country,
+                            SpiceStartdate = address.FromDate,
+                            SpiceEnddate = address.ToDate
+                        });
+                    }
+
+                    foreach (var alias in associateEntity.Aliases)
+                    {
+                        associate.SpiceContactSpiceAliases.Add(new MicrosoftDynamicsCRMspiceAliases()
+                        {
+                            SpiceName = alias.GivenName,
+                            SpiceMiddlename = alias.SecondName,
+                            SpiceLastname = alias.Surname,
+                        });
+                    }
+                    associate = _dynamicsClient.Contacts.Create(associate);
                 }
 
-                foreach (var address in associateEntity.PreviousAddresses)
+                try
                 {
-                    associate.SpiceContactSpicePreviousaddresses.Add(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                    MicrosoftDynamicsCRMspiceAccountcaseassignment accountContact = _dynamicsClient.Accountcaseassignments.Create(new MicrosoftDynamicsCRMspiceAccountcaseassignment()
                     {
-                        SpiceName = address.AddressStreet1,
-                        SpiceCity = address.City,
-                        SpiceStateprovince = address.StateProvince,
-                        SpiceZippostalcode = address.Postal,
-                        SpiceCountry = address.Country,
-                        SpiceStartdate = address.FromDate,
-                        SpiceEnddate = address.ToDate
+                        SpiceName = associateEntity.Contact.FirstName,
+                        SpiceBusinessIdODataBind = accountEntityUri,
+                        SpiceContactCaseAssignmentIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
+                        SpicePosition = GetLegalEntityPositions(associateEntity.Positions)
                     });
                 }
-
-                foreach (var alias in associateEntity.Aliases)
+                catch (Exception e)
                 {
-                    associate.SpiceContactSpiceAliases.Add(new MicrosoftDynamicsCRMspiceAliases()
-                    {
-                        SpiceName = alias.GivenName,
-                        SpiceMiddlename = alias.SecondName,
-                        SpiceLastname = alias.Surname,
-                    });
+                    _logger.LogError("Failed to create new account case assignment");
+                    _logger.LogError(e.Message);
+                    _logger.LogError(e.Data.ToString());
+                    return;
                 }
-
-                associate = _dynamicsClient.Contacts.Create(associate);
-
-                MicrosoftDynamicsCRMspiceAccountcaseassignment accountContact = _dynamicsClient.Accountcaseassignments.Create(new MicrosoftDynamicsCRMspiceAccountcaseassignment()
-                {
-                    SpiceName = associateEntity.Contact.FirstName,
-                    SpiceBusinessIdODataBind = accountEntityUri,
-                    SpiceContactCaseAssignmentIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
-                    SpicePosition = GetLegalEntityPositions(associateEntity.Positions)
-                });
 
                 string servicesFilter = "spice_name eq 'Cannabis Associate'";
                 var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
@@ -264,8 +475,17 @@ namespace Gov.Jag.Spice.CarlaSync
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                     SpiceClientIdODataBind = clientEntityUri
                 };
-
-                MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
+                try
+                {
+                    MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError("Failed to create new incident");
+                    _logger.LogError(e.Message);
+                    _logger.LogError(e.Data.ToString());
+                    return;
+                }
             }
             else
             {
@@ -322,3 +542,4 @@ namespace Gov.Jag.Spice.CarlaSync
         }
     }
 }
+

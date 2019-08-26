@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using SpdSync.models;
+﻿using System.Collections.Generic;
 
 namespace SpiceCarlaSync.models
 {
@@ -11,7 +9,7 @@ namespace SpiceCarlaSync.models
 
         public string LCRBBusinessJobId { get; set; }
 
-        public static List<CsvAssociateExport> CreateListFromRequest(ApplicationScreeningRequest request)
+        public static List<CsvAssociateExport> CreateListFromRequest(IncompleteApplicationScreening request)
         {
             List<CsvAssociateExport> export = new List<CsvAssociateExport>();
             export.AddRange(CreateFromAssociatesList(request.RecordIdentifier, request.Associates));
@@ -34,11 +32,11 @@ namespace SpiceCarlaSync.models
                         Legalmiddlename = entity.Contact.MiddleName?.Replace(",", ""),
                         Contactphone = entity.Contact.PhoneNumber?.Replace(",", ""),
                         Personalemailaddress = entity.Contact.Email?.Replace(",", ""),
-                        Addressline1 = !string.IsNullOrEmpty(entity.Contact.Address.AddressStreet1) ? entity.Contact.Address.AddressStreet1.Replace(",", "") : "N/A",
-                        Addresscity = !string.IsNullOrEmpty(entity.Contact.Address.City) ? entity.Contact.Address.City.Replace(",", "") : "N/A",
-                        Addressprovstate = !string.IsNullOrEmpty(entity.Contact.Address.StateProvince) ? entity.Contact.Address.StateProvince.Replace(",", "") : "N/A",
-                        Addresscountry = !string.IsNullOrEmpty(entity.Contact.Address.Country) ? entity.Contact.Address.Country.Replace(",", "") : "N/A",
-                        Addresspostalcode = !string.IsNullOrEmpty(entity.Contact.Address.Postal) ? entity.Contact.Address.Postal.Replace(",", "") : "N/A",
+                        Addressline1 = entity.Contact.Address != null && !string.IsNullOrEmpty(entity.Contact.Address.AddressStreet1) ? entity.Contact.Address.AddressStreet1.Replace(",", "") : "N/A",
+                        Addresscity = entity.Contact.Address != null && !string.IsNullOrEmpty(entity.Contact.Address.City) ? entity.Contact.Address.City.Replace(",", "") : "N/A",
+                        Addressprovstate = entity.Contact.Address != null && !string.IsNullOrEmpty(entity.Contact.Address.StateProvince) ? entity.Contact.Address.StateProvince.Replace(",", "") : "N/A",
+                        Addresscountry = entity.Contact.Address != null && !string.IsNullOrEmpty(entity.Contact.Address.Country) ? entity.Contact.Address.Country.Replace(",", "") : "N/A",
+                        Addresspostalcode = entity.Contact.Address != null && !string.IsNullOrEmpty(entity.Contact.Address.Postal) ? entity.Contact.Address.Postal.Replace(",", "") : "N/A",
                         Selfdisclosure = ((GeneralYesNo)entity.Contact.SelfDisclosure).ToString().Substring(0, 1),
                         Gendermf = (entity.Contact.Gender == 0) ? null : ((AdoxioGenderCode)entity.Contact.Gender).ToString().Substring(0, 1),
                         Driverslicence = entity.Contact.DriversLicenceNumber?.Replace(",", ""),
