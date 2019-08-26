@@ -23,7 +23,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// </param>
             /// <param name='results'>
             /// </param>
-            public static void ReceiveApplicationScreeningResult(this ICarlaClient operations, IList<ApplicationScreeningResponse> results = default(IList<ApplicationScreeningResponse>))
+            public static void ReceiveApplicationScreeningResult(this ICarlaClient operations, IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>))
             {
                 operations.ReceiveApplicationScreeningResultAsync(results).GetAwaiter().GetResult();
             }
@@ -36,7 +36,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ReceiveApplicationScreeningResultAsync(this ICarlaClient operations, IList<ApplicationScreeningResponse> results = default(IList<ApplicationScreeningResponse>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task ReceiveApplicationScreeningResultAsync(this ICarlaClient operations, IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.ReceiveApplicationScreeningResultWithHttpMessagesAsync(results, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -49,7 +49,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse ReceiveApplicationScreeningResultWithHttpMessages(this ICarlaClient operations, IList<ApplicationScreeningResponse> results = default(IList<ApplicationScreeningResponse>), Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse ReceiveApplicationScreeningResultWithHttpMessages(this ICarlaClient operations, IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null)
             {
                 return operations.ReceiveApplicationScreeningResultWithHttpMessagesAsync(results, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
@@ -57,37 +57,43 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='applicationId'>
+            /// <param name='applicationIdString'>
             /// </param>
-            public static void SendApplicationScreeningRequest(this ICarlaClient operations, string applicationId)
+            /// <param name='bearer'>
+            /// </param>
+            public static void SendApplicationScreeningRequest(this ICarlaClient operations, string applicationIdString, string bearer = default(string))
             {
-                operations.SendApplicationScreeningRequestAsync(applicationId).GetAwaiter().GetResult();
+                operations.SendApplicationScreeningRequestAsync(applicationIdString, bearer).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='applicationId'>
+            /// <param name='applicationIdString'>
+            /// </param>
+            /// <param name='bearer'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SendApplicationScreeningRequestAsync(this ICarlaClient operations, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task SendApplicationScreeningRequestAsync(this ICarlaClient operations, string applicationIdString, string bearer = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationIdString, bearer, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='applicationId'>
+            /// <param name='applicationIdString'>
+            /// </param>
+            /// <param name='bearer'>
             /// </param>
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse SendApplicationScreeningRequestWithHttpMessages(this ICarlaClient operations, string applicationId, Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse SendApplicationScreeningRequestWithHttpMessages(this ICarlaClient operations, string applicationIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null)
             {
-                return operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationId, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+                return operations.SendApplicationScreeningRequestWithHttpMessagesAsync(applicationIdString, bearer, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -134,7 +140,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// </param>
             /// <param name='results'>
             /// </param>
-            public static void ReceiveWorkerScreeningResults(this ICarlaClient operations, IList<WorkerScreeningResponse> results = default(IList<WorkerScreeningResponse>))
+            public static void ReceiveWorkerScreeningResults(this ICarlaClient operations, IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>))
             {
                 operations.ReceiveWorkerScreeningResultsAsync(results).GetAwaiter().GetResult();
             }
@@ -147,7 +153,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ReceiveWorkerScreeningResultsAsync(this ICarlaClient operations, IList<WorkerScreeningResponse> results = default(IList<WorkerScreeningResponse>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task ReceiveWorkerScreeningResultsAsync(this ICarlaClient operations, IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(results, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -160,7 +166,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse ReceiveWorkerScreeningResultsWithHttpMessages(this ICarlaClient operations, IList<WorkerScreeningResponse> results = default(IList<WorkerScreeningResponse>), Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse ReceiveWorkerScreeningResultsWithHttpMessages(this ICarlaClient operations, IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null)
             {
                 return operations.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(results, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
@@ -168,37 +174,49 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='workerIdString'>
+            /// </param>
             /// <param name='workerId'>
             /// </param>
-            public static void SendWorkerScreeningRequest(this ICarlaClient operations, string workerId)
+            /// <param name='bearer'>
+            /// </param>
+            public static void SendWorkerScreeningRequest(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string))
             {
-                operations.SendWorkerScreeningRequestAsync(workerId).GetAwaiter().GetResult();
+                operations.SendWorkerScreeningRequestAsync(workerIdString, workerId, bearer).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='workerIdString'>
+            /// </param>
             /// <param name='workerId'>
+            /// </param>
+            /// <param name='bearer'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SendWorkerScreeningRequestAsync(this ICarlaClient operations, string workerId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task SendWorkerScreeningRequestAsync(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, workerId, bearer, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='workerIdString'>
+            /// </param>
             /// <param name='workerId'>
+            /// </param>
+            /// <param name='bearer'>
             /// </param>
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse SendWorkerScreeningRequestWithHttpMessages(this ICarlaClient operations, string workerId, Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse SendWorkerScreeningRequestWithHttpMessages(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string), Dictionary<string, List<string>> customHeaders = null)
             {
-                return operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerId, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+                return operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, workerId, bearer, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
     }

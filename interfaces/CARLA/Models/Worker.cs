@@ -9,22 +9,21 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Associate
+    public partial class Worker
     {
         /// <summary>
-        /// Initializes a new instance of the Associate class.
+        /// Initializes a new instance of the Worker class.
         /// </summary>
-        public Associate()
+        public Worker()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Associate class.
+        /// Initializes a new instance of the Worker class.
         /// </summary>
-        public Associate(string spdJobId = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string))
+        public Worker(string firstName = default(string), string middleName = default(string), string lastName = default(string))
         {
-            SpdJobId = spdJobId;
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
@@ -35,11 +34,6 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spdJobId")]
-        public string SpdJobId { get; set; }
 
         /// <summary>
         /// </summary>

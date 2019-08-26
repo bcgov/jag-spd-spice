@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpdSync.models
+namespace SpiceCarlaSync.models
 {
     public class Account
     {
@@ -11,6 +11,7 @@ namespace SpdSync.models
         public string Name { get; set; }
         public string BCIncorporationNumber { get; set; }
         public string BusinessNumber { get; set; }
+        public string BusinessType { get; set; }
         public List<LegalEntity> Associates { get; set; }
     }
 }

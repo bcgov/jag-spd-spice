@@ -1,8 +1,7 @@
-﻿using System;
-using CsvHelper.Configuration;
-using Gov.Jag.Spice.CarlaSync.models;
+﻿using CsvHelper.Configuration;
+using SpiceCarlaSync.models;
 
-namespace Gov.Jag.Spice.CarlaSync
+namespace SpiceCarlaSync
 {
     public class CsvBusinessImportMap : ClassMap<CsvBusinessImport>
     {

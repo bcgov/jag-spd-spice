@@ -102,9 +102,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 SetupSharePoint(services);
             }
 
-            
-            
-
             services.AddHangfire(config =>
             {
                 // Change this line if you wish to have Hangfire use persistent storage.
@@ -152,8 +149,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (startHangfire)
             {
-
-
                 // enable Hangfire, using the default authentication model (local connections only)
                 app.UseHangfireServer();
 
@@ -234,7 +229,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "5 * * * *"); // Run every 5 minutes
+                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "*/5 * * * *"); // Run every 5 minutes
                     log.LogInformation("Hangfire Send Export job done.");
                 }
             }
