@@ -263,7 +263,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     workerRequest.Contact.FirstName,
                     workerRequest.Contact.MiddleName,
                     workerRequest.Contact.LastName,
-                    (int)workerRequest.Contact.Gender,
+                    GetGenderCode(workerRequest.Contact.Gender),
                     workerRequest.Contact.Email,
                     workerRequest.Contact.PhoneNumber,
                     workerRequest.Contact.DriversLicenceNumber,
@@ -278,8 +278,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     workerRequest.Contact.Address.Postal,
                     workerRequest.Contact.Address.StateProvince,
                     workerRequest.Contact.Address.Country,
-                    new List<Address>(),
-                    new List<Alias>(),
+                    workerRequest.Contact.PreviousAddresses,
+                    workerRequest.Contact.Aliases,
                     null
                 );
 
@@ -323,7 +323,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     associateEntity.Contact.FirstName,
                     associateEntity.Contact.MiddleName,
                     associateEntity.Contact.LastName,
-                    (int)associateEntity.Contact.Gender,
+                    GetGenderCode(associateEntity.Contact.Gender),
                     associateEntity.Contact.Email,
                     associateEntity.Contact.PhoneNumber,
                     associateEntity.Contact.DriversLicenceNumber,
@@ -427,41 +427,64 @@ namespace Gov.Jag.Spice.CarlaSync
                 Address1Stateorprovince = stateProvince,
                 Address1Country = country,
                 SpicePositiontitle = title
+
             };
 
             if (contactResponse.Value.Count > 0)
             {
                 await _dynamicsClient.Contacts.UpdateAsync(contactResponse.Value[0].Contactid, contact);
                 contact.Contactid = contactResponse.Value[0].Contactid;
-                return contact;
             }
             else
             {
-                foreach (var address in addresses)
-                {
-                    contact.SpiceContactSpicePreviousaddresses.Add(new MicrosoftDynamicsCRMspicePreviousaddresses()
-                    {
-                        SpiceName = address.AddressStreet1,
-                        SpiceCity = address.City,
-                        SpiceStateprovince = address.StateProvince,
-                        SpiceZippostalcode = address.Postal,
-                        SpiceCountry = address.Country,
-                        SpiceStartdate = address.FromDate,
-                        SpiceEnddate = address.ToDate
-                    });
-                }
-
-                foreach (var alias in aliases)
-                {
-                    contact.SpiceContactSpiceAliases.Add(new MicrosoftDynamicsCRMspiceAliases()
-                    {
-                        SpiceName = alias.GivenName,
-                        SpiceMiddlename = alias.SecondName,
-                        SpiceLastname = alias.Surname,
-                    });
-                }
-                return _dynamicsClient.Contacts.Create(contact);
+                contact = _dynamicsClient.Contacts.Create(contact);
             }
+
+            string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
+            
+            PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
+            if(currentPreviousAddresses.Value.Count > 0)
+            {
+                foreach(var address in currentPreviousAddresses.Value)
+                {
+                    _dynamicsClient.Previousaddresseses.Delete(address.SpicePreviousaddressesid);
+                }
+            }
+            foreach (var address in addresses)
+            {
+                _dynamicsClient.Previousaddresseses.Create(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                {
+                    SpiceContactIdODataBind = entityUri,
+                    SpiceName = address.AddressStreet1,
+                    SpiceCity = address.City,
+                    SpiceStateprovince = address.StateProvince,
+                    SpiceZippostalcode = address.Postal,
+                    SpiceCountry = address.Country,
+                    SpiceStartdate = address.FromDate,
+                    SpiceEnddate = address.ToDate
+                });
+            }
+
+            AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
+            if(currentAliases.Value.Count > 0)
+            {
+                foreach(var alias in currentAliases.Value)
+                {
+                    _dynamicsClient.Aliaseses.Delete(alias.SpiceAliasesid);
+                }
+            }
+            foreach (var alias in aliases)
+            {
+                _dynamicsClient.Aliaseses.Create(new MicrosoftDynamicsCRMspiceAliases()
+                {
+                    SpiceAliascontactODataBind = entityUri,
+                    SpiceName = alias.GivenName,
+                    SpiceMiddlename = alias.SecondName,
+                    SpiceLastname = alias.Surname,
+                });
+            }
+
+            return contact;
         }
 
         public string GetLegalEntityPositions(List<string> positions)
@@ -507,6 +530,14 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
             }
             return string.Join(", ", positionValues);
+        }
+        public int? GetGenderCode(AdoxioGenderCode gender)
+        {
+            if (gender != AdoxioGenderCode.Male || gender != AdoxioGenderCode.Female)
+            {
+                return null;
+            }
+            return (int?)gender;
         }
     }
 }
