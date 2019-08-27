@@ -163,10 +163,10 @@ namespace Gov.Jag.Spice.CarlaSync
                         contact.Address1Country = workerRequest.Contact.Address.Country;
                     }
 
-                    contact.SpiceBcidcardnumber = workerRequest.BCIdCardNumber;
-                    contact.SpiceDriverslicensenumber = int.Parse(workerRequest.DriversLicence);
+                    contact.SpiceBcidcardnumber = workerRequest.Contact.BCIdCardNumber;
+                    contact.SpiceDriverslicensenumber = int.Parse(workerRequest.Contact.DriversLicenceNumber);
                     //contact.Externaluseridentifier = workerRequest.RecordIdentifier;
-                    contact.Gendercode = (int?)workerRequest.Gender;
+                    contact.Gendercode = (int?)workerRequest.Contact.Gender;
 
                     if (contact.Contactid == null) // new record
                     {
@@ -206,10 +206,10 @@ namespace Gov.Jag.Spice.CarlaSync
                 CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
                 {
                     Lcrbworkerjobid = workerRequest.RecordIdentifier,
-                    Birthdate = $"{workerRequest.BirthDate:yyyy-MM-dd}",
-                    Birthplacecity = workerRequest.Birthplace,
-                    Driverslicence = workerRequest.DriversLicence,
-                    Bcidentificationcardnumber = workerRequest.BCIdCardNumber,
+                    Birthdate = $"{workerRequest.Contact.BirthDate:yyyy-MM-dd}",
+                    Birthplacecity = workerRequest.Contact.Birthplace,
+                    Driverslicence = workerRequest.Contact.DriversLicenceNumber,
+                    Bcidentificationcardnumber = workerRequest.Contact.BCIdCardNumber,
                 };
                 //Selfdisclosure = workerRequest.SelfDisclosure,
                 //Gendermf = workerRequest.Gender,
@@ -223,18 +223,18 @@ namespace Gov.Jag.Spice.CarlaSync
                     csvWorkerExport.Personalemailaddress = workerRequest.Contact.Email;
                 }
 
-                if (workerRequest.Address != null)
+                if (workerRequest.Contact.Address != null)
                 {
-                    csvWorkerExport.Addressline1 = workerRequest.Address.AddressStreet1;
-                    csvWorkerExport.Addresscity = workerRequest.Address.City;
-                    csvWorkerExport.Addressprovstate = workerRequest.Address.StateProvince;
-                    csvWorkerExport.Addresscountry = workerRequest.Address.Country;
-                    csvWorkerExport.Addresspostalcode = workerRequest.Address.Postal;
+                    csvWorkerExport.Addressline1 = workerRequest.Contact.Address.AddressStreet1;
+                    csvWorkerExport.Addresscity = workerRequest.Contact.Address.City;
+                    csvWorkerExport.Addressprovstate = workerRequest.Contact.Address.StateProvince;
+                    csvWorkerExport.Addresscountry = workerRequest.Contact.Address.Country;
+                    csvWorkerExport.Addresspostalcode = workerRequest.Contact.Address.Postal;
                 }
 
                 /* Flatten up the aliases */
                 var aliasId = 1;
-                foreach (var alias in workerRequest.Aliases)
+                foreach (var alias in workerRequest.Contact.Aliases)
                 {
                     csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname;
                     csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName;
@@ -249,7 +249,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 /* Flatten up the previous addresses */
                 var addressId = 1;
-                foreach (var address in workerRequest.PreviousAddresses)
+                foreach (var address in workerRequest.Contact.PreviousAddresses)
                 {
                     string addressIdString = addressId.ToString();
                     if (addressId == 10)

@@ -41,7 +41,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
                 DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
-                dynamicsUtils.ImportWorkerRequests(requests);
+                BackgroundJob.Enqueue(() => dynamicsUtils.ImportWorkerRequests(null, requests));                
             }
 
             _logger.LogInformation("Started receive worker screening import job");
