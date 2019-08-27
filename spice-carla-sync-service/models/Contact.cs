@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SpiceCarlaSync.models;
@@ -26,5 +27,7 @@ namespace SpiceCarlaSync.models
         public AdoxioGenderCode Gender { get; set; }
 
         public Address Address { get; set; }
+        public List<Alias> Aliases { get; set; }
+        public List<Address> PreviousAddresses { get; set; }
     }
 }
