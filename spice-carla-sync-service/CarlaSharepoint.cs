@@ -186,7 +186,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             using (var csvWriter = new CsvWriter(writer))
             {
                 csvWriter.Configuration.HasHeaderRecord = true;
-                csvWriter.Configuration.AutoMap<CsvWorkerExport>();
+                csvWriter.Configuration.RegisterClassMap<CsvWorkerExportMap>();
 
                 csvWriter.WriteHeader<CsvWorkerExport>();
                 csvWriter.NextRecord();
