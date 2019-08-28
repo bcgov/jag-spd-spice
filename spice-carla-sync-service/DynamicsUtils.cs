@@ -533,11 +533,11 @@ namespace Gov.Jag.Spice.CarlaSync
         }
         public int? GetGenderCode(AdoxioGenderCode gender)
         {
-            if (gender != AdoxioGenderCode.Male || gender != AdoxioGenderCode.Female)
+            if (gender == AdoxioGenderCode.Male || gender == AdoxioGenderCode.Female)
             {
-                return null;
+                return (int?)gender;
             }
-            return (int?)gender;
+            return null;
         }
     }
 }
