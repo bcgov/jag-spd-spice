@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import requests to Dynamics.
         /// </summary>
         /// <returns></returns>
-        public async Task ImportApplicationRequests(List<IncompleteApplicationScreening> requests)
+        public void ImportApplicationRequests(List<IncompleteApplicationScreening> requests)
         {
             foreach (IncompleteApplicationScreening applicationRequest in requests)
             {
@@ -45,12 +45,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to query companies");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
-                    _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(e.Response.Content);
+                    _logger.LogError($"Failed to query companies: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
                 MicrosoftDynamicsCRMspiceCompany company;
@@ -95,9 +92,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query contacts: {e.Message.ToString()}");
-                    _logger.LogError($"Request: {e.Request.Content.ToString()}");
-                    _logger.LogError($"Response: {e.Response.Content.ToString()}");
+                    _logger.LogError($"Failed to query contacts: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
                 MicrosoftDynamicsCRMcontact contactPerson;
@@ -121,9 +118,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message.ToString()}");
-                        _logger.LogError($"Request: {e.Request.Content.ToString()}");
-                        _logger.LogError($"Response: {e.Response.Content.ToString()}");
+                        _logger.LogError($"Failed to create new account: {e.Message}");
+                        _logger.LogError($"Request: {e.Request.Content}");
+                        _logger.LogError($"Response: {e.Response.Content}");
                         return;
                     }
                 }
@@ -137,9 +134,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query accounts: {e.Message.ToString()}");
-                    _logger.LogError($"Request: {e.Request.Content.ToString()}");
-                    _logger.LogError($"Response: {e.Response.Content.ToString()}");
+                    _logger.LogError($"Failed to query accounts: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
                 MicrosoftDynamicsCRMaccount account;
@@ -168,9 +165,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message.ToString()}");
-                        _logger.LogError($"Request: {e.Request.Content.ToString()}");
-                        _logger.LogError($"Response: {e.Response.Content.ToString()}");
+                        _logger.LogError($"Failed to create new account: {e.Message}");
+                        _logger.LogError($"Request: {e.Request.Content}");
+                        _logger.LogError($"Response: {e.Response.Content}");
                         return;
                     }
                 }
@@ -185,12 +182,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to query services");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
-                    _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(e.Response.Content);
+                    _logger.LogError($"Failed to query services: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
 
@@ -202,12 +196,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to query companies");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
-                    _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(e.Response.Content);
+                    _logger.LogError($"Failed to query companies: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
                 string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
@@ -238,27 +229,24 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new account");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
-                    _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(e.Response.Content);
+                    _logger.LogError($"Failed to create new account: {e.Message}");
+                    _logger.LogError($"Request: {e.Request.Content}");
+                    _logger.LogError($"Response: {e.Response.Content}");
                     return;
                 }
 
                 foreach (var associate in applicationRequest.Associates)
                 {
-                    await CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
                 }
             }
         }
 
-        public async Task ImportWorkerRequests(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
+        public void ImportWorkerRequests(List<IncompleteWorkerScreening> requests)
         {
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
-                MicrosoftDynamicsCRMcontact contact = await CreateOrUpdateContact(
+                MicrosoftDynamicsCRMcontact contact = CreateOrUpdateContact(
                     workerRequest.Contact.ContactId,
                     workerRequest.Contact.FirstName,
                     workerRequest.Contact.MiddleName,
@@ -314,11 +302,11 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
-        public async Task CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity)
+        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity)
         {
             if (associateEntity.IsIndividual)
             {
-                MicrosoftDynamicsCRMcontact associate = await CreateOrUpdateContact(
+                MicrosoftDynamicsCRMcontact associate = CreateOrUpdateContact(
                     associateEntity.Contact.ContactId,
                     associateEntity.Contact.FirstName,
                     associateEntity.Contact.MiddleName,
@@ -389,12 +377,12 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 foreach (var associate in associateEntity.Account.Associates)
                 {
-                    await CreateAssociate(clientEntityUri, accountEntityUri, screeningId, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, screeningId, associate);
                 }
             }
         }
 
-        public async Task<MicrosoftDynamicsCRMcontact> CreateOrUpdateContact(
+        public MicrosoftDynamicsCRMcontact CreateOrUpdateContact(
             string contactId, string firstName, string middleName, string lastName,
             int? gender, string email, string phoneNumber, string driversLicenceNumber,
             string bcIdCardNumber, DateTimeOffset? dateOfBirth, string birthPlace,
@@ -432,7 +420,16 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (contactResponse.Value.Count > 0)
             {
-                await _dynamicsClient.Contacts.UpdateAsync(contactResponse.Value[0].Contactid, contact);
+                try
+                {
+                    _dynamicsClient.Contacts.Update(contactResponse.Value[0].Contactid, contact);
+                }
+                catch (OdataerrorException e)
+                {
+                    _logger.LogError($"Failed to update contact: {e.Message}");
+                    _logger.LogError($"Request: {e.Request}");
+                    _logger.LogError($"Response: {e.Response}");
+                }
                 contact.Contactid = contactResponse.Value[0].Contactid;
             }
             else
