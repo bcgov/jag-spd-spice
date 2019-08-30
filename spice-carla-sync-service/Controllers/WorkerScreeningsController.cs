@@ -7,7 +7,6 @@ using System;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.SharePoint;
 using SpiceCarlaSync.models;
-using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
