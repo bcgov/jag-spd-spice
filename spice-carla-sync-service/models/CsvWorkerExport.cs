@@ -114,13 +114,13 @@ namespace SpiceCarlaSync.models
         {
             CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
             {
-                Lcrbworkerjobid = workerRequest.RecordIdentifier?.Replace(",", ""),
+                Lcrbworkerjobid = workerRequest.Contact?.SpdJobId.Replace(",", ""),
                 Birthdate = $"{workerRequest.Contact?.BirthDate:yyyy-MM-dd}",
                 Birthplacecity = workerRequest.Contact?.Birthplace?.Replace(",", ""),
                 Driverslicence = workerRequest.Contact?.DriversLicenceNumber?.Replace(",", ""),
                 Bcidentificationcardnumber = workerRequest.Contact?.BCIdCardNumber?.Replace(",", ""),
-                Selfdisclosure = workerRequest.Contact.SelfDisclosure.ToString().Substring(0, 1),
-                Gendermf = (workerRequest.Contact.Gender == 0) ? null : workerRequest.Contact.Gender.ToString().Substring(0, 1)
+                Selfdisclosure = workerRequest.Contact?.SelfDisclosure.ToString().Substring(0, 1),
+                Gendermf = (workerRequest.Contact?.Gender == 0) ? null : workerRequest.Contact.Gender.ToString().Substring(0, 1)
             };
 
             if (workerRequest.Contact != null)

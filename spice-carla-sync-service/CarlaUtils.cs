@@ -56,10 +56,11 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger.LogError("Starting SPICE Import Job.");
 
             var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
-            foreach (var request in requests)
+            if (sent)
             {
-                if (sent)
+                foreach (var request in requests)
                 {
+                
                     string fullFilepath = Configuration["SHAREPOINT_NATIVE_BASE_URI"] + filepath;
                     SendSPDEmail(
                         new List<Attachment>(),
