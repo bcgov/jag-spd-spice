@@ -22,20 +22,9 @@ namespace Gov.Jag.Spice.CarlaSync
 {
     public class CarlaUtils
     {
-        const string DOCUMENT_LIBRARY = "SPD Applications";
-        const string REQUESTS_PATH = "Requests";
-        const string RESULTS_PATH = "Results";
-        const string APPLICATIONS_PATH = "businesses";
-        const string ASSOCIATES_PATH = "associates";
-        const string WORKERS_PATH = "workers";
-
-        const int MAX_WORKER_ALIAS = 5; // maximum number of aliases to send in the CSV export.
-        const int MAX_WORKER_PREVIOUS_ADDRESS = 10;
-
         public ILogger _logger { get; }
 
         private IConfiguration Configuration { get; }
-        private IDynamicsClient _dynamics;
         public ICarlaClient CarlaClient;
         public CarlaSharepoint _carlaSharepoint;
 
@@ -43,14 +32,6 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
-            if(!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
-            {
-                _dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
-            }
-            else
-            {
-                _dynamics = null;
-            }
             CarlaClient = SetupCarlaClient();
             _carlaSharepoint = new CarlaSharepoint(Configuration, loggerFactory, sharepoint, CarlaClient);
         }
@@ -122,226 +103,6 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger.LogError("Done.");
         }
 
-        /// <summary>
-        /// Import responses to Dynamics.
-        /// </summary>
-        /// <returns></returns>
-        private void ImportWorkerRequestsToDynamics(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
-        {
-            if(_dynamics == null)
-            {
-                hangfireContext.WriteLine("Dynamics not configured properly");
-                return;
-            }
-            foreach (IncompleteWorkerScreening workerRequest in requests)
-            {
-                // add data to dynamics.
-                // create a Contact which will be bound to the customer id field.
-                MicrosoftDynamicsCRMcontact contact = null; 
-
-                if (workerRequest.Contact != null)
-                {
-                    
-                    contact = _dynamics.GetContactByExternalId(workerRequest.Contact.ContactId);
-
-                    if (contact == null)
-                    {                        
-                        contact = new MicrosoftDynamicsCRMcontact();
-                    }
-
-                    contact.Firstname = workerRequest.Contact.FirstName;
-                    contact.Lastname = workerRequest.Contact.LastName;
-                    contact.SpiceDateofbirth = workerRequest.Contact.BirthDate;
-                    contact.Emailaddress1 = workerRequest.Contact.Email;
-                    if (workerRequest.Contact.Address != null)
-                    {
-                        contact.Address1Line1 = workerRequest.Contact.Address.AddressStreet1;
-                        contact.Address1Line2 = workerRequest.Contact.Address.AddressStreet2;
-                        contact.Address1City = workerRequest.Contact.Address.City;
-                        contact.Address1Stateorprovince = workerRequest.Contact.Address.StateProvince;
-                        contact.Address1Postalcode = workerRequest.Contact.Address.Postal;
-                        contact.Address1Country = workerRequest.Contact.Address.Country;
-                    }
-
-                    contact.SpiceBcidcardnumber = workerRequest.Contact.BCIdCardNumber;
-                    contact.SpiceDriverslicensenumber = int.Parse(workerRequest.Contact.DriversLicenceNumber);
-                    //contact.Externaluseridentifier = workerRequest.RecordIdentifier;
-                    contact.Gendercode = (int?)workerRequest.Contact.Gender;
-
-                    if (contact.Contactid == null) // new record
-                    {
-                        contact = _dynamics.Contacts.Create(contact);
-                    }
-                    else
-                    {
-                        _dynamics.Contacts.Update(contact.Contactid, contact);
-                    }
-
-                }
-                                
-                    
-                MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident();
-
-                incident.SpiceApplicanttype = 525840001; // Cannabis  
-                incident.SpiceCannabisapplicanttype = 525840002; // Worker
-
-                // Screenings are Incidents in Dynamics.
-
-                _dynamics.Incidents.Create(incident);
-                                
-            }
-        }
-
-        /// <summary>
-        /// Import responses to Dynamics.
-        /// </summary>
-        /// <returns></returns>
-        public void ImportWorkerRequestsToSMTP(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
-        {
-
-            List<CsvWorkerExport> export = new List<CsvWorkerExport>();
-
-            foreach (IncompleteWorkerScreening workerRequest in requests)
-            {
-                CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
-                {
-                    Lcrbworkerjobid = workerRequest.RecordIdentifier,
-                    Birthdate = $"{workerRequest.Contact.BirthDate:yyyy-MM-dd}",
-                    Birthplacecity = workerRequest.Contact.Birthplace,
-                    Driverslicence = workerRequest.Contact.DriversLicenceNumber,
-                    Bcidentificationcardnumber = workerRequest.Contact.BCIdCardNumber,
-                };
-                //Selfdisclosure = workerRequest.SelfDisclosure,
-                //Gendermf = workerRequest.Gender,
-
-                if (workerRequest.Contact != null)
-                {
-                    csvWorkerExport.Legalsurname = workerRequest.Contact.LastName;
-                    csvWorkerExport.Legalfirstname = workerRequest.Contact.FirstName;
-                    csvWorkerExport.Legalmiddlename = workerRequest.Contact.MiddleName;
-                    csvWorkerExport.Contactphone = workerRequest.Contact.PhoneNumber;
-                    csvWorkerExport.Personalemailaddress = workerRequest.Contact.Email;
-                }
-
-                if (workerRequest.Contact.Address != null)
-                {
-                    csvWorkerExport.Addressline1 = workerRequest.Contact.Address.AddressStreet1;
-                    csvWorkerExport.Addresscity = workerRequest.Contact.Address.City;
-                    csvWorkerExport.Addressprovstate = workerRequest.Contact.Address.StateProvince;
-                    csvWorkerExport.Addresscountry = workerRequest.Contact.Address.Country;
-                    csvWorkerExport.Addresspostalcode = workerRequest.Contact.Address.Postal;
-                }
-
-                /* Flatten up the aliases */
-                var aliasId = 1;
-                foreach (var alias in workerRequest.Contact.Aliases)
-                {
-                    csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname;
-                    csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName;
-                    csvWorkerExport[$"Alias{aliasId}firstname"] = alias.GivenName;
-                    aliasId++;
-
-                    if (aliasId > MAX_WORKER_ALIAS)
-                    {
-                        break;
-                    }
-                }
-
-                /* Flatten up the previous addresses */
-                var addressId = 1;
-                foreach (var address in workerRequest.Contact.PreviousAddresses)
-                {
-                    string addressIdString = addressId.ToString();
-                    if (addressId == 10)
-                    {
-                        addressIdString = "x";
-                    }
-                    csvWorkerExport[$"Previousstreetaddress{addressIdString}"] = address.AddressStreet1;
-                    csvWorkerExport[$"Previouscity{addressIdString}"] = address.City;
-                    csvWorkerExport[$"Previousprovstate{addressIdString}"] = address.StateProvince;
-                    csvWorkerExport[$"Previouscountry{addressIdString}"] = address.Country;
-                    csvWorkerExport[$"Previouspostalcode{addressIdString}"] = address.Postal;
-                    addressId++;
-                    
-                    if (addressId > MAX_WORKER_PREVIOUS_ADDRESS)
-                    {
-                        break;
-                    }
-                }
-
-                export.Add(csvWorkerExport);
-            }
-
-            Attachment attachment = Attachment.CreateAttachmentFromString(CreateWorkerCSV(export), "Worker_ScreeningRequest.csv", Encoding.UTF8, "text/csv");
-            bool sentEmail = SendSPDEmail(new List<Attachment>() { attachment }, "New Cannabis Worker Screening Request Received", "");
-
-            if (sentEmail)
-            {
-                _logger.LogError($"Sent email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
-            else
-            {
-                _logger.LogError($"Unable to send email to {Configuration["SPD_EXPORT_EMAIL"]}.");
-            }
-        }
-
-        private string CreateWorkerCSV(List<CsvWorkerExport> workers)
-        {
-
-            // convert the list to a CSV document.
-            StringBuilder sb = new StringBuilder();
-            StringWriter sw = new StringWriter(sb);
-
-            using (var csv = new CsvWriter(sw))
-            {
-                csv.WriteRecords(workers);
-            }
-
-            sw.Flush();
-            sw.Close();
-            string csvData = sb.ToString();
-
-            return csvData;
-        }
-
-        private string CreateAssociateCSV(List<CsvAssociateExport> associates)
-        {
-            // convert the list to a CSV document.
-            StringBuilder sb = new StringBuilder();
-            StringWriter sw = new StringWriter(sb);
-
-            using (var csv = new CsvWriter(sw))
-            {
-                csv.Configuration.RegisterClassMap<CsvAssociateExportMap>();
-                csv.WriteRecords(associates);
-            }
-
-            sw.Flush();
-            sw.Close();
-            string csvData = sb.ToString();
-
-            return csvData;
-        }
-
-        private string CreateBusinessCSV(List<CsvBusinessExport> businesses)
-        {
-            // convert the list to a CSV document.
-            StringBuilder sb = new StringBuilder();
-            StringWriter sw = new StringWriter(sb);
-
-            using (var csv = new CsvWriter(sw))
-            {
-                csv.Configuration.RegisterClassMap<CsvBusinessExportMap>();
-                csv.WriteRecords(businesses);
-            }
-
-            sw.Flush();
-            sw.Close();
-            string csvData = sb.ToString();
-
-            return csvData;
-        }
-
         private bool SendSPDEmail(List<Attachment> attachments, string subject, string body)
         {
             if (string.IsNullOrEmpty(Configuration["SPD_EXPORT_EMAIL"]))
@@ -349,7 +110,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 return false;
             }
             var emailSentSuccessfully = false;
-            var datePart = DateTime.Now.ToString().Replace('/', '-').Replace(':', '_');
             var email = Configuration["SPD_EXPORT_EMAIL"];
 
             using (var mailClient = new SmtpClient(Configuration["SMTP_HOST"]))
@@ -395,20 +155,6 @@ namespace Gov.Jag.Spice.CarlaSync
             var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
 
             return result.Response.StatusCode.ToString() == "Ok";
-        }
-
-        /// <summary>
-        /// Hangfire job to receive an import from SPICE.
-        /// </summary>
-        public void SendResultsJob(PerformContext hangfireContext)
-        {
-            hangfireContext.WriteLine("Starting SPICE Application Send Results Job.");
-            _logger.LogError("Starting SPICE Send Results Job.");
-
-            // TODO - send results.
-
-            hangfireContext.WriteLine("Done.");
-            _logger.LogError("Done.");
         }
     }
 }
