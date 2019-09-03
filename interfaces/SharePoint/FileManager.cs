@@ -871,7 +871,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             // make the request.
             var response = await _Client.SendAsync(endpointRequest);
 
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.NoContent)
             {
                 result = true;
             }
