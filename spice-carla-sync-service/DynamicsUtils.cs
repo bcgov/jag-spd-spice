@@ -286,7 +286,8 @@ namespace Gov.Jag.Spice.CarlaSync
                         Prioritycode = (int)PriorityCode.Normal,
                         SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                         SpiceClientIdODataBind = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid),
-                        CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", contact.Contactid)
+                        CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", contact.Contactid),
+                        SpiceConsentformReceived = true
                     });
                 }
                 catch (OdataerrorException e)
@@ -359,7 +360,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
-                    SpiceClientIdODataBind = clientEntityUri
+                    SpiceClientIdODataBind = clientEntityUri,
+                    SpiceConsentformReceived = true
                 };
                 try
                 {
