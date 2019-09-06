@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Hangfire.Server;
+using Hangfire.Console;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpiceCarlaSync.models;
+using Gov.Lclb.Cllb.Interfaces.Models;
 
 namespace Gov.Jag.Spice.CarlaSync
 {
@@ -15,11 +17,13 @@ namespace Gov.Jag.Spice.CarlaSync
         private IDynamicsClient _dynamicsClient;
         private IConfiguration Configuration { get; }
         private ILogger _logger { get; }
+        private ILoggerFactory _loggerFactory { get; }
 
         public DynamicsUtils(IConfiguration configuration, ILoggerFactory loggerFactory, IDynamicsClient dynamicsClient)
         {
             Configuration = configuration;
             _dynamicsClient = dynamicsClient;
+            _loggerFactory = loggerFactory;
             _logger = loggerFactory.CreateLogger(typeof(DynamicsUtils));
         }
 
@@ -384,6 +388,44 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
+        public async Task ProcessBusinessResults(PerformContext hangfire)
+        {
+            string[] select = {"incidentid"};
+            string businessFilter = $"spice_businessreadyforlcrb eq {(int)BusinessReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
+            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
+            if(resp.Value.Count == 0)
+            {
+                hangfire.WriteLine("No completed business screenings found.");
+                _logger.LogInformation("No completed business screenings found.");
+                return;
+            }
+            CarlaUtils carlaUtils = new CarlaUtils(Configuration, _loggerFactory, null);
+            hangfire.WriteLine($"Found {resp.Value.Count} resolved business screenings.");
+            _logger.LogInformation($"Found {resp.Value.Count} resolved business screenings.");
+            foreach(MicrosoftDynamicsCRMincident incident in resp.Value)
+            {
+                CompletedApplicationScreening screening = GenerateCompletedBusinessScreening(incident.Incidentid);
+                bool statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.SentToLCRB, isBusiness: true);
+                if (statusSet)
+                {
+                    try
+                    {
+                        carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
+                        statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
+                        hangfire.WriteLine($"Successfully sent completed application screening request [incident: {incident.Incidentid}] to Carla.");
+                        _logger.LogError($"Successfully sent completed application screening request [incident: {incident.Incidentid}] to Carla.");
+                    }
+                    catch (Exception e)
+                    {
+                        hangfire.WriteLine($"Failed to send completed application screening request to Carla: {e.Message}");
+                        _logger.LogError($"Failed to send completed application screening request to Carla: {e.Message}");
+                    }
+                }
+            }
+            return;
+        }
+
+
         public MicrosoftDynamicsCRMcontact CreateOrUpdateContact(
             string contactId, string firstName, string middleName, string lastName,
             int? gender, string email, string phoneNumber, string driversLicenceNumber,
@@ -417,7 +459,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 Address1Stateorprovince = stateProvince,
                 Address1Country = country,
                 SpicePositiontitle = title
-
             };
 
             if (contactResponse.Value.Count > 0)
@@ -484,6 +525,64 @@ namespace Gov.Jag.Spice.CarlaSync
             }
 
             return contact;
+        }
+
+        public bool SetLCRBStatus(string incidentId, int status, bool isBusiness)
+        {
+            MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident();
+            if (isBusiness)
+            {
+                incident.SpiceBusinessreadyforlcrb = status;
+            }
+            else
+            {
+                incident.SpiceWorkersreadyforlcrb = status;
+            }
+            try
+            {
+                _dynamicsClient.Incidents.Update(incidentId, incident);
+                return true;
+            }
+            catch (OdataerrorException odee)
+            {
+                _logger.LogError($"Failed to update screening with new ready for LCRB status: {odee.Message}");
+                _logger.LogError($"Request: {odee.Request}");
+                _logger.LogError($"Response: {odee.Response}");
+                return false;
+            }
+        }
+
+        public CompletedApplicationScreening GenerateCompletedBusinessScreening(string incidentId)
+        {
+            string[] expand = {"customerid_account"};
+            string[] select = {"customerid_contact", "incidentid"};
+            MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.GetByKey(incidentId, expand: expand, select: select);
+            
+            CompletedApplicationScreening screening = new CompletedApplicationScreening()
+            {
+                RecordIdentifier = incident.CustomeridAccount.SpiceLcrbjobid,
+                Result = "PASS",
+                Associates = new List<Associate>()
+            };
+
+            string filter = $"_parentcaseid_value eq {incident.Incidentid}";
+            string[] associateExpand = {"customerid_contact"};
+            string[] associateSelect = {"customerid_contact", "incidentid"};
+            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: filter, expand: associateExpand, select: associateSelect);
+
+            foreach(var associate in resp.Value)
+            {
+                screening.Associates.Add(new Associate()
+                {
+                    SpdJobId = associate.CustomeridContact.Contactid,
+                    LastName = associate.CustomeridContact.Lastname,
+                    FirstName = associate.CustomeridContact.Firstname,
+                    MiddleName = associate.CustomeridContact.Middlename
+                });
+            }
+            
+            _logger.LogInformation("TEST");
+            return screening;
         }
 
         public string GetLegalEntityPositions(List<string> positions)

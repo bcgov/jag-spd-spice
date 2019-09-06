@@ -93,7 +93,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// Import requests to LCRB SharePoint
         /// </summary>
         /// <returns>success, business file path, associates file path</returns>
-        public async Task<(bool, string, string)> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
+        public (bool, string, string) SendApplicationRequestsToSharePoint(List<IncompleteApplicationScreening> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             bool resp = false;
@@ -123,9 +123,8 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                     try
                     {
-                        hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
-                        (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        (resp, associatesFilepath) = _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv").GetAwaiter().GetResult();
                     }
                     catch (Exception ex)
                     {
@@ -151,9 +150,8 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                     try
                     {
-                        hangfireContext.WriteLine("Uploading business application CSV.");
                         _logger.LogInformation("Uploading business application CSV.");
-                        (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                        (resp, businessFilepath) = _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv").GetAwaiter().GetResult();
                     }
                     catch (Exception ex)
                     {
@@ -172,7 +170,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <returns>The worker requests to share point.</returns>
         /// <param name="hangfireContext">Hangfire context.</param>
         /// <param name="requests">Requests.</param>
-        public async Task<(bool, string)> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
+        public (bool, string) SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             List<CsvWorkerExport> workersExports = new List<CsvWorkerExport>();
@@ -199,7 +197,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 {
                     hangfireContext.WriteLine("Uploading workers CSV.");
                     _logger.LogInformation("Uploading workers CSV.");
-                    return await _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                    return _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv").GetAwaiter().GetResult();
                 }
                 catch (Exception ex)
                 {
