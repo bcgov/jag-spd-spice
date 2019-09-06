@@ -1,7 +1,4 @@
-﻿using CsvHelper;
-using Gov.Jag.Spice.Interfaces;
-using Gov.Jag.Spice.Interfaces.Models;
-using Gov.Jag.Spice.Interfaces.SharePoint;
+﻿using Gov.Jag.Spice.Interfaces.SharePoint;
 using Gov.Lclb.Cllb.Interfaces;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
@@ -9,13 +6,10 @@ using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Rest;
-using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Gov.Jag.Spice.CarlaSync
@@ -33,7 +27,10 @@ namespace Gov.Jag.Spice.CarlaSync
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));
             CarlaClient = SetupCarlaClient();
-            _carlaSharepoint = new CarlaSharepoint(Configuration, loggerFactory, sharepoint, CarlaClient);
+            if(sharepoint != null)
+            {
+                _carlaSharepoint = new CarlaSharepoint(Configuration, loggerFactory, sharepoint, CarlaClient);
+            }
         }
 
         public CarlaClient SetupCarlaClient()
@@ -50,12 +47,12 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public async Task ReceiveWorkerImportJob(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
+        public void ReceiveWorkerImportJob(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            var (sent, filepath) = _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
             if (sent)
             {
                 foreach (var request in requests)
@@ -74,15 +71,11 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger.LogError("Done.");
         }
 
-        /// <summary>
-        /// Hangfire job to receive an import from SPICE.
-        /// </summary>
-        public async Task ReceiveApplicationImportJob(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
+        public void ReceiveApplicationImportJob(List<IncompleteApplicationScreening> requests)
         {
-            hangfireContext.WriteLine("Starting SPICE Application Screening Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, businessFilepath, associatesFilepath) = await _carlaSharepoint.SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            var (sent, businessFilepath, associatesFilepath) = _carlaSharepoint.SendApplicationRequestsToSharePoint(requests);
             foreach (var request in requests)
             {
                 if (sent)
@@ -100,7 +93,6 @@ namespace Gov.Jag.Spice.CarlaSync
             }
 
 
-            hangfireContext.WriteLine("Done.");
             _logger.LogError("Done.");
         }
 
@@ -144,11 +136,16 @@ namespace Gov.Jag.Spice.CarlaSync
             await _carlaSharepoint.ProcessResultsFolders(hangfireContext);
         }
 
-        public async Task<bool> SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
+        public async Task<bool> SendApplicationScreeningResultAsync(List<CompletedApplicationScreening> responses)
         {
             var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
 
             return result.Response.StatusCode.ToString() == "Ok";
+        }
+
+        public void SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
+        {
+            CarlaClient.ReceiveApplicationScreeningResult(responses);
         }
 
         public async Task<bool> SendWorkerScreeningResult(List<CompletedWorkerScreening> responses)
