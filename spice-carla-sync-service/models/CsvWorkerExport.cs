@@ -107,7 +107,6 @@ namespace SpiceCarlaSync.models
                 Type myType = typeof(CsvWorkerExport);
                 PropertyInfo myPropInfo = myType.GetProperty(propertyName);
                 myPropInfo.SetValue(this, value, null);
-
             }
         }
 
@@ -115,14 +114,14 @@ namespace SpiceCarlaSync.models
         {
             CsvWorkerExport csvWorkerExport = new CsvWorkerExport()
             {
-                Lcrbworkerjobid = workerRequest.RecordIdentifier?.Replace(",", ""),
-                Birthdate = $"{workerRequest.BirthDate:yyyy-MM-dd}",
-                Birthplacecity = workerRequest.Birthplace?.Replace(",", ""),
-                Driverslicence = workerRequest.DriversLicence?.Replace(",", ""),
-                Bcidentificationcardnumber = workerRequest.BCIdCardNumber?.Replace(",", ""),
+                Lcrbworkerjobid = workerRequest.Contact?.SpdJobId.Replace(",", ""),
+                Birthdate = $"{workerRequest.Contact?.BirthDate:yyyy-MM-dd}",
+                Birthplacecity = workerRequest.Contact?.Birthplace?.Replace(",", ""),
+                Driverslicence = workerRequest.Contact?.DriversLicenceNumber?.Replace(",", ""),
+                Bcidentificationcardnumber = workerRequest.Contact?.BCIdCardNumber?.Replace(",", ""),
+                Selfdisclosure = workerRequest.Contact?.SelfDisclosure.ToString().Substring(0, 1),
+                Gendermf = (workerRequest.Contact?.Gender == 0) ? null : workerRequest.Contact.Gender.ToString().Substring(0, 1)
             };
-            //Selfdisclosure = workerRequest.SelfDisclosure,
-            //Gendermf = workerRequest.Gender,
 
             if (workerRequest.Contact != null)
             {
@@ -131,51 +130,51 @@ namespace SpiceCarlaSync.models
                 csvWorkerExport.Legalmiddlename = workerRequest.Contact.MiddleName?.Replace(",", "");
                 csvWorkerExport.Contactphone = workerRequest.Contact.PhoneNumber?.Replace(",", "");
                 csvWorkerExport.Personalemailaddress = workerRequest.Contact.Email?.Replace(",", "");
-            }
 
-            if (workerRequest.Address != null)
-            {
-                csvWorkerExport.Addressline1 = workerRequest.Address.AddressStreet1?.Replace(",", "");
-                csvWorkerExport.Addresscity = workerRequest.Address.City?.Replace(",", "");
-                csvWorkerExport.Addressprovstate = workerRequest.Address.StateProvince?.Replace(",", "");
-                csvWorkerExport.Addresscountry = workerRequest.Address.Country?.Replace(",", "");
-                csvWorkerExport.Addresspostalcode = workerRequest.Address.Postal?.Replace(",", "");
-            }
-
-            /* Flatten up the aliases */
-            var aliasId = 1;
-            foreach (var alias in workerRequest.Aliases)
-            {
-                csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname?.Replace(",", "");
-                csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName?.Replace(",", "");
-                csvWorkerExport[$"Alias{aliasId}firstname"] = alias.GivenName?.Replace(",", "");
-                aliasId++;
-
-                if (aliasId > MAX_WORKER_ALIAS)
+                if (workerRequest.Contact.Address != null)
                 {
-                    break;
+                    csvWorkerExport.Addressline1 = workerRequest.Contact.Address.AddressStreet1?.Replace(",", "");
+                    csvWorkerExport.Addresscity = workerRequest.Contact.Address.City?.Replace(",", "");
+                    csvWorkerExport.Addressprovstate = workerRequest.Contact.Address.StateProvince?.Replace(",", "");
+                    csvWorkerExport.Addresscountry = workerRequest.Contact.Address.Country?.Replace(",", "");
+                    csvWorkerExport.Addresspostalcode = workerRequest.Contact.Address.Postal?.Replace(",", "");
                 }
-            }
 
-            /* Flatten up the previous addresses */
-            var addressId = 1;
-            foreach (var address in workerRequest.PreviousAddresses)
-            {
-                string addressIdString = addressId.ToString();
-                if (addressId == 10)
+                /* Flatten up the aliases */
+                var aliasId = 1;
+                foreach (var alias in workerRequest.Contact.Aliases)
                 {
-                    addressIdString = "x";
+                    csvWorkerExport[$"Alias{aliasId}surname"] = alias.Surname?.Replace(",", "");
+                    csvWorkerExport[$"Alias{aliasId}middlename"] = alias.SecondName?.Replace(",", "");
+                    csvWorkerExport[$"Alias{aliasId}firstname"] = alias.GivenName?.Replace(",", "");
+                    aliasId++;
+
+                    if (aliasId > MAX_WORKER_ALIAS)
+                    {
+                        break;
+                    }
                 }
-                csvWorkerExport[$"Previousstreetaddress{addressIdString}"] = address.AddressStreet1?.Replace(",", "");
-                csvWorkerExport[$"Previouscity{addressIdString}"] = address.City?.Replace(",", "");
-                csvWorkerExport[$"Previousprovstate{addressIdString}"] = address.StateProvince?.Replace(",", "");
-                csvWorkerExport[$"Previouscountry{addressIdString}"] = address.Country?.Replace(",", "");
-                csvWorkerExport[$"Previouspostalcode{addressIdString}"] = address.Postal?.Replace(",", "");
-                addressId++;
 
-                if (addressId > MAX_WORKER_PREVIOUS_ADDRESS)
+                /* Flatten up the previous addresses */
+                var addressId = 1;
+                foreach (var address in workerRequest.Contact.PreviousAddresses)
                 {
-                    break;
+                    string addressIdString = addressId.ToString();
+                    if (addressId == 10)
+                    {
+                        addressIdString = "x";
+                    }
+                    csvWorkerExport[$"Previousstreetaddress{addressIdString}"] = address.AddressStreet1?.Replace(",", "");
+                    csvWorkerExport[$"Previouscity{addressIdString}"] = address.City?.Replace(",", "");
+                    csvWorkerExport[$"Previousprovstate{addressIdString}"] = address.StateProvince?.Replace(",", "");
+                    csvWorkerExport[$"Previouscountry{addressIdString}"] = address.Country?.Replace(",", "");
+                    csvWorkerExport[$"Previouspostalcode{addressIdString}"] = address.Postal?.Replace(",", "");
+                    addressId++;
+
+                    if (addressId > MAX_WORKER_PREVIOUS_ADDRESS)
+                    {
+                        break;
+                    }
                 }
             }
 

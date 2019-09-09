@@ -19,6 +19,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly ILoggerFactory _loggerFactory;
         private FileManager _sharepoint;
         private IDynamicsClient _dynamicsClient;
+        private CarlaUtils _carlaUtils;
 
         public WorkerScreeningsController (IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint, IServiceProvider serviceProvider)
         {
@@ -27,6 +28,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             _logger = loggerFactory.CreateLogger(typeof(WorkerScreeningsController));
             _sharepoint = sharepoint;
             _dynamicsClient = (IDynamicsClient)serviceProvider.GetService(typeof(IDynamicsClient));
+            _carlaUtils = new CarlaUtils(Configuration, _loggerFactory, _sharepoint);
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         public ActionResult ReceiveWorkerScreenings([FromBody] List<IncompleteWorkerScreening> requests)
         {
             // Process the updates received from the SPICE system.
-            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveWorkerImportJob(null, requests));
+            _carlaUtils.ReceiveWorkerImportJob(null, requests);
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
                 DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
