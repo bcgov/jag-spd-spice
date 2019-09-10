@@ -405,6 +405,9 @@ namespace Gov.Jag.Spice.CarlaSync
             foreach(MicrosoftDynamicsCRMincident incident in resp.Value)
             {
                 CompletedApplicationScreening screening = GenerateCompletedBusinessScreening(incident.Incidentid);
+                hangfire.WriteLine($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
+                _logger.LogError($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
+                // ToggleResolution(incident.Incidentid, false);
                 bool statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.SentToLCRB, isBusiness: true);
                 if (statusSet)
                 {
@@ -412,8 +415,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
                         statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
-                        hangfire.WriteLine($"Successfully sent completed application screening request [incident: {incident.Incidentid}] to Carla.");
-                        _logger.LogError($"Successfully sent completed application screening request [incident: {incident.Incidentid}] to Carla.");
+                        // ToggleResolution(incident.Incidentid, true);
+                        hangfire.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                     }
                     catch (Exception e)
                     {
@@ -422,7 +426,6 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                 }
             }
-            return;
         }
 
 
@@ -636,6 +639,24 @@ namespace Gov.Jag.Spice.CarlaSync
                 return (int?)gender;
             }
             return null;
+        }
+
+        public void ToggleResolution(string incidentId, bool resolve)
+        {
+            MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident();
+            if(resolve)
+            {
+                incident.Statuscode = 5;
+                incident.Statecode = 1;
+                // _dynamicsClient.Incidents.Update(incidentId, incident);
+                // _dynamicsClient.Incidents.Reso
+            }
+            else
+            {
+                incident.Statuscode = 1;
+                incident.Statecode = 0;
+                _dynamicsClient.Incidents.Update(incidentId, incident);
+            }
         }
     }
 }
