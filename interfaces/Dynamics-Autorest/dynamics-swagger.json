@@ -2,11 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "OData Service for namespace Microsoft.Dynamics.CRM",
-    "description": "This OData service is located at https://wsgw.dev.jag.gov.bc.ca/spdcss/spd-spice-dev/api/data/v9.0/",
+    "description": "This OData service is located at https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/",
     "version": "1.0.1"
   },
-  "host": "wsgw.dev.jag.gov.bc.ca",
-  "basePath": "/spdcss/spd-spice-dev/api/data/v9.0/",
+  "host": "spd-spice.dev.jag.gov.bc.ca",
+  "basePath": "/api/data/v9.0/",
   "schemes": [
     "https"
   ],
@@ -1305,6 +1305,8 @@
                 "donotpostalmail desc",
                 "externaluseridentifier",
                 "externaluseridentifier desc",
+                "spice_id_jurisdiction",
+                "spice_id_jurisdiction desc",
                 "aging30_base",
                 "aging30_base desc",
                 "callback",
@@ -1630,6 +1632,7 @@
                 "spice_birthplace",
                 "donotpostalmail",
                 "externaluseridentifier",
+                "spice_id_jurisdiction",
                 "aging30_base",
                 "callback",
                 "emailaddress2",
@@ -2017,6 +2020,7 @@
                 "spice_birthplace",
                 "donotpostalmail",
                 "externaluseridentifier",
+                "spice_id_jurisdiction",
                 "aging30_base",
                 "callback",
                 "emailaddress2",
@@ -2384,8 +2388,8 @@
                 "spice_bus_spdinvestrequired desc",
                 "spice_screeningcomplexity",
                 "spice_screeningcomplexity desc",
-                "spice_ess_edu_verificationrequired",
-                "spice_ess_edu_verificationrequired desc",
+                "spice_consent_dt_sent",
+                "spice_consent_dt_sent desc",
                 "_spice_returnresultto_value",
                 "_spice_returnresultto_value desc",
                 "timezoneruleversionnumber",
@@ -2400,8 +2404,6 @@
                 "_slaid_value desc",
                 "_spice_reasonforscreeningid_value",
                 "_spice_reasonforscreeningid_value desc",
-                "spice_consent_dt_sent",
-                "spice_consent_dt_sent desc",
                 "spice_otrletterreceived",
                 "spice_otrletterreceived desc",
                 "spice_aliasesfound",
@@ -2422,6 +2424,8 @@
                 "spice_tc_dt_signature_confirmed desc",
                 "spice_billingtext",
                 "spice_billingtext desc",
+                "_createdby_value",
+                "_createdby_value desc",
                 "spice_prime_results",
                 "spice_prime_results desc",
                 "spice_legalreviewcomplete",
@@ -2468,6 +2472,8 @@
                 "spice_ssqreceived desc",
                 "spice_prime_checked",
                 "spice_prime_checked desc",
+                "spice_wf_caseclosureflag",
+                "spice_wf_caseclosureflag desc",
                 "responseby",
                 "responseby desc",
                 "spice_ess_polygraphresultsreceived",
@@ -2542,6 +2548,8 @@
                 "spice_readyforspdinvestigation desc",
                 "spice_cpicrequestsent",
                 "spice_cpicrequestsent desc",
+                "spice_wf_businessclosure",
+                "spice_wf_businessclosure desc",
                 "spice_ess_edu_credvercompleted",
                 "spice_ess_edu_credvercompleted desc",
                 "spice_ess_inter_resultsreceived",
@@ -2558,8 +2566,8 @@
                 "_existingcase_value desc",
                 "_socialprofileid_value",
                 "_socialprofileid_value desc",
-                "_contractdetailid_value",
-                "_contractdetailid_value desc",
+                "spice_bus_furtherreviewrequired",
+                "spice_bus_furtherreviewrequired desc",
                 "statuscode",
                 "statuscode desc",
                 "routecase",
@@ -2590,8 +2598,8 @@
                 "severitycode desc",
                 "spice_verficationexpiresby",
                 "spice_verficationexpiresby desc",
-                "spice_chreferencerequestsent",
-                "spice_chreferencerequestsent desc",
+                "spice_wf_ssqrequired",
+                "spice_wf_ssqrequired desc",
                 "spice_cpic_infoprovided",
                 "spice_cpic_infoprovided desc",
                 "spice_otrrequired",
@@ -2656,6 +2664,8 @@
                 "isdecrementing desc",
                 "spice_resultssent",
                 "spice_resultssent desc",
+                "spice_addtlprimerequired",
+                "spice_addtlprimerequired desc",
                 "productserialnumber",
                 "productserialnumber desc",
                 "firstresponseslastatus",
@@ -2726,6 +2736,8 @@
                 "createdon desc",
                 "spice_completiondt",
                 "spice_completiondt desc",
+                "spice_chreferencerequestsent",
+                "spice_chreferencerequestsent desc",
                 "_spice_client_value",
                 "_spice_client_value desc",
                 "processid",
@@ -2788,6 +2800,8 @@
                 "sentimentvalue desc",
                 "_accountid_value",
                 "_accountid_value desc",
+                "_contractdetailid_value",
+                "_contractdetailid_value desc",
                 "_owningteam_value",
                 "_owningteam_value desc",
                 "spice_jc_checked",
@@ -2820,8 +2834,8 @@
                 "incidentid desc",
                 "spice_justinchecked",
                 "spice_justinchecked desc",
-                "_createdby_value",
-                "_createdby_value desc",
+                "spice_ess_edu_verificationrequired",
+                "spice_ess_edu_verificationrequired desc",
                 "description",
                 "description desc",
                 "spice_cornetcheckrequired",
@@ -2857,7 +2871,7 @@
                 "_contractid_value",
                 "spice_bus_spdinvestrequired",
                 "spice_screeningcomplexity",
-                "spice_ess_edu_verificationrequired",
+                "spice_consent_dt_sent",
                 "_spice_returnresultto_value",
                 "timezoneruleversionnumber",
                 "spice_finalresult",
@@ -2865,7 +2879,6 @@
                 "contractservicelevelcode",
                 "_slaid_value",
                 "_spice_reasonforscreeningid_value",
-                "spice_consent_dt_sent",
                 "spice_otrletterreceived",
                 "spice_aliasesfound",
                 "spice_ssqrequired",
@@ -2876,6 +2889,7 @@
                 "spice_ess_inter_polygraphrequired",
                 "spice_tc_dt_signature_confirmed",
                 "spice_billingtext",
+                "_createdby_value",
                 "spice_prime_results",
                 "spice_legalreviewcomplete",
                 "casetypecode",
@@ -2899,6 +2913,7 @@
                 "firstresponsesent",
                 "spice_ssqreceived",
                 "spice_prime_checked",
+                "spice_wf_caseclosureflag",
                 "responseby",
                 "spice_ess_polygraphresultsreceived",
                 "spice_resultofscreening",
@@ -2936,6 +2951,7 @@
                 "spice_ess_edu_credverrequired",
                 "spice_readyforspdinvestigation",
                 "spice_cpicrequestsent",
+                "spice_wf_businessclosure",
                 "spice_ess_edu_credvercompleted",
                 "spice_ess_inter_resultsreceived",
                 "spice_ess_securityinterdate",
@@ -2944,7 +2960,7 @@
                 "spice_jc_checkrequired",
                 "_existingcase_value",
                 "_socialprofileid_value",
-                "_contractdetailid_value",
+                "spice_bus_furtherreviewrequired",
                 "statuscode",
                 "routecase",
                 "spice_concapptype",
@@ -2960,7 +2976,7 @@
                 "spice_ess_refrecdfromapplicant",
                 "severitycode",
                 "spice_verficationexpiresby",
-                "spice_chreferencerequestsent",
+                "spice_wf_ssqrequired",
                 "spice_cpic_infoprovided",
                 "spice_otrrequired",
                 "spice_applicationstatus",
@@ -2993,6 +3009,7 @@
                 "spice_ess_driversabstreqd",
                 "isdecrementing",
                 "spice_resultssent",
+                "spice_addtlprimerequired",
                 "productserialnumber",
                 "firstresponseslastatus",
                 "spice_ssqsentdate",
@@ -3028,6 +3045,7 @@
                 "lastonholdtime",
                 "createdon",
                 "spice_completiondt",
+                "spice_chreferencerequestsent",
                 "_spice_client_value",
                 "processid",
                 "spice_otrlettersent",
@@ -3059,6 +3077,7 @@
                 "spice_spdinvestcompleted",
                 "sentimentvalue",
                 "_accountid_value",
+                "_contractdetailid_value",
                 "_owningteam_value",
                 "spice_jc_checked",
                 "_modifiedbyexternalparty_value",
@@ -3075,7 +3094,7 @@
                 "spice_ess_ssv_verifrequired",
                 "incidentid",
                 "spice_justinchecked",
-                "_createdby_value",
+                "spice_ess_edu_verificationrequired",
                 "description",
                 "spice_cornetcheckrequired",
                 "spice_cornetresult",
@@ -3267,7 +3286,7 @@
                 "_contractid_value",
                 "spice_bus_spdinvestrequired",
                 "spice_screeningcomplexity",
-                "spice_ess_edu_verificationrequired",
+                "spice_consent_dt_sent",
                 "_spice_returnresultto_value",
                 "timezoneruleversionnumber",
                 "spice_finalresult",
@@ -3275,7 +3294,6 @@
                 "contractservicelevelcode",
                 "_slaid_value",
                 "_spice_reasonforscreeningid_value",
-                "spice_consent_dt_sent",
                 "spice_otrletterreceived",
                 "spice_aliasesfound",
                 "spice_ssqrequired",
@@ -3286,6 +3304,7 @@
                 "spice_ess_inter_polygraphrequired",
                 "spice_tc_dt_signature_confirmed",
                 "spice_billingtext",
+                "_createdby_value",
                 "spice_prime_results",
                 "spice_legalreviewcomplete",
                 "casetypecode",
@@ -3309,6 +3328,7 @@
                 "firstresponsesent",
                 "spice_ssqreceived",
                 "spice_prime_checked",
+                "spice_wf_caseclosureflag",
                 "responseby",
                 "spice_ess_polygraphresultsreceived",
                 "spice_resultofscreening",
@@ -3346,6 +3366,7 @@
                 "spice_ess_edu_credverrequired",
                 "spice_readyforspdinvestigation",
                 "spice_cpicrequestsent",
+                "spice_wf_businessclosure",
                 "spice_ess_edu_credvercompleted",
                 "spice_ess_inter_resultsreceived",
                 "spice_ess_securityinterdate",
@@ -3354,7 +3375,7 @@
                 "spice_jc_checkrequired",
                 "_existingcase_value",
                 "_socialprofileid_value",
-                "_contractdetailid_value",
+                "spice_bus_furtherreviewrequired",
                 "statuscode",
                 "routecase",
                 "spice_concapptype",
@@ -3370,7 +3391,7 @@
                 "spice_ess_refrecdfromapplicant",
                 "severitycode",
                 "spice_verficationexpiresby",
-                "spice_chreferencerequestsent",
+                "spice_wf_ssqrequired",
                 "spice_cpic_infoprovided",
                 "spice_otrrequired",
                 "spice_applicationstatus",
@@ -3403,6 +3424,7 @@
                 "spice_ess_driversabstreqd",
                 "isdecrementing",
                 "spice_resultssent",
+                "spice_addtlprimerequired",
                 "productserialnumber",
                 "firstresponseslastatus",
                 "spice_ssqsentdate",
@@ -3438,6 +3460,7 @@
                 "lastonholdtime",
                 "createdon",
                 "spice_completiondt",
+                "spice_chreferencerequestsent",
                 "_spice_client_value",
                 "processid",
                 "spice_otrlettersent",
@@ -3469,6 +3492,7 @@
                 "spice_spdinvestcompleted",
                 "sentimentvalue",
                 "_accountid_value",
+                "_contractdetailid_value",
                 "_owningteam_value",
                 "spice_jc_checked",
                 "_modifiedbyexternalparty_value",
@@ -3485,7 +3509,7 @@
                 "spice_ess_ssv_verifrequired",
                 "incidentid",
                 "spice_justinchecked",
-                "_createdby_value",
+                "spice_ess_edu_verificationrequired",
                 "description",
                 "spice_cornetcheckrequired",
                 "spice_cornetresult",
@@ -24528,6 +24552,10 @@
           "type": "string",
           "x-nullable": true
         },
+        "spice_id_jurisdiction": {
+          "type": "string",
+          "x-nullable": true
+        },
         "aging30_base": {
           "x-nullable": true
         },
@@ -34293,9 +34321,9 @@
           "type": "integer",
           "x-nullable": true
         },
-        "spice_ess_edu_verificationrequired": {
-          "type": "boolean",
-          "x-nullable": true
+        "spice_consent_dt_sent": {
+          "type": "string",
+          "format": "date-time"
         },
         "_spice_returnresultto_value": {
           "type": "string",
@@ -34324,10 +34352,6 @@
         "_spice_reasonforscreeningid_value": {
           "type": "string",
           "x-nullable": true
-        },
-        "spice_consent_dt_sent": {
-          "type": "string",
-          "format": "date-time"
         },
         "spice_otrletterreceived": {
           "type": "boolean",
@@ -34366,6 +34390,10 @@
           "x-nullable": true
         },
         "spice_billingtext": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_createdby_value": {
           "type": "string",
           "x-nullable": true
         },
@@ -34458,6 +34486,10 @@
           "x-nullable": true
         },
         "spice_prime_checked": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_wf_caseclosureflag": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -34608,6 +34640,10 @@
           "type": "boolean",
           "x-nullable": true
         },
+        "spice_wf_businessclosure": {
+          "type": "boolean",
+          "x-nullable": true
+        },
         "spice_ess_edu_credvercompleted": {
           "type": "boolean",
           "x-nullable": true
@@ -34640,8 +34676,8 @@
           "type": "string",
           "x-nullable": true
         },
-        "_contractdetailid_value": {
-          "type": "string",
+        "spice_bus_furtherreviewrequired": {
+          "type": "integer",
           "x-nullable": true
         },
         "statuscode": {
@@ -34703,7 +34739,7 @@
           "type": "string",
           "format": "date-time"
         },
-        "spice_chreferencerequestsent": {
+        "spice_wf_ssqrequired": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -34833,6 +34869,10 @@
         },
         "spice_resultssent": {
           "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_addtlprimerequired": {
+          "type": "integer",
           "x-nullable": true
         },
         "productserialnumber": {
@@ -34975,6 +35015,10 @@
           "type": "string",
           "format": "date-time"
         },
+        "spice_chreferencerequestsent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
         "_spice_client_value": {
           "type": "string",
           "x-nullable": true
@@ -35098,6 +35142,10 @@
           "type": "string",
           "x-nullable": true
         },
+        "_contractdetailid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
         "_owningteam_value": {
           "type": "string",
           "x-nullable": true
@@ -35161,8 +35209,8 @@
           "type": "boolean",
           "x-nullable": true
         },
-        "_createdby_value": {
-          "type": "string",
+        "spice_ess_edu_verificationrequired": {
+          "type": "boolean",
           "x-nullable": true
         },
         "description": {
@@ -79925,8 +79973,7 @@
         "HasAttachments": {
           "type": "array",
           "items": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           }
         },
         "EntityCollection": {
@@ -80014,8 +80061,7 @@
         "RelationshipIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "AttributeId": {
@@ -80257,8 +80303,7 @@
         "Values": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -80270,8 +80315,7 @@
         "Columns": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -80303,8 +80347,7 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -80316,8 +80359,7 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -80329,8 +80371,7 @@
         "EntityNames": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -80465,8 +80506,7 @@
         "LocaleIds": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "nullable": true
+            "type": "integer"
           }
         }
       }
@@ -80516,8 +80556,7 @@
         "RetrieveDeprovisionedLanguages": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "nullable": true
+            "type": "integer"
           }
         }
       }
@@ -80566,8 +80605,7 @@
         "RetrieveInstalledLanguagePacks": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "nullable": true
+            "type": "integer"
           }
         }
       }
@@ -80719,8 +80757,7 @@
         "RetrieveProvisionedLanguages": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "nullable": true
+            "type": "integer"
           }
         }
       }
@@ -81831,8 +81868,7 @@
         "KeyAttributes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "IsCustomizable": {
@@ -81971,8 +82007,7 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "Format": {
@@ -82412,8 +82447,7 @@
         "Sites": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -82425,8 +82459,7 @@
         "Appointments": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "ResourceId": {
@@ -82537,8 +82570,7 @@
         "ComputedProperties": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "AttributeCrmDisplayName": {
@@ -82809,8 +82841,7 @@
         "Columns": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -83382,8 +83413,7 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "Format": {
@@ -83693,8 +83723,7 @@
         "FilterLanguages": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "nullable": true
+            "type": "integer"
           }
         },
         "MissingLabelBehavior": {
@@ -83791,8 +83820,7 @@
         "PropertyNames": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -84399,8 +84427,7 @@
         "InvalidNewValueAttributes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "DeletedAttributes": {
@@ -84648,8 +84675,7 @@
         "KeyAttributes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "IsCustomizable": {
@@ -85229,8 +85255,7 @@
         "Attributes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "Values": {
@@ -85313,8 +85338,7 @@
         "InvalidNewPrivileges": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "AuditRecord": {
@@ -85421,8 +85445,7 @@
         "MetadataNames": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "GetDefault": {
@@ -85439,8 +85462,7 @@
         "Exclude": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "AppId": {
@@ -85534,8 +85556,7 @@
         "QueryColumnSet": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "Data": {
@@ -85602,8 +85623,7 @@
         "EntityIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -85619,8 +85639,7 @@
         "Attributes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "EntityAlias": {
@@ -85737,15 +85756,13 @@
         "bpfIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "dashboardIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "appEntityInfo": {
@@ -85767,8 +85784,7 @@
         "ChartIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "Forms": {
@@ -85840,8 +85856,7 @@
         "MobileOfflineProfileIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       }
@@ -86030,8 +86045,7 @@
         "Targets": {
           "type": "array",
           "items": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "IsRangeBased": {

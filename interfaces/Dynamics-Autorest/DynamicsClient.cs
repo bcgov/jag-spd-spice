@@ -7,11 +7,13 @@
 namespace Gov.Jag.Spice.Interfaces
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
     using Models;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Net.Http;
 
@@ -19,7 +21,7 @@ namespace Gov.Jag.Spice.Interfaces
     /// This OData service is located at
     /// https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/
     /// </summary>
-    public partial class DynamicsClient : ServiceClient<DynamicsClient>, IDynamicsClient
+    public partial class DynamicsClient : ServiceClient<DynamicsClient>, IDynamicsClient, IAzureClient
     {
         /// <summary>
         /// The base URI of the service.
@@ -37,124 +39,142 @@ namespace Gov.Jag.Spice.Interfaces
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
-        /// Subscription credentials which uniquely identify client subscription.
+        /// Credentials needed for the client to connect to Azure.
         /// </summary>
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets the IAccounts.
+        /// The preferred language for the response.
         /// </summary>
-        public virtual IAccounts Accounts { get; private set; }
+        public string AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Gets the IContacts.
+        /// The retry timeout in seconds for Long Running Operations. Default value is
+        /// 30.
         /// </summary>
-        public virtual IContacts Contacts { get; private set; }
+        public int? LongRunningOperationRetryTimeout { get; set; }
 
         /// <summary>
-        /// Gets the IIncidents.
+        /// Whether a unique x-ms-client-request-id should be generated. When set to
+        /// true a unique x-ms-client-request-id value is generated and included in
+        /// each request. Default is true.
         /// </summary>
-        public virtual IIncidents Incidents { get; private set; }
+        public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IInvoices.
+        /// Gets the IAccountsOperations.
         /// </summary>
-        public virtual IInvoices Invoices { get; private set; }
+        public virtual IAccountsOperations Accounts { get; private set; }
 
         /// <summary>
-        /// Gets the ISavedqueries.
+        /// Gets the IContactsOperations.
         /// </summary>
-        public virtual ISavedqueries Savedqueries { get; private set; }
+        public virtual IContactsOperations Contacts { get; private set; }
 
         /// <summary>
-        /// Gets the ISharepointdocumentlocations.
+        /// Gets the IIncidentsOperations.
         /// </summary>
-        public virtual ISharepointdocumentlocations Sharepointdocumentlocations { get; private set; }
+        public virtual IIncidentsOperations Incidents { get; private set; }
 
         /// <summary>
-        /// Gets the ISharepointsites.
+        /// Gets the IInvoicesOperations.
         /// </summary>
-        public virtual ISharepointsites Sharepointsites { get; private set; }
+        public virtual IInvoicesOperations Invoices { get; private set; }
 
         /// <summary>
-        /// Gets the IAccountcaseassignments.
+        /// Gets the ISavedqueriesOperations.
         /// </summary>
-        public virtual IAccountcaseassignments Accountcaseassignments { get; private set; }
+        public virtual ISavedqueriesOperations Savedqueries { get; private set; }
 
         /// <summary>
-        /// Gets the IAliaseses.
+        /// Gets the ISharepointdocumentlocationsOperations.
         /// </summary>
-        public virtual IAliaseses Aliaseses { get; private set; }
+        public virtual ISharepointdocumentlocationsOperations Sharepointdocumentlocations { get; private set; }
 
         /// <summary>
-        /// Gets the ICompanies.
+        /// Gets the ISharepointsitesOperations.
         /// </summary>
-        public virtual ICompanies Companies { get; private set; }
+        public virtual ISharepointsitesOperations Sharepointsites { get; private set; }
 
         /// <summary>
-        /// Gets the IContactaccountset.
+        /// Gets the IAccountcaseassignmentsOperations.
         /// </summary>
-        public virtual IContactaccountset Contactaccountset { get; private set; }
+        public virtual IAccountcaseassignmentsOperations Accountcaseassignments { get; private set; }
 
         /// <summary>
-        /// Gets the IExportrequestincidentset.
+        /// Gets the IAliasesesOperations.
         /// </summary>
-        public virtual IExportrequestincidentset Exportrequestincidentset { get; private set; }
+        public virtual IAliasesesOperations Aliaseses { get; private set; }
 
         /// <summary>
-        /// Gets the IExportrequests.
+        /// Gets the ICompaniesOperations.
         /// </summary>
-        public virtual IExportrequests Exportrequests { get; private set; }
+        public virtual ICompaniesOperations Companies { get; private set; }
 
         /// <summary>
-        /// Gets the IGovministries.
+        /// Gets the IContactaccountsetOperations.
         /// </summary>
-        public virtual IGovministries Govministries { get; private set; }
+        public virtual IContactaccountsetOperations Contactaccountset { get; private set; }
 
         /// <summary>
-        /// Gets the ILcrblicencetypes.
+        /// Gets the IExportrequestincidentsetOperations.
         /// </summary>
-        public virtual ILcrblicencetypes Lcrblicencetypes { get; private set; }
+        public virtual IExportrequestincidentsetOperations Exportrequestincidentset { get; private set; }
 
         /// <summary>
-        /// Gets the IMinistries.
+        /// Gets the IExportrequestsOperations.
         /// </summary>
-        public virtual IMinistries Ministries { get; private set; }
+        public virtual IExportrequestsOperations Exportrequests { get; private set; }
 
         /// <summary>
-        /// Gets the IMinistryemployees.
+        /// Gets the IGovministriesOperations.
         /// </summary>
-        public virtual IMinistryemployees Ministryemployees { get; private set; }
+        public virtual IGovministriesOperations Govministries { get; private set; }
 
         /// <summary>
-        /// Gets the IPreviousaddresseses.
+        /// Gets the ILcrblicencetypesOperations.
         /// </summary>
-        public virtual IPreviousaddresseses Previousaddresseses { get; private set; }
+        public virtual ILcrblicencetypesOperations Lcrblicencetypes { get; private set; }
 
         /// <summary>
-        /// Gets the IReasonforscreenings.
+        /// Gets the IMinistriesOperations.
         /// </summary>
-        public virtual IReasonforscreenings Reasonforscreenings { get; private set; }
+        public virtual IMinistriesOperations Ministries { get; private set; }
 
         /// <summary>
-        /// Gets the IRequiredcheckses.
+        /// Gets the IMinistryemployeesOperations.
         /// </summary>
-        public virtual IRequiredcheckses Requiredcheckses { get; private set; }
+        public virtual IMinistryemployeesOperations Ministryemployees { get; private set; }
 
         /// <summary>
-        /// Gets the IServiceses.
+        /// Gets the IPreviousaddressesesOperations.
         /// </summary>
-        public virtual IServiceses Serviceses { get; private set; }
+        public virtual IPreviousaddressesesOperations Previousaddresseses { get; private set; }
 
         /// <summary>
-        /// Gets the IBusinesscaseprocesses.
+        /// Gets the IReasonforscreeningsOperations.
         /// </summary>
-        public virtual IBusinesscaseprocesses Businesscaseprocesses { get; private set; }
+        public virtual IReasonforscreeningsOperations Reasonforscreenings { get; private set; }
 
         /// <summary>
-        /// Gets the IProcesses.
+        /// Gets the IRequiredchecksesOperations.
         /// </summary>
-        public virtual IProcesses Processes { get; private set; }
+        public virtual IRequiredchecksesOperations Requiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesesOperations.
+        /// </summary>
+        public virtual IServicesesOperations Serviceses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinesscaseprocessesOperations.
+        /// </summary>
+        public virtual IBusinesscaseprocessesOperations Businesscaseprocesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IProcessesOperations.
+        /// </summary>
+        public virtual IProcessesOperations Processes { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the DynamicsClient class.
@@ -243,7 +263,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Initializes a new instance of the DynamicsClient class.
         /// </summary>
         /// <param name='credentials'>
-        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// Required. Credentials needed for the client to connect to Azure.
         /// </param>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
@@ -268,7 +288,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Initializes a new instance of the DynamicsClient class.
         /// </summary>
         /// <param name='credentials'>
-        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// Required. Credentials needed for the client to connect to Azure.
         /// </param>
         /// <param name='httpClient'>
         /// HttpClient to be used
@@ -295,7 +315,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Initializes a new instance of the DynamicsClient class.
         /// </summary>
         /// <param name='credentials'>
-        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// Required. Credentials needed for the client to connect to Azure.
         /// </param>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -326,7 +346,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Optional. The base URI of the service.
         /// </param>
         /// <param name='credentials'>
-        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// Required. Credentials needed for the client to connect to Azure.
         /// </param>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
@@ -359,7 +379,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Optional. The base URI of the service.
         /// </param>
         /// <param name='credentials'>
-        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// Required. Credentials needed for the client to connect to Azure.
         /// </param>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -390,37 +410,40 @@ namespace Gov.Jag.Spice.Interfaces
 
         /// <summary>
         /// An optional partial-method to perform custom initialization.
-        ///</summary>
+        /// </summary>
         partial void CustomInitialize();
         /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
         {
-            Accounts = new Accounts(this);
-            Contacts = new Contacts(this);
-            Incidents = new Incidents(this);
-            Invoices = new Invoices(this);
-            Savedqueries = new Savedqueries(this);
-            Sharepointdocumentlocations = new Sharepointdocumentlocations(this);
-            Sharepointsites = new Sharepointsites(this);
-            Accountcaseassignments = new Accountcaseassignments(this);
-            Aliaseses = new Aliaseses(this);
-            Companies = new Companies(this);
-            Contactaccountset = new Contactaccountset(this);
-            Exportrequestincidentset = new Exportrequestincidentset(this);
-            Exportrequests = new Exportrequests(this);
-            Govministries = new Govministries(this);
-            Lcrblicencetypes = new Lcrblicencetypes(this);
-            Ministries = new Ministries(this);
-            Ministryemployees = new Ministryemployees(this);
-            Previousaddresseses = new Previousaddresseses(this);
-            Reasonforscreenings = new Reasonforscreenings(this);
-            Requiredcheckses = new Requiredcheckses(this);
-            Serviceses = new Serviceses(this);
-            Businesscaseprocesses = new Businesscaseprocesses(this);
-            Processes = new Processes(this);
+            Accounts = new AccountsOperations(this);
+            Contacts = new ContactsOperations(this);
+            Incidents = new IncidentsOperations(this);
+            Invoices = new InvoicesOperations(this);
+            Savedqueries = new SavedqueriesOperations(this);
+            Sharepointdocumentlocations = new SharepointdocumentlocationsOperations(this);
+            Sharepointsites = new SharepointsitesOperations(this);
+            Accountcaseassignments = new AccountcaseassignmentsOperations(this);
+            Aliaseses = new AliasesesOperations(this);
+            Companies = new CompaniesOperations(this);
+            Contactaccountset = new ContactaccountsetOperations(this);
+            Exportrequestincidentset = new ExportrequestincidentsetOperations(this);
+            Exportrequests = new ExportrequestsOperations(this);
+            Govministries = new GovministriesOperations(this);
+            Lcrblicencetypes = new LcrblicencetypesOperations(this);
+            Ministries = new MinistriesOperations(this);
+            Ministryemployees = new MinistryemployeesOperations(this);
+            Previousaddresseses = new PreviousaddressesesOperations(this);
+            Reasonforscreenings = new ReasonforscreeningsOperations(this);
+            Requiredcheckses = new RequiredchecksesOperations(this);
+            Serviceses = new ServicesesOperations(this);
+            Businesscaseprocesses = new BusinesscaseprocessesOperations(this);
+            Processes = new ProcessesOperations(this);
             BaseUri = new System.Uri("https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0");
+            AcceptLanguage = "en-US";
+            LongRunningOperationRetryTimeout = 30;
+            GenerateClientRequestId = true;
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
@@ -429,7 +452,7 @@ namespace Gov.Jag.Spice.Interfaces
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
                 ContractResolver = new ReadOnlyJsonContractResolver(),
-                Converters = new  List<JsonConverter>
+                Converters = new List<JsonConverter>
                     {
                         new Iso8601TimeSpanConverter()
                     }
@@ -447,6 +470,7 @@ namespace Gov.Jag.Spice.Interfaces
                     }
             };
             CustomInitialize();
+            DeserializationSettings.Converters.Add(new CloudErrorJsonConverter());
         }
     }
 }

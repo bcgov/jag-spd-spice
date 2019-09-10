@@ -7,6 +7,7 @@
 namespace Gov.Jag.Spice.Interfaces
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
     using Models;
     using Newtonsoft.Json;
 
@@ -32,126 +33,143 @@ namespace Gov.Jag.Spice.Interfaces
         JsonSerializerSettings DeserializationSettings { get; }
 
         /// <summary>
-        /// Subscription credentials which uniquely identify client
-        /// subscription.
+        /// Credentials needed for the client to connect to Azure.
         /// </summary>
         ServiceClientCredentials Credentials { get; }
 
+        /// <summary>
+        /// The preferred language for the response.
+        /// </summary>
+        string AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Gets the IAccounts.
+        /// The retry timeout in seconds for Long Running Operations. Default
+        /// value is 30.
         /// </summary>
-        IAccounts Accounts { get; }
+        int? LongRunningOperationRetryTimeout { get; set; }
 
         /// <summary>
-        /// Gets the IContacts.
+        /// Whether a unique x-ms-client-request-id should be generated. When
+        /// set to true a unique x-ms-client-request-id value is generated and
+        /// included in each request. Default is true.
         /// </summary>
-        IContacts Contacts { get; }
+        bool? GenerateClientRequestId { get; set; }
+
 
         /// <summary>
-        /// Gets the IIncidents.
+        /// Gets the IAccountsOperations.
         /// </summary>
-        IIncidents Incidents { get; }
+        IAccountsOperations Accounts { get; }
 
         /// <summary>
-        /// Gets the IInvoices.
+        /// Gets the IContactsOperations.
         /// </summary>
-        IInvoices Invoices { get; }
+        IContactsOperations Contacts { get; }
 
         /// <summary>
-        /// Gets the ISavedqueries.
+        /// Gets the IIncidentsOperations.
         /// </summary>
-        ISavedqueries Savedqueries { get; }
+        IIncidentsOperations Incidents { get; }
 
         /// <summary>
-        /// Gets the ISharepointdocumentlocations.
+        /// Gets the IInvoicesOperations.
         /// </summary>
-        ISharepointdocumentlocations Sharepointdocumentlocations { get; }
+        IInvoicesOperations Invoices { get; }
 
         /// <summary>
-        /// Gets the ISharepointsites.
+        /// Gets the ISavedqueriesOperations.
         /// </summary>
-        ISharepointsites Sharepointsites { get; }
+        ISavedqueriesOperations Savedqueries { get; }
 
         /// <summary>
-        /// Gets the IAccountcaseassignments.
+        /// Gets the ISharepointdocumentlocationsOperations.
         /// </summary>
-        IAccountcaseassignments Accountcaseassignments { get; }
+        ISharepointdocumentlocationsOperations Sharepointdocumentlocations { get; }
 
         /// <summary>
-        /// Gets the IAliaseses.
+        /// Gets the ISharepointsitesOperations.
         /// </summary>
-        IAliaseses Aliaseses { get; }
+        ISharepointsitesOperations Sharepointsites { get; }
 
         /// <summary>
-        /// Gets the ICompanies.
+        /// Gets the IAccountcaseassignmentsOperations.
         /// </summary>
-        ICompanies Companies { get; }
+        IAccountcaseassignmentsOperations Accountcaseassignments { get; }
 
         /// <summary>
-        /// Gets the IContactaccountset.
+        /// Gets the IAliasesesOperations.
         /// </summary>
-        IContactaccountset Contactaccountset { get; }
+        IAliasesesOperations Aliaseses { get; }
 
         /// <summary>
-        /// Gets the IExportrequestincidentset.
+        /// Gets the ICompaniesOperations.
         /// </summary>
-        IExportrequestincidentset Exportrequestincidentset { get; }
+        ICompaniesOperations Companies { get; }
 
         /// <summary>
-        /// Gets the IExportrequests.
+        /// Gets the IContactaccountsetOperations.
         /// </summary>
-        IExportrequests Exportrequests { get; }
+        IContactaccountsetOperations Contactaccountset { get; }
 
         /// <summary>
-        /// Gets the IGovministries.
+        /// Gets the IExportrequestincidentsetOperations.
         /// </summary>
-        IGovministries Govministries { get; }
+        IExportrequestincidentsetOperations Exportrequestincidentset { get; }
 
         /// <summary>
-        /// Gets the ILcrblicencetypes.
+        /// Gets the IExportrequestsOperations.
         /// </summary>
-        ILcrblicencetypes Lcrblicencetypes { get; }
+        IExportrequestsOperations Exportrequests { get; }
 
         /// <summary>
-        /// Gets the IMinistries.
+        /// Gets the IGovministriesOperations.
         /// </summary>
-        IMinistries Ministries { get; }
+        IGovministriesOperations Govministries { get; }
 
         /// <summary>
-        /// Gets the IMinistryemployees.
+        /// Gets the ILcrblicencetypesOperations.
         /// </summary>
-        IMinistryemployees Ministryemployees { get; }
+        ILcrblicencetypesOperations Lcrblicencetypes { get; }
 
         /// <summary>
-        /// Gets the IPreviousaddresseses.
+        /// Gets the IMinistriesOperations.
         /// </summary>
-        IPreviousaddresseses Previousaddresseses { get; }
+        IMinistriesOperations Ministries { get; }
 
         /// <summary>
-        /// Gets the IReasonforscreenings.
+        /// Gets the IMinistryemployeesOperations.
         /// </summary>
-        IReasonforscreenings Reasonforscreenings { get; }
+        IMinistryemployeesOperations Ministryemployees { get; }
 
         /// <summary>
-        /// Gets the IRequiredcheckses.
+        /// Gets the IPreviousaddressesesOperations.
         /// </summary>
-        IRequiredcheckses Requiredcheckses { get; }
+        IPreviousaddressesesOperations Previousaddresseses { get; }
 
         /// <summary>
-        /// Gets the IServiceses.
+        /// Gets the IReasonforscreeningsOperations.
         /// </summary>
-        IServiceses Serviceses { get; }
+        IReasonforscreeningsOperations Reasonforscreenings { get; }
 
         /// <summary>
-        /// Gets the IBusinesscaseprocesses.
+        /// Gets the IRequiredchecksesOperations.
         /// </summary>
-        IBusinesscaseprocesses Businesscaseprocesses { get; }
+        IRequiredchecksesOperations Requiredcheckses { get; }
 
         /// <summary>
-        /// Gets the IProcesses.
+        /// Gets the IServicesesOperations.
         /// </summary>
-        IProcesses Processes { get; }
+        IServicesesOperations Serviceses { get; }
+
+        /// <summary>
+        /// Gets the IBusinesscaseprocessesOperations.
+        /// </summary>
+        IBusinesscaseprocessesOperations Businesscaseprocesses { get; }
+
+        /// <summary>
+        /// Gets the IProcessesOperations.
+        /// </summary>
+        IProcessesOperations Processes { get; }
 
     }
 }
