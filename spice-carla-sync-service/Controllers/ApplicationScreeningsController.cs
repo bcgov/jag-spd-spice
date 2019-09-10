@@ -13,7 +13,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ApplicationScreeningsController : Controller
+    public class ApplicationScreeningsController : ControllerBase
     {
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
@@ -38,12 +38,10 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         public ActionResult ReceiveApplicationScreenings([FromBody] List<IncompleteApplicationScreening> requests)
         {
             // Process the updates received from the SPICE system.
-            CarlaUtils _carlaUtils = new CarlaUtils(Configuration, _loggerFactory, _sharepoint);
-            _carlaUtils.ReceiveApplicationImportJob(requests);
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveApplicationImportJob(null, requests));
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
-                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
-                dynamicsUtils.ImportApplicationRequests(requests);
+                BackgroundJob.Enqueue(() => new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient).ImportApplicationRequests(null, requests));
             }
 
             _logger.LogInformation("Started receive Application Screenings import job");
