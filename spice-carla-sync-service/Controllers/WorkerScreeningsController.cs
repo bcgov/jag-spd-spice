@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkerScreeningsController : Controller
+    public class WorkerScreeningsController : ControllerBase
     {
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
@@ -39,11 +39,10 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         public ActionResult ReceiveWorkerScreenings([FromBody] List<IncompleteWorkerScreening> requests)
         {
             // Process the updates received from the SPICE system.
-            _carlaUtils.ReceiveWorkerImportJob(null, requests);
+            BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).ReceiveWorkerImportJob(null, requests));
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
-                DynamicsUtils dynamicsUtils = new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient);
-                dynamicsUtils.ImportWorkerRequests(requests);
+                BackgroundJob.Enqueue(() => new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient).ImportWorkerRequests(null, requests));
             }
 
             _logger.LogInformation("Started receive worker screening import job");
