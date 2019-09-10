@@ -106,7 +106,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 // Change this line if you wish to have Hangfire use persistent storage.
                 config.UseMemoryStorage();
                 // enable console logs for jobs
-                
                 config.UseConsole();
             });
 
@@ -125,8 +124,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {            
-
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -230,8 +228,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     log.LogInformation("Creating Hangfire job for Send Results jobs ...");
                     RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "*/5 * * * *"); // Run every 5 minutes
                     // Process Results in Dynamics
-                    // IDynamicsClient dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
-                    // RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessBusinessResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
+                    IDynamicsClient dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
+                    RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessBusinessResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
                     log.LogInformation("Hangfire Send Results jobs created.");
                 }
             }
