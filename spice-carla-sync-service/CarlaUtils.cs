@@ -47,12 +47,12 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <summary>
         /// Hangfire job to receive an import from SPICE.
         /// </summary>
-        public void ReceiveWorkerImportJob(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
+        public async Task ReceiveWorkerImportJob(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, filepath) = _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
             if (sent)
             {
                 foreach (var request in requests)
@@ -71,11 +71,11 @@ namespace Gov.Jag.Spice.CarlaSync
             _logger.LogError("Done.");
         }
 
-        public void ReceiveApplicationImportJob(List<IncompleteApplicationScreening> requests)
+        public async Task ReceiveApplicationImportJob(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
         {
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, businessFilepath, associatesFilepath) = _carlaSharepoint.SendApplicationRequestsToSharePoint(requests);
+            var (sent, businessFilepath, associatesFilepath) = await _carlaSharepoint.SendApplicationRequestsToSharePoint(hangfireContext, requests);
             foreach (var request in requests)
             {
                 if (sent)
@@ -137,16 +137,11 @@ namespace Gov.Jag.Spice.CarlaSync
             await _carlaSharepoint.ProcessResultsFolders(hangfireContext);
         }
 
-        public async Task<bool> SendApplicationScreeningResultAsync(List<CompletedApplicationScreening> responses)
+        public async Task<bool> SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
         {
             var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
 
             return result.Response.StatusCode.ToString() == "Ok";
-        }
-
-        public void SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
-        {
-            CarlaClient.ReceiveApplicationScreeningResult(responses);
         }
 
         public async Task<bool> SendWorkerScreeningResult(List<CompletedWorkerScreening> responses)

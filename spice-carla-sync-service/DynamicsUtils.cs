@@ -31,7 +31,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// Import requests to Dynamics.
         /// </summary>
         /// <returns></returns>
-        public void ImportApplicationRequests(List<IncompleteApplicationScreening> requests)
+        public void ImportApplicationRequests(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
         {
             foreach (IncompleteApplicationScreening applicationRequest in requests)
             {
@@ -246,7 +246,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
-        public void ImportWorkerRequests(List<IncompleteWorkerScreening> requests)
+        public async Task ImportWorkerRequests(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
@@ -413,7 +413,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     try
                     {
-                        carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
+                        await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
                         statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
                         // ToggleResolution(incident.Incidentid, true);
                         hangfire.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
