@@ -88,7 +88,8 @@ namespace Gov.Jag.Spice.CarlaSync
                         "<p>LCRB has sent a request for an " + request.ApplicantType + " security screening for Application " + request.RecordIdentifier + ".</p>" +
                         "<p>CSV files have been placed in SharePoint for:</p><ul>" + 
                         "<li>Business: <a href='" + fullBusinessFilepath + "'>here</a></li>" +
-                        "<li>Associates: <a href='" + fullAssociatesFilepath + "'>here</a></li></ul>");
+                        "<li>Associates: <a href='" + fullAssociatesFilepath + "'>here</a></li></ul>" +
+                        $"<p>Current LCRB Assignee: {request.AssignedPerson.FirstName} {request.AssignedPerson.LastName}</p>");
                 }
             }
 

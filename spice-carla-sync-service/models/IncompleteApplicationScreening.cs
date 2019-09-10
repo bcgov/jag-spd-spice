@@ -23,5 +23,6 @@ namespace SpiceCarlaSync.models
         public Contact ApplyingPerson { get; set; }
         public DateTimeOffset DateSent { get; set; }
         public List<LegalEntity> Associates { get; set; }
+        public Contact AssignedPerson { get; set; }
     }
 }
