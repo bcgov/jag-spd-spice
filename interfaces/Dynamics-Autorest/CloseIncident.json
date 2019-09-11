@@ -46,17 +46,21 @@
       "title": "incidentresolution",
       "type": "object",
       "properties": {
-        "status": {
+        "statuscode": {
           "type": "integer",
           "x-nullable": true
         },
-        "incidentid@odata.bind": {
-          "type": "string",
-          "x-nullable": true		  
-        },
 		"statecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+		"incidentid@odata.bind": {
           "type": "string",
-          "x-nullable": true		  
+          "x-nullable": true
+        },
+		"subject": {
+          "type": "string",
+          "x-nullable": true
         }
     }
   }

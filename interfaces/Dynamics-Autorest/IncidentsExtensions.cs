@@ -363,5 +363,41 @@ namespace Gov.Jag.Spice.Interfaces
                 return operations.UpdateWithHttpMessagesAsync(incidentid, body, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            public static void CloseIncident(this IIncidents operations, MicrosoftDynamicsCRMCloseIncidentParameters body)
+            {
+                operations.CloseIncidentAsync(body).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task CloseIncidentAsync(this IIncidents operations, MicrosoftDynamicsCRMCloseIncidentParameters body, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.CloseIncidentWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse CloseIncidentWithHttpMessages(this IIncidents operations, MicrosoftDynamicsCRMCloseIncidentParameters body, Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.CloseIncidentWithHttpMessagesAsync(body, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
     }
 }
