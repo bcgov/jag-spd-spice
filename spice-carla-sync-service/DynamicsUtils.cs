@@ -259,6 +259,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     workerRequest.Contact.Email,
                     workerRequest.Contact.PhoneNumber,
                     workerRequest.Contact.DriversLicenceNumber,
+                    workerRequest.Contact.DriverLicenceJurisdiction,
                     workerRequest.Contact.BCIdCardNumber,
                     workerRequest.Contact.BirthDate,
                     workerRequest.Contact.Birthplace,
@@ -320,6 +321,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     associateEntity.Contact.Email,
                     associateEntity.Contact.PhoneNumber,
                     associateEntity.Contact.DriversLicenceNumber,
+                    associateEntity.Contact.DriverLicenceJurisdiction,
                     associateEntity.Contact.BCIdCardNumber,
                     associateEntity.Contact.BirthDate?.UtcDateTime,
                     associateEntity.Contact.Birthplace,
@@ -432,10 +434,11 @@ namespace Gov.Jag.Spice.CarlaSync
         public MicrosoftDynamicsCRMcontact CreateOrUpdateContact(
             string contactId, string firstName, string middleName, string lastName,
             int? gender, string email, string phoneNumber, string driversLicenceNumber,
-            string bcIdCardNumber, DateTimeOffset? dateOfBirth, string birthPlace,
-            bool selfDisclosed, string addressLine1, string addressLine2,
-            string addressLine3, string city, string postalCode, string stateProvince,
-            string country, List<Address> addresses, List<Alias> aliases, string title
+            string driversLicenceJurisdiction, string bcIdCardNumber,
+            DateTimeOffset? dateOfBirth, string birthPlace, bool selfDisclosed,
+            string addressLine1, string addressLine2, string addressLine3,
+            string city, string postalCode, string stateProvince, string country,
+            List<Address> addresses, List<Alias> aliases, string title
         )
         {
             string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
@@ -450,6 +453,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 Emailaddress1 = email,
                 Telephone1 = phoneNumber,
                 SpiceDriverslicencenum = driversLicenceNumber,
+                SpiceIdJurisdiction = driversLicenceJurisdiction,
                 SpiceBcidcardnumber = bcIdCardNumber,
                 SpiceDateofbirth = dateOfBirth,
                 SpiceBirthplace = birthPlace,
