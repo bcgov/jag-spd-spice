@@ -75,6 +75,5 @@ csharp:
   sync-methods: all 
   generate-empty-classes: true
   namespace: Gov.Jag.Spice.Interfaces
-  azure-arm: true
-
-
+  azure-arm: false
+```
