@@ -27,11 +27,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMCloseIncidentresolution class.
         /// </summary>
-        public MicrosoftDynamicsCRMCloseIncidentresolution(int? statusCode = default(int?), string incidentidodatabind = default(string), int? statecode = default(int?), string subject = default(string))
+        public MicrosoftDynamicsCRMCloseIncidentresolution(int? statuscode = default(int?), int? statecode = default(int?), string incidentidodatabind = default(string), string subject = default(string))
         {
-            Statuscode = statusCode;
-            Incidentidodatabind = incidentidodatabind;
+            Statuscode = statuscode;
             Statecode = statecode;
+            Incidentidodatabind = incidentidodatabind;
             Subject = subject;
             CustomInit();
         }
@@ -48,14 +48,16 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "incidentid@odata.bind")]
         public string Incidentidodatabind { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
-
         [JsonProperty(PropertyName = "subject")]
         public string Subject { get; set; }
 
