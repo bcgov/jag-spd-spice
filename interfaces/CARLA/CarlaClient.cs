@@ -795,8 +795,6 @@ namespace Gov.Lclb.Cllb.Interfaces
 
         /// <param name='workerIdString'>
         /// </param>
-        /// <param name='workerId'>
-        /// </param>
         /// <param name='bearer'>
         /// </param>
         /// <param name='customHeaders'>
@@ -817,7 +815,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string workerId = default(string), string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (workerIdString == null)
             {
@@ -830,9 +828,8 @@ namespace Gov.Lclb.Cllb.Interfaces
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("workerId", workerId);
-                tracingParameters.Add("bearer", bearer);
                 tracingParameters.Add("workerIdString", workerIdString);
+                tracingParameters.Add("bearer", bearer);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "SendWorkerScreeningRequest", tracingParameters);
             }
@@ -841,10 +838,6 @@ namespace Gov.Lclb.Cllb.Interfaces
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/WorkerScreenings/send/{workerIdString}").ToString();
             _url = _url.Replace("{workerIdString}", System.Uri.EscapeDataString(workerIdString));
             List<string> _queryParameters = new List<string>();
-            if (workerId != null)
-            {
-                _queryParameters.Add(string.Format("workerId={0}", System.Uri.EscapeDataString(workerId)));
-            }
             if (bearer != null)
             {
                 _queryParameters.Add(string.Format("bearer={0}", System.Uri.EscapeDataString(bearer)));
