@@ -25,8 +25,9 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// <param name="result">Possible values include: 'Cleared',
         /// 'NotCleared', 'FitAndProper', 'NotFitAndProper',
         /// 'Withdrawn'</param>
-        public CompletedWorkerScreening(string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), Worker worker = default(Worker))
+        public CompletedWorkerScreening(string spdJobId = default(string), string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), Worker worker = default(Worker))
         {
+            SpdJobId = spdJobId;
             RecordIdentifier = recordIdentifier;
             Result = result;
             Worker = worker;
@@ -37,6 +38,11 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spdJobId")]
+        public string SpdJobId { get; set; }
 
         /// <summary>
         /// </summary>

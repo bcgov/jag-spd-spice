@@ -468,7 +468,7 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                 CompletedWorkerScreening response = new CompletedWorkerScreening()
                 {
-                    RecordIdentifier = import.Lcrbworkerjobid,
+                    SpdJobId = import.Lcrbworkerjobid,
                     Result = CsvWorkerImport.TranslateStatus(import.Result)
                 };
 
