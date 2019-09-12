@@ -22,7 +22,10 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// <summary>
         /// Initializes a new instance of the CompletedWorkerScreening class.
         /// </summary>
-        public CompletedWorkerScreening(string recordIdentifier = default(string), string result = default(string), Worker worker = default(Worker))
+        /// <param name="result">Possible values include: 'Cleared',
+        /// 'NotCleared', 'FitAndProper', 'NotFitAndProper',
+        /// 'Withdrawn'</param>
+        public CompletedWorkerScreening(string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), Worker worker = default(Worker))
         {
             RecordIdentifier = recordIdentifier;
             Result = result;
@@ -41,9 +44,11 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         public string RecordIdentifier { get; set; }
 
         /// <summary>
+        /// Gets or sets possible values include: 'Cleared', 'NotCleared',
+        /// 'FitAndProper', 'NotFitAndProper', 'Withdrawn'
         /// </summary>
         [JsonProperty(PropertyName = "result")]
-        public string Result { get; set; }
+        public SpiceApplicationStatus? Result { get; set; }
 
         /// <summary>
         /// </summary>
