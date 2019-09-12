@@ -393,7 +393,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public async Task ProcessBusinessResults(PerformContext hangfireContext)
         {
             string[] select = {"incidentid"};
-            string businessFilter = $"spice_businessreadyforlcrb eq {(int)BusinessReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
+            string businessFilter = $"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
             IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
@@ -410,13 +410,13 @@ namespace Gov.Jag.Spice.CarlaSync
                 hangfireContext.WriteLine($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
                 _logger.LogError($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
                 ToggleResolution(incident.Incidentid, false);
-                bool statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.SentToLCRB, isBusiness: true);
+                bool statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.SentToLCRB, isBusiness: true);
                 if (statusSet)
                 {
                     try
                     {
                         await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
-                        statusSet = SetLCRBStatus(incident.Incidentid, (int)BusinessReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
+                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
                         ToggleResolution(incident.Incidentid, true);
                         hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
@@ -425,6 +425,46 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         hangfireContext.WriteLine($"Failed to send completed application screening request to Carla: {e.Message}");
                         _logger.LogError($"Failed to send completed application screening request to Carla: {e.Message}");
+                    }
+                }
+            }
+        }
+
+        public async Task ProcessWorkerResults(PerformContext hangfireContext)
+        {
+            string[] select = {"incidentid"};
+            string workerFilter = $"spice_workersreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
+            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: workerFilter, select: select);
+            if(resp.Value.Count == 0)
+            {
+                hangfireContext.WriteLine("No completed worker screenings found.");
+                _logger.LogInformation("No completed worker screenings found.");
+                return;
+            }
+            CarlaUtils carlaUtils = new CarlaUtils(Configuration, _loggerFactory, null);
+            hangfireContext.WriteLine($"Found {resp.Value.Count} resolved worker screenings.");
+            _logger.LogInformation($"Found {resp.Value.Count} resolved worker screenings.");
+            foreach(MicrosoftDynamicsCRMincident incident in resp.Value)
+            {
+                CompletedWorkerScreening screening = GenerateCompletedWorkerScreening(incident.Incidentid);
+                hangfireContext.WriteLine($"Sending worker screening [{screening.RecordIdentifier}] to Carla.");
+                _logger.LogError($"Sending worker screening [{screening.RecordIdentifier}] to Carla.");
+                ToggleResolution(incident.Incidentid, false);
+                bool statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.SentToLCRB, isBusiness: false);
+                if (statusSet)
+                {
+                    try
+                    {
+                        await carlaUtils.SendWorkerScreeningResult(new List<CompletedWorkerScreening>() { screening });
+                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
+                        ToggleResolution(incident.Incidentid, true);
+                        hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                    }
+                    catch (Exception e)
+                    {
+                        hangfireContext.WriteLine($"Failed to send completed worker screening request to Carla: {e.Message}");
+                        _logger.LogError($"Failed to send completed worker screening request to Carla: {e.Message}");
                     }
                 }
             }
@@ -562,13 +602,13 @@ namespace Gov.Jag.Spice.CarlaSync
         public CompletedApplicationScreening GenerateCompletedBusinessScreening(string incidentId)
         {
             string[] expand = {"customerid_account"};
-            string[] select = {"customerid_contact", "incidentid"};
+            string[] select = {"customerid_account", "incidentid", "spice_applicationstatus"};
             MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.GetByKey(incidentId, expand: expand, select: select);
             
             CompletedApplicationScreening screening = new CompletedApplicationScreening()
             {
                 RecordIdentifier = incident.CustomeridAccount.SpiceLcrbjobid,
-                Result = "PASS",
+                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
                 Associates = new List<Associate>()
             };
 
@@ -588,7 +628,27 @@ namespace Gov.Jag.Spice.CarlaSync
                 });
             }
             
-            _logger.LogInformation("TEST");
+            return screening;
+        }
+
+        public CompletedWorkerScreening GenerateCompletedWorkerScreening(string incidentId)
+        {
+            string[] expand = {"customerid_contact"};
+            string[] select = {"customerid_contact", "incidentid", "spice_applicationstatus"};
+            MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.GetByKey(incidentId, expand: expand, select: select);
+
+            CompletedWorkerScreening screening = new CompletedWorkerScreening()
+            {
+                RecordIdentifier = incident.CustomeridContact.Externaluseridentifier,
+                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
+                Worker = new Lclb.Cllb.Interfaces.Models.Worker()
+                {
+                    FirstName = incident.CustomeridContact.Firstname,
+                    MiddleName = incident.CustomeridContact.Middlename,
+                    LastName = incident.CustomeridContact.Lastname
+                }
+            };
+            
             return screening;
         }
 

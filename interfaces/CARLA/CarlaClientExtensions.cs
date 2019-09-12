@@ -176,30 +176,26 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// </param>
             /// <param name='workerIdString'>
             /// </param>
-            /// <param name='workerId'>
-            /// </param>
             /// <param name='bearer'>
             /// </param>
-            public static void SendWorkerScreeningRequest(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string))
+            public static void SendWorkerScreeningRequest(this ICarlaClient operations, string workerIdString, string bearer = default(string))
             {
-                operations.SendWorkerScreeningRequestAsync(workerIdString, workerId, bearer).GetAwaiter().GetResult();
+                operations.SendWorkerScreeningRequestAsync(workerIdString, bearer).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='workerIdString'>
-            /// </param>
-            /// <param name='workerId'>
             /// </param>
             /// <param name='bearer'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SendWorkerScreeningRequestAsync(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task SendWorkerScreeningRequestAsync(this ICarlaClient operations, string workerIdString, string bearer = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, workerId, bearer, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, bearer, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <param name='operations'>
@@ -207,16 +203,14 @@ namespace Gov.Lclb.Cllb.Interfaces
             /// </param>
             /// <param name='workerIdString'>
             /// </param>
-            /// <param name='workerId'>
-            /// </param>
             /// <param name='bearer'>
             /// </param>
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse SendWorkerScreeningRequestWithHttpMessages(this ICarlaClient operations, string workerIdString, string workerId = default(string), string bearer = default(string), Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse SendWorkerScreeningRequestWithHttpMessages(this ICarlaClient operations, string workerIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null)
             {
-                return operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, workerId, bearer, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+                return operations.SendWorkerScreeningRequestWithHttpMessagesAsync(workerIdString, bearer, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
     }

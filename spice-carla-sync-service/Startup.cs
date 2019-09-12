@@ -230,6 +230,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     // Process Results in Dynamics
                     IDynamicsClient dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
                     RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessBusinessResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
+                    RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessWorkerResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
                     log.LogInformation("Hangfire Send Results jobs created.");
                 }
             }
