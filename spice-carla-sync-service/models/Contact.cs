@@ -17,6 +17,7 @@ namespace SpiceCarlaSync.models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string DriversLicenceNumber { get; set; }
+        public string DriverLicenceJurisdiction { get; set; }
         public string BCIdCardNumber { get; set; }
         public DateTimeOffset? BirthDate { get; set; }
         public string Birthplace { get; set; }

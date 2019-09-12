@@ -84,8 +84,6 @@ namespace Gov.Lclb.Cllb.Interfaces
 
         /// <param name='workerIdString'>
         /// </param>
-        /// <param name='workerId'>
-        /// </param>
         /// <param name='bearer'>
         /// </param>
         /// <param name='customHeaders'>
@@ -94,7 +92,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string workerId = default(string), string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -418,7 +418,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 CompletedApplicationScreening response = new CompletedApplicationScreening()
                 {
                     RecordIdentifier = businessImport.LcrbBusinessJobId.PadLeft(6, '0'),
-                    Result = businessImport.Result,
+                    Result = CsvBusinessImport.TranslateStatus(businessImport.Result),
                     Associates = new List<Associate>()
                 };
                 foreach(var associate in associatesImport)
@@ -468,8 +468,8 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                 CompletedWorkerScreening response = new CompletedWorkerScreening()
                 {
-                    RecordIdentifier = import.Lcrbworkerjobid,
-                    Result = import.Result
+                    SpdJobId = import.Lcrbworkerjobid,
+                    Result = CsvWorkerImport.TranslateStatus(import.Result)
                 };
 
                 return response;
