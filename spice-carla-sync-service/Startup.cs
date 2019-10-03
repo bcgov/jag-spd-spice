@@ -16,7 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using SpdSync;
 using Splunk;
 using Splunk.Configurations;
 using Swashbuckle.AspNetCore.Swagger;
@@ -102,15 +101,11 @@ namespace Gov.Jag.Spice.CarlaSync
                 SetupSharePoint(services);
             }
 
-            
-            
-
             services.AddHangfire(config =>
             {
                 // Change this line if you wish to have Hangfire use persistent storage.
                 config.UseMemoryStorage();
                 // enable console logs for jobs
-                
                 config.UseConsole();
             });
 
@@ -129,8 +124,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {            
-
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -152,8 +146,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             if (startHangfire)
             {
-
-
                 // enable Hangfire, using the default authentication model (local connections only)
                 app.UseHangfireServer();
 
@@ -233,24 +225,13 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
-                    log.LogInformation("Creating Hangfire job for Send Results job ...");
-                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "5 * * * *"); // Run every 5 minutes
-                    log.LogInformation("Hangfire Send Export job done.");
-                }
-            }
-            catch (Exception e)
-            {
-                StringBuilder msg = new StringBuilder();
-                msg.AppendLine("Failed to setup Hangfire job.");
-                log.LogCritical(new EventId(-1, "Hangfire job setup failed"), e, msg.ToString());
-            }
-
-            try
-            {
-
-                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {
-                    // add special setup for hangfire here, such as creating jobs.
+                    log.LogInformation("Creating Hangfire job for Send Results jobs ...");
+                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "*/5 * * * *"); // Run every 5 minutes
+                    // Process Results in Dynamics
+                    IDynamicsClient dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
+                    RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessBusinessResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
+                    RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessWorkerResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
+                    log.LogInformation("Hangfire Send Results jobs created.");
                 }
             }
             catch (Exception e)

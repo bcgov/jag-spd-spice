@@ -1,0 +1,72 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OData Service for namespace Microsoft.Dynamics.CRM",
+    "description": "This OData service is located at https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/",
+    "version": "1.0.1"
+  },
+  "paths": {
+    "/CloseIncident": {
+      "post": {
+        "operationId": "Incidents_CloseIncident",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+			"required": true,
+            "schema": {
+              "$ref": "#/definitions/Microsoft.Dynamics.CRM.CloseIncidentParameters"
+            }
+          }],
+		  "responses": {
+          "204": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+  
+  "Microsoft.Dynamics.CRM.CloseIncidentParameters": {
+    "type": "object",
+	"properties": {	  
+	    "IncidentResolution" : {
+		  "type": "object",
+		  "$ref": "#/definitions/Microsoft.Dynamics.CRM.CloseIncidentresolution"
+		  },
+		  "status" : {
+            "type": "integer"
+          }
+		  
+		}
+	  }
+  ,
+  "Microsoft.Dynamics.CRM.CloseIncidentresolution": {
+      "title": "incidentresolution",
+      "type": "object",
+      "properties": {
+        "statuscode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+		"statecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+		"incidentid@odata.bind": {
+          "type": "string",
+          "x-nullable": true
+        },
+		"subject": {
+          "type": "string",
+          "x-nullable": true
+        }
+    }
+  }
+},
+"responses": {
+    "204": {
+          "description": "OK"}
+  }
+}
