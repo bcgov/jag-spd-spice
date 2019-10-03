@@ -28,5 +28,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         [JsonProperty(PropertyName = "parentcaseid@odata.bind")]
         public string ParentCaseIdOdataBind { get; set; }
+
+
+        [JsonProperty(PropertyName = "spice_LCRBLicenceTypeId@odata.bind")]
+        public string LCRBLicenceTypeIdOdataBind { get; set; }
     }
 }

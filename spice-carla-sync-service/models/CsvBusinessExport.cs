@@ -1,7 +1,4 @@
-﻿using System;
-using SpdSync.models;
-
-namespace SpiceCarlaSync.models
+﻿namespace SpiceCarlaSync.models
 {
     public class CsvBusinessExport
     {
@@ -24,7 +21,7 @@ namespace SpiceCarlaSync.models
         public string ContactPhone { get; set; }
         public string ContactEmail { get; set; }
 
-        public static CsvBusinessExport CreateFromRequest(ApplicationScreeningRequest request)
+        public static CsvBusinessExport CreateFromRequest(IncompleteApplicationScreening request)
         {
             return new CsvBusinessExport()
             {

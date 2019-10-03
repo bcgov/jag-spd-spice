@@ -4,17 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
-using Gov.Jag.Spice.CarlaSync;
-using Gov.Jag.Spice.CarlaSync.models;
-using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.SharePoint;
 using Gov.Lclb.Cllb.Interfaces.Models;
 using Hangfire.Console;
 using Hangfire.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using SpdSync;
-using SpdSync.models;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using static Gov.Jag.Spice.Interfaces.SharePoint.FileManager;
@@ -98,7 +93,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// Import requests to LCRB SharePoint
         /// </summary>
         /// <returns>success, business file path, associates file path</returns>
-        public async Task<(bool, string, string)> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<ApplicationScreeningRequest> requests)
+        public async Task<(bool, string, string)> SendApplicationRequestsToSharePoint(PerformContext hangfireContext, List<IncompleteApplicationScreening> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             bool resp = false;
@@ -128,7 +123,6 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                     try
                     {
-                        hangfireContext.WriteLine("Uploading business associates CSV.");
                         _logger.LogInformation("Uploading business associates CSV.");
                         (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
@@ -156,7 +150,6 @@ namespace Gov.Lclb.Cllb.Interfaces
 
                     try
                     {
-                        hangfireContext.WriteLine("Uploading business application CSV.");
                         _logger.LogInformation("Uploading business application CSV.");
                         (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
                     }
@@ -177,7 +170,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <returns>The worker requests to share point.</returns>
         /// <param name="hangfireContext">Hangfire context.</param>
         /// <param name="requests">Requests.</param>
-        public async Task<(bool, string)> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<WorkerScreeningRequest> requests)
+        public async Task<(bool, string)> SendWorkerRequestsToSharePoint(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             List<CsvWorkerExport> workersExports = new List<CsvWorkerExport>();
@@ -191,7 +184,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             using (var csvWriter = new CsvWriter(writer))
             {
                 csvWriter.Configuration.HasHeaderRecord = true;
-                csvWriter.Configuration.AutoMap<CsvWorkerExport>();
+                csvWriter.Configuration.RegisterClassMap<CsvWorkerExportMap>();
 
                 csvWriter.WriteHeader<CsvWorkerExport>();
                 csvWriter.NextRecord();
@@ -223,18 +216,24 @@ namespace Gov.Lclb.Cllb.Interfaces
             // Process application screening results
             List<FileSystemItem> businessFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + APPLICATIONS_PATH);
             List<FileSystemItem> associatesFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + ASSOCIATES_PATH);
-            List<ApplicationScreeningResponse> applicationResponses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
-            var applicationResult = await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+            List<CompletedApplicationScreening> applicationResponses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
+            if(applicationResponses.Count > 0)
+            {
+                await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+            }
 
             // Process worker screening results
             List<FileSystemItem> workerFiles = await getFileDetailsListInFolder(DOCUMENT_LIBRARY, RESULTS_PATH + "/" + WORKERS_PATH);
-            List<WorkerScreeningResponse> workerResponses = await ProcessWorkerResults(hangfireContext, workerFiles);
-            var workerResult = await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+            List<CompletedWorkerScreening> workerResponses = await ProcessWorkerResults(hangfireContext, workerFiles);
+            if(workerResponses.Count > 0)
+            {
+                await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+            }
         }
 
-        private async Task<List<WorkerScreeningResponse>> ProcessWorkerResults(PerformContext hangfireContext, List<FileSystemItem> workerFiles)
+        private async Task<List<CompletedWorkerScreening>> ProcessWorkerResults(PerformContext hangfireContext, List<FileSystemItem> workerFiles)
         {
-            List<WorkerScreeningResponse> responses = new List<WorkerScreeningResponse>();
+            List<CompletedWorkerScreening> responses = new List<CompletedWorkerScreening>();
             // look for unprocessed response files
             hangfireContext.WriteLine("Looking for unprocessed worker response files");
             _logger.LogInformation("Looking for unprocessed worker response files.");
@@ -295,9 +294,9 @@ namespace Gov.Lclb.Cllb.Interfaces
             return responses;
         }
 
-        private async Task<List<ApplicationScreeningResponse>> ProcessApplicationResults(PerformContext hangfireContext, List<FileSystemItem> businessFiles, List<FileSystemItem> associatesFiles)
+        private async Task<List<CompletedApplicationScreening>> ProcessApplicationResults(PerformContext hangfireContext, List<FileSystemItem> businessFiles, List<FileSystemItem> associatesFiles)
         {
-            List<ApplicationScreeningResponse> responses = new List<ApplicationScreeningResponse>();
+            List<CompletedApplicationScreening> responses = new List<CompletedApplicationScreening>();
             // Look for files with unprocessed name
             hangfireContext.WriteLine("Looking for unprocessed application files.");
             _logger.LogInformation("Looking for unprocessed application files.");
@@ -388,7 +387,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             return responses;
         }
 
-        public ApplicationScreeningResponse ParseApplicationResponse(string businessFileContent, string associatesFileContent)
+        public CompletedApplicationScreening ParseApplicationResponse(string businessFileContent, string associatesFileContent)
         {
             CsvHelper.Configuration.Configuration config = new CsvHelper.Configuration.Configuration();
             config.SanitizeForInjection = true;
@@ -416,10 +415,10 @@ namespace Gov.Lclb.Cllb.Interfaces
                 CsvBusinessImport businessImport = businessCsv.GetRecords<CsvBusinessImport>().ToList().First();
                 List<CsvAssociateImport> associatesImport = associatesCsv.GetRecords<CsvAssociateImport>().ToList();
 
-                ApplicationScreeningResponse response = new ApplicationScreeningResponse()
+                CompletedApplicationScreening response = new CompletedApplicationScreening()
                 {
                     RecordIdentifier = businessImport.LcrbBusinessJobId.PadLeft(6, '0'),
-                    Result = businessImport.Result,
+                    Result = CsvBusinessImport.TranslateStatus(businessImport.Result),
                     Associates = new List<Associate>()
                 };
                 foreach(var associate in associatesImport)
@@ -440,11 +439,11 @@ namespace Gov.Lclb.Cllb.Interfaces
                 _logger.LogError("Message:");
                 _logger.LogError(e.Message);
                 // return an empty list so we continue processing other files.
-                return new ApplicationScreeningResponse();
+                return new CompletedApplicationScreening();
             }
         }
 
-        public WorkerScreeningResponse ParseWorkerResponse(string fileContent)
+        public CompletedWorkerScreening ParseWorkerResponse(string fileContent)
         {
             CsvHelper.Configuration.Configuration config = new CsvHelper.Configuration.Configuration();
             config.SanitizeForInjection = true;
@@ -467,10 +466,10 @@ namespace Gov.Lclb.Cllb.Interfaces
             {
                 CsvWorkerImport import = workerCsv.GetRecords<CsvWorkerImport>().ToList().First();
 
-                WorkerScreeningResponse response = new WorkerScreeningResponse()
+                CompletedWorkerScreening response = new CompletedWorkerScreening()
                 {
-                    RecordIdentifier = import.Lcrbworkerjobid,
-                    Result = import.Result
+                    SpdJobId = import.Lcrbworkerjobid,
+                    Result = CsvWorkerImport.TranslateStatus(import.Result)
                 };
 
                 return response;
@@ -481,7 +480,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 _logger.LogError("Message:");
                 _logger.LogError(e.Message);
                 // return an empty list so we continue processing other files.
-                return new WorkerScreeningResponse();
+                return new CompletedWorkerScreening();
             }
         }
 

@@ -6,6 +6,7 @@
 
 namespace Gov.Jag.Spice.Interfaces
 {
+    using Microsoft.Rest;
     using Models;
     using System.Collections;
     using System.Collections.Generic;
@@ -84,6 +85,39 @@ namespace Gov.Jag.Spice.Interfaces
             }
 
             /// <summary>
+            /// Get entities from spice_accountcaseassignments
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='top'>
+            /// </param>
+            /// <param name='skip'>
+            /// </param>
+            /// <param name='search'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            /// <param name='count'>
+            /// </param>
+            /// <param name='orderby'>
+            /// Order items by property values
+            /// </param>
+            /// <param name='select'>
+            /// Select properties to be returned
+            /// </param>
+            /// <param name='expand'>
+            /// Expand related entities
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse<AccountcaseassignmentsGetResponseModel> GetWithHttpMessages(this IAccountcaseassignments operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.GetWithHttpMessagesAsync(top, skip, search, filter, count, orderby, select, expand, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
             /// Add new entity to spice_accountcaseassignments
             /// </summary>
             /// <param name='operations'>
@@ -123,6 +157,27 @@ namespace Gov.Jag.Spice.Interfaces
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Add new entity to spice_accountcaseassignments
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// New entity
+            /// </param>
+            /// <param name='prefer'>
+            /// Required in order for the service to return a JSON representation of the
+            /// object.
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse<MicrosoftDynamicsCRMspiceAccountcaseassignment> CreateWithHttpMessages(this IAccountcaseassignments operations, MicrosoftDynamicsCRMspiceAccountcaseassignment body, string prefer = "return=representation", Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.CreateWithHttpMessagesAsync(body, prefer, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -172,6 +227,29 @@ namespace Gov.Jag.Spice.Interfaces
             }
 
             /// <summary>
+            /// Get entity from spice_accountcaseassignments by key
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceAccountcaseassignmentid'>
+            /// key: spice_accountcaseassignmentid
+            /// </param>
+            /// <param name='select'>
+            /// Select properties to be returned
+            /// </param>
+            /// <param name='expand'>
+            /// Expand related entities
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse<MicrosoftDynamicsCRMspiceAccountcaseassignment> GetByKeyWithHttpMessages(this IAccountcaseassignments operations, string spiceAccountcaseassignmentid, IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.GetByKeyWithHttpMessagesAsync(spiceAccountcaseassignmentid, select, expand, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
             /// Delete entity from spice_accountcaseassignments
             /// </summary>
             /// <param name='operations'>
@@ -209,6 +287,26 @@ namespace Gov.Jag.Spice.Interfaces
             }
 
             /// <summary>
+            /// Delete entity from spice_accountcaseassignments
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceAccountcaseassignmentid'>
+            /// key: spice_accountcaseassignmentid
+            /// </param>
+            /// <param name='ifMatch'>
+            /// ETag
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse DeleteWithHttpMessages(this IAccountcaseassignments operations, string spiceAccountcaseassignmentid, string ifMatch = default(string), Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.DeleteWithHttpMessagesAsync(spiceAccountcaseassignmentid, ifMatch, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
             /// Update entity in spice_accountcaseassignments
             /// </summary>
             /// <param name='operations'>
@@ -243,6 +341,26 @@ namespace Gov.Jag.Spice.Interfaces
             public static async Task UpdateAsync(this IAccountcaseassignments operations, string spiceAccountcaseassignmentid, MicrosoftDynamicsCRMspiceAccountcaseassignment body, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateWithHttpMessagesAsync(spiceAccountcaseassignmentid, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Update entity in spice_accountcaseassignments
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceAccountcaseassignmentid'>
+            /// key: spice_accountcaseassignmentid
+            /// </param>
+            /// <param name='body'>
+            /// New property values
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse UpdateWithHttpMessages(this IAccountcaseassignments operations, string spiceAccountcaseassignmentid, MicrosoftDynamicsCRMspiceAccountcaseassignment body, Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.UpdateWithHttpMessagesAsync(spiceAccountcaseassignmentid, body, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
     }
