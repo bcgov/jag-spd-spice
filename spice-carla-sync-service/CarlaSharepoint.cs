@@ -124,7 +124,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                     try
                     {
                         _logger.LogInformation("Uploading business associates CSV.");
-                        (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
@@ -151,7 +151,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                     try
                     {
                         _logger.LogInformation("Uploading business application CSV.");
-                        (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                        (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
                     }
                     catch (Exception ex)
                     {
@@ -174,9 +174,11 @@ namespace Gov.Lclb.Cllb.Interfaces
         {
             int suffix = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             List<CsvWorkerExport> workersExports = new List<CsvWorkerExport>();
+            string workerfilePrefix = "";
             foreach (var request in requests)
             {
                 workersExports.Add(CsvWorkerExport.CreateFromRequest(request));
+                workerfilePrefix = request.Contact?.SpdJobId + "_" + request.Contact?.LastName;
             }
 
             using (var mem = new MemoryStream())
@@ -197,7 +199,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 {
                     hangfireContext.WriteLine("Uploading workers CSV.");
                     _logger.LogInformation("Uploading workers CSV.");
-                    return await _sharepoint.UploadFile($"workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                    return await _sharepoint.UploadFile($"{workerfilePrefix}_workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
                 }
                 catch (Exception ex)
                 {
