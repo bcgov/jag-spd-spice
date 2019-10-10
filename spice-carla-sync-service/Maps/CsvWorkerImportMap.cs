@@ -8,11 +8,12 @@ namespace SpiceCarlaSync
     {
         public CsvWorkerImportMap()
         {
-            Map(m => m.Lcrbworkerjobid).Name("Lcrbworkerjobid");
-            Map(m => m.Legalfirstname).Name("Legalfirstname");
-            Map(m => m.Legalsurname).Name("Legalsurname");
-            Map(m => m.Legalmiddlename).Name("Legalmiddlename");
+            Map(m => m.RecordIdentifier).Name("RecordIdentifier");
+            Map(m => m.FirstName).Name("Name");
+            Map(m => m.LastName).Name("Surname");
+            Map(m => m.MiddleName).Name("GivenName");
             Map(m => m.Result).Name("Result");
+            Map(m => m.DateProcessed).Name("DateProcessed");
         }
     }
 }
