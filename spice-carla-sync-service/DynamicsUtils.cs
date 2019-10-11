@@ -209,7 +209,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
                 {
-                    SpiceCannabisapplicanttype = (int)CannabisApplicantType.Business,
+                    SpiceCannabisapplicanttype = applicationRequest.ApplicationType == "Marketing" ? (int)CannabisApplicantType.MarketingBusiness : (int)CannabisApplicantType.Business,
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     Prioritycode = (int)PriorityCode.Normal,
                     CustomerIdAccountOdataBind = accountEntityUri,
@@ -229,6 +229,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 try
                 {
+                    // Create the business incident
                     incident = _dynamicsClient.Incidents.Create(incident);
                 }
                 catch (OdataerrorException e)
@@ -241,7 +242,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 foreach (var associate in applicationRequest.Associates)
                 {
-                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate, applicationRequest.ApplicationType == "Marketing");
                 }
             }
         }
@@ -308,7 +309,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
-        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity)
+        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity, Boolean isMarketer)
         {
             if (associateEntity.IsIndividual)
             {
@@ -362,7 +363,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
                 {
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
-                    SpiceCannabisapplicanttype = (int)CannabisApplicantType.Associate,
+                    SpiceCannabisapplicanttype = isMarketer ? (int)CannabisApplicantType.MarketingAssociate : (int)CannabisApplicantType.Associate,
                     CustomerIdODataBind = _dynamicsClient.GetEntityURI("contacts", associate.Contactid),
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
@@ -371,6 +372,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 };
                 try
                 {
+                    // Create the associate incident
                     MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
                 }
                 catch (Exception e)
@@ -385,7 +387,7 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 foreach (var associate in associateEntity.Account.Associates)
                 {
-                    CreateAssociate(clientEntityUri, accountEntityUri, screeningId, associate);
+                    CreateAssociate(clientEntityUri, accountEntityUri, screeningId, associate, isMarketer);
                 }
             }
         }
@@ -393,7 +395,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public async Task ProcessBusinessResults(PerformContext hangfireContext)
         {
             string[] select = {"incidentid"};
-            string businessFilter = $"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
+            string businessFilter = $"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and (spice_applicanttype eq {(int)CannabisApplicantType.Business} or spice_applicanttype eq {(int)CannabisApplicantType.MarketingBusiness}) and statecode eq 1 and statuscode eq 5";
             IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
@@ -433,7 +435,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public async Task ProcessWorkerResults(PerformContext hangfireContext)
         {
             string[] select = {"incidentid"};
-            string workerFilter = $"spice_workersreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and statecode eq 1 and statuscode eq 5";
+            string workerFilter = $"spice_workersreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and spice_cannabisapplicanttype eq {(int)CannabisApplicantType.Worker} and statecode eq 1 and statuscode eq 5";
             IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: workerFilter, select: select);
             if(resp.Value.Count == 0)
             {
