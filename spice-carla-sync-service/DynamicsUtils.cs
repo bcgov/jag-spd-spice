@@ -177,8 +177,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
 
                 string accountEntityUri = _dynamicsClient.GetEntityURI("accounts", account.Accountid);
-
-                string servicesFilter = "spice_name eq 'Cannabis Applicant (Business)'";
+                bool isMarketing = applicationRequest.ApplicationType == "Marketing";
+                string servicesFilter = isMarketing ? "spice_name eq 'Marketing Business - Initial Check'" : "spice_name eq 'Cannabis Applicant (Business)'";
                 MicrosoftDynamicsCRMspiceServices service;
                 try
                 {
@@ -209,7 +209,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
                 {
-                    SpiceCannabisapplicanttype = applicationRequest.ApplicationType == "Marketing" ? (int)CannabisApplicantType.MarketingBusiness : (int)CannabisApplicantType.Business,
+                    SpiceCannabisapplicanttype = isMarketing ? (int)CannabisApplicantType.MarketingBusiness : (int)CannabisApplicantType.Business,
                     SpiceApplicanttype = (int)SpiceApplicantType.Cannabis,
                     Prioritycode = (int)PriorityCode.Normal,
                     CustomerIdAccountOdataBind = accountEntityUri,
@@ -242,7 +242,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 foreach (var associate in applicationRequest.Associates)
                 {
-                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate, applicationRequest.ApplicationType == "Marketing");
+                    CreateAssociate(clientEntityUri, accountEntityUri, incident.Incidentid, associate, isMarketing);
                 }
             }
         }
@@ -309,7 +309,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
         }
 
-        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity, Boolean isMarketer)
+        public void CreateAssociate(string clientEntityUri, string accountEntityUri, string screeningId, LegalEntity associateEntity, bool isMarketer)
         {
             if (associateEntity.IsIndividual)
             {
@@ -357,7 +357,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     return;
                 }
 
-                string servicesFilter = "spice_name eq 'Cannabis Associate'";
+                string servicesFilter = isMarketer ? "spice_name eq 'Marketing Associate - Initial Check'" : "spice_name eq 'Cannabis Associate'";
                 var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
 
                 MicrosoftDynamicsCRMincident incident = new MicrosoftDynamicsCRMincident()
