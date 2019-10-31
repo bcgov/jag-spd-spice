@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces
 
     /// <summary>
     /// This OData service is located at
-    /// https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/
+    /// https://wsgw.test.jag.gov.bc.ca/spdcss/spd-spice-train/api/data/v9.0/
     /// </summary>
     public partial interface IDynamicsClient : System.IDisposable
     {
