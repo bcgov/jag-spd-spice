@@ -4,11 +4,12 @@ namespace SpiceCarlaSync.models
 {
     public class CsvWorkerImport
     {
-        public string Lcrbworkerjobid { get; set; }
-        public string Legalfirstname { get; set; }
-        public string Legalmiddlename { get; set; }
-        public string Legalsurname { get; set; }
+        public string RecordIdentifier { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
         public string Result { get; set; }
+        public string DateProcessed { get; set; }
 
         public static SpiceApplicationStatus? TranslateStatus(string result)
         {

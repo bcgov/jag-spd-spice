@@ -89,7 +89,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         "<p>CSV files have been placed in SharePoint for:</p><ul>" + 
                         "<li>Business: <a href='" + fullBusinessFilepath + "'>here</a></li>" +
                         "<li>Associates: <a href='" + fullAssociatesFilepath + "'>here</a></li></ul>" +
-                        $"<p>Current LCRB Assignee: {request.AssignedPerson.FirstName} {request.AssignedPerson.LastName}</p>");
+                        $"<p>Current LCRB Assignee: <a href='mailto:{request.AssignedPerson.Email}'>{request.AssignedPerson.FirstName} {request.AssignedPerson.LastName}</a></p>");
                 }
             }
 

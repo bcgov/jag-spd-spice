@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -299,6 +300,16 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return fileDetailsList;
         }
 
+        public string FixFilename(string filename)
+        {
+            string invalidChars = System.Text.RegularExpressions.Regex.Escape(new string(System.IO.Path.GetInvalidFileNameChars()));
+            string invalidRegStr = string.Format(@"([{0}]*\.+$)|([{0}]+)", invalidChars);
+
+            // Get the validated file name string
+            string result = Regex.Replace(filename, invalidRegStr, "_");
+            return result;
+        }
+
         /// <summary>
         /// Create Folder
         /// </summary>
@@ -312,8 +323,9 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 return;
             }
 
-            string relativeUrl = $"{listTitle}/{folderName}";
+            folderName = FixFilename(folderName);
 
+            string relativeUrl = EscapeApostrophe($"/{listTitle}/{folderName}");
 
             HttpRequestMessage endpointRequest = new HttpRequestMessage
             {
@@ -323,7 +335,9 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                     { "Accept", "application/json" }
                 }
             };
-            
+
+            //string jsonString = "{ '__metadata': { 'type': 'SP.Folder' }, 'ServerRelativeUrl': '" + relativeUrl + "'}";
+
             StringContent strContent = new StringContent("", Encoding.UTF8);
             strContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json;odata=verbose");
 
@@ -354,7 +368,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 string jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            
+
         }
         /// <summary>
         /// Create Folder
@@ -372,7 +386,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             HttpRequestMessage endpointRequest =
                 new HttpRequestMessage(HttpMethod.Post, ApiEndpoint + "web/Lists");
 
-            if(documentTemplateUrlTitle == null)
+            if (documentTemplateUrlTitle == null)
             {
                 documentTemplateUrlTitle = listTitle;
             }
@@ -408,7 +422,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 jsonString = await response.Content.ReadAsStringAsync();
                 var ob = Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentLibraryResponse>(jsonString);
 
-                if(listTitle != documentTemplateUrlTitle)
+                if (listTitle != documentTemplateUrlTitle)
                 {
                     // update list title
                     endpointRequest = new HttpRequestMessage(HttpMethod.Post, $"{ApiEndpoint}web/lists(guid'{ob.d.Id}')");
@@ -480,12 +494,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return library;
         }
 
-        private object CreateNewFolderRequest(string serverRelativeUri)
-        {
-            var type = new { type = "SP.Folder" };
-            var request = new { __metadata = type, ServerRelativeUrl = serverRelativeUri };
-            return request;
-        }
 
         private object CreateNewDocumentLibraryRequest(string listName)
         {
@@ -637,19 +645,19 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
             return result;
         }
 
-     
-        public async Task AddFile(String documentLibrary, String folderName, String fileName, Stream fileData, string contentType)
-        {            
 
+        public async Task AddFile(String documentLibrary, String folderName, String fileName, Stream fileData, string contentType)
+        {
+            folderName = FixFilename(folderName);
             bool folderExists = await this.FolderExists(documentLibrary, folderName);
             if (!folderExists)
             {
-                await this.CreateFolder(documentLibrary, folderName);
+                await CreateFolder(documentLibrary, folderName);
             }
 
             // now add the file to the folder.
 
-            await this.UploadFile(fileName, documentLibrary, folderName, fileData, contentType);
+            await UploadFile(fileName, documentLibrary, folderName, fileData, contentType);
 
         }
 

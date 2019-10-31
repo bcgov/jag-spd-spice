@@ -6,6 +6,8 @@ namespace SpiceCarlaSync.models
         Business = 525840000,
         Associate = 525840001,
         Worker = 525840002,
-        WorkerLDB = 525840003
+        WorkerLDB = 525840003,
+        MarketingBusiness = 525840004,
+        MarketingAssociate = 525840005
     }
 }
