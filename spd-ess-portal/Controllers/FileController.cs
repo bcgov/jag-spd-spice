@@ -33,7 +33,12 @@ namespace Gov.Jag.Spice.Public.Controllers
         private static string GetScreeningFolderName(MicrosoftDynamicsCRMincident screening)
         {
             string screeningIdCleaned = screening.Incidentid.ToUpper().Replace("-", "");
+            
             string folderName = $"{screening.Title}_{screeningIdCleaned}";
+
+            // SPICE puts some extra unicode in the title
+            folderName = folderName.Replace("\u00a0", " ");
+
             return folderName;
         }
 
