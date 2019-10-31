@@ -2,11 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "OData Service for namespace Microsoft.Dynamics.CRM",
-    "description": "This OData service is located at https://spd-spice.dev.jag.gov.bc.ca/api/data/v9.0/",
+    "description": "This OData service is located at https://wsgw.test.jag.gov.bc.ca/spdcss/spd-spice-train/api/data/v9.0/",
     "version": "1.0.1"
   },
-  "host": "spd-spice.dev.jag.gov.bc.ca",
-  "basePath": "/api/data/v9.0/",
+  "host": "wsgw.test.jag.gov.bc.ca",
+  "basePath": "/spdcss/spd-spice-train/api/data/v9.0/",
   "schemes": [
     "https"
   ],
@@ -48,6 +48,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -383,6 +384,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -556,6 +558,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -721,6 +724,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -894,6 +898,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -1105,6 +1110,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -1530,6 +1536,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -1748,6 +1755,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -1918,6 +1926,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -2136,6 +2145,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -2352,498 +2362,519 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
               "enum": [
-                "_spice_wf_crrupassback_value",
-                "_spice_wf_crrupassback_value desc",
-                "_ownerid_value",
-                "_ownerid_value desc",
-                "spice_aliases_added",
-                "spice_aliases_added desc",
-                "spice_ess_driver_recordsfound",
-                "spice_ess_driver_recordsfound desc",
-                "_contactid_value",
-                "_contactid_value desc",
-                "versionnumber",
-                "versionnumber desc",
-                "spice_ess_securityinterconfirmed",
-                "spice_ess_securityinterconfirmed desc",
-                "spice_ess_crc_resuploaded",
-                "spice_ess_crc_resuploaded desc",
-                "spice_ess_charc_cvsareqd",
-                "spice_ess_charc_cvsareqd desc",
-                "spice_associatecomplexity",
-                "spice_associatecomplexity desc",
-                "spice_spdinvestigationresults",
-                "spice_spdinvestigationresults desc",
-                "entityimage_timestamp",
-                "entityimage_timestamp desc",
-                "blockedprofile",
-                "blockedprofile desc",
-                "_contractid_value",
-                "_contractid_value desc",
-                "spice_bus_spdinvestrequired",
-                "spice_bus_spdinvestrequired desc",
-                "spice_screeningcomplexity",
-                "spice_screeningcomplexity desc",
-                "spice_consent_dt_sent",
-                "spice_consent_dt_sent desc",
-                "_spice_returnresultto_value",
-                "_spice_returnresultto_value desc",
-                "timezoneruleversionnumber",
-                "timezoneruleversionnumber desc",
-                "spice_finalresult",
-                "spice_finalresult desc",
-                "spice_prime_checkrequired",
-                "spice_prime_checkrequired desc",
-                "contractservicelevelcode",
-                "contractservicelevelcode desc",
-                "_slaid_value",
-                "_slaid_value desc",
-                "_spice_reasonforscreeningid_value",
-                "_spice_reasonforscreeningid_value desc",
-                "spice_otrletterreceived",
-                "spice_otrletterreceived desc",
-                "spice_aliasesfound",
-                "spice_aliasesfound desc",
-                "spice_ssqrequired",
-                "spice_ssqrequired desc",
-                "spice_otherscreeningreason",
-                "spice_otherscreeningreason desc",
-                "spice_cpicresults",
-                "spice_cpicresults desc",
-                "spice_cpicresultstosharewithspd",
-                "spice_cpicresultstosharewithspd desc",
-                "spice_ess_dfo_results",
-                "spice_ess_dfo_results desc",
-                "spice_ess_inter_polygraphrequired",
-                "spice_ess_inter_polygraphrequired desc",
-                "spice_tc_dt_signature_confirmed",
-                "spice_tc_dt_signature_confirmed desc",
-                "spice_billingtext",
-                "spice_billingtext desc",
-                "_createdby_value",
-                "_createdby_value desc",
-                "spice_prime_results",
-                "spice_prime_results desc",
-                "spice_legalreviewcomplete",
-                "spice_legalreviewcomplete desc",
-                "casetypecode",
-                "casetypecode desc",
-                "spice_ess_securityinterresultsrecd",
-                "spice_ess_securityinterresultsrecd desc",
-                "activitiescomplete",
-                "activitiescomplete desc",
-                "spice_coorsresults",
-                "spice_coorsresults desc",
-                "spice_cpiccheckrequired",
-                "spice_cpiccheckrequired desc",
-                "spice_rcc_requestmade",
-                "spice_rcc_requestmade desc",
-                "resolvebyslastatus",
-                "resolvebyslastatus desc",
-                "_spice_applicantid_value",
-                "_spice_applicantid_value desc",
-                "_transactioncurrencyid_value",
-                "_transactioncurrencyid_value desc",
-                "spice_credit_score",
-                "spice_credit_score desc",
-                "incidentstagecode",
-                "incidentstagecode desc",
-                "_customerid_value",
-                "_customerid_value desc",
-                "checkemail",
-                "checkemail desc",
-                "spice_ess_edu_verifresults",
-                "spice_ess_edu_verifresults desc",
-                "_productid_value",
-                "_productid_value desc",
-                "customercontacted",
-                "customercontacted desc",
-                "traversedpath",
-                "traversedpath desc",
-                "entityimageid",
-                "entityimageid desc",
-                "firstresponsesent",
-                "firstresponsesent desc",
-                "spice_ssqreceived",
-                "spice_ssqreceived desc",
-                "spice_prime_checked",
-                "spice_prime_checked desc",
-                "spice_wf_caseclosureflag",
-                "spice_wf_caseclosureflag desc",
-                "responseby",
-                "responseby desc",
-                "spice_ess_polygraphresultsreceived",
-                "spice_ess_polygraphresultsreceived desc",
-                "spice_resultofscreening",
-                "spice_resultofscreening desc",
-                "spice_ess_creditcheckrequired",
-                "spice_ess_creditcheckrequired desc",
-                "title",
-                "title desc",
-                "importsequencenumber",
-                "importsequencenumber desc",
-                "merged",
-                "merged desc",
-                "spice_ess_edu_empverifrequired",
-                "spice_ess_edu_empverifrequired desc",
-                "_createdonbehalfby_value",
-                "_createdonbehalfby_value desc",
-                "spice_ess_polygraphinterviewconfirmed",
-                "spice_ess_polygraphinterviewconfirmed desc",
-                "spice_ssq",
-                "spice_ssq desc",
-                "escalatedon",
-                "escalatedon desc",
-                "spice_justin_reportuploaded",
-                "spice_justin_reportuploaded desc",
-                "spice_primeresultstosharewithspd",
-                "spice_primeresultstosharewithspd desc",
-                "_slainvokedid_value",
-                "_slainvokedid_value desc",
-                "spice_workersreadyforlcrb",
-                "spice_workersreadyforlcrb desc",
-                "spice_readyforcrru",
-                "spice_readyforcrru desc",
-                "_spice_applyingpersonid_value",
-                "_spice_applyingpersonid_value desc",
-                "spice_additionalprimeinformationprovided",
-                "spice_additionalprimeinformationprovided desc",
-                "spice_consentform_sent",
-                "spice_consentform_sent desc",
-                "spice_ssqreceiveddate",
-                "spice_ssqreceiveddate desc",
-                "spice_ess_ssv_verified",
-                "spice_ess_ssv_verified desc",
-                "_spice_requesterhiringmanager_value",
-                "_spice_requesterhiringmanager_value desc",
-                "followuptaskcreated",
-                "followuptaskcreated desc",
-                "spice_charrefrequestsentdate",
-                "spice_charrefrequestsentdate desc",
-                "spice_investigationrequired",
-                "spice_investigationrequired desc",
-                "spice_jc_rcc_received",
-                "spice_jc_rcc_received desc",
-                "spice_bus_resultsreceived",
-                "spice_bus_resultsreceived desc",
-                "spice_additionalprimerequired",
-                "spice_additionalprimerequired desc",
-                "spice_cannabisapplicanttype",
-                "spice_cannabisapplicanttype desc",
-                "spice_furtherinvestigationcomplete",
-                "spice_furtherinvestigationcomplete desc",
-                "spice_consent_dt_received",
-                "spice_consent_dt_received desc",
-                "spice_ess_charrefcomplete",
-                "spice_ess_charrefcomplete desc",
-                "spice_screeningamount",
-                "spice_screeningamount desc",
-                "spice_ess_edu_credverrequired",
-                "spice_ess_edu_credverrequired desc",
-                "spice_readyforspdinvestigation",
-                "spice_readyforspdinvestigation desc",
-                "spice_cpicrequestsent",
-                "spice_cpicrequestsent desc",
-                "spice_wf_businessclosure",
-                "spice_wf_businessclosure desc",
-                "spice_ess_edu_credvercompleted",
-                "spice_ess_edu_credvercompleted desc",
-                "spice_ess_inter_resultsreceived",
-                "spice_ess_inter_resultsreceived desc",
-                "spice_ess_securityinterdate",
-                "spice_ess_securityinterdate desc",
-                "_owningbusinessunit_value",
-                "_owningbusinessunit_value desc",
-                "utcconversiontimezonecode",
-                "utcconversiontimezonecode desc",
-                "spice_jc_checkrequired",
-                "spice_jc_checkrequired desc",
-                "_existingcase_value",
-                "_existingcase_value desc",
-                "_socialprofileid_value",
-                "_socialprofileid_value desc",
-                "spice_bus_furtherreviewrequired",
-                "spice_bus_furtherreviewrequired desc",
-                "statuscode",
-                "statuscode desc",
-                "routecase",
-                "routecase desc",
-                "spice_concapptype",
-                "spice_concapptype desc",
-                "spice_screeningamount_base",
-                "spice_screeningamount_base desc",
-                "actualserviceunits",
-                "actualserviceunits desc",
-                "spice_legalreviewreqd",
-                "spice_legalreviewreqd desc",
-                "spice_consentform_received",
-                "spice_consentform_received desc",
-                "spice_aliasesadded",
-                "spice_aliasesadded desc",
-                "spice_ess_creditscore",
-                "spice_ess_creditscore desc",
-                "spice_ess_charcresreturned",
-                "spice_ess_charcresreturned desc",
-                "emailaddress",
-                "emailaddress desc",
-                "spice_senttocpu",
-                "spice_senttocpu desc",
-                "spice_ess_refrecdfromapplicant",
-                "spice_ess_refrecdfromapplicant desc",
-                "severitycode",
-                "severitycode desc",
-                "spice_verficationexpiresby",
-                "spice_verficationexpiresby desc",
-                "spice_wf_ssqrequired",
-                "spice_wf_ssqrequired desc",
-                "spice_cpic_infoprovided",
-                "spice_cpic_infoprovided desc",
-                "spice_otrrequired",
-                "spice_otrrequired desc",
-                "spice_applicationstatus",
-                "spice_applicationstatus desc",
-                "spice_bus_furtherreviewpackage",
-                "spice_bus_furtherreviewpackage desc",
-                "spice_spdinvestigationcompletiondate",
-                "spice_spdinvestigationcompletiondate desc",
-                "_owninguser_value",
-                "_owninguser_value desc",
-                "_masterid_value",
-                "_masterid_value desc",
-                "spice_bus_fitandproperresultsent",
-                "spice_bus_fitandproperresultsent desc",
-                "spice_cpuresultsuploaded",
-                "spice_cpuresultsuploaded desc",
-                "spice_wf_review",
-                "spice_wf_review desc",
-                "spice_ess_dfo_confrecd",
-                "spice_ess_dfo_confrecd desc",
-                "spice_wf_timestampldbletter",
-                "spice_wf_timestampldbletter desc",
-                "influencescore",
-                "influencescore desc",
-                "_modifiedby_value",
-                "_modifiedby_value desc",
-                "spice_allassociateinformationreceived",
-                "spice_allassociateinformationreceived desc",
-                "spice_dup_cpicresultstospd",
-                "spice_dup_cpicresultstospd desc",
-                "spice_ess_3rdparty_issuesidentified",
-                "spice_ess_3rdparty_issuesidentified desc",
-                "messagetypecode",
-                "messagetypecode desc",
-                "prioritycode",
-                "prioritycode desc",
-                "spice_bus_fitandproper",
-                "spice_bus_fitandproper desc",
-                "statecode",
-                "statecode desc",
-                "overriddencreatedon",
-                "overriddencreatedon desc",
-                "servicestage",
-                "servicestage desc",
-                "spice_consentrequired",
-                "spice_consentrequired desc",
-                "spice_businessreadyforlcrb",
-                "spice_businessreadyforlcrb desc",
-                "_firstresponsebykpiid_value",
-                "_firstresponsebykpiid_value desc",
-                "_kbarticleid_value",
-                "_kbarticleid_value desc",
-                "spice_ess_charc_intervconf",
-                "spice_ess_charc_intervconf desc",
-                "spice_service_number",
-                "spice_service_number desc",
-                "spice_ess_driversabstreqd",
-                "spice_ess_driversabstreqd desc",
-                "isdecrementing",
-                "isdecrementing desc",
-                "spice_resultssent",
-                "spice_resultssent desc",
-                "spice_addtlprimerequired",
-                "spice_addtlprimerequired desc",
-                "productserialnumber",
-                "productserialnumber desc",
-                "firstresponseslastatus",
-                "firstresponseslastatus desc",
-                "spice_ssqsentdate",
-                "spice_ssqsentdate desc",
-                "_resolvebykpiid_value",
-                "_resolvebykpiid_value desc",
-                "spice_prime_internationalchecks",
-                "spice_prime_internationalchecks desc",
-                "spice_ess_edu_verifcompleted",
-                "spice_ess_edu_verifcompleted desc",
-                "stageid",
-                "stageid desc",
-                "spice_jc_results",
-                "spice_jc_results desc",
                 "spice_bus_level",
                 "spice_bus_level desc",
-                "spice_furtherinvestigationresults",
-                "spice_furtherinvestigationresults desc",
-                "spice_notfitandproperresultsent",
-                "spice_notfitandproperresultsent desc",
-                "spice_cornet_reportuploaded",
-                "spice_cornet_reportuploaded desc",
-                "_spice_lcrblicencetypeid_value",
-                "_spice_lcrblicencetypeid_value desc",
-                "spice_cpuresultsreceived",
-                "spice_cpuresultsreceived desc",
-                "spice_30daylettersenddate",
-                "spice_30daylettersenddate desc",
-                "spice_bs_fitandproper",
-                "spice_bs_fitandproper desc",
-                "spice_ess_interviewdate",
-                "spice_ess_interviewdate desc",
-                "spice_sentforadditionalprime",
-                "spice_sentforadditionalprime desc",
-                "spice_ess_dfo_resultsrecd",
-                "spice_ess_dfo_resultsrecd desc",
-                "onholdtime",
-                "onholdtime desc",
-                "modifiedon",
-                "modifiedon desc",
-                "spice_prime_info_provided",
-                "spice_prime_info_provided desc",
-                "followupby",
-                "followupby desc",
-                "ticketnumber",
-                "ticketnumber desc",
-                "spice_prime_furtherinvestigation",
-                "spice_prime_furtherinvestigation desc",
-                "_entitlementid_value",
-                "_entitlementid_value desc",
-                "billedserviceunits",
-                "billedserviceunits desc",
-                "spice_furtherinvestigationresultuploaded",
-                "spice_furtherinvestigationresultuploaded desc",
-                "isescalated",
-                "isescalated desc",
-                "spice_ess_polygraphinterviewdate",
-                "spice_ess_polygraphinterviewdate desc",
-                "spice_ssqsent",
-                "spice_ssqsent desc",
-                "spice_ess_cert_crcrequired",
-                "spice_ess_cert_crcrequired desc",
-                "lastonholdtime",
-                "lastonholdtime desc",
-                "createdon",
-                "createdon desc",
-                "spice_completiondt",
-                "spice_completiondt desc",
-                "spice_chreferencerequestsent",
-                "spice_chreferencerequestsent desc",
-                "_spice_client_value",
-                "_spice_client_value desc",
-                "processid",
-                "processid desc",
-                "spice_otrlettersent",
-                "spice_otrlettersent desc",
-                "spice_dforesults",
-                "spice_dforesults desc",
-                "spice_additionalprimecheckresult",
-                "spice_additionalprimecheckresult desc",
+                "spice_ess_ssv_verified",
+                "spice_ess_ssv_verified desc",
+                "spice_aliasesadded",
+                "spice_aliasesadded desc",
+                "spice_bus_fitandproperresultsent",
+                "spice_bus_fitandproperresultsent desc",
+                "spice_ssqsentdate",
+                "spice_ssqsentdate desc",
+                "servicestage",
+                "servicestage desc",
+                "spice_screeningamount_base",
+                "spice_screeningamount_base desc",
+                "spice_ess_securityinterresultsrecd",
+                "spice_ess_securityinterresultsrecd desc",
                 "_parentcaseid_value",
                 "_parentcaseid_value desc",
-                "spice_applicanttype",
-                "spice_applicanttype desc",
-                "_createdbyexternalparty_value",
-                "_createdbyexternalparty_value desc",
-                "entityimage_url",
-                "entityimage_url desc",
-                "spice_allrequiredcheckscomplete",
-                "spice_allrequiredcheckscomplete desc",
-                "_primarycontactid_value",
-                "_primarycontactid_value desc",
-                "spice_ess_emp_verifcompleted",
-                "spice_ess_emp_verifcompleted desc",
-                "spice_cpic_furtherinvest",
-                "spice_cpic_furtherinvest desc",
-                "spice_cornetchecked",
-                "spice_cornetchecked desc",
-                "spice_consent",
-                "spice_consent desc",
-                "spice_ess_refrequired",
-                "spice_ess_refrequired desc",
-                "spice_checked_2id",
-                "spice_checked_2id desc",
-                "caseorigincode",
-                "caseorigincode desc",
-                "entityimage",
-                "entityimage desc",
-                "spice_ess_driabstractreceived",
-                "spice_ess_driabstractreceived desc",
-                "spice_w_further_reviewrequired",
-                "spice_w_further_reviewrequired desc",
-                "decremententitlementterm",
-                "decremententitlementterm desc",
-                "spice_wf_investigation",
-                "spice_wf_investigation desc",
-                "spice_30daylettersent",
-                "spice_30daylettersent desc",
-                "_spice_serviceid_value",
-                "_spice_serviceid_value desc",
-                "numberofchildincidents",
-                "numberofchildincidents desc",
-                "spice_ess_3rdparty_checksreq",
-                "spice_ess_3rdparty_checksreq desc",
+                "spice_concapptype",
+                "spice_concapptype desc",
+                "spice_wf_review",
+                "spice_wf_review desc",
+                "spice_screeningamount",
+                "spice_screeningamount desc",
+                "_spice_lcrblicencetypeid_value",
+                "_spice_lcrblicencetypeid_value desc",
+                "spice_charrefrequestsentdate",
+                "spice_charrefrequestsentdate desc",
+                "spice_bus_resultsreceived",
+                "spice_bus_resultsreceived desc",
+                "spice_ldb_w_resultsdate",
+                "spice_ldb_w_resultsdate desc",
+                "spice_cornet_reportuploaded",
+                "spice_cornet_reportuploaded desc",
+                "spice_ess_edu_credvercompleted",
+                "spice_ess_edu_credvercompleted desc",
+                "spice_verficationexpiresby",
+                "spice_verficationexpiresby desc",
+                "_owningbusinessunit_value",
+                "_owningbusinessunit_value desc",
                 "_subjectid_value",
                 "_subjectid_value desc",
-                "spice_spdinvestcompleted",
-                "spice_spdinvestcompleted desc",
-                "sentimentvalue",
-                "sentimentvalue desc",
-                "_accountid_value",
-                "_accountid_value desc",
-                "_contractdetailid_value",
-                "_contractdetailid_value desc",
-                "_owningteam_value",
-                "_owningteam_value desc",
-                "spice_jc_checked",
-                "spice_jc_checked desc",
-                "_modifiedbyexternalparty_value",
-                "_modifiedbyexternalparty_value desc",
-                "spice_additionalprimecheckcomplete",
-                "spice_additionalprimecheckcomplete desc",
-                "spice_ess_securityinterrequired",
-                "spice_ess_securityinterrequired desc",
-                "customersatisfactioncode",
-                "customersatisfactioncode desc",
-                "spice_ess_refsenttoitv",
-                "spice_ess_refsenttoitv desc",
-                "exchangerate",
-                "exchangerate desc",
-                "resolveby",
-                "resolveby desc",
-                "spice_dup_primeresultstosharewithspd",
-                "spice_dup_primeresultstosharewithspd desc",
-                "spice_reportreadyforreview",
-                "spice_reportreadyforreview desc",
-                "spice_crrustatus",
-                "spice_crrustatus desc",
-                "spice_ess_3rdparty_checkscomptd",
-                "spice_ess_3rdparty_checkscomptd desc",
-                "spice_ess_ssv_verifrequired",
-                "spice_ess_ssv_verifrequired desc",
-                "incidentid",
-                "incidentid desc",
-                "spice_justinchecked",
-                "spice_justinchecked desc",
-                "spice_ess_edu_verificationrequired",
-                "spice_ess_edu_verificationrequired desc",
+                "spice_wf_timestampldbletter",
+                "spice_wf_timestampldbletter desc",
+                "spice_ess_edu_credverrequired",
+                "spice_ess_edu_credverrequired desc",
+                "processid",
+                "processid desc",
+                "_spice_returnresultto_value",
+                "_spice_returnresultto_value desc",
+                "spice_jc_rcc_received",
+                "spice_jc_rcc_received desc",
+                "spice_ess_inter_resultsreceived",
+                "spice_ess_inter_resultsreceived desc",
+                "spice_ess_dfo_confrecd",
+                "spice_ess_dfo_confrecd desc",
+                "spice_addtlprimerequired",
+                "spice_addtlprimerequired desc",
+                "prioritycode",
+                "prioritycode desc",
                 "description",
                 "description desc",
+                "spice_businessreadyforlcrb",
+                "spice_businessreadyforlcrb desc",
+                "_slaid_value",
+                "_slaid_value desc",
+                "spice_ess_edu_verifresults",
+                "spice_ess_edu_verifresults desc",
+                "spice_applicationstatus",
+                "spice_applicationstatus desc",
+                "spice_furtherinvestigationresults",
+                "spice_furtherinvestigationresults desc",
+                "_socialprofileid_value",
+                "_socialprofileid_value desc",
+                "_entitlementid_value",
+                "_entitlementid_value desc",
+                "customercontacted",
+                "customercontacted desc",
+                "versionnumber",
+                "versionnumber desc",
+                "spice_justin_reportuploaded",
+                "spice_justin_reportuploaded desc",
+                "customersatisfactioncode",
+                "customersatisfactioncode desc",
+                "_primarycontactid_value",
+                "_primarycontactid_value desc",
+                "_modifiedby_value",
+                "_modifiedby_value desc",
+                "spice_aliases_added",
+                "spice_aliases_added desc",
+                "spice_aliasesfound",
+                "spice_aliasesfound desc",
+                "isescalated",
+                "isescalated desc",
+                "_spice_wf_crrupassback_value",
+                "_spice_wf_crrupassback_value desc",
+                "spice_wf_ssqrequired",
+                "spice_wf_ssqrequired desc",
+                "casetypecode",
+                "casetypecode desc",
+                "spice_ess_refrecdfromapplicant",
+                "spice_ess_refrecdfromapplicant desc",
+                "spice_wf_primecheckrequired",
+                "spice_wf_primecheckrequired desc",
+                "_masterid_value",
+                "_masterid_value desc",
+                "incidentid",
+                "incidentid desc",
+                "spice_ssqsent",
+                "spice_ssqsent desc",
+                "createdon",
+                "createdon desc",
+                "spice_legalreviewcomplete",
+                "spice_legalreviewcomplete desc",
+                "spice_30daylettersent",
+                "spice_30daylettersent desc",
+                "spice_prime_furtherinvestigation",
+                "spice_prime_furtherinvestigation desc",
+                "statuscode",
+                "statuscode desc",
+                "spice_otrletterreceived",
+                "spice_otrletterreceived desc",
+                "lastonholdtime",
+                "lastonholdtime desc",
+                "spice_ess_securityinterrequired",
+                "spice_ess_securityinterrequired desc",
+                "spice_ess_3rdparty_checksreq",
+                "spice_ess_3rdparty_checksreq desc",
+                "_createdonbehalfby_value",
+                "_createdonbehalfby_value desc",
+                "spice_consentsentdate",
+                "spice_consentsentdate desc",
+                "modifiedon",
+                "modifiedon desc",
+                "spice_ess_dfo_resultsrecd",
+                "spice_ess_dfo_resultsrecd desc",
+                "spice_cornetchecked",
+                "spice_cornetchecked desc",
+                "_firstresponsebykpiid_value",
+                "_firstresponsebykpiid_value desc",
+                "spice_cpicresultstosharewithspd",
+                "spice_cpicresultstosharewithspd desc",
+                "spice_jc_results",
+                "spice_jc_results desc",
+                "overriddencreatedon",
+                "overriddencreatedon desc",
+                "spice_prime_internationalchecks",
+                "spice_prime_internationalchecks desc",
+                "spice_wf_businessclosure",
+                "spice_wf_businessclosure desc",
+                "spice_ess_driabstractreceived",
+                "spice_ess_driabstractreceived desc",
+                "spice_ess_charc_intervconf",
+                "spice_ess_charc_intervconf desc",
+                "timezoneruleversionnumber",
+                "timezoneruleversionnumber desc",
+                "spice_ess_driversabstreqd",
+                "spice_ess_driversabstreqd desc",
+                "_contractdetailid_value",
+                "_contractdetailid_value desc",
+                "spice_bs_fitandproper",
+                "spice_bs_fitandproper desc",
+                "spice_screeningcomplexity",
+                "spice_screeningcomplexity desc",
+                "spice_cpuresultsreceived",
+                "spice_cpuresultsreceived desc",
+                "spice_investigationrequired",
+                "spice_investigationrequired desc",
+                "spice_rcc_requestmade",
+                "spice_rcc_requestmade desc",
+                "spice_ess_driver_recordsfound",
+                "spice_ess_driver_recordsfound desc",
+                "_ownerid_value",
+                "_ownerid_value desc",
+                "spice_resultssent",
+                "spice_resultssent desc",
+                "spice_credit_score",
+                "spice_credit_score desc",
+                "sentimentvalue",
+                "sentimentvalue desc",
+                "spice_ssqreceived",
+                "spice_ssqreceived desc",
                 "spice_cornetcheckrequired",
                 "spice_cornetcheckrequired desc",
+                "spice_ess_inter_polygraphrequired",
+                "spice_ess_inter_polygraphrequired desc",
+                "spice_spdinvestigationresults",
+                "spice_spdinvestigationresults desc",
+                "spice_cpic_infoprovided",
+                "spice_cpic_infoprovided desc",
+                "stageid",
+                "stageid desc",
+                "spice_30daylettersenddt",
+                "spice_30daylettersenddt desc",
+                "spice_jc_checkrequired",
+                "spice_jc_checkrequired desc",
+                "spice_prime_results",
+                "spice_prime_results desc",
+                "spice_consentrequired",
+                "spice_consentrequired desc",
+                "_modifiedonbehalfby_value",
+                "_modifiedonbehalfby_value desc",
+                "spice_cpuresultsuploaded",
+                "spice_cpuresultsuploaded desc",
+                "spice_finalresult",
+                "spice_finalresult desc",
+                "spice_notfitandproperresultsent",
+                "spice_notfitandproperresultsent desc",
+                "spice_otherscreeningreason",
+                "spice_otherscreeningreason desc",
+                "spice_otrlettersent",
+                "spice_otrlettersent desc",
+                "spice_cpicresults",
+                "spice_cpicresults desc",
+                "spice_billingtext",
+                "spice_billingtext desc",
+                "_slainvokedid_value",
+                "_slainvokedid_value desc",
+                "spice_spdinvestigationcompletiondt",
+                "spice_spdinvestigationcompletiondt desc",
+                "spice_additionalprimerequired",
+                "spice_additionalprimerequired desc",
+                "followuptaskcreated",
+                "followuptaskcreated desc",
+                "spice_consentdatereceived",
+                "spice_consentdatereceived desc",
+                "_kbarticleid_value",
+                "_kbarticleid_value desc",
+                "merged",
+                "merged desc",
+                "spice_ssqreceiveddt",
+                "spice_ssqreceiveddt desc",
+                "spice_chreferencerequestsent",
+                "spice_chreferencerequestsent desc",
+                "_createdbyexternalparty_value",
+                "_createdbyexternalparty_value desc",
+                "spice_readyforspdinvestigation",
+                "spice_readyforspdinvestigation desc",
                 "spice_cornetresult",
                 "spice_cornetresult desc",
-                "_modifiedonbehalfby_value",
-                "_modifiedonbehalfby_value desc"
+                "emailaddress",
+                "emailaddress desc",
+                "spice_prime_info_provided",
+                "spice_prime_info_provided desc",
+                "spice_tc_dt_signature_confirmed",
+                "spice_tc_dt_signature_confirmed desc",
+                "spice_ess_refrequired",
+                "spice_ess_refrequired desc",
+                "entityimage_timestamp",
+                "entityimage_timestamp desc",
+                "spice_ess_dfo_results",
+                "spice_ess_dfo_results desc",
+                "spice_allrequiredcheckscomplete",
+                "spice_allrequiredcheckscomplete desc",
+                "spice_additionalprimeinformationprovided",
+                "spice_additionalprimeinformationprovided desc",
+                "spice_ess_edu_empverifrequired",
+                "spice_ess_edu_empverifrequired desc",
+                "spice_ess_charc_cvsareqd",
+                "spice_ess_charc_cvsareqd desc",
+                "spice_ssq",
+                "spice_ssq desc",
+                "_spice_serviceid_value",
+                "_spice_serviceid_value desc",
+                "spice_ess_creditscore",
+                "spice_ess_creditscore desc",
+                "spice_ssqrequired",
+                "spice_ssqrequired desc",
+                "actualserviceunits",
+                "actualserviceunits desc",
+                "firstresponsesent",
+                "firstresponsesent desc",
+                "decremententitlementterm",
+                "decremententitlementterm desc",
+                "spice_consentform_received",
+                "spice_consentform_received desc",
+                "spice_furtherinvestigationresultuploaded",
+                "spice_furtherinvestigationresultuploaded desc",
+                "spice_cpiccheckrequired",
+                "spice_cpiccheckrequired desc",
+                "routecase",
+                "routecase desc",
+                "exchangerate",
+                "exchangerate desc",
+                "entityimage_url",
+                "entityimage_url desc",
+                "spice_ess_crc_resuploaded",
+                "spice_ess_crc_resuploaded desc",
+                "spice_wf_caseclosureflag",
+                "spice_wf_caseclosureflag desc",
+                "spice_ess_polygraphresultsreceived",
+                "spice_ess_polygraphresultsreceived desc",
+                "spice_ess_polygraphinterviewdate",
+                "spice_ess_polygraphinterviewdate desc",
+                "responseby",
+                "responseby desc",
+                "_contractid_value",
+                "_contractid_value desc",
+                "entityimage",
+                "entityimage desc",
+                "_spice_requesterhiringmanager_value",
+                "_spice_requesterhiringmanager_value desc",
+                "spice_completiondate",
+                "spice_completiondate desc",
+                "spice_crrustatus",
+                "spice_crrustatus desc",
+                "spice_cannabisapplicanttype",
+                "spice_cannabisapplicanttype desc",
+                "checkemail",
+                "checkemail desc",
+                "spice_spdinvestigationcompletiondate",
+                "spice_spdinvestigationcompletiondate desc",
+                "spice_consent",
+                "spice_consent desc",
+                "spice_cpic_furtherinvest",
+                "spice_cpic_furtherinvest desc",
+                "spice_resultofscreening",
+                "spice_resultofscreening desc",
+                "spice_checked_2id",
+                "spice_checked_2id desc",
+                "escalatedon",
+                "escalatedon desc",
+                "resolvebyslastatus",
+                "resolvebyslastatus desc",
+                "spice_ess_charrefcomplete",
+                "spice_ess_charrefcomplete desc",
+                "_contactid_value",
+                "_contactid_value desc",
+                "spice_ess_ssv_verifrequired",
+                "spice_ess_ssv_verifrequired desc",
+                "_spice_applicantid_value",
+                "_spice_applicantid_value desc",
+                "spice_ess_polygraphinterviewconfirmed",
+                "spice_ess_polygraphinterviewconfirmed desc",
+                "_owningteam_value",
+                "_owningteam_value desc",
+                "blockedprofile",
+                "blockedprofile desc",
+                "spice_dup_cpicresultstospd",
+                "spice_dup_cpicresultstospd desc",
+                "isdecrementing",
+                "isdecrementing desc",
+                "firstresponseslastatus",
+                "firstresponseslastatus desc",
+                "spice_service_number",
+                "spice_service_number desc",
+                "spice_consent_dt_received",
+                "spice_consent_dt_received desc",
+                "billedserviceunits",
+                "billedserviceunits desc",
+                "spice_legalreviewreqd",
+                "spice_legalreviewreqd desc",
+                "_existingcase_value",
+                "_existingcase_value desc",
+                "spice_furtherinvestigationcomplete",
+                "spice_furtherinvestigationcomplete desc",
+                "spice_consentform_sent",
+                "spice_consentform_sent desc",
+                "spice_allassociateinformationreceived",
+                "spice_allassociateinformationreceived desc",
+                "spice_bus_furtherreviewpackage",
+                "spice_bus_furtherreviewpackage desc",
+                "spice_ess_edu_verifcompleted",
+                "spice_ess_edu_verifcompleted desc",
+                "_transactioncurrencyid_value",
+                "_transactioncurrencyid_value desc",
+                "spice_ess_edu_verificationrequired",
+                "spice_ess_edu_verificationrequired desc",
+                "numberofchildincidents",
+                "numberofchildincidents desc",
+                "spice_justinchecked",
+                "spice_justinchecked desc",
+                "spice_dforesults",
+                "spice_dforesults desc",
+                "spice_consent_dt_sent",
+                "spice_consent_dt_sent desc",
+                "spice_coorsresults",
+                "spice_coorsresults desc",
+                "spice_ess_3rdparty_issuesidentified",
+                "spice_ess_3rdparty_issuesidentified desc",
+                "_spice_client_value",
+                "_spice_client_value desc",
+                "ticketnumber",
+                "ticketnumber desc",
+                "spice_w_further_reviewrequired",
+                "spice_w_further_reviewrequired desc",
+                "spice_ssqsentdt",
+                "spice_ssqsentdt desc",
+                "spice_wf_investigation",
+                "spice_wf_investigation desc",
+                "spice_ess_interviewdate",
+                "spice_ess_interviewdate desc",
+                "spice_readyforcrru",
+                "spice_readyforcrru desc",
+                "spice_bus_furtherreviewrequired",
+                "spice_bus_furtherreviewrequired desc",
+                "onholdtime",
+                "onholdtime desc",
+                "spice_applicanttype",
+                "spice_applicanttype desc",
+                "resolveby",
+                "resolveby desc",
+                "spice_prime_checked",
+                "spice_prime_checked desc",
+                "spice_ssqreceiveddate",
+                "spice_ssqreceiveddate desc",
+                "messagetypecode",
+                "messagetypecode desc",
+                "activitiescomplete",
+                "activitiescomplete desc",
+                "spice_completiondt",
+                "spice_completiondt desc",
+                "spice_30daylettersenddate",
+                "spice_30daylettersenddate desc",
+                "spice_bus_spdinvestrequired",
+                "spice_bus_spdinvestrequired desc",
+                "spice_ess_charcresreturned",
+                "spice_ess_charcresreturned desc",
+                "followupby",
+                "followupby desc",
+                "spice_additionalprimecheckcomplete",
+                "spice_additionalprimecheckcomplete desc",
+                "spice_reportreadyforreview",
+                "spice_reportreadyforreview desc",
+                "caseorigincode",
+                "caseorigincode desc",
+                "_owninguser_value",
+                "_owninguser_value desc",
+                "spice_jc_checked",
+                "spice_jc_checked desc",
+                "contractservicelevelcode",
+                "contractservicelevelcode desc",
+                "traversedpath",
+                "traversedpath desc",
+                "spice_cpicrequestsent",
+                "spice_cpicrequestsent desc",
+                "_customerid_value",
+                "_customerid_value desc",
+                "spice_bus_fitandproper",
+                "spice_bus_fitandproper desc",
+                "utcconversiontimezonecode",
+                "utcconversiontimezonecode desc",
+                "spice_additionalprimecheckresult",
+                "spice_additionalprimecheckresult desc",
+                "title",
+                "title desc",
+                "_modifiedbyexternalparty_value",
+                "_modifiedbyexternalparty_value desc",
+                "spice_ess_creditcheckrequired",
+                "spice_ess_creditcheckrequired desc",
+                "severitycode",
+                "severitycode desc",
+                "_productid_value",
+                "_productid_value desc",
+                "statecode",
+                "statecode desc",
+                "_spice_reasonforscreeningid_value",
+                "_spice_reasonforscreeningid_value desc",
+                "spice_otrrequired",
+                "spice_otrrequired desc",
+                "new_testfield",
+                "new_testfield desc",
+                "influencescore",
+                "influencescore desc",
+                "spice_ess_securityinterconfirmed",
+                "spice_ess_securityinterconfirmed desc",
+                "entityimageid",
+                "entityimageid desc",
+                "_accountid_value",
+                "_accountid_value desc",
+                "spice_ess_cert_crcrequired",
+                "spice_ess_cert_crcrequired desc",
+                "spice_sentforadditionalprime",
+                "spice_sentforadditionalprime desc",
+                "spice_ess_refsenttoitv",
+                "spice_ess_refsenttoitv desc",
+                "importsequencenumber",
+                "importsequencenumber desc",
+                "spice_ess_emp_verifcompleted",
+                "spice_ess_emp_verifcompleted desc",
+                "incidentstagecode",
+                "incidentstagecode desc",
+                "_spice_applyingpersonid_value",
+                "_spice_applyingpersonid_value desc",
+                "_createdby_value",
+                "_createdby_value desc",
+                "spice_ess_securityinterdate",
+                "spice_ess_securityinterdate desc",
+                "spice_primeresultstosharewithspd",
+                "spice_primeresultstosharewithspd desc",
+                "spice_associatecomplexity",
+                "spice_associatecomplexity desc",
+                "spice_workersreadyforlcrb",
+                "spice_workersreadyforlcrb desc",
+                "_resolvebykpiid_value",
+                "_resolvebykpiid_value desc",
+                "spice_prime_checkrequired",
+                "spice_prime_checkrequired desc",
+                "spice_dup_primeresultstosharewithspd",
+                "spice_dup_primeresultstosharewithspd desc",
+                "spice_spdinvestcompleted",
+                "spice_spdinvestcompleted desc",
+                "spice_senttocpu",
+                "spice_senttocpu desc",
+                "spice_ess_3rdparty_checkscomptd",
+                "spice_ess_3rdparty_checkscomptd desc",
+                "productserialnumber",
+                "productserialnumber desc"
               ]
             }
           },
@@ -2851,254 +2882,265 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
               "enum": [
-                "_spice_wf_crrupassback_value",
-                "_ownerid_value",
-                "spice_aliases_added",
-                "spice_ess_driver_recordsfound",
-                "_contactid_value",
-                "versionnumber",
-                "spice_ess_securityinterconfirmed",
-                "spice_ess_crc_resuploaded",
-                "spice_ess_charc_cvsareqd",
-                "spice_associatecomplexity",
-                "spice_spdinvestigationresults",
-                "entityimage_timestamp",
-                "blockedprofile",
-                "_contractid_value",
-                "spice_bus_spdinvestrequired",
-                "spice_screeningcomplexity",
-                "spice_consent_dt_sent",
-                "_spice_returnresultto_value",
-                "timezoneruleversionnumber",
-                "spice_finalresult",
-                "spice_prime_checkrequired",
-                "contractservicelevelcode",
-                "_slaid_value",
-                "_spice_reasonforscreeningid_value",
-                "spice_otrletterreceived",
-                "spice_aliasesfound",
-                "spice_ssqrequired",
-                "spice_otherscreeningreason",
-                "spice_cpicresults",
-                "spice_cpicresultstosharewithspd",
-                "spice_ess_dfo_results",
-                "spice_ess_inter_polygraphrequired",
-                "spice_tc_dt_signature_confirmed",
-                "spice_billingtext",
-                "_createdby_value",
-                "spice_prime_results",
-                "spice_legalreviewcomplete",
-                "casetypecode",
-                "spice_ess_securityinterresultsrecd",
-                "activitiescomplete",
-                "spice_coorsresults",
-                "spice_cpiccheckrequired",
-                "spice_rcc_requestmade",
-                "resolvebyslastatus",
-                "_spice_applicantid_value",
-                "_transactioncurrencyid_value",
-                "spice_credit_score",
-                "incidentstagecode",
-                "_customerid_value",
-                "checkemail",
-                "spice_ess_edu_verifresults",
-                "_productid_value",
-                "customercontacted",
-                "traversedpath",
-                "entityimageid",
-                "firstresponsesent",
-                "spice_ssqreceived",
-                "spice_prime_checked",
-                "spice_wf_caseclosureflag",
-                "responseby",
-                "spice_ess_polygraphresultsreceived",
-                "spice_resultofscreening",
-                "spice_ess_creditcheckrequired",
-                "title",
-                "importsequencenumber",
-                "merged",
-                "spice_ess_edu_empverifrequired",
-                "_createdonbehalfby_value",
-                "spice_ess_polygraphinterviewconfirmed",
-                "spice_ssq",
-                "escalatedon",
-                "spice_justin_reportuploaded",
-                "spice_primeresultstosharewithspd",
-                "_slainvokedid_value",
-                "spice_workersreadyforlcrb",
-                "spice_readyforcrru",
-                "_spice_applyingpersonid_value",
-                "spice_additionalprimeinformationprovided",
-                "spice_consentform_sent",
-                "spice_ssqreceiveddate",
-                "spice_ess_ssv_verified",
-                "_spice_requesterhiringmanager_value",
-                "followuptaskcreated",
-                "spice_charrefrequestsentdate",
-                "spice_investigationrequired",
-                "spice_jc_rcc_received",
-                "spice_bus_resultsreceived",
-                "spice_additionalprimerequired",
-                "spice_cannabisapplicanttype",
-                "spice_furtherinvestigationcomplete",
-                "spice_consent_dt_received",
-                "spice_ess_charrefcomplete",
-                "spice_screeningamount",
-                "spice_ess_edu_credverrequired",
-                "spice_readyforspdinvestigation",
-                "spice_cpicrequestsent",
-                "spice_wf_businessclosure",
-                "spice_ess_edu_credvercompleted",
-                "spice_ess_inter_resultsreceived",
-                "spice_ess_securityinterdate",
-                "_owningbusinessunit_value",
-                "utcconversiontimezonecode",
-                "spice_jc_checkrequired",
-                "_existingcase_value",
-                "_socialprofileid_value",
-                "spice_bus_furtherreviewrequired",
-                "statuscode",
-                "routecase",
-                "spice_concapptype",
-                "spice_screeningamount_base",
-                "actualserviceunits",
-                "spice_legalreviewreqd",
-                "spice_consentform_received",
-                "spice_aliasesadded",
-                "spice_ess_creditscore",
-                "spice_ess_charcresreturned",
-                "emailaddress",
-                "spice_senttocpu",
-                "spice_ess_refrecdfromapplicant",
-                "severitycode",
-                "spice_verficationexpiresby",
-                "spice_wf_ssqrequired",
-                "spice_cpic_infoprovided",
-                "spice_otrrequired",
-                "spice_applicationstatus",
-                "spice_bus_furtherreviewpackage",
-                "spice_spdinvestigationcompletiondate",
-                "_owninguser_value",
-                "_masterid_value",
-                "spice_bus_fitandproperresultsent",
-                "spice_cpuresultsuploaded",
-                "spice_wf_review",
-                "spice_ess_dfo_confrecd",
-                "spice_wf_timestampldbletter",
-                "influencescore",
-                "_modifiedby_value",
-                "spice_allassociateinformationreceived",
-                "spice_dup_cpicresultstospd",
-                "spice_ess_3rdparty_issuesidentified",
-                "messagetypecode",
-                "prioritycode",
-                "spice_bus_fitandproper",
-                "statecode",
-                "overriddencreatedon",
-                "servicestage",
-                "spice_consentrequired",
-                "spice_businessreadyforlcrb",
-                "_firstresponsebykpiid_value",
-                "_kbarticleid_value",
-                "spice_ess_charc_intervconf",
-                "spice_service_number",
-                "spice_ess_driversabstreqd",
-                "isdecrementing",
-                "spice_resultssent",
-                "spice_addtlprimerequired",
-                "productserialnumber",
-                "firstresponseslastatus",
-                "spice_ssqsentdate",
-                "_resolvebykpiid_value",
-                "spice_prime_internationalchecks",
-                "spice_ess_edu_verifcompleted",
-                "stageid",
-                "spice_jc_results",
                 "spice_bus_level",
-                "spice_furtherinvestigationresults",
-                "spice_notfitandproperresultsent",
-                "spice_cornet_reportuploaded",
-                "_spice_lcrblicencetypeid_value",
-                "spice_cpuresultsreceived",
-                "spice_30daylettersenddate",
-                "spice_bs_fitandproper",
-                "spice_ess_interviewdate",
-                "spice_sentforadditionalprime",
-                "spice_ess_dfo_resultsrecd",
-                "onholdtime",
-                "modifiedon",
-                "spice_prime_info_provided",
-                "followupby",
-                "ticketnumber",
-                "spice_prime_furtherinvestigation",
-                "_entitlementid_value",
-                "billedserviceunits",
-                "spice_furtherinvestigationresultuploaded",
-                "isescalated",
-                "spice_ess_polygraphinterviewdate",
-                "spice_ssqsent",
-                "spice_ess_cert_crcrequired",
-                "lastonholdtime",
-                "createdon",
-                "spice_completiondt",
-                "spice_chreferencerequestsent",
-                "_spice_client_value",
-                "processid",
-                "spice_otrlettersent",
-                "spice_dforesults",
-                "spice_additionalprimecheckresult",
+                "spice_ess_ssv_verified",
+                "spice_aliasesadded",
+                "spice_bus_fitandproperresultsent",
+                "spice_ssqsentdate",
+                "servicestage",
+                "spice_screeningamount_base",
+                "spice_ess_securityinterresultsrecd",
                 "_parentcaseid_value",
-                "spice_applicanttype",
-                "_createdbyexternalparty_value",
-                "entityimage_url",
-                "spice_allrequiredcheckscomplete",
-                "_primarycontactid_value",
-                "spice_ess_emp_verifcompleted",
-                "spice_cpic_furtherinvest",
-                "spice_cornetchecked",
-                "spice_consent",
-                "spice_ess_refrequired",
-                "spice_checked_2id",
-                "caseorigincode",
-                "entityimage",
-                "spice_ess_driabstractreceived",
-                "spice_w_further_reviewrequired",
-                "decremententitlementterm",
-                "spice_wf_investigation",
-                "spice_30daylettersent",
-                "_spice_serviceid_value",
-                "numberofchildincidents",
-                "spice_ess_3rdparty_checksreq",
+                "spice_concapptype",
+                "spice_wf_review",
+                "spice_screeningamount",
+                "_spice_lcrblicencetypeid_value",
+                "spice_charrefrequestsentdate",
+                "spice_bus_resultsreceived",
+                "spice_ldb_w_resultsdate",
+                "spice_cornet_reportuploaded",
+                "spice_ess_edu_credvercompleted",
+                "spice_verficationexpiresby",
+                "_owningbusinessunit_value",
                 "_subjectid_value",
-                "spice_spdinvestcompleted",
-                "sentimentvalue",
-                "_accountid_value",
-                "_contractdetailid_value",
-                "_owningteam_value",
-                "spice_jc_checked",
-                "_modifiedbyexternalparty_value",
-                "spice_additionalprimecheckcomplete",
-                "spice_ess_securityinterrequired",
-                "customersatisfactioncode",
-                "spice_ess_refsenttoitv",
-                "exchangerate",
-                "resolveby",
-                "spice_dup_primeresultstosharewithspd",
-                "spice_reportreadyforreview",
-                "spice_crrustatus",
-                "spice_ess_3rdparty_checkscomptd",
-                "spice_ess_ssv_verifrequired",
-                "incidentid",
-                "spice_justinchecked",
-                "spice_ess_edu_verificationrequired",
+                "spice_wf_timestampldbletter",
+                "spice_ess_edu_credverrequired",
+                "processid",
+                "_spice_returnresultto_value",
+                "spice_jc_rcc_received",
+                "spice_ess_inter_resultsreceived",
+                "spice_ess_dfo_confrecd",
+                "spice_addtlprimerequired",
+                "prioritycode",
                 "description",
+                "spice_businessreadyforlcrb",
+                "_slaid_value",
+                "spice_ess_edu_verifresults",
+                "spice_applicationstatus",
+                "spice_furtherinvestigationresults",
+                "_socialprofileid_value",
+                "_entitlementid_value",
+                "customercontacted",
+                "versionnumber",
+                "spice_justin_reportuploaded",
+                "customersatisfactioncode",
+                "_primarycontactid_value",
+                "_modifiedby_value",
+                "spice_aliases_added",
+                "spice_aliasesfound",
+                "isescalated",
+                "_spice_wf_crrupassback_value",
+                "spice_wf_ssqrequired",
+                "casetypecode",
+                "spice_ess_refrecdfromapplicant",
+                "spice_wf_primecheckrequired",
+                "_masterid_value",
+                "incidentid",
+                "spice_ssqsent",
+                "createdon",
+                "spice_legalreviewcomplete",
+                "spice_30daylettersent",
+                "spice_prime_furtherinvestigation",
+                "statuscode",
+                "spice_otrletterreceived",
+                "lastonholdtime",
+                "spice_ess_securityinterrequired",
+                "spice_ess_3rdparty_checksreq",
+                "_createdonbehalfby_value",
+                "spice_consentsentdate",
+                "modifiedon",
+                "spice_ess_dfo_resultsrecd",
+                "spice_cornetchecked",
+                "_firstresponsebykpiid_value",
+                "spice_cpicresultstosharewithspd",
+                "spice_jc_results",
+                "overriddencreatedon",
+                "spice_prime_internationalchecks",
+                "spice_wf_businessclosure",
+                "spice_ess_driabstractreceived",
+                "spice_ess_charc_intervconf",
+                "timezoneruleversionnumber",
+                "spice_ess_driversabstreqd",
+                "_contractdetailid_value",
+                "spice_bs_fitandproper",
+                "spice_screeningcomplexity",
+                "spice_cpuresultsreceived",
+                "spice_investigationrequired",
+                "spice_rcc_requestmade",
+                "spice_ess_driver_recordsfound",
+                "_ownerid_value",
+                "spice_resultssent",
+                "spice_credit_score",
+                "sentimentvalue",
+                "spice_ssqreceived",
                 "spice_cornetcheckrequired",
+                "spice_ess_inter_polygraphrequired",
+                "spice_spdinvestigationresults",
+                "spice_cpic_infoprovided",
+                "stageid",
+                "spice_30daylettersenddt",
+                "spice_jc_checkrequired",
+                "spice_prime_results",
+                "spice_consentrequired",
+                "_modifiedonbehalfby_value",
+                "spice_cpuresultsuploaded",
+                "spice_finalresult",
+                "spice_notfitandproperresultsent",
+                "spice_otherscreeningreason",
+                "spice_otrlettersent",
+                "spice_cpicresults",
+                "spice_billingtext",
+                "_slainvokedid_value",
+                "spice_spdinvestigationcompletiondt",
+                "spice_additionalprimerequired",
+                "followuptaskcreated",
+                "spice_consentdatereceived",
+                "_kbarticleid_value",
+                "merged",
+                "spice_ssqreceiveddt",
+                "spice_chreferencerequestsent",
+                "_createdbyexternalparty_value",
+                "spice_readyforspdinvestigation",
                 "spice_cornetresult",
-                "_modifiedonbehalfby_value"
+                "emailaddress",
+                "spice_prime_info_provided",
+                "spice_tc_dt_signature_confirmed",
+                "spice_ess_refrequired",
+                "entityimage_timestamp",
+                "spice_ess_dfo_results",
+                "spice_allrequiredcheckscomplete",
+                "spice_additionalprimeinformationprovided",
+                "spice_ess_edu_empverifrequired",
+                "spice_ess_charc_cvsareqd",
+                "spice_ssq",
+                "_spice_serviceid_value",
+                "spice_ess_creditscore",
+                "spice_ssqrequired",
+                "actualserviceunits",
+                "firstresponsesent",
+                "decremententitlementterm",
+                "spice_consentform_received",
+                "spice_furtherinvestigationresultuploaded",
+                "spice_cpiccheckrequired",
+                "routecase",
+                "exchangerate",
+                "entityimage_url",
+                "spice_ess_crc_resuploaded",
+                "spice_wf_caseclosureflag",
+                "spice_ess_polygraphresultsreceived",
+                "spice_ess_polygraphinterviewdate",
+                "responseby",
+                "_contractid_value",
+                "entityimage",
+                "_spice_requesterhiringmanager_value",
+                "spice_completiondate",
+                "spice_crrustatus",
+                "spice_cannabisapplicanttype",
+                "checkemail",
+                "spice_spdinvestigationcompletiondate",
+                "spice_consent",
+                "spice_cpic_furtherinvest",
+                "spice_resultofscreening",
+                "spice_checked_2id",
+                "escalatedon",
+                "resolvebyslastatus",
+                "spice_ess_charrefcomplete",
+                "_contactid_value",
+                "spice_ess_ssv_verifrequired",
+                "_spice_applicantid_value",
+                "spice_ess_polygraphinterviewconfirmed",
+                "_owningteam_value",
+                "blockedprofile",
+                "spice_dup_cpicresultstospd",
+                "isdecrementing",
+                "firstresponseslastatus",
+                "spice_service_number",
+                "spice_consent_dt_received",
+                "billedserviceunits",
+                "spice_legalreviewreqd",
+                "_existingcase_value",
+                "spice_furtherinvestigationcomplete",
+                "spice_consentform_sent",
+                "spice_allassociateinformationreceived",
+                "spice_bus_furtherreviewpackage",
+                "spice_ess_edu_verifcompleted",
+                "_transactioncurrencyid_value",
+                "spice_ess_edu_verificationrequired",
+                "numberofchildincidents",
+                "spice_justinchecked",
+                "spice_dforesults",
+                "spice_consent_dt_sent",
+                "spice_coorsresults",
+                "spice_ess_3rdparty_issuesidentified",
+                "_spice_client_value",
+                "ticketnumber",
+                "spice_w_further_reviewrequired",
+                "spice_ssqsentdt",
+                "spice_wf_investigation",
+                "spice_ess_interviewdate",
+                "spice_readyforcrru",
+                "spice_bus_furtherreviewrequired",
+                "onholdtime",
+                "spice_applicanttype",
+                "resolveby",
+                "spice_prime_checked",
+                "spice_ssqreceiveddate",
+                "messagetypecode",
+                "activitiescomplete",
+                "spice_completiondt",
+                "spice_30daylettersenddate",
+                "spice_bus_spdinvestrequired",
+                "spice_ess_charcresreturned",
+                "followupby",
+                "spice_additionalprimecheckcomplete",
+                "spice_reportreadyforreview",
+                "caseorigincode",
+                "_owninguser_value",
+                "spice_jc_checked",
+                "contractservicelevelcode",
+                "traversedpath",
+                "spice_cpicrequestsent",
+                "_customerid_value",
+                "spice_bus_fitandproper",
+                "utcconversiontimezonecode",
+                "spice_additionalprimecheckresult",
+                "title",
+                "_modifiedbyexternalparty_value",
+                "spice_ess_creditcheckrequired",
+                "severitycode",
+                "_productid_value",
+                "statecode",
+                "_spice_reasonforscreeningid_value",
+                "spice_otrrequired",
+                "new_testfield",
+                "influencescore",
+                "spice_ess_securityinterconfirmed",
+                "entityimageid",
+                "_accountid_value",
+                "spice_ess_cert_crcrequired",
+                "spice_sentforadditionalprime",
+                "spice_ess_refsenttoitv",
+                "importsequencenumber",
+                "spice_ess_emp_verifcompleted",
+                "incidentstagecode",
+                "_spice_applyingpersonid_value",
+                "_createdby_value",
+                "spice_ess_securityinterdate",
+                "spice_primeresultstosharewithspd",
+                "spice_associatecomplexity",
+                "spice_workersreadyforlcrb",
+                "_resolvebykpiid_value",
+                "spice_prime_checkrequired",
+                "spice_dup_primeresultstosharewithspd",
+                "spice_spdinvestcompleted",
+                "spice_senttocpu",
+                "spice_ess_3rdparty_checkscomptd",
+                "productserialnumber"
               ]
             }
           },
@@ -3106,6 +3148,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -3266,254 +3309,265 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
               "enum": [
-                "_spice_wf_crrupassback_value",
-                "_ownerid_value",
-                "spice_aliases_added",
-                "spice_ess_driver_recordsfound",
-                "_contactid_value",
-                "versionnumber",
-                "spice_ess_securityinterconfirmed",
-                "spice_ess_crc_resuploaded",
-                "spice_ess_charc_cvsareqd",
-                "spice_associatecomplexity",
-                "spice_spdinvestigationresults",
-                "entityimage_timestamp",
-                "blockedprofile",
-                "_contractid_value",
-                "spice_bus_spdinvestrequired",
-                "spice_screeningcomplexity",
-                "spice_consent_dt_sent",
-                "_spice_returnresultto_value",
-                "timezoneruleversionnumber",
-                "spice_finalresult",
-                "spice_prime_checkrequired",
-                "contractservicelevelcode",
-                "_slaid_value",
-                "_spice_reasonforscreeningid_value",
-                "spice_otrletterreceived",
-                "spice_aliasesfound",
-                "spice_ssqrequired",
-                "spice_otherscreeningreason",
-                "spice_cpicresults",
-                "spice_cpicresultstosharewithspd",
-                "spice_ess_dfo_results",
-                "spice_ess_inter_polygraphrequired",
-                "spice_tc_dt_signature_confirmed",
-                "spice_billingtext",
-                "_createdby_value",
-                "spice_prime_results",
-                "spice_legalreviewcomplete",
-                "casetypecode",
-                "spice_ess_securityinterresultsrecd",
-                "activitiescomplete",
-                "spice_coorsresults",
-                "spice_cpiccheckrequired",
-                "spice_rcc_requestmade",
-                "resolvebyslastatus",
-                "_spice_applicantid_value",
-                "_transactioncurrencyid_value",
-                "spice_credit_score",
-                "incidentstagecode",
-                "_customerid_value",
-                "checkemail",
-                "spice_ess_edu_verifresults",
-                "_productid_value",
-                "customercontacted",
-                "traversedpath",
-                "entityimageid",
-                "firstresponsesent",
-                "spice_ssqreceived",
-                "spice_prime_checked",
-                "spice_wf_caseclosureflag",
-                "responseby",
-                "spice_ess_polygraphresultsreceived",
-                "spice_resultofscreening",
-                "spice_ess_creditcheckrequired",
-                "title",
-                "importsequencenumber",
-                "merged",
-                "spice_ess_edu_empverifrequired",
-                "_createdonbehalfby_value",
-                "spice_ess_polygraphinterviewconfirmed",
-                "spice_ssq",
-                "escalatedon",
-                "spice_justin_reportuploaded",
-                "spice_primeresultstosharewithspd",
-                "_slainvokedid_value",
-                "spice_workersreadyforlcrb",
-                "spice_readyforcrru",
-                "_spice_applyingpersonid_value",
-                "spice_additionalprimeinformationprovided",
-                "spice_consentform_sent",
-                "spice_ssqreceiveddate",
-                "spice_ess_ssv_verified",
-                "_spice_requesterhiringmanager_value",
-                "followuptaskcreated",
-                "spice_charrefrequestsentdate",
-                "spice_investigationrequired",
-                "spice_jc_rcc_received",
-                "spice_bus_resultsreceived",
-                "spice_additionalprimerequired",
-                "spice_cannabisapplicanttype",
-                "spice_furtherinvestigationcomplete",
-                "spice_consent_dt_received",
-                "spice_ess_charrefcomplete",
-                "spice_screeningamount",
-                "spice_ess_edu_credverrequired",
-                "spice_readyforspdinvestigation",
-                "spice_cpicrequestsent",
-                "spice_wf_businessclosure",
-                "spice_ess_edu_credvercompleted",
-                "spice_ess_inter_resultsreceived",
-                "spice_ess_securityinterdate",
-                "_owningbusinessunit_value",
-                "utcconversiontimezonecode",
-                "spice_jc_checkrequired",
-                "_existingcase_value",
-                "_socialprofileid_value",
-                "spice_bus_furtherreviewrequired",
-                "statuscode",
-                "routecase",
-                "spice_concapptype",
-                "spice_screeningamount_base",
-                "actualserviceunits",
-                "spice_legalreviewreqd",
-                "spice_consentform_received",
-                "spice_aliasesadded",
-                "spice_ess_creditscore",
-                "spice_ess_charcresreturned",
-                "emailaddress",
-                "spice_senttocpu",
-                "spice_ess_refrecdfromapplicant",
-                "severitycode",
-                "spice_verficationexpiresby",
-                "spice_wf_ssqrequired",
-                "spice_cpic_infoprovided",
-                "spice_otrrequired",
-                "spice_applicationstatus",
-                "spice_bus_furtherreviewpackage",
-                "spice_spdinvestigationcompletiondate",
-                "_owninguser_value",
-                "_masterid_value",
-                "spice_bus_fitandproperresultsent",
-                "spice_cpuresultsuploaded",
-                "spice_wf_review",
-                "spice_ess_dfo_confrecd",
-                "spice_wf_timestampldbletter",
-                "influencescore",
-                "_modifiedby_value",
-                "spice_allassociateinformationreceived",
-                "spice_dup_cpicresultstospd",
-                "spice_ess_3rdparty_issuesidentified",
-                "messagetypecode",
-                "prioritycode",
-                "spice_bus_fitandproper",
-                "statecode",
-                "overriddencreatedon",
-                "servicestage",
-                "spice_consentrequired",
-                "spice_businessreadyforlcrb",
-                "_firstresponsebykpiid_value",
-                "_kbarticleid_value",
-                "spice_ess_charc_intervconf",
-                "spice_service_number",
-                "spice_ess_driversabstreqd",
-                "isdecrementing",
-                "spice_resultssent",
-                "spice_addtlprimerequired",
-                "productserialnumber",
-                "firstresponseslastatus",
-                "spice_ssqsentdate",
-                "_resolvebykpiid_value",
-                "spice_prime_internationalchecks",
-                "spice_ess_edu_verifcompleted",
-                "stageid",
-                "spice_jc_results",
                 "spice_bus_level",
-                "spice_furtherinvestigationresults",
-                "spice_notfitandproperresultsent",
-                "spice_cornet_reportuploaded",
-                "_spice_lcrblicencetypeid_value",
-                "spice_cpuresultsreceived",
-                "spice_30daylettersenddate",
-                "spice_bs_fitandproper",
-                "spice_ess_interviewdate",
-                "spice_sentforadditionalprime",
-                "spice_ess_dfo_resultsrecd",
-                "onholdtime",
-                "modifiedon",
-                "spice_prime_info_provided",
-                "followupby",
-                "ticketnumber",
-                "spice_prime_furtherinvestigation",
-                "_entitlementid_value",
-                "billedserviceunits",
-                "spice_furtherinvestigationresultuploaded",
-                "isescalated",
-                "spice_ess_polygraphinterviewdate",
-                "spice_ssqsent",
-                "spice_ess_cert_crcrequired",
-                "lastonholdtime",
-                "createdon",
-                "spice_completiondt",
-                "spice_chreferencerequestsent",
-                "_spice_client_value",
-                "processid",
-                "spice_otrlettersent",
-                "spice_dforesults",
-                "spice_additionalprimecheckresult",
+                "spice_ess_ssv_verified",
+                "spice_aliasesadded",
+                "spice_bus_fitandproperresultsent",
+                "spice_ssqsentdate",
+                "servicestage",
+                "spice_screeningamount_base",
+                "spice_ess_securityinterresultsrecd",
                 "_parentcaseid_value",
-                "spice_applicanttype",
-                "_createdbyexternalparty_value",
-                "entityimage_url",
-                "spice_allrequiredcheckscomplete",
-                "_primarycontactid_value",
-                "spice_ess_emp_verifcompleted",
-                "spice_cpic_furtherinvest",
-                "spice_cornetchecked",
-                "spice_consent",
-                "spice_ess_refrequired",
-                "spice_checked_2id",
-                "caseorigincode",
-                "entityimage",
-                "spice_ess_driabstractreceived",
-                "spice_w_further_reviewrequired",
-                "decremententitlementterm",
-                "spice_wf_investigation",
-                "spice_30daylettersent",
-                "_spice_serviceid_value",
-                "numberofchildincidents",
-                "spice_ess_3rdparty_checksreq",
+                "spice_concapptype",
+                "spice_wf_review",
+                "spice_screeningamount",
+                "_spice_lcrblicencetypeid_value",
+                "spice_charrefrequestsentdate",
+                "spice_bus_resultsreceived",
+                "spice_ldb_w_resultsdate",
+                "spice_cornet_reportuploaded",
+                "spice_ess_edu_credvercompleted",
+                "spice_verficationexpiresby",
+                "_owningbusinessunit_value",
                 "_subjectid_value",
-                "spice_spdinvestcompleted",
-                "sentimentvalue",
-                "_accountid_value",
-                "_contractdetailid_value",
-                "_owningteam_value",
-                "spice_jc_checked",
-                "_modifiedbyexternalparty_value",
-                "spice_additionalprimecheckcomplete",
-                "spice_ess_securityinterrequired",
-                "customersatisfactioncode",
-                "spice_ess_refsenttoitv",
-                "exchangerate",
-                "resolveby",
-                "spice_dup_primeresultstosharewithspd",
-                "spice_reportreadyforreview",
-                "spice_crrustatus",
-                "spice_ess_3rdparty_checkscomptd",
-                "spice_ess_ssv_verifrequired",
-                "incidentid",
-                "spice_justinchecked",
-                "spice_ess_edu_verificationrequired",
+                "spice_wf_timestampldbletter",
+                "spice_ess_edu_credverrequired",
+                "processid",
+                "_spice_returnresultto_value",
+                "spice_jc_rcc_received",
+                "spice_ess_inter_resultsreceived",
+                "spice_ess_dfo_confrecd",
+                "spice_addtlprimerequired",
+                "prioritycode",
                 "description",
+                "spice_businessreadyforlcrb",
+                "_slaid_value",
+                "spice_ess_edu_verifresults",
+                "spice_applicationstatus",
+                "spice_furtherinvestigationresults",
+                "_socialprofileid_value",
+                "_entitlementid_value",
+                "customercontacted",
+                "versionnumber",
+                "spice_justin_reportuploaded",
+                "customersatisfactioncode",
+                "_primarycontactid_value",
+                "_modifiedby_value",
+                "spice_aliases_added",
+                "spice_aliasesfound",
+                "isescalated",
+                "_spice_wf_crrupassback_value",
+                "spice_wf_ssqrequired",
+                "casetypecode",
+                "spice_ess_refrecdfromapplicant",
+                "spice_wf_primecheckrequired",
+                "_masterid_value",
+                "incidentid",
+                "spice_ssqsent",
+                "createdon",
+                "spice_legalreviewcomplete",
+                "spice_30daylettersent",
+                "spice_prime_furtherinvestigation",
+                "statuscode",
+                "spice_otrletterreceived",
+                "lastonholdtime",
+                "spice_ess_securityinterrequired",
+                "spice_ess_3rdparty_checksreq",
+                "_createdonbehalfby_value",
+                "spice_consentsentdate",
+                "modifiedon",
+                "spice_ess_dfo_resultsrecd",
+                "spice_cornetchecked",
+                "_firstresponsebykpiid_value",
+                "spice_cpicresultstosharewithspd",
+                "spice_jc_results",
+                "overriddencreatedon",
+                "spice_prime_internationalchecks",
+                "spice_wf_businessclosure",
+                "spice_ess_driabstractreceived",
+                "spice_ess_charc_intervconf",
+                "timezoneruleversionnumber",
+                "spice_ess_driversabstreqd",
+                "_contractdetailid_value",
+                "spice_bs_fitandproper",
+                "spice_screeningcomplexity",
+                "spice_cpuresultsreceived",
+                "spice_investigationrequired",
+                "spice_rcc_requestmade",
+                "spice_ess_driver_recordsfound",
+                "_ownerid_value",
+                "spice_resultssent",
+                "spice_credit_score",
+                "sentimentvalue",
+                "spice_ssqreceived",
                 "spice_cornetcheckrequired",
+                "spice_ess_inter_polygraphrequired",
+                "spice_spdinvestigationresults",
+                "spice_cpic_infoprovided",
+                "stageid",
+                "spice_30daylettersenddt",
+                "spice_jc_checkrequired",
+                "spice_prime_results",
+                "spice_consentrequired",
+                "_modifiedonbehalfby_value",
+                "spice_cpuresultsuploaded",
+                "spice_finalresult",
+                "spice_notfitandproperresultsent",
+                "spice_otherscreeningreason",
+                "spice_otrlettersent",
+                "spice_cpicresults",
+                "spice_billingtext",
+                "_slainvokedid_value",
+                "spice_spdinvestigationcompletiondt",
+                "spice_additionalprimerequired",
+                "followuptaskcreated",
+                "spice_consentdatereceived",
+                "_kbarticleid_value",
+                "merged",
+                "spice_ssqreceiveddt",
+                "spice_chreferencerequestsent",
+                "_createdbyexternalparty_value",
+                "spice_readyforspdinvestigation",
                 "spice_cornetresult",
-                "_modifiedonbehalfby_value"
+                "emailaddress",
+                "spice_prime_info_provided",
+                "spice_tc_dt_signature_confirmed",
+                "spice_ess_refrequired",
+                "entityimage_timestamp",
+                "spice_ess_dfo_results",
+                "spice_allrequiredcheckscomplete",
+                "spice_additionalprimeinformationprovided",
+                "spice_ess_edu_empverifrequired",
+                "spice_ess_charc_cvsareqd",
+                "spice_ssq",
+                "_spice_serviceid_value",
+                "spice_ess_creditscore",
+                "spice_ssqrequired",
+                "actualserviceunits",
+                "firstresponsesent",
+                "decremententitlementterm",
+                "spice_consentform_received",
+                "spice_furtherinvestigationresultuploaded",
+                "spice_cpiccheckrequired",
+                "routecase",
+                "exchangerate",
+                "entityimage_url",
+                "spice_ess_crc_resuploaded",
+                "spice_wf_caseclosureflag",
+                "spice_ess_polygraphresultsreceived",
+                "spice_ess_polygraphinterviewdate",
+                "responseby",
+                "_contractid_value",
+                "entityimage",
+                "_spice_requesterhiringmanager_value",
+                "spice_completiondate",
+                "spice_crrustatus",
+                "spice_cannabisapplicanttype",
+                "checkemail",
+                "spice_spdinvestigationcompletiondate",
+                "spice_consent",
+                "spice_cpic_furtherinvest",
+                "spice_resultofscreening",
+                "spice_checked_2id",
+                "escalatedon",
+                "resolvebyslastatus",
+                "spice_ess_charrefcomplete",
+                "_contactid_value",
+                "spice_ess_ssv_verifrequired",
+                "_spice_applicantid_value",
+                "spice_ess_polygraphinterviewconfirmed",
+                "_owningteam_value",
+                "blockedprofile",
+                "spice_dup_cpicresultstospd",
+                "isdecrementing",
+                "firstresponseslastatus",
+                "spice_service_number",
+                "spice_consent_dt_received",
+                "billedserviceunits",
+                "spice_legalreviewreqd",
+                "_existingcase_value",
+                "spice_furtherinvestigationcomplete",
+                "spice_consentform_sent",
+                "spice_allassociateinformationreceived",
+                "spice_bus_furtherreviewpackage",
+                "spice_ess_edu_verifcompleted",
+                "_transactioncurrencyid_value",
+                "spice_ess_edu_verificationrequired",
+                "numberofchildincidents",
+                "spice_justinchecked",
+                "spice_dforesults",
+                "spice_consent_dt_sent",
+                "spice_coorsresults",
+                "spice_ess_3rdparty_issuesidentified",
+                "_spice_client_value",
+                "ticketnumber",
+                "spice_w_further_reviewrequired",
+                "spice_ssqsentdt",
+                "spice_wf_investigation",
+                "spice_ess_interviewdate",
+                "spice_readyforcrru",
+                "spice_bus_furtherreviewrequired",
+                "onholdtime",
+                "spice_applicanttype",
+                "resolveby",
+                "spice_prime_checked",
+                "spice_ssqreceiveddate",
+                "messagetypecode",
+                "activitiescomplete",
+                "spice_completiondt",
+                "spice_30daylettersenddate",
+                "spice_bus_spdinvestrequired",
+                "spice_ess_charcresreturned",
+                "followupby",
+                "spice_additionalprimecheckcomplete",
+                "spice_reportreadyforreview",
+                "caseorigincode",
+                "_owninguser_value",
+                "spice_jc_checked",
+                "contractservicelevelcode",
+                "traversedpath",
+                "spice_cpicrequestsent",
+                "_customerid_value",
+                "spice_bus_fitandproper",
+                "utcconversiontimezonecode",
+                "spice_additionalprimecheckresult",
+                "title",
+                "_modifiedbyexternalparty_value",
+                "spice_ess_creditcheckrequired",
+                "severitycode",
+                "_productid_value",
+                "statecode",
+                "_spice_reasonforscreeningid_value",
+                "spice_otrrequired",
+                "new_testfield",
+                "influencescore",
+                "spice_ess_securityinterconfirmed",
+                "entityimageid",
+                "_accountid_value",
+                "spice_ess_cert_crcrequired",
+                "spice_sentforadditionalprime",
+                "spice_ess_refsenttoitv",
+                "importsequencenumber",
+                "spice_ess_emp_verifcompleted",
+                "incidentstagecode",
+                "_spice_applyingpersonid_value",
+                "_createdby_value",
+                "spice_ess_securityinterdate",
+                "spice_primeresultstosharewithspd",
+                "spice_associatecomplexity",
+                "spice_workersreadyforlcrb",
+                "_resolvebykpiid_value",
+                "spice_prime_checkrequired",
+                "spice_dup_primeresultstosharewithspd",
+                "spice_spdinvestcompleted",
+                "spice_senttocpu",
+                "spice_ess_3rdparty_checkscomptd",
+                "productserialnumber"
               ]
             }
           },
@@ -3521,6 +3575,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -3727,6 +3782,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -3918,6 +3974,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4019,6 +4076,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4139,6 +4197,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4240,6 +4299,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4406,6 +4466,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4491,6 +4552,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4539,6 +4601,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4627,6 +4690,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4675,6 +4739,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4809,6 +4874,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4880,6 +4946,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -4921,6 +4988,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5028,6 +5096,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5069,6 +5138,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5222,6 +5292,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5303,6 +5374,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5349,6 +5421,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5446,6 +5519,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5492,6 +5566,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5635,6 +5710,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5692,6 +5768,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5726,6 +5803,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5824,6 +5902,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -5858,6 +5937,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6002,6 +6082,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6051,6 +6132,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6081,6 +6163,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6173,6 +6256,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6203,6 +6287,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6341,6 +6426,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6410,6 +6496,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6450,6 +6537,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6560,6 +6648,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6600,6 +6689,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6756,6 +6846,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6775,6 +6866,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6790,6 +6882,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6869,6 +6962,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -6884,6 +6978,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7009,6 +7104,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7028,6 +7124,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7043,6 +7140,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7122,6 +7220,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7137,6 +7236,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7262,6 +7362,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7319,6 +7420,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7353,6 +7455,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7460,6 +7563,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7494,6 +7598,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7647,6 +7752,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7696,6 +7802,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7726,6 +7833,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7822,6 +7930,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7852,6 +7961,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -7994,6 +8104,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8043,6 +8154,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8073,6 +8185,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8169,6 +8282,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8199,6 +8313,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8341,6 +8456,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8396,6 +8512,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8429,6 +8546,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8529,6 +8647,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8562,6 +8681,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8708,6 +8828,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8763,6 +8884,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8796,6 +8918,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8819,7 +8942,8 @@
                 "spice_ministryemployee_PrincipalObjectAttributeAccesses",
                 "spice_MinistryId",
                 "spice_spice_ministryemployee_incident_RequesterHiringManager",
-                "spice_spice_ministryemployee_incident_ReturnResultto"
+                "spice_spice_ministryemployee_incident_ReturnResultto",
+                "spice_ministryemployee_ActivityParties"
               ]
             }
           }
@@ -8894,6 +9018,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8927,6 +9052,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -8950,7 +9076,8 @@
                 "spice_ministryemployee_PrincipalObjectAttributeAccesses",
                 "spice_MinistryId",
                 "spice_spice_ministryemployee_incident_RequesterHiringManager",
-                "spice_spice_ministryemployee_incident_ReturnResultto"
+                "spice_spice_ministryemployee_incident_ReturnResultto",
+                "spice_ministryemployee_ActivityParties"
               ]
             }
           }
@@ -9071,6 +9198,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9138,6 +9266,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9177,6 +9306,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9274,6 +9404,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9313,6 +9444,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9456,6 +9588,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9505,6 +9638,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9535,6 +9669,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9631,6 +9766,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9661,6 +9797,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9803,6 +9940,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -9938,6 +10076,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10011,6 +10150,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10211,6 +10351,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10284,6 +10425,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10530,6 +10672,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10611,6 +10754,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10657,6 +10801,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10752,6 +10897,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10798,6 +10944,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10939,6 +11086,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -10996,6 +11144,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11030,6 +11179,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11124,6 +11274,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11158,6 +11309,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11298,6 +11450,7 @@
             "name": "$orderby",
             "in": "query",
             "description": "Order items by property values",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11355,6 +11508,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11389,6 +11543,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11483,6 +11638,7 @@
             "name": "$select",
             "in": "query",
             "description": "Select properties to be returned",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -11517,6 +11673,7 @@
             "name": "$expand",
             "in": "query",
             "description": "Expand related entities",
+            "collectionFormat": "csv",
             "type": "array",
             "items": {
               "type": "string",
@@ -13401,6 +13558,9 @@
         },
         "activityid_spice_requiredchecks_activityparty": {
           "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_requiredchecks"
+        },
+        "partyid_spice_ministryemployee": {
+          "$ref": "#/definitions/Microsoft.Dynamics.CRM.spice_ministryemployee"
         },
         "ActivityParty_SyncErrors": {
           "type": "array",
@@ -34255,455 +34415,11 @@
       "title": "incident",
       "type": "object",
       "properties": {
-        "_spice_wf_crrupassback_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_ownerid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_aliases_added": {
+        "spice_bus_level": {
           "type": "integer",
           "x-nullable": true
-        },
-        "spice_ess_driver_recordsfound": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_contactid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "versionnumber": {
-          "type": "integer",
-          "format": "int64",
-          "x-nullable": true
-        },
-        "spice_ess_securityinterconfirmed": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_crc_resuploaded": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_charc_cvsareqd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_associatecomplexity": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_spdinvestigationresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "entityimage_timestamp": {
-          "type": "integer",
-          "format": "int64",
-          "x-nullable": true
-        },
-        "blockedprofile": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_contractid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_bus_spdinvestrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_screeningcomplexity": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_consent_dt_sent": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "_spice_returnresultto_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "timezoneruleversionnumber": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_finalresult": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_prime_checkrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "contractservicelevelcode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_slaid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_spice_reasonforscreeningid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_otrletterreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_aliasesfound": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ssqrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_otherscreeningreason": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_cpicresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_cpicresultstosharewithspd": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_ess_dfo_results": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_inter_polygraphrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_tc_dt_signature_confirmed": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_billingtext": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_createdby_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_prime_results": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_legalreviewcomplete": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "casetypecode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_securityinterresultsrecd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "activitiescomplete": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_coorsresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_cpiccheckrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_rcc_requestmade": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "resolvebyslastatus": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_spice_applicantid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_transactioncurrencyid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_credit_score": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "incidentstagecode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_customerid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "checkemail": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_edu_verifresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_productid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "customercontacted": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "traversedpath": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "entityimageid": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "firstresponsesent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ssqreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_prime_checked": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_wf_caseclosureflag": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "responseby": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_ess_polygraphresultsreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_resultofscreening": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_creditcheckrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "title": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "importsequencenumber": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "merged": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_edu_empverifrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_createdonbehalfby_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_ess_polygraphinterviewconfirmed": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ssq": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "escalatedon": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_justin_reportuploaded": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_primeresultstosharewithspd": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_slainvokedid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_workersreadyforlcrb": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_readyforcrru": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_spice_applyingpersonid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_additionalprimeinformationprovided": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_consentform_sent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ssqreceiveddate": {
-          "type": "string",
-          "format": "date-time"
         },
         "spice_ess_ssv_verified": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_spice_requesterhiringmanager_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "followuptaskcreated": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_charrefrequestsentdate": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_investigationrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_jc_rcc_received": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_bus_resultsreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_additionalprimerequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_cannabisapplicanttype": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_furtherinvestigationcomplete": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_consent_dt_received": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_ess_charrefcomplete": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_screeningamount": {
-          "x-nullable": true
-        },
-        "spice_ess_edu_credverrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_readyforspdinvestigation": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_cpicrequestsent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_wf_businessclosure": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_edu_credvercompleted": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_inter_resultsreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_securityinterdate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "_owningbusinessunit_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "utcconversiontimezonecode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_jc_checkrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_existingcase_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_socialprofileid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_bus_furtherreviewrequired": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "statuscode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "routecase": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_concapptype": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_screeningamount_base": {
-          "x-nullable": true
-        },
-        "actualserviceunits": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_legalreviewreqd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_consentform_received": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -34711,123 +34427,11 @@
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_ess_creditscore": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_charcresreturned": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "emailaddress": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_senttocpu": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_refrecdfromapplicant": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "severitycode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_verficationexpiresby": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_wf_ssqrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_cpic_infoprovided": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_otrrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_applicationstatus": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_bus_furtherreviewpackage": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_spdinvestigationcompletiondate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "_owninguser_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_masterid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
         "spice_bus_fitandproperresultsent": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_cpuresultsuploaded": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_wf_review": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_dfo_confrecd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_wf_timestampldbletter": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "influencescore": {
-          "type": "number",
-          "format": "double"
-        },
-        "_modifiedby_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_allassociateinformationreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_dup_cpicresultstospd": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_ess_3rdparty_issuesidentified": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "messagetypecode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "prioritycode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_bus_fitandproper": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "statecode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "overriddencreatedon": {
+        "spice_ssqsentdate": {
           "type": "string",
           "format": "date-time"
         },
@@ -34835,207 +34439,10 @@
           "type": "integer",
           "x-nullable": true
         },
-        "spice_consentrequired": {
-          "type": "string",
+        "spice_screeningamount_base": {
           "x-nullable": true
         },
-        "spice_businessreadyforlcrb": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_firstresponsebykpiid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "_kbarticleid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_ess_charc_intervconf": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_service_number": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_ess_driversabstreqd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "isdecrementing": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_resultssent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_addtlprimerequired": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "productserialnumber": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "firstresponseslastatus": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ssqsentdate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "_resolvebykpiid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_prime_internationalchecks": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_edu_verifcompleted": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "stageid": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_jc_results": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_bus_level": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_furtherinvestigationresults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_notfitandproperresultsent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_cornet_reportuploaded": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_spice_lcrblicencetypeid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_cpuresultsreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_30daylettersenddate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_bs_fitandproper": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_interviewdate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_sentforadditionalprime": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_dfo_resultsrecd": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "onholdtime": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "modifiedon": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_prime_info_provided": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "followupby": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "ticketnumber": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_prime_furtherinvestigation": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_entitlementid_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "billedserviceunits": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_furtherinvestigationresultuploaded": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "isescalated": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_polygraphinterviewdate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_ssqsent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_ess_cert_crcrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "lastonholdtime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "createdon": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_completiondt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_chreferencerequestsent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_spice_client_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "processid": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_otrlettersent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_dforesults": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_additionalprimecheckresult": {
+        "spice_ess_securityinterresultsrecd": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -35043,126 +34450,131 @@
           "type": "string",
           "x-nullable": true
         },
-        "spice_applicanttype": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "_createdbyexternalparty_value": {
+        "spice_concapptype": {
           "type": "string",
           "x-nullable": true
         },
-        "entityimage_url": {
+        "spice_wf_review": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_screeningamount": {
+          "x-nullable": true
+        },
+        "_spice_lcrblicencetypeid_value": {
           "type": "string",
           "x-nullable": true
         },
-        "spice_allrequiredcheckscomplete": {
+        "spice_charrefrequestsentdate": {
           "type": "boolean",
           "x-nullable": true
         },
-        "_primarycontactid_value": {
+        "spice_bus_resultsreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ldb_w_resultsdate": {
           "type": "string",
-          "x-nullable": true
+          "format": "date-time"
         },
-        "spice_ess_emp_verifcompleted": {
+        "spice_cornet_reportuploaded": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_cpic_furtherinvest": {
+        "spice_ess_edu_credvercompleted": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_cornetchecked": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_consent": {
+        "spice_verficationexpiresby": {
           "type": "string",
-          "x-nullable": true
+          "format": "date-time"
         },
-        "spice_ess_refrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_checked_2id": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "caseorigincode": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "entityimage": {
-          "x-nullable": true
-        },
-        "spice_ess_driabstractreceived": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_w_further_reviewrequired": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "decremententitlementterm": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_wf_investigation": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "spice_30daylettersent": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "_spice_serviceid_value": {
+        "_owningbusinessunit_value": {
           "type": "string",
-          "x-nullable": true
-        },
-        "numberofchildincidents": {
-          "type": "integer",
-          "x-nullable": true
-        },
-        "spice_ess_3rdparty_checksreq": {
-          "type": "boolean",
           "x-nullable": true
         },
         "_subjectid_value": {
           "type": "string",
           "x-nullable": true
         },
-        "spice_spdinvestcompleted": {
+        "spice_wf_timestampldbletter": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_ess_edu_credverrequired": {
           "type": "boolean",
           "x-nullable": true
         },
-        "sentimentvalue": {
-          "type": "number",
-          "format": "double"
-        },
-        "_accountid_value": {
+        "processid": {
           "type": "string",
           "x-nullable": true
         },
-        "_contractdetailid_value": {
+        "_spice_returnresultto_value": {
           "type": "string",
           "x-nullable": true
         },
-        "_owningteam_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_jc_checked": {
+        "spice_jc_rcc_received": {
           "type": "boolean",
           "x-nullable": true
         },
-        "_modifiedbyexternalparty_value": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "spice_additionalprimecheckcomplete": {
+        "spice_ess_inter_resultsreceived": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_ess_securityinterrequired": {
+        "spice_ess_dfo_confrecd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_addtlprimerequired": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "prioritycode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "description": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_businessreadyforlcrb": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_slaid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_edu_verifresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_applicationstatus": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_furtherinvestigationresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_socialprofileid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_entitlementid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "customercontacted": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "versionnumber": {
+          "type": "integer",
+          "format": "int64",
+          "x-nullable": true
+        },
+        "spice_justin_reportuploaded": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -35170,54 +34582,311 @@
           "type": "integer",
           "x-nullable": true
         },
-        "spice_ess_refsenttoitv": {
-          "type": "boolean",
-          "x-nullable": true
-        },
-        "exchangerate": {
-          "x-nullable": true
-        },
-        "resolveby": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "spice_dup_primeresultstosharewithspd": {
+        "_primarycontactid_value": {
           "type": "string",
           "x-nullable": true
         },
-        "spice_reportreadyforreview": {
-          "type": "boolean",
+        "_modifiedby_value": {
+          "type": "string",
           "x-nullable": true
         },
-        "spice_crrustatus": {
+        "spice_aliases_added": {
           "type": "integer",
           "x-nullable": true
         },
-        "spice_ess_3rdparty_checkscomptd": {
+        "spice_aliasesfound": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_ess_ssv_verifrequired": {
+        "isescalated": {
           "type": "boolean",
+          "x-nullable": true
+        },
+        "_spice_wf_crrupassback_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_wf_ssqrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "casetypecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ess_refrecdfromapplicant": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_wf_primecheckrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_masterid_value": {
+          "type": "string",
           "x-nullable": true
         },
         "incidentid": {
           "type": "string",
           "x-nullable": true
         },
-        "spice_justinchecked": {
+        "spice_ssqsent": {
           "type": "boolean",
           "x-nullable": true
         },
-        "spice_ess_edu_verificationrequired": {
+        "createdon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_legalreviewcomplete": {
           "type": "boolean",
           "x-nullable": true
         },
-        "description": {
+        "spice_30daylettersent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_prime_furtherinvestigation": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "statuscode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_otrletterreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "lastonholdtime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_ess_securityinterrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_3rdparty_checksreq": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_createdonbehalfby_value": {
           "type": "string",
           "x-nullable": true
         },
+        "spice_consentsentdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_ess_dfo_resultsrecd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_cornetchecked": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_firstresponsebykpiid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_cpicresultstosharewithspd": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_jc_results": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "overriddencreatedon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_prime_internationalchecks": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_wf_businessclosure": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_driabstractreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_charc_intervconf": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "timezoneruleversionnumber": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ess_driversabstreqd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_contractdetailid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_bs_fitandproper": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_screeningcomplexity": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_cpuresultsreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_investigationrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_rcc_requestmade": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_driver_recordsfound": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_ownerid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_resultssent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_credit_score": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "sentimentvalue": {
+          "type": "number",
+          "format": "double"
+        },
+        "spice_ssqreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
         "spice_cornetcheckrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_inter_polygraphrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_spdinvestigationresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_cpic_infoprovided": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "stageid": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_30daylettersenddt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_jc_checkrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_prime_results": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_consentrequired": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_modifiedonbehalfby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_cpuresultsuploaded": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_finalresult": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_notfitandproperresultsent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_otherscreeningreason": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_otrlettersent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_cpicresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_billingtext": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_slainvokedid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_spdinvestigationcompletiondt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_additionalprimerequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "followuptaskcreated": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_consentdatereceived": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "_kbarticleid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "merged": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ssqreceiveddt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_chreferencerequestsent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_createdbyexternalparty_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_readyforspdinvestigation": {
           "type": "boolean",
           "x-nullable": true
         },
@@ -35225,7 +34894,538 @@
           "type": "integer",
           "x-nullable": true
         },
-        "_modifiedonbehalfby_value": {
+        "emailaddress": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_prime_info_provided": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_tc_dt_signature_confirmed": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_refrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "entityimage_timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "x-nullable": true
+        },
+        "spice_ess_dfo_results": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_allrequiredcheckscomplete": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_additionalprimeinformationprovided": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_edu_empverifrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_charc_cvsareqd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ssq": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_spice_serviceid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_creditscore": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ssqrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "actualserviceunits": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "firstresponsesent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "decremententitlementterm": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_consentform_received": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_furtherinvestigationresultuploaded": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_cpiccheckrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "routecase": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "exchangerate": {
+          "x-nullable": true
+        },
+        "entityimage_url": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_crc_resuploaded": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_wf_caseclosureflag": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_polygraphresultsreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_polygraphinterviewdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "responseby": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "_contractid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "entityimage": {
+          "x-nullable": true
+        },
+        "_spice_requesterhiringmanager_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_completiondate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_crrustatus": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_cannabisapplicanttype": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "checkemail": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_spdinvestigationcompletiondate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_consent": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_cpic_furtherinvest": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_resultofscreening": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_checked_2id": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "escalatedon": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolvebyslastatus": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ess_charrefcomplete": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_contactid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_ssv_verifrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_spice_applicantid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_polygraphinterviewconfirmed": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_owningteam_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "blockedprofile": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_dup_cpicresultstospd": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "isdecrementing": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "firstresponseslastatus": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_service_number": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_consent_dt_received": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "billedserviceunits": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_legalreviewreqd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_existingcase_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_furtherinvestigationcomplete": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_consentform_sent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_allassociateinformationreceived": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_bus_furtherreviewpackage": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_edu_verifcompleted": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_transactioncurrencyid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_edu_verificationrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "numberofchildincidents": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_justinchecked": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_dforesults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_consent_dt_sent": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_coorsresults": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ess_3rdparty_issuesidentified": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_spice_client_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "ticketnumber": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_w_further_reviewrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ssqsentdt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_wf_investigation": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_interviewdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_readyforcrru": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_bus_furtherreviewrequired": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "onholdtime": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_applicanttype": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "resolveby": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_prime_checked": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ssqreceiveddate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "messagetypecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "activitiescomplete": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_completiondt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_30daylettersenddate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_bus_spdinvestrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_charcresreturned": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "followupby": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_additionalprimecheckcomplete": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_reportreadyforreview": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "caseorigincode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_owninguser_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_jc_checked": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "contractservicelevelcode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "traversedpath": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_cpicrequestsent": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "_customerid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_bus_fitandproper": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "utcconversiontimezonecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_additionalprimecheckresult": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "title": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_modifiedbyexternalparty_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_creditcheckrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "severitycode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_productid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "statecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_spice_reasonforscreeningid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_otrrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "new_testfield": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "influencescore": {
+          "type": "number",
+          "format": "double"
+        },
+        "spice_ess_securityinterconfirmed": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "entityimageid": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_accountid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_cert_crcrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_sentforadditionalprime": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_refsenttoitv": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "importsequencenumber": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_ess_emp_verifcompleted": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "incidentstagecode": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_spice_applyingpersonid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "_createdby_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_ess_securityinterdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spice_primeresultstosharewithspd": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_associatecomplexity": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "spice_workersreadyforlcrb": {
+          "type": "integer",
+          "x-nullable": true
+        },
+        "_resolvebykpiid_value": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_prime_checkrequired": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_dup_primeresultstosharewithspd": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "spice_spdinvestcompleted": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_senttocpu": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "spice_ess_3rdparty_checkscomptd": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "productserialnumber": {
           "type": "string",
           "x-nullable": true
         },
@@ -65340,6 +65540,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Microsoft.Dynamics.CRM.incident"
+          }
+        },
+        "spice_ministryemployee_ActivityParties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Microsoft.Dynamics.CRM.activityparty"
           }
         }
       }

@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Status")]
+        [JsonProperty(PropertyName = "status")]
         public int? Status { get; set; }
 
     }
