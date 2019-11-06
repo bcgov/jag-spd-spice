@@ -11,6 +11,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
         [JsonProperty(PropertyName = "spice_ApplyingPersonId@odata.bind")]
         public string ApplyingPersonIdODataBind { get; set; }
 
+        [JsonProperty(PropertyName = "spice_RequesterHiringManager@odata.bind")]
+        public string RequesterHiringManagerODataBind { get; set; }
+
         [JsonProperty(PropertyName = "spice_Client@odata.bind")]
         public string SpiceClientIdODataBind { get; set; }
 

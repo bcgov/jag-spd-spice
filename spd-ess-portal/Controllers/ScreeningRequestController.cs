@@ -69,7 +69,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 }
 
                 // submit request to dynamics and return its new screeningId
-                string screeningId = await screeningRequest.Submit(_dynamicsClient, _logger, user, screeningType);
+                string screeningId = await screeningRequest.Submit(_dynamicsClient, _logger, user, screeningType, siteMinderProgramArea.Value);
 
                 return new JsonResult(new { screeningId });
             }
