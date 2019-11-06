@@ -139,7 +139,7 @@ namespace Gov.Jag.Spice.Public.Utils
         public static async Task<MicrosoftDynamicsCRMincident> CreateScreeningRequestAsync(IDynamicsClient dynamicsClient, ScreeningRequest screeningRequest, string candidateId, string submitterId, string contactId, int? applicantType, int? cannabisApplicantType)
         {
             string candidate = dynamicsClient.GetEntityURI("contacts", candidateId);
-            string submitter = dynamicsClient.GetEntityURI("contacts", submitterId);
+            string submitter = dynamicsClient.GetEntityURI("spice_ministryemployees", submitterId);
             string programArea = dynamicsClient.GetEntityURI("spice_ministries", screeningRequest.ProgramArea);
             string screeningType = dynamicsClient.GetEntityURI("spice_serviceses", screeningRequest.ScreeningType);
             string reason = dynamicsClient.GetEntityURI("spice_reasonforscreenings", screeningRequest.Reason);
@@ -148,7 +148,7 @@ namespace Gov.Jag.Spice.Public.Utils
             var entity = new MicrosoftDynamicsCRMincident
             {
                 CustomerIdODataBind = candidate,
-                ApplyingPersonIdODataBind = submitter,
+                RequesterHiringManagerODataBind = submitter,
                 SpiceClientIdODataBind = programArea,
                 SpiceServiceIdODataBind = screeningType,
                 SpiceReasonForScreeningIdODataBind = reason,
@@ -163,3 +163,4 @@ namespace Gov.Jag.Spice.Public.Utils
         }
     }
 }
+

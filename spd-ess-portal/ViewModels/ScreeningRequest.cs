@@ -79,10 +79,10 @@ namespace Gov.Jag.Spice.Public.ViewModels
             return true;
         }
 
-        public async Task<string> Submit(IDynamicsClient dynamicsClient, ILogger logger, User user, ScreeningType screeningType)
+        public async Task<string> Submit(IDynamicsClient dynamicsClient, ILogger logger, User user, ScreeningType screeningType, string programAreaId)
         {
             var candidate = await ObtainCandidate(dynamicsClient, logger);
-            var submitter = await ObtainSubmitter(dynamicsClient, logger, user);
+            var submitter = await ObtainSubmitter(dynamicsClient, logger, user, programAreaId);
             var contact = await ObtainContact(dynamicsClient, logger);
 
             try
@@ -90,8 +90,8 @@ namespace Gov.Jag.Spice.Public.ViewModels
                 var screeningRequest = await DynamicsUtility.CreateScreeningRequestAsync(
                     dynamicsClient, 
                     this,
-                    candidate.Contactid,
-                    submitter.Contactid,
+                    submitter.SpiceMinistryemployeeid,
+                    candidate.Contactid,                    
                     contact.SpiceMinistryemployeeid,
                     screeningType.ApplicantType,
                     screeningType.CannabisApplicantType
@@ -162,28 +162,33 @@ namespace Gov.Jag.Spice.Public.ViewModels
             return candidate;
         }
 
-        private async Task<MicrosoftDynamicsCRMcontact> ObtainSubmitter(IDynamicsClient dynamicsClient, ILogger logger, User user)
+        private async Task<MicrosoftDynamicsCRMspiceMinistryemployee> ObtainSubmitter(IDynamicsClient dynamicsClient, ILogger logger, User user, string programAreaId)
         {
-            var submitter = await DynamicsUtility.GetSubmitterAsync(dynamicsClient, user);
+            // Submitter is now a ministry employee
+            Contact contact = new Contact() { Email = user.Email, FirstName = user.GivenName, LastName = user.Surname };
+
+            var submitter = await DynamicsUtility.GetContactAsync(dynamicsClient, contact);
             if (submitter == null)
             {
                 try
                 {
-                    submitter = await DynamicsUtility.CreateSubmitterAsync(dynamicsClient, user);
-                    logger.LogInformation("Successfully created submitter {SubmitterId} from view model {@Submitter}", submitter.Contactid, user);
+                    submitter = await DynamicsUtility.CreateContactAsync(dynamicsClient, contact, programAreaId);
+                    logger.LogInformation("Successfully created contact {ContactId} from view model {@Contact}", submitter.SpiceMinistryemployeeid,  contact);
                 }
                 catch (OdataerrorException ex)
                 {
-                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create submitter from view model {@Submitter}", "{@ErrorBody}"), user, ex.Body);
+                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to create contact from view model {@Contact}", "{@ErrorBody}"), contact, ex.Body);
                     throw;
                 }
             }
             else
             {
-                logger.LogInformation("Successfully retrieved existing submitter {SubmitterId} from view model {@Submitter}", submitter.Contactid, user);
+                logger.LogInformation("Successfully retrieved existing contact {ContactId} from view model {@Contact}", submitter.SpiceMinistryemployeeid, contact);
             }
 
             return submitter;
+
+
         }
 
         private async Task<MicrosoftDynamicsCRMspiceMinistryemployee> ObtainContact(IDynamicsClient dynamicsClient, ILogger logger)
