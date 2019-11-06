@@ -90,8 +90,8 @@ namespace Gov.Jag.Spice.Public.ViewModels
                 var screeningRequest = await DynamicsUtility.CreateScreeningRequestAsync(
                     dynamicsClient, 
                     this,
-                    submitter.SpiceMinistryemployeeid,
-                    candidate.Contactid,                    
+                    candidate.Contactid,
+                    submitter.SpiceMinistryemployeeid,                                       
                     contact.SpiceMinistryemployeeid,
                     screeningType.ApplicantType,
                     screeningType.CannabisApplicantType
