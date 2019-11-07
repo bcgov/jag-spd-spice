@@ -334,8 +334,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     associateEntity.Contact.Address?.Postal,
                     associateEntity.Contact.Address?.StateProvince,
                     associateEntity.Contact.Address?.Country,
-                    new List<Address>(),
-                    new List<Alias>(),
+                    associateEntity.PreviousAddresses != null ? associateEntity.PreviousAddresses : new List<Address>(),
+                    associateEntity.Aliases != null ? associateEntity.Aliases : new List<Alias>(),
                     associateEntity.Title
                 );
 
