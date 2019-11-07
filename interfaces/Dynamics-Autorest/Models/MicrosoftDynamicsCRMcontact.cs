@@ -569,8 +569,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_dateofbirth")]
-        public System.DateTimeOffset? SpiceDateofbirth { get; set; }
+        // [JsonProperty(PropertyName = "spice_dateofbirth")]
+        // public System.DateTimeOffset? SpiceDateofbirth { get; set; }
 
         /// <summary>
         /// </summary>
