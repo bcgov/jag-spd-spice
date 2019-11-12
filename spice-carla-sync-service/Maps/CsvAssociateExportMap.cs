@@ -40,7 +40,7 @@ namespace SpiceCarlaSync
             Map(m => m.Alias4firstname).Name("ALIAS FIRST 4").Index(28);
             Map(m => m.Alias4middlename).Name("ALIAS MIDDLE 4").Index(29);
             Map(m => m.Alias5surname).Name("ALIAS LAST 5").Index(30);
-            Map(m => m.Alias5surname).Name("ALIAS FIRST 5").Index(31);
+            Map(m => m.Alias5firstname).Name("ALIAS FIRST 5").Index(31);
             Map(m => m.Alias5middlename).Name("ALIAS MIDDLE 5").Index(32);
             Map(m => m.Previousstreetaddress1).Name("PREV STREET 1").Index(33);
             Map(m => m.Previouscity1).Name("PREV CITY 1").Index(34);
