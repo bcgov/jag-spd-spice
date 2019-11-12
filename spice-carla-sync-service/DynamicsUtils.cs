@@ -5,6 +5,7 @@ using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Hangfire.Server;
 using Hangfire.Console;
+using Microsoft.Rest;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpiceCarlaSync.models;
@@ -155,11 +156,11 @@ namespace Gov.Jag.Spice.CarlaSync
                         account = _dynamicsClient.Accounts.Create(new MicrosoftDynamicsCRMaccount()
                         {
                             SpiceCarlaAccount = applicationRequest.ApplicantAccount.AccountId,
-                            Name = applicationRequest.ApplicantAccount.Name,
-                            Address1Line1 = applicationRequest.BusinessAddress.AddressStreet1,
-                            Address1City = applicationRequest.BusinessAddress.City,
-                            Address1Country = applicationRequest.BusinessAddress.Country,
-                            Address1Postalcode = applicationRequest.BusinessAddress.Postal,
+                            Name = applicationRequest.Establishment.Name,
+                            Address1Line1 = applicationRequest.Establishment.Address.AddressStreet1,
+                            Address1City = applicationRequest.Establishment.Address.City,
+                            Address1Country = applicationRequest.Establishment.Address.Country,
+                            Address1Postalcode = applicationRequest.Establishment.Address.Postal,
                             SpiceLcrbjobid = applicationRequest.RecordIdentifier,
                             SpiceParcelidnumber = applicationRequest.Establishment.ParcelId,
                             SpiceBccorpregnumber = applicationRequest.ApplicantAccount.BCIncorporationNumber,
@@ -463,10 +464,9 @@ namespace Gov.Jag.Spice.CarlaSync
                         hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                     }
-                    catch (Exception e)
+                    catch (HttpOperationException httpOperationException)
                     {
-                        hangfireContext.WriteLine($"Failed to send completed worker screening request to Carla: {e.Message}");
-                        _logger.LogError($"Failed to send completed worker screening request to Carla: {e.Message}");
+                        _logger.LogError(httpOperationException, $"Failed to send completed worker screening request to Carla: {httpOperationException.Message}");
                     }
                 }
             }
@@ -698,6 +698,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
             return string.Join(", ", positionValues);
         }
+
         public int? GetGenderCode(AdoxioGenderCode gender)
         {
             if (gender == AdoxioGenderCode.Male || gender == AdoxioGenderCode.Female)
