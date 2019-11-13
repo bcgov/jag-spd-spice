@@ -188,7 +188,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <param name="loggerFactory"></param>
         private void SetupHangfireJobs(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            ILogger log = loggerFactory.CreateLogger(typeof(Startup));
+            Microsoft.Extensions.Logging.ILogger log = loggerFactory.CreateLogger(typeof(Startup));
             log.LogInformation("Starting setup of Hangfire jobs ...");
 
             try
