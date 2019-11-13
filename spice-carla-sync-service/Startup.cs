@@ -16,8 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Splunk;
-using Splunk.Configurations;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
@@ -172,43 +170,12 @@ namespace Gov.Jag.Spice.CarlaSync
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "JAG SPICE to CARLA Transfer Service");
             });
 
-            // enable Splunk logger
-            if (!string.IsNullOrEmpty(Configuration["SPLUNK_COLLECTOR_URL"]))
-            {
-                var splunkLoggerConfiguration = GetSplunkLoggerConfiguration(app);
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionDetails()
+                .WriteTo.Console()
+                .CreateLogger();
 
-                //Append Http Json logger
-                loggerFactory.AddHECJsonSplunkLogger(splunkLoggerConfiguration);
-            }
-
-        }
-
-        SplunkLoggerConfiguration GetSplunkLoggerConfiguration(IApplicationBuilder app)
-        {
-            SplunkLoggerConfiguration result = null;
-            string splunkCollectorUrl = Configuration["SPLUNK_COLLECTOR_URL"];
-            if (!string.IsNullOrEmpty(splunkCollectorUrl))
-            {
-                string splunkToken = Configuration["SPLUNK_TOKEN"];
-                if (!string.IsNullOrEmpty(splunkToken))
-                {
-                    result = new SplunkLoggerConfiguration()
-                    {
-                        HecConfiguration = new HECConfiguration()
-                        {
-                            BatchIntervalInMilliseconds = 5000,
-                            BatchSizeCount = 10,
-                            ChannelIdType = HECConfiguration.ChannelIdOption.None,
-                            DefaultTimeoutInMilliseconds = 10000,
-
-                            SplunkCollectorUrl = splunkCollectorUrl,
-                            Token = splunkToken,
-                            UseAuthTokenAsQueryString = false
-                        }
-                    };
-                }
-            }
-            return result;
         }
 
         /// <summary>
