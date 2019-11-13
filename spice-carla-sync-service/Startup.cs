@@ -20,6 +20,9 @@ using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
 using System.Text;
+
+using Serilog;
+using Serilog.Exceptions;
 using System.Threading.Tasks;
 
 [assembly: ApiController]
