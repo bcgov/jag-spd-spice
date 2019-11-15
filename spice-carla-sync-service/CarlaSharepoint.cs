@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
+using Microsoft.Rest;
 using static Gov.Jag.Spice.Interfaces.SharePoint.FileManager;
 
 namespace Gov.Lclb.Cllb.Interfaces
@@ -221,7 +222,14 @@ namespace Gov.Lclb.Cllb.Interfaces
             List<CompletedApplicationScreening> applicationResponses = await ProcessApplicationResults(hangfireContext, businessFiles, associatesFiles);
             if(applicationResponses.Count > 0)
             {
-                await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+                try
+                {
+                    await _carlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(applicationResponses);
+                }
+                catch (HttpOperationException httpOperationException)
+                {
+                    _logger.LogError(httpOperationException, "Failed to send application results to Carla.");
+                }
             }
 
             // Process worker screening results
@@ -229,7 +237,14 @@ namespace Gov.Lclb.Cllb.Interfaces
             List<CompletedWorkerScreening> workerResponses = await ProcessWorkerResults(hangfireContext, workerFiles);
             if(workerResponses.Count > 0)
             {
-                await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+                try
+                {
+                    await _carlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(workerResponses);
+                }
+                catch (HttpOperationException httpOperationException)
+                {
+                    _logger.LogError(httpOperationException, "Failed to send worker results to Carla.");
+                }
             }
         }
 
