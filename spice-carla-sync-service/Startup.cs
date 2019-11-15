@@ -1,6 +1,5 @@
 ﻿using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.SharePoint;
-using Gov.Lclb.Cllb.Interfaces;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.MemoryStorage;
@@ -20,7 +19,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
 using System.Text;
-
+using System.Net.Http;
 using Serilog;
 using Serilog.Exceptions;
 using System.Threading.Tasks;
@@ -173,11 +172,37 @@ namespace Gov.Jag.Spice.CarlaSync
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "JAG SPICE to CARLA Transfer Service");
             });
 
-            Log.Logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                .Enrich.WithExceptionDetails()
-                .WriteTo.Console()
-                .CreateLogger();
+            // enable Splunk logger using Serilog
+            if (!string.IsNullOrEmpty(Configuration["SPLUNK_COLLECTOR_URL"]) &&
+                !string.IsNullOrEmpty(Configuration["SPLUNK_TOKEN"])
+                )
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .Enrich.WithExceptionDetails()
+                    .WriteTo.Console()
+                    .WriteTo.EventCollector( splunkHost: Configuration["SPLUNK_COLLECTOR_URL"],
+                       sourceType: "manual", eventCollectorToken: Configuration["SPLUNK_TOKEN"], 
+                       restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information,
+#pragma warning disable CA2000 // Dispose objects before losing scope
+                       messageHandler: new HttpClientHandler()
+                       {
+                           ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; }
+                       }
+#pragma warning restore CA2000 // Dispose objects before losing scope
+                     )                    
+                    .CreateLogger();
+
+                Serilog.Debugging.SelfLog.Enable(Console.Error);
+            }
+            else
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .Enrich.WithExceptionDetails()
+                    .WriteTo.Console()
+                    .CreateLogger();
+            }
 
         }
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Gov.Jag.Spice.CarlaSync
 {
@@ -9,20 +10,25 @@ namespace Gov.Jag.Spice.CarlaSync
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            var host = CreateWebHostBuilder(args).Build();
+            host.Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseHealthChecks("/hc") // TODO replace this with the microsoft 2.2 hc pattern
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var env = hostingContext.HostingEnvironment;
+
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
                     config.AddEnvironmentVariables();
                 })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
-                    logging.AddConsole(x => {
+                    logging.ClearProviders();
+                    logging.AddConsole(x =>
+                    {
                         x.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
                         x.IncludeScopes = true;
                     });
@@ -30,7 +36,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     logging.AddDebug();
                     logging.AddEventSourceLogger();
                 })
-                .UseStartup<Startup>()
-                .Build();
+                .UseSerilog()
+                .UseStartup<Startup>();
     }
 }
