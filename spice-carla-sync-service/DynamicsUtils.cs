@@ -545,6 +545,7 @@ namespace Gov.Jag.Spice.CarlaSync
             catch (HttpOperationException e)
             {
                 _logger.LogError(e, "Failed to create or update contact");
+                throw;
             }
         }
 
