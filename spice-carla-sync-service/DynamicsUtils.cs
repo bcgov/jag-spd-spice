@@ -48,11 +48,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     companiesResponse = _dynamicsClient.Companies.Get(1, filter: uniqueFilter);
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to query companies: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query companies");
                     return;
                 }
                 MicrosoftDynamicsCRMspiceCompany company;
@@ -76,14 +74,9 @@ namespace Gov.Jag.Spice.CarlaSync
                             SpicePostalcode = applicationRequest.BusinessAddress.Postal
                         });
                     }
-                    catch (OdataerrorException e)
+                    catch (HttpOperationException e)
                     {
-                        _logger.LogError("Failed to create new account");
-                        _logger.LogError(e.Message);
-                        _logger.LogError("Request:");
-                        _logger.LogError(e.Request.Content);
-                        _logger.LogError("Response:");
-                        _logger.LogError(e.Response.Content);
+                        _logger.LogError(e, "Failed to create new company");
                         return;
                     }
                 }
@@ -95,11 +88,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                      contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to query contacts: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query contacts");
                     return;
                 }
                 MicrosoftDynamicsCRMcontact contactPerson;
@@ -121,11 +112,9 @@ namespace Gov.Jag.Spice.CarlaSync
                             Telephone1 = applicationRequest.ContactPerson.PhoneNumber
                         });
                     }
-                    catch (OdataerrorException e)
+                    catch (HttpOperationException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message}");
-                        _logger.LogError($"Request: {e.Request.Content}");
-                        _logger.LogError($"Response: {e.Response.Content}");
+                        _logger.LogError(e, "Failed to create new contact");
                         return;
                     }
                 }
@@ -137,11 +126,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     accountResponse = _dynamicsClient.Accounts.Get(1, filter: uniqueFilter);
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to query accounts: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query accounts");
                     return;
                 }
                 MicrosoftDynamicsCRMaccount account;
@@ -168,11 +155,9 @@ namespace Gov.Jag.Spice.CarlaSync
                             PrimaryContactIdOdataBind = _dynamicsClient.GetEntityURI("contacts", contactPerson.Contactid)
                         });
                     }
-                    catch (OdataerrorException e)
+                    catch (HttpOperationException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message}");
-                        _logger.LogError($"Request: {e.Request.Content}");
-                        _logger.LogError($"Response: {e.Response.Content}");
+                        _logger.LogError(e, "Failed to create new account");
                         return;
                     }
                 }
@@ -185,11 +170,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to query services: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query services");
                     return;
                 }
 
@@ -199,11 +182,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                    client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to query companies: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query ministries");
                     return;
                 }
                 string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
@@ -233,11 +214,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     // Create the business incident
                     incident = _dynamicsClient.Incidents.Create(incident);
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to create new account: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to create new incident");
                     return;
                 }
 
@@ -297,14 +276,9 @@ namespace Gov.Jag.Spice.CarlaSync
                         SpiceConsentformReceived = true
                     });
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError("Failed to create new account");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
-                    _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
-                    _logger.LogError(e.Response.Content);
+                    _logger.LogError(e, "Failed to create new account");
                     return;
                 }
             }
@@ -516,11 +490,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     _dynamicsClient.Contacts.Update(contactResponse.Value[0].Contactid, contact);
                 }
-                catch (OdataerrorException e)
+                catch (HttpOperationException e)
                 {
-                    _logger.LogError($"Failed to update contact: {e.Message}");
-                    _logger.LogError($"Request: {e.Request}");
-                    _logger.LogError($"Response: {e.Response}");
+                    _logger.LogError(e, "Failed to update contact");
                 }
                 contact.Contactid = contactResponse.Value[0].Contactid;
             }
@@ -592,11 +564,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 _dynamicsClient.Incidents.Update(incidentId, incident);
                 return true;
             }
-            catch (OdataerrorException odee)
+            catch (HttpOperationException e)
             {
-                _logger.LogError($"Failed to update screening with new ready for LCRB status: {odee.Message}");
-                _logger.LogError($"Request: {odee.Request}");
-                _logger.LogError($"Response: {odee.Response}");
+                _logger.LogError(e, "Failed to update screening with new ready for LCRB status");
                 return false;
             }
         }
