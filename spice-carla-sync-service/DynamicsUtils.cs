@@ -48,7 +48,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     companiesResponse = _dynamicsClient.Companies.Get(1, filter: uniqueFilter);
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query companies");
                     return;
@@ -74,7 +74,7 @@ namespace Gov.Jag.Spice.CarlaSync
                             SpicePostalcode = applicationRequest.BusinessAddress.Postal
                         });
                     }
-                    catch (HttpOperationException e)
+                    catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new company");
                         return;
@@ -88,7 +88,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                      contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query contacts");
                     return;
@@ -112,7 +112,7 @@ namespace Gov.Jag.Spice.CarlaSync
                             Telephone1 = applicationRequest.ContactPerson.PhoneNumber
                         });
                     }
-                    catch (HttpOperationException e)
+                    catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new contact");
                         return;
@@ -126,7 +126,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     accountResponse = _dynamicsClient.Accounts.Get(1, filter: uniqueFilter);
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query accounts");
                     return;
@@ -155,7 +155,7 @@ namespace Gov.Jag.Spice.CarlaSync
                             PrimaryContactIdOdataBind = _dynamicsClient.GetEntityURI("contacts", contactPerson.Contactid)
                         });
                     }
-                    catch (HttpOperationException e)
+                    catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new account");
                         return;
@@ -170,7 +170,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query services");
                     return;
@@ -182,7 +182,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                    client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query ministries");
                     return;
@@ -214,7 +214,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     // Create the business incident
                     incident = _dynamicsClient.Incidents.Create(incident);
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to create new incident");
                     return;
@@ -277,7 +277,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         SpiceConsentformReceived = true
                     });
                 }
-                catch (HttpOperationException e)
+                catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to import worker requests");
                     return;
@@ -325,11 +325,9 @@ namespace Gov.Jag.Spice.CarlaSync
                         SpicePosition = GetLegalEntityPositions(associateEntity.Positions)
                     });
                 }
-                catch (Exception e)
+                catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new account case assignment");
-                    _logger.LogError(e.Message);
-                    _logger.LogError(e.Data.ToString());
+                    _logger.LogError(e, "Failed to create new account case assignment");
                     return;
                 }
 
@@ -351,11 +349,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     // Create the associate incident
                     MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
                 }
-                catch (Exception e)
+                catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new incident");
-                    _logger.LogError(e.Message);
-                    _logger.LogError(e.Data.ToString());
+                    _logger.LogError(e, "Failed to create new incident");
                     return;
                 }
             }
@@ -543,7 +539,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
                 return contact;
             }
-            catch (HttpOperationException e)
+            catch (OdataerrorException e)
             {
                 _logger.LogError(e, "Failed to create or update contact");
                 throw;
@@ -566,7 +562,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 _dynamicsClient.Incidents.Update(incidentId, incident);
                 return true;
             }
-            catch (HttpOperationException e)
+            catch (OdataerrorException e)
             {
                 _logger.LogError(e, "Failed to update screening with new ready for LCRB status");
                 return false;
