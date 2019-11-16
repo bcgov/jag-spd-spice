@@ -231,40 +231,40 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
-                MicrosoftDynamicsCRMcontact contact = CreateOrUpdateContact(
-                    workerRequest.Contact.ContactId,
-                    workerRequest.Contact.FirstName,
-                    workerRequest.Contact.MiddleName,
-                    workerRequest.Contact.LastName,
-                    GetGenderCode(workerRequest.Contact.Gender),
-                    workerRequest.Contact.Email,
-                    workerRequest.Contact.PhoneNumber,
-                    workerRequest.Contact.DriversLicenceNumber,
-                    workerRequest.Contact.DriverLicenceJurisdiction,
-                    workerRequest.Contact.BCIdCardNumber,
-                    workerRequest.Contact.BirthDate,
-                    workerRequest.Contact.Birthplace,
-                    workerRequest.Contact.SelfDisclosure == GeneralYesNo.Yes,
-                    workerRequest.Contact.Address.AddressStreet1,
-                    workerRequest.Contact.Address.AddressStreet2,
-                    workerRequest.Contact.Address.AddressStreet3,
-                    workerRequest.Contact.Address.City,
-                    workerRequest.Contact.Address.Postal,
-                    workerRequest.Contact.Address.StateProvince,
-                    workerRequest.Contact.Address.Country,
-                    workerRequest.Contact.PreviousAddresses,
-                    workerRequest.Contact.Aliases,
-                    null
-                );
-
-                string servicesFilter = "spice_name eq 'Cannabis Worker'";
-                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
-
-                string clientFilter = "spice_name eq 'LCRB'";
-                var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
-
                 try
                 {
+                    MicrosoftDynamicsCRMcontact contact = CreateOrUpdateContact(
+                        workerRequest.Contact.ContactId,
+                        workerRequest.Contact.FirstName,
+                        workerRequest.Contact.MiddleName,
+                        workerRequest.Contact.LastName,
+                        GetGenderCode(workerRequest.Contact.Gender),
+                        workerRequest.Contact.Email,
+                        workerRequest.Contact.PhoneNumber,
+                        workerRequest.Contact.DriversLicenceNumber,
+                        workerRequest.Contact.DriverLicenceJurisdiction,
+                        workerRequest.Contact.BCIdCardNumber,
+                        workerRequest.Contact.BirthDate,
+                        workerRequest.Contact.Birthplace,
+                        workerRequest.Contact.SelfDisclosure == GeneralYesNo.Yes,
+                        workerRequest.Contact.Address.AddressStreet1,
+                        workerRequest.Contact.Address.AddressStreet2,
+                        workerRequest.Contact.Address.AddressStreet3,
+                        workerRequest.Contact.Address.City,
+                        workerRequest.Contact.Address.Postal,
+                        workerRequest.Contact.Address.StateProvince,
+                        workerRequest.Contact.Address.Country,
+                        workerRequest.Contact.PreviousAddresses,
+                        workerRequest.Contact.Aliases,
+                        null
+                    );
+
+                    string servicesFilter = "spice_name eq 'Cannabis Worker'";
+                    var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
+
+                    string clientFilter = "spice_name eq 'LCRB'";
+                    var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+
                     MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
                     {
                         SpiceCannabisapplicanttype = (int)CannabisApplicantType.Worker,
@@ -278,7 +278,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (HttpOperationException e)
                 {
-                    _logger.LogError(e, "Failed to create new account");
+                    _logger.LogError(e, "Failed to import worker requests");
                     return;
                 }
             }
