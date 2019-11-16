@@ -457,95 +457,95 @@ namespace Gov.Jag.Spice.CarlaSync
             List<Address> addresses, List<Alias> aliases, string title
         )
         {
-            string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
-            ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
-            MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+            try
             {
-                Externaluseridentifier = contactId,
-                Firstname = firstName,
-                Middlename = middleName,
-                Lastname = lastName,
-                Gendercode = gender,
-                Emailaddress1 = email,
-                Telephone1 = phoneNumber,
-                SpiceDriverslicencenum = driversLicenceNumber,
-                SpiceIdJurisdiction = driversLicenceJurisdiction,
-                SpiceBcidcardnumber = bcIdCardNumber,
-                SpiceDateofbirth = dateOfBirth,
-                SpiceBirthplace = birthPlace,
-                SpiceSelfdisclosed = selfDisclosed,
-                Address1Line1 = addressLine1,
-                Address1Line2 = addressLine2,
-                Address1Line3 = addressLine3,
-                Address1City = city,
-                Address1Postalcode = postalCode,
-                Address1Stateorprovince = stateProvince,
-                Address1Country = country,
-                SpicePositiontitle = title
-            };
+                string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
+                ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+                {
+                    Externaluseridentifier = contactId,
+                    Firstname = firstName,
+                    Middlename = middleName,
+                    Lastname = lastName,
+                    Gendercode = gender,
+                    Emailaddress1 = email,
+                    Telephone1 = phoneNumber,
+                    SpiceDriverslicencenum = driversLicenceNumber,
+                    SpiceIdJurisdiction = driversLicenceJurisdiction,
+                    SpiceBcidcardnumber = bcIdCardNumber,
+                    SpiceDateofbirth = dateOfBirth,
+                    SpiceBirthplace = birthPlace,
+                    SpiceSelfdisclosed = selfDisclosed,
+                    Address1Line1 = addressLine1,
+                    Address1Line2 = addressLine2,
+                    Address1Line3 = addressLine3,
+                    Address1City = city,
+                    Address1Postalcode = postalCode,
+                    Address1Stateorprovince = stateProvince,
+                    Address1Country = country,
+                    SpicePositiontitle = title
+                };
 
-            if (contactResponse.Value.Count > 0)
-            {
-                try
+                if (contactResponse.Value.Count > 0)
                 {
                     _dynamicsClient.Contacts.Update(contactResponse.Value[0].Contactid, contact);
+                    contact.Contactid = contactResponse.Value[0].Contactid;
                 }
-                catch (HttpOperationException e)
+                else
                 {
-                    _logger.LogError(e, "Failed to update contact");
+                    contact = _dynamicsClient.Contacts.Create(contact);
                 }
-                contact.Contactid = contactResponse.Value[0].Contactid;
-            }
-            else
-            {
-                contact = _dynamicsClient.Contacts.Create(contact);
-            }
 
-            string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
-            
-            PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
-            if(currentPreviousAddresses.Value.Count > 0)
-            {
-                foreach(var address in currentPreviousAddresses.Value)
+                string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
+                
+                PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
+                if(currentPreviousAddresses.Value.Count > 0)
                 {
-                    _dynamicsClient.Previousaddresseses.Delete(address.SpicePreviousaddressesid);
+                    foreach(var address in currentPreviousAddresses.Value)
+                    {
+                        _dynamicsClient.Previousaddresseses.Delete(address.SpicePreviousaddressesid);
+                    }
                 }
-            }
-            foreach (var address in addresses)
-            {
-                _dynamicsClient.Previousaddresseses.Create(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                foreach (var address in addresses)
                 {
-                    SpiceContactIdODataBind = entityUri,
-                    SpiceName = address.AddressStreet1,
-                    SpiceCity = address.City,
-                    SpiceStateprovince = address.StateProvince,
-                    SpiceZippostalcode = address.Postal,
-                    SpiceCountry = address.Country,
-                    SpiceStartdate = address.FromDate,
-                    SpiceEnddate = address.ToDate
-                });
-            }
-
-            AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
-            if(currentAliases.Value.Count > 0)
-            {
-                foreach(var alias in currentAliases.Value)
-                {
-                    _dynamicsClient.Aliaseses.Delete(alias.SpiceAliasesid);
+                    _dynamicsClient.Previousaddresseses.Create(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                    {
+                        SpiceContactIdODataBind = entityUri,
+                        SpiceName = address.AddressStreet1,
+                        SpiceCity = address.City,
+                        SpiceStateprovince = address.StateProvince,
+                        SpiceZippostalcode = address.Postal,
+                        SpiceCountry = address.Country,
+                        SpiceStartdate = address.FromDate,
+                        SpiceEnddate = address.ToDate
+                    });
                 }
-            }
-            foreach (var alias in aliases)
-            {
-                _dynamicsClient.Aliaseses.Create(new MicrosoftDynamicsCRMspiceAliases()
-                {
-                    SpiceAliascontactODataBind = entityUri,
-                    SpiceName = alias.GivenName,
-                    SpiceMiddlename = alias.SecondName,
-                    SpiceLastname = alias.Surname,
-                });
-            }
 
-            return contact;
+                AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
+                if(currentAliases.Value.Count > 0)
+                {
+                    foreach(var alias in currentAliases.Value)
+                    {
+                        _dynamicsClient.Aliaseses.Delete(alias.SpiceAliasesid);
+                    }
+                }
+                foreach (var alias in aliases)
+                {
+                    _dynamicsClient.Aliaseses.Create(new MicrosoftDynamicsCRMspiceAliases()
+                    {
+                        SpiceAliascontactODataBind = entityUri,
+                        SpiceName = alias.GivenName,
+                        SpiceMiddlename = alias.SecondName,
+                        SpiceLastname = alias.Surname,
+                    });
+                }
+
+                return contact;
+            }
+            catch (HttpOperationException e)
+            {
+                _logger.LogError(e, "Failed to create or update contact");
+            }
         }
 
         public bool SetLCRBStatus(string incidentId, int status, bool isBusiness)
