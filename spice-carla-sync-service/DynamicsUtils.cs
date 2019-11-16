@@ -229,6 +229,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public async Task ImportWorkerRequests(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
+            _logger.LogInformation("Started worker import into dynamics");
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
                 try
