@@ -51,6 +51,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query companies");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -78,6 +79,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new company");
+                        _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
                     }
@@ -93,6 +95,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query contacts");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -118,6 +121,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new contact");
+                        _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
                     }
@@ -133,6 +137,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query accounts");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -163,6 +168,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     catch (OdataerrorException e)
                     {
                         _logger.LogError(e, "Failed to create new account");
+                        _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
                     }
@@ -179,6 +185,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query services");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -192,6 +199,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to query ministries");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -225,6 +233,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -289,6 +298,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to import worker requests");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -338,6 +348,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to create new account case assignment");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -363,6 +374,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 catch (OdataerrorException e)
                 {
                     _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -554,6 +566,7 @@ namespace Gov.Jag.Spice.CarlaSync
             catch (OdataerrorException e)
             {
                 _logger.LogError(e, "Failed to create or update contact");
+                _logger.LogError(e.Request.Content);
                 _logger.LogError(e.Response.Content);
                 throw;
             }
@@ -578,6 +591,7 @@ namespace Gov.Jag.Spice.CarlaSync
             catch (OdataerrorException e)
             {
                 _logger.LogError(e, "Failed to update screening with new ready for LCRB status");
+                _logger.LogError(e.Request.Content);
                 _logger.LogError(e.Response.Content);
                 return false;
             }
