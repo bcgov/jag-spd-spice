@@ -139,16 +139,32 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public async Task<bool> SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
         {
-            var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
-
-            return result.Response.StatusCode.ToString() == "Ok";
+            try
+            {
+                var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
+                return result.Response.StatusCode.ToString() == "Ok";
+            }
+            catch (HttpOperationException ex)
+            {
+                _logger.LogError(ex, "Failed to send application results to carla");
+                _logger.LogError(ex.Response.Content);
+                return false;
+            }
         }
 
         public async Task<bool> SendWorkerScreeningResult(List<CompletedWorkerScreening> responses)
         {
-            var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
-
-            return result.Response.StatusCode.ToString() == "Ok";
+            try
+            {
+                var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
+                return result.Response.StatusCode.ToString() == "Ok";
+            }
+            catch (HttpOperationException ex)
+            {
+                _logger.LogError(ex, "Failed to send worker results to carla");
+                _logger.LogError(ex.Response.Content);
+                return false;
+            }
         }
     }
 }
