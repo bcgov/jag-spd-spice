@@ -229,6 +229,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 catch (HttpOperationException httpOperationException)
                 {
                     _logger.LogError(httpOperationException, "Failed to send application results to Carla.");
+                    _logger.LogError(httpOperationException.Response.Content);
                 }
             }
 
@@ -244,6 +245,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 catch (HttpOperationException httpOperationException)
                 {
                     _logger.LogError(httpOperationException, "Failed to send worker results to Carla.");
+                    _logger.LogError(httpOperationException.Response.Content);
                 }
             }
         }
