@@ -391,7 +391,11 @@ namespace Gov.Jag.Spice.CarlaSync
         public async Task ProcessBusinessResults(PerformContext hangfireContext)
         {
             string[] select = {"incidentid"};
-            string businessFilter = $"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and (spice_applicanttype eq {(int)CannabisApplicantType.Business} or spice_applicanttype eq {(int)CannabisApplicantType.MarketingBusiness}) and statecode eq 1 and statuscode eq 5";
+            string businessFilter = 
+                $@"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB}
+                 and (spice_cannabisapplicanttype eq {(int)CannabisApplicantType.Business} or spice_cannabisapplicanttype eq {(int)CannabisApplicantType.MarketingBusiness})
+                 and spice_applicanttype eq {(int)SpiceApplicantType.Cannabis}
+                 and statecode eq 1 and statuscode eq 5";
             IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
@@ -719,7 +723,16 @@ namespace Gov.Jag.Spice.CarlaSync
                     Statecode = 1,
                     Subject = "Sent to LCRB"
                 };
-                _dynamicsClient.Incidents.CloseIncident(new MicrosoftDynamicsCRMCloseIncidentParameters(resolution, 5));
+                try
+                {
+                    _dynamicsClient.Incidents.CloseIncident(new MicrosoftDynamicsCRMCloseIncidentParameters(resolution, 5));
+                }
+                catch (HttpOperationException ex)
+                {
+                    _logger.LogError(ex, "Failed to close incident");
+                    _logger.LogError(ex.Request.Content);
+                    _logger.LogError(ex.Response.Content);
+                }
             }
             else
             {
