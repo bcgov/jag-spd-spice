@@ -26,10 +26,9 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// Initializes a new instance of the CompletedApplicationScreening
         /// class.
         /// </summary>
-        /// <param name="result">Possible values include: 'Cleared',
-        /// 'NotCleared', 'FitAndProper', 'NotFitAndProper',
-        /// 'Withdrawn'</param>
-        public CompletedApplicationScreening(string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), IList<Associate> associates = default(IList<Associate>))
+        /// <param name="result">Possible values include: 'NotSent', 'Sent',
+        /// 'Sending', 'Incomplete', 'Withdrawn', 'Passed', 'Failed'</param>
+        public CompletedApplicationScreening(string recordIdentifier = default(string), string result = default(string), IList<Associate> associates = default(IList<Associate>))
         {
             RecordIdentifier = recordIdentifier;
             Result = result;
@@ -48,11 +47,11 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         public string RecordIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'Cleared', 'NotCleared',
-        /// 'FitAndProper', 'NotFitAndProper', 'Withdrawn'
+        /// Gets or sets possible values include: 'NotSent', 'Sent', 'Sending',
+        /// 'Incomplete', 'Withdrawn', 'Passed', 'Failed'
         /// </summary>
         [JsonProperty(PropertyName = "result")]
-        public SpiceApplicationStatus? Result { get; set; }
+        public string Result { get; set; }
 
         /// <summary>
         /// </summary>

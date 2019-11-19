@@ -11,16 +11,16 @@ namespace SpiceCarlaSync.models
         public string Result { get; set; }
         public string DateProcessed { get; set; }
 
-        public static SpiceApplicationStatus? TranslateStatus(string result)
+        public static string TranslateStatus(string result)
         {
             switch(result)
             {
                 case "PASS":
-                    return SpiceApplicationStatus.Cleared;
+                    return CarlaWorkerSecurityStatus.Pass.ToString();
                 case "FAIL":
-                    return SpiceApplicationStatus.NotCleared;
+                    return CarlaWorkerSecurityStatus.Fail.ToString();
                 case "WITHDRAWN":
-                    return SpiceApplicationStatus.Withdrawn;
+                    return CarlaWorkerSecurityStatus.Withdrawn.ToString();
                 default:
                     return null;
             }
