@@ -9,10 +9,6 @@ namespace Gov.Lclb.Cllb.Interfaces
     using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -40,59 +36,20 @@ namespace Gov.Lclb.Cllb.Interfaces
         ServiceClientCredentials Credentials { get; }
 
 
-        /// <param name='results'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the IApplicationScreenings.
+        /// </summary>
+        IApplicationScreenings ApplicationScreenings { get; }
 
-        /// <param name='applicationIdString'>
-        /// </param>
-        /// <param name='bearer'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> SendApplicationScreeningRequestWithHttpMessagesAsync(string applicationIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the IAuthentication.
+        /// </summary>
+        IAuthentication Authentication { get; }
 
-        /// <param name='secret'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<string>> GetTokenWithHttpMessagesAsync(string secret = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <param name='results'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <param name='workerIdString'>
-        /// </param>
-        /// <param name='bearer'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> SendWorkerScreeningRequestWithHttpMessagesAsync(string workerIdString, string bearer = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the IWorkerScreenings.
+        /// </summary>
+        IWorkerScreenings WorkerScreenings { get; }
 
     }
 }

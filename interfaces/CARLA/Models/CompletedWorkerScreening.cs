@@ -22,14 +22,13 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// <summary>
         /// Initializes a new instance of the CompletedWorkerScreening class.
         /// </summary>
-        /// <param name="result">Possible values include: 'Cleared',
-        /// 'NotCleared', 'FitAndProper', 'NotFitAndProper',
-        /// 'Withdrawn'</param>
-        public CompletedWorkerScreening(string spdJobId = default(string), string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), Worker worker = default(Worker))
+        /// <param name="screeningResult">Possible values include: 'Pass',
+        /// 'Fail', 'Withdrawn'</param>
+        public CompletedWorkerScreening(string spdJobId = default(string), string recordIdentifier = default(string), string screeningResult = default(string), Worker worker = default(Worker))
         {
             SpdJobId = spdJobId;
             RecordIdentifier = recordIdentifier;
-            Result = result;
+            ScreeningResult = screeningResult;
             Worker = worker;
             CustomInit();
         }
@@ -50,11 +49,10 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         public string RecordIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'Cleared', 'NotCleared',
-        /// 'FitAndProper', 'NotFitAndProper', 'Withdrawn'
+        /// Gets or sets possible values include: 'Pass', 'Fail', 'Withdrawn'
         /// </summary>
-        [JsonProperty(PropertyName = "result")]
-        public SpiceApplicationStatus? Result { get; set; }
+        [JsonProperty(PropertyName = "screeningResult")]
+        public string ScreeningResult { get; set; }
 
         /// <summary>
         /// </summary>

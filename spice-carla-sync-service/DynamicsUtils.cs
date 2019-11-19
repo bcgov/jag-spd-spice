@@ -603,10 +603,13 @@ namespace Gov.Jag.Spice.CarlaSync
             string[] select = {"customerid_account", "incidentid", "spice_applicationstatus"};
             MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.GetByKey(incidentId, expand: expand, select: select);
             
+            SpiceApplicationStatus application = (SpiceApplicationStatus)incident.SpiceApplicationstatus;
+
+
             CompletedApplicationScreening screening = new CompletedApplicationScreening()
             {
                 RecordIdentifier = incident.CustomeridAccount.SpiceLcrbjobid,
-                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
+                Result = SpiceApplicationStatusMapper.MapToCarlaApplicationResult((SpiceApplicationStatus)incident.SpiceApplicationstatus).ToString(),
                 Associates = new List<Associate>()
             };
 
@@ -638,7 +641,7 @@ namespace Gov.Jag.Spice.CarlaSync
             CompletedWorkerScreening screening = new CompletedWorkerScreening()
             {
                 RecordIdentifier = incident.CustomeridContact.Externaluseridentifier,
-                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
+                ScreeningResult = SpiceApplicationStatusMapper.MapToCarlaWorkerResult((SpiceApplicationStatus)incident.SpiceApplicationstatus).ToString(),
                 Worker = new Lclb.Cllb.Interfaces.Models.Worker()
                 {
                     FirstName = incident.CustomeridContact.Firstname,
