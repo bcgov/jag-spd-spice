@@ -164,6 +164,9 @@ namespace Gov.Jag.Spice.CarlaSync
 
             app.UseAuthentication();
             app.UseMvc();
+
+            app.UseHealthChecks("hc");
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
