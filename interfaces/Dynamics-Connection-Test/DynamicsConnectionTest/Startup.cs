@@ -46,8 +46,11 @@ namespace DynamicsConnectionTest
 
                 services.AddTransient(_ => new FileManager(Configuration));
             }
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(config =>
+            {
+                config.EnableEndpointRouting = false;                
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            
 
 
 
