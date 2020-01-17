@@ -364,7 +364,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                     SpiceClientIdODataBind = clientEntityUri,
-                    SpiceConsentformReceived = true
+                    SpiceConsentformReceived = true,
+                    SpicePrimeCheckrequired = !isMarketer
                 };
                 try
                 {
