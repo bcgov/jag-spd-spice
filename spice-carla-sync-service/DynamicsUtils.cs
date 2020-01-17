@@ -5,6 +5,7 @@ using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Hangfire.Server;
 using Hangfire.Console;
+using Microsoft.Rest;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SpiceCarlaSync.models;
@@ -49,9 +50,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query companies: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query companies");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
                 MicrosoftDynamicsCRMspiceCompany company;
@@ -77,11 +78,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError("Failed to create new account");
-                        _logger.LogError(e.Message);
-                        _logger.LogError("Request:");
+                        _logger.LogError(e, "Failed to create new company");
                         _logger.LogError(e.Request.Content);
-                        _logger.LogError("Response:");
                         _logger.LogError(e.Response.Content);
                         return;
                     }
@@ -96,9 +94,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query contacts: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query contacts");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
                 MicrosoftDynamicsCRMcontact contactPerson;
@@ -122,9 +120,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message}");
-                        _logger.LogError($"Request: {e.Request.Content}");
-                        _logger.LogError($"Response: {e.Response.Content}");
+                        _logger.LogError(e, "Failed to create new contact");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError(e.Response.Content);
                         return;
                     }
                 }
@@ -138,9 +136,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query accounts: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query accounts");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
                 MicrosoftDynamicsCRMaccount account;
@@ -155,11 +153,11 @@ namespace Gov.Jag.Spice.CarlaSync
                         account = _dynamicsClient.Accounts.Create(new MicrosoftDynamicsCRMaccount()
                         {
                             SpiceCarlaAccount = applicationRequest.ApplicantAccount.AccountId,
-                            Name = applicationRequest.ApplicantAccount.Name,
-                            Address1Line1 = applicationRequest.BusinessAddress.AddressStreet1,
-                            Address1City = applicationRequest.BusinessAddress.City,
-                            Address1Country = applicationRequest.BusinessAddress.Country,
-                            Address1Postalcode = applicationRequest.BusinessAddress.Postal,
+                            Name = applicationRequest.Establishment.Name,
+                            Address1Line1 = applicationRequest.Establishment.Address.AddressStreet1,
+                            Address1City = applicationRequest.Establishment.Address.City,
+                            Address1Country = applicationRequest.Establishment.Address.Country,
+                            Address1Postalcode = applicationRequest.Establishment.Address.Postal,
                             SpiceLcrbjobid = applicationRequest.RecordIdentifier,
                             SpiceParcelidnumber = applicationRequest.Establishment.ParcelId,
                             SpiceBccorpregnumber = applicationRequest.ApplicantAccount.BCIncorporationNumber,
@@ -169,9 +167,9 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError($"Failed to create new account: {e.Message}");
-                        _logger.LogError($"Request: {e.Request.Content}");
-                        _logger.LogError($"Response: {e.Response.Content}");
+                        _logger.LogError(e, "Failed to create new account");
+                        _logger.LogError(e.Request.Content);
+                        _logger.LogError(e.Response.Content);
                         return;
                     }
                 }
@@ -186,9 +184,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query services: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query services");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
 
@@ -200,9 +198,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to query companies: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to query ministries");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
                 string clientEntityUri = _dynamicsClient.GetEntityURI("spice_ministries", client.SpiceMinistryid);
@@ -234,9 +232,9 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError($"Failed to create new account: {e.Message}");
-                    _logger.LogError($"Request: {e.Request.Content}");
-                    _logger.LogError($"Response: {e.Response.Content}");
+                    _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
 
@@ -249,42 +247,43 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public async Task ImportWorkerRequests(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
+            _logger.LogInformation("Started worker import into dynamics");
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
-                MicrosoftDynamicsCRMcontact contact = CreateOrUpdateContact(
-                    workerRequest.Contact.ContactId,
-                    workerRequest.Contact.FirstName,
-                    workerRequest.Contact.MiddleName,
-                    workerRequest.Contact.LastName,
-                    GetGenderCode(workerRequest.Contact.Gender),
-                    workerRequest.Contact.Email,
-                    workerRequest.Contact.PhoneNumber,
-                    workerRequest.Contact.DriversLicenceNumber,
-                    workerRequest.Contact.DriverLicenceJurisdiction,
-                    workerRequest.Contact.BCIdCardNumber,
-                    workerRequest.Contact.BirthDate,
-                    workerRequest.Contact.Birthplace,
-                    workerRequest.Contact.SelfDisclosure == GeneralYesNo.Yes,
-                    workerRequest.Contact.Address.AddressStreet1,
-                    workerRequest.Contact.Address.AddressStreet2,
-                    workerRequest.Contact.Address.AddressStreet3,
-                    workerRequest.Contact.Address.City,
-                    workerRequest.Contact.Address.Postal,
-                    workerRequest.Contact.Address.StateProvince,
-                    workerRequest.Contact.Address.Country,
-                    workerRequest.Contact.PreviousAddresses,
-                    workerRequest.Contact.Aliases,
-                    null
-                );
-
-                string servicesFilter = "spice_name eq 'Cannabis Worker'";
-                var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
-
-                string clientFilter = "spice_name eq 'LCRB'";
-                var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
-
                 try
                 {
+                    MicrosoftDynamicsCRMcontact contact = CreateOrUpdateContact(
+                        workerRequest.Contact.ContactId,
+                        workerRequest.Contact.FirstName,
+                        workerRequest.Contact.MiddleName,
+                        workerRequest.Contact.LastName,
+                        GetGenderCode(workerRequest.Contact.Gender),
+                        workerRequest.Contact.Email,
+                        workerRequest.Contact.PhoneNumber,
+                        workerRequest.Contact.DriversLicenceNumber,
+                        workerRequest.Contact.DriverLicenceJurisdiction,
+                        workerRequest.Contact.BCIdCardNumber,
+                        workerRequest.Contact.BirthDate,
+                        workerRequest.Contact.Birthplace,
+                        workerRequest.Contact.SelfDisclosure == GeneralYesNo.Yes,
+                        workerRequest.Contact.Address.AddressStreet1,
+                        workerRequest.Contact.Address.AddressStreet2,
+                        workerRequest.Contact.Address.AddressStreet3,
+                        workerRequest.Contact.Address.City,
+                        workerRequest.Contact.Address.Postal,
+                        workerRequest.Contact.Address.StateProvince,
+                        workerRequest.Contact.Address.Country,
+                        workerRequest.Contact.PreviousAddresses,
+                        workerRequest.Contact.Aliases,
+                        null
+                    );
+
+                    string servicesFilter = "spice_name eq 'Cannabis Worker'";
+                    var service = _dynamicsClient.Serviceses.Get(filter: servicesFilter).Value[0];
+
+                    string clientFilter = "spice_name eq 'LCRB'";
+                    var client = _dynamicsClient.Ministries.Get(filter: clientFilter).Value[0];
+
                     MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.Create(new MicrosoftDynamicsCRMincident()
                     {
                         SpiceCannabisapplicanttype = (int)CannabisApplicantType.Worker,
@@ -298,11 +297,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new account");
-                    _logger.LogError(e.Message);
-                    _logger.LogError("Request:");
+                    _logger.LogError(e, "Failed to import worker requests");
                     _logger.LogError(e.Request.Content);
-                    _logger.LogError("Response:");
                     _logger.LogError(e.Response.Content);
                     return;
                 }
@@ -334,8 +330,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     associateEntity.Contact.Address?.Postal,
                     associateEntity.Contact.Address?.StateProvince,
                     associateEntity.Contact.Address?.Country,
-                    new List<Address>(),
-                    new List<Alias>(),
+                    associateEntity.PreviousAddresses != null ? associateEntity.PreviousAddresses : new List<Address>(),
+                    associateEntity.Aliases != null ? associateEntity.Aliases : new List<Alias>(),
                     associateEntity.Title
                 );
 
@@ -349,11 +345,11 @@ namespace Gov.Jag.Spice.CarlaSync
                         SpicePosition = GetLegalEntityPositions(associateEntity.Positions)
                     });
                 }
-                catch (Exception e)
+                catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new account case assignment");
-                    _logger.LogError(e.Message);
-                    _logger.LogError(e.Data.ToString());
+                    _logger.LogError(e, "Failed to create new account case assignment");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
 
@@ -368,18 +364,19 @@ namespace Gov.Jag.Spice.CarlaSync
                     ParentCaseIdOdataBind = _dynamicsClient.GetEntityURI("incidents", screeningId),
                     SpiceServiceIdODataBind = _dynamicsClient.GetEntityURI("spice_serviceses", service.SpiceServicesid),
                     SpiceClientIdODataBind = clientEntityUri,
-                    SpiceConsentformReceived = true
+                    SpiceConsentformReceived = true,
+                    SpicePrimeCheckrequired = !isMarketer
                 };
                 try
                 {
                     // Create the associate incident
                     MicrosoftDynamicsCRMincident createdIncident = _dynamicsClient.Incidents.Create(incident);
                 }
-                catch (Exception e)
+                catch (OdataerrorException e)
                 {
-                    _logger.LogError("Failed to create new incident");
-                    _logger.LogError(e.Message);
-                    _logger.LogError(e.Data.ToString());
+                    _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e.Request.Content);
+                    _logger.LogError(e.Response.Content);
                     return;
                 }
             }
@@ -395,7 +392,11 @@ namespace Gov.Jag.Spice.CarlaSync
         public async Task ProcessBusinessResults(PerformContext hangfireContext)
         {
             string[] select = {"incidentid"};
-            string businessFilter = $"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and (spice_applicanttype eq {(int)CannabisApplicantType.Business} or spice_applicanttype eq {(int)CannabisApplicantType.MarketingBusiness}) and statecode eq 1 and statuscode eq 5";
+            string businessFilter = 
+                $@"spice_businessreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB}
+                 and (spice_cannabisapplicanttype eq {(int)CannabisApplicantType.Business} or spice_cannabisapplicanttype eq {(int)CannabisApplicantType.MarketingBusiness})
+                 and spice_applicanttype eq {(int)SpiceApplicantType.Cannabis}
+                 and statecode eq 1 and statuscode eq 5";
             IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
@@ -463,10 +464,9 @@ namespace Gov.Jag.Spice.CarlaSync
                         hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                     }
-                    catch (Exception e)
+                    catch (HttpOperationException httpOperationException)
                     {
-                        hangfireContext.WriteLine($"Failed to send completed worker screening request to Carla: {e.Message}");
-                        _logger.LogError($"Failed to send completed worker screening request to Carla: {e.Message}");
+                        _logger.LogError(httpOperationException, $"Failed to send completed worker screening request to Carla: {httpOperationException.Message}");
                     }
                 }
             }
@@ -483,97 +483,98 @@ namespace Gov.Jag.Spice.CarlaSync
             List<Address> addresses, List<Alias> aliases, string title
         )
         {
-            string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
-            ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
-            MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+            try
             {
-                Externaluseridentifier = contactId,
-                Firstname = firstName,
-                Middlename = middleName,
-                Lastname = lastName,
-                Gendercode = gender,
-                Emailaddress1 = email,
-                Telephone1 = phoneNumber,
-                SpiceDriverslicencenum = driversLicenceNumber,
-                SpiceIdJurisdiction = driversLicenceJurisdiction,
-                SpiceBcidcardnumber = bcIdCardNumber,
-                SpiceDateofbirth = dateOfBirth,
-                SpiceBirthplace = birthPlace,
-                SpiceSelfdisclosed = selfDisclosed,
-                Address1Line1 = addressLine1,
-                Address1Line2 = addressLine2,
-                Address1Line3 = addressLine3,
-                Address1City = city,
-                Address1Postalcode = postalCode,
-                Address1Stateorprovince = stateProvince,
-                Address1Country = country,
-                SpicePositiontitle = title
-            };
+                string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
+                ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
+                {
+                    Externaluseridentifier = contactId,
+                    Firstname = firstName,
+                    Middlename = middleName,
+                    Lastname = lastName,
+                    Gendercode = gender,
+                    Emailaddress1 = email,
+                    Telephone1 = phoneNumber,
+                    SpiceDriverslicencenum = driversLicenceNumber,
+                    SpiceIdJurisdiction = driversLicenceJurisdiction,
+                    SpiceBcidcardnumber = bcIdCardNumber,
+                    SpiceDateofbirth = dateOfBirth,
+                    SpiceBirthplace = birthPlace,
+                    SpiceSelfdisclosed = selfDisclosed,
+                    Address1Line1 = addressLine1,
+                    Address1Line2 = addressLine2,
+                    Address1Line3 = addressLine3,
+                    Address1City = city,
+                    Address1Postalcode = postalCode,
+                    Address1Stateorprovince = stateProvince,
+                    Address1Country = country,
+                    SpicePositiontitle = title
+                };
 
-            if (contactResponse.Value.Count > 0)
-            {
-                try
+                if (contactResponse.Value.Count > 0)
                 {
                     _dynamicsClient.Contacts.Update(contactResponse.Value[0].Contactid, contact);
+                    contact.Contactid = contactResponse.Value[0].Contactid;
                 }
-                catch (OdataerrorException e)
+                else
                 {
-                    _logger.LogError($"Failed to update contact: {e.Message}");
-                    _logger.LogError($"Request: {e.Request}");
-                    _logger.LogError($"Response: {e.Response}");
+                    contact = _dynamicsClient.Contacts.Create(contact);
                 }
-                contact.Contactid = contactResponse.Value[0].Contactid;
-            }
-            else
-            {
-                contact = _dynamicsClient.Contacts.Create(contact);
-            }
 
-            string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
-            
-            PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
-            if(currentPreviousAddresses.Value.Count > 0)
-            {
-                foreach(var address in currentPreviousAddresses.Value)
+                string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
+                
+                PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
+                if(currentPreviousAddresses.Value.Count > 0)
                 {
-                    _dynamicsClient.Previousaddresseses.Delete(address.SpicePreviousaddressesid);
+                    foreach(var address in currentPreviousAddresses.Value)
+                    {
+                        _dynamicsClient.Previousaddresseses.Delete(address.SpicePreviousaddressesid);
+                    }
                 }
-            }
-            foreach (var address in addresses)
-            {
-                _dynamicsClient.Previousaddresseses.Create(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                foreach (var address in addresses)
                 {
-                    SpiceContactIdODataBind = entityUri,
-                    SpiceName = address.AddressStreet1,
-                    SpiceCity = address.City,
-                    SpiceStateprovince = address.StateProvince,
-                    SpiceZippostalcode = address.Postal,
-                    SpiceCountry = address.Country,
-                    SpiceStartdate = address.FromDate,
-                    SpiceEnddate = address.ToDate
-                });
-            }
-
-            AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
-            if(currentAliases.Value.Count > 0)
-            {
-                foreach(var alias in currentAliases.Value)
-                {
-                    _dynamicsClient.Aliaseses.Delete(alias.SpiceAliasesid);
+                    _dynamicsClient.Previousaddresseses.Create(new MicrosoftDynamicsCRMspicePreviousaddresses()
+                    {
+                        SpiceContactIdODataBind = entityUri,
+                        SpiceName = address.AddressStreet1,
+                        SpiceCity = address.City,
+                        SpiceStateprovince = address.StateProvince,
+                        SpiceZippostalcode = address.Postal,
+                        SpiceCountry = address.Country,
+                        SpiceStartdate = address.FromDate,
+                        SpiceEnddate = address.ToDate
+                    });
                 }
-            }
-            foreach (var alias in aliases)
-            {
-                _dynamicsClient.Aliaseses.Create(new MicrosoftDynamicsCRMspiceAliases()
-                {
-                    SpiceAliascontactODataBind = entityUri,
-                    SpiceName = alias.GivenName,
-                    SpiceMiddlename = alias.SecondName,
-                    SpiceLastname = alias.Surname,
-                });
-            }
 
-            return contact;
+                AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
+                if(currentAliases.Value.Count > 0)
+                {
+                    foreach(var alias in currentAliases.Value)
+                    {
+                        _dynamicsClient.Aliaseses.Delete(alias.SpiceAliasesid);
+                    }
+                }
+                foreach (var alias in aliases)
+                {
+                    _dynamicsClient.Aliaseses.Create(new MicrosoftDynamicsCRMspiceAliases()
+                    {
+                        SpiceAliascontactODataBind = entityUri,
+                        SpiceName = alias.GivenName,
+                        SpiceMiddlename = alias.SecondName,
+                        SpiceLastname = alias.Surname,
+                    });
+                }
+
+                return contact;
+            }
+            catch (OdataerrorException e)
+            {
+                _logger.LogError(e, "Failed to create or update contact");
+                _logger.LogError(e.Request.Content);
+                _logger.LogError(e.Response.Content);
+                throw;
+            }
         }
 
         public bool SetLCRBStatus(string incidentId, int status, bool isBusiness)
@@ -592,11 +593,11 @@ namespace Gov.Jag.Spice.CarlaSync
                 _dynamicsClient.Incidents.Update(incidentId, incident);
                 return true;
             }
-            catch (OdataerrorException odee)
+            catch (OdataerrorException e)
             {
-                _logger.LogError($"Failed to update screening with new ready for LCRB status: {odee.Message}");
-                _logger.LogError($"Request: {odee.Request}");
-                _logger.LogError($"Response: {odee.Response}");
+                _logger.LogError(e, "Failed to update screening with new ready for LCRB status");
+                _logger.LogError(e.Request.Content);
+                _logger.LogError(e.Response.Content);
                 return false;
             }
         }
@@ -607,10 +608,13 @@ namespace Gov.Jag.Spice.CarlaSync
             string[] select = {"customerid_account", "incidentid", "spice_applicationstatus"};
             MicrosoftDynamicsCRMincident incident = _dynamicsClient.Incidents.GetByKey(incidentId, expand: expand, select: select);
             
+            SpiceApplicationStatus application = (SpiceApplicationStatus)incident.SpiceApplicationstatus;
+
+
             CompletedApplicationScreening screening = new CompletedApplicationScreening()
             {
                 RecordIdentifier = incident.CustomeridAccount.SpiceLcrbjobid,
-                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
+                Result = SpiceApplicationStatusMapper.MapToCarlaApplicationResult((SpiceApplicationStatus)incident.SpiceApplicationstatus).ToString(),
                 Associates = new List<Associate>()
             };
 
@@ -642,7 +646,7 @@ namespace Gov.Jag.Spice.CarlaSync
             CompletedWorkerScreening screening = new CompletedWorkerScreening()
             {
                 RecordIdentifier = incident.CustomeridContact.Externaluseridentifier,
-                Result = (SpiceApplicationStatus?)incident.SpiceApplicationstatus,
+                ScreeningResult = SpiceApplicationStatusMapper.MapToCarlaWorkerResult((SpiceApplicationStatus)incident.SpiceApplicationstatus).ToString(),
                 Worker = new Lclb.Cllb.Interfaces.Models.Worker()
                 {
                     FirstName = incident.CustomeridContact.Firstname,
@@ -698,6 +702,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
             return string.Join(", ", positionValues);
         }
+
         public int? GetGenderCode(AdoxioGenderCode gender)
         {
             if (gender == AdoxioGenderCode.Male || gender == AdoxioGenderCode.Female)
@@ -719,7 +724,16 @@ namespace Gov.Jag.Spice.CarlaSync
                     Statecode = 1,
                     Subject = "Sent to LCRB"
                 };
-                _dynamicsClient.Incidents.CloseIncident(new MicrosoftDynamicsCRMCloseIncidentParameters(resolution, 5));
+                try
+                {
+                    _dynamicsClient.Incidents.CloseIncident(new MicrosoftDynamicsCRMCloseIncidentParameters(resolution, 5));
+                }
+                catch (HttpOperationException ex)
+                {
+                    _logger.LogError(ex, "Failed to close incident");
+                    _logger.LogError(ex.Request.Content);
+                    _logger.LogError(ex.Response.Content);
+                }
             }
             else
             {

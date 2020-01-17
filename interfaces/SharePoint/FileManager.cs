@@ -18,6 +18,27 @@ using System.Xml;
 
 namespace Gov.Jag.Spice.Interfaces.SharePoint
 {
+    public class FileSystemItem
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Documenttype { get; set; }
+        public int Size { get; set; }
+        public string Serverrelativeurl { get; set; }
+        public DateTime Timecreated { get; set; }
+        public DateTime Timelastmodified { get; set; }
+    }
+    
+
+    public class FileDetailsList
+    {
+        public string Name { get; set; }
+        public string TimeLastModified { get; set; }
+        public string Length { get; set; }
+        public string DocumentType { get; set; }
+        public string ServerRelativeUrl { get; set; }
+    }
+    
     public class FileManager
     {
         
@@ -181,27 +202,6 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
                 result = filename.Replace("'", "''");
             }
             return result;
-        }
-
-        public class FileSystemItem
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Documenttype { get; set; }
-            public int Size { get; set; }
-            public string Serverrelativeurl { get; set; }
-            public DateTime Timecreated { get; set; }
-            public DateTime Timelastmodified { get; set; }
-        }
-        
-
-        public class FileDetailsList
-        {
-            public string Name { get; set; }
-            public string TimeLastModified { get; set; }
-            public string Length { get; set; }
-            public string DocumentType { get; set; }
-            public string ServerRelativeUrl { get; set; }
         }
 
         /// <summary>

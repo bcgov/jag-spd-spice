@@ -1,6 +1,5 @@
 ﻿using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.SharePoint;
-using Gov.Lclb.Cllb.Interfaces;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.MemoryStorage;
@@ -13,15 +12,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Splunk;
-using Splunk.Configurations;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
 using System.Text;
+using System.Net.Http;
+using Serilog;
+using Serilog.Exceptions;
 using System.Threading.Tasks;
 
 [assembly: ApiController]
@@ -110,11 +110,9 @@ namespace Gov.Jag.Spice.CarlaSync
             });
 
             // health checks. 
-            services.AddHealthChecks(checks =>
-            {
-                checks.AddValueTaskCheck("HTTP Endpoint", () => new
-                    ValueTask<IHealthCheckResult>(HealthCheckResult.Healthy("Ok")));
-            });
+            services.AddHealthChecks()
+                .AddCheck("spice-sync", () => HealthCheckResult.Healthy("Ok"))
+                .AddCheck<DynamicsHealthCheck>("Dynamics"); 
         }
 
         private void SetupSharePoint(IServiceCollection services)
@@ -166,49 +164,47 @@ namespace Gov.Jag.Spice.CarlaSync
 
             app.UseAuthentication();
             app.UseMvc();
+
+            app.UseHealthChecks("/hc");
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "JAG SPICE to CARLA Transfer Service");
             });
 
-            // enable Splunk logger
-            if (!string.IsNullOrEmpty(Configuration["SPLUNK_COLLECTOR_URL"]))
+            // enable Splunk logger using Serilog
+            if (!string.IsNullOrEmpty(Configuration["SPLUNK_COLLECTOR_URL"]) &&
+                !string.IsNullOrEmpty(Configuration["SPLUNK_TOKEN"])
+                )
             {
-                var splunkLoggerConfiguration = GetSplunkLoggerConfiguration(app);
+                Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .Enrich.WithExceptionDetails()
+                    .WriteTo.Console()
+                    .WriteTo.EventCollector( splunkHost: Configuration["SPLUNK_COLLECTOR_URL"],
+                       sourceType: "manual", eventCollectorToken: Configuration["SPLUNK_TOKEN"], 
+                       restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information,
+#pragma warning disable CA2000 // Dispose objects before losing scope
+                       messageHandler: new HttpClientHandler()
+                       {
+                           ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; }
+                       }
+#pragma warning restore CA2000 // Dispose objects before losing scope
+                     )                    
+                    .CreateLogger();
 
-                //Append Http Json logger
-                loggerFactory.AddHECJsonSplunkLogger(splunkLoggerConfiguration);
+                Serilog.Debugging.SelfLog.Enable(Console.Error);
+            }
+            else
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .Enrich.WithExceptionDetails()
+                    .WriteTo.Console()
+                    .CreateLogger();
             }
 
-        }
-
-        SplunkLoggerConfiguration GetSplunkLoggerConfiguration(IApplicationBuilder app)
-        {
-            SplunkLoggerConfiguration result = null;
-            string splunkCollectorUrl = Configuration["SPLUNK_COLLECTOR_URL"];
-            if (!string.IsNullOrEmpty(splunkCollectorUrl))
-            {
-                string splunkToken = Configuration["SPLUNK_TOKEN"];
-                if (!string.IsNullOrEmpty(splunkToken))
-                {
-                    result = new SplunkLoggerConfiguration()
-                    {
-                        HecConfiguration = new HECConfiguration()
-                        {
-                            BatchIntervalInMilliseconds = 5000,
-                            BatchSizeCount = 10,
-                            ChannelIdType = HECConfiguration.ChannelIdOption.None,
-                            DefaultTimeoutInMilliseconds = 10000,
-
-                            SplunkCollectorUrl = splunkCollectorUrl,
-                            Token = splunkToken,
-                            UseAuthTokenAsQueryString = false
-                        }
-                    };
-                }
-            }
-            return result;
         }
 
         /// <summary>
@@ -218,7 +214,7 @@ namespace Gov.Jag.Spice.CarlaSync
         /// <param name="loggerFactory"></param>
         private void SetupHangfireJobs(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            ILogger log = loggerFactory.CreateLogger(typeof(Startup));
+            Microsoft.Extensions.Logging.ILogger log = loggerFactory.CreateLogger(typeof(Startup));
             log.LogInformation("Starting setup of Hangfire jobs ...");
 
             try
