@@ -19,7 +19,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public ILogger _logger { get; }
 
         private IConfiguration Configuration { get; }
-        public ICarlaClient CarlaClient;
+        public CarlaClient CarlaClient;
         public CarlaSharepoint _carlaSharepoint;
 
         public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
@@ -52,7 +52,7 @@ namespace Gov.Jag.Spice.CarlaSync
             hangfireContext.WriteLine("Starting SPICE Import Job.");
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(hangfireContext, requests);
+            var (sent, filepath) = await _carlaSharepoint.SendWorkerRequestsToSharePoint(requests);
             if (sent)
             {
                 foreach (var request in requests)
@@ -75,7 +75,7 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             _logger.LogError("Starting SPICE Import Job.");
 
-            var (sent, businessFilepath, associatesFilepath) = await _carlaSharepoint.SendApplicationRequestsToSharePoint(hangfireContext, requests);
+            var (sent, businessFilepath, associatesFilepath) = await _carlaSharepoint.SendApplicationRequestsToSharePoint( requests);
             foreach (var request in requests)
             {
                 if (sent)
@@ -134,21 +134,37 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public async Task ProcessResults(PerformContext hangfireContext)
         {
-            await _carlaSharepoint.ProcessResultsFolders(hangfireContext);
+            await _carlaSharepoint.ProcessResultsFolders();
         }
 
         public async Task<bool> SendApplicationScreeningResult(List<CompletedApplicationScreening> responses)
         {
-            var result = await CarlaClient.ReceiveApplicationScreeningResultWithHttpMessagesAsync(responses);
-
-            return result.Response.StatusCode.ToString() == "Ok";
+            try
+            {
+                var result = await CarlaClient.ApplicationScreenings.POSTWithHttpMessagesAsync(responses);
+                return result.Response.StatusCode.ToString() == "Ok";
+            }
+            catch (HttpOperationException ex)
+            {
+                _logger.LogError(ex, "Failed to send application results to carla");
+                _logger.LogError(ex.Response.Content);
+                return false;
+            }
         }
 
         public async Task<bool> SendWorkerScreeningResult(List<CompletedWorkerScreening> responses)
         {
-            var result = await CarlaClient.ReceiveWorkerScreeningResultsWithHttpMessagesAsync(responses);
-
-            return result.Response.StatusCode.ToString() == "Ok";
+            try
+            {
+                var result = await CarlaClient.WorkerScreenings.POSTWithHttpMessagesAsync(responses);
+                return result.Response.StatusCode.ToString() == "Ok";
+            }
+            catch (HttpOperationException ex)
+            {
+                _logger.LogError(ex, "Failed to send worker results to carla");
+                _logger.LogError(ex.Response.Content);
+                return false;
+            }
         }
     }
 }
