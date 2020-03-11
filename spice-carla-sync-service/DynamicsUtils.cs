@@ -418,11 +418,19 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     try
                     {
-                        await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
-                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
-                        ToggleResolution(incident.Incidentid, true);
-                        hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                        _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        bool applicationSendSuccessStatus = await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
+                        if (applicationSendSuccessStatus)
+                        {
+                            statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
+                            ToggleResolution(incident.Incidentid, true);
+                            hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
+                        else
+                        {
+                            hangfireContext.WriteLine($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
                     }
                     catch (Exception e)
                     {
@@ -458,11 +466,19 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     try
                     {
-                        await carlaUtils.SendWorkerScreeningResult(new List<CompletedWorkerScreening>() { screening });
-                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
-                        ToggleResolution(incident.Incidentid, true);
-                        hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                        _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        bool workerResultSendStatus = await carlaUtils.SendWorkerScreeningResult(new List<CompletedWorkerScreening>() { screening });
+                        if (workerResultSendStatus) {
+                            statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
+                            ToggleResolution(incident.Incidentid, true);
+                            hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
+                        else
+                        {
+                            hangfireContext.WriteLine($"Failed to send completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Failed to send completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
+
                     }
                     catch (HttpOperationException httpOperationException)
                     {
