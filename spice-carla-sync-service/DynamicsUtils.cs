@@ -428,6 +428,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         }
                         else
                         {
+                            ToggleResolution(incident.Incidentid, false);
                             hangfireContext.WriteLine($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                             _logger.LogError($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         }
@@ -437,6 +438,11 @@ namespace Gov.Jag.Spice.CarlaSync
                         hangfireContext.WriteLine($"Failed to send completed application screening request to Carla: {e.Message}");
                         _logger.LogError($"Failed to send completed application screening request to Carla: {e.Message}");
                     }
+                }
+                else
+                {
+                    hangfireContext.WriteLine($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                    _logger.LogError($"Failed to send application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                 }
             }
         }
@@ -475,6 +481,7 @@ namespace Gov.Jag.Spice.CarlaSync
                         }
                         else
                         {
+                            ToggleResolution(incident.Incidentid, false);
                             hangfireContext.WriteLine($"Failed to send completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                             _logger.LogError($"Failed to send completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         }
@@ -484,6 +491,10 @@ namespace Gov.Jag.Spice.CarlaSync
                     {
                         _logger.LogError(httpOperationException, $"Failed to send completed worker screening request to Carla: {httpOperationException.Message}");
                     }
+                }
+                else
+                {
+                    _logger.LogError($"Failed to set status of worker record {screening.RecordIdentifier}");
                 }
             }
         }
