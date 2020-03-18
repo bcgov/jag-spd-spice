@@ -766,8 +766,8 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public void HandleSendToLCRBFail(string incidentId, string recordIdentifier)
         {
-            ToggleResolution(incidentId, false);
-            _logger.LogError($"Failed to send application screening request [LCRB Job Id: {recordIdentifier}] to Carla.");
+            ToggleResolution(incidentId, true);
+            _logger.LogError($"Failed to send screening request [LCRB Job Id: {recordIdentifier}] to Carla.");
         }
     }
 }
