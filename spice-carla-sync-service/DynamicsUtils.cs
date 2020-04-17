@@ -418,17 +418,27 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     try
                     {
-                        await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
-                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
-                        ToggleResolution(incident.Incidentid, true);
-                        hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                        _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        bool applicationSendSuccessStatus = await carlaUtils.SendApplicationScreeningResult(new List<CompletedApplicationScreening>() { screening });
+                        if (applicationSendSuccessStatus)
+                        {
+                            statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
+                            ToggleResolution(incident.Incidentid, true);
+                            hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
+                        else
+                        {
+                            this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
+                        }
                     }
                     catch (Exception e)
                     {
-                        hangfireContext.WriteLine($"Failed to send completed application screening request to Carla: {e.Message}");
-                        _logger.LogError($"Failed to send completed application screening request to Carla: {e.Message}");
+                        this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                     }
+                }
+                else
+                {
+                    this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                 }
             }
         }
@@ -458,16 +468,27 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     try
                     {
-                        await carlaUtils.SendWorkerScreeningResult(new List<CompletedWorkerScreening>() { screening });
-                        statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
-                        ToggleResolution(incident.Incidentid, true);
-                        hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                        _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        bool workerResultSendStatus = await carlaUtils.SendWorkerScreeningResult(new List<CompletedWorkerScreening>() { screening });
+                        if (workerResultSendStatus) {
+                            statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
+                            ToggleResolution(incident.Incidentid, true);
+                            hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                        }
+                        else
+                        {
+                            this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
+                        }
+
                     }
                     catch (HttpOperationException httpOperationException)
                     {
-                        _logger.LogError(httpOperationException, $"Failed to send completed worker screening request to Carla: {httpOperationException.Message}");
+                        this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                     }
+                }
+                else
+                {
+                    this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                 }
             }
         }
@@ -741,6 +762,12 @@ namespace Gov.Jag.Spice.CarlaSync
                 incident.Statecode = 0;
                 _dynamicsClient.Incidents.Update(incidentId, incident);
             }
+        }
+
+        public void HandleSendToLCRBFail(string incidentId, string recordIdentifier)
+        {
+            ToggleResolution(incidentId, true);
+            _logger.LogError($"Failed to send screening request [LCRB Job Id: {recordIdentifier}] to Carla.");
         }
     }
 }
