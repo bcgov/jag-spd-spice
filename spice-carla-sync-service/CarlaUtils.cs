@@ -142,7 +142,7 @@ namespace Gov.Jag.Spice.CarlaSync
             try
             {
                 var result = await CarlaClient.ApplicationScreenings.POSTWithHttpMessagesAsync(responses);
-                return result.Response.StatusCode.ToString() == "Ok";
+                return result.Response.StatusCode.ToString() == "OK";
             }
             catch (HttpOperationException ex)
             {
@@ -157,7 +157,7 @@ namespace Gov.Jag.Spice.CarlaSync
             try
             {
                 var result = await CarlaClient.WorkerScreenings.POSTWithHttpMessagesAsync(responses);
-                return result.Response.StatusCode.ToString() == "Ok";
+                return result.Response.StatusCode.ToString() == "OK";
             }
             catch (HttpOperationException ex)
             {
