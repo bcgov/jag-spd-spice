@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// spice_ministry
+    /// Microsoft.Dynamics.CRM.spice_ministry
     /// </summary>
     public partial class MicrosoftDynamicsCRMspiceMinistry
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMspiceMinistry
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceMinistry(string _createdonbehalfbyValue = default(string), int? statecode = default(int?), long? versionnumber = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string _modifiedbyValue = default(string), string _createdbyValue = default(string), string _owneridValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string spiceName = default(string), int? importsequencenumber = default(int?), string _owningteamValue = default(string), string _modifiedonbehalfbyValue = default(string), string _owninguserValue = default(string), string _owningbusinessunitValue = default(string), string spiceReturnresultsto = default(string), string spiceRequesterhiringmanager = default(string), string _spiceGovministryidValue = default(string), int? statuscode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string spiceMinistryid = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> spiceMinistrySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceMinistryDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceMinistryDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceMinistryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceMinistryMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceMinistryProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceMinistryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceMinistryPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMannotation> spiceMinistryAnnotations = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMincident> spiceSpiceMinistryIncidentClient = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMspiceMinistryemployee> spiceSpiceMinistrySpiceMinistryemployee = default(IList<MicrosoftDynamicsCRMspiceMinistryemployee>), IList<MicrosoftDynamicsCRMspiceServices> spiceSpiceMinistrySpiceServices = default(IList<MicrosoftDynamicsCRMspiceServices>), MicrosoftDynamicsCRMspiceGovministry spiceGovministryId = default(MicrosoftDynamicsCRMspiceGovministry))
+        public MicrosoftDynamicsCRMspiceMinistry(string _createdonbehalfbyValue = default(string), int? statecode = default(int?), string versionnumber = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string _modifiedbyValue = default(string), string _createdbyValue = default(string), string _owneridValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string spiceName = default(string), int? importsequencenumber = default(int?), string spiceOrgcode = default(string), string _owningteamValue = default(string), string _modifiedonbehalfbyValue = default(string), string _owninguserValue = default(string), string _owningbusinessunitValue = default(string), string spiceReturnresultsto = default(string), string spiceRequesterhiringmanager = default(string), string _spiceGovministryidValue = default(string), int? statuscode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string spiceMinistryid = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> spiceMinistrySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceMinistryDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceMinistryDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceMinistryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceMinistryMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceMinistryProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceMinistryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceMinistryPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMannotation> spiceMinistryAnnotations = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMincident> spiceSpiceMinistryIncidentClient = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMspiceMinistryemployee> spiceSpiceMinistrySpiceMinistryemployee = default(IList<MicrosoftDynamicsCRMspiceMinistryemployee>), IList<MicrosoftDynamicsCRMspiceServices> spiceSpiceMinistrySpiceServices = default(IList<MicrosoftDynamicsCRMspiceServices>), MicrosoftDynamicsCRMspiceGovministry spiceGovministryId = default(MicrosoftDynamicsCRMspiceGovministry))
         {
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             Statecode = statecode;
@@ -43,6 +43,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Utcconversiontimezonecode = utcconversiontimezonecode;
             SpiceName = spiceName;
             Importsequencenumber = importsequencenumber;
+            SpiceOrgcode = spiceOrgcode;
             this._owningteamValue = _owningteamValue;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._owninguserValue = _owninguserValue;
@@ -95,7 +96,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -141,6 +142,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "importsequencenumber")]
         public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_orgcode")]
+        public string SpiceOrgcode { get; set; }
 
         /// <summary>
         /// </summary>

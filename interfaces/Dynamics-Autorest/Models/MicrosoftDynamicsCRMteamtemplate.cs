@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// teamtemplate
+    /// Microsoft.Dynamics.CRM.teamtemplate
     /// </summary>
     public partial class MicrosoftDynamicsCRMteamtemplate
     {

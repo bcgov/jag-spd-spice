@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// annualfiscalcalendar
+    /// Microsoft.Dynamics.CRM.annualfiscalcalendar
     /// </summary>
     public partial class MicrosoftDynamicsCRMannualfiscalcalendar
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMannualfiscalcalendar class.
         /// </summary>
-        public MicrosoftDynamicsCRMannualfiscalcalendar(object annual = default(object), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _businessunitidValue = default(string), string _transactioncurrencyidValue = default(string), string _salespersonidValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), int? fiscalperiodtype = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string userfiscalcalendarid = default(string), int? utcconversiontimezonecode = default(int?), object annualBase = default(object), object exchangerate = default(object), string _createdbyValue = default(string), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMbulkdeletefailure> annualFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> annualFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMannualfiscalcalendar(decimal? annual = default(decimal?), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _businessunitidValue = default(string), string _transactioncurrencyidValue = default(string), string _salespersonidValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), int? fiscalperiodtype = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string userfiscalcalendarid = default(string), int? utcconversiontimezonecode = default(int?), decimal? annualBase = default(decimal?), decimal? exchangerate = default(decimal?), string _createdbyValue = default(string), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMbulkdeletefailure> annualFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> annualFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser))
         {
             Annual = annual;
             this._modifiedbyValue = _modifiedbyValue;
@@ -67,7 +67,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "annual")]
-        public object Annual { get; set; }
+        public decimal? Annual { get; set; }
 
         /// <summary>
         /// </summary>
@@ -132,12 +132,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "annual_base")]
-        public object AnnualBase { get; set; }
+        public decimal? AnnualBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>

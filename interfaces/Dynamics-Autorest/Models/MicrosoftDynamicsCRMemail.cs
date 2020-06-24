@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// email
+    /// Microsoft.Dynamics.CRM.email
     /// </summary>
     public partial class MicrosoftDynamicsCRMemail
     {

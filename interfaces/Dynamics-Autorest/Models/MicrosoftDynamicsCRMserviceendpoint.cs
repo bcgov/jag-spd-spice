@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// serviceendpoint
+    /// Microsoft.Dynamics.CRM.serviceendpoint
     /// </summary>
     public partial class MicrosoftDynamicsCRMserviceendpoint
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMserviceendpoint class.
         /// </summary>
-        public MicrosoftDynamicsCRMserviceendpoint(string sastoken = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), string url = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string authvalue = default(string), bool? ismanaged = default(bool?), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), int? userclaim = default(int?), string name = default(string), string serviceendpointid = default(string), bool? issaskeyset = default(bool?), int? connectionmode = default(int?), string serviceendpointidunique = default(string), bool? issastokenset = default(bool?), string solutionnamespace = default(string), string saskey = default(string), int? namespaceformat = default(int?), string _createdbyValue = default(string), string introducedversion = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string namespaceaddress = default(string), int? authtype = default(int?), string _modifiedbyValue = default(string), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), int? contract = default(int?), string description = default(string), int? messageformat = default(int?), string _organizationidValue = default(string), bool? isauthvalueset = default(bool?), string path = default(string), string saskeyname = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> serviceendpointSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMserviceendpoint(string sastoken = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), string url = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string authvalue = default(string), bool? ismanaged = default(bool?), string iscustomizable = default(string), int? userclaim = default(int?), string name = default(string), string serviceendpointid = default(string), bool? issaskeyset = default(bool?), int? connectionmode = default(int?), string serviceendpointidunique = default(string), bool? issastokenset = default(bool?), string solutionnamespace = default(string), string saskey = default(string), int? namespaceformat = default(int?), string _createdbyValue = default(string), string introducedversion = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string namespaceaddress = default(string), int? authtype = default(int?), string _modifiedbyValue = default(string), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), int? contract = default(int?), string description = default(string), int? messageformat = default(int?), string _organizationidValue = default(string), bool? isauthvalueset = default(bool?), string path = default(string), string saskeyname = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> serviceendpointSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Sastoken = sastoken;
             Overwritetime = overwritetime;
@@ -122,7 +122,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>

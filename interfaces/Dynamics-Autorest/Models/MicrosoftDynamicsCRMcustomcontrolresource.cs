@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// customcontrolresource
+    /// Microsoft.Dynamics.CRM.customcontrolresource
     /// </summary>
     public partial class MicrosoftDynamicsCRMcustomcontrolresource
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcustomcontrolresource class.
         /// </summary>
-        public MicrosoftDynamicsCRMcustomcontrolresource(string _organizationidValue = default(string), string version = default(string), string webresourceid = default(string), int? componentstate = default(int?), long? versionnumber = default(long?), string customcontrolresourceid = default(string), string versionrequirement = default(string), string _modifiedonbehalfbyValue = default(string), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string introducedversion = default(string), string customcontrolresourceidunique = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), bool? ismanaged = default(bool?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string customcontrolid = default(string), MicrosoftDynamicsCRMcustomcontrol customcontrolidCustomcontrol = default(MicrosoftDynamicsCRMcustomcontrol), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
+        public MicrosoftDynamicsCRMcustomcontrolresource(string _organizationidValue = default(string), string version = default(string), string webresourceid = default(string), int? componentstate = default(int?), string versionnumber = default(string), string customcontrolresourceid = default(string), string versionrequirement = default(string), string _modifiedonbehalfbyValue = default(string), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string introducedversion = default(string), string customcontrolresourceidunique = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), bool? ismanaged = default(bool?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string customcontrolid = default(string), MicrosoftDynamicsCRMcustomcontrol customcontrolidCustomcontrol = default(MicrosoftDynamicsCRMcustomcontrol), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
         {
             this._organizationidValue = _organizationidValue;
             Version = version;
@@ -86,7 +86,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

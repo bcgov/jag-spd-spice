@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// languagelocale
+    /// Microsoft.Dynamics.CRM.languagelocale
     /// </summary>
     public partial class MicrosoftDynamicsCRMlanguagelocale
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMlanguagelocale class.
         /// </summary>
-        public MicrosoftDynamicsCRMlanguagelocale(string languagelocaleid = default(string), string region = default(string), string name = default(string), string language = default(string), string code = default(string), long? versionnumber = default(long?), int? statecode = default(int?), int? statuscode = default(int?), string _organizationidValue = default(string), int? localeid = default(int?), IList<MicrosoftDynamicsCRMknowledgearticle> knowledgearticleLanguagelocaleid = default(IList<MicrosoftDynamicsCRMknowledgearticle>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
+        public MicrosoftDynamicsCRMlanguagelocale(string languagelocaleid = default(string), string region = default(string), string name = default(string), string language = default(string), string code = default(string), string versionnumber = default(string), int? statecode = default(int?), int? statuscode = default(int?), string _organizationidValue = default(string), int? localeid = default(int?), IList<MicrosoftDynamicsCRMknowledgearticle> knowledgearticleLanguagelocaleid = default(IList<MicrosoftDynamicsCRMknowledgearticle>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
         {
             Languagelocaleid = languagelocaleid;
             Region = region;
@@ -79,7 +79,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

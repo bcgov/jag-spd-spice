@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// phonecall
+    /// Microsoft.Dynamics.CRM.phonecall
     /// </summary>
     public partial class MicrosoftDynamicsCRMphonecall
     {

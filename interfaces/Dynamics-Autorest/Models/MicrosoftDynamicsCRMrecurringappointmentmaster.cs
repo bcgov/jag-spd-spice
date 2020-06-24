@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// recurringappointmentmaster
+    /// Microsoft.Dynamics.CRM.recurringappointmentmaster
     /// </summary>
     public partial class MicrosoftDynamicsCRMrecurringappointmentmaster
     {

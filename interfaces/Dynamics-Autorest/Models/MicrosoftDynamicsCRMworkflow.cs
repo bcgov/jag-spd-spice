@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// workflow
+    /// Microsoft.Dynamics.CRM.workflow
     /// </summary>
     public partial class MicrosoftDynamicsCRMworkflow
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMworkflow
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMworkflow(int? deletestage = default(int?), string xaml = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string name = default(string), string _createdonbehalfbyValue = default(string), long? versionnumber = default(long?), object entityimage = default(object), int? scope = default(int?), string inputparameters = default(string), string _modifiedbyValue = default(string), int? componentstate = default(int?), int? runas = default(int?), bool? ondemand = default(bool?), string workflowid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? entityimageTimestamp = default(long?), bool? syncworkflowlogonfailure = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? iscrmuiworkflow = default(bool?), string uniquename = default(string), string processroleassignment = default(string), int? businessprocesstype = default(int?), string formid = default(string), int? updatestage = default(int?), int? rank = default(int?), int? type = default(int?), string _owningbusinessunitValue = default(string), bool? triggeroncreate = default(bool?), string uidata = default(string), string _plugintypeidValue = default(string), int? category = default(int?), int? statecode = default(int?), string rendererobjecttypecode = default(string), string _owningteamValue = default(string), bool? asyncautodelete = default(bool?), string triggeronupdateattributelist = default(string), string description = default(string), int? statuscode = default(int?), bool? ismanaged = default(bool?), string workflowidunique = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _owninguserValue = default(string), string _parentworkflowidValue = default(string), string _createdbyValue = default(string), bool? subprocess = default(bool?), string entityimageUrl = default(string), string solutionid = default(string), int? languagecode = default(int?), string introducedversion = default(string), string _activeworkflowidValue = default(string), int? processorder = default(int?), bool? istransacted = default(bool?), string _modifiedonbehalfbyValue = default(string), string clientdata = default(string), int? mode = default(int?), bool? triggerondelete = default(bool?), string entityimageid = default(string), int? createstage = default(int?), string primaryentity = default(string), string _owneridValue = default(string), string _sdkmessageidValue = default(string), IList<MicrosoftDynamicsCRMphonetocaseprocess> workflowPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess> workflowLeadtoopportunitysalesprocess = default(IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess>), IList<MicrosoftDynamicsCRMopportunitysalesprocess> workflowOpportunitysalesprocess = default(IList<MicrosoftDynamicsCRMopportunitysalesprocess>), IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> lkSpiceSpiceBusinesscaseprocessProcessid = default(IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess>), IList<MicrosoftDynamicsCRMspiceSpiceprocess> lkSpiceSpiceprocessProcessid = default(IList<MicrosoftDynamicsCRMspiceSpiceprocess>), IList<MicrosoftDynamicsCRMsla> slabaseWorkflowid = default(IList<MicrosoftDynamicsCRMsla>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMasyncoperation> lkAsyncoperationWorkflowactivationid = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMworkflow parentworkflowid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMworkflow> workflowParentWorkflow = default(IList<MicrosoftDynamicsCRMworkflow>), IList<MicrosoftDynamicsCRMexpiredprocess> workflowExpiredprocess = default(IList<MicrosoftDynamicsCRMexpiredprocess>), IList<MicrosoftDynamicsCRMslaitem> slaitembaseWorkflowid = default(IList<MicrosoftDynamicsCRMslaitem>), IList<MicrosoftDynamicsCRMtranslationprocess> workflowTranslationprocess = default(IList<MicrosoftDynamicsCRMtranslationprocess>), IList<MicrosoftDynamicsCRMprocesstrigger> processProcesstrigger = default(IList<MicrosoftDynamicsCRMprocesstrigger>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMannotation> workflowAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMprocesssession> lkProcesssessionProcessid = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMprocessstage> processProcessstage = default(IList<MicrosoftDynamicsCRMprocessstage>), IList<MicrosoftDynamicsCRMsyncerror> workflowSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMnewprocess> workflowNewprocess = default(IList<MicrosoftDynamicsCRMnewprocess>), MicrosoftDynamicsCRMworkflow activeworkflowid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMworkflow> workflowActiveWorkflow = default(IList<MicrosoftDynamicsCRMworkflow>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMworkflow(int? deletestage = default(int?), string xaml = default(string), string iscustomizable = default(string), string name = default(string), string _createdonbehalfbyValue = default(string), string versionnumber = default(string), byte[] entityimage = default(byte[]), int? scope = default(int?), string inputparameters = default(string), string _modifiedbyValue = default(string), int? componentstate = default(int?), int? runas = default(int?), bool? ondemand = default(bool?), string workflowid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? entityimageTimestamp = default(long?), bool? syncworkflowlogonfailure = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? iscrmuiworkflow = default(bool?), string uniquename = default(string), string processroleassignment = default(string), int? businessprocesstype = default(int?), string formid = default(string), int? updatestage = default(int?), int? rank = default(int?), int? type = default(int?), string _owningbusinessunitValue = default(string), bool? triggeroncreate = default(bool?), string uidata = default(string), string _plugintypeidValue = default(string), int? category = default(int?), int? statecode = default(int?), string rendererobjecttypecode = default(string), string _owningteamValue = default(string), bool? asyncautodelete = default(bool?), string triggeronupdateattributelist = default(string), string description = default(string), int? statuscode = default(int?), bool? ismanaged = default(bool?), string workflowidunique = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _owninguserValue = default(string), string _parentworkflowidValue = default(string), string _createdbyValue = default(string), bool? subprocess = default(bool?), string entityimageUrl = default(string), string solutionid = default(string), int? languagecode = default(int?), string introducedversion = default(string), string _activeworkflowidValue = default(string), int? processorder = default(int?), bool? istransacted = default(bool?), string _modifiedonbehalfbyValue = default(string), string clientdata = default(string), int? mode = default(int?), bool? triggerondelete = default(bool?), string entityimageid = default(string), int? createstage = default(int?), string primaryentity = default(string), string _owneridValue = default(string), string _sdkmessageidValue = default(string), IList<MicrosoftDynamicsCRMphonetocaseprocess> workflowPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess> workflowLeadtoopportunitysalesprocess = default(IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess>), IList<MicrosoftDynamicsCRMopportunitysalesprocess> workflowOpportunitysalesprocess = default(IList<MicrosoftDynamicsCRMopportunitysalesprocess>), IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> lkSpiceSpiceBusinesscaseprocessProcessid = default(IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess>), IList<MicrosoftDynamicsCRMspiceSpiceprocess> lkSpiceSpiceprocessProcessid = default(IList<MicrosoftDynamicsCRMspiceSpiceprocess>), IList<MicrosoftDynamicsCRMspiceEssprocess> lkSpiceEssprocessProcessid = default(IList<MicrosoftDynamicsCRMspiceEssprocess>), IList<MicrosoftDynamicsCRMsla> slabaseWorkflowid = default(IList<MicrosoftDynamicsCRMsla>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMasyncoperation> lkAsyncoperationWorkflowactivationid = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMworkflow parentworkflowid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMworkflow> workflowParentWorkflow = default(IList<MicrosoftDynamicsCRMworkflow>), IList<MicrosoftDynamicsCRMexpiredprocess> workflowExpiredprocess = default(IList<MicrosoftDynamicsCRMexpiredprocess>), IList<MicrosoftDynamicsCRMslaitem> slaitembaseWorkflowid = default(IList<MicrosoftDynamicsCRMslaitem>), IList<MicrosoftDynamicsCRMtranslationprocess> workflowTranslationprocess = default(IList<MicrosoftDynamicsCRMtranslationprocess>), IList<MicrosoftDynamicsCRMprocesstrigger> processProcesstrigger = default(IList<MicrosoftDynamicsCRMprocesstrigger>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMannotation> workflowAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMprocesssession> lkProcesssessionProcessid = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMprocessstage> processProcessstage = default(IList<MicrosoftDynamicsCRMprocessstage>), IList<MicrosoftDynamicsCRMsyncerror> workflowSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMnewprocess> workflowNewprocess = default(IList<MicrosoftDynamicsCRMnewprocess>), MicrosoftDynamicsCRMworkflow activeworkflowid = default(MicrosoftDynamicsCRMworkflow), IList<MicrosoftDynamicsCRMworkflow> workflowActiveWorkflow = default(IList<MicrosoftDynamicsCRMworkflow>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
         {
             Deletestage = deletestage;
             Xaml = xaml;
@@ -97,6 +99,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             WorkflowOpportunitysalesprocess = workflowOpportunitysalesprocess;
             LkSpiceSpiceBusinesscaseprocessProcessid = lkSpiceSpiceBusinesscaseprocessProcessid;
             LkSpiceSpiceprocessProcessid = lkSpiceSpiceprocessProcessid;
+            LkSpiceEssprocessProcessid = lkSpiceEssprocessProcessid;
             SlabaseWorkflowid = slabaseWorkflowid;
             Owningbusinessunit = owningbusinessunit;
             Createdonbehalfby = createdonbehalfby;
@@ -141,7 +144,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -156,12 +159,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        public byte[] Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -457,6 +461,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "lk_spice_spiceprocess_processid")]
         public IList<MicrosoftDynamicsCRMspiceSpiceprocess> LkSpiceSpiceprocessProcessid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lk_spice_essprocess_processid")]
+        public IList<MicrosoftDynamicsCRMspiceEssprocess> LkSpiceEssprocessProcessid { get; set; }
 
         /// <summary>
         /// </summary>

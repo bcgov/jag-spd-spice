@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// roletemplate
+    /// Microsoft.Dynamics.CRM.roletemplate
     /// </summary>
     public partial class MicrosoftDynamicsCRMroletemplate
     {

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// processtrigger
+    /// Microsoft.Dynamics.CRM.processtrigger
     /// </summary>
     public partial class MicrosoftDynamicsCRMprocesstrigger
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMprocesstrigger class.
         /// </summary>
-        public MicrosoftDynamicsCRMprocesstrigger(string processtriggerid = default(string), string _formidValue = default(string), string methodid = default(string), string _owneridValue = default(string), int? scope = default(int?), int? componentstate = default(int?), string owninguser = default(string), int? pipelinestage = default(int?), string processtriggeridunique = default(string), string _processidValue = default(string), string _modifiedbyValue = default(string), string primaryentitytypecode = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string controlname = default(string), string owningbusinessunit = default(string), int? controltype = default(int?), string _modifiedonbehalfbyValue = default(string), long? versionnumber = default(long?), string eventProperty = default(string), bool? ismanaged = default(bool?), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> processTriggerSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemform formid = default(MicrosoftDynamicsCRMsystemform), MicrosoftDynamicsCRMworkflow processid = default(MicrosoftDynamicsCRMworkflow), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMprocesstrigger(string processtriggerid = default(string), string _formidValue = default(string), string methodid = default(string), string _owneridValue = default(string), int? scope = default(int?), int? componentstate = default(int?), string owninguser = default(string), int? pipelinestage = default(int?), string processtriggeridunique = default(string), string _processidValue = default(string), string _modifiedbyValue = default(string), string primaryentitytypecode = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string iscustomizable = default(string), string controlname = default(string), string owningbusinessunit = default(string), int? controltype = default(int?), string _modifiedonbehalfbyValue = default(string), string versionnumber = default(string), string eventProperty = default(string), bool? ismanaged = default(bool?), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> processTriggerSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemform formid = default(MicrosoftDynamicsCRMsystemform), MicrosoftDynamicsCRMworkflow processid = default(MicrosoftDynamicsCRMworkflow), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Processtriggerid = processtriggerid;
             this._formidValue = _formidValue;
@@ -145,7 +145,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -170,7 +170,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

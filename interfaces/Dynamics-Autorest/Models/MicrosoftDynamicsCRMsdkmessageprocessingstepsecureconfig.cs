@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// sdkmessageprocessingstepsecureconfig
+    /// Microsoft.Dynamics.CRM.sdkmessageprocessingstepsecureconfig
     /// </summary>
     public partial class MicrosoftDynamicsCRMsdkmessageprocessingstepsecureconfig
     {

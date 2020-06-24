@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// similarityrule
+    /// Microsoft.Dynamics.CRM.similarityrule
     /// </summary>
     public partial class MicrosoftDynamicsCRMsimilarityrule
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsimilarityrule class.
         /// </summary>
-        public MicrosoftDynamicsCRMsimilarityrule(int? statuscode = default(int?), string similarityruleid = default(string), string similarityruleidunique = default(string), int? ngramsize = default(int?), int? baseentitytypecode = default(int?), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), bool? excludeinactiverecords = default(bool?), string ruleconditionxml = default(string), int? maxkeywords = default(int?), string activerulefetchxml = default(string), object exchangerate = default(object), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string name = default(string), int? componentstate = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string baseentityname = default(string), string solutionid = default(string), string introducedversion = default(string), int? utcconversiontimezonecode = default(int?), int? importsequencenumber = default(int?), string fetchxmllist = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string description = default(string), long? versionnumber = default(long?), string _organizationidValue = default(string), string _createdonbehalfbyValue = default(string), bool? ismanaged = default(bool?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string matchingentityname = default(string), int? matchingentitytypecode = default(int?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> similarityruleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMsimilarityrule(int? statuscode = default(int?), string similarityruleid = default(string), string similarityruleidunique = default(string), int? ngramsize = default(int?), int? baseentitytypecode = default(int?), int? statecode = default(int?), string _modifiedonbehalfbyValue = default(string), bool? excludeinactiverecords = default(bool?), string ruleconditionxml = default(string), int? maxkeywords = default(int?), string activerulefetchxml = default(string), decimal? exchangerate = default(decimal?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string name = default(string), int? componentstate = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string baseentityname = default(string), string solutionid = default(string), string introducedversion = default(string), int? utcconversiontimezonecode = default(int?), int? importsequencenumber = default(int?), string fetchxmllist = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string description = default(string), string versionnumber = default(string), string _organizationidValue = default(string), string _createdonbehalfbyValue = default(string), bool? ismanaged = default(bool?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string matchingentityname = default(string), int? matchingentitytypecode = default(int?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> similarityruleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
             Statuscode = statuscode;
             Similarityruleid = similarityruleid;
@@ -135,7 +135,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -205,7 +205,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

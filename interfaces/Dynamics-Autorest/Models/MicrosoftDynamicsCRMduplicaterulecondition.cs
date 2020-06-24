@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// duplicaterulecondition
+    /// Microsoft.Dynamics.CRM.duplicaterulecondition
     /// </summary>
     public partial class MicrosoftDynamicsCRMduplicaterulecondition
     {

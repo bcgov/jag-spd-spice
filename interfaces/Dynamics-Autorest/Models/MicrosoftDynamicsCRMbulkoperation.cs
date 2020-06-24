@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// bulkoperation
+    /// Microsoft.Dynamics.CRM.bulkoperation
     /// </summary>
     public partial class MicrosoftDynamicsCRMbulkoperation
     {

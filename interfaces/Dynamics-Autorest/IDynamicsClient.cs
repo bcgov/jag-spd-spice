@@ -11,8 +11,7 @@ namespace Gov.Jag.Spice.Interfaces
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This OData service is located at
-    /// https://wsgw.test.jag.gov.bc.ca/spdcss/spd-spice-train/api/data/v9.0/
+    /// This OData service is located at http://localhost
     /// </summary>
     public partial interface IDynamicsClient : System.IDisposable
     {
@@ -32,6 +31,31 @@ namespace Gov.Jag.Spice.Interfaces
         JsonSerializerSettings DeserializationSettings { get; }
 
         /// <summary>
+        /// Show only the first n items
+        /// </summary>
+        int? Top329 { get; set; }
+
+        /// <summary>
+        /// Skip the first n items
+        /// </summary>
+        int? Skip329 { get; set; }
+
+        /// <summary>
+        /// Include count of items
+        /// </summary>
+        bool? Count329 { get; set; }
+
+        /// <summary>
+        /// Filter items by property values
+        /// </summary>
+        string Filter329 { get; set; }
+
+        /// <summary>
+        /// Search items by search phrases
+        /// </summary>
+        string Search329 { get; set; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client
         /// subscription.
         /// </summary>
@@ -44,9 +68,429 @@ namespace Gov.Jag.Spice.Interfaces
         IAccounts Accounts { get; }
 
         /// <summary>
+        /// Gets the IAccountspicerequiredcheckses.
+        /// </summary>
+        IAccountspicerequiredcheckses Accountspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IAccountincident.
+        /// </summary>
+        IAccountincident Accountincident { get; }
+
+        /// <summary>
+        /// Gets the IAccountspiceaccountcaseassignment.
+        /// </summary>
+        IAccountspiceaccountcaseassignment Accountspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the ICompanyid.
+        /// </summary>
+        ICompanyid Companyid { get; }
+
+        /// <summary>
+        /// Gets the IContactaccount.
+        /// </summary>
+        IContactaccount Contactaccount { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidspicerequiredchecks Regardingobjectidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IActivityidspicerequiredchecksactivityparty.
+        /// </summary>
+        IActivityidspicerequiredchecksactivityparty Activityidspicerequiredchecksactivityparty { get; }
+
+        /// <summary>
+        /// Gets the IPartyidspiceministryemployee.
+        /// </summary>
+        IPartyidspiceministryemployee Partyidspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IActivitypointerspicerequiredchecks.
+        /// </summary>
+        IActivitypointerspicerequiredchecks Activitypointerspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompany.
+        /// </summary>
+        IRegardingobjectidspicecompany Regardingobjectidspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequest.
+        /// </summary>
+        IRegardingobjectidspiceexportrequest Regardingobjectidspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicealiases.
+        /// </summary>
+        IObjectidspicealiases Objectidspicealiases { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicecompany.
+        /// </summary>
+        IObjectidspicecompany Objectidspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceministry.
+        /// </summary>
+        IObjectidspiceministry Objectidspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicepreviousaddresses.
+        /// </summary>
+        IObjectidspicepreviousaddresses Objectidspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicerequiredchecks.
+        /// </summary>
+        IObjectidspicerequiredchecks Objectidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyappointment.
+        /// </summary>
+        IRegardingobjectidspicecompanyappointment Regardingobjectidspicecompanyappointment { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestappointment.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestappointment Regardingobjectidspiceexportrequestappointment { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceaccountcaseassignment.
+        /// </summary>
+        IRegardingobjectidspiceaccountcaseassignment Regardingobjectidspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicealiases.
+        /// </summary>
+        IRegardingobjectidspicealiases Regardingobjectidspicealiases { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceessprocess.
+        /// </summary>
+        IRegardingobjectidspiceessprocess Regardingobjectidspiceessprocess { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicegovministry.
+        /// </summary>
+        IRegardingobjectidspicegovministry Regardingobjectidspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicelcrblicencetype.
+        /// </summary>
+        IRegardingobjectidspicelcrblicencetype Regardingobjectidspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceministry.
+        /// </summary>
+        IRegardingobjectidspiceministry Regardingobjectidspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceministryemployee.
+        /// </summary>
+        IRegardingobjectidspiceministryemployee Regardingobjectidspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicepreviousaddresses.
+        /// </summary>
+        IRegardingobjectidspicepreviousaddresses Regardingobjectidspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicereasonforscreening.
+        /// </summary>
+        IRegardingobjectidspicereasonforscreening Regardingobjectidspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceservices.
+        /// </summary>
+        IRegardingobjectidspiceservices Regardingobjectidspiceservices { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicespicebusinesscaseprocess.
+        /// </summary>
+        IRegardingobjectidspicespicebusinesscaseprocess Regardingobjectidspicespicebusinesscaseprocess { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicespiceprocess.
+        /// </summary>
+        IRegardingobjectidspicespiceprocess Regardingobjectidspicespiceprocess { get; }
+
+        /// <summary>
+        /// Gets the IBookableresourcebookingheaderspicerequiredcheckses.
+        /// </summary>
+        IBookableresourcebookingheaderspicerequiredcheckses Bookableresourcebookingheaderspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IBookableresourcebookingspicerequiredcheckses.
+        /// </summary>
+        IBookableresourcebookingspicerequiredcheckses Bookableresourcebookingspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IBulkoperationspicerequiredcheckses.
+        /// </summary>
+        IBulkoperationspicerequiredcheckses Bulkoperationspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceaccountcaseassignment.
+        /// </summary>
+        IBusinessunitspiceaccountcaseassignment Businessunitspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicecompany.
+        /// </summary>
+        IBusinessunitspicecompany Businessunitspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceexportrequest.
+        /// </summary>
+        IBusinessunitspiceexportrequest Businessunitspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicegovministry.
+        /// </summary>
+        IBusinessunitspicegovministry Businessunitspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicelcrblicencetype.
+        /// </summary>
+        IBusinessunitspicelcrblicencetype Businessunitspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceministry.
+        /// </summary>
+        IBusinessunitspiceministry Businessunitspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceministryemployee.
+        /// </summary>
+        IBusinessunitspiceministryemployee Businessunitspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicepreviousaddresses.
+        /// </summary>
+        IBusinessunitspicepreviousaddresses Businessunitspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicereasonforscreening.
+        /// </summary>
+        IBusinessunitspicereasonforscreening Businessunitspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksbusinessunitowningbusinessunit.
+        /// </summary>
+        IRequiredchecksbusinessunitowningbusinessunit Requiredchecksbusinessunitowningbusinessunit { get; }
+
+        /// <summary>
+        /// Gets the ICampaignactivityspicerequiredcheckses.
+        /// </summary>
+        ICampaignactivityspicerequiredcheckses Campaignactivityspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IOriginatingactivityidspicerequiredcheckscampaignresponse.
+        /// </summary>
+        IOriginatingactivityidspicerequiredcheckscampaignresponse Originatingactivityidspicerequiredcheckscampaignresponse { get; }
+
+        /// <summary>
+        /// Gets the ICampaignspicerequiredcheckses.
+        /// </summary>
+        ICampaignspicerequiredcheckses Campaignspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IRecord1idspicecompany.
+        /// </summary>
+        IRecord1idspicecompany Record1idspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IRecord1idspicerequiredchecks.
+        /// </summary>
+        IRecord1idspicerequiredchecks Record1idspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRecord2idspicecompany.
+        /// </summary>
+        IRecord2idspicecompany Record2idspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IRecord2idspicerequiredchecks.
+        /// </summary>
+        IRecord2idspicerequiredchecks Record2idspicerequiredchecks { get; }
+
+        /// <summary>
         /// Gets the IContacts.
         /// </summary>
         IContacts Contacts { get; }
+
+        /// <summary>
+        /// Gets the IContactspicerequiredcheckses.
+        /// </summary>
+        IContactspicerequiredcheckses Contactspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IContactincident.
+        /// </summary>
+        IContactincident Contactincident { get; }
+
+        /// <summary>
+        /// Gets the IContactspiceaccountcaseassignment.
+        /// </summary>
+        IContactspiceaccountcaseassignment Contactspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IContactspicealiases.
+        /// </summary>
+        IContactspicealiases Contactspicealiases { get; }
+
+        /// <summary>
+        /// Gets the IContactspicepreviousaddresses.
+        /// </summary>
+        IContactspicepreviousaddresses Contactspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IContractspicerequiredcheckses.
+        /// </summary>
+        IContractspicerequiredcheckses Contractspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceaccountcaseassignment.
+        /// </summary>
+        IBaserecordidspiceaccountcaseassignment Baserecordidspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicecompany.
+        /// </summary>
+        IBaserecordidspicecompany Baserecordidspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceexportrequest.
+        /// </summary>
+        IBaserecordidspiceexportrequest Baserecordidspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicegovministry.
+        /// </summary>
+        IBaserecordidspicegovministry Baserecordidspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicelcrblicencetype.
+        /// </summary>
+        IBaserecordidspicelcrblicencetype Baserecordidspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceministry.
+        /// </summary>
+        IBaserecordidspiceministry Baserecordidspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceministryemployee.
+        /// </summary>
+        IBaserecordidspiceministryemployee Baserecordidspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicepreviousaddresses.
+        /// </summary>
+        IBaserecordidspicepreviousaddresses Baserecordidspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicereasonforscreening.
+        /// </summary>
+        IBaserecordidspicereasonforscreening Baserecordidspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicerequiredchecks.
+        /// </summary>
+        IBaserecordidspicerequiredchecks Baserecordidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceservices.
+        /// </summary>
+        IBaserecordidspiceservices Baserecordidspiceservices { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceaccountcaseassignment.
+        /// </summary>
+        IDuplicaterecordidspiceaccountcaseassignment Duplicaterecordidspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicecompany.
+        /// </summary>
+        IDuplicaterecordidspicecompany Duplicaterecordidspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceexportrequest.
+        /// </summary>
+        IDuplicaterecordidspiceexportrequest Duplicaterecordidspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicegovministry.
+        /// </summary>
+        IDuplicaterecordidspicegovministry Duplicaterecordidspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicelcrblicencetype.
+        /// </summary>
+        IDuplicaterecordidspicelcrblicencetype Duplicaterecordidspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceministry.
+        /// </summary>
+        IDuplicaterecordidspiceministry Duplicaterecordidspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceministryemployee.
+        /// </summary>
+        IDuplicaterecordidspiceministryemployee Duplicaterecordidspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicepreviousaddresses.
+        /// </summary>
+        IDuplicaterecordidspicepreviousaddresses Duplicaterecordidspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicereasonforscreening.
+        /// </summary>
+        IDuplicaterecordidspicereasonforscreening Duplicaterecordidspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicerequiredchecks.
+        /// </summary>
+        IDuplicaterecordidspicerequiredchecks Duplicaterecordidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceservices.
+        /// </summary>
+        IDuplicaterecordidspiceservices Duplicaterecordidspiceservices { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyemail.
+        /// </summary>
+        IRegardingobjectidspicecompanyemail Regardingobjectidspicecompanyemail { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestemail.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestemail Regardingobjectidspiceexportrequestemail { get; }
+
+        /// <summary>
+        /// Gets the IEntitlementspicerequiredcheckses.
+        /// </summary>
+        IEntitlementspicerequiredcheckses Entitlementspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IEntitlementtemplatespicerequiredcheckses.
+        /// </summary>
+        IEntitlementtemplatespicerequiredcheckses Entitlementtemplatespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyfax.
+        /// </summary>
+        IRegardingobjectidspicecompanyfax Regardingobjectidspicecompanyfax { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestfax.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestfax Regardingobjectidspiceexportrequestfax { get; }
 
         /// <summary>
         /// Gets the IIncidents.
@@ -54,14 +498,269 @@ namespace Gov.Jag.Spice.Interfaces
         IIncidents Incidents { get; }
 
         /// <summary>
+        /// Gets the IBpfincidentspiceessprocess.
+        /// </summary>
+        IBpfincidentspiceessprocess Bpfincidentspiceessprocess { get; }
+
+        /// <summary>
+        /// Gets the IBpfincidentspicespicebusinesscaseprocess.
+        /// </summary>
+        IBpfincidentspicespicebusinesscaseprocess Bpfincidentspicespicebusinesscaseprocess { get; }
+
+        /// <summary>
+        /// Gets the IBpfincidentspicespiceprocess.
+        /// </summary>
+        IBpfincidentspicespiceprocess Bpfincidentspicespiceprocess { get; }
+
+        /// <summary>
+        /// Gets the IIncidentspicerequiredcheckses.
+        /// </summary>
+        IIncidentspicerequiredcheckses Incidentspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IApplicantid.
+        /// </summary>
+        IApplicantid Applicantid { get; }
+
+        /// <summary>
+        /// Gets the IApplyingpersonid.
+        /// </summary>
+        IApplyingpersonid Applyingpersonid { get; }
+
+        /// <summary>
+        /// Gets the IClient.
+        /// </summary>
+        IClient Client { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestincident.
+        /// </summary>
+        IExportrequestincident Exportrequestincident { get; }
+
+        /// <summary>
+        /// Gets the IIncidentspiceaccountcaseassignment.
+        /// </summary>
+        IIncidentspiceaccountcaseassignment Incidentspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeid.
+        /// </summary>
+        ILcrblicencetypeid Lcrblicencetypeid { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningid.
+        /// </summary>
+        IReasonforscreeningid Reasonforscreeningid { get; }
+
+        /// <summary>
+        /// Gets the IRequesterhiringmanager.
+        /// </summary>
+        IRequesterhiringmanager Requesterhiringmanager { get; }
+
+        /// <summary>
+        /// Gets the IReturnresultto.
+        /// </summary>
+        IReturnresultto Returnresultto { get; }
+
+        /// <summary>
+        /// Gets the IServiceid.
+        /// </summary>
+        IServiceid Serviceid { get; }
+
+        /// <summary>
+        /// Gets the IWfcrrupassback.
+        /// </summary>
+        IWfcrrupassback Wfcrrupassback { get; }
+
+        /// <summary>
+        /// Gets the IInteractionforemailspicerequiredcheckses.
+        /// </summary>
+        IInteractionforemailspicerequiredcheckses Interactionforemailspicerequiredcheckses { get; }
+
+        /// <summary>
         /// Gets the IInvoices.
         /// </summary>
         IInvoices Invoices { get; }
 
         /// <summary>
+        /// Gets the IInvoicespicerequiredcheckses.
+        /// </summary>
+        IInvoicespicerequiredcheckses Invoicespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IKnowledgearticlespicerequiredcheckses.
+        /// </summary>
+        IKnowledgearticlespicerequiredcheckses Knowledgearticlespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IKnowledgebaserecordspicerequiredcheckses.
+        /// </summary>
+        IKnowledgebaserecordspicerequiredcheckses Knowledgebaserecordspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the ILeadspicerequiredcheckses.
+        /// </summary>
+        ILeadspicerequiredcheckses Leadspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyletter.
+        /// </summary>
+        IRegardingobjectidspicecompanyletter Regardingobjectidspicecompanyletter { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestletter.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestletter Regardingobjectidspiceexportrequestletter { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksmailboxsendermailboxid.
+        /// </summary>
+        IRequiredchecksmailboxsendermailboxid Requiredchecksmailboxsendermailboxid { get; }
+
+        /// <summary>
+        /// Gets the IOpportunityspicerequiredcheckses.
+        /// </summary>
+        IOpportunityspicerequiredcheckses Opportunityspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicealiases.
+        /// </summary>
+        IOrganizationspicealiases Organizationspicealiases { get; }
+
+        /// <summary>
+        /// Gets the IOrganizationspiceessprocess.
+        /// </summary>
+        IOrganizationspiceessprocess Organizationspiceessprocess { get; }
+
+        /// <summary>
+        /// Gets the IOrganizationspiceservices.
+        /// </summary>
+        IOrganizationspiceservices Organizationspiceservices { get; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicespicebusinesscaseprocess.
+        /// </summary>
+        IOrganizationspicespicebusinesscaseprocess Organizationspicespicebusinesscaseprocess { get; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicespiceprocess.
+        /// </summary>
+        IOrganizationspicespiceprocess Organizationspicespiceprocess { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyphonecall.
+        /// </summary>
+        IRegardingobjectidspicecompanyphonecall Regardingobjectidspicecompanyphonecall { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestphonecall.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestphonecall Regardingobjectidspiceexportrequestphonecall { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceaccountcaseassignment.
+        /// </summary>
+        IObjectidspiceaccountcaseassignment Objectidspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceessprocess.
+        /// </summary>
+        IObjectidspiceessprocess Objectidspiceessprocess { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceexportrequest.
+        /// </summary>
+        IObjectidspiceexportrequest Objectidspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicegovministry.
+        /// </summary>
+        IObjectidspicegovministry Objectidspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicelcrblicencetype.
+        /// </summary>
+        IObjectidspicelcrblicencetype Objectidspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceministryemployee.
+        /// </summary>
+        IObjectidspiceministryemployee Objectidspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicereasonforscreening.
+        /// </summary>
+        IObjectidspicereasonforscreening Objectidspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceservices.
+        /// </summary>
+        IObjectidspiceservices Objectidspiceservices { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicespicebusinesscaseprocess.
+        /// </summary>
+        IObjectidspicespicebusinesscaseprocess Objectidspicespicebusinesscaseprocess { get; }
+
+        /// <summary>
+        /// Gets the IObjectidspicespiceprocess.
+        /// </summary>
+        IObjectidspicespiceprocess Objectidspicespiceprocess { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessactivestageid.
+        /// </summary>
+        ILkspiceessprocessactivestageid Lkspiceessprocessactivestageid { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessactivestageid.
+        /// </summary>
+        ILkspicespicebusinesscaseprocessactivestageid Lkspicespicebusinesscaseprocessactivestageid { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessactivestageid.
+        /// </summary>
+        ILkspicespiceprocessactivestageid Lkspicespiceprocessactivestageid { get; }
+
+        /// <summary>
+        /// Gets the IQuotespicerequiredcheckses.
+        /// </summary>
+        IQuotespicerequiredcheckses Quotespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyrecurringappointmentmaster.
+        /// </summary>
+        IRegardingobjectidspicecompanyrecurringappointmentmaster Regardingobjectidspicecompanyrecurringappointmentmaster { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestrecurringappointmentmaster.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestrecurringappointmentmaster Regardingobjectidspiceexportrequestrecurringappointmentmaster { get; }
+
+        /// <summary>
+        /// Gets the ISalesorderspicerequiredcheckses.
+        /// </summary>
+        ISalesorderspicerequiredcheckses Salesorderspicerequiredcheckses { get; }
+
+        /// <summary>
         /// Gets the ISavedqueries.
         /// </summary>
         ISavedqueries Savedqueries { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyserviceappointment.
+        /// </summary>
+        IRegardingobjectidspicecompanyserviceappointment Regardingobjectidspicecompanyserviceappointment { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestserviceappointment.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestserviceappointment Regardingobjectidspiceexportrequestserviceappointment { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksserviceserviceid.
+        /// </summary>
+        IRequiredchecksserviceserviceid Requiredchecksserviceserviceid { get; }
 
         /// <summary>
         /// Gets the ISharepointdocumentlocations.
@@ -74,9 +773,89 @@ namespace Gov.Jag.Spice.Interfaces
         ISharepointsites Sharepointsites { get; }
 
         /// <summary>
+        /// Gets the ISitespicerequiredcheckses.
+        /// </summary>
+        ISitespicerequiredcheckses Sitespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksslaslaid.
+        /// </summary>
+        IRequiredchecksslaslaid Requiredchecksslaslaid { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksslaslainvokedid.
+        /// </summary>
+        IRequiredchecksslaslainvokedid Requiredchecksslaslainvokedid { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanysocialactivity.
+        /// </summary>
+        IRegardingobjectidspicecompanysocialactivity Regardingobjectidspicecompanysocialactivity { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestsocialactivity.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestsocialactivity Regardingobjectidspiceexportrequestsocialactivity { get; }
+
+        /// <summary>
         /// Gets the IAccountcaseassignments.
         /// </summary>
         IAccountcaseassignments Accountcaseassignments { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentasyncoperations.
+        /// </summary>
+        IAccountcaseassignmentasyncoperations Accountcaseassignmentasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentbulkdeletefailures.
+        /// </summary>
+        IAccountcaseassignmentbulkdeletefailures Accountcaseassignmentbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentduplicatebaserecord.
+        /// </summary>
+        IAccountcaseassignmentduplicatebaserecord Accountcaseassignmentduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentduplicatematchingrecord.
+        /// </summary>
+        IAccountcaseassignmentduplicatematchingrecord Accountcaseassignmentduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentmailboxtrackingfolders.
+        /// </summary>
+        IAccountcaseassignmentmailboxtrackingfolders Accountcaseassignmentmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentprincipalobjectattributeaccesses.
+        /// </summary>
+        IAccountcaseassignmentprincipalobjectattributeaccesses Accountcaseassignmentprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentprocesssession.
+        /// </summary>
+        IAccountcaseassignmentprocesssession Accountcaseassignmentprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentsyncerrors.
+        /// </summary>
+        IAccountcaseassignmentsyncerrors Accountcaseassignmentsyncerrors { get; }
+
+        /// <summary>
+        /// Gets the IAssociatedcaseid.
+        /// </summary>
+        IAssociatedcaseid Associatedcaseid { get; }
+
+        /// <summary>
+        /// Gets the IBusinessid.
+        /// </summary>
+        IBusinessid Businessid { get; }
+
+        /// <summary>
+        /// Gets the IContactcaseassignmentid.
+        /// </summary>
+        IContactcaseassignmentid Contactcaseassignmentid { get; }
 
         /// <summary>
         /// Gets the IAliaseses.
@@ -84,14 +863,209 @@ namespace Gov.Jag.Spice.Interfaces
         IAliaseses Aliaseses { get; }
 
         /// <summary>
+        /// Gets the IAliascontact.
+        /// </summary>
+        IAliascontact Aliascontact { get; }
+
+        /// <summary>
+        /// Gets the IAliasesannotations.
+        /// </summary>
+        IAliasesannotations Aliasesannotations { get; }
+
+        /// <summary>
+        /// Gets the IAliasesasyncoperations.
+        /// </summary>
+        IAliasesasyncoperations Aliasesasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IAliasesbulkdeletefailures.
+        /// </summary>
+        IAliasesbulkdeletefailures Aliasesbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IAliasesmailboxtrackingfolders.
+        /// </summary>
+        IAliasesmailboxtrackingfolders Aliasesmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IAliasesprincipalobjectattributeaccesses.
+        /// </summary>
+        IAliasesprincipalobjectattributeaccesses Aliasesprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IAliasesprocesssession.
+        /// </summary>
+        IAliasesprocesssession Aliasesprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IAliasessyncerrors.
+        /// </summary>
+        IAliasessyncerrors Aliasessyncerrors { get; }
+
+        /// <summary>
         /// Gets the ICompanies.
         /// </summary>
         ICompanies Companies { get; }
 
         /// <summary>
+        /// Gets the ICompanyaccount.
+        /// </summary>
+        ICompanyaccount Companyaccount { get; }
+
+        /// <summary>
+        /// Gets the ICompanyactivitypointers.
+        /// </summary>
+        ICompanyactivitypointers Companyactivitypointers { get; }
+
+        /// <summary>
+        /// Gets the ICompanyannotations.
+        /// </summary>
+        ICompanyannotations Companyannotations { get; }
+
+        /// <summary>
+        /// Gets the ICompanyappointments.
+        /// </summary>
+        ICompanyappointments Companyappointments { get; }
+
+        /// <summary>
+        /// Gets the ICompanyasyncoperations.
+        /// </summary>
+        ICompanyasyncoperations Companyasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the ICompanybulkdeletefailures.
+        /// </summary>
+        ICompanybulkdeletefailures Companybulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the ICompanyconnections1.
+        /// </summary>
+        ICompanyconnections1 Companyconnections1 { get; }
+
+        /// <summary>
+        /// Gets the ICompanyconnections2.
+        /// </summary>
+        ICompanyconnections2 Companyconnections2 { get; }
+
+        /// <summary>
+        /// Gets the ICompanyduplicatebaserecord.
+        /// </summary>
+        ICompanyduplicatebaserecord Companyduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the ICompanyduplicatematchingrecord.
+        /// </summary>
+        ICompanyduplicatematchingrecord Companyduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the ICompanyemails.
+        /// </summary>
+        ICompanyemails Companyemails { get; }
+
+        /// <summary>
+        /// Gets the ICompanyfaxes.
+        /// </summary>
+        ICompanyfaxes Companyfaxes { get; }
+
+        /// <summary>
+        /// Gets the ICompanyletters.
+        /// </summary>
+        ICompanyletters Companyletters { get; }
+
+        /// <summary>
+        /// Gets the ICompanymailboxtrackingfolders.
+        /// </summary>
+        ICompanymailboxtrackingfolders Companymailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the ICompanyphonecalls.
+        /// </summary>
+        ICompanyphonecalls Companyphonecalls { get; }
+
+        /// <summary>
+        /// Gets the ICompanyprincipalobjectattributeaccesses.
+        /// </summary>
+        ICompanyprincipalobjectattributeaccesses Companyprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the ICompanyprocesssession.
+        /// </summary>
+        ICompanyprocesssession Companyprocesssession { get; }
+
+        /// <summary>
+        /// Gets the ICompanyrecurringappointmentmasters.
+        /// </summary>
+        ICompanyrecurringappointmentmasters Companyrecurringappointmentmasters { get; }
+
+        /// <summary>
+        /// Gets the ICompanyserviceappointments.
+        /// </summary>
+        ICompanyserviceappointments Companyserviceappointments { get; }
+
+        /// <summary>
+        /// Gets the ICompanysocialactivities.
+        /// </summary>
+        ICompanysocialactivities Companysocialactivities { get; }
+
+        /// <summary>
+        /// Gets the ICompanyspicerequiredcheckses.
+        /// </summary>
+        ICompanyspicerequiredcheckses Companyspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the ICompanysyncerrors.
+        /// </summary>
+        ICompanysyncerrors Companysyncerrors { get; }
+
+        /// <summary>
+        /// Gets the ICompanytasks.
+        /// </summary>
+        ICompanytasks Companytasks { get; }
+
+        /// <summary>
         /// Gets the IContactaccountset.
         /// </summary>
         IContactaccountset Contactaccountset { get; }
+
+        /// <summary>
+        /// Gets the IEssprocesses.
+        /// </summary>
+        IEssprocesses Essprocesses { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessasyncoperations.
+        /// </summary>
+        IEssprocessasyncoperations Essprocessasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessbulkdeletefailures.
+        /// </summary>
+        IEssprocessbulkdeletefailures Essprocessbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessmailboxtrackingfolders.
+        /// </summary>
+        IEssprocessmailboxtrackingfolders Essprocessmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        IEssprocessprincipalobjectattributeaccesses Essprocessprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessprocesssession.
+        /// </summary>
+        IEssprocessprocesssession Essprocessprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IEssprocesssyncerrors.
+        /// </summary>
+        IEssprocesssyncerrors Essprocesssyncerrors { get; }
+
+        /// <summary>
+        /// Gets the IEssprocessworkflowlogs.
+        /// </summary>
+        IEssprocessworkflowlogs Essprocessworkflowlogs { get; }
 
         /// <summary>
         /// Gets the IExportrequestincidentset.
@@ -104,9 +1078,149 @@ namespace Gov.Jag.Spice.Interfaces
         IExportrequests Exportrequests { get; }
 
         /// <summary>
+        /// Gets the IExportrequestactivitypointers.
+        /// </summary>
+        IExportrequestactivitypointers Exportrequestactivitypointers { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestappointments.
+        /// </summary>
+        IExportrequestappointments Exportrequestappointments { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestasyncoperations.
+        /// </summary>
+        IExportrequestasyncoperations Exportrequestasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestbulkdeletefailures.
+        /// </summary>
+        IExportrequestbulkdeletefailures Exportrequestbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestduplicatebaserecord.
+        /// </summary>
+        IExportrequestduplicatebaserecord Exportrequestduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestduplicatematchingrecord.
+        /// </summary>
+        IExportrequestduplicatematchingrecord Exportrequestduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestemails.
+        /// </summary>
+        IExportrequestemails Exportrequestemails { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestfaxes.
+        /// </summary>
+        IExportrequestfaxes Exportrequestfaxes { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestletters.
+        /// </summary>
+        IExportrequestletters Exportrequestletters { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestmailboxtrackingfolders.
+        /// </summary>
+        IExportrequestmailboxtrackingfolders Exportrequestmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestphonecalls.
+        /// </summary>
+        IExportrequestphonecalls Exportrequestphonecalls { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestprincipalobjectattributeaccesses.
+        /// </summary>
+        IExportrequestprincipalobjectattributeaccesses Exportrequestprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestprocesssession.
+        /// </summary>
+        IExportrequestprocesssession Exportrequestprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestrecurringappointmentmasters.
+        /// </summary>
+        IExportrequestrecurringappointmentmasters Exportrequestrecurringappointmentmasters { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestserviceappointments.
+        /// </summary>
+        IExportrequestserviceappointments Exportrequestserviceappointments { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestsocialactivities.
+        /// </summary>
+        IExportrequestsocialactivities Exportrequestsocialactivities { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestspicerequiredcheckses.
+        /// </summary>
+        IExportrequestspicerequiredcheckses Exportrequestspicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IExportrequestsyncerrors.
+        /// </summary>
+        IExportrequestsyncerrors Exportrequestsyncerrors { get; }
+
+        /// <summary>
+        /// Gets the IExportrequesttasks.
+        /// </summary>
+        IExportrequesttasks Exportrequesttasks { get; }
+
+        /// <summary>
         /// Gets the IGovministries.
         /// </summary>
         IGovministries Govministries { get; }
+
+        /// <summary>
+        /// Gets the IGovministryasyncoperations.
+        /// </summary>
+        IGovministryasyncoperations Govministryasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IGovministrybulkdeletefailures.
+        /// </summary>
+        IGovministrybulkdeletefailures Govministrybulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IGovministryduplicatebaserecord.
+        /// </summary>
+        IGovministryduplicatebaserecord Govministryduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IGovministryduplicatematchingrecord.
+        /// </summary>
+        IGovministryduplicatematchingrecord Govministryduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IGovministrymailboxtrackingfolders.
+        /// </summary>
+        IGovministrymailboxtrackingfolders Govministrymailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IGovministryprincipalobjectattributeaccesses.
+        /// </summary>
+        IGovministryprincipalobjectattributeaccesses Govministryprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IGovministryprocesssession.
+        /// </summary>
+        IGovministryprocesssession Govministryprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IGovministryspiceministry.
+        /// </summary>
+        IGovministryspiceministry Govministryspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IGovministrysyncerrors.
+        /// </summary>
+        IGovministrysyncerrors Govministrysyncerrors { get; }
 
         /// <summary>
         /// Gets the ILcrblicencetypes.
@@ -114,9 +1228,119 @@ namespace Gov.Jag.Spice.Interfaces
         ILcrblicencetypes Lcrblicencetypes { get; }
 
         /// <summary>
+        /// Gets the ILcrblicencetypeasyncoperations.
+        /// </summary>
+        ILcrblicencetypeasyncoperations Lcrblicencetypeasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypebulkdeletefailures.
+        /// </summary>
+        ILcrblicencetypebulkdeletefailures Lcrblicencetypebulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeduplicatebaserecord.
+        /// </summary>
+        ILcrblicencetypeduplicatebaserecord Lcrblicencetypeduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeduplicatematchingrecord.
+        /// </summary>
+        ILcrblicencetypeduplicatematchingrecord Lcrblicencetypeduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeincident.
+        /// </summary>
+        ILcrblicencetypeincident Lcrblicencetypeincident { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypemailboxtrackingfolders.
+        /// </summary>
+        ILcrblicencetypemailboxtrackingfolders Lcrblicencetypemailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeprincipalobjectattributeaccesses.
+        /// </summary>
+        ILcrblicencetypeprincipalobjectattributeaccesses Lcrblicencetypeprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeprocesssession.
+        /// </summary>
+        ILcrblicencetypeprocesssession Lcrblicencetypeprocesssession { get; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypesyncerrors.
+        /// </summary>
+        ILcrblicencetypesyncerrors Lcrblicencetypesyncerrors { get; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         IMinistries Ministries { get; }
+
+        /// <summary>
+        /// Gets the IGovministryid.
+        /// </summary>
+        IGovministryid Govministryid { get; }
+
+        /// <summary>
+        /// Gets the IMinistryannotations.
+        /// </summary>
+        IMinistryannotations Ministryannotations { get; }
+
+        /// <summary>
+        /// Gets the IMinistryasyncoperations.
+        /// </summary>
+        IMinistryasyncoperations Ministryasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IMinistrybulkdeletefailures.
+        /// </summary>
+        IMinistrybulkdeletefailures Ministrybulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IMinistryduplicatebaserecord.
+        /// </summary>
+        IMinistryduplicatebaserecord Ministryduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IMinistryduplicatematchingrecord.
+        /// </summary>
+        IMinistryduplicatematchingrecord Ministryduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IMinistrymailboxtrackingfolders.
+        /// </summary>
+        IMinistrymailboxtrackingfolders Ministrymailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IMinistryprincipalobjectattributeaccesses.
+        /// </summary>
+        IMinistryprincipalobjectattributeaccesses Ministryprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IMinistryprocesssession.
+        /// </summary>
+        IMinistryprocesssession Ministryprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IMinistrysyncerrors.
+        /// </summary>
+        IMinistrysyncerrors Ministrysyncerrors { get; }
+
+        /// <summary>
+        /// Gets the ISpiceministryincidentclient.
+        /// </summary>
+        ISpiceministryincidentclient Spiceministryincidentclient { get; }
+
+        /// <summary>
+        /// Gets the ISpiceministryspiceministryemployee.
+        /// </summary>
+        ISpiceministryspiceministryemployee Spiceministryspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the ISpiceministryspiceservices.
+        /// </summary>
+        ISpiceministryspiceservices Spiceministryspiceservices { get; }
 
         /// <summary>
         /// Gets the IMinistryemployees.
@@ -124,9 +1348,119 @@ namespace Gov.Jag.Spice.Interfaces
         IMinistryemployees Ministryemployees { get; }
 
         /// <summary>
+        /// Gets the IMinistryemployeeactivityparties.
+        /// </summary>
+        IMinistryemployeeactivityparties Ministryemployeeactivityparties { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeasyncoperations.
+        /// </summary>
+        IMinistryemployeeasyncoperations Ministryemployeeasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeebulkdeletefailures.
+        /// </summary>
+        IMinistryemployeebulkdeletefailures Ministryemployeebulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeduplicatebaserecord.
+        /// </summary>
+        IMinistryemployeeduplicatebaserecord Ministryemployeeduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeduplicatematchingrecord.
+        /// </summary>
+        IMinistryemployeeduplicatematchingrecord Ministryemployeeduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeemailboxtrackingfolders.
+        /// </summary>
+        IMinistryemployeemailboxtrackingfolders Ministryemployeemailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeprincipalobjectattributeaccesses.
+        /// </summary>
+        IMinistryemployeeprincipalobjectattributeaccesses Ministryemployeeprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeprocesssession.
+        /// </summary>
+        IMinistryemployeeprocesssession Ministryemployeeprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeesyncerrors.
+        /// </summary>
+        IMinistryemployeesyncerrors Ministryemployeesyncerrors { get; }
+
+        /// <summary>
+        /// Gets the IMinistryid.
+        /// </summary>
+        IMinistryid Ministryid { get; }
+
+        /// <summary>
+        /// Gets the ISpiceministryemployeeincidentrequesterhiringmanager.
+        /// </summary>
+        ISpiceministryemployeeincidentrequesterhiringmanager Spiceministryemployeeincidentrequesterhiringmanager { get; }
+
+        /// <summary>
+        /// Gets the ISpiceministryemployeeincidentreturnresultto.
+        /// </summary>
+        ISpiceministryemployeeincidentreturnresultto Spiceministryemployeeincidentreturnresultto { get; }
+
+        /// <summary>
         /// Gets the IPreviousaddresseses.
         /// </summary>
         IPreviousaddresseses Previousaddresseses { get; }
+
+        /// <summary>
+        /// Gets the IContactid.
+        /// </summary>
+        IContactid Contactid { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesannotations.
+        /// </summary>
+        IPreviousaddressesannotations Previousaddressesannotations { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesasyncoperations.
+        /// </summary>
+        IPreviousaddressesasyncoperations Previousaddressesasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesbulkdeletefailures.
+        /// </summary>
+        IPreviousaddressesbulkdeletefailures Previousaddressesbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesduplicatebaserecord.
+        /// </summary>
+        IPreviousaddressesduplicatebaserecord Previousaddressesduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesduplicatematchingrecord.
+        /// </summary>
+        IPreviousaddressesduplicatematchingrecord Previousaddressesduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesmailboxtrackingfolders.
+        /// </summary>
+        IPreviousaddressesmailboxtrackingfolders Previousaddressesmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesprincipalobjectattributeaccesses.
+        /// </summary>
+        IPreviousaddressesprincipalobjectattributeaccesses Previousaddressesprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesprocesssession.
+        /// </summary>
+        IPreviousaddressesprocesssession Previousaddressesprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressessyncerrors.
+        /// </summary>
+        IPreviousaddressessyncerrors Previousaddressessyncerrors { get; }
 
         /// <summary>
         /// Gets the IReasonforscreenings.
@@ -134,9 +1468,324 @@ namespace Gov.Jag.Spice.Interfaces
         IReasonforscreenings Reasonforscreenings { get; }
 
         /// <summary>
+        /// Gets the IReasonforscreeningasyncoperations.
+        /// </summary>
+        IReasonforscreeningasyncoperations Reasonforscreeningasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningbulkdeletefailures.
+        /// </summary>
+        IReasonforscreeningbulkdeletefailures Reasonforscreeningbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningduplicatebaserecord.
+        /// </summary>
+        IReasonforscreeningduplicatebaserecord Reasonforscreeningduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningduplicatematchingrecord.
+        /// </summary>
+        IReasonforscreeningduplicatematchingrecord Reasonforscreeningduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningincident.
+        /// </summary>
+        IReasonforscreeningincident Reasonforscreeningincident { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningmailboxtrackingfolders.
+        /// </summary>
+        IReasonforscreeningmailboxtrackingfolders Reasonforscreeningmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningprincipalobjectattributeaccesses.
+        /// </summary>
+        IReasonforscreeningprincipalobjectattributeaccesses Reasonforscreeningprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningprocesssession.
+        /// </summary>
+        IReasonforscreeningprocesssession Reasonforscreeningprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningsyncerrors.
+        /// </summary>
+        IReasonforscreeningsyncerrors Reasonforscreeningsyncerrors { get; }
+
+        /// <summary>
         /// Gets the IRequiredcheckses.
         /// </summary>
         IRequiredcheckses Requiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the IActivityidspicerequiredchecks.
+        /// </summary>
+        IActivityidspicerequiredchecks Activityidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ICampaignresponsespicerequiredcheckses.
+        /// </summary>
+        ICampaignresponsespicerequiredcheckses Campaignresponsespicerequiredcheckses { get; }
+
+        /// <summary>
+        /// Gets the ICreatedbyspicerequiredchecks.
+        /// </summary>
+        ICreatedbyspicerequiredchecks Createdbyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ICreatedonbehalfbyspicerequiredchecks.
+        /// </summary>
+        ICreatedonbehalfbyspicerequiredchecks Createdonbehalfbyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IModifiedbyspicerequiredchecks.
+        /// </summary>
+        IModifiedbyspicerequiredchecks Modifiedbyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IModifiedonbehalfbyspicerequiredchecks.
+        /// </summary>
+        IModifiedonbehalfbyspicerequiredchecks Modifiedonbehalfbyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IOwneridspicerequiredchecks.
+        /// </summary>
+        IOwneridspicerequiredchecks Owneridspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IOwningbusinessunitspicerequiredchecks.
+        /// </summary>
+        IOwningbusinessunitspicerequiredchecks Owningbusinessunitspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IOwningteamspicerequiredchecks.
+        /// </summary>
+        IOwningteamspicerequiredchecks Owningteamspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IOwninguserspicerequiredchecks.
+        /// </summary>
+        IOwninguserspicerequiredchecks Owninguserspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidaccountspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidaccountspicerequiredchecks Regardingobjectidaccountspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbookableresourcebookingspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidbookableresourcebookingspicerequiredchecks Regardingobjectidbookableresourcebookingspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbookableresourcebookingheaderspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidbookableresourcebookingheaderspicerequiredchecks Regardingobjectidbookableresourcebookingheaderspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbulkoperationspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidbulkoperationspicerequiredchecks Regardingobjectidbulkoperationspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcampaignspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidcampaignspicerequiredchecks Regardingobjectidcampaignspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcampaignactivityspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidcampaignactivityspicerequiredchecks Regardingobjectidcampaignactivityspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcontactspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidcontactspicerequiredchecks Regardingobjectidcontactspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcontractspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidcontractspicerequiredchecks Regardingobjectidcontractspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidentitlementspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidentitlementspicerequiredchecks Regardingobjectidentitlementspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidentitlementtemplatespicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidentitlementtemplatespicerequiredchecks Regardingobjectidentitlementtemplatespicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidincidentspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidincidentspicerequiredchecks Regardingobjectidincidentspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidinvoicespicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidinvoicespicerequiredchecks Regardingobjectidinvoicespicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidknowledgearticlespicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidknowledgearticlespicerequiredchecks Regardingobjectidknowledgearticlespicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidknowledgebaserecordspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidknowledgebaserecordspicerequiredchecks Regardingobjectidknowledgebaserecordspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidleadspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidleadspicerequiredchecks Regardingobjectidleadspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidmsdynpostalbumspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidmsdynpostalbumspicerequiredchecks Regardingobjectidmsdynpostalbumspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidnewinteractionforemailspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidnewinteractionforemailspicerequiredchecks Regardingobjectidnewinteractionforemailspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidopportunityspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidopportunityspicerequiredchecks Regardingobjectidopportunityspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidquotespicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidquotespicerequiredchecks Regardingobjectidquotespicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidsalesorderspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidsalesorderspicerequiredchecks Regardingobjectidsalesorderspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidsitespicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidsitespicerequiredchecks Regardingobjectidsitespicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidspicecompanyspicerequiredchecks Regardingobjectidspicecompanyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestspicerequiredchecks.
+        /// </summary>
+        IRegardingobjectidspiceexportrequestspicerequiredchecks Regardingobjectidspiceexportrequestspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ISendermailboxidspicerequiredchecks.
+        /// </summary>
+        ISendermailboxidspicerequiredchecks Sendermailboxidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IServiceidspicerequiredchecks.
+        /// </summary>
+        IServiceidspicerequiredchecks Serviceidspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ISlaactivitypointerslaspicerequiredchecks.
+        /// </summary>
+        ISlaactivitypointerslaspicerequiredchecks Slaactivitypointerslaspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ISlainvokedidactivitypointerslaspicerequiredchecks.
+        /// </summary>
+        ISlainvokedidactivitypointerslaspicerequiredchecks Slainvokedidactivitypointerslaspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ICompletedbyspicerequiredchecks.
+        /// </summary>
+        ICompletedbyspicerequiredchecks Completedbyspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the ICompletedbyuserspicerequiredchecks.
+        /// </summary>
+        ICompletedbyuserspicerequiredchecks Completedbyuserspicerequiredchecks { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksactioncards.
+        /// </summary>
+        IRequiredchecksactioncards Requiredchecksactioncards { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksactivityparties.
+        /// </summary>
+        IRequiredchecksactivityparties Requiredchecksactivityparties { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksannotations.
+        /// </summary>
+        IRequiredchecksannotations Requiredchecksannotations { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksasyncoperations.
+        /// </summary>
+        IRequiredchecksasyncoperations Requiredchecksasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksbulkdeletefailures.
+        /// </summary>
+        IRequiredchecksbulkdeletefailures Requiredchecksbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksconnections1.
+        /// </summary>
+        IRequiredchecksconnections1 Requiredchecksconnections1 { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksconnections2.
+        /// </summary>
+        IRequiredchecksconnections2 Requiredchecksconnections2 { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksduplicatebaserecord.
+        /// </summary>
+        IRequiredchecksduplicatebaserecord Requiredchecksduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksduplicatematchingrecord.
+        /// </summary>
+        IRequiredchecksduplicatematchingrecord Requiredchecksduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksfeedback.
+        /// </summary>
+        IRequiredchecksfeedback Requiredchecksfeedback { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksmailboxtrackingfolders.
+        /// </summary>
+        IRequiredchecksmailboxtrackingfolders Requiredchecksmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksprincipalobjectattributeaccesses.
+        /// </summary>
+        IRequiredchecksprincipalobjectattributeaccesses Requiredchecksprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksprocesssession.
+        /// </summary>
+        IRequiredchecksprocesssession Requiredchecksprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksqueueitems.
+        /// </summary>
+        IRequiredchecksqueueitems Requiredchecksqueueitems { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssyncerrors.
+        /// </summary>
+        IRequiredcheckssyncerrors Requiredcheckssyncerrors { get; }
 
         /// <summary>
         /// Gets the IServiceses.
@@ -144,14 +1793,589 @@ namespace Gov.Jag.Spice.Interfaces
         IServiceses Serviceses { get; }
 
         /// <summary>
-        /// Gets the IBusinesscaseprocesses.
+        /// Gets the IMinistryserviceid.
         /// </summary>
-        IBusinesscaseprocesses Businesscaseprocesses { get; }
+        IMinistryserviceid Ministryserviceid { get; }
 
         /// <summary>
-        /// Gets the IProcesses.
+        /// Gets the IServicesasyncoperations.
         /// </summary>
-        IProcesses Processes { get; }
+        IServicesasyncoperations Servicesasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the IServicesbulkdeletefailures.
+        /// </summary>
+        IServicesbulkdeletefailures Servicesbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the IServicesduplicatebaserecord.
+        /// </summary>
+        IServicesduplicatebaserecord Servicesduplicatebaserecord { get; }
+
+        /// <summary>
+        /// Gets the IServicesduplicatematchingrecord.
+        /// </summary>
+        IServicesduplicatematchingrecord Servicesduplicatematchingrecord { get; }
+
+        /// <summary>
+        /// Gets the IServicesmailboxtrackingfolders.
+        /// </summary>
+        IServicesmailboxtrackingfolders Servicesmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the IServicesprincipalobjectattributeaccesses.
+        /// </summary>
+        IServicesprincipalobjectattributeaccesses Servicesprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the IServicesprocesssession.
+        /// </summary>
+        IServicesprocesssession Servicesprocesssession { get; }
+
+        /// <summary>
+        /// Gets the IServicessyncerrors.
+        /// </summary>
+        IServicessyncerrors Servicessyncerrors { get; }
+
+        /// <summary>
+        /// Gets the ISpiceservicesincident.
+        /// </summary>
+        ISpiceservicesincident Spiceservicesincident { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocesses.
+        /// </summary>
+        ISpicebusinesscaseprocesses Spicebusinesscaseprocesses { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessasyncoperations.
+        /// </summary>
+        ISpicebusinesscaseprocessasyncoperations Spicebusinesscaseprocessasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessbulkdeletefailures.
+        /// </summary>
+        ISpicebusinesscaseprocessbulkdeletefailures Spicebusinesscaseprocessbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessmailboxtrackingfolders.
+        /// </summary>
+        ISpicebusinesscaseprocessmailboxtrackingfolders Spicebusinesscaseprocessmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        ISpicebusinesscaseprocessprincipalobjectattributeaccesses Spicebusinesscaseprocessprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessprocesssession.
+        /// </summary>
+        ISpicebusinesscaseprocessprocesssession Spicebusinesscaseprocessprocesssession { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocesssyncerrors.
+        /// </summary>
+        ISpicebusinesscaseprocesssyncerrors Spicebusinesscaseprocesssyncerrors { get; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessworkflowlogs.
+        /// </summary>
+        ISpicebusinesscaseprocessworkflowlogs Spicebusinesscaseprocessworkflowlogs { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocesses.
+        /// </summary>
+        ISpiceprocesses Spiceprocesses { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessasyncoperations.
+        /// </summary>
+        ISpiceprocessasyncoperations Spiceprocessasyncoperations { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessbulkdeletefailures.
+        /// </summary>
+        ISpiceprocessbulkdeletefailures Spiceprocessbulkdeletefailures { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessmailboxtrackingfolders.
+        /// </summary>
+        ISpiceprocessmailboxtrackingfolders Spiceprocessmailboxtrackingfolders { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        ISpiceprocessprincipalobjectattributeaccesses Spiceprocessprincipalobjectattributeaccesses { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessprocesssession.
+        /// </summary>
+        ISpiceprocessprocesssession Spiceprocessprocesssession { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocesssyncerrors.
+        /// </summary>
+        ISpiceprocesssyncerrors Spiceprocesssyncerrors { get; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessworkflowlogs.
+        /// </summary>
+        ISpiceprocessworkflowlogs Spiceprocessworkflowlogs { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentcreatedby.
+        /// </summary>
+        ILkspiceaccountcaseassignmentcreatedby Lkspiceaccountcaseassignmentcreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentcreatedonbehalfby.
+        /// </summary>
+        ILkspiceaccountcaseassignmentcreatedonbehalfby Lkspiceaccountcaseassignmentcreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentmodifiedby.
+        /// </summary>
+        ILkspiceaccountcaseassignmentmodifiedby Lkspiceaccountcaseassignmentmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentmodifiedonbehalfby.
+        /// </summary>
+        ILkspiceaccountcaseassignmentmodifiedonbehalfby Lkspiceaccountcaseassignmentmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasescreatedby.
+        /// </summary>
+        ILkspicealiasescreatedby Lkspicealiasescreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasescreatedonbehalfby.
+        /// </summary>
+        ILkspicealiasescreatedonbehalfby Lkspicealiasescreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasesmodifiedby.
+        /// </summary>
+        ILkspicealiasesmodifiedby Lkspicealiasesmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasesmodifiedonbehalfby.
+        /// </summary>
+        ILkspicealiasesmodifiedonbehalfby Lkspicealiasesmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanycreatedby.
+        /// </summary>
+        ILkspicecompanycreatedby Lkspicecompanycreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanycreatedonbehalfby.
+        /// </summary>
+        ILkspicecompanycreatedonbehalfby Lkspicecompanycreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanymodifiedby.
+        /// </summary>
+        ILkspicecompanymodifiedby Lkspicecompanymodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanymodifiedonbehalfby.
+        /// </summary>
+        ILkspicecompanymodifiedonbehalfby Lkspicecompanymodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocesscreatedby.
+        /// </summary>
+        ILkspiceessprocesscreatedby Lkspiceessprocesscreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocesscreatedonbehalfby.
+        /// </summary>
+        ILkspiceessprocesscreatedonbehalfby Lkspiceessprocesscreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessmodifiedby.
+        /// </summary>
+        ILkspiceessprocessmodifiedby Lkspiceessprocessmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessmodifiedonbehalfby.
+        /// </summary>
+        ILkspiceessprocessmodifiedonbehalfby Lkspiceessprocessmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestcreatedby.
+        /// </summary>
+        ILkspiceexportrequestcreatedby Lkspiceexportrequestcreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestcreatedonbehalfby.
+        /// </summary>
+        ILkspiceexportrequestcreatedonbehalfby Lkspiceexportrequestcreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestmodifiedby.
+        /// </summary>
+        ILkspiceexportrequestmodifiedby Lkspiceexportrequestmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestmodifiedonbehalfby.
+        /// </summary>
+        ILkspiceexportrequestmodifiedonbehalfby Lkspiceexportrequestmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrycreatedby.
+        /// </summary>
+        ILkspicegovministrycreatedby Lkspicegovministrycreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrycreatedonbehalfby.
+        /// </summary>
+        ILkspicegovministrycreatedonbehalfby Lkspicegovministrycreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrymodifiedby.
+        /// </summary>
+        ILkspicegovministrymodifiedby Lkspicegovministrymodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrymodifiedonbehalfby.
+        /// </summary>
+        ILkspicegovministrymodifiedonbehalfby Lkspicegovministrymodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypecreatedby.
+        /// </summary>
+        ILkspicelcrblicencetypecreatedby Lkspicelcrblicencetypecreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypecreatedonbehalfby.
+        /// </summary>
+        ILkspicelcrblicencetypecreatedonbehalfby Lkspicelcrblicencetypecreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypemodifiedby.
+        /// </summary>
+        ILkspicelcrblicencetypemodifiedby Lkspicelcrblicencetypemodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypemodifiedonbehalfby.
+        /// </summary>
+        ILkspicelcrblicencetypemodifiedonbehalfby Lkspicelcrblicencetypemodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrycreatedby.
+        /// </summary>
+        ILkspiceministrycreatedby Lkspiceministrycreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrycreatedonbehalfby.
+        /// </summary>
+        ILkspiceministrycreatedonbehalfby Lkspiceministrycreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrymodifiedby.
+        /// </summary>
+        ILkspiceministrymodifiedby Lkspiceministrymodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrymodifiedonbehalfby.
+        /// </summary>
+        ILkspiceministrymodifiedonbehalfby Lkspiceministrymodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeecreatedby.
+        /// </summary>
+        ILkspiceministryemployeecreatedby Lkspiceministryemployeecreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeecreatedonbehalfby.
+        /// </summary>
+        ILkspiceministryemployeecreatedonbehalfby Lkspiceministryemployeecreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeemodifiedby.
+        /// </summary>
+        ILkspiceministryemployeemodifiedby Lkspiceministryemployeemodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeemodifiedonbehalfby.
+        /// </summary>
+        ILkspiceministryemployeemodifiedonbehalfby Lkspiceministryemployeemodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressescreatedby.
+        /// </summary>
+        ILkspicepreviousaddressescreatedby Lkspicepreviousaddressescreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressescreatedonbehalfby.
+        /// </summary>
+        ILkspicepreviousaddressescreatedonbehalfby Lkspicepreviousaddressescreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressesmodifiedby.
+        /// </summary>
+        ILkspicepreviousaddressesmodifiedby Lkspicepreviousaddressesmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressesmodifiedonbehalfby.
+        /// </summary>
+        ILkspicepreviousaddressesmodifiedonbehalfby Lkspicepreviousaddressesmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningcreatedby.
+        /// </summary>
+        ILkspicereasonforscreeningcreatedby Lkspicereasonforscreeningcreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningcreatedonbehalfby.
+        /// </summary>
+        ILkspicereasonforscreeningcreatedonbehalfby Lkspicereasonforscreeningcreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningmodifiedby.
+        /// </summary>
+        ILkspicereasonforscreeningmodifiedby Lkspicereasonforscreeningmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningmodifiedonbehalfby.
+        /// </summary>
+        ILkspicereasonforscreeningmodifiedonbehalfby Lkspicereasonforscreeningmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicescreatedby.
+        /// </summary>
+        ILkspiceservicescreatedby Lkspiceservicescreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicescreatedonbehalfby.
+        /// </summary>
+        ILkspiceservicescreatedonbehalfby Lkspiceservicescreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicesmodifiedby.
+        /// </summary>
+        ILkspiceservicesmodifiedby Lkspiceservicesmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicesmodifiedonbehalfby.
+        /// </summary>
+        ILkspiceservicesmodifiedonbehalfby Lkspiceservicesmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocesscreatedby.
+        /// </summary>
+        ILkspicespicebusinesscaseprocesscreatedby Lkspicespicebusinesscaseprocesscreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocesscreatedonbehalfby.
+        /// </summary>
+        ILkspicespicebusinesscaseprocesscreatedonbehalfby Lkspicespicebusinesscaseprocesscreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessmodifiedby.
+        /// </summary>
+        ILkspicespicebusinesscaseprocessmodifiedby Lkspicespicebusinesscaseprocessmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessmodifiedonbehalfby.
+        /// </summary>
+        ILkspicespicebusinesscaseprocessmodifiedonbehalfby Lkspicespicebusinesscaseprocessmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocesscreatedby.
+        /// </summary>
+        ILkspicespiceprocesscreatedby Lkspicespiceprocesscreatedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocesscreatedonbehalfby.
+        /// </summary>
+        ILkspicespiceprocesscreatedonbehalfby Lkspicespiceprocesscreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessmodifiedby.
+        /// </summary>
+        ILkspicespiceprocessmodifiedby Lkspicespiceprocessmodifiedby { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessmodifiedonbehalfby.
+        /// </summary>
+        ILkspicespiceprocessmodifiedonbehalfby Lkspicespiceprocessmodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusercreatedby.
+        /// </summary>
+        IRequiredcheckssystemusercreatedby Requiredcheckssystemusercreatedby { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusercreatedonbehalfby.
+        /// </summary>
+        IRequiredcheckssystemusercreatedonbehalfby Requiredcheckssystemusercreatedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusermodifiedby.
+        /// </summary>
+        IRequiredcheckssystemusermodifiedby Requiredcheckssystemusermodifiedby { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusermodifiedonbehalfby.
+        /// </summary>
+        IRequiredcheckssystemusermodifiedonbehalfby Requiredcheckssystemusermodifiedonbehalfby { get; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemuserowninguser.
+        /// </summary>
+        IRequiredcheckssystemuserowninguser Requiredcheckssystemuserowninguser { get; }
+
+        /// <summary>
+        /// Gets the ISystemuserincidentwfcrrupassback.
+        /// </summary>
+        ISystemuserincidentwfcrrupassback Systemuserincidentwfcrrupassback { get; }
+
+        /// <summary>
+        /// Gets the ISystemuserspicerequiredcheckscompletedby.
+        /// </summary>
+        ISystemuserspicerequiredcheckscompletedby Systemuserspicerequiredcheckscompletedby { get; }
+
+        /// <summary>
+        /// Gets the ISystemuserspicerequiredcheckscompletedbyuser.
+        /// </summary>
+        ISystemuserspicerequiredcheckscompletedbyuser Systemuserspicerequiredcheckscompletedbyuser { get; }
+
+        /// <summary>
+        /// Gets the IUserspiceaccountcaseassignment.
+        /// </summary>
+        IUserspiceaccountcaseassignment Userspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the IUserspicecompany.
+        /// </summary>
+        IUserspicecompany Userspicecompany { get; }
+
+        /// <summary>
+        /// Gets the IUserspiceexportrequest.
+        /// </summary>
+        IUserspiceexportrequest Userspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the IUserspicegovministry.
+        /// </summary>
+        IUserspicegovministry Userspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the IUserspicelcrblicencetype.
+        /// </summary>
+        IUserspicelcrblicencetype Userspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the IUserspiceministry.
+        /// </summary>
+        IUserspiceministry Userspiceministry { get; }
+
+        /// <summary>
+        /// Gets the IUserspiceministryemployee.
+        /// </summary>
+        IUserspiceministryemployee Userspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the IUserspicepreviousaddresses.
+        /// </summary>
+        IUserspicepreviousaddresses Userspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the IUserspicereasonforscreening.
+        /// </summary>
+        IUserspicereasonforscreening Userspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanytask.
+        /// </summary>
+        IRegardingobjectidspicecompanytask Regardingobjectidspicecompanytask { get; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequesttask.
+        /// </summary>
+        IRegardingobjectidspiceexportrequesttask Regardingobjectidspiceexportrequesttask { get; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksteamowningteam.
+        /// </summary>
+        IRequiredchecksteamowningteam Requiredchecksteamowningteam { get; }
+
+        /// <summary>
+        /// Gets the ITeamspiceaccountcaseassignment.
+        /// </summary>
+        ITeamspiceaccountcaseassignment Teamspiceaccountcaseassignment { get; }
+
+        /// <summary>
+        /// Gets the ITeamspicecompany.
+        /// </summary>
+        ITeamspicecompany Teamspicecompany { get; }
+
+        /// <summary>
+        /// Gets the ITeamspiceexportrequest.
+        /// </summary>
+        ITeamspiceexportrequest Teamspiceexportrequest { get; }
+
+        /// <summary>
+        /// Gets the ITeamspicegovministry.
+        /// </summary>
+        ITeamspicegovministry Teamspicegovministry { get; }
+
+        /// <summary>
+        /// Gets the ITeamspicelcrblicencetype.
+        /// </summary>
+        ITeamspicelcrblicencetype Teamspicelcrblicencetype { get; }
+
+        /// <summary>
+        /// Gets the ITeamspiceministry.
+        /// </summary>
+        ITeamspiceministry Teamspiceministry { get; }
+
+        /// <summary>
+        /// Gets the ITeamspiceministryemployee.
+        /// </summary>
+        ITeamspiceministryemployee Teamspiceministryemployee { get; }
+
+        /// <summary>
+        /// Gets the ITeamspicepreviousaddresses.
+        /// </summary>
+        ITeamspicepreviousaddresses Teamspicepreviousaddresses { get; }
+
+        /// <summary>
+        /// Gets the ITeamspicereasonforscreening.
+        /// </summary>
+        ITeamspicereasonforscreening Teamspicereasonforscreening { get; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspiceessprocess.
+        /// </summary>
+        IAsyncoperationidspiceessprocess Asyncoperationidspiceessprocess { get; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspicespicebusinesscaseprocess.
+        /// </summary>
+        IAsyncoperationidspicespicebusinesscaseprocess Asyncoperationidspicespicebusinesscaseprocess { get; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspicespiceprocess.
+        /// </summary>
+        IAsyncoperationidspicespiceprocess Asyncoperationidspicespiceprocess { get; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessprocessid.
+        /// </summary>
+        ILkspiceessprocessprocessid Lkspiceessprocessprocessid { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessprocessid.
+        /// </summary>
+        ILkspicespicebusinesscaseprocessprocessid Lkspicespicebusinesscaseprocessprocessid { get; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessprocessid.
+        /// </summary>
+        ILkspicespiceprocessprocessid Lkspicespiceprocessprocessid { get; }
 
     }
 }

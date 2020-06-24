@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// importmap
+    /// Microsoft.Dynamics.CRM.importmap
     /// </summary>
     public partial class MicrosoftDynamicsCRMimportmap
     {

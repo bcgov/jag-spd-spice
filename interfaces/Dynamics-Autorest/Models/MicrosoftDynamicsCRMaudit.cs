@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// audit
+    /// Microsoft.Dynamics.CRM.audit
     /// </summary>
     public partial class MicrosoftDynamicsCRMaudit
     {

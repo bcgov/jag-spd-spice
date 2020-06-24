@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// webwizard
+    /// Microsoft.Dynamics.CRM.webwizard
     /// </summary>
     public partial class MicrosoftDynamicsCRMwebwizard
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMwebwizard
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMwebwizard(string name = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), int? componentstate = default(int?), string webwizardidunique = default(string), string _organizationidValue = default(string), int? wizardpageheight = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), bool? isstaticpagesequence = default(bool?), bool? ismanaged = default(bool?), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string accessprivileges = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? wizardpagewidth = default(int?), string titleresourcestring = default(string), string webwizardid = default(string), string _createdbyValue = default(string), string introducedversion = default(string), int? startpagesequencenumber = default(int?), string solutionid = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMwebwizard(string name = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), int? componentstate = default(int?), string webwizardidunique = default(string), string _organizationidValue = default(string), int? wizardpageheight = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string versionnumber = default(string), bool? isstaticpagesequence = default(bool?), bool? ismanaged = default(bool?), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string accessprivileges = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? wizardpagewidth = default(int?), string titleresourcestring = default(string), string webwizardid = default(string), string _createdbyValue = default(string), string introducedversion = default(string), int? startpagesequencenumber = default(int?), string solutionid = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Name = name;
             Createdon = createdon;
@@ -107,7 +107,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

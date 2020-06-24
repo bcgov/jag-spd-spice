@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// serviceappointment
+    /// Microsoft.Dynamics.CRM.serviceappointment
     /// </summary>
     public partial class MicrosoftDynamicsCRMserviceappointment
     {

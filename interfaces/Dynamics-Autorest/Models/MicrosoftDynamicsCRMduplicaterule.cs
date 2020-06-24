@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// duplicaterule
+    /// Microsoft.Dynamics.CRM.duplicaterule
     /// </summary>
     public partial class MicrosoftDynamicsCRMduplicaterule
     {

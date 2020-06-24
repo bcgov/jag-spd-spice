@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// ownermapping
+    /// Microsoft.Dynamics.CRM.ownermapping
     /// </summary>
     public partial class MicrosoftDynamicsCRMownermapping
     {

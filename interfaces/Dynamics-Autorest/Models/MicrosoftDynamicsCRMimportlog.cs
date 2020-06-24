@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// importlog
+    /// Microsoft.Dynamics.CRM.importlog
     /// </summary>
     public partial class MicrosoftDynamicsCRMimportlog
     {

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// letter
+    /// Microsoft.Dynamics.CRM.letter
     /// </summary>
     public partial class MicrosoftDynamicsCRMletter
     {

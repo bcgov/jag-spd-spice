@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// timezonelocalizedname
+    /// Microsoft.Dynamics.CRM.timezonelocalizedname
     /// </summary>
     public partial class MicrosoftDynamicsCRMtimezonelocalizedname
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMtimezonelocalizedname class.
         /// </summary>
-        public MicrosoftDynamicsCRMtimezonelocalizedname(string _timezonedefinitionidValue = default(string), string daylightname = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string timezonelocalizednameid = default(string), string standardname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string userinterfacename = default(string), string _modifiedonbehalfbyValue = default(string), int? cultureid = default(int?), string _createdonbehalfbyValue = default(string), long? versionnumber = default(long?), string _organizationidValue = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtimezonedefinition timezonedefinitionid = default(MicrosoftDynamicsCRMtimezonedefinition), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMtimezonelocalizedname(string _timezonedefinitionidValue = default(string), string daylightname = default(string), string _modifiedbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string timezonelocalizednameid = default(string), string standardname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string userinterfacename = default(string), string _modifiedonbehalfbyValue = default(string), int? cultureid = default(int?), string _createdonbehalfbyValue = default(string), string versionnumber = default(string), string _organizationidValue = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtimezonedefinition timezonedefinitionid = default(MicrosoftDynamicsCRMtimezonedefinition), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser))
         {
             this._timezonedefinitionidValue = _timezonedefinitionidValue;
             Daylightname = daylightname;
@@ -114,7 +114,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

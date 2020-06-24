@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// dynamicproperty
+    /// Microsoft.Dynamics.CRM.dynamicproperty
     /// </summary>
     public partial class MicrosoftDynamicsCRMdynamicproperty
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMdynamicproperty class.
         /// </summary>
-        public MicrosoftDynamicsCRMdynamicproperty(bool? isreadonly = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string dynamicpropertyid = default(string), string _basedynamicpropertyidValue = default(string), int? defaultvalueinteger = default(int?), long? versionnumber = default(long?), int? dmtimportstate = default(int?), int? utcconversiontimezonecode = default(int?), int? datatype = default(int?), int? statecode = default(int?), int? timezoneruleversionnumber = default(int?), int? maxvalueinteger = default(int?), object minvaluedecimal = default(object), string _modifiedbyValue = default(string), double? defaultvaluedouble = default(double?), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string rootdynamicpropertyid = default(string), double? minvaluedouble = default(double?), int? maxlengthstring = default(int?), string description = default(string), string overwrittendynamicpropertyid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string defaultvaluestring = default(string), string _defaultvalueoptionsetValue = default(string), double? maxvaluedouble = default(double?), int? statuscode = default(int?), int? importsequencenumber = default(int?), object defaultvaluedecimal = default(object), string _regardingobjectidValue = default(string), string _organizationidValue = default(string), bool? isrequired = default(bool?), int? precision = default(int?), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), int? minvalueinteger = default(int?), bool? ishidden = default(bool?), object maxvaluedecimal = default(object), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> dynamicpropertySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> dynamicpropertyAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> dynamicpropertyMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> dynamicpropertyBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> dynamicpropertyPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMdynamicproperty basedynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), IList<MicrosoftDynamicsCRMdynamicproperty> dynamicpropertyBaseDynamicproperty = default(IList<MicrosoftDynamicsCRMdynamicproperty>), MicrosoftDynamicsCRMdynamicpropertyoptionsetitem dynamicpropertyoptionsetvalueid = default(MicrosoftDynamicsCRMdynamicpropertyoptionsetitem), IList<MicrosoftDynamicsCRMdynamicpropertyassociation> dynamicpropertyDynamicPropertyAssociation = default(IList<MicrosoftDynamicsCRMdynamicpropertyassociation>), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> dynamicPropertyDynamicPropertyInstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem> dynamicPropertyDynamicPropertyOptionSetItem = default(IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem>), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMproductassociation regardingobjectidProductassociation = default(MicrosoftDynamicsCRMproductassociation))
+        public MicrosoftDynamicsCRMdynamicproperty(bool? isreadonly = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string dynamicpropertyid = default(string), string _basedynamicpropertyidValue = default(string), int? defaultvalueinteger = default(int?), string versionnumber = default(string), int? dmtimportstate = default(int?), int? utcconversiontimezonecode = default(int?), int? datatype = default(int?), int? statecode = default(int?), int? timezoneruleversionnumber = default(int?), int? maxvalueinteger = default(int?), decimal? minvaluedecimal = default(decimal?), string _modifiedbyValue = default(string), decimal? defaultvaluedouble = default(decimal?), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string rootdynamicpropertyid = default(string), decimal? minvaluedouble = default(decimal?), int? maxlengthstring = default(int?), string description = default(string), string overwrittendynamicpropertyid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string defaultvaluestring = default(string), string _defaultvalueoptionsetValue = default(string), decimal? maxvaluedouble = default(decimal?), int? statuscode = default(int?), int? importsequencenumber = default(int?), decimal? defaultvaluedecimal = default(decimal?), string _regardingobjectidValue = default(string), string _organizationidValue = default(string), bool? isrequired = default(bool?), int? precision = default(int?), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), int? minvalueinteger = default(int?), bool? ishidden = default(bool?), decimal? maxvaluedecimal = default(decimal?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> dynamicpropertySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> dynamicpropertyAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> dynamicpropertyMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> dynamicpropertyBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> dynamicpropertyPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMdynamicproperty basedynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), IList<MicrosoftDynamicsCRMdynamicproperty> dynamicpropertyBaseDynamicproperty = default(IList<MicrosoftDynamicsCRMdynamicproperty>), MicrosoftDynamicsCRMdynamicpropertyoptionsetitem dynamicpropertyoptionsetvalueid = default(MicrosoftDynamicsCRMdynamicpropertyoptionsetitem), IList<MicrosoftDynamicsCRMdynamicpropertyassociation> dynamicpropertyDynamicPropertyAssociation = default(IList<MicrosoftDynamicsCRMdynamicpropertyassociation>), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> dynamicPropertyDynamicPropertyInstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem> dynamicPropertyDynamicPropertyOptionSetItem = default(IList<MicrosoftDynamicsCRMdynamicpropertyoptionsetitem>), MicrosoftDynamicsCRMproduct regardingobjectidProduct = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMproductassociation regardingobjectidProductassociation = default(MicrosoftDynamicsCRMproductassociation))
         {
             Isreadonly = isreadonly;
             Createdon = createdon;
@@ -124,7 +124,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -159,7 +159,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "minvaluedecimal")]
-        public object Minvaluedecimal { get; set; }
+        public decimal? Minvaluedecimal { get; set; }
 
         /// <summary>
         /// </summary>
@@ -169,7 +169,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "defaultvaluedouble")]
-        public double? Defaultvaluedouble { get; set; }
+        public decimal? Defaultvaluedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -194,7 +194,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "minvaluedouble")]
-        public double? Minvaluedouble { get; set; }
+        public decimal? Minvaluedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -229,7 +229,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "maxvaluedouble")]
-        public double? Maxvaluedouble { get; set; }
+        public decimal? Maxvaluedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -244,7 +244,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "defaultvaluedecimal")]
-        public object Defaultvaluedecimal { get; set; }
+        public decimal? Defaultvaluedecimal { get; set; }
 
         /// <summary>
         /// </summary>
@@ -289,7 +289,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "maxvaluedecimal")]
-        public object Maxvaluedecimal { get; set; }
+        public decimal? Maxvaluedecimal { get; set; }
 
         /// <summary>
         /// </summary>
