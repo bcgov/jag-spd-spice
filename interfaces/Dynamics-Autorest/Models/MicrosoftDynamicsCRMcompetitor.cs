@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// competitor
+    /// Microsoft.Dynamics.CRM.competitor
     /// </summary>
     public partial class MicrosoftDynamicsCRMcompetitor
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMcompetitor
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMcompetitor(string address2City = default(string), object reportedrevenueBase = default(object), int? address2Shippingmethodcode = default(int?), int? reportingyear = default(int?), string address2County = default(string), string weaknesses = default(string), string yominame = default(string), string address1Stateorprovince = default(string), string _modifiedbyValue = default(string), string competitorid = default(string), string entityimageid = default(string), string name = default(string), string address1Postalcode = default(string), string _modifiedonbehalfbyValue = default(string), int? address2Utcoffset = default(int?), int? reportingquarter = default(int?), double? address2Latitude = default(double?), string entityimageUrl = default(string), string address1Composite = default(string), string address2Upszone = default(string), int? utcconversiontimezonecode = default(int?), string processid = default(string), int? timezoneruleversionnumber = default(int?), string threats = default(string), string address1Telephone3 = default(string), string address2Postalcode = default(string), string keyproduct = default(string), string tickersymbol = default(string), string address2Name = default(string), string address1County = default(string), double? address2Longitude = default(double?), int? address1Utcoffset = default(int?), string address1City = default(string), string stockexchange = default(string), string address2Postofficebox = default(string), string _createdonbehalfbyValue = default(string), long? entityimageTimestamp = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string address1Upszone = default(string), double? winpercentage = default(double?), string address2Stateorprovince = default(string), object reportedrevenue = default(object), string _createdbyValue = default(string), string strengths = default(string), string opportunities = default(string), object entityimage = default(object), string address1Telephone1 = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Line3 = default(string), string address1Telephone2 = default(string), string address1Line2 = default(string), long? versionnumber = default(long?), string address2Composite = default(string), string address1Name = default(string), string traversedpath = default(string), string address2Telephone3 = default(string), int? importsequencenumber = default(int?), string address1Line3 = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string address2Fax = default(string), string _organizationidValue = default(string), string overview = default(string), string websiteurl = default(string), string address1Fax = default(string), string address1Postofficebox = default(string), string address2Telephone1 = default(string), string address1Country = default(string), double? address1Latitude = default(double?), string address1Addressid = default(string), int? address2Addresstypecode = default(int?), double? address1Longitude = default(double?), int? address1Shippingmethodcode = default(int?), string address2Telephone2 = default(string), string address2Addressid = default(string), string address2Country = default(string), string stageid = default(string), object exchangerate = default(object), string referenceinfourl = default(string), string address2Line2 = default(string), int? address1Addresstypecode = default(int?), string _transactioncurrencyidValue = default(string), string address1Line1 = default(string), string address2Line1 = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> competitorSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> competitorDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> competitorDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> competitorAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> competitorMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> competitorProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> competitorBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> competitorPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMconnection> competitorConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> competitorConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMannotation> competitorAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMlead> leadcompetitorsAssociation = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMopportunity> opportunitycompetitorsAssociation = default(IList<MicrosoftDynamicsCRMopportunity>), IList<MicrosoftDynamicsCRMsalesliterature> competitorsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMsalesliterature>), IList<MicrosoftDynamicsCRMproduct> competitorproductAssociation = default(IList<MicrosoftDynamicsCRMproduct>), IList<MicrosoftDynamicsCRMcompetitoraddress> competitorAddresses = default(IList<MicrosoftDynamicsCRMcompetitoraddress>), IList<MicrosoftDynamicsCRMopportunityclose> competitorOpportunityActivities = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMpostregarding> competitorPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMpostfollow> competitorPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>))
+        public MicrosoftDynamicsCRMcompetitor(string address2City = default(string), decimal? reportedrevenueBase = default(decimal?), int? address2Shippingmethodcode = default(int?), int? reportingyear = default(int?), string address2County = default(string), string weaknesses = default(string), string yominame = default(string), string address1Stateorprovince = default(string), string _modifiedbyValue = default(string), string competitorid = default(string), string entityimageid = default(string), string name = default(string), string address1Postalcode = default(string), string _modifiedonbehalfbyValue = default(string), int? address2Utcoffset = default(int?), int? reportingquarter = default(int?), decimal? address2Latitude = default(decimal?), string entityimageUrl = default(string), string address1Composite = default(string), string address2Upszone = default(string), int? utcconversiontimezonecode = default(int?), string processid = default(string), int? timezoneruleversionnumber = default(int?), string threats = default(string), string address1Telephone3 = default(string), string address2Postalcode = default(string), string keyproduct = default(string), string tickersymbol = default(string), string address2Name = default(string), string address1County = default(string), decimal? address2Longitude = default(decimal?), int? address1Utcoffset = default(int?), string address1City = default(string), string stockexchange = default(string), string address2Postofficebox = default(string), string _createdonbehalfbyValue = default(string), long? entityimageTimestamp = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string address1Upszone = default(string), decimal? winpercentage = default(decimal?), string address2Stateorprovince = default(string), decimal? reportedrevenue = default(decimal?), string _createdbyValue = default(string), string strengths = default(string), string opportunities = default(string), byte[] entityimage = default(byte[]), string address1Telephone1 = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Line3 = default(string), string address1Telephone2 = default(string), string address1Line2 = default(string), string versionnumber = default(string), string address2Composite = default(string), string address1Name = default(string), string traversedpath = default(string), string address2Telephone3 = default(string), int? importsequencenumber = default(int?), string address1Line3 = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string address2Fax = default(string), string _organizationidValue = default(string), string overview = default(string), string websiteurl = default(string), string address1Fax = default(string), string address1Postofficebox = default(string), string address2Telephone1 = default(string), string address1Country = default(string), decimal? address1Latitude = default(decimal?), string address1Addressid = default(string), int? address2Addresstypecode = default(int?), decimal? address1Longitude = default(decimal?), int? address1Shippingmethodcode = default(int?), string address2Telephone2 = default(string), string address2Addressid = default(string), string address2Country = default(string), string stageid = default(string), decimal? exchangerate = default(decimal?), string referenceinfourl = default(string), string address2Line2 = default(string), int? address1Addresstypecode = default(int?), string _transactioncurrencyidValue = default(string), string address1Line1 = default(string), string address2Line1 = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> competitorSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> competitorDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> competitorDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> competitorAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> competitorMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> competitorProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> competitorBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> competitorPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMconnection> competitorConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> competitorConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMannotation> competitorAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMlead> leadcompetitorsAssociation = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMopportunity> opportunitycompetitorsAssociation = default(IList<MicrosoftDynamicsCRMopportunity>), IList<MicrosoftDynamicsCRMsalesliterature> competitorsalesliteratureAssociation = default(IList<MicrosoftDynamicsCRMsalesliterature>), IList<MicrosoftDynamicsCRMproduct> competitorproductAssociation = default(IList<MicrosoftDynamicsCRMproduct>), IList<MicrosoftDynamicsCRMcompetitoraddress> competitorAddresses = default(IList<MicrosoftDynamicsCRMcompetitoraddress>), IList<MicrosoftDynamicsCRMopportunityclose> competitorOpportunityActivities = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMpostregarding> competitorPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMpostfollow> competitorPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>))
         {
             Address2City = address2City;
             ReportedrevenueBase = reportedrevenueBase;
@@ -156,7 +158,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "reportedrevenue_base")]
-        public object ReportedrevenueBase { get; set; }
+        public decimal? ReportedrevenueBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -231,7 +233,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_latitude")]
-        public double? Address2Latitude { get; set; }
+        public decimal? Address2Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -301,7 +303,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_longitude")]
-        public double? Address2Longitude { get; set; }
+        public decimal? Address2Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -346,7 +348,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "winpercentage")]
-        public double? Winpercentage { get; set; }
+        public decimal? Winpercentage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -356,7 +358,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "reportedrevenue")]
-        public object Reportedrevenue { get; set; }
+        public decimal? Reportedrevenue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -375,8 +377,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        public byte[] Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -406,7 +409,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -486,7 +489,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_latitude")]
-        public double? Address1Latitude { get; set; }
+        public decimal? Address1Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -501,7 +504,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_longitude")]
-        public double? Address1Longitude { get; set; }
+        public decimal? Address1Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -531,7 +534,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>

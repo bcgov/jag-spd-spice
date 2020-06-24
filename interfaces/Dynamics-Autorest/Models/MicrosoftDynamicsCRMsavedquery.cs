@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// savedquery
+    /// Microsoft.Dynamics.CRM.savedquery
     /// </summary>
     public partial class MicrosoftDynamicsCRMsavedquery
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMsavedquery
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMsavedquery(string offlinesqlquery = default(string), bool? ismanaged = default(bool?), long? versionnumber = default(long?), int? statecode = default(int?), string _createdbyValue = default(string), bool? isuserdefined = default(bool?), string columnsetxml = default(string), int? organizationtaborder = default(int?), bool? isdefault = default(bool?), int? querytype = default(int?), string conditionalformatting = default(string), string _modifiedbyValue = default(string), string queryapi = default(string), string advancedgroupby = default(string), string layoutxml = default(string), int? statuscode = default(int?), string solutionid = default(string), string _organizationidValue = default(string), string introducedversion = default(string), string fetchxml = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string savedqueryidunique = default(string), bool? isquickfindquery = default(bool?), string layoutjson = default(string), string returnedtypecode = default(string), string name = default(string), string description = default(string), int? queryappusage = default(int?), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), string savedqueryid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), bool? iscustom = default(bool?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMBooleanManagedProperty canbedeleted = default(MicrosoftDynamicsCRMBooleanManagedProperty), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> savedQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> savedQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> savedQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMmobileofflineprofileitem> lkMobileofflineprofileitemSavedquery = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitem>))
+        public MicrosoftDynamicsCRMsavedquery(string offlinesqlquery = default(string), bool? ismanaged = default(bool?), string versionnumber = default(string), int? statecode = default(int?), string _createdbyValue = default(string), bool? isuserdefined = default(bool?), string columnsetxml = default(string), int? organizationtaborder = default(int?), bool? isdefault = default(bool?), int? querytype = default(int?), string conditionalformatting = default(string), string _modifiedbyValue = default(string), string queryapi = default(string), string advancedgroupby = default(string), string layoutxml = default(string), int? statuscode = default(int?), string solutionid = default(string), string _organizationidValue = default(string), string introducedversion = default(string), string fetchxml = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string savedqueryidunique = default(string), bool? isquickfindquery = default(bool?), string layoutjson = default(string), string returnedtypecode = default(string), string name = default(string), string description = default(string), int? queryappusage = default(int?), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), string savedqueryid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string iscustomizable = default(string), bool? iscustom = default(bool?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string canbedeleted = default(string), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> savedQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> savedQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> savedQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMmobileofflineprofileitem> lkMobileofflineprofileitemSavedquery = default(IList<MicrosoftDynamicsCRMmobileofflineprofileitem>))
         {
             Offlinesqlquery = offlinesqlquery;
             Ismanaged = ismanaged;
@@ -98,7 +98,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -248,7 +248,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -268,7 +268,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "canbedeleted")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Canbedeleted { get; set; }
+        public string Canbedeleted { get; set; }
 
         /// <summary>
         /// </summary>

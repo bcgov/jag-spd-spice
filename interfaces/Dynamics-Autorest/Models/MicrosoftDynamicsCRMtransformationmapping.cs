@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// transformationmapping
+    /// Microsoft.Dynamics.CRM.transformationmapping
     /// </summary>
     public partial class MicrosoftDynamicsCRMtransformationmapping
     {

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// contractdetail
+    /// Microsoft.Dynamics.CRM.contractdetail
     /// </summary>
     public partial class MicrosoftDynamicsCRMcontractdetail
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcontractdetail class.
         /// </summary>
-        public MicrosoftDynamicsCRMcontractdetail(string _uomscheduleidValue = default(string), object rate = default(object), object rateBase = default(object), int? statuscode = default(int?), int? allotmentsused = default(int?), int? lineitemorder = default(int?), int? allotmentsremaining = default(int?), long? versionnumber = default(long?), int? initialquantity = default(int?), int? servicecontractunitscode = default(int?), object exchangerate = default(object), object priceBase = default(object), string _uomidValue = default(string), string _createdbyValue = default(string), string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string title = default(string), int? contractstatecode = default(int?), string _serviceaddressValue = default(string), string _owneridValue = default(string), string _owningteamValue = default(string), int? allotmentsoverage = default(int?), object price = default(object), object discountBase = default(object), string effectivitycalendar = default(string), string _modifiedbyValue = default(string), int? statecode = default(int?), int? totalallotments = default(int?), object net = default(object), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _productidValue = default(string), string _contractidValue = default(string), string _accountidValue = default(string), object discountpercentage = default(object), string contractdetailid = default(string), object netBase = default(object), string _contactidValue = default(string), object discount = default(object), string _owninguserValue = default(string), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), string _customeridValue = default(string), string _owningbusinessunitValue = default(string), string productserialnumber = default(string), int? importsequencenumber = default(int?), System.DateTimeOffset? expireson = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMsyncerror> contractDetailSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> contractDetailAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> contractdetailMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> contractDetailProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> contractDetailBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> contractdetailPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMannotation> contractDetailAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), IList<MicrosoftDynamicsCRMincident> contractDetailCases = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMcustomeraddress serviceaddress = default(MicrosoftDynamicsCRMcustomeraddress), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMuomschedule uomscheduleid = default(MicrosoftDynamicsCRMuomschedule))
+        public MicrosoftDynamicsCRMcontractdetail(string _uomscheduleidValue = default(string), decimal? rate = default(decimal?), decimal? rateBase = default(decimal?), int? statuscode = default(int?), int? allotmentsused = default(int?), int? lineitemorder = default(int?), int? allotmentsremaining = default(int?), string versionnumber = default(string), int? initialquantity = default(int?), int? servicecontractunitscode = default(int?), decimal? exchangerate = default(decimal?), decimal? priceBase = default(decimal?), string _uomidValue = default(string), string _createdbyValue = default(string), string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string title = default(string), int? contractstatecode = default(int?), string _serviceaddressValue = default(string), string _owneridValue = default(string), string _owningteamValue = default(string), int? allotmentsoverage = default(int?), decimal? price = default(decimal?), decimal? discountBase = default(decimal?), string effectivitycalendar = default(string), string _modifiedbyValue = default(string), int? statecode = default(int?), int? totalallotments = default(int?), decimal? net = default(decimal?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _productidValue = default(string), string _contractidValue = default(string), string _accountidValue = default(string), decimal? discountpercentage = default(decimal?), string contractdetailid = default(string), decimal? netBase = default(decimal?), string _contactidValue = default(string), decimal? discount = default(decimal?), string _owninguserValue = default(string), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), string _customeridValue = default(string), string _owningbusinessunitValue = default(string), string productserialnumber = default(string), int? importsequencenumber = default(int?), System.DateTimeOffset? expireson = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMsyncerror> contractDetailSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> contractDetailAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> contractdetailMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> contractDetailProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> contractDetailBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> contractdetailPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMannotation> contractDetailAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), IList<MicrosoftDynamicsCRMincident> contractDetailCases = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMcustomeraddress serviceaddress = default(MicrosoftDynamicsCRMcustomeraddress), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMuomschedule uomscheduleid = default(MicrosoftDynamicsCRMuomschedule))
         {
             this._uomscheduleidValue = _uomscheduleidValue;
             Rate = rate;
@@ -119,12 +119,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "rate")]
-        public object Rate { get; set; }
+        public decimal? Rate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "rate_base")]
-        public object RateBase { get; set; }
+        public decimal? RateBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -149,7 +149,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -164,12 +164,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "price_base")]
-        public object PriceBase { get; set; }
+        public decimal? PriceBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -244,12 +244,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "price")]
-        public object Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discount_base")]
-        public object DiscountBase { get; set; }
+        public decimal? DiscountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -274,7 +274,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "net")]
-        public object Net { get; set; }
+        public decimal? Net { get; set; }
 
         /// <summary>
         /// </summary>
@@ -299,7 +299,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discountpercentage")]
-        public object Discountpercentage { get; set; }
+        public decimal? Discountpercentage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -309,7 +309,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "net_base")]
-        public object NetBase { get; set; }
+        public decimal? NetBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -319,7 +319,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discount")]
-        public object Discount { get; set; }
+        public decimal? Discount { get; set; }
 
         /// <summary>
         /// </summary>

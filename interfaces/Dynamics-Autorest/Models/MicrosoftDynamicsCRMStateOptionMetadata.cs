@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// StateOptionMetadata
+    /// Microsoft.Dynamics.CRM.StateOptionMetadata
     /// </summary>
     public partial class MicrosoftDynamicsCRMStateOptionMetadata
     {

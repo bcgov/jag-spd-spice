@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// userquery
+    /// Microsoft.Dynamics.CRM.userquery
     /// </summary>
     public partial class MicrosoftDynamicsCRMuserquery
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMuserquery
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMuserquery(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _owningteamValue = default(string), string returnedtypecode = default(string), int? querytype = default(int?), string advancedgroupby = default(string), string _parentqueryidValue = default(string), string columnsetxml = default(string), string fetchxml = default(string), string _owninguserValue = default(string), string description = default(string), string _modifiedbyValue = default(string), string conditionalformatting = default(string), int? statecode = default(int?), string name = default(string), string _modifiedonbehalfbyValue = default(string), string layoutjson = default(string), string layoutxml = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string userqueryid = default(string), long? versionnumber = default(long?), string _owningbusinessunitValue = default(string), string _owneridValue = default(string), string offlinesqlquery = default(string), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> userQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMbulkdeletefailure> userQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> userQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMuserquery(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _owningteamValue = default(string), string returnedtypecode = default(string), int? querytype = default(int?), string advancedgroupby = default(string), string _parentqueryidValue = default(string), string columnsetxml = default(string), string fetchxml = default(string), string _owninguserValue = default(string), string description = default(string), string _modifiedbyValue = default(string), string conditionalformatting = default(string), int? statecode = default(int?), string name = default(string), string _modifiedonbehalfbyValue = default(string), string layoutjson = default(string), string layoutxml = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string userqueryid = default(string), string versionnumber = default(string), string _owningbusinessunitValue = default(string), string _owneridValue = default(string), string offlinesqlquery = default(string), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> userQuerySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMbulkdeletefailure> userQueryBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMasyncoperation> userQueryAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser))
         {
             Modifiedon = modifiedon;
             Statuscode = statuscode;
@@ -189,7 +189,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

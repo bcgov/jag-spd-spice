@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// invoicedetail
+    /// Microsoft.Dynamics.CRM.invoicedetail
     /// </summary>
     public partial class MicrosoftDynamicsCRMinvoicedetail
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMinvoicedetail
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMinvoicedetail(string shiptoName = default(string), string _owneridValue = default(string), string description = default(string), string shiptoStateorprovince = default(string), object baseamount = default(object), string parentbundleid = default(string), bool? isproductoverridden = default(bool?), object tax = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string shiptoCountry = default(string), string _owningteamValue = default(string), bool? willcall = default(bool?), string _createdbyValue = default(string), string shiptoLine1 = default(string), string _parentbundleidrefValue = default(string), object extendedamount = default(object), long? versionnumber = default(long?), string invoicedetailid = default(string), string _owninguserValue = default(string), string _uomidValue = default(string), string productdescription = default(string), string _invoiceidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string _owningbusinessunitValue = default(string), string shiptoLine3 = default(string), int? timezoneruleversionnumber = default(int?), int? shiptoFreighttermscode = default(int?), object priceperunitBase = default(object), string _modifiedonbehalfbyValue = default(string), object priceperunit = default(object), object extendedamountBase = default(object), object quantityshipped = default(object), bool? ispriceoverridden = default(bool?), System.DateTimeOffset? actualdeliveryon = default(System.DateTimeOffset?), object exchangerate = default(object), string shiptoFax = default(string), string shiptoCity = default(string), string _createdonbehalfbyValue = default(string), string shiptoLine2 = default(string), string productassociationid = default(string), bool? iscopied = default(bool?), object quantitybackordered = default(object), object manualdiscountamountBase = default(object), string _productidValue = default(string), int? producttypecode = default(int?), string invoicedetailname = default(string), object quantity = default(object), string _salesrepidValue = default(string), string _salesorderdetailidValue = default(string), int? sequencenumber = default(int?), string shiptoTelephone = default(string), object taxBase = default(object), object manualdiscountamount = default(object), object volumediscountamountBase = default(object), object baseamountBase = default(object), int? utcconversiontimezonecode = default(int?), int? lineitemnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), bool? invoiceispricelocked = default(bool?), int? pricingerrorcode = default(int?), int? invoicestatecode = default(int?), string shippingtrackingnumber = default(string), int? propertyconfigurationstatus = default(int?), string _transactioncurrencyidValue = default(string), object volumediscountamount = default(object), object quantitycancelled = default(object), string productname = default(string), string shiptoPostalcode = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMsyncerror> invoiceDetailSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> invoiceDetailAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> invoicedetailMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> invoiceDetailProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> invoiceDetailBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> invoicedetailPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMinvoice invoiceid = default(MicrosoftDynamicsCRMinvoice), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> invoiceDetailDynamicpropertyinstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), MicrosoftDynamicsCRMinvoicedetail parentbundleidInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), IList<MicrosoftDynamicsCRMinvoicedetail> invoicedetailParentInvoicedetail = default(IList<MicrosoftDynamicsCRMinvoicedetail>), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMsystemuser salesrepid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMproductassociation productassociationidProductassociation = default(MicrosoftDynamicsCRMproductassociation), MicrosoftDynamicsCRMsalesorderdetail salesOrderDetailId = default(MicrosoftDynamicsCRMsalesorderdetail), MicrosoftDynamicsCRMinvoicedetail parentbundleidrefInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), IList<MicrosoftDynamicsCRMinvoicedetail> invoicedetailParentrefInvoicedetail = default(IList<MicrosoftDynamicsCRMinvoicedetail>))
+        public MicrosoftDynamicsCRMinvoicedetail(string shiptoName = default(string), string _owneridValue = default(string), string description = default(string), string shiptoStateorprovince = default(string), decimal? baseamount = default(decimal?), string parentbundleid = default(string), bool? isproductoverridden = default(bool?), decimal? tax = default(decimal?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string shiptoCountry = default(string), string _owningteamValue = default(string), bool? willcall = default(bool?), string _createdbyValue = default(string), string shiptoLine1 = default(string), string _parentbundleidrefValue = default(string), decimal? extendedamount = default(decimal?), string versionnumber = default(string), string invoicedetailid = default(string), string _owninguserValue = default(string), string _uomidValue = default(string), string productdescription = default(string), int? skippricecalculation = default(int?), string _invoiceidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string _owningbusinessunitValue = default(string), string shiptoLine3 = default(string), int? timezoneruleversionnumber = default(int?), int? shiptoFreighttermscode = default(int?), decimal? priceperunitBase = default(decimal?), string _modifiedonbehalfbyValue = default(string), decimal? priceperunit = default(decimal?), decimal? extendedamountBase = default(decimal?), decimal? quantityshipped = default(decimal?), bool? ispriceoverridden = default(bool?), System.DateTimeOffset? actualdeliveryon = default(System.DateTimeOffset?), decimal? exchangerate = default(decimal?), string shiptoFax = default(string), string shiptoCity = default(string), string _createdonbehalfbyValue = default(string), string shiptoLine2 = default(string), string productassociationid = default(string), bool? iscopied = default(bool?), decimal? quantitybackordered = default(decimal?), decimal? manualdiscountamountBase = default(decimal?), string _productidValue = default(string), int? producttypecode = default(int?), string invoicedetailname = default(string), decimal? quantity = default(decimal?), string _salesrepidValue = default(string), string _salesorderdetailidValue = default(string), int? sequencenumber = default(int?), string shiptoTelephone = default(string), decimal? taxBase = default(decimal?), decimal? manualdiscountamount = default(decimal?), decimal? volumediscountamountBase = default(decimal?), decimal? baseamountBase = default(decimal?), int? utcconversiontimezonecode = default(int?), int? lineitemnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), bool? invoiceispricelocked = default(bool?), int? pricingerrorcode = default(int?), int? invoicestatecode = default(int?), string shippingtrackingnumber = default(string), int? propertyconfigurationstatus = default(int?), string _transactioncurrencyidValue = default(string), decimal? volumediscountamount = default(decimal?), decimal? quantitycancelled = default(decimal?), string productname = default(string), string shiptoPostalcode = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMsyncerror> invoiceDetailSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> invoiceDetailAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> invoicedetailMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> invoiceDetailProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> invoiceDetailBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> invoicedetailPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMinvoice invoiceid = default(MicrosoftDynamicsCRMinvoice), IList<MicrosoftDynamicsCRMdynamicpropertyinstance> invoiceDetailDynamicpropertyinstance = default(IList<MicrosoftDynamicsCRMdynamicpropertyinstance>), MicrosoftDynamicsCRMinvoicedetail parentbundleidInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), IList<MicrosoftDynamicsCRMinvoicedetail> invoicedetailParentInvoicedetail = default(IList<MicrosoftDynamicsCRMinvoicedetail>), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMsystemuser salesrepid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMproductassociation productassociationidProductassociation = default(MicrosoftDynamicsCRMproductassociation), MicrosoftDynamicsCRMsalesorderdetail salesOrderDetailId = default(MicrosoftDynamicsCRMsalesorderdetail), MicrosoftDynamicsCRMinvoicedetail parentbundleidrefInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), IList<MicrosoftDynamicsCRMinvoicedetail> invoicedetailParentrefInvoicedetail = default(IList<MicrosoftDynamicsCRMinvoicedetail>))
         {
             ShiptoName = shiptoName;
             this._owneridValue = _owneridValue;
@@ -52,6 +52,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             this._owninguserValue = _owninguserValue;
             this._uomidValue = _uomidValue;
             Productdescription = productdescription;
+            Skippricecalculation = skippricecalculation;
             this._invoiceidValue = _invoiceidValue;
             Overriddencreatedon = overriddencreatedon;
             this._modifiedbyValue = _modifiedbyValue;
@@ -156,7 +157,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "baseamount")]
-        public object Baseamount { get; set; }
+        public decimal? Baseamount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -171,7 +172,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "tax")]
-        public object Tax { get; set; }
+        public decimal? Tax { get; set; }
 
         /// <summary>
         /// </summary>
@@ -211,12 +212,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "extendedamount")]
-        public object Extendedamount { get; set; }
+        public decimal? Extendedamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -237,6 +238,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "productdescription")]
         public string Productdescription { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "skippricecalculation")]
+        public int? Skippricecalculation { get; set; }
 
         /// <summary>
         /// </summary>
@@ -276,7 +282,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "priceperunit_base")]
-        public object PriceperunitBase { get; set; }
+        public decimal? PriceperunitBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -286,17 +292,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "priceperunit")]
-        public object Priceperunit { get; set; }
+        public decimal? Priceperunit { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "extendedamount_base")]
-        public object ExtendedamountBase { get; set; }
+        public decimal? ExtendedamountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quantityshipped")]
-        public object Quantityshipped { get; set; }
+        public decimal? Quantityshipped { get; set; }
 
         /// <summary>
         /// </summary>
@@ -311,7 +317,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -346,12 +352,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quantitybackordered")]
-        public object Quantitybackordered { get; set; }
+        public decimal? Quantitybackordered { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "manualdiscountamount_base")]
-        public object ManualdiscountamountBase { get; set; }
+        public decimal? ManualdiscountamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -371,7 +377,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quantity")]
-        public object Quantity { get; set; }
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// </summary>
@@ -396,22 +402,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "tax_base")]
-        public object TaxBase { get; set; }
+        public decimal? TaxBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "manualdiscountamount")]
-        public object Manualdiscountamount { get; set; }
+        public decimal? Manualdiscountamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "volumediscountamount_base")]
-        public object VolumediscountamountBase { get; set; }
+        public decimal? VolumediscountamountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "baseamount_base")]
-        public object BaseamountBase { get; set; }
+        public decimal? BaseamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -466,12 +472,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "volumediscountamount")]
-        public object Volumediscountamount { get; set; }
+        public decimal? Volumediscountamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quantitycancelled")]
-        public object Quantitycancelled { get; set; }
+        public decimal? Quantitycancelled { get; set; }
 
         /// <summary>
         /// </summary>

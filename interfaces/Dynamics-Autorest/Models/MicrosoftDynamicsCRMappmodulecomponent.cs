@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// appmodulecomponent
+    /// Microsoft.Dynamics.CRM.appmodulecomponent
     /// </summary>
     public partial class MicrosoftDynamicsCRMappmodulecomponent
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMappmodulecomponent class.
         /// </summary>
-        public MicrosoftDynamicsCRMappmodulecomponent(System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string appmodulecomponentidunique = default(string), int? rootcomponentbehavior = default(int?), string introducedversion = default(string), string rootappmodulecomponentid = default(string), string _modifiedonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), bool? isdefault = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), long? versionnumber = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), object exchangerate = default(object), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string objectid = default(string), int? componenttype = default(int?), string _createdbyValue = default(string), string appmodulecomponentid = default(string), string _appmoduleiduniqueValue = default(string), bool? ismetadata = default(bool?), MicrosoftDynamicsCRMsystemuser appmodulecomponentModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appmodulecomponentCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMappmodule appmoduleid = default(MicrosoftDynamicsCRMappmodule))
+        public MicrosoftDynamicsCRMappmodulecomponent(System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string appmodulecomponentidunique = default(string), int? rootcomponentbehavior = default(int?), string introducedversion = default(string), string rootappmodulecomponentid = default(string), string _modifiedonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), bool? isdefault = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string versionnumber = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), decimal? exchangerate = default(decimal?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), string objectid = default(string), int? componenttype = default(int?), string _createdbyValue = default(string), string appmodulecomponentid = default(string), string _appmoduleiduniqueValue = default(string), bool? ismetadata = default(bool?), MicrosoftDynamicsCRMsystemuser appmodulecomponentModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appmodulecomponentCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMappmodule appmoduleid = default(MicrosoftDynamicsCRMappmodule))
         {
             Overwritetime = overwritetime;
             Appmodulecomponentidunique = appmodulecomponentidunique;
@@ -111,7 +111,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>

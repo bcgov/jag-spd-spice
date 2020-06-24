@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// pluginassembly
+    /// Microsoft.Dynamics.CRM.pluginassembly
     /// </summary>
     public partial class MicrosoftDynamicsCRMpluginassembly
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMpluginassembly class.
         /// </summary>
-        public MicrosoftDynamicsCRMpluginassembly(string url = default(string), string culture = default(string), string _modifiedbyValue = default(string), string version = default(string), string description = default(string), bool? ispasswordset = default(bool?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string path = default(string), string publickeytoken = default(string), bool? ismanaged = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string introducedversion = default(string), int? customizationlevel = default(int?), string _organizationidValue = default(string), string content = default(string), object contentBinary = default(object), string pluginassemblyid = default(string), string name = default(string), string _createdonbehalfbyValue = default(string), string pluginassemblyidunique = default(string), string password = default(string), string sourcehash = default(string), int? isolationmode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string _createdbyValue = default(string), int? major = default(int?), string username = default(string), int? minor = default(int?), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), string solutionid = default(string), int? authtype = default(int?), int? sourcetype = default(int?), MicrosoftDynamicsCRMBooleanManagedProperty ishidden = default(MicrosoftDynamicsCRMBooleanManagedProperty), long? versionnumber = default(long?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMplugintype> pluginassemblyPlugintype = default(IList<MicrosoftDynamicsCRMplugintype>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMpluginassembly(string url = default(string), string culture = default(string), string _modifiedbyValue = default(string), string version = default(string), string description = default(string), bool? ispasswordset = default(bool?), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string path = default(string), string publickeytoken = default(string), bool? ismanaged = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string introducedversion = default(string), int? customizationlevel = default(int?), string _organizationidValue = default(string), string content = default(string), byte[] contentBinary = default(byte[]), string pluginassemblyid = default(string), string name = default(string), string _createdonbehalfbyValue = default(string), string pluginassemblyidunique = default(string), string password = default(string), string sourcehash = default(string), int? isolationmode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string iscustomizable = default(string), string _createdbyValue = default(string), int? major = default(int?), string username = default(string), int? minor = default(int?), int? componentstate = default(int?), string _modifiedonbehalfbyValue = default(string), string solutionid = default(string), int? authtype = default(int?), int? sourcetype = default(int?), string ishidden = default(string), string versionnumber = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMplugintype> pluginassemblyPlugintype = default(IList<MicrosoftDynamicsCRMplugintype>), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Url = url;
             Culture = culture;
@@ -158,8 +160,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "content_binary")]
-        public object ContentBinary { get; set; }
+        public byte[] ContentBinary { get; set; }
 
         /// <summary>
         /// </summary>
@@ -204,7 +207,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -254,12 +257,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "ishidden")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Ishidden { get; set; }
+        public string Ishidden { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

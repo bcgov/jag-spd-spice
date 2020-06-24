@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// sdkmessageprocessingstepimage
+    /// Microsoft.Dynamics.CRM.sdkmessageprocessingstepimage
     /// </summary>
     public partial class MicrosoftDynamicsCRMsdkmessageprocessingstepimage
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsdkmessageprocessingstepimage class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessageprocessingstepimage(int? componentstate = default(int?), string _createdonbehalfbyValue = default(string), string entityalias = default(string), string introducedversion = default(string), string attributes = default(string), bool? ismanaged = default(bool?), string _modifiedonbehalfbyValue = default(string), string sdkmessageprocessingstepimageidunique = default(string), string name = default(string), string _modifiedbyValue = default(string), string description = default(string), MicrosoftDynamicsCRMBooleanManagedProperty iscustomizable = default(MicrosoftDynamicsCRMBooleanManagedProperty), string _organizationidValue = default(string), long? versionnumber = default(long?), string messagepropertyname = default(string), string sdkmessageprocessingstepimageid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _sdkmessageprocessingstepidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? imagetype = default(int?), int? customizationlevel = default(int?), string relatedattributename = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsdkmessageprocessingstep sdkmessageprocessingstepid = default(MicrosoftDynamicsCRMsdkmessageprocessingstep))
+        public MicrosoftDynamicsCRMsdkmessageprocessingstepimage(int? componentstate = default(int?), string _createdonbehalfbyValue = default(string), string entityalias = default(string), string introducedversion = default(string), string attributes = default(string), bool? ismanaged = default(bool?), string _modifiedonbehalfbyValue = default(string), string sdkmessageprocessingstepimageidunique = default(string), string name = default(string), string _modifiedbyValue = default(string), string description = default(string), string iscustomizable = default(string), string _organizationidValue = default(string), string versionnumber = default(string), string messagepropertyname = default(string), string sdkmessageprocessingstepimageid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _sdkmessageprocessingstepidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string solutionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? imagetype = default(int?), int? customizationlevel = default(int?), string relatedattributename = default(string), string _createdbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsdkmessageprocessingstep sdkmessageprocessingstepid = default(MicrosoftDynamicsCRMsdkmessageprocessingstep))
         {
             Componentstate = componentstate;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
@@ -126,7 +126,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "iscustomizable")]
-        public MicrosoftDynamicsCRMBooleanManagedProperty Iscustomizable { get; set; }
+        public string Iscustomizable { get; set; }
 
         /// <summary>
         /// </summary>
@@ -136,7 +136,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

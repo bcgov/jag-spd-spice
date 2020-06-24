@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// <param name='expand'>
             /// Expand related entities
             /// </param>
-            public static ExportrequestsGetResponseModel Get(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>))
+            public static MicrosoftDynamicsCRMspiceExportrequestCollection Get(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>))
             {
                 return operations.GetAsync(top, skip, search, filter, count, orderby, select, expand).GetAwaiter().GetResult();
             }
@@ -76,7 +76,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ExportrequestsGetResponseModel> GetAsync(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<MicrosoftDynamicsCRMspiceExportrequestCollection> GetAsync(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(top, skip, search, filter, count, orderby, select, expand, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -112,7 +112,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// <param name='customHeaders'>
             /// Headers that will be added to request.
             /// </param>
-            public static HttpOperationResponse<ExportrequestsGetResponseModel> GetWithHttpMessages(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null)
+            public static HttpOperationResponse<MicrosoftDynamicsCRMspiceExportrequestCollection> GetWithHttpMessages(this IExportrequests operations, int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null)
             {
                 return operations.GetWithHttpMessagesAsync(top, skip, search, filter, count, orderby, select, expand, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
@@ -187,7 +187,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='select'>
             /// Select properties to be returned
@@ -207,7 +207,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='select'>
             /// Select properties to be returned
@@ -233,7 +233,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='select'>
             /// Select properties to be returned
@@ -250,70 +250,13 @@ namespace Gov.Jag.Spice.Interfaces
             }
 
             /// <summary>
-            /// Delete entity from spice_exportrequests
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
-            /// </param>
-            /// <param name='ifMatch'>
-            /// ETag
-            /// </param>
-            public static void Delete(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string))
-            {
-                operations.DeleteAsync(spiceExportrequestid, ifMatch).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete entity from spice_exportrequests
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
-            /// </param>
-            /// <param name='ifMatch'>
-            /// ETag
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task DeleteAsync(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.DeleteWithHttpMessagesAsync(spiceExportrequestid, ifMatch, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Delete entity from spice_exportrequests
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
-            /// </param>
-            /// <param name='ifMatch'>
-            /// ETag
-            /// </param>
-            /// <param name='customHeaders'>
-            /// Headers that will be added to request.
-            /// </param>
-            public static HttpOperationResponse DeleteWithHttpMessages(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string), Dictionary<string, List<string>> customHeaders = null)
-            {
-                return operations.DeleteWithHttpMessagesAsync(spiceExportrequestid, ifMatch, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
             /// Update entity in spice_exportrequests
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='body'>
             /// New property values
@@ -330,7 +273,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='body'>
             /// New property values
@@ -350,7 +293,7 @@ namespace Gov.Jag.Spice.Interfaces
             /// The operations group for this extension method.
             /// </param>
             /// <param name='spiceExportrequestid'>
-            /// key: spice_exportrequestid
+            /// key: spice_exportrequestid of spice_exportrequest
             /// </param>
             /// <param name='body'>
             /// New property values
@@ -361,6 +304,63 @@ namespace Gov.Jag.Spice.Interfaces
             public static HttpOperationResponse UpdateWithHttpMessages(this IExportrequests operations, string spiceExportrequestid, MicrosoftDynamicsCRMspiceExportrequest body, Dictionary<string, List<string>> customHeaders = null)
             {
                 return operations.UpdateWithHttpMessagesAsync(spiceExportrequestid, body, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete entity from spice_exportrequests
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceExportrequestid'>
+            /// key: spice_exportrequestid of spice_exportrequest
+            /// </param>
+            /// <param name='ifMatch'>
+            /// ETag
+            /// </param>
+            public static void Delete(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string))
+            {
+                operations.DeleteAsync(spiceExportrequestid, ifMatch).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete entity from spice_exportrequests
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceExportrequestid'>
+            /// key: spice_exportrequestid of spice_exportrequest
+            /// </param>
+            /// <param name='ifMatch'>
+            /// ETag
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteAsync(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteWithHttpMessagesAsync(spiceExportrequestid, ifMatch, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Delete entity from spice_exportrequests
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='spiceExportrequestid'>
+            /// key: spice_exportrequestid of spice_exportrequest
+            /// </param>
+            /// <param name='ifMatch'>
+            /// ETag
+            /// </param>
+            /// <param name='customHeaders'>
+            /// Headers that will be added to request.
+            /// </param>
+            public static HttpOperationResponse DeleteWithHttpMessages(this IExportrequests operations, string spiceExportrequestid, string ifMatch = default(string), Dictionary<string, List<string>> customHeaders = null)
+            {
+                return operations.DeleteWithHttpMessagesAsync(spiceExportrequestid, ifMatch, customHeaders, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
             }
 
     }

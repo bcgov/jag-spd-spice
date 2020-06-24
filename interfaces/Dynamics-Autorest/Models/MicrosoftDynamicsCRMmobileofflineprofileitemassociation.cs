@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// mobileofflineprofileitemassociation
+    /// Microsoft.Dynamics.CRM.mobileofflineprofileitemassociation
     /// </summary>
     public partial class MicrosoftDynamicsCRMmobileofflineprofileitemassociation
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMmobileofflineprofileitemassociation class.
         /// </summary>
-        public MicrosoftDynamicsCRMmobileofflineprofileitemassociation(int? componentstate = default(int?), string _modifiedbyValue = default(string), string processid = default(string), string _createdbyValue = default(string), string solutionid = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string introducedversion = default(string), string mobileofflineprofileitemassociationidunique = default(string), string name = default(string), string stageid = default(string), string relationshipdisplayname = default(string), string relationshipname = default(string), string traversedpath = default(string), string relationshipdata = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), bool? isvalidated = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _mobileofflineprofileitemidValue = default(string), long? versionnumber = default(long?), string relationshipid = default(string), string _organizationidValue = default(string), string mobileofflineprofileitemassociationid = default(string), string profileitemassociationentityfilter = default(string), bool? ismanaged = default(bool?), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), int? selectedrelationshipsschema = default(int?), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMmobileofflineprofileitem regardingobjectid = default(MicrosoftDynamicsCRMmobileofflineprofileitem), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMmobileofflineprofileitemassociation(int? componentstate = default(int?), string _modifiedbyValue = default(string), string processid = default(string), string _createdbyValue = default(string), string solutionid = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string introducedversion = default(string), string mobileofflineprofileitemassociationidunique = default(string), string name = default(string), string stageid = default(string), string relationshipdisplayname = default(string), string relationshipname = default(string), string traversedpath = default(string), string relationshipdata = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), bool? isvalidated = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _mobileofflineprofileitemidValue = default(string), string versionnumber = default(string), string relationshipid = default(string), string _organizationidValue = default(string), string mobileofflineprofileitemassociationid = default(string), string profileitemassociationentityfilter = default(string), bool? ismanaged = default(bool?), System.DateTimeOffset? publishedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), int? selectedrelationshipsschema = default(int?), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMmobileofflineprofileitem regardingobjectid = default(MicrosoftDynamicsCRMmobileofflineprofileitem), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Componentstate = componentstate;
             this._modifiedbyValue = _modifiedbyValue;
@@ -169,7 +169,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

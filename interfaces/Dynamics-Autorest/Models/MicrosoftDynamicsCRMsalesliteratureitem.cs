@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// salesliteratureitem
+    /// Microsoft.Dynamics.CRM.salesliteratureitem
     /// </summary>
     public partial class MicrosoftDynamicsCRMsalesliteratureitem
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsalesliteratureitem class.
         /// </summary>
-        public MicrosoftDynamicsCRMsalesliteratureitem(string filename = default(string), string organizationid = default(string), string _createdonbehalfbyValue = default(string), string documentbody = default(string), object documentbodyBinary = default(object), string abstractProperty = default(string), int? timezoneruleversionnumber = default(int?), string attacheddocumenturl = default(string), long? versionnumber = default(long?), string authorname = default(string), int? filesize = default(int?), string _modifiedonbehalfbyValue = default(string), string salesliteratureitemid = default(string), string _modifiedbyValue = default(string), int? utcconversiontimezonecode = default(int?), string mimetype = default(string), int? importsequencenumber = default(int?), int? filetypecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string keywords = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string _salesliteratureidValue = default(string), string mode = default(string), bool? iscustomerviewable = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> salesliteratureitemSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> salesLiteratureItemAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> salesliteratureitemMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> salesLiteratureItemProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> salesLiteratureItemBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> salesliteratureitemPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsalesliterature salesliteratureid = default(MicrosoftDynamicsCRMsalesliterature))
+        public MicrosoftDynamicsCRMsalesliteratureitem(string filename = default(string), string organizationid = default(string), string _createdonbehalfbyValue = default(string), string documentbody = default(string), byte[] documentbodyBinary = default(byte[]), string abstractProperty = default(string), int? timezoneruleversionnumber = default(int?), string attacheddocumenturl = default(string), string versionnumber = default(string), string authorname = default(string), int? filesize = default(int?), string _modifiedonbehalfbyValue = default(string), string salesliteratureitemid = default(string), string _modifiedbyValue = default(string), int? utcconversiontimezonecode = default(int?), string mimetype = default(string), int? importsequencenumber = default(int?), int? filetypecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string keywords = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string _salesliteratureidValue = default(string), string mode = default(string), bool? iscustomerviewable = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> salesliteratureitemSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> salesLiteratureItemAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> salesliteratureitemMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> salesLiteratureItemProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> salesLiteratureItemBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> salesliteratureitemPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsalesliterature salesliteratureid = default(MicrosoftDynamicsCRMsalesliterature))
         {
             Filename = filename;
             Organizationid = organizationid;
@@ -99,8 +101,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "documentbody_binary")]
-        public object DocumentbodyBinary { get; set; }
+        public byte[] DocumentbodyBinary { get; set; }
 
         /// <summary>
         /// </summary>
@@ -120,7 +123,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

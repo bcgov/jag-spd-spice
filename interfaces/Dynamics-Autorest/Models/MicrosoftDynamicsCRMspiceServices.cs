@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// spice_services
+    /// Microsoft.Dynamics.CRM.spice_services
     /// </summary>
     public partial class MicrosoftDynamicsCRMspiceServices
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMspiceServices
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceServices(object exchangerate = default(object), object spiceDifficult = default(object), object spiceAdjudication = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), long? versionnumber = default(long?), object spiceIntermediate = default(object), int? statecode = default(int?), string _spiceMinistryserviceidValue = default(string), int? importsequencenumber = default(int?), object spiceBusLowfee = default(object), string spiceName = default(string), int? utcconversiontimezonecode = default(int?), object spiceBusLowfeeBase = default(object), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), object spiceBusHighfeeBase = default(object), string _createdonbehalfbyValue = default(string), object spiceSimpleBase = default(object), object spiceBusHighfee = default(object), int? statuscode = default(int?), object spiceNoadjudication = default(object), object spiceSimple = default(object), object spiceNoadjudicationBase = default(object), int? spiceScreeningtype = default(int?), string _organizationidValue = default(string), object spiceDifficultBase = default(object), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string spiceServicesid = default(string), string _modifiedonbehalfbyValue = default(string), object spiceAdjudicationBase = default(object), object spiceIntermediateBase = default(object), string _createdbyValue = default(string), int? spiceSerApplicanttype = default(int?), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> spiceServicesSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceServicesAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceServicesMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceServicesProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceServicesBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceServicesPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMspiceMinistry spiceMinistryServiceId = default(MicrosoftDynamicsCRMspiceMinistry), IList<MicrosoftDynamicsCRMincident> spiceSpiceServicesIncident = default(IList<MicrosoftDynamicsCRMincident>))
+        public MicrosoftDynamicsCRMspiceServices(decimal? exchangerate = default(decimal?), decimal? spiceDifficult = default(decimal?), decimal? spiceAdjudication = default(decimal?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), string versionnumber = default(string), decimal? spiceIntermediate = default(decimal?), int? statecode = default(int?), string _spiceMinistryserviceidValue = default(string), int? importsequencenumber = default(int?), decimal? spiceBusLowfee = default(decimal?), string spiceName = default(string), int? utcconversiontimezonecode = default(int?), decimal? spiceBusLowfeeBase = default(decimal?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string spiceServiceid = default(string), decimal? spiceBusHighfeeBase = default(decimal?), string _createdonbehalfbyValue = default(string), decimal? spiceSimpleBase = default(decimal?), decimal? spiceBusHighfee = default(decimal?), int? statuscode = default(int?), decimal? spiceNoadjudication = default(decimal?), decimal? spiceSimple = default(decimal?), decimal? spiceNoadjudicationBase = default(decimal?), int? spiceScreeningtype = default(int?), string _organizationidValue = default(string), decimal? spiceDifficultBase = default(decimal?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string spiceServicesid = default(string), string _modifiedonbehalfbyValue = default(string), decimal? spiceAdjudicationBase = default(decimal?), decimal? spiceIntermediateBase = default(decimal?), string _createdbyValue = default(string), int? spiceSerApplicanttype = default(int?), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsyncerror> spiceServicesSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> spiceServicesDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> spiceServicesAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> spiceServicesMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> spiceServicesProcessSession = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> spiceServicesBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> spiceServicesPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMspiceMinistry spiceMinistryServiceId = default(MicrosoftDynamicsCRMspiceMinistry), IList<MicrosoftDynamicsCRMincident> spiceSpiceServicesIncident = default(IList<MicrosoftDynamicsCRMincident>))
         {
             Exchangerate = exchangerate;
             SpiceDifficult = spiceDifficult;
@@ -46,6 +46,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Utcconversiontimezonecode = utcconversiontimezonecode;
             SpiceBusLowfeeBase = spiceBusLowfeeBase;
             Overriddencreatedon = overriddencreatedon;
+            SpiceServiceid = spiceServiceid;
             SpiceBusHighfeeBase = spiceBusHighfeeBase;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
             SpiceSimpleBase = spiceSimpleBase;
@@ -93,17 +94,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_difficult")]
-        public object SpiceDifficult { get; set; }
+        public decimal? SpiceDifficult { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_adjudication")]
-        public object SpiceAdjudication { get; set; }
+        public decimal? SpiceAdjudication { get; set; }
 
         /// <summary>
         /// </summary>
@@ -118,12 +119,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_intermediate")]
-        public object SpiceIntermediate { get; set; }
+        public decimal? SpiceIntermediate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -143,7 +144,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_bus_lowfee")]
-        public object SpiceBusLowfee { get; set; }
+        public decimal? SpiceBusLowfee { get; set; }
 
         /// <summary>
         /// </summary>
@@ -158,7 +159,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_bus_lowfee_base")]
-        public object SpiceBusLowfeeBase { get; set; }
+        public decimal? SpiceBusLowfeeBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -167,8 +168,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "spice_serviceid")]
+        public string SpiceServiceid { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "spice_bus_highfee_base")]
-        public object SpiceBusHighfeeBase { get; set; }
+        public decimal? SpiceBusHighfeeBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -178,12 +184,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_simple_base")]
-        public object SpiceSimpleBase { get; set; }
+        public decimal? SpiceSimpleBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_bus_highfee")]
-        public object SpiceBusHighfee { get; set; }
+        public decimal? SpiceBusHighfee { get; set; }
 
         /// <summary>
         /// </summary>
@@ -193,17 +199,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_noadjudication")]
-        public object SpiceNoadjudication { get; set; }
+        public decimal? SpiceNoadjudication { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_simple")]
-        public object SpiceSimple { get; set; }
+        public decimal? SpiceSimple { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_noadjudication_base")]
-        public object SpiceNoadjudicationBase { get; set; }
+        public decimal? SpiceNoadjudicationBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -218,7 +224,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_difficult_base")]
-        public object SpiceDifficultBase { get; set; }
+        public decimal? SpiceDifficultBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -243,12 +249,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_adjudication_base")]
-        public object SpiceAdjudicationBase { get; set; }
+        public decimal? SpiceAdjudicationBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "spice_intermediate_base")]
-        public object SpiceIntermediateBase { get; set; }
+        public decimal? SpiceIntermediateBase { get; set; }
 
         /// <summary>
         /// </summary>

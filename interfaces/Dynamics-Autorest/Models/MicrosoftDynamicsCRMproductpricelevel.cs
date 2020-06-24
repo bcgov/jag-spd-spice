@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// productpricelevel
+    /// Microsoft.Dynamics.CRM.productpricelevel
     /// </summary>
     public partial class MicrosoftDynamicsCRMproductpricelevel
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMproductpricelevel class.
         /// </summary>
-        public MicrosoftDynamicsCRMproductpricelevel(string productnumber = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _productidValue = default(string), object amountBase = default(object), object roundingoptionamount = default(object), long? versionnumber = default(long?), string productpricelevelid = default(string), string stageid = default(string), string _discounttypeidValue = default(string), string traversedpath = default(string), int? importsequencenumber = default(int?), int? utcconversiontimezonecode = default(int?), string _createdbyValue = default(string), string _modifiedbyValue = default(string), object roundingoptionamountBase = default(object), object exchangerate = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), object percentage = default(object), string _pricelevelidValue = default(string), int? roundingoptioncode = default(int?), string _uomidValue = default(string), int? timezoneruleversionnumber = default(int?), string _createdonbehalfbyValue = default(string), string organizationid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string processid = default(string), int? roundingpolicycode = default(int?), int? quantitysellingcode = default(int?), object amount = default(object), string _uomscheduleidValue = default(string), string _modifiedonbehalfbyValue = default(string), int? pricingmethodcode = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> productPriceLevelSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> productPriceLevelAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> productpricelevelMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> productPriceLevelProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> productPriceLevelBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> productpricelevelPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMpricelevel pricelevelid = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMuomschedule uomscheduleid = default(MicrosoftDynamicsCRMuomschedule), MicrosoftDynamicsCRMdiscounttype discounttypeid = default(MicrosoftDynamicsCRMdiscounttype))
+        public MicrosoftDynamicsCRMproductpricelevel(string productnumber = default(string), string _transactioncurrencyidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _productidValue = default(string), decimal? amountBase = default(decimal?), decimal? roundingoptionamount = default(decimal?), string versionnumber = default(string), string productpricelevelid = default(string), string stageid = default(string), string _discounttypeidValue = default(string), string traversedpath = default(string), int? importsequencenumber = default(int?), int? utcconversiontimezonecode = default(int?), string _createdbyValue = default(string), string _modifiedbyValue = default(string), decimal? roundingoptionamountBase = default(decimal?), decimal? exchangerate = default(decimal?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), decimal? percentage = default(decimal?), string _pricelevelidValue = default(string), int? roundingoptioncode = default(int?), string _uomidValue = default(string), int? timezoneruleversionnumber = default(int?), string _createdonbehalfbyValue = default(string), string organizationid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string processid = default(string), int? roundingpolicycode = default(int?), int? quantitysellingcode = default(int?), decimal? amount = default(decimal?), string _uomscheduleidValue = default(string), string _modifiedonbehalfbyValue = default(string), int? pricingmethodcode = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> productPriceLevelSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> productPriceLevelAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> productpricelevelMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> productPriceLevelProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> productPriceLevelBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> productpricelevelPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMpricelevel pricelevelid = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMuom uomid = default(MicrosoftDynamicsCRMuom), MicrosoftDynamicsCRMuomschedule uomscheduleid = default(MicrosoftDynamicsCRMuomschedule), MicrosoftDynamicsCRMdiscounttype discounttypeid = default(MicrosoftDynamicsCRMdiscounttype))
         {
             Productnumber = productnumber;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
@@ -112,17 +112,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "amount_base")]
-        public object AmountBase { get; set; }
+        public decimal? AmountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "roundingoptionamount")]
-        public object Roundingoptionamount { get; set; }
+        public decimal? Roundingoptionamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -167,12 +167,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "roundingoptionamount_base")]
-        public object RoundingoptionamountBase { get; set; }
+        public decimal? RoundingoptionamountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -182,7 +182,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "percentage")]
-        public object Percentage { get; set; }
+        public decimal? Percentage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -237,7 +237,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "amount")]
-        public object Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// </summary>

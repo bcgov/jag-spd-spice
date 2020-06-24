@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// postlike
+    /// Microsoft.Dynamics.CRM.postlike
     /// </summary>
     public partial class MicrosoftDynamicsCRMpostlike
     {

@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// picklistmapping
+    /// Microsoft.Dynamics.CRM.picklistmapping
     /// </summary>
     public partial class MicrosoftDynamicsCRMpicklistmapping
     {

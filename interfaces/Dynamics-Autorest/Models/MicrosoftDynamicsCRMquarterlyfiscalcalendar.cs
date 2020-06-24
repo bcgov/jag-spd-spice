@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// quarterlyfiscalcalendar
+    /// Microsoft.Dynamics.CRM.quarterlyfiscalcalendar
     /// </summary>
     public partial class MicrosoftDynamicsCRMquarterlyfiscalcalendar
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMquarterlyfiscalcalendar class.
         /// </summary>
-        public MicrosoftDynamicsCRMquarterlyfiscalcalendar(string _createdbyValue = default(string), object quarter4Base = default(object), string _transactioncurrencyidValue = default(string), string userfiscalcalendarid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string _businessunitidValue = default(string), int? fiscalperiodtype = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _salespersonidValue = default(string), object quarter3 = default(object), object quarter3Base = default(object), object exchangerate = default(object), object quarter1Base = default(object), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), object quarter2 = default(object), object quarter1 = default(object), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), object quarter4 = default(object), object quarter2Base = default(object), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMasyncoperation> quarterlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> quarterlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMquarterlyfiscalcalendar(string _createdbyValue = default(string), decimal? quarter4Base = default(decimal?), string _transactioncurrencyidValue = default(string), string userfiscalcalendarid = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? timezoneruleversionnumber = default(int?), string _businessunitidValue = default(string), int? fiscalperiodtype = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _salespersonidValue = default(string), decimal? quarter3 = default(decimal?), decimal? quarter3Base = default(decimal?), decimal? exchangerate = default(decimal?), decimal? quarter1Base = default(decimal?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), decimal? quarter2 = default(decimal?), decimal? quarter1 = default(decimal?), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), decimal? quarter4 = default(decimal?), decimal? quarter2Base = default(decimal?), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMasyncoperation> quarterlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> quarterlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser))
         {
             this._createdbyValue = _createdbyValue;
             Quarter4Base = quarter4Base;
@@ -78,7 +78,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter4_base")]
-        public object Quarter4Base { get; set; }
+        public decimal? Quarter4Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -128,22 +128,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter3")]
-        public object Quarter3 { get; set; }
+        public decimal? Quarter3 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter3_base")]
-        public object Quarter3Base { get; set; }
+        public decimal? Quarter3Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter1_base")]
-        public object Quarter1Base { get; set; }
+        public decimal? Quarter1Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -158,12 +158,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter2")]
-        public object Quarter2 { get; set; }
+        public decimal? Quarter2 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter1")]
-        public object Quarter1 { get; set; }
+        public decimal? Quarter1 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -178,12 +178,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter4")]
-        public object Quarter4 { get; set; }
+        public decimal? Quarter4 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "quarter2_base")]
-        public object Quarter2Base { get; set; }
+        public decimal? Quarter2Base { get; set; }
 
         /// <summary>
         /// </summary>

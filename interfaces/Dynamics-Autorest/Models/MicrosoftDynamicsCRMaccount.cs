@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// account
+    /// Microsoft.Dynamics.CRM.account
     /// </summary>
     public partial class MicrosoftDynamicsCRMaccount
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMaccount
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMaccount(string address2Line1 = default(string), string address1Postofficebox = default(string), int? territorycode = default(int?), string accountid = default(string), string address1Telephone1 = default(string), string spiceBccorpregnumber = default(string), object openrevenue = default(object), int? address2Shippingmethodcode = default(int?), object marketcap = default(object), int? address2Freighttermscode = default(int?), string address1Name = default(string), string emailaddress3 = default(string), string address1Telephone3 = default(string), string address2County = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Upszone = default(string), int? numberofemployees = default(int?), string address1Line2 = default(string), string _owningbusinessunitValue = default(string), string timespentbymeonemailandmeetings = default(string), string yominame = default(string), double? address2Longitude = default(double?), int? ownershipcode = default(int?), int? timezoneruleversionnumber = default(int?), string primarysatoriid = default(string), string _masteridValue = default(string), string address1Telephone2 = default(string), int? opendealsState = default(int?), string address2Fax = default(string), string spiceLcrbjobid = default(string), object aging60Base = default(object), string telephone1 = default(string), int? accountcategorycode = default(int?), object entityimage = default(object), object revenue = default(object), object openrevenueBase = default(object), string emailaddress1 = default(string), string _transactioncurrencyidValue = default(string), string tickersymbol = default(string), int? opendeals = default(int?), string address2Telephone1 = default(string), string address2Name = default(string), string accountnumber = default(string), string address1Stateorprovince = default(string), string address1Line3 = default(string), int? industrycode = default(int?), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), string stageid = default(string), int? accountratingcode = default(int?), string address1Line1 = default(string), int? importsequencenumber = default(int?), double? address1Latitude = default(double?), int? paymenttermscode = default(int?), string fax = default(string), int? businesstypecode = default(int?), string address2Line3 = default(string), string spiceCarlaAccount = default(string), int? address2Utcoffset = default(int?), bool? donotphone = default(bool?), object exchangerate = default(object), string _owneridValue = default(string), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), string ftpsiteurl = default(string), System.DateTimeOffset? opendealsDate = default(System.DateTimeOffset?), string stockexchange = default(string), string address2Telephone3 = default(string), string _owningteamValue = default(string), object aging60 = default(object), bool? participatesinworkflow = default(bool?), string _defaultpricelevelidValue = default(string), string address1Postalcode = default(string), string address2Addressid = default(string), bool? donotpostalmail = default(bool?), int? address2Addresstypecode = default(int?), bool? donotbulkemail = default(bool?), object aging30 = default(object), string entityimageUrl = default(string), int? sharesoutstanding = default(int?), double? address2Latitude = default(double?), string _owninguserValue = default(string), int? shippingmethodcode = default(int?), long? versionnumber = default(long?), int? preferredappointmenttimecode = default(int?), string address2Composite = default(string), object aging90Base = default(object), string address1Fax = default(string), string _originatingleadidValue = default(string), bool? merged = default(bool?), string address1City = default(string), string description = default(string), string address2Stateorprovince = default(string), bool? donotfax = default(bool?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string address1Country = default(string), bool? donotemail = default(bool?), string _slainvokedidValue = default(string), string address1Primarycontactname = default(string), int? onholdtime = default(int?), string _createdbyexternalpartyValue = default(string), string spiceParcelidnumber = default(string), string _slaidValue = default(string), bool? marketingonly = default(bool?), int? statuscode = default(int?), string traversedpath = default(string), string processid = default(string), string _createdonbehalfbyValue = default(string), string _modifiedbyexternalpartyValue = default(string), object aging90 = default(object), string address2Postalcode = default(string), string _modifiedbyValue = default(string), int? address1Shippingmethodcode = default(int?), string _createdbyValue = default(string), long? entityimageTimestamp = default(long?), System.DateTimeOffset? openrevenueDate = default(System.DateTimeOffset?), string address1Upszone = default(string), string address2Primarycontactname = default(string), bool? donotsendmm = default(bool?), string primarytwitterid = default(string), string _preferredserviceidValue = default(string), int? customertypecode = default(int?), string _spiceCompanyidValue = default(string), string address2Postofficebox = default(string), string address2City = default(string), string _primarycontactidValue = default(string), int? address1Freighttermscode = default(int?), double? address1Longitude = default(double?), int? customersizecode = default(int?), string telephone2 = default(string), int? address1Addresstypecode = default(int?), bool? donotbulkpostalmail = default(bool?), System.DateTimeOffset? lastusedincampaign = default(System.DateTimeOffset?), string _preferredsystemuseridValue = default(string), object creditlimitBase = default(object), string telephone3 = default(string), string address1Addressid = default(string), int? preferredappointmentdaycode = default(int?), string websiteurl = default(string), int? accountclassificationcode = default(int?), string name = default(string), string sic = default(string), string _preferredequipmentidValue = default(string), object creditlimit = default(object), string address2Line2 = default(string), bool? creditonhold = default(bool?), string entityimageid = default(string), object aging30Base = default(object), string address1Composite = default(string), string _territoryidValue = default(string), bool? followemail = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string address1County = default(string), object marketcapBase = default(object), int? statecode = default(int?), string address2Country = default(string), int? openrevenueState = default(int?), int? address1Utcoffset = default(int?), string emailaddress2 = default(string), string _parentaccountidValue = default(string), int? preferredcontactmethodcode = default(int?), object revenueBase = default(object), string address2Telephone2 = default(string), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> accountPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMlead> leadCustomerAccounts = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMlead> accountleadsAssociation = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMlead> leadParentAccount = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMlead originatingleadid = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMpricelevel defaultpricelevelid = default(MicrosoftDynamicsCRMpricelevel), IList<MicrosoftDynamicsCRMbookableresource> accountBookableresourceAccountId = default(IList<MicrosoftDynamicsCRMbookableresource>), IList<MicrosoftDynamicsCRMbulkoperation> accountBulkOperations = default(IList<MicrosoftDynamicsCRMbulkoperation>), IList<MicrosoftDynamicsCRMcampaignresponse> accountCampaignResponses = default(IList<MicrosoftDynamicsCRMcampaignresponse>), IList<MicrosoftDynamicsCRMbulkoperationlog> createdAccountBulkOperationLogs2 = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMbulkoperationlog> sourceAccountBulkOperationLogs = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMlist> listaccountAssociation = default(IList<MicrosoftDynamicsCRMlist>), IList<MicrosoftDynamicsCRMincidentresolution> accountIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMserviceappointment> accountServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMcontractdetail> contractlineitemCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontractdetail>), IList<MicrosoftDynamicsCRMcontract> contractBillingcustomerAccounts = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMcontract> contractCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMincident> incidentCustomerAccounts = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMentitlement> accountEntitlementAccount = default(IList<MicrosoftDynamicsCRMentitlement>), IList<MicrosoftDynamicsCRMentitlement> accountEntitlementCustomer = default(IList<MicrosoftDynamicsCRMentitlement>), MicrosoftDynamicsCRMequipment preferredequipmentid = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMservice preferredserviceid = default(MicrosoftDynamicsCRMservice), IList<MicrosoftDynamicsCRMopportunityclose> accountOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> accountOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> accountQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMinvoice> invoiceCustomerAccounts = default(IList<MicrosoftDynamicsCRMinvoice>), IList<MicrosoftDynamicsCRMopportunity> opportunityCustomerAccounts = default(IList<MicrosoftDynamicsCRMopportunity>), IList<MicrosoftDynamicsCRMsalesorder> orderCustomerAccounts = default(IList<MicrosoftDynamicsCRMsalesorder>), IList<MicrosoftDynamicsCRMquote> quoteCustomerAccounts = default(IList<MicrosoftDynamicsCRMquote>), IList<MicrosoftDynamicsCRMopportunity> opportunityParentAccount = default(IList<MicrosoftDynamicsCRMopportunity>), MicrosoftDynamicsCRMterritory territoryid = default(MicrosoftDynamicsCRMterritory), IList<MicrosoftDynamicsCRMspiceRequiredchecks> accountSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMincident> spiceAccountIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> spiceAccountSpiceAccountcaseassignment = default(IList<MicrosoftDynamicsCRMspiceAccountcaseassignment>), IList<MicrosoftDynamicsCRMcontact> spiceContactAccount = default(IList<MicrosoftDynamicsCRMcontact>), MicrosoftDynamicsCRMspiceCompany spiceCompanyId = default(MicrosoftDynamicsCRMspiceCompany), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMactivitypointer> accountActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> accountSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMemail> accountEmailSendersAccount = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMemail> accountEmailEmailSender = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMannotation> accountAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> accountSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsla slaAccountSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMconnection> accountConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMpostfollow> accountPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMpostregarding> accountPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMprocesssession> accountProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMfax> accountFaxes = default(IList<MicrosoftDynamicsCRMfax>), MicrosoftDynamicsCRMaccount masterid = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMaccount> accountMasterAccount = default(IList<MicrosoftDynamicsCRMaccount>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMasyncoperation> accountAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMduplicaterecord> accountDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsystemuser preferredsystemuserid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> accountRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMphonecall> accountPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMsocialactivity> accountSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> accountMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMsocialactivity> socialActivityPostAuthorAccountAccounts = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMcustomeraddress> accountCustomerAddress = default(IList<MicrosoftDynamicsCRMcustomeraddress>), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceAccount = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMtask> accountTasks = default(IList<MicrosoftDynamicsCRMtask>), MicrosoftDynamicsCRMsla slainvokedidAccountSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMbulkdeletefailure> accountBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMsocialactivity> socialActivityPostAuthorAccounts = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMcontact> contactCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontact>), IList<MicrosoftDynamicsCRMappointment> accountAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> accountEmails = default(IList<MicrosoftDynamicsCRMemail>), MicrosoftDynamicsCRMaccount parentaccountid = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMaccount> accountParentAccount = default(IList<MicrosoftDynamicsCRMaccount>), IList<MicrosoftDynamicsCRMsocialprofile> socialprofileCustomerAccounts = default(IList<MicrosoftDynamicsCRMsocialprofile>), IList<MicrosoftDynamicsCRMduplicaterecord> accountDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMactivityparty> accountActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMconnection> accountConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMactioncard> accountActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMletter> accountLetters = default(IList<MicrosoftDynamicsCRMletter>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMaccount(string address2Line1 = default(string), string address1Postofficebox = default(string), int? territorycode = default(int?), string accountid = default(string), string address1Telephone1 = default(string), string spiceBccorpregnumber = default(string), decimal? openrevenue = default(decimal?), int? address2Shippingmethodcode = default(int?), decimal? marketcap = default(decimal?), int? address2Freighttermscode = default(int?), string address1Name = default(string), string emailaddress3 = default(string), string address1Telephone3 = default(string), string address2County = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Upszone = default(string), int? numberofemployees = default(int?), string address1Line2 = default(string), string _owningbusinessunitValue = default(string), string timespentbymeonemailandmeetings = default(string), string yominame = default(string), decimal? address2Longitude = default(decimal?), int? ownershipcode = default(int?), int? timezoneruleversionnumber = default(int?), string primarysatoriid = default(string), string _masteridValue = default(string), string address1Telephone2 = default(string), int? opendealsState = default(int?), string address2Fax = default(string), string spiceLcrbjobid = default(string), decimal? aging60Base = default(decimal?), string telephone1 = default(string), int? accountcategorycode = default(int?), byte[] entityimage = default(byte[]), decimal? revenue = default(decimal?), decimal? openrevenueBase = default(decimal?), string emailaddress1 = default(string), string _transactioncurrencyidValue = default(string), string tickersymbol = default(string), int? opendeals = default(int?), string address2Telephone1 = default(string), string address2Name = default(string), string accountnumber = default(string), string address1Stateorprovince = default(string), string address1Line3 = default(string), int? industrycode = default(int?), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), string stageid = default(string), int? accountratingcode = default(int?), string address1Line1 = default(string), int? importsequencenumber = default(int?), decimal? address1Latitude = default(decimal?), int? paymenttermscode = default(int?), string fax = default(string), int? businesstypecode = default(int?), string address2Line3 = default(string), string spiceCarlaAccount = default(string), int? address2Utcoffset = default(int?), bool? donotphone = default(bool?), decimal? exchangerate = default(decimal?), string _owneridValue = default(string), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), string ftpsiteurl = default(string), System.DateTimeOffset? opendealsDate = default(System.DateTimeOffset?), string stockexchange = default(string), string address2Telephone3 = default(string), string _owningteamValue = default(string), decimal? aging60 = default(decimal?), bool? participatesinworkflow = default(bool?), string _defaultpricelevelidValue = default(string), string address1Postalcode = default(string), string address2Addressid = default(string), bool? donotpostalmail = default(bool?), int? address2Addresstypecode = default(int?), bool? donotbulkemail = default(bool?), decimal? aging30 = default(decimal?), string entityimageUrl = default(string), int? sharesoutstanding = default(int?), decimal? address2Latitude = default(decimal?), string _owninguserValue = default(string), int? shippingmethodcode = default(int?), string versionnumber = default(string), int? preferredappointmenttimecode = default(int?), string address2Composite = default(string), decimal? aging90Base = default(decimal?), string address1Fax = default(string), string _originatingleadidValue = default(string), bool? merged = default(bool?), string address1City = default(string), string description = default(string), string address2Stateorprovince = default(string), bool? donotfax = default(bool?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string address1Country = default(string), bool? donotemail = default(bool?), string _slainvokedidValue = default(string), string address1Primarycontactname = default(string), int? onholdtime = default(int?), string _createdbyexternalpartyValue = default(string), string spiceParcelidnumber = default(string), string _slaidValue = default(string), bool? marketingonly = default(bool?), int? statuscode = default(int?), string traversedpath = default(string), string processid = default(string), string _createdonbehalfbyValue = default(string), string _modifiedbyexternalpartyValue = default(string), decimal? aging90 = default(decimal?), string address2Postalcode = default(string), string _modifiedbyValue = default(string), int? address1Shippingmethodcode = default(int?), string _createdbyValue = default(string), long? entityimageTimestamp = default(long?), System.DateTimeOffset? openrevenueDate = default(System.DateTimeOffset?), string address1Upszone = default(string), string address2Primarycontactname = default(string), bool? donotsendmm = default(bool?), string primarytwitterid = default(string), string _preferredserviceidValue = default(string), int? customertypecode = default(int?), string _spiceCompanyidValue = default(string), string address2Postofficebox = default(string), string address2City = default(string), string _primarycontactidValue = default(string), int? address1Freighttermscode = default(int?), decimal? address1Longitude = default(decimal?), int? customersizecode = default(int?), string telephone2 = default(string), int? address1Addresstypecode = default(int?), bool? donotbulkpostalmail = default(bool?), System.DateTimeOffset? lastusedincampaign = default(System.DateTimeOffset?), string _preferredsystemuseridValue = default(string), decimal? creditlimitBase = default(decimal?), string telephone3 = default(string), string address1Addressid = default(string), int? preferredappointmentdaycode = default(int?), string websiteurl = default(string), int? accountclassificationcode = default(int?), string name = default(string), string sic = default(string), string _preferredequipmentidValue = default(string), decimal? creditlimit = default(decimal?), string address2Line2 = default(string), bool? creditonhold = default(bool?), string entityimageid = default(string), decimal? aging30Base = default(decimal?), string address1Composite = default(string), string _territoryidValue = default(string), bool? followemail = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string address1County = default(string), decimal? marketcapBase = default(decimal?), int? statecode = default(int?), string address2Country = default(string), int? openrevenueState = default(int?), int? address1Utcoffset = default(int?), string emailaddress2 = default(string), string _parentaccountidValue = default(string), int? preferredcontactmethodcode = default(int?), decimal? revenueBase = default(decimal?), string address2Telephone2 = default(string), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> accountPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), IList<MicrosoftDynamicsCRMlead> leadCustomerAccounts = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMlead> accountleadsAssociation = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMlead> leadParentAccount = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMlead originatingleadid = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMpricelevel defaultpricelevelid = default(MicrosoftDynamicsCRMpricelevel), IList<MicrosoftDynamicsCRMbookableresource> accountBookableresourceAccountId = default(IList<MicrosoftDynamicsCRMbookableresource>), IList<MicrosoftDynamicsCRMbulkoperation> accountBulkOperations = default(IList<MicrosoftDynamicsCRMbulkoperation>), IList<MicrosoftDynamicsCRMcampaignresponse> accountCampaignResponses = default(IList<MicrosoftDynamicsCRMcampaignresponse>), IList<MicrosoftDynamicsCRMbulkoperationlog> createdAccountBulkOperationLogs2 = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMbulkoperationlog> sourceAccountBulkOperationLogs = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMlist> listaccountAssociation = default(IList<MicrosoftDynamicsCRMlist>), IList<MicrosoftDynamicsCRMincidentresolution> accountIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMserviceappointment> accountServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMcontractdetail> contractlineitemCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontractdetail>), IList<MicrosoftDynamicsCRMcontract> contractBillingcustomerAccounts = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMcontract> contractCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontract>), IList<MicrosoftDynamicsCRMincident> incidentCustomerAccounts = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMentitlement> accountEntitlementAccount = default(IList<MicrosoftDynamicsCRMentitlement>), IList<MicrosoftDynamicsCRMentitlement> accountEntitlementCustomer = default(IList<MicrosoftDynamicsCRMentitlement>), MicrosoftDynamicsCRMequipment preferredequipmentid = default(MicrosoftDynamicsCRMequipment), MicrosoftDynamicsCRMservice preferredserviceid = default(MicrosoftDynamicsCRMservice), IList<MicrosoftDynamicsCRMopportunityclose> accountOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> accountOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> accountQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMinvoice> invoiceCustomerAccounts = default(IList<MicrosoftDynamicsCRMinvoice>), IList<MicrosoftDynamicsCRMopportunity> opportunityCustomerAccounts = default(IList<MicrosoftDynamicsCRMopportunity>), IList<MicrosoftDynamicsCRMsalesorder> orderCustomerAccounts = default(IList<MicrosoftDynamicsCRMsalesorder>), IList<MicrosoftDynamicsCRMquote> quoteCustomerAccounts = default(IList<MicrosoftDynamicsCRMquote>), IList<MicrosoftDynamicsCRMopportunity> opportunityParentAccount = default(IList<MicrosoftDynamicsCRMopportunity>), MicrosoftDynamicsCRMterritory territoryid = default(MicrosoftDynamicsCRMterritory), IList<MicrosoftDynamicsCRMspiceRequiredchecks> accountSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMincident> spiceAccountIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> spiceAccountSpiceAccountcaseassignment = default(IList<MicrosoftDynamicsCRMspiceAccountcaseassignment>), IList<MicrosoftDynamicsCRMcontact> spiceContactAccount = default(IList<MicrosoftDynamicsCRMcontact>), MicrosoftDynamicsCRMspiceCompany spiceCompanyId = default(MicrosoftDynamicsCRMspiceCompany), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), IList<MicrosoftDynamicsCRMactivitypointer> accountActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> accountSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMemail> accountEmailSendersAccount = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMemail> accountEmailEmailSender = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMannotation> accountAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> accountSharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), MicrosoftDynamicsCRMsla slaAccountSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMconnection> accountConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMpostfollow> accountPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMpostregarding> accountPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMprocesssession> accountProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMfax> accountFaxes = default(IList<MicrosoftDynamicsCRMfax>), MicrosoftDynamicsCRMaccount masterid = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMaccount> accountMasterAccount = default(IList<MicrosoftDynamicsCRMaccount>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMasyncoperation> accountAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMduplicaterecord> accountDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), MicrosoftDynamicsCRMsystemuser preferredsystemuserid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> accountRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMphonecall> accountPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMsocialactivity> accountSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> accountMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMsocialactivity> socialActivityPostAuthorAccountAccounts = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMcustomeraddress> accountCustomerAddress = default(IList<MicrosoftDynamicsCRMcustomeraddress>), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceAccount = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMtask> accountTasks = default(IList<MicrosoftDynamicsCRMtask>), MicrosoftDynamicsCRMsla slainvokedidAccountSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMbulkdeletefailure> accountBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMsocialactivity> socialActivityPostAuthorAccounts = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMcontact> contactCustomerAccounts = default(IList<MicrosoftDynamicsCRMcontact>), IList<MicrosoftDynamicsCRMappointment> accountAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> accountEmails = default(IList<MicrosoftDynamicsCRMemail>), MicrosoftDynamicsCRMaccount parentaccountid = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMaccount> accountParentAccount = default(IList<MicrosoftDynamicsCRMaccount>), IList<MicrosoftDynamicsCRMsocialprofile> socialprofileCustomerAccounts = default(IList<MicrosoftDynamicsCRMsocialprofile>), IList<MicrosoftDynamicsCRMduplicaterecord> accountDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMactivityparty> accountActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMconnection> accountConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), IList<MicrosoftDynamicsCRMactioncard> accountActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMletter> accountLetters = default(IList<MicrosoftDynamicsCRMletter>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Address2Line1 = address2Line1;
             Address1Postofficebox = address1Postofficebox;
@@ -320,7 +322,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "openrevenue")]
-        public object Openrevenue { get; set; }
+        public decimal? Openrevenue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -330,7 +332,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "marketcap")]
-        public object Marketcap { get; set; }
+        public decimal? Marketcap { get; set; }
 
         /// <summary>
         /// </summary>
@@ -395,7 +397,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_longitude")]
-        public double? Address2Longitude { get; set; }
+        public decimal? Address2Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -440,7 +442,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging60_base")]
-        public object Aging60Base { get; set; }
+        public decimal? Aging60Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -454,18 +456,19 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        public byte[] Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "revenue")]
-        public object Revenue { get; set; }
+        public decimal? Revenue { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "openrevenue_base")]
-        public object OpenrevenueBase { get; set; }
+        public decimal? OpenrevenueBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -545,7 +548,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_latitude")]
-        public double? Address1Latitude { get; set; }
+        public decimal? Address1Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -585,7 +588,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -630,7 +633,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging60")]
-        public object Aging60 { get; set; }
+        public decimal? Aging60 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -670,7 +673,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging30")]
-        public object Aging30 { get; set; }
+        public decimal? Aging30 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -685,7 +688,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_latitude")]
-        public double? Address2Latitude { get; set; }
+        public decimal? Address2Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -700,7 +703,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -715,7 +718,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging90_base")]
-        public object Aging90Base { get; set; }
+        public decimal? Aging90Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -830,7 +833,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging90")]
-        public object Aging90 { get; set; }
+        public decimal? Aging90 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -920,7 +923,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_longitude")]
-        public double? Address1Longitude { get; set; }
+        public decimal? Address1Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -955,7 +958,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "creditlimit_base")]
-        public object CreditlimitBase { get; set; }
+        public decimal? CreditlimitBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1000,7 +1003,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "creditlimit")]
-        public object Creditlimit { get; set; }
+        public decimal? Creditlimit { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1020,7 +1023,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "aging30_base")]
-        public object Aging30Base { get; set; }
+        public decimal? Aging30Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1050,7 +1053,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "marketcap_base")]
-        public object MarketcapBase { get; set; }
+        public decimal? MarketcapBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1090,7 +1093,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "revenue_base")]
-        public object RevenueBase { get; set; }
+        public decimal? RevenueBase { get; set; }
 
         /// <summary>
         /// </summary>

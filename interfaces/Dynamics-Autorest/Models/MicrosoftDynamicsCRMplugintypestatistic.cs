@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// plugintypestatistic
+    /// Microsoft.Dynamics.CRM.plugintypestatistic
     /// </summary>
     public partial class MicrosoftDynamicsCRMplugintypestatistic
     {

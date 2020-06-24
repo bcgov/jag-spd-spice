@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// businessunitnewsarticle
+    /// Microsoft.Dynamics.CRM.businessunitnewsarticle
     /// </summary>
     public partial class MicrosoftDynamicsCRMbusinessunitnewsarticle
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMbusinessunitnewsarticle class.
         /// </summary>
-        public MicrosoftDynamicsCRMbusinessunitnewsarticle(string newsarticle = default(string), string articleurl = default(string), string _organizationidValue = default(string), string businessunitnewsarticleid = default(string), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? activeuntil = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), int? articletypecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string articletitle = default(string), string _createdbyValue = default(string), bool? showonhomepage = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), IList<MicrosoftDynamicsCRMbulkdeletefailure> businessUnitNewsArticleBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMasyncoperation> businessUnitNewsArticleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMprocesssession> businessUnitNewsArticleProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMbusinessunitnewsarticle(string newsarticle = default(string), string articleurl = default(string), string _organizationidValue = default(string), string businessunitnewsarticleid = default(string), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? activeon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string versionnumber = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? activeuntil = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), int? articletypecode = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string articletitle = default(string), string _createdbyValue = default(string), bool? showonhomepage = default(bool?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), IList<MicrosoftDynamicsCRMbulkdeletefailure> businessUnitNewsArticleBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMasyncoperation> businessUnitNewsArticleAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMprocesssession> businessUnitNewsArticleProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Newsarticle = newsarticle;
             Articleurl = articleurl;
@@ -110,7 +110,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

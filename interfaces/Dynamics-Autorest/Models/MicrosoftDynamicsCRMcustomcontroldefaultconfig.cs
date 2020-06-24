@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// customcontroldefaultconfig
+    /// Microsoft.Dynamics.CRM.customcontroldefaultconfig
     /// </summary>
     public partial class MicrosoftDynamicsCRMcustomcontroldefaultconfig
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcustomcontroldefaultconfig class.
         /// </summary>
-        public MicrosoftDynamicsCRMcustomcontroldefaultconfig(string primaryentitytypecode = default(string), string controldescriptionjson = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), int? componentstate = default(int?), bool? ismanaged = default(bool?), string eventsxml = default(string), string customcontroldefaultconfigid = default(string), string solutionid = default(string), string _createdbyValue = default(string), string introducedversion = default(string), string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string customcontroldefaultconfigidunique = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), long? versionnumber = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string controldescriptionxml = default(string), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMcustomcontroldefaultconfig(string primaryentitytypecode = default(string), string controldescriptionjson = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), int? componentstate = default(int?), bool? ismanaged = default(bool?), string eventsxml = default(string), string customcontroldefaultconfigid = default(string), string solutionid = default(string), string _createdbyValue = default(string), string introducedversion = default(string), string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string customcontroldefaultconfigidunique = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string versionnumber = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string controldescriptionxml = default(string), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Primaryentitytypecode = primaryentitytypecode;
             Controldescriptionjson = controldescriptionjson;
@@ -139,7 +139,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

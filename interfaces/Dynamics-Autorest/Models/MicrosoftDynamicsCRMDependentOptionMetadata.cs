@@ -12,6 +12,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
     /// <summary>
     /// DependentOptionMetadata
     /// </summary>
+    /// <remarks>
+    /// Microsoft.Dynamics.CRM.DependentOptionMetadata
+    /// </remarks>
     public partial class MicrosoftDynamicsCRMDependentOptionMetadata
     {
         /// <summary>

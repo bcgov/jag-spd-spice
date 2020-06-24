@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// leadaddress
+    /// Microsoft.Dynamics.CRM.leadaddress
     /// </summary>
     public partial class MicrosoftDynamicsCRMleadaddress
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMleadaddress
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMleadaddress(string _createdbyValue = default(string), string _parentidValue = default(string), string telephone1 = default(string), string telephone2 = default(string), string line1 = default(string), string stateorprovince = default(string), string upszone = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), int? utcoffset = default(int?), int? addressnumber = default(int?), string country = default(string), string _createdonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), object exchangerate = default(object), string line2 = default(string), int? utcconversiontimezonecode = default(int?), string postofficebox = default(string), string telephone3 = default(string), string city = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string fax = default(string), string composite = default(string), string leadaddressid = default(string), long? versionnumber = default(long?), int? importsequencenumber = default(int?), int? addresstypecode = default(int?), int? shippingmethodcode = default(int?), string county = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), string line3 = default(string), string _modifiedbyValue = default(string), double? longitude = default(double?), string postalcode = default(string), double? latitude = default(double?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> leadAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> leadaddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> leadaddressMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> leadaddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> leadaddressPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMlead parentid = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMleadaddress(string _createdbyValue = default(string), string _parentidValue = default(string), string telephone1 = default(string), string telephone2 = default(string), string line1 = default(string), string stateorprovince = default(string), string upszone = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string name = default(string), int? utcoffset = default(int?), int? addressnumber = default(int?), string country = default(string), string _createdonbehalfbyValue = default(string), int? timezoneruleversionnumber = default(int?), decimal? exchangerate = default(decimal?), string line2 = default(string), int? utcconversiontimezonecode = default(int?), string postofficebox = default(string), string telephone3 = default(string), string city = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string fax = default(string), string composite = default(string), string leadaddressid = default(string), string versionnumber = default(string), int? importsequencenumber = default(int?), int? addresstypecode = default(int?), int? shippingmethodcode = default(int?), string county = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), string line3 = default(string), string _modifiedbyValue = default(string), decimal? longitude = default(decimal?), string postalcode = default(string), decimal? latitude = default(decimal?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> leadAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> leadaddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> leadaddressMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> leadaddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> leadaddressPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMlead parentid = default(MicrosoftDynamicsCRMlead), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
             this._createdbyValue = _createdbyValue;
             this._parentidValue = _parentidValue;
@@ -160,7 +160,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -210,7 +210,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -260,7 +260,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "longitude")]
-        public double? Longitude { get; set; }
+        public decimal? Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -270,7 +270,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "latitude")]
-        public double? Latitude { get; set; }
+        public decimal? Latitude { get; set; }
 
         /// <summary>
         /// </summary>

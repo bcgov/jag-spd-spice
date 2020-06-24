@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// entitlementcontacts
+    /// Microsoft.Dynamics.CRM.entitlementcontacts
     /// </summary>
     public partial class MicrosoftDynamicsCRMentitlementcontacts
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMentitlementcontacts class.
         /// </summary>
-        public MicrosoftDynamicsCRMentitlementcontacts(int? utcconversiontimezonecode = default(int?), string name = default(string), string entitlementcontactid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string contactid = default(string), string entitlementid = default(string), int? timezoneruleversionnumber = default(int?), int? importsequencenumber = default(int?), long? versionnumber = default(long?), IList<MicrosoftDynamicsCRMasyncoperation> entitlementcontactsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> entitlementcontactsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> entitlementcontactsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> entitlementcontactsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
+        public MicrosoftDynamicsCRMentitlementcontacts(int? utcconversiontimezonecode = default(int?), string name = default(string), string entitlementcontactid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string contactid = default(string), string entitlementid = default(string), int? timezoneruleversionnumber = default(int?), int? importsequencenumber = default(int?), string versionnumber = default(string), IList<MicrosoftDynamicsCRMasyncoperation> entitlementcontactsAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> entitlementcontactsMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> entitlementcontactsBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> entitlementcontactsPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
             Utcconversiontimezonecode = utcconversiontimezonecode;
             Name = name;
@@ -95,7 +95,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

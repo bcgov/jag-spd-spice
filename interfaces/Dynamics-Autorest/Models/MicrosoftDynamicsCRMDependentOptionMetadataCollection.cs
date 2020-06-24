@@ -14,6 +14,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
     /// <summary>
     /// DependentOptionMetadataCollection
     /// </summary>
+    /// <remarks>
+    /// Microsoft.Dynamics.CRM.DependentOptionMetadataCollection
+    /// </remarks>
     public partial class MicrosoftDynamicsCRMDependentOptionMetadataCollection
     {
         /// <summary>
@@ -29,7 +32,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMDependentOptionMetadataCollection class.
         /// </summary>
-        public MicrosoftDynamicsCRMDependentOptionMetadataCollection(IList<MicrosoftDynamicsCRMDependentOptionMetadata> optionList = default(IList<MicrosoftDynamicsCRMDependentOptionMetadata>))
+        public MicrosoftDynamicsCRMDependentOptionMetadataCollection(IList<object> optionList = default(IList<object>))
         {
             OptionList = optionList;
             CustomInit();
@@ -43,7 +46,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "OptionList")]
-        public IList<MicrosoftDynamicsCRMDependentOptionMetadata> OptionList { get; set; }
+        public IList<object> OptionList { get; set; }
 
     }
 }

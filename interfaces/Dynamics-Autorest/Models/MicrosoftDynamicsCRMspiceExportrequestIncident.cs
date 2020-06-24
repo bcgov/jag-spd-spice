@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// spice_exportrequest_incident
+    /// Microsoft.Dynamics.CRM.spice_exportrequest_incident
     /// </summary>
     public partial class MicrosoftDynamicsCRMspiceExportrequestIncident
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMspiceExportrequestIncident class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceExportrequestIncident(string incidentid = default(string), string spiceExportrequestIncidentid = default(string), long? versionnumber = default(long?), string spiceExportrequestid = default(string))
+        public MicrosoftDynamicsCRMspiceExportrequestIncident(string incidentid = default(string), string spiceExportrequestIncidentid = default(string), string versionnumber = default(string), string spiceExportrequestid = default(string))
         {
             Incidentid = incidentid;
             SpiceExportrequestIncidentid = spiceExportrequestIncidentid;
@@ -54,7 +54,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

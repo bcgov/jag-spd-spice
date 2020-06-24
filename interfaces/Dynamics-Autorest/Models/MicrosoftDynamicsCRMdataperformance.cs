@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// dataperformance
+    /// Microsoft.Dynamics.CRM.dataperformance
     /// </summary>
     public partial class MicrosoftDynamicsCRMdataperformance
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMdataperformance class.
         /// </summary>
-        public MicrosoftDynamicsCRMdataperformance(string _organizationidValue = default(string), object estimatedoptimizationimpact = default(object), object optimizationstorage = default(object), string optimizationstatus = default(string), string dataperformanceid = default(string), string lastactionresult = default(string), string component = default(string), object weight = default(object), object mediantime = default(object), string entity = default(string), bool? anyoptimizationavailable = default(bool?), string solution = default(string), string executionperiod = default(string), int? count = default(int?), object maxtime = default(object), bool? anyoptimizationapplied = default(bool?), string realizedoptimizationimpact = default(string), System.DateTimeOffset? lastoptimizationdate = default(System.DateTimeOffset?), object mintime = default(object), string operation = default(string), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
+        public MicrosoftDynamicsCRMdataperformance(string _organizationidValue = default(string), decimal? estimatedoptimizationimpact = default(decimal?), decimal? optimizationstorage = default(decimal?), string optimizationstatus = default(string), string dataperformanceid = default(string), string lastactionresult = default(string), string component = default(string), decimal? weight = default(decimal?), decimal? mediantime = default(decimal?), string entity = default(string), bool? anyoptimizationavailable = default(bool?), string solution = default(string), string executionperiod = default(string), int? count = default(int?), decimal? maxtime = default(decimal?), bool? anyoptimizationapplied = default(bool?), string realizedoptimizationimpact = default(string), System.DateTimeOffset? lastoptimizationdate = default(System.DateTimeOffset?), decimal? mintime = default(decimal?), string operation = default(string), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization))
         {
             this._organizationidValue = _organizationidValue;
             Estimatedoptimizationimpact = estimatedoptimizationimpact;
@@ -66,12 +66,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "estimatedoptimizationimpact")]
-        public object Estimatedoptimizationimpact { get; set; }
+        public decimal? Estimatedoptimizationimpact { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "optimizationstorage")]
-        public object Optimizationstorage { get; set; }
+        public decimal? Optimizationstorage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -96,12 +96,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "weight")]
-        public object Weight { get; set; }
+        public decimal? Weight { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "mediantime")]
-        public object Mediantime { get; set; }
+        public decimal? Mediantime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "maxtime")]
-        public object Maxtime { get; set; }
+        public decimal? Maxtime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -151,7 +151,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "mintime")]
-        public object Mintime { get; set; }
+        public decimal? Mintime { get; set; }
 
         /// <summary>
         /// </summary>

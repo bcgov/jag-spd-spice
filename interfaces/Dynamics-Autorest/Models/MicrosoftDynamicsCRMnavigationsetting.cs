@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// navigationsetting
+    /// Microsoft.Dynamics.CRM.navigationsetting
     /// </summary>
     public partial class MicrosoftDynamicsCRMnavigationsetting
     {
