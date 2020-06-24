@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// incident
+    /// Microsoft.Dynamics.CRM.incident
     /// </summary>
     public partial class MicrosoftDynamicsCRMincident
     {
@@ -29,262 +31,321 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMincident
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMincident(int? spiceBusLevel = default(int?), bool? spiceEssSsvVerified = default(bool?), bool? spiceAliasesadded = default(bool?), bool? spiceBusFitandproperresultsent = default(bool?), System.DateTimeOffset? spiceSsqsentdate = default(System.DateTimeOffset?), int? servicestage = default(int?), object spiceScreeningamountBase = default(object), bool? spiceEssSecurityinterresultsrecd = default(bool?), string _parentcaseidValue = default(string), string spiceConcapptype = default(string), bool? spiceWfReview = default(bool?), object spiceScreeningamount = default(object), string _spiceLcrblicencetypeidValue = default(string), bool? spiceCharrefrequestsentdate = default(bool?), bool? spiceBusResultsreceived = default(bool?), System.DateTimeOffset? spiceLdbWResultsdate = default(System.DateTimeOffset?), bool? spiceCornetReportuploaded = default(bool?), bool? spiceEssEduCredvercompleted = default(bool?), System.DateTimeOffset? spiceVerficationexpiresby = default(System.DateTimeOffset?), string _owningbusinessunitValue = default(string), string _subjectidValue = default(string), System.DateTimeOffset? spiceWfTimestampldbletter = default(System.DateTimeOffset?), bool? spiceEssEduCredverrequired = default(bool?), string processid = default(string), string _spiceReturnresulttoValue = default(string), bool? spiceJcRccReceived = default(bool?), bool? spiceEssInterResultsreceived = default(bool?), bool? spiceEssDfoConfrecd = default(bool?), int? spiceAddtlprimerequired = default(int?), int? prioritycode = default(int?), string description = default(string), int? spiceBusinessreadyforlcrb = default(int?), string _slaidValue = default(string), int? spiceEssEduVerifresults = default(int?), int? spiceApplicationstatus = default(int?), int? spiceFurtherinvestigationresults = default(int?), string _socialprofileidValue = default(string), string _entitlementidValue = default(string), bool? customercontacted = default(bool?), long? versionnumber = default(long?), bool? spiceJustinReportuploaded = default(bool?), int? customersatisfactioncode = default(int?), string _primarycontactidValue = default(string), string _modifiedbyValue = default(string), int? spiceAliasesAdded = default(int?), bool? spiceAliasesfound = default(bool?), bool? isescalated = default(bool?), string _spiceWfCrrupassbackValue = default(string), bool? spiceWfSsqrequired = default(bool?), int? casetypecode = default(int?), bool? spiceEssRefrecdfromapplicant = default(bool?), bool? spiceWfPrimecheckrequired = default(bool?), string _masteridValue = default(string), string incidentid = default(string), bool? spiceSsqsent = default(bool?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? spiceLegalreviewcomplete = default(bool?), bool? spice30daylettersent = default(bool?), bool? spicePrimeFurtherinvestigation = default(bool?), int? statuscode = default(int?), bool? spiceOtrletterreceived = default(bool?), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), bool? spiceEssSecurityinterrequired = default(bool?), bool? spiceEss3rdpartyChecksreq = default(bool?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? spiceConsentsentdate = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? spiceEssDfoResultsrecd = default(bool?), bool? spiceCornetchecked = default(bool?), string _firstresponsebykpiidValue = default(string), string spiceCpicresultstosharewithspd = default(string), int? spiceJcResults = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), bool? spicePrimeInternationalchecks = default(bool?), bool? spiceWfBusinessclosure = default(bool?), bool? spiceEssDriabstractreceived = default(bool?), bool? spiceEssCharcIntervconf = default(bool?), int? timezoneruleversionnumber = default(int?), bool? spiceEssDriversabstreqd = default(bool?), string _contractdetailidValue = default(string), int? spiceBsFitandproper = default(int?), int? spiceScreeningcomplexity = default(int?), bool? spiceCpuresultsreceived = default(bool?), bool? spiceInvestigationrequired = default(bool?), bool? spiceRccRequestmade = default(bool?), bool? spiceEssDriverRecordsfound = default(bool?), string _owneridValue = default(string), bool? spiceResultssent = default(bool?), int? spiceCreditScore = default(int?), double? sentimentvalue = default(double?), bool? spiceSsqreceived = default(bool?), bool? spiceCornetcheckrequired = default(bool?), bool? spiceEssInterPolygraphrequired = default(bool?), int? spiceSpdinvestigationresults = default(int?), bool? spiceCpicInfoprovided = default(bool?), string stageid = default(string), System.DateTimeOffset? spice30daylettersenddt = default(System.DateTimeOffset?), bool? spiceJcCheckrequired = default(bool?), int? spicePrimeResults = default(int?), string spiceConsentrequired = default(string), string _modifiedonbehalfbyValue = default(string), bool? spiceCpuresultsuploaded = default(bool?), int? spiceFinalresult = default(int?), bool? spiceNotfitandproperresultsent = default(bool?), string spiceOtherscreeningreason = default(string), bool? spiceOtrlettersent = default(bool?), int? spiceCpicresults = default(int?), string spiceBillingtext = default(string), string _slainvokedidValue = default(string), System.DateTimeOffset? spiceSpdinvestigationcompletiondt = default(System.DateTimeOffset?), bool? spiceAdditionalprimerequired = default(bool?), bool? followuptaskcreated = default(bool?), System.DateTimeOffset? spiceConsentdatereceived = default(System.DateTimeOffset?), string _kbarticleidValue = default(string), bool? merged = default(bool?), System.DateTimeOffset? spiceSsqreceiveddt = default(System.DateTimeOffset?), bool? spiceChreferencerequestsent = default(bool?), string _createdbyexternalpartyValue = default(string), bool? spiceReadyforspdinvestigation = default(bool?), int? spiceCornetresult = default(int?), string emailaddress = default(string), bool? spicePrimeInfoProvided = default(bool?), bool? spiceTcDtSignatureConfirmed = default(bool?), bool? spiceEssRefrequired = default(bool?), long? entityimageTimestamp = default(long?), int? spiceEssDfoResults = default(int?), bool? spiceAllrequiredcheckscomplete = default(bool?), bool? spiceAdditionalprimeinformationprovided = default(bool?), bool? spiceEssEduEmpverifrequired = default(bool?), bool? spiceEssCharcCvsareqd = default(bool?), string spiceSsq = default(string), string _spiceServiceidValue = default(string), int? spiceEssCreditscore = default(int?), bool? spiceSsqrequired = default(bool?), int? actualserviceunits = default(int?), bool? firstresponsesent = default(bool?), bool? decremententitlementterm = default(bool?), bool? spiceConsentformReceived = default(bool?), bool? spiceFurtherinvestigationresultuploaded = default(bool?), bool? spiceCpiccheckrequired = default(bool?), bool? routecase = default(bool?), object exchangerate = default(object), string entityimageUrl = default(string), bool? spiceEssCrcResuploaded = default(bool?), bool? spiceWfCaseclosureflag = default(bool?), bool? spiceEssPolygraphresultsreceived = default(bool?), System.DateTimeOffset? spiceEssPolygraphinterviewdate = default(System.DateTimeOffset?), System.DateTimeOffset? responseby = default(System.DateTimeOffset?), string _contractidValue = default(string), object entityimage = default(object), string _spiceRequesterhiringmanagerValue = default(string), System.DateTimeOffset? spiceCompletiondate = default(System.DateTimeOffset?), int? spiceCrrustatus = default(int?), int? spiceCannabisapplicanttype = default(int?), bool? checkemail = default(bool?), System.DateTimeOffset? spiceSpdinvestigationcompletiondate = default(System.DateTimeOffset?), string spiceConsent = default(string), bool? spiceCpicFurtherinvest = default(bool?), int? spiceResultofscreening = default(int?), bool? spiceChecked2id = default(bool?), System.DateTimeOffset? escalatedon = default(System.DateTimeOffset?), int? resolvebyslastatus = default(int?), bool? spiceEssCharrefcomplete = default(bool?), string _contactidValue = default(string), bool? spiceEssSsvVerifrequired = default(bool?), string _spiceApplicantidValue = default(string), bool? spiceEssPolygraphinterviewconfirmed = default(bool?), string _owningteamValue = default(string), bool? blockedprofile = default(bool?), string spiceDupCpicresultstospd = default(string), bool? isdecrementing = default(bool?), int? firstresponseslastatus = default(int?), string spiceServiceNumber = default(string), System.DateTimeOffset? spiceConsentDtReceived = default(System.DateTimeOffset?), int? billedserviceunits = default(int?), bool? spiceLegalreviewreqd = default(bool?), string _existingcaseValue = default(string), bool? spiceFurtherinvestigationcomplete = default(bool?), bool? spiceConsentformSent = default(bool?), bool? spiceAllassociateinformationreceived = default(bool?), bool? spiceBusFurtherreviewpackage = default(bool?), bool? spiceEssEduVerifcompleted = default(bool?), string _transactioncurrencyidValue = default(string), bool? spiceEssEduVerificationrequired = default(bool?), int? numberofchildincidents = default(int?), bool? spiceJustinchecked = default(bool?), int? spiceDforesults = default(int?), System.DateTimeOffset? spiceConsentDtSent = default(System.DateTimeOffset?), int? spiceCoorsresults = default(int?), bool? spiceEss3rdpartyIssuesidentified = default(bool?), string _spiceClientValue = default(string), string ticketnumber = default(string), bool? spiceWFurtherReviewrequired = default(bool?), System.DateTimeOffset? spiceSsqsentdt = default(System.DateTimeOffset?), bool? spiceWfInvestigation = default(bool?), System.DateTimeOffset? spiceEssInterviewdate = default(System.DateTimeOffset?), bool? spiceReadyforcrru = default(bool?), int? spiceBusFurtherreviewrequired = default(int?), int? onholdtime = default(int?), int? spiceApplicanttype = default(int?), System.DateTimeOffset? resolveby = default(System.DateTimeOffset?), bool? spicePrimeChecked = default(bool?), System.DateTimeOffset? spiceSsqreceiveddate = default(System.DateTimeOffset?), int? messagetypecode = default(int?), bool? activitiescomplete = default(bool?), System.DateTimeOffset? spiceCompletiondt = default(System.DateTimeOffset?), System.DateTimeOffset? spice30daylettersenddate = default(System.DateTimeOffset?), bool? spiceBusSpdinvestrequired = default(bool?), int? spiceEssCharcresreturned = default(int?), System.DateTimeOffset? followupby = default(System.DateTimeOffset?), bool? spiceAdditionalprimecheckcomplete = default(bool?), bool? spiceReportreadyforreview = default(bool?), int? caseorigincode = default(int?), string _owninguserValue = default(string), bool? spiceJcChecked = default(bool?), int? contractservicelevelcode = default(int?), string traversedpath = default(string), bool? spiceCpicrequestsent = default(bool?), string _customeridValue = default(string), bool? spiceBusFitandproper = default(bool?), int? utcconversiontimezonecode = default(int?), bool? spiceAdditionalprimecheckresult = default(bool?), string title = default(string), string _modifiedbyexternalpartyValue = default(string), bool? spiceEssCreditcheckrequired = default(bool?), int? severitycode = default(int?), string _productidValue = default(string), int? statecode = default(int?), string _spiceReasonforscreeningidValue = default(string), bool? spiceOtrrequired = default(bool?), System.DateTimeOffset? newTestfield = default(System.DateTimeOffset?), double? influencescore = default(double?), bool? spiceEssSecurityinterconfirmed = default(bool?), string entityimageid = default(string), string _accountidValue = default(string), bool? spiceEssCertCrcrequired = default(bool?), bool? spiceSentforadditionalprime = default(bool?), bool? spiceEssRefsenttoitv = default(bool?), int? importsequencenumber = default(int?), bool? spiceEssEmpVerifcompleted = default(bool?), int? incidentstagecode = default(int?), string _spiceApplyingpersonidValue = default(string), string _createdbyValue = default(string), System.DateTimeOffset? spiceEssSecurityinterdate = default(System.DateTimeOffset?), string spicePrimeresultstosharewithspd = default(string), int? spiceAssociatecomplexity = default(int?), int? spiceWorkersreadyforlcrb = default(int?), string _resolvebykpiidValue = default(string), bool? spicePrimeCheckrequired = default(bool?), string spiceDupPrimeresultstosharewithspd = default(string), bool? spiceSpdinvestcompleted = default(bool?), bool? spiceSenttocpu = default(bool?), bool? spiceEss3rdpartyCheckscomptd = default(bool?), string productserialnumber = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> incidentActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> incidentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> incidentActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> incidentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> incidentMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> incidentProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> incidentPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMappointment> incidentAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> incidentEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> incidentFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> incidentLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> incidentPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> incidentTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> incidentRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> incidentSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> incidentConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> incidentConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMqueueitem> incidentQueueItem = default(IList<MicrosoftDynamicsCRMqueueitem>), IList<MicrosoftDynamicsCRMannotation> incidentAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMsla slaidSla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMsla slainvokedidSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceIncident = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMserviceappointment> incidentServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMactioncard> incidentActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMcontact responsiblecontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMcontractdetail contractdetailid = default(MicrosoftDynamicsCRMcontractdetail), MicrosoftDynamicsCRMentitlement entitlementid = default(MicrosoftDynamicsCRMentitlement), IList<MicrosoftDynamicsCRMincidentresolution> incidentIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMpostfollow> incidentPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMpostregarding> incidentPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), MicrosoftDynamicsCRMincident existingcase = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentExistingcase = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident masterid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentMasterIncident = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident parentcaseid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentParentIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMlead> originatingCaseLead = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMknowledgearticleincident> knowledgearticleIncidents = default(IList<MicrosoftDynamicsCRMknowledgearticleincident>), IList<MicrosoftDynamicsCRMknowledgebaserecord> knowledgeBaseRecordIncident = default(IList<MicrosoftDynamicsCRMknowledgebaserecord>), IList<MicrosoftDynamicsCRMphonetocaseprocess> incidentPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMslakpiinstance firstresponsebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMslakpiinstance resolvebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMsocialprofile socialprofileid = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMopportunityclose> incidentOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> incidentOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> incidentQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> incidentSharePointDocumentLocations = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> incidentSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> bpfIncidentSpiceSpiceBusinesscaseprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess>), IList<MicrosoftDynamicsCRMspiceSpiceprocess> bpfIncidentSpiceSpiceprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceprocess>), MicrosoftDynamicsCRMaccount spiceApplicantId = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact spiceApplyingPersonId = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMspiceExportrequest> spiceExportrequestIncident = default(IList<MicrosoftDynamicsCRMspiceExportrequest>), IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> spiceIncidentSpiceAccountcaseassignment = default(IList<MicrosoftDynamicsCRMspiceAccountcaseassignment>), MicrosoftDynamicsCRMspiceMinistry spiceClient = default(MicrosoftDynamicsCRMspiceMinistry), MicrosoftDynamicsCRMspiceMinistryemployee spiceRequesterHiringManager = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceMinistryemployee spiceReturnResultto = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceServices spiceServiceId = default(MicrosoftDynamicsCRMspiceServices), MicrosoftDynamicsCRMspiceReasonforscreening spiceReasonforScreeningId = default(MicrosoftDynamicsCRMspiceReasonforscreening), MicrosoftDynamicsCRMspiceLcrblicencetype spiceLCRBLicenceTypeId = default(MicrosoftDynamicsCRMspiceLcrblicencetype), MicrosoftDynamicsCRMsystemuser spiceWfCRRUpassback = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMincident(bool? spiceEssSsvVeifrequired = default(bool?), bool? spiceEssCornetcheckrequired = default(bool?), string spiceEssPolygNotestoexaminer = default(string), bool? spiceEssPolygraphinterviewconfirmed = default(bool?), bool? spiceCsocheckrequired = default(bool?), int? statuscode = default(int?), System.DateTimeOffset? followupby = default(System.DateTimeOffset?), bool? spiceAdditionalprimecheckresult = default(bool?), byte[] entityimage = default(byte[]), bool? spiceWfReview = default(bool?), bool? spiceAllassociateinformationreceived = default(bool?), string _slainvokedidValue = default(string), decimal? influencescore = default(decimal?), string _kbarticleidValue = default(string), bool? spiceEssCrcResuploaded = default(bool?), string spiceEssSecurityintNotestoexaminer = default(string), bool? spiceOtrletterreceived = default(bool?), bool? spiceEssSecurityinterviewrequired = default(bool?), bool? spiceEssEduEmpverifrequired = default(bool?), System.DateTimeOffset? newTestfield = default(System.DateTimeOffset?), bool? spiceSsqrequired = default(bool?), bool? spiceBusFitandproper = default(bool?), int? spiceEssDfoResults = default(int?), bool? spiceEssRefsenttoitv = default(bool?), bool? spiceEssGpedIssuesidentified = default(bool?), int? actualserviceunits = default(int?), int? spiceCrrustatus = default(int?), string spiceConsentrequired = default(string), System.DateTimeOffset? escalatedon = default(System.DateTimeOffset?), string _contactidValue = default(string), bool? spiceEssSsvVerified = default(bool?), int? spiceCoorsresults = default(int?), int? spiceCannabisapplicanttype = default(int?), int? spiceEssCoorsResults = default(int?), bool? spiceEssCreditresult = default(bool?), bool? spiceEssPrimeCheckrequired = default(bool?), string spiceCpicresultstosharewithspd = default(string), bool? spiceCpuresultsuploaded = default(bool?), System.DateTimeOffset? spiceConsentDtSent = default(System.DateTimeOffset?), bool? decremententitlementterm = default(bool?), bool? spiceEssDriabstractreceived = default(bool?), string spiceConsent = default(string), bool? spiceSenttocpu = default(bool?), bool? spiceEssCpiccheckrequired = default(bool?), int? spiceEssCrcresults = default(int?), bool? spiceJustinReportuploaded = default(bool?), bool? spiceTcDtSignatureConfirmed = default(bool?), long? entityimageTimestamp = default(long?), string _transactioncurrencyidValue = default(string), int? servicestage = default(int?), string _spiceReasonforscreeningidValue = default(string), bool? spiceEssSecurityinterresultsrecd = default(bool?), bool? spiceEssCredverrequired = default(bool?), System.DateTimeOffset? spiceSsqreceiveddate = default(System.DateTimeOffset?), bool? spiceEssDriverRecordsfound = default(bool?), int? billedserviceunits = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? spiceEssEmpVerifcompleted = default(bool?), bool? spiceEss3rdpartyChecksreq = default(bool?), string traversedpath = default(string), string spiceConcapptype = default(string), bool? spiceReadyforcrru = default(bool?), System.DateTimeOffset? spiceLdbWResultsdate = default(System.DateTimeOffset?), string spiceServiceNumber = default(string), System.DateTimeOffset? spiceSsqsentdt = default(System.DateTimeOffset?), bool? spiceJustinchecked = default(bool?), bool? spiceEss3rdpartyCheckscomptd = default(bool?), string processid = default(string), int? spiceEssCreditscore = default(int?), int? spiceApplicanttype = default(int?), bool? spiceEssCrcconfirmreceived = default(bool?), int? spiceEssReviewRecommendation = default(int?), bool? spiceEssCvsarequired = default(bool?), bool? customercontacted = default(bool?), string stageid = default(string), bool? spicePrimeFurtherinvestigation = default(bool?), decimal? spiceEssMiscfees = default(decimal?), bool? spiceEssVerifrequired = default(bool?), int? spiceAddtlprimerequired = default(int?), int? spiceWorkersreadyforlcrb = default(int?), string _owningbusinessunitValue = default(string), string spiceDupPrimeresultstosharewithspd = default(string), int? caseorigincode = default(int?), decimal? spiceScreeningamount = default(decimal?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string spiceJobtitle = default(string), System.DateTimeOffset? spice30daylettersenddate = default(System.DateTimeOffset?), decimal? spiceScreeningamountBase = default(decimal?), bool? isescalated = default(bool?), bool? spiceSpdinvestcompleted = default(bool?), string _slaidValue = default(string), bool? spiceEssSecurityinterconfirmed = default(bool?), bool? spiceCharrefrequestsentdate = default(bool?), string _spiceApplicantidValue = default(string), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), string spiceEssCvsaNotestoexaminer = default(string), bool? spiceFurtherinvestigationcomplete = default(bool?), string _owninguserValue = default(string), string _primarycontactidValue = default(string), int? timezoneruleversionnumber = default(int?), int? spiceScreeningcomplexity = default(int?), string _customeridValue = default(string), string _createdbyValue = default(string), string _contractidValue = default(string), string spiceEducationcheckfees = default(string), System.DateTimeOffset? spiceSsqreceiveddt = default(System.DateTimeOffset?), string spiceEssStatutorydeclaration = default(string), decimal? spiceEssEducationcheckfees2Base = default(decimal?), string _spiceServiceidValue = default(string), bool? spiceEssCertCrcrequired = default(bool?), decimal? spiceEssMiscfeesBase = default(decimal?), System.DateTimeOffset? spiceEssPolygraphinterviewdate = default(System.DateTimeOffset?), bool? spicePrimeChecked = default(bool?), bool? spiceOtrrequired = default(bool?), int? spiceApplicationstatus = default(int?), string _owningteamValue = default(string), int? spiceEssCharcresreturned = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? spiceEssCrcVspackagesent = default(bool?), string _entitlementidValue = default(string), int? spiceCornetresult = default(int?), bool? spiceChreferencerequestsent = default(bool?), System.DateTimeOffset? spiceWfTimestampldbletter = default(System.DateTimeOffset?), bool? spiceEssEduCredverrequired = default(bool?), bool? spiceEssRefrecdfromapplicant = default(bool?), string _spiceClientValue = default(string), bool? spiceEssDriversabstreqd = default(bool?), bool? spiceResultssent = default(bool?), int? spiceBusFurtherreviewrequired = default(int?), bool? spiceAliasesadded = default(bool?), string _masteridValue = default(string), System.DateTimeOffset? spiceSsqsentdate = default(System.DateTimeOffset?), int? spiceFurtherinvestigationresults = default(int?), bool? spiceEssEduVerificationrequired = default(bool?), bool? spiceBusFurtherreviewpackage = default(bool?), int? spiceEssCrcVsresults = default(int?), bool? spiceWfCaseclosureflag = default(bool?), bool? spiceJcCheckrequired = default(bool?), System.DateTimeOffset? resolveby = default(System.DateTimeOffset?), string entityimageUrl = default(string), bool? spiceConsentformSent = default(bool?), string productserialnumber = default(string), bool? spiceEssDfoResultsrecd = default(bool?), string incidentid = default(string), System.DateTimeOffset? spice30daylettersenddt = default(System.DateTimeOffset?), int? spiceDforesults = default(int?), bool? spiceCornetcheckrequired = default(bool?), int? firstresponseslastatus = default(int?), bool? spiceInvestigationrequired = default(bool?), bool? spiceEssCharrefcomplete = default(bool?), string _productidValue = default(string), System.DateTimeOffset? spiceCompletiondt = default(System.DateTimeOffset?), string emailaddress = default(string), bool? spiceEssPolygraphresultsreceived = default(bool?), bool? checkemail = default(bool?), string spiceBillingtext = default(string), bool? spiceEssEduVerifcompleted = default(bool?), bool? spiceEssReferencesrequired = default(bool?), int? onholdtime = default(int?), bool? spiceEssEmpverifrequired = default(bool?), bool? spiceEssCharcIntervconf = default(bool?), bool? spiceCpiccheckrequired = default(bool?), bool? spiceSentforadditionalprime = default(bool?), bool? routecase = default(bool?), bool? spiceEssCreditcheckrequired = default(bool?), string spicePrimeresultstosharewithspd = default(string), bool? isdecrementing = default(bool?), bool? spiceAdditionalprimerequired = default(bool?), bool? spiceBusResultsreceived = default(bool?), bool? spiceEssJcCheckReq = default(bool?), string _spiceWfCrrupassbackValue = default(string), string _spiceLcrblicencetypeidValue = default(string), bool? activitiescomplete = default(bool?), int? messagetypecode = default(int?), string title = default(string), string spiceEssBillingnotes = default(string), bool? spiceCpicrequestsent = default(bool?), bool? spicePrimeInternationalchecks = default(bool?), string _firstresponsebykpiidValue = default(string), bool? spiceJcRccReceived = default(bool?), bool? spiceWfBusinessclosure = default(bool?), bool? spiceEssDriversabsrequired = default(bool?), string _subjectidValue = default(string), System.DateTimeOffset? spiceVerficationexpiresby = default(System.DateTimeOffset?), int? spiceFinalresult = default(int?), bool? spiceEssCharcCvsareqd = default(bool?), bool? spiceCornetchecked = default(bool?), string description = default(string), string spiceOtherscreeningreason = default(string), string _owneridValue = default(string), bool? spiceEss3rdpartyIssuesidentified = default(bool?), bool? spiceEssCvsainterviewconfirmed = default(bool?), bool? spiceOtrlettersent = default(bool?), bool? spiceLegalreviewreqd = default(bool?), int? contractservicelevelcode = default(int?), string _modifiedbyValue = default(string), int? severitycode = default(int?), string versionnumber = default(string), bool? spiceCornetReportuploaded = default(bool?), bool? spiceWfPrimecheckrequired = default(bool?), bool? spiceEssEduCredvercompleted = default(bool?), int? importsequencenumber = default(int?), bool? spiceAllrequiredcheckscomplete = default(bool?), string spiceDupCpicresultstospd = default(string), bool? spiceNotfitandproperresultsent = default(bool?), System.DateTimeOffset? spiceSpdinvestigationcompletiondt = default(System.DateTimeOffset?), bool? spice30daylettersent = default(bool?), bool? spiceCpicInfoprovided = default(bool?), bool? spiceEss3rdpartyfinIssuesid = default(bool?), bool? spiceReadyforspdinvestigation = default(bool?), int? resolvebyslastatus = default(int?), string _accountidValue = default(string), bool? spiceBusSpdinvestrequired = default(bool?), bool? spiceEssDfoConfrecd = default(bool?), string _parentcaseidValue = default(string), System.DateTimeOffset? spiceEssCrcVspackagesentdate = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string _spiceReturnresulttoValue = default(string), bool? spicePrimeCheckrequired = default(bool?), int? spiceEssFingerpAddfingerprintingrequired = default(int?), bool? spiceSsqreceived = default(bool?), bool? spiceRccRequestmade = default(bool?), int? spiceEssFingerpFingerprintingresults = default(int?), int? customersatisfactioncode = default(int?), string _spiceApplyingpersonidValue = default(string), int? spiceBsFitandproper = default(int?), bool? followuptaskcreated = default(bool?), bool? spicePrimeInfoProvided = default(bool?), bool? spiceEssSsvVerifrequired = default(bool?), bool? spiceFurtherinvestigationresultuploaded = default(bool?), int? spiceResultofscreening = default(int?), System.DateTimeOffset? spiceConsentdatereceived = default(System.DateTimeOffset?), bool? spiceEssCsoresultuploaded = default(bool?), int? spiceEssEduVerifresults = default(int?), string _modifiedbyexternalpartyValue = default(string), bool? spiceChecked2id = default(bool?), int? spiceEssInvestigationqueue = default(int?), int? spiceBusLevel = default(int?), int? spiceEssInvestigationlevel = default(int?), bool? firstresponsesent = default(bool?), int? spiceEssCharrefIssuesidentified = default(int?), int? prioritycode = default(int?), bool? spiceEssFingerpFingerprintingrequired = default(bool?), bool? spiceEssCrcrequired = default(bool?), string _modifiedonbehalfbyValue = default(string), string ticketnumber = default(string), bool? spiceReportreadyforreview = default(bool?), int? spiceEssDfoDfoResults = default(int?), int? casetypecode = default(int?), bool? spiceWFurtherReviewrequired = default(bool?), bool? spiceLegalreviewcomplete = default(bool?), int? incidentstagecode = default(int?), int? spiceJcResults = default(int?), string _existingcaseValue = default(string), System.DateTimeOffset? spiceEssInterviewdate = default(System.DateTimeOffset?), bool? spiceEssCvsainterviewspaceconf = default(bool?), bool? spiceCpuresultsreceived = default(bool?), string entityimageid = default(string), int? spiceBilled = default(int?), bool? spiceConsentformReceived = default(bool?), bool? spiceSsqsent = default(bool?), bool? spiceEssInterResultsreceived = default(bool?), bool? spiceEssGpedQuestionnairerevd = default(bool?), bool? spiceEssSecurityinterrequired = default(bool?), string _socialprofileidValue = default(string), int? statecode = default(int?), decimal? exchangerate = default(decimal?), bool? spiceEssCvsainterviewconfrimedcand = default(bool?), System.DateTimeOffset? spiceConsentDtReceived = default(System.DateTimeOffset?), bool? spiceEssDriversabstrecd = default(bool?), System.DateTimeOffset? spiceEssSecurityinterdate = default(System.DateTimeOffset?), int? numberofchildincidents = default(int?), System.DateTimeOffset? responseby = default(System.DateTimeOffset?), int? spiceEssVshitfound = default(int?), int? spiceEssAdjAlldocsuploaded = default(int?), bool? spiceEssCvsaInterviewscheduled = default(bool?), bool? spiceBusFitandproperresultsent = default(bool?), int? spiceEssCsoaliasesadded = default(int?), bool? spiceAdditionalprimecheckcomplete = default(bool?), int? spiceSpdinvestigationresults = default(int?), decimal? spiceEssEducationcheckfees2 = default(decimal?), int? spiceEssInterviewlocation = default(int?), System.DateTimeOffset? spiceConsentsentdate = default(System.DateTimeOffset?), bool? spiceEssPolygraphrequired = default(bool?), bool? spiceEssRefrequired = default(bool?), System.DateTimeOffset? spiceCompletiondate = default(System.DateTimeOffset?), bool? spiceEssCreditIssuesidentified = default(bool?), int? spiceAssociatecomplexity = default(int?), bool? spiceEssInterPolygraphrequired = default(bool?), string _contractdetailidValue = default(string), System.DateTimeOffset? spiceSpdinvestigationcompletiondate = default(System.DateTimeOffset?), bool? spiceWfInvestigation = default(bool?), string spiceSsq = default(string), bool? spiceWfSsqrequired = default(bool?), int? utcconversiontimezonecode = default(int?), int? spicePrimeResults = default(int?), decimal? sentimentvalue = default(decimal?), System.DateTimeOffset? spiceEssCreditCreditscoredate = default(System.DateTimeOffset?), int? spiceAliasesAdded = default(int?), string _createdbyexternalpartyValue = default(string), string _spiceRequesterhiringmanagerValue = default(string), bool? merged = default(bool?), bool? spiceAdditionalprimeinformationprovided = default(bool?), bool? blockedprofile = default(bool?), int? spiceEssCsoresult = default(int?), bool? spiceAliasesfound = default(bool?), bool? spiceJcChecked = default(bool?), string _resolvebykpiidValue = default(string), int? spiceCpicresults = default(int?), bool? spiceCpicFurtherinvest = default(bool?), int? spiceCreditScore = default(int?), int? spiceBusinessreadyforlcrb = default(int?), bool? spiceEssCrcFingerprintingreqd = default(bool?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> incidentActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> incidentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> incidentActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> incidentDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMasyncoperation> incidentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> incidentMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> incidentProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> incidentPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), IList<MicrosoftDynamicsCRMappointment> incidentAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> incidentEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> incidentFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> incidentLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> incidentPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> incidentTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> incidentRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> incidentSocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> incidentConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> incidentConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMqueueitem> incidentQueueItem = default(IList<MicrosoftDynamicsCRMqueueitem>), IList<MicrosoftDynamicsCRMannotation> incidentAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), MicrosoftDynamicsCRMsla slaidSla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMsla slainvokedidSla = default(MicrosoftDynamicsCRMsla), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceIncident = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMserviceappointment> incidentServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMactioncard> incidentActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMcontact responsiblecontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact primarycontactid = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontract contractid = default(MicrosoftDynamicsCRMcontract), MicrosoftDynamicsCRMcontractdetail contractdetailid = default(MicrosoftDynamicsCRMcontractdetail), MicrosoftDynamicsCRMentitlement entitlementid = default(MicrosoftDynamicsCRMentitlement), IList<MicrosoftDynamicsCRMincidentresolution> incidentIncidentResolutions = default(IList<MicrosoftDynamicsCRMincidentresolution>), IList<MicrosoftDynamicsCRMpostfollow> incidentPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMpostregarding> incidentPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), MicrosoftDynamicsCRMincident existingcase = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentExistingcase = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident masterid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentMasterIncident = default(IList<MicrosoftDynamicsCRMincident>), MicrosoftDynamicsCRMincident parentcaseid = default(MicrosoftDynamicsCRMincident), IList<MicrosoftDynamicsCRMincident> incidentParentIncident = default(IList<MicrosoftDynamicsCRMincident>), IList<MicrosoftDynamicsCRMlead> originatingCaseLead = default(IList<MicrosoftDynamicsCRMlead>), MicrosoftDynamicsCRMkbarticle kbarticleid = default(MicrosoftDynamicsCRMkbarticle), IList<MicrosoftDynamicsCRMknowledgearticleincident> knowledgearticleIncidents = default(IList<MicrosoftDynamicsCRMknowledgearticleincident>), IList<MicrosoftDynamicsCRMknowledgebaserecord> knowledgeBaseRecordIncident = default(IList<MicrosoftDynamicsCRMknowledgebaserecord>), IList<MicrosoftDynamicsCRMphonetocaseprocess> incidentPhonetocaseprocess = default(IList<MicrosoftDynamicsCRMphonetocaseprocess>), MicrosoftDynamicsCRMproduct productid = default(MicrosoftDynamicsCRMproduct), MicrosoftDynamicsCRMslakpiinstance firstresponsebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMslakpiinstance resolvebykpiid = default(MicrosoftDynamicsCRMslakpiinstance), MicrosoftDynamicsCRMsocialprofile socialprofileid = default(MicrosoftDynamicsCRMsocialprofile), MicrosoftDynamicsCRMsubject subjectid = default(MicrosoftDynamicsCRMsubject), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMopportunityclose> incidentOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> incidentOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> incidentQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> incidentSharePointDocumentLocations = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> incidentSpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>), IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess> bpfIncidentSpiceSpiceBusinesscaseprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceBusinesscaseprocess>), IList<MicrosoftDynamicsCRMspiceSpiceprocess> bpfIncidentSpiceSpiceprocess = default(IList<MicrosoftDynamicsCRMspiceSpiceprocess>), MicrosoftDynamicsCRMaccount spiceApplicantId = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact spiceApplyingPersonId = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMspiceExportrequest> spiceExportrequestIncident = default(IList<MicrosoftDynamicsCRMspiceExportrequest>), IList<MicrosoftDynamicsCRMspiceAccountcaseassignment> spiceIncidentSpiceAccountcaseassignment = default(IList<MicrosoftDynamicsCRMspiceAccountcaseassignment>), MicrosoftDynamicsCRMspiceMinistry spiceClient = default(MicrosoftDynamicsCRMspiceMinistry), MicrosoftDynamicsCRMspiceMinistryemployee spiceRequesterHiringManager = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceMinistryemployee spiceReturnResultto = default(MicrosoftDynamicsCRMspiceMinistryemployee), MicrosoftDynamicsCRMspiceServices spiceServiceId = default(MicrosoftDynamicsCRMspiceServices), MicrosoftDynamicsCRMspiceReasonforscreening spiceReasonforScreeningId = default(MicrosoftDynamicsCRMspiceReasonforscreening), MicrosoftDynamicsCRMspiceLcrblicencetype spiceLCRBLicenceTypeId = default(MicrosoftDynamicsCRMspiceLcrblicencetype), MicrosoftDynamicsCRMsystemuser spiceWfCRRUpassback = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMspiceEssprocess> bpfIncidentSpiceEssprocess = default(IList<MicrosoftDynamicsCRMspiceEssprocess>))
         {
-            SpiceBusLevel = spiceBusLevel;
-            SpiceEssSsvVerified = spiceEssSsvVerified;
-            SpiceAliasesadded = spiceAliasesadded;
-            SpiceBusFitandproperresultsent = spiceBusFitandproperresultsent;
-            SpiceSsqsentdate = spiceSsqsentdate;
-            Servicestage = servicestage;
-            SpiceScreeningamountBase = spiceScreeningamountBase;
-            SpiceEssSecurityinterresultsrecd = spiceEssSecurityinterresultsrecd;
-            this._parentcaseidValue = _parentcaseidValue;
-            SpiceConcapptype = spiceConcapptype;
+            SpiceEssSsvVeifrequired = spiceEssSsvVeifrequired;
+            SpiceEssCornetcheckrequired = spiceEssCornetcheckrequired;
+            SpiceEssPolygNotestoexaminer = spiceEssPolygNotestoexaminer;
+            SpiceEssPolygraphinterviewconfirmed = spiceEssPolygraphinterviewconfirmed;
+            SpiceCsocheckrequired = spiceCsocheckrequired;
+            Statuscode = statuscode;
+            Followupby = followupby;
+            SpiceAdditionalprimecheckresult = spiceAdditionalprimecheckresult;
+            Entityimage = entityimage;
             SpiceWfReview = spiceWfReview;
-            SpiceScreeningamount = spiceScreeningamount;
-            this._spiceLcrblicencetypeidValue = _spiceLcrblicencetypeidValue;
-            SpiceCharrefrequestsentdate = spiceCharrefrequestsentdate;
-            SpiceBusResultsreceived = spiceBusResultsreceived;
+            SpiceAllassociateinformationreceived = spiceAllassociateinformationreceived;
+            this._slainvokedidValue = _slainvokedidValue;
+            Influencescore = influencescore;
+            this._kbarticleidValue = _kbarticleidValue;
+            SpiceEssCrcResuploaded = spiceEssCrcResuploaded;
+            SpiceEssSecurityintNotestoexaminer = spiceEssSecurityintNotestoexaminer;
+            SpiceOtrletterreceived = spiceOtrletterreceived;
+            SpiceEssSecurityinterviewrequired = spiceEssSecurityinterviewrequired;
+            SpiceEssEduEmpverifrequired = spiceEssEduEmpverifrequired;
+            NewTestfield = newTestfield;
+            SpiceSsqrequired = spiceSsqrequired;
+            SpiceBusFitandproper = spiceBusFitandproper;
+            SpiceEssDfoResults = spiceEssDfoResults;
+            SpiceEssRefsenttoitv = spiceEssRefsenttoitv;
+            SpiceEssGpedIssuesidentified = spiceEssGpedIssuesidentified;
+            Actualserviceunits = actualserviceunits;
+            SpiceCrrustatus = spiceCrrustatus;
+            SpiceConsentrequired = spiceConsentrequired;
+            Escalatedon = escalatedon;
+            this._contactidValue = _contactidValue;
+            SpiceEssSsvVerified = spiceEssSsvVerified;
+            SpiceCoorsresults = spiceCoorsresults;
+            SpiceCannabisapplicanttype = spiceCannabisapplicanttype;
+            SpiceEssCoorsResults = spiceEssCoorsResults;
+            SpiceEssCreditresult = spiceEssCreditresult;
+            SpiceEssPrimeCheckrequired = spiceEssPrimeCheckrequired;
+            SpiceCpicresultstosharewithspd = spiceCpicresultstosharewithspd;
+            SpiceCpuresultsuploaded = spiceCpuresultsuploaded;
+            SpiceConsentDtSent = spiceConsentDtSent;
+            Decremententitlementterm = decremententitlementterm;
+            SpiceEssDriabstractreceived = spiceEssDriabstractreceived;
+            SpiceConsent = spiceConsent;
+            SpiceSenttocpu = spiceSenttocpu;
+            SpiceEssCpiccheckrequired = spiceEssCpiccheckrequired;
+            SpiceEssCrcresults = spiceEssCrcresults;
+            SpiceJustinReportuploaded = spiceJustinReportuploaded;
+            SpiceTcDtSignatureConfirmed = spiceTcDtSignatureConfirmed;
+            EntityimageTimestamp = entityimageTimestamp;
+            this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            Servicestage = servicestage;
+            this._spiceReasonforscreeningidValue = _spiceReasonforscreeningidValue;
+            SpiceEssSecurityinterresultsrecd = spiceEssSecurityinterresultsrecd;
+            SpiceEssCredverrequired = spiceEssCredverrequired;
+            SpiceSsqreceiveddate = spiceSsqreceiveddate;
+            SpiceEssDriverRecordsfound = spiceEssDriverRecordsfound;
+            Billedserviceunits = billedserviceunits;
+            Modifiedon = modifiedon;
+            SpiceEssEmpVerifcompleted = spiceEssEmpVerifcompleted;
+            SpiceEss3rdpartyChecksreq = spiceEss3rdpartyChecksreq;
+            Traversedpath = traversedpath;
+            SpiceConcapptype = spiceConcapptype;
+            SpiceReadyforcrru = spiceReadyforcrru;
             SpiceLdbWResultsdate = spiceLdbWResultsdate;
-            SpiceCornetReportuploaded = spiceCornetReportuploaded;
-            SpiceEssEduCredvercompleted = spiceEssEduCredvercompleted;
-            SpiceVerficationexpiresby = spiceVerficationexpiresby;
+            SpiceServiceNumber = spiceServiceNumber;
+            SpiceSsqsentdt = spiceSsqsentdt;
+            SpiceJustinchecked = spiceJustinchecked;
+            SpiceEss3rdpartyCheckscomptd = spiceEss3rdpartyCheckscomptd;
+            Processid = processid;
+            SpiceEssCreditscore = spiceEssCreditscore;
+            SpiceApplicanttype = spiceApplicanttype;
+            SpiceEssCrcconfirmreceived = spiceEssCrcconfirmreceived;
+            SpiceEssReviewRecommendation = spiceEssReviewRecommendation;
+            SpiceEssCvsarequired = spiceEssCvsarequired;
+            Customercontacted = customercontacted;
+            Stageid = stageid;
+            SpicePrimeFurtherinvestigation = spicePrimeFurtherinvestigation;
+            SpiceEssMiscfees = spiceEssMiscfees;
+            SpiceEssVerifrequired = spiceEssVerifrequired;
+            SpiceAddtlprimerequired = spiceAddtlprimerequired;
+            SpiceWorkersreadyforlcrb = spiceWorkersreadyforlcrb;
             this._owningbusinessunitValue = _owningbusinessunitValue;
-            this._subjectidValue = _subjectidValue;
+            SpiceDupPrimeresultstosharewithspd = spiceDupPrimeresultstosharewithspd;
+            Caseorigincode = caseorigincode;
+            SpiceScreeningamount = spiceScreeningamount;
+            Overriddencreatedon = overriddencreatedon;
+            SpiceJobtitle = spiceJobtitle;
+            Spice30daylettersenddate = spice30daylettersenddate;
+            SpiceScreeningamountBase = spiceScreeningamountBase;
+            Isescalated = isescalated;
+            SpiceSpdinvestcompleted = spiceSpdinvestcompleted;
+            this._slaidValue = _slaidValue;
+            SpiceEssSecurityinterconfirmed = spiceEssSecurityinterconfirmed;
+            SpiceCharrefrequestsentdate = spiceCharrefrequestsentdate;
+            this._spiceApplicantidValue = _spiceApplicantidValue;
+            Lastonholdtime = lastonholdtime;
+            SpiceEssCvsaNotestoexaminer = spiceEssCvsaNotestoexaminer;
+            SpiceFurtherinvestigationcomplete = spiceFurtherinvestigationcomplete;
+            this._owninguserValue = _owninguserValue;
+            this._primarycontactidValue = _primarycontactidValue;
+            Timezoneruleversionnumber = timezoneruleversionnumber;
+            SpiceScreeningcomplexity = spiceScreeningcomplexity;
+            this._customeridValue = _customeridValue;
+            this._createdbyValue = _createdbyValue;
+            this._contractidValue = _contractidValue;
+            SpiceEducationcheckfees = spiceEducationcheckfees;
+            SpiceSsqreceiveddt = spiceSsqreceiveddt;
+            SpiceEssStatutorydeclaration = spiceEssStatutorydeclaration;
+            SpiceEssEducationcheckfees2Base = spiceEssEducationcheckfees2Base;
+            this._spiceServiceidValue = _spiceServiceidValue;
+            SpiceEssCertCrcrequired = spiceEssCertCrcrequired;
+            SpiceEssMiscfeesBase = spiceEssMiscfeesBase;
+            SpiceEssPolygraphinterviewdate = spiceEssPolygraphinterviewdate;
+            SpicePrimeChecked = spicePrimeChecked;
+            SpiceOtrrequired = spiceOtrrequired;
+            SpiceApplicationstatus = spiceApplicationstatus;
+            this._owningteamValue = _owningteamValue;
+            SpiceEssCharcresreturned = spiceEssCharcresreturned;
+            Createdon = createdon;
+            SpiceEssCrcVspackagesent = spiceEssCrcVspackagesent;
+            this._entitlementidValue = _entitlementidValue;
+            SpiceCornetresult = spiceCornetresult;
+            SpiceChreferencerequestsent = spiceChreferencerequestsent;
             SpiceWfTimestampldbletter = spiceWfTimestampldbletter;
             SpiceEssEduCredverrequired = spiceEssEduCredverrequired;
-            Processid = processid;
-            this._spiceReturnresulttoValue = _spiceReturnresulttoValue;
-            SpiceJcRccReceived = spiceJcRccReceived;
-            SpiceEssInterResultsreceived = spiceEssInterResultsreceived;
-            SpiceEssDfoConfrecd = spiceEssDfoConfrecd;
-            SpiceAddtlprimerequired = spiceAddtlprimerequired;
-            Prioritycode = prioritycode;
-            Description = description;
-            SpiceBusinessreadyforlcrb = spiceBusinessreadyforlcrb;
-            this._slaidValue = _slaidValue;
-            SpiceEssEduVerifresults = spiceEssEduVerifresults;
-            SpiceApplicationstatus = spiceApplicationstatus;
-            SpiceFurtherinvestigationresults = spiceFurtherinvestigationresults;
-            this._socialprofileidValue = _socialprofileidValue;
-            this._entitlementidValue = _entitlementidValue;
-            Customercontacted = customercontacted;
-            Versionnumber = versionnumber;
-            SpiceJustinReportuploaded = spiceJustinReportuploaded;
-            Customersatisfactioncode = customersatisfactioncode;
-            this._primarycontactidValue = _primarycontactidValue;
-            this._modifiedbyValue = _modifiedbyValue;
-            SpiceAliasesAdded = spiceAliasesAdded;
-            SpiceAliasesfound = spiceAliasesfound;
-            Isescalated = isescalated;
-            this._spiceWfCrrupassbackValue = _spiceWfCrrupassbackValue;
-            SpiceWfSsqrequired = spiceWfSsqrequired;
-            Casetypecode = casetypecode;
             SpiceEssRefrecdfromapplicant = spiceEssRefrecdfromapplicant;
-            SpiceWfPrimecheckrequired = spiceWfPrimecheckrequired;
-            this._masteridValue = _masteridValue;
-            Incidentid = incidentid;
-            SpiceSsqsent = spiceSsqsent;
-            Createdon = createdon;
-            SpiceLegalreviewcomplete = spiceLegalreviewcomplete;
-            Spice30daylettersent = spice30daylettersent;
-            SpicePrimeFurtherinvestigation = spicePrimeFurtherinvestigation;
-            Statuscode = statuscode;
-            SpiceOtrletterreceived = spiceOtrletterreceived;
-            Lastonholdtime = lastonholdtime;
-            SpiceEssSecurityinterrequired = spiceEssSecurityinterrequired;
-            SpiceEss3rdpartyChecksreq = spiceEss3rdpartyChecksreq;
-            this._createdonbehalfbyValue = _createdonbehalfbyValue;
-            SpiceConsentsentdate = spiceConsentsentdate;
-            Modifiedon = modifiedon;
-            SpiceEssDfoResultsrecd = spiceEssDfoResultsrecd;
-            SpiceCornetchecked = spiceCornetchecked;
-            this._firstresponsebykpiidValue = _firstresponsebykpiidValue;
-            SpiceCpicresultstosharewithspd = spiceCpicresultstosharewithspd;
-            SpiceJcResults = spiceJcResults;
-            Overriddencreatedon = overriddencreatedon;
-            SpicePrimeInternationalchecks = spicePrimeInternationalchecks;
-            SpiceWfBusinessclosure = spiceWfBusinessclosure;
-            SpiceEssDriabstractreceived = spiceEssDriabstractreceived;
-            SpiceEssCharcIntervconf = spiceEssCharcIntervconf;
-            Timezoneruleversionnumber = timezoneruleversionnumber;
-            SpiceEssDriversabstreqd = spiceEssDriversabstreqd;
-            this._contractdetailidValue = _contractdetailidValue;
-            SpiceBsFitandproper = spiceBsFitandproper;
-            SpiceScreeningcomplexity = spiceScreeningcomplexity;
-            SpiceCpuresultsreceived = spiceCpuresultsreceived;
-            SpiceInvestigationrequired = spiceInvestigationrequired;
-            SpiceRccRequestmade = spiceRccRequestmade;
-            SpiceEssDriverRecordsfound = spiceEssDriverRecordsfound;
-            this._owneridValue = _owneridValue;
-            SpiceResultssent = spiceResultssent;
-            SpiceCreditScore = spiceCreditScore;
-            Sentimentvalue = sentimentvalue;
-            SpiceSsqreceived = spiceSsqreceived;
-            SpiceCornetcheckrequired = spiceCornetcheckrequired;
-            SpiceEssInterPolygraphrequired = spiceEssInterPolygraphrequired;
-            SpiceSpdinvestigationresults = spiceSpdinvestigationresults;
-            SpiceCpicInfoprovided = spiceCpicInfoprovided;
-            Stageid = stageid;
-            Spice30daylettersenddt = spice30daylettersenddt;
-            SpiceJcCheckrequired = spiceJcCheckrequired;
-            SpicePrimeResults = spicePrimeResults;
-            SpiceConsentrequired = spiceConsentrequired;
-            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
-            SpiceCpuresultsuploaded = spiceCpuresultsuploaded;
-            SpiceFinalresult = spiceFinalresult;
-            SpiceNotfitandproperresultsent = spiceNotfitandproperresultsent;
-            SpiceOtherscreeningreason = spiceOtherscreeningreason;
-            SpiceOtrlettersent = spiceOtrlettersent;
-            SpiceCpicresults = spiceCpicresults;
-            SpiceBillingtext = spiceBillingtext;
-            this._slainvokedidValue = _slainvokedidValue;
-            SpiceSpdinvestigationcompletiondt = spiceSpdinvestigationcompletiondt;
-            SpiceAdditionalprimerequired = spiceAdditionalprimerequired;
-            Followuptaskcreated = followuptaskcreated;
-            SpiceConsentdatereceived = spiceConsentdatereceived;
-            this._kbarticleidValue = _kbarticleidValue;
-            Merged = merged;
-            SpiceSsqreceiveddt = spiceSsqreceiveddt;
-            SpiceChreferencerequestsent = spiceChreferencerequestsent;
-            this._createdbyexternalpartyValue = _createdbyexternalpartyValue;
-            SpiceReadyforspdinvestigation = spiceReadyforspdinvestigation;
-            SpiceCornetresult = spiceCornetresult;
-            Emailaddress = emailaddress;
-            SpicePrimeInfoProvided = spicePrimeInfoProvided;
-            SpiceTcDtSignatureConfirmed = spiceTcDtSignatureConfirmed;
-            SpiceEssRefrequired = spiceEssRefrequired;
-            EntityimageTimestamp = entityimageTimestamp;
-            SpiceEssDfoResults = spiceEssDfoResults;
-            SpiceAllrequiredcheckscomplete = spiceAllrequiredcheckscomplete;
-            SpiceAdditionalprimeinformationprovided = spiceAdditionalprimeinformationprovided;
-            SpiceEssEduEmpverifrequired = spiceEssEduEmpverifrequired;
-            SpiceEssCharcCvsareqd = spiceEssCharcCvsareqd;
-            SpiceSsq = spiceSsq;
-            this._spiceServiceidValue = _spiceServiceidValue;
-            SpiceEssCreditscore = spiceEssCreditscore;
-            SpiceSsqrequired = spiceSsqrequired;
-            Actualserviceunits = actualserviceunits;
-            Firstresponsesent = firstresponsesent;
-            Decremententitlementterm = decremententitlementterm;
-            SpiceConsentformReceived = spiceConsentformReceived;
-            SpiceFurtherinvestigationresultuploaded = spiceFurtherinvestigationresultuploaded;
-            SpiceCpiccheckrequired = spiceCpiccheckrequired;
-            Routecase = routecase;
-            Exchangerate = exchangerate;
-            EntityimageUrl = entityimageUrl;
-            SpiceEssCrcResuploaded = spiceEssCrcResuploaded;
-            SpiceWfCaseclosureflag = spiceWfCaseclosureflag;
-            SpiceEssPolygraphresultsreceived = spiceEssPolygraphresultsreceived;
-            SpiceEssPolygraphinterviewdate = spiceEssPolygraphinterviewdate;
-            Responseby = responseby;
-            this._contractidValue = _contractidValue;
-            Entityimage = entityimage;
-            this._spiceRequesterhiringmanagerValue = _spiceRequesterhiringmanagerValue;
-            SpiceCompletiondate = spiceCompletiondate;
-            SpiceCrrustatus = spiceCrrustatus;
-            SpiceCannabisapplicanttype = spiceCannabisapplicanttype;
-            Checkemail = checkemail;
-            SpiceSpdinvestigationcompletiondate = spiceSpdinvestigationcompletiondate;
-            SpiceConsent = spiceConsent;
-            SpiceCpicFurtherinvest = spiceCpicFurtherinvest;
-            SpiceResultofscreening = spiceResultofscreening;
-            SpiceChecked2id = spiceChecked2id;
-            Escalatedon = escalatedon;
-            Resolvebyslastatus = resolvebyslastatus;
-            SpiceEssCharrefcomplete = spiceEssCharrefcomplete;
-            this._contactidValue = _contactidValue;
-            SpiceEssSsvVerifrequired = spiceEssSsvVerifrequired;
-            this._spiceApplicantidValue = _spiceApplicantidValue;
-            SpiceEssPolygraphinterviewconfirmed = spiceEssPolygraphinterviewconfirmed;
-            this._owningteamValue = _owningteamValue;
-            Blockedprofile = blockedprofile;
-            SpiceDupCpicresultstospd = spiceDupCpicresultstospd;
-            Isdecrementing = isdecrementing;
-            Firstresponseslastatus = firstresponseslastatus;
-            SpiceServiceNumber = spiceServiceNumber;
-            SpiceConsentDtReceived = spiceConsentDtReceived;
-            Billedserviceunits = billedserviceunits;
-            SpiceLegalreviewreqd = spiceLegalreviewreqd;
-            this._existingcaseValue = _existingcaseValue;
-            SpiceFurtherinvestigationcomplete = spiceFurtherinvestigationcomplete;
-            SpiceConsentformSent = spiceConsentformSent;
-            SpiceAllassociateinformationreceived = spiceAllassociateinformationreceived;
-            SpiceBusFurtherreviewpackage = spiceBusFurtherreviewpackage;
-            SpiceEssEduVerifcompleted = spiceEssEduVerifcompleted;
-            this._transactioncurrencyidValue = _transactioncurrencyidValue;
-            SpiceEssEduVerificationrequired = spiceEssEduVerificationrequired;
-            Numberofchildincidents = numberofchildincidents;
-            SpiceJustinchecked = spiceJustinchecked;
-            SpiceDforesults = spiceDforesults;
-            SpiceConsentDtSent = spiceConsentDtSent;
-            SpiceCoorsresults = spiceCoorsresults;
-            SpiceEss3rdpartyIssuesidentified = spiceEss3rdpartyIssuesidentified;
             this._spiceClientValue = _spiceClientValue;
-            Ticketnumber = ticketnumber;
-            SpiceWFurtherReviewrequired = spiceWFurtherReviewrequired;
-            SpiceSsqsentdt = spiceSsqsentdt;
-            SpiceWfInvestigation = spiceWfInvestigation;
-            SpiceEssInterviewdate = spiceEssInterviewdate;
-            SpiceReadyforcrru = spiceReadyforcrru;
+            SpiceEssDriversabstreqd = spiceEssDriversabstreqd;
+            SpiceResultssent = spiceResultssent;
             SpiceBusFurtherreviewrequired = spiceBusFurtherreviewrequired;
-            Onholdtime = onholdtime;
-            SpiceApplicanttype = spiceApplicanttype;
+            SpiceAliasesadded = spiceAliasesadded;
+            this._masteridValue = _masteridValue;
+            SpiceSsqsentdate = spiceSsqsentdate;
+            SpiceFurtherinvestigationresults = spiceFurtherinvestigationresults;
+            SpiceEssEduVerificationrequired = spiceEssEduVerificationrequired;
+            SpiceBusFurtherreviewpackage = spiceBusFurtherreviewpackage;
+            SpiceEssCrcVsresults = spiceEssCrcVsresults;
+            SpiceWfCaseclosureflag = spiceWfCaseclosureflag;
+            SpiceJcCheckrequired = spiceJcCheckrequired;
             Resolveby = resolveby;
-            SpicePrimeChecked = spicePrimeChecked;
-            SpiceSsqreceiveddate = spiceSsqreceiveddate;
-            Messagetypecode = messagetypecode;
-            Activitiescomplete = activitiescomplete;
-            SpiceCompletiondt = spiceCompletiondt;
-            Spice30daylettersenddate = spice30daylettersenddate;
-            SpiceBusSpdinvestrequired = spiceBusSpdinvestrequired;
-            SpiceEssCharcresreturned = spiceEssCharcresreturned;
-            Followupby = followupby;
-            SpiceAdditionalprimecheckcomplete = spiceAdditionalprimecheckcomplete;
-            SpiceReportreadyforreview = spiceReportreadyforreview;
-            Caseorigincode = caseorigincode;
-            this._owninguserValue = _owninguserValue;
-            SpiceJcChecked = spiceJcChecked;
-            Contractservicelevelcode = contractservicelevelcode;
-            Traversedpath = traversedpath;
-            SpiceCpicrequestsent = spiceCpicrequestsent;
-            this._customeridValue = _customeridValue;
-            SpiceBusFitandproper = spiceBusFitandproper;
-            Utcconversiontimezonecode = utcconversiontimezonecode;
-            SpiceAdditionalprimecheckresult = spiceAdditionalprimecheckresult;
-            Title = title;
-            this._modifiedbyexternalpartyValue = _modifiedbyexternalpartyValue;
-            SpiceEssCreditcheckrequired = spiceEssCreditcheckrequired;
-            Severitycode = severitycode;
-            this._productidValue = _productidValue;
-            Statecode = statecode;
-            this._spiceReasonforscreeningidValue = _spiceReasonforscreeningidValue;
-            SpiceOtrrequired = spiceOtrrequired;
-            NewTestfield = newTestfield;
-            Influencescore = influencescore;
-            SpiceEssSecurityinterconfirmed = spiceEssSecurityinterconfirmed;
-            Entityimageid = entityimageid;
-            this._accountidValue = _accountidValue;
-            SpiceEssCertCrcrequired = spiceEssCertCrcrequired;
-            SpiceSentforadditionalprime = spiceSentforadditionalprime;
-            SpiceEssRefsenttoitv = spiceEssRefsenttoitv;
-            Importsequencenumber = importsequencenumber;
-            SpiceEssEmpVerifcompleted = spiceEssEmpVerifcompleted;
-            Incidentstagecode = incidentstagecode;
-            this._spiceApplyingpersonidValue = _spiceApplyingpersonidValue;
-            this._createdbyValue = _createdbyValue;
-            SpiceEssSecurityinterdate = spiceEssSecurityinterdate;
-            SpicePrimeresultstosharewithspd = spicePrimeresultstosharewithspd;
-            SpiceAssociatecomplexity = spiceAssociatecomplexity;
-            SpiceWorkersreadyforlcrb = spiceWorkersreadyforlcrb;
-            this._resolvebykpiidValue = _resolvebykpiidValue;
-            SpicePrimeCheckrequired = spicePrimeCheckrequired;
-            SpiceDupPrimeresultstosharewithspd = spiceDupPrimeresultstosharewithspd;
-            SpiceSpdinvestcompleted = spiceSpdinvestcompleted;
-            SpiceSenttocpu = spiceSenttocpu;
-            SpiceEss3rdpartyCheckscomptd = spiceEss3rdpartyCheckscomptd;
+            EntityimageUrl = entityimageUrl;
+            SpiceConsentformSent = spiceConsentformSent;
             Productserialnumber = productserialnumber;
+            SpiceEssDfoResultsrecd = spiceEssDfoResultsrecd;
+            Incidentid = incidentid;
+            Spice30daylettersenddt = spice30daylettersenddt;
+            SpiceDforesults = spiceDforesults;
+            SpiceCornetcheckrequired = spiceCornetcheckrequired;
+            Firstresponseslastatus = firstresponseslastatus;
+            SpiceInvestigationrequired = spiceInvestigationrequired;
+            SpiceEssCharrefcomplete = spiceEssCharrefcomplete;
+            this._productidValue = _productidValue;
+            SpiceCompletiondt = spiceCompletiondt;
+            Emailaddress = emailaddress;
+            SpiceEssPolygraphresultsreceived = spiceEssPolygraphresultsreceived;
+            Checkemail = checkemail;
+            SpiceBillingtext = spiceBillingtext;
+            SpiceEssEduVerifcompleted = spiceEssEduVerifcompleted;
+            SpiceEssReferencesrequired = spiceEssReferencesrequired;
+            Onholdtime = onholdtime;
+            SpiceEssEmpverifrequired = spiceEssEmpverifrequired;
+            SpiceEssCharcIntervconf = spiceEssCharcIntervconf;
+            SpiceCpiccheckrequired = spiceCpiccheckrequired;
+            SpiceSentforadditionalprime = spiceSentforadditionalprime;
+            Routecase = routecase;
+            SpiceEssCreditcheckrequired = spiceEssCreditcheckrequired;
+            SpicePrimeresultstosharewithspd = spicePrimeresultstosharewithspd;
+            Isdecrementing = isdecrementing;
+            SpiceAdditionalprimerequired = spiceAdditionalprimerequired;
+            SpiceBusResultsreceived = spiceBusResultsreceived;
+            SpiceEssJcCheckReq = spiceEssJcCheckReq;
+            this._spiceWfCrrupassbackValue = _spiceWfCrrupassbackValue;
+            this._spiceLcrblicencetypeidValue = _spiceLcrblicencetypeidValue;
+            Activitiescomplete = activitiescomplete;
+            Messagetypecode = messagetypecode;
+            Title = title;
+            SpiceEssBillingnotes = spiceEssBillingnotes;
+            SpiceCpicrequestsent = spiceCpicrequestsent;
+            SpicePrimeInternationalchecks = spicePrimeInternationalchecks;
+            this._firstresponsebykpiidValue = _firstresponsebykpiidValue;
+            SpiceJcRccReceived = spiceJcRccReceived;
+            SpiceWfBusinessclosure = spiceWfBusinessclosure;
+            SpiceEssDriversabsrequired = spiceEssDriversabsrequired;
+            this._subjectidValue = _subjectidValue;
+            SpiceVerficationexpiresby = spiceVerficationexpiresby;
+            SpiceFinalresult = spiceFinalresult;
+            SpiceEssCharcCvsareqd = spiceEssCharcCvsareqd;
+            SpiceCornetchecked = spiceCornetchecked;
+            Description = description;
+            SpiceOtherscreeningreason = spiceOtherscreeningreason;
+            this._owneridValue = _owneridValue;
+            SpiceEss3rdpartyIssuesidentified = spiceEss3rdpartyIssuesidentified;
+            SpiceEssCvsainterviewconfirmed = spiceEssCvsainterviewconfirmed;
+            SpiceOtrlettersent = spiceOtrlettersent;
+            SpiceLegalreviewreqd = spiceLegalreviewreqd;
+            Contractservicelevelcode = contractservicelevelcode;
+            this._modifiedbyValue = _modifiedbyValue;
+            Severitycode = severitycode;
+            Versionnumber = versionnumber;
+            SpiceCornetReportuploaded = spiceCornetReportuploaded;
+            SpiceWfPrimecheckrequired = spiceWfPrimecheckrequired;
+            SpiceEssEduCredvercompleted = spiceEssEduCredvercompleted;
+            Importsequencenumber = importsequencenumber;
+            SpiceAllrequiredcheckscomplete = spiceAllrequiredcheckscomplete;
+            SpiceDupCpicresultstospd = spiceDupCpicresultstospd;
+            SpiceNotfitandproperresultsent = spiceNotfitandproperresultsent;
+            SpiceSpdinvestigationcompletiondt = spiceSpdinvestigationcompletiondt;
+            Spice30daylettersent = spice30daylettersent;
+            SpiceCpicInfoprovided = spiceCpicInfoprovided;
+            SpiceEss3rdpartyfinIssuesid = spiceEss3rdpartyfinIssuesid;
+            SpiceReadyforspdinvestigation = spiceReadyforspdinvestigation;
+            Resolvebyslastatus = resolvebyslastatus;
+            this._accountidValue = _accountidValue;
+            SpiceBusSpdinvestrequired = spiceBusSpdinvestrequired;
+            SpiceEssDfoConfrecd = spiceEssDfoConfrecd;
+            this._parentcaseidValue = _parentcaseidValue;
+            SpiceEssCrcVspackagesentdate = spiceEssCrcVspackagesentdate;
+            this._createdonbehalfbyValue = _createdonbehalfbyValue;
+            this._spiceReturnresulttoValue = _spiceReturnresulttoValue;
+            SpicePrimeCheckrequired = spicePrimeCheckrequired;
+            SpiceEssFingerpAddfingerprintingrequired = spiceEssFingerpAddfingerprintingrequired;
+            SpiceSsqreceived = spiceSsqreceived;
+            SpiceRccRequestmade = spiceRccRequestmade;
+            SpiceEssFingerpFingerprintingresults = spiceEssFingerpFingerprintingresults;
+            Customersatisfactioncode = customersatisfactioncode;
+            this._spiceApplyingpersonidValue = _spiceApplyingpersonidValue;
+            SpiceBsFitandproper = spiceBsFitandproper;
+            Followuptaskcreated = followuptaskcreated;
+            SpicePrimeInfoProvided = spicePrimeInfoProvided;
+            SpiceEssSsvVerifrequired = spiceEssSsvVerifrequired;
+            SpiceFurtherinvestigationresultuploaded = spiceFurtherinvestigationresultuploaded;
+            SpiceResultofscreening = spiceResultofscreening;
+            SpiceConsentdatereceived = spiceConsentdatereceived;
+            SpiceEssCsoresultuploaded = spiceEssCsoresultuploaded;
+            SpiceEssEduVerifresults = spiceEssEduVerifresults;
+            this._modifiedbyexternalpartyValue = _modifiedbyexternalpartyValue;
+            SpiceChecked2id = spiceChecked2id;
+            SpiceEssInvestigationqueue = spiceEssInvestigationqueue;
+            SpiceBusLevel = spiceBusLevel;
+            SpiceEssInvestigationlevel = spiceEssInvestigationlevel;
+            Firstresponsesent = firstresponsesent;
+            SpiceEssCharrefIssuesidentified = spiceEssCharrefIssuesidentified;
+            Prioritycode = prioritycode;
+            SpiceEssFingerpFingerprintingrequired = spiceEssFingerpFingerprintingrequired;
+            SpiceEssCrcrequired = spiceEssCrcrequired;
+            this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
+            Ticketnumber = ticketnumber;
+            SpiceReportreadyforreview = spiceReportreadyforreview;
+            SpiceEssDfoDfoResults = spiceEssDfoDfoResults;
+            Casetypecode = casetypecode;
+            SpiceWFurtherReviewrequired = spiceWFurtherReviewrequired;
+            SpiceLegalreviewcomplete = spiceLegalreviewcomplete;
+            Incidentstagecode = incidentstagecode;
+            SpiceJcResults = spiceJcResults;
+            this._existingcaseValue = _existingcaseValue;
+            SpiceEssInterviewdate = spiceEssInterviewdate;
+            SpiceEssCvsainterviewspaceconf = spiceEssCvsainterviewspaceconf;
+            SpiceCpuresultsreceived = spiceCpuresultsreceived;
+            Entityimageid = entityimageid;
+            SpiceBilled = spiceBilled;
+            SpiceConsentformReceived = spiceConsentformReceived;
+            SpiceSsqsent = spiceSsqsent;
+            SpiceEssInterResultsreceived = spiceEssInterResultsreceived;
+            SpiceEssGpedQuestionnairerevd = spiceEssGpedQuestionnairerevd;
+            SpiceEssSecurityinterrequired = spiceEssSecurityinterrequired;
+            this._socialprofileidValue = _socialprofileidValue;
+            Statecode = statecode;
+            Exchangerate = exchangerate;
+            SpiceEssCvsainterviewconfrimedcand = spiceEssCvsainterviewconfrimedcand;
+            SpiceConsentDtReceived = spiceConsentDtReceived;
+            SpiceEssDriversabstrecd = spiceEssDriversabstrecd;
+            SpiceEssSecurityinterdate = spiceEssSecurityinterdate;
+            Numberofchildincidents = numberofchildincidents;
+            Responseby = responseby;
+            SpiceEssVshitfound = spiceEssVshitfound;
+            SpiceEssAdjAlldocsuploaded = spiceEssAdjAlldocsuploaded;
+            SpiceEssCvsaInterviewscheduled = spiceEssCvsaInterviewscheduled;
+            SpiceBusFitandproperresultsent = spiceBusFitandproperresultsent;
+            SpiceEssCsoaliasesadded = spiceEssCsoaliasesadded;
+            SpiceAdditionalprimecheckcomplete = spiceAdditionalprimecheckcomplete;
+            SpiceSpdinvestigationresults = spiceSpdinvestigationresults;
+            SpiceEssEducationcheckfees2 = spiceEssEducationcheckfees2;
+            SpiceEssInterviewlocation = spiceEssInterviewlocation;
+            SpiceConsentsentdate = spiceConsentsentdate;
+            SpiceEssPolygraphrequired = spiceEssPolygraphrequired;
+            SpiceEssRefrequired = spiceEssRefrequired;
+            SpiceCompletiondate = spiceCompletiondate;
+            SpiceEssCreditIssuesidentified = spiceEssCreditIssuesidentified;
+            SpiceAssociatecomplexity = spiceAssociatecomplexity;
+            SpiceEssInterPolygraphrequired = spiceEssInterPolygraphrequired;
+            this._contractdetailidValue = _contractdetailidValue;
+            SpiceSpdinvestigationcompletiondate = spiceSpdinvestigationcompletiondate;
+            SpiceWfInvestigation = spiceWfInvestigation;
+            SpiceSsq = spiceSsq;
+            SpiceWfSsqrequired = spiceWfSsqrequired;
+            Utcconversiontimezonecode = utcconversiontimezonecode;
+            SpicePrimeResults = spicePrimeResults;
+            Sentimentvalue = sentimentvalue;
+            SpiceEssCreditCreditscoredate = spiceEssCreditCreditscoredate;
+            SpiceAliasesAdded = spiceAliasesAdded;
+            this._createdbyexternalpartyValue = _createdbyexternalpartyValue;
+            this._spiceRequesterhiringmanagerValue = _spiceRequesterhiringmanagerValue;
+            Merged = merged;
+            SpiceAdditionalprimeinformationprovided = spiceAdditionalprimeinformationprovided;
+            Blockedprofile = blockedprofile;
+            SpiceEssCsoresult = spiceEssCsoresult;
+            SpiceAliasesfound = spiceAliasesfound;
+            SpiceJcChecked = spiceJcChecked;
+            this._resolvebykpiidValue = _resolvebykpiidValue;
+            SpiceCpicresults = spiceCpicresults;
+            SpiceCpicFurtherinvest = spiceCpicFurtherinvest;
+            SpiceCreditScore = spiceCreditScore;
+            SpiceBusinessreadyforlcrb = spiceBusinessreadyforlcrb;
+            SpiceEssCrcFingerprintingreqd = spiceEssCrcFingerprintingreqd;
             Createdby = createdby;
             Createdonbehalfby = createdonbehalfby;
             Modifiedby = modifiedby;
@@ -366,6 +427,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             SpiceReasonforScreeningId = spiceReasonforScreeningId;
             SpiceLCRBLicenceTypeId = spiceLCRBLicenceTypeId;
             SpiceWfCRRUpassback = spiceWfCRRUpassback;
+            BpfIncidentSpiceEssprocess = bpfIncidentSpiceEssprocess;
             CustomInit();
         }
 
@@ -376,53 +438,49 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_level")]
-        public int? SpiceBusLevel { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_ssv_veifrequired")]
+        public bool? SpiceEssSsvVeifrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_ssv_verified")]
-        public bool? SpiceEssSsvVerified { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_cornetcheckrequired")]
+        public bool? SpiceEssCornetcheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_aliasesadded")]
-        public bool? SpiceAliasesadded { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_polyg_notestoexaminer")]
+        public string SpiceEssPolygNotestoexaminer { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_fitandproperresultsent")]
-        public bool? SpiceBusFitandproperresultsent { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewconfirmed")]
+        public bool? SpiceEssPolygraphinterviewconfirmed { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqsentdate")]
-        public System.DateTimeOffset? SpiceSsqsentdate { get; set; }
+        [JsonProperty(PropertyName = "spice_csocheckrequired")]
+        public bool? SpiceCsocheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "servicestage")]
-        public int? Servicestage { get; set; }
+        [JsonProperty(PropertyName = "statuscode")]
+        public int? Statuscode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_screeningamount_base")]
-        public object SpiceScreeningamountBase { get; set; }
+        [JsonProperty(PropertyName = "followupby")]
+        public System.DateTimeOffset? Followupby { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_securityinterresultsrecd")]
-        public bool? SpiceEssSecurityinterresultsrecd { get; set; }
+        [JsonProperty(PropertyName = "spice_additionalprimecheckresult")]
+        public bool? SpiceAdditionalprimecheckresult { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_parentcaseid_value")]
-        public string _parentcaseidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_concapptype")]
-        public string SpiceConcapptype { get; set; }
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
+        [JsonProperty(PropertyName = "entityimage")]
+        public byte[] Entityimage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -431,23 +489,263 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_screeningamount")]
-        public object SpiceScreeningamount { get; set; }
+        [JsonProperty(PropertyName = "spice_allassociateinformationreceived")]
+        public bool? SpiceAllassociateinformationreceived { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_spice_lcrblicencetypeid_value")]
-        public string _spiceLcrblicencetypeidValue { get; set; }
+        [JsonProperty(PropertyName = "_slainvokedid_value")]
+        public string _slainvokedidValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_charrefrequestsentdate")]
-        public bool? SpiceCharrefrequestsentdate { get; set; }
+        [JsonProperty(PropertyName = "influencescore")]
+        public decimal? Influencescore { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_resultsreceived")]
-        public bool? SpiceBusResultsreceived { get; set; }
+        [JsonProperty(PropertyName = "_kbarticleid_value")]
+        public string _kbarticleidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crc_resuploaded")]
+        public bool? SpiceEssCrcResuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityint_notestoexaminer")]
+        public string SpiceEssSecurityintNotestoexaminer { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otrletterreceived")]
+        public bool? SpiceOtrletterreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterviewrequired")]
+        public bool? SpiceEssSecurityinterviewrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_empverifrequired")]
+        public bool? SpiceEssEduEmpverifrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "new_testfield")]
+        public System.DateTimeOffset? NewTestfield { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqrequired")]
+        public bool? SpiceSsqrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_fitandproper")]
+        public bool? SpiceBusFitandproper { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_results")]
+        public int? SpiceEssDfoResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_refsenttoitv")]
+        public bool? SpiceEssRefsenttoitv { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_gped_issuesidentified")]
+        public bool? SpiceEssGpedIssuesidentified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "actualserviceunits")]
+        public int? Actualserviceunits { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_crrustatus")]
+        public int? SpiceCrrustatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentrequired")]
+        public string SpiceConsentrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "escalatedon")]
+        public System.DateTimeOffset? Escalatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_contactid_value")]
+        public string _contactidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_ssv_verified")]
+        public bool? SpiceEssSsvVerified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_coorsresults")]
+        public int? SpiceCoorsresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cannabisapplicanttype")]
+        public int? SpiceCannabisapplicanttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_coors_results")]
+        public int? SpiceEssCoorsResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_creditresult")]
+        public bool? SpiceEssCreditresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_prime_checkrequired")]
+        public bool? SpiceEssPrimeCheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpicresultstosharewithspd")]
+        public string SpiceCpicresultstosharewithspd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpuresultsuploaded")]
+        public bool? SpiceCpuresultsuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consent_dt_sent")]
+        public System.DateTimeOffset? SpiceConsentDtSent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "decremententitlementterm")]
+        public bool? Decremententitlementterm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driabstractreceived")]
+        public bool? SpiceEssDriabstractreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consent")]
+        public string SpiceConsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_senttocpu")]
+        public bool? SpiceSenttocpu { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cpiccheckrequired")]
+        public bool? SpiceEssCpiccheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crcresults")]
+        public int? SpiceEssCrcresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_justin_reportuploaded")]
+        public bool? SpiceJustinReportuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_tc_dt_signature_confirmed")]
+        public bool? SpiceTcDtSignatureConfirmed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimage_timestamp")]
+        public long? EntityimageTimestamp { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
+        public string _transactioncurrencyidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "servicestage")]
+        public int? Servicestage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_reasonforscreeningid_value")]
+        public string _spiceReasonforscreeningidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterresultsrecd")]
+        public bool? SpiceEssSecurityinterresultsrecd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_credverrequired")]
+        public bool? SpiceEssCredverrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqreceiveddate")]
+        public System.DateTimeOffset? SpiceSsqreceiveddate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driver_recordsfound")]
+        public bool? SpiceEssDriverRecordsfound { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "billedserviceunits")]
+        public int? Billedserviceunits { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedon")]
+        public System.DateTimeOffset? Modifiedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_emp_verifcompleted")]
+        public bool? SpiceEssEmpVerifcompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_checksreq")]
+        public bool? SpiceEss3rdpartyChecksreq { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "traversedpath")]
+        public string Traversedpath { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_concapptype")]
+        public string SpiceConcapptype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_readyforcrru")]
+        public bool? SpiceReadyforcrru { get; set; }
 
         /// <summary>
         /// </summary>
@@ -456,18 +754,88 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_cornet_reportuploaded")]
-        public bool? SpiceCornetReportuploaded { get; set; }
+        [JsonProperty(PropertyName = "spice_service_number")]
+        public string SpiceServiceNumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_edu_credvercompleted")]
-        public bool? SpiceEssEduCredvercompleted { get; set; }
+        [JsonProperty(PropertyName = "spice_ssqsentdt")]
+        public System.DateTimeOffset? SpiceSsqsentdt { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_verficationexpiresby")]
-        public System.DateTimeOffset? SpiceVerficationexpiresby { get; set; }
+        [JsonProperty(PropertyName = "spice_justinchecked")]
+        public bool? SpiceJustinchecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_checkscomptd")]
+        public bool? SpiceEss3rdpartyCheckscomptd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "processid")]
+        public string Processid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_creditscore")]
+        public int? SpiceEssCreditscore { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_applicanttype")]
+        public int? SpiceApplicanttype { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crcconfirmreceived")]
+        public bool? SpiceEssCrcconfirmreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_review_recommendation")]
+        public int? SpiceEssReviewRecommendation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsarequired")]
+        public bool? SpiceEssCvsarequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "customercontacted")]
+        public bool? Customercontacted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "stageid")]
+        public string Stageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_furtherinvestigation")]
+        public bool? SpicePrimeFurtherinvestigation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_miscfees")]
+        public decimal? SpiceEssMiscfees { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_verifrequired")]
+        public bool? SpiceEssVerifrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_addtlprimerequired")]
+        public int? SpiceAddtlprimerequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_workersreadyforlcrb")]
+        public int? SpiceWorkersreadyforlcrb { get; set; }
 
         /// <summary>
         /// </summary>
@@ -476,8 +844,208 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_subjectid_value")]
-        public string _subjectidValue { get; set; }
+        [JsonProperty(PropertyName = "spice_dup_primeresultstosharewithspd")]
+        public string SpiceDupPrimeresultstosharewithspd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "caseorigincode")]
+        public int? Caseorigincode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_screeningamount")]
+        public decimal? SpiceScreeningamount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "overriddencreatedon")]
+        public System.DateTimeOffset? Overriddencreatedon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jobtitle")]
+        public string SpiceJobtitle { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_30daylettersenddate")]
+        public System.DateTimeOffset? Spice30daylettersenddate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_screeningamount_base")]
+        public decimal? SpiceScreeningamountBase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isescalated")]
+        public bool? Isescalated { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestcompleted")]
+        public bool? SpiceSpdinvestcompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_slaid_value")]
+        public string _slaidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterconfirmed")]
+        public bool? SpiceEssSecurityinterconfirmed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_charrefrequestsentdate")]
+        public bool? SpiceCharrefrequestsentdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_applicantid_value")]
+        public string _spiceApplicantidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lastonholdtime")]
+        public System.DateTimeOffset? Lastonholdtime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsa_notestoexaminer")]
+        public string SpiceEssCvsaNotestoexaminer { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_furtherinvestigationcomplete")]
+        public bool? SpiceFurtherinvestigationcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owninguser_value")]
+        public string _owninguserValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_primarycontactid_value")]
+        public string _primarycontactidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
+        public int? Timezoneruleversionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_screeningcomplexity")]
+        public int? SpiceScreeningcomplexity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_customerid_value")]
+        public string _customeridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdby_value")]
+        public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_contractid_value")]
+        public string _contractidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_educationcheckfees")]
+        public string SpiceEducationcheckfees { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqreceiveddt")]
+        public System.DateTimeOffset? SpiceSsqreceiveddt { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_statutorydeclaration")]
+        public string SpiceEssStatutorydeclaration { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_educationcheckfees_2_base")]
+        public decimal? SpiceEssEducationcheckfees2Base { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_serviceid_value")]
+        public string _spiceServiceidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cert_crcrequired")]
+        public bool? SpiceEssCertCrcrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_miscfees_base")]
+        public decimal? SpiceEssMiscfeesBase { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewdate")]
+        public System.DateTimeOffset? SpiceEssPolygraphinterviewdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_checked")]
+        public bool? SpicePrimeChecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otrrequired")]
+        public bool? SpiceOtrrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_applicationstatus")]
+        public int? SpiceApplicationstatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_owningteam_value")]
+        public string _owningteamValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charcresreturned")]
+        public int? SpiceEssCharcresreturned { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crc_vspackagesent")]
+        public bool? SpiceEssCrcVspackagesent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_entitlementid_value")]
+        public string _entitlementidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornetresult")]
+        public int? SpiceCornetresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_chreferencerequestsent")]
+        public bool? SpiceChreferencerequestsent { get; set; }
 
         /// <summary>
         /// </summary>
@@ -491,838 +1059,8 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "processid")]
-        public string Processid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_returnresultto_value")]
-        public string _spiceReturnresulttoValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_jc_rcc_received")]
-        public bool? SpiceJcRccReceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_inter_resultsreceived")]
-        public bool? SpiceEssInterResultsreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_dfo_confrecd")]
-        public bool? SpiceEssDfoConfrecd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_addtlprimerequired")]
-        public int? SpiceAddtlprimerequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "prioritycode")]
-        public int? Prioritycode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_businessreadyforlcrb")]
-        public int? SpiceBusinessreadyforlcrb { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_slaid_value")]
-        public string _slaidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_edu_verifresults")]
-        public int? SpiceEssEduVerifresults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_applicationstatus")]
-        public int? SpiceApplicationstatus { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_furtherinvestigationresults")]
-        public int? SpiceFurtherinvestigationresults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_socialprofileid_value")]
-        public string _socialprofileidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_entitlementid_value")]
-        public string _entitlementidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customercontacted")]
-        public bool? Customercontacted { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_justin_reportuploaded")]
-        public bool? SpiceJustinReportuploaded { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "customersatisfactioncode")]
-        public int? Customersatisfactioncode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_primarycontactid_value")]
-        public string _primarycontactidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_aliases_added")]
-        public int? SpiceAliasesAdded { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_aliasesfound")]
-        public bool? SpiceAliasesfound { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isescalated")]
-        public bool? Isescalated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_wf_crrupassback_value")]
-        public string _spiceWfCrrupassbackValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_wf_ssqrequired")]
-        public bool? SpiceWfSsqrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "casetypecode")]
-        public int? Casetypecode { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "spice_ess_refrecdfromapplicant")]
         public bool? SpiceEssRefrecdfromapplicant { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_wf_primecheckrequired")]
-        public bool? SpiceWfPrimecheckrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_masterid_value")]
-        public string _masteridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incidentid")]
-        public string Incidentid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqsent")]
-        public bool? SpiceSsqsent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_legalreviewcomplete")]
-        public bool? SpiceLegalreviewcomplete { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_30daylettersent")]
-        public bool? Spice30daylettersent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_prime_furtherinvestigation")]
-        public bool? SpicePrimeFurtherinvestigation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "statuscode")]
-        public int? Statuscode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_otrletterreceived")]
-        public bool? SpiceOtrletterreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lastonholdtime")]
-        public System.DateTimeOffset? Lastonholdtime { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_securityinterrequired")]
-        public bool? SpiceEssSecurityinterrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_3rdparty_checksreq")]
-        public bool? SpiceEss3rdpartyChecksreq { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
-        public string _createdonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consentsentdate")]
-        public System.DateTimeOffset? SpiceConsentsentdate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedon")]
-        public System.DateTimeOffset? Modifiedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_dfo_resultsrecd")]
-        public bool? SpiceEssDfoResultsrecd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cornetchecked")]
-        public bool? SpiceCornetchecked { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_firstresponsebykpiid_value")]
-        public string _firstresponsebykpiidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpicresultstosharewithspd")]
-        public string SpiceCpicresultstosharewithspd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_jc_results")]
-        public int? SpiceJcResults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "overriddencreatedon")]
-        public System.DateTimeOffset? Overriddencreatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_prime_internationalchecks")]
-        public bool? SpicePrimeInternationalchecks { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_wf_businessclosure")]
-        public bool? SpiceWfBusinessclosure { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_driabstractreceived")]
-        public bool? SpiceEssDriabstractreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_charc_intervconf")]
-        public bool? SpiceEssCharcIntervconf { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezoneruleversionnumber")]
-        public int? Timezoneruleversionnumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_driversabstreqd")]
-        public bool? SpiceEssDriversabstreqd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contractdetailid_value")]
-        public string _contractdetailidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_bs_fitandproper")]
-        public int? SpiceBsFitandproper { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_screeningcomplexity")]
-        public int? SpiceScreeningcomplexity { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpuresultsreceived")]
-        public bool? SpiceCpuresultsreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_investigationrequired")]
-        public bool? SpiceInvestigationrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_rcc_requestmade")]
-        public bool? SpiceRccRequestmade { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_driver_recordsfound")]
-        public bool? SpiceEssDriverRecordsfound { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_ownerid_value")]
-        public string _owneridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_resultssent")]
-        public bool? SpiceResultssent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_credit_score")]
-        public int? SpiceCreditScore { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sentimentvalue")]
-        public double? Sentimentvalue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqreceived")]
-        public bool? SpiceSsqreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cornetcheckrequired")]
-        public bool? SpiceCornetcheckrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_inter_polygraphrequired")]
-        public bool? SpiceEssInterPolygraphrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_spdinvestigationresults")]
-        public int? SpiceSpdinvestigationresults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpic_infoprovided")]
-        public bool? SpiceCpicInfoprovided { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "stageid")]
-        public string Stageid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_30daylettersenddt")]
-        public System.DateTimeOffset? Spice30daylettersenddt { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_jc_checkrequired")]
-        public bool? SpiceJcCheckrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_prime_results")]
-        public int? SpicePrimeResults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consentrequired")]
-        public string SpiceConsentrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
-        public string _modifiedonbehalfbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpuresultsuploaded")]
-        public bool? SpiceCpuresultsuploaded { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_finalresult")]
-        public int? SpiceFinalresult { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_notfitandproperresultsent")]
-        public bool? SpiceNotfitandproperresultsent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_otherscreeningreason")]
-        public string SpiceOtherscreeningreason { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_otrlettersent")]
-        public bool? SpiceOtrlettersent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpicresults")]
-        public int? SpiceCpicresults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_billingtext")]
-        public string SpiceBillingtext { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_slainvokedid_value")]
-        public string _slainvokedidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_spdinvestigationcompletiondt")]
-        public System.DateTimeOffset? SpiceSpdinvestigationcompletiondt { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_additionalprimerequired")]
-        public bool? SpiceAdditionalprimerequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "followuptaskcreated")]
-        public bool? Followuptaskcreated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consentdatereceived")]
-        public System.DateTimeOffset? SpiceConsentdatereceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_kbarticleid_value")]
-        public string _kbarticleidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "merged")]
-        public bool? Merged { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqreceiveddt")]
-        public System.DateTimeOffset? SpiceSsqreceiveddt { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_chreferencerequestsent")]
-        public bool? SpiceChreferencerequestsent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdbyexternalparty_value")]
-        public string _createdbyexternalpartyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_readyforspdinvestigation")]
-        public bool? SpiceReadyforspdinvestigation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cornetresult")]
-        public int? SpiceCornetresult { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "emailaddress")]
-        public string Emailaddress { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_prime_info_provided")]
-        public bool? SpicePrimeInfoProvided { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_tc_dt_signature_confirmed")]
-        public bool? SpiceTcDtSignatureConfirmed { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_refrequired")]
-        public bool? SpiceEssRefrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_timestamp")]
-        public long? EntityimageTimestamp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_dfo_results")]
-        public int? SpiceEssDfoResults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_allrequiredcheckscomplete")]
-        public bool? SpiceAllrequiredcheckscomplete { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_additionalprimeinformationprovided")]
-        public bool? SpiceAdditionalprimeinformationprovided { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_edu_empverifrequired")]
-        public bool? SpiceEssEduEmpverifrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_charc_cvsareqd")]
-        public bool? SpiceEssCharcCvsareqd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssq")]
-        public string SpiceSsq { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_serviceid_value")]
-        public string _spiceServiceidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_creditscore")]
-        public int? SpiceEssCreditscore { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqrequired")]
-        public bool? SpiceSsqrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "actualserviceunits")]
-        public int? Actualserviceunits { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "firstresponsesent")]
-        public bool? Firstresponsesent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "decremententitlementterm")]
-        public bool? Decremententitlementterm { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consentform_received")]
-        public bool? SpiceConsentformReceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_furtherinvestigationresultuploaded")]
-        public bool? SpiceFurtherinvestigationresultuploaded { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpiccheckrequired")]
-        public bool? SpiceCpiccheckrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "routecase")]
-        public bool? Routecase { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage_url")]
-        public string EntityimageUrl { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_crc_resuploaded")]
-        public bool? SpiceEssCrcResuploaded { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_wf_caseclosureflag")]
-        public bool? SpiceWfCaseclosureflag { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_polygraphresultsreceived")]
-        public bool? SpiceEssPolygraphresultsreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewdate")]
-        public System.DateTimeOffset? SpiceEssPolygraphinterviewdate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "responseby")]
-        public System.DateTimeOffset? Responseby { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contractid_value")]
-        public string _contractidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_requesterhiringmanager_value")]
-        public string _spiceRequesterhiringmanagerValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_completiondate")]
-        public System.DateTimeOffset? SpiceCompletiondate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_crrustatus")]
-        public int? SpiceCrrustatus { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cannabisapplicanttype")]
-        public int? SpiceCannabisapplicanttype { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "checkemail")]
-        public bool? Checkemail { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_spdinvestigationcompletiondate")]
-        public System.DateTimeOffset? SpiceSpdinvestigationcompletiondate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consent")]
-        public string SpiceConsent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpic_furtherinvest")]
-        public bool? SpiceCpicFurtherinvest { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_resultofscreening")]
-        public int? SpiceResultofscreening { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_checked_2id")]
-        public bool? SpiceChecked2id { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "escalatedon")]
-        public System.DateTimeOffset? Escalatedon { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "resolvebyslastatus")]
-        public int? Resolvebyslastatus { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_charrefcomplete")]
-        public bool? SpiceEssCharrefcomplete { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_contactid_value")]
-        public string _contactidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_ssv_verifrequired")]
-        public bool? SpiceEssSsvVerifrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_applicantid_value")]
-        public string _spiceApplicantidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_polygraphinterviewconfirmed")]
-        public bool? SpiceEssPolygraphinterviewconfirmed { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owningteam_value")]
-        public string _owningteamValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "blockedprofile")]
-        public bool? Blockedprofile { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_dup_cpicresultstospd")]
-        public string SpiceDupCpicresultstospd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "isdecrementing")]
-        public bool? Isdecrementing { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "firstresponseslastatus")]
-        public int? Firstresponseslastatus { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_service_number")]
-        public string SpiceServiceNumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consent_dt_received")]
-        public System.DateTimeOffset? SpiceConsentDtReceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "billedserviceunits")]
-        public int? Billedserviceunits { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_legalreviewreqd")]
-        public bool? SpiceLegalreviewreqd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_existingcase_value")]
-        public string _existingcaseValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_furtherinvestigationcomplete")]
-        public bool? SpiceFurtherinvestigationcomplete { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consentform_sent")]
-        public bool? SpiceConsentformSent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_allassociateinformationreceived")]
-        public bool? SpiceAllassociateinformationreceived { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_furtherreviewpackage")]
-        public bool? SpiceBusFurtherreviewpackage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_edu_verifcompleted")]
-        public bool? SpiceEssEduVerifcompleted { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_transactioncurrencyid_value")]
-        public string _transactioncurrencyidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_edu_verificationrequired")]
-        public bool? SpiceEssEduVerificationrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "numberofchildincidents")]
-        public int? Numberofchildincidents { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_justinchecked")]
-        public bool? SpiceJustinchecked { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_dforesults")]
-        public int? SpiceDforesults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_consent_dt_sent")]
-        public System.DateTimeOffset? SpiceConsentDtSent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_coorsresults")]
-        public int? SpiceCoorsresults { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_3rdparty_issuesidentified")]
-        public bool? SpiceEss3rdpartyIssuesidentified { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1331,33 +1069,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ticketnumber")]
-        public string Ticketnumber { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_driversabstreqd")]
+        public bool? SpiceEssDriversabstreqd { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_w_further_reviewrequired")]
-        public bool? SpiceWFurtherReviewrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqsentdt")]
-        public System.DateTimeOffset? SpiceSsqsentdt { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_wf_investigation")]
-        public bool? SpiceWfInvestigation { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_interviewdate")]
-        public System.DateTimeOffset? SpiceEssInterviewdate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_readyforcrru")]
-        public bool? SpiceReadyforcrru { get; set; }
+        [JsonProperty(PropertyName = "spice_resultssent")]
+        public bool? SpiceResultssent { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1366,13 +1084,48 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "onholdtime")]
-        public int? Onholdtime { get; set; }
+        [JsonProperty(PropertyName = "spice_aliasesadded")]
+        public bool? SpiceAliasesadded { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_applicanttype")]
-        public int? SpiceApplicanttype { get; set; }
+        [JsonProperty(PropertyName = "_masterid_value")]
+        public string _masteridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqsentdate")]
+        public System.DateTimeOffset? SpiceSsqsentdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_furtherinvestigationresults")]
+        public int? SpiceFurtherinvestigationresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_verificationrequired")]
+        public bool? SpiceEssEduVerificationrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_furtherreviewpackage")]
+        public bool? SpiceBusFurtherreviewpackage { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crc_vsresults")]
+        public int? SpiceEssCrcVsresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_caseclosureflag")]
+        public bool? SpiceWfCaseclosureflag { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_checkrequired")]
+        public bool? SpiceJcCheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1381,128 +1134,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_prime_checked")]
-        public bool? SpicePrimeChecked { get; set; }
+        [JsonProperty(PropertyName = "entityimage_url")]
+        public string EntityimageUrl { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ssqreceiveddate")]
-        public System.DateTimeOffset? SpiceSsqreceiveddate { get; set; }
+        [JsonProperty(PropertyName = "spice_consentform_sent")]
+        public bool? SpiceConsentformSent { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "messagetypecode")]
-        public int? Messagetypecode { get; set; }
+        [JsonProperty(PropertyName = "productserialnumber")]
+        public string Productserialnumber { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "activitiescomplete")]
-        public bool? Activitiescomplete { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_dfo_resultsrecd")]
+        public bool? SpiceEssDfoResultsrecd { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_completiondt")]
-        public System.DateTimeOffset? SpiceCompletiondt { get; set; }
+        [JsonProperty(PropertyName = "incidentid")]
+        public string Incidentid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_30daylettersenddate")]
-        public System.DateTimeOffset? Spice30daylettersenddate { get; set; }
+        [JsonProperty(PropertyName = "spice_30daylettersenddt")]
+        public System.DateTimeOffset? Spice30daylettersenddt { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_spdinvestrequired")]
-        public bool? SpiceBusSpdinvestrequired { get; set; }
+        [JsonProperty(PropertyName = "spice_dforesults")]
+        public int? SpiceDforesults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_charcresreturned")]
-        public int? SpiceEssCharcresreturned { get; set; }
+        [JsonProperty(PropertyName = "spice_cornetcheckrequired")]
+        public bool? SpiceCornetcheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "followupby")]
-        public System.DateTimeOffset? Followupby { get; set; }
+        [JsonProperty(PropertyName = "firstresponseslastatus")]
+        public int? Firstresponseslastatus { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_additionalprimecheckcomplete")]
-        public bool? SpiceAdditionalprimecheckcomplete { get; set; }
+        [JsonProperty(PropertyName = "spice_investigationrequired")]
+        public bool? SpiceInvestigationrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_reportreadyforreview")]
-        public bool? SpiceReportreadyforreview { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "caseorigincode")]
-        public int? Caseorigincode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_owninguser_value")]
-        public string _owninguserValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_jc_checked")]
-        public bool? SpiceJcChecked { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "contractservicelevelcode")]
-        public int? Contractservicelevelcode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "traversedpath")]
-        public string Traversedpath { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_cpicrequestsent")]
-        public bool? SpiceCpicrequestsent { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_customerid_value")]
-        public string _customeridValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_bus_fitandproper")]
-        public bool? SpiceBusFitandproper { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
-        public int? Utcconversiontimezonecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_additionalprimecheckresult")]
-        public bool? SpiceAdditionalprimecheckresult { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "title")]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedbyexternalparty_value")]
-        public string _modifiedbyexternalpartyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_creditcheckrequired")]
-        public bool? SpiceEssCreditcheckrequired { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "severitycode")]
-        public int? Severitycode { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_charrefcomplete")]
+        public bool? SpiceEssCharrefcomplete { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1511,48 +1194,58 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statecode")]
-        public int? Statecode { get; set; }
+        [JsonProperty(PropertyName = "spice_completiondt")]
+        public System.DateTimeOffset? SpiceCompletiondt { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_spice_reasonforscreeningid_value")]
-        public string _spiceReasonforscreeningidValue { get; set; }
+        [JsonProperty(PropertyName = "emailaddress")]
+        public string Emailaddress { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_otrrequired")]
-        public bool? SpiceOtrrequired { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_polygraphresultsreceived")]
+        public bool? SpiceEssPolygraphresultsreceived { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "new_testfield")]
-        public System.DateTimeOffset? NewTestfield { get; set; }
+        [JsonProperty(PropertyName = "checkemail")]
+        public bool? Checkemail { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "influencescore")]
-        public double? Influencescore { get; set; }
+        [JsonProperty(PropertyName = "spice_billingtext")]
+        public string SpiceBillingtext { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_securityinterconfirmed")]
-        public bool? SpiceEssSecurityinterconfirmed { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_edu_verifcompleted")]
+        public bool? SpiceEssEduVerifcompleted { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entityimageid")]
-        public string Entityimageid { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_referencesrequired")]
+        public bool? SpiceEssReferencesrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_accountid_value")]
-        public string _accountidValue { get; set; }
+        [JsonProperty(PropertyName = "onholdtime")]
+        public int? Onholdtime { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_cert_crcrequired")]
-        public bool? SpiceEssCertCrcrequired { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_empverifrequired")]
+        public bool? SpiceEssEmpverifrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charc_intervconf")]
+        public bool? SpiceEssCharcIntervconf { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpiccheckrequired")]
+        public bool? SpiceCpiccheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1561,38 +1254,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_refsenttoitv")]
-        public bool? SpiceEssRefsenttoitv { get; set; }
+        [JsonProperty(PropertyName = "routecase")]
+        public bool? Routecase { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "importsequencenumber")]
-        public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_emp_verifcompleted")]
-        public bool? SpiceEssEmpVerifcompleted { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "incidentstagecode")]
-        public int? Incidentstagecode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_spice_applyingpersonid_value")]
-        public string _spiceApplyingpersonidValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_createdby_value")]
-        public string _createdbyValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_securityinterdate")]
-        public System.DateTimeOffset? SpiceEssSecurityinterdate { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_creditcheckrequired")]
+        public bool? SpiceEssCreditcheckrequired { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1601,18 +1269,263 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_associatecomplexity")]
-        public int? SpiceAssociatecomplexity { get; set; }
+        [JsonProperty(PropertyName = "isdecrementing")]
+        public bool? Isdecrementing { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_workersreadyforlcrb")]
-        public int? SpiceWorkersreadyforlcrb { get; set; }
+        [JsonProperty(PropertyName = "spice_additionalprimerequired")]
+        public bool? SpiceAdditionalprimerequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_resolvebykpiid_value")]
-        public string _resolvebykpiidValue { get; set; }
+        [JsonProperty(PropertyName = "spice_bus_resultsreceived")]
+        public bool? SpiceBusResultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_jc_check_req")]
+        public bool? SpiceEssJcCheckReq { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_wf_crrupassback_value")]
+        public string _spiceWfCrrupassbackValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_lcrblicencetypeid_value")]
+        public string _spiceLcrblicencetypeidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "activitiescomplete")]
+        public bool? Activitiescomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "messagetypecode")]
+        public int? Messagetypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_billingnotes")]
+        public string SpiceEssBillingnotes { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpicrequestsent")]
+        public bool? SpiceCpicrequestsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_internationalchecks")]
+        public bool? SpicePrimeInternationalchecks { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_firstresponsebykpiid_value")]
+        public string _firstresponsebykpiidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_rcc_received")]
+        public bool? SpiceJcRccReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_businessclosure")]
+        public bool? SpiceWfBusinessclosure { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driversabsrequired")]
+        public bool? SpiceEssDriversabsrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_subjectid_value")]
+        public string _subjectidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_verficationexpiresby")]
+        public System.DateTimeOffset? SpiceVerficationexpiresby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_finalresult")]
+        public int? SpiceFinalresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charc_cvsareqd")]
+        public bool? SpiceEssCharcCvsareqd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornetchecked")]
+        public bool? SpiceCornetchecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otherscreeningreason")]
+        public string SpiceOtherscreeningreason { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_ownerid_value")]
+        public string _owneridValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdparty_issuesidentified")]
+        public bool? SpiceEss3rdpartyIssuesidentified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsainterviewconfirmed")]
+        public bool? SpiceEssCvsainterviewconfirmed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_otrlettersent")]
+        public bool? SpiceOtrlettersent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_legalreviewreqd")]
+        public bool? SpiceLegalreviewreqd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "contractservicelevelcode")]
+        public int? Contractservicelevelcode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "severitycode")]
+        public int? Severitycode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "versionnumber")]
+        public string Versionnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cornet_reportuploaded")]
+        public bool? SpiceCornetReportuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_primecheckrequired")]
+        public bool? SpiceWfPrimecheckrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_credvercompleted")]
+        public bool? SpiceEssEduCredvercompleted { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importsequencenumber")]
+        public int? Importsequencenumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_allrequiredcheckscomplete")]
+        public bool? SpiceAllrequiredcheckscomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_dup_cpicresultstospd")]
+        public string SpiceDupCpicresultstospd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_notfitandproperresultsent")]
+        public bool? SpiceNotfitandproperresultsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestigationcompletiondt")]
+        public System.DateTimeOffset? SpiceSpdinvestigationcompletiondt { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_30daylettersent")]
+        public bool? Spice30daylettersent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpic_infoprovided")]
+        public bool? SpiceCpicInfoprovided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_3rdpartyfin_issuesid")]
+        public bool? SpiceEss3rdpartyfinIssuesid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_readyforspdinvestigation")]
+        public bool? SpiceReadyforspdinvestigation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "resolvebyslastatus")]
+        public int? Resolvebyslastatus { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_accountid_value")]
+        public string _accountidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_spdinvestrequired")]
+        public bool? SpiceBusSpdinvestrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_confrecd")]
+        public bool? SpiceEssDfoConfrecd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_parentcaseid_value")]
+        public string _parentcaseidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crc_vspackagesentdate")]
+        public System.DateTimeOffset? SpiceEssCrcVspackagesentdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdonbehalfby_value")]
+        public string _createdonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_returnresultto_value")]
+        public string _spiceReturnresulttoValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -1621,28 +1534,473 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_dup_primeresultstosharewithspd")]
-        public string SpiceDupPrimeresultstosharewithspd { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_fingerp_addfingerprintingrequired")]
+        public int? SpiceEssFingerpAddfingerprintingrequired { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_spdinvestcompleted")]
-        public bool? SpiceSpdinvestcompleted { get; set; }
+        [JsonProperty(PropertyName = "spice_ssqreceived")]
+        public bool? SpiceSsqreceived { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_senttocpu")]
-        public bool? SpiceSenttocpu { get; set; }
+        [JsonProperty(PropertyName = "spice_rcc_requestmade")]
+        public bool? SpiceRccRequestmade { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "spice_ess_3rdparty_checkscomptd")]
-        public bool? SpiceEss3rdpartyCheckscomptd { get; set; }
+        [JsonProperty(PropertyName = "spice_ess_fingerp_fingerprintingresults")]
+        public int? SpiceEssFingerpFingerprintingresults { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "productserialnumber")]
-        public string Productserialnumber { get; set; }
+        [JsonProperty(PropertyName = "customersatisfactioncode")]
+        public int? Customersatisfactioncode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_applyingpersonid_value")]
+        public string _spiceApplyingpersonidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bs_fitandproper")]
+        public int? SpiceBsFitandproper { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "followuptaskcreated")]
+        public bool? Followuptaskcreated { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_info_provided")]
+        public bool? SpicePrimeInfoProvided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_ssv_verifrequired")]
+        public bool? SpiceEssSsvVerifrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_furtherinvestigationresultuploaded")]
+        public bool? SpiceFurtherinvestigationresultuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_resultofscreening")]
+        public int? SpiceResultofscreening { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentdatereceived")]
+        public System.DateTimeOffset? SpiceConsentdatereceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_csoresultuploaded")]
+        public bool? SpiceEssCsoresultuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_edu_verifresults")]
+        public int? SpiceEssEduVerifresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedbyexternalparty_value")]
+        public string _modifiedbyexternalpartyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_checked_2id")]
+        public bool? SpiceChecked2id { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_investigationqueue")]
+        public int? SpiceEssInvestigationqueue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_level")]
+        public int? SpiceBusLevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_investigationlevel")]
+        public int? SpiceEssInvestigationlevel { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "firstresponsesent")]
+        public bool? Firstresponsesent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_charref_issuesidentified")]
+        public int? SpiceEssCharrefIssuesidentified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "prioritycode")]
+        public int? Prioritycode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_fingerp_fingerprintingrequired")]
+        public bool? SpiceEssFingerpFingerprintingrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crcrequired")]
+        public bool? SpiceEssCrcrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_modifiedonbehalfby_value")]
+        public string _modifiedonbehalfbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "ticketnumber")]
+        public string Ticketnumber { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_reportreadyforreview")]
+        public bool? SpiceReportreadyforreview { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_dfo_dfo_results")]
+        public int? SpiceEssDfoDfoResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "casetypecode")]
+        public int? Casetypecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_w_further_reviewrequired")]
+        public bool? SpiceWFurtherReviewrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_legalreviewcomplete")]
+        public bool? SpiceLegalreviewcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "incidentstagecode")]
+        public int? Incidentstagecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_results")]
+        public int? SpiceJcResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_existingcase_value")]
+        public string _existingcaseValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_interviewdate")]
+        public System.DateTimeOffset? SpiceEssInterviewdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsainterviewspaceconf")]
+        public bool? SpiceEssCvsainterviewspaceconf { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpuresultsreceived")]
+        public bool? SpiceCpuresultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "entityimageid")]
+        public string Entityimageid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_billed")]
+        public int? SpiceBilled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentform_received")]
+        public bool? SpiceConsentformReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssqsent")]
+        public bool? SpiceSsqsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_inter_resultsreceived")]
+        public bool? SpiceEssInterResultsreceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_gped_questionnairerevd")]
+        public bool? SpiceEssGpedQuestionnairerevd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterrequired")]
+        public bool? SpiceEssSecurityinterrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_socialprofileid_value")]
+        public string _socialprofileidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "statecode")]
+        public int? Statecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "exchangerate")]
+        public decimal? Exchangerate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsainterviewconfrimedcand")]
+        public bool? SpiceEssCvsainterviewconfrimedcand { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consent_dt_received")]
+        public System.DateTimeOffset? SpiceConsentDtReceived { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_driversabstrecd")]
+        public bool? SpiceEssDriversabstrecd { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_securityinterdate")]
+        public System.DateTimeOffset? SpiceEssSecurityinterdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "numberofchildincidents")]
+        public int? Numberofchildincidents { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "responseby")]
+        public System.DateTimeOffset? Responseby { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_vshitfound")]
+        public int? SpiceEssVshitfound { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_adj_alldocsuploaded")]
+        public int? SpiceEssAdjAlldocsuploaded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_cvsa_interviewscheduled")]
+        public bool? SpiceEssCvsaInterviewscheduled { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_bus_fitandproperresultsent")]
+        public bool? SpiceBusFitandproperresultsent { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_csoaliasesadded")]
+        public int? SpiceEssCsoaliasesadded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimecheckcomplete")]
+        public bool? SpiceAdditionalprimecheckcomplete { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestigationresults")]
+        public int? SpiceSpdinvestigationresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_educationcheckfees_2")]
+        public decimal? SpiceEssEducationcheckfees2 { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_interviewlocation")]
+        public int? SpiceEssInterviewlocation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_consentsentdate")]
+        public System.DateTimeOffset? SpiceConsentsentdate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_polygraphrequired")]
+        public bool? SpiceEssPolygraphrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_refrequired")]
+        public bool? SpiceEssRefrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_completiondate")]
+        public System.DateTimeOffset? SpiceCompletiondate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_credit_issuesidentified")]
+        public bool? SpiceEssCreditIssuesidentified { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_associatecomplexity")]
+        public int? SpiceAssociatecomplexity { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_inter_polygraphrequired")]
+        public bool? SpiceEssInterPolygraphrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_contractdetailid_value")]
+        public string _contractdetailidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_spdinvestigationcompletiondate")]
+        public System.DateTimeOffset? SpiceSpdinvestigationcompletiondate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_investigation")]
+        public bool? SpiceWfInvestigation { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ssq")]
+        public string SpiceSsq { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_wf_ssqrequired")]
+        public bool? SpiceWfSsqrequired { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "utcconversiontimezonecode")]
+        public int? Utcconversiontimezonecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_prime_results")]
+        public int? SpicePrimeResults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sentimentvalue")]
+        public decimal? Sentimentvalue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_credit_creditscoredate")]
+        public System.DateTimeOffset? SpiceEssCreditCreditscoredate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_aliases_added")]
+        public int? SpiceAliasesAdded { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_createdbyexternalparty_value")]
+        public string _createdbyexternalpartyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_spice_requesterhiringmanager_value")]
+        public string _spiceRequesterhiringmanagerValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "merged")]
+        public bool? Merged { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_additionalprimeinformationprovided")]
+        public bool? SpiceAdditionalprimeinformationprovided { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "blockedprofile")]
+        public bool? Blockedprofile { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_csoresult")]
+        public int? SpiceEssCsoresult { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_aliasesfound")]
+        public bool? SpiceAliasesfound { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_jc_checked")]
+        public bool? SpiceJcChecked { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_resolvebykpiid_value")]
+        public string _resolvebykpiidValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpicresults")]
+        public int? SpiceCpicresults { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_cpic_furtherinvest")]
+        public bool? SpiceCpicFurtherinvest { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_credit_score")]
+        public int? SpiceCreditScore { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_businessreadyforlcrb")]
+        public int? SpiceBusinessreadyforlcrb { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "spice_ess_crc_fingerprintingreqd")]
+        public bool? SpiceEssCrcFingerprintingreqd { get; set; }
 
         /// <summary>
         /// </summary>
@@ -2048,6 +2406,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "spice_wf_CRRUpassback")]
         public MicrosoftDynamicsCRMsystemuser SpiceWfCRRUpassback { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "bpf_incident_spice_essprocess")]
+        public IList<MicrosoftDynamicsCRMspiceEssprocess> BpfIncidentSpiceEssprocess { get; set; }
 
     }
 }

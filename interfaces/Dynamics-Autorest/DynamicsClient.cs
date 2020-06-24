@@ -16,8 +16,7 @@ namespace Gov.Jag.Spice.Interfaces
     using System.Net.Http;
 
     /// <summary>
-    /// This OData service is located at
-    /// https://wsgw.test.jag.gov.bc.ca/spdcss/spd-spice-train/api/data/v9.0/
+    /// This OData service is located at http://localhost
     /// </summary>
     public partial class DynamicsClient : ServiceClient<DynamicsClient>, IDynamicsClient
     {
@@ -37,6 +36,31 @@ namespace Gov.Jag.Spice.Interfaces
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// Show only the first n items
+        /// </summary>
+        public int? Top329 { get; set; }
+
+        /// <summary>
+        /// Skip the first n items
+        /// </summary>
+        public int? Skip329 { get; set; }
+
+        /// <summary>
+        /// Include count of items
+        /// </summary>
+        public bool? Count329 { get; set; }
+
+        /// <summary>
+        /// Filter items by property values
+        /// </summary>
+        public string Filter329 { get; set; }
+
+        /// <summary>
+        /// Search items by search phrases
+        /// </summary>
+        public string Search329 { get; set; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client subscription.
         /// </summary>
         public ServiceClientCredentials Credentials { get; private set; }
@@ -47,9 +71,429 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IAccounts Accounts { get; private set; }
 
         /// <summary>
+        /// Gets the IAccountspicerequiredcheckses.
+        /// </summary>
+        public virtual IAccountspicerequiredcheckses Accountspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountincident.
+        /// </summary>
+        public virtual IAccountincident Accountincident { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IAccountspiceaccountcaseassignment Accountspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyid.
+        /// </summary>
+        public virtual ICompanyid Companyid { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactaccount.
+        /// </summary>
+        public virtual IContactaccount Contactaccount { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidspicerequiredchecks Regardingobjectidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IActivityidspicerequiredchecksactivityparty.
+        /// </summary>
+        public virtual IActivityidspicerequiredchecksactivityparty Activityidspicerequiredchecksactivityparty { get; private set; }
+
+        /// <summary>
+        /// Gets the IPartyidspiceministryemployee.
+        /// </summary>
+        public virtual IPartyidspiceministryemployee Partyidspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IActivitypointerspicerequiredchecks.
+        /// </summary>
+        public virtual IActivitypointerspicerequiredchecks Activitypointerspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompany.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompany Regardingobjectidspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequest.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequest Regardingobjectidspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicealiases.
+        /// </summary>
+        public virtual IObjectidspicealiases Objectidspicealiases { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicecompany.
+        /// </summary>
+        public virtual IObjectidspicecompany Objectidspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceministry.
+        /// </summary>
+        public virtual IObjectidspiceministry Objectidspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicepreviousaddresses.
+        /// </summary>
+        public virtual IObjectidspicepreviousaddresses Objectidspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicerequiredchecks.
+        /// </summary>
+        public virtual IObjectidspicerequiredchecks Objectidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyappointment.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyappointment Regardingobjectidspicecompanyappointment { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestappointment.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestappointment Regardingobjectidspiceexportrequestappointment { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IRegardingobjectidspiceaccountcaseassignment Regardingobjectidspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicealiases.
+        /// </summary>
+        public virtual IRegardingobjectidspicealiases Regardingobjectidspicealiases { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceessprocess.
+        /// </summary>
+        public virtual IRegardingobjectidspiceessprocess Regardingobjectidspiceessprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicegovministry.
+        /// </summary>
+        public virtual IRegardingobjectidspicegovministry Regardingobjectidspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicelcrblicencetype.
+        /// </summary>
+        public virtual IRegardingobjectidspicelcrblicencetype Regardingobjectidspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceministry.
+        /// </summary>
+        public virtual IRegardingobjectidspiceministry Regardingobjectidspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceministryemployee.
+        /// </summary>
+        public virtual IRegardingobjectidspiceministryemployee Regardingobjectidspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicepreviousaddresses.
+        /// </summary>
+        public virtual IRegardingobjectidspicepreviousaddresses Regardingobjectidspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicereasonforscreening.
+        /// </summary>
+        public virtual IRegardingobjectidspicereasonforscreening Regardingobjectidspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceservices.
+        /// </summary>
+        public virtual IRegardingobjectidspiceservices Regardingobjectidspiceservices { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicespicebusinesscaseprocess.
+        /// </summary>
+        public virtual IRegardingobjectidspicespicebusinesscaseprocess Regardingobjectidspicespicebusinesscaseprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicespiceprocess.
+        /// </summary>
+        public virtual IRegardingobjectidspicespiceprocess Regardingobjectidspicespiceprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IBookableresourcebookingheaderspicerequiredcheckses.
+        /// </summary>
+        public virtual IBookableresourcebookingheaderspicerequiredcheckses Bookableresourcebookingheaderspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBookableresourcebookingspicerequiredcheckses.
+        /// </summary>
+        public virtual IBookableresourcebookingspicerequiredcheckses Bookableresourcebookingspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBulkoperationspicerequiredcheckses.
+        /// </summary>
+        public virtual IBulkoperationspicerequiredcheckses Bulkoperationspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IBusinessunitspiceaccountcaseassignment Businessunitspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicecompany.
+        /// </summary>
+        public virtual IBusinessunitspicecompany Businessunitspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceexportrequest.
+        /// </summary>
+        public virtual IBusinessunitspiceexportrequest Businessunitspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicegovministry.
+        /// </summary>
+        public virtual IBusinessunitspicegovministry Businessunitspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicelcrblicencetype.
+        /// </summary>
+        public virtual IBusinessunitspicelcrblicencetype Businessunitspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceministry.
+        /// </summary>
+        public virtual IBusinessunitspiceministry Businessunitspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspiceministryemployee.
+        /// </summary>
+        public virtual IBusinessunitspiceministryemployee Businessunitspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicepreviousaddresses.
+        /// </summary>
+        public virtual IBusinessunitspicepreviousaddresses Businessunitspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessunitspicereasonforscreening.
+        /// </summary>
+        public virtual IBusinessunitspicereasonforscreening Businessunitspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksbusinessunitowningbusinessunit.
+        /// </summary>
+        public virtual IRequiredchecksbusinessunitowningbusinessunit Requiredchecksbusinessunitowningbusinessunit { get; private set; }
+
+        /// <summary>
+        /// Gets the ICampaignactivityspicerequiredcheckses.
+        /// </summary>
+        public virtual ICampaignactivityspicerequiredcheckses Campaignactivityspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IOriginatingactivityidspicerequiredcheckscampaignresponse.
+        /// </summary>
+        public virtual IOriginatingactivityidspicerequiredcheckscampaignresponse Originatingactivityidspicerequiredcheckscampaignresponse { get; private set; }
+
+        /// <summary>
+        /// Gets the ICampaignspicerequiredcheckses.
+        /// </summary>
+        public virtual ICampaignspicerequiredcheckses Campaignspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRecord1idspicecompany.
+        /// </summary>
+        public virtual IRecord1idspicecompany Record1idspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IRecord1idspicerequiredchecks.
+        /// </summary>
+        public virtual IRecord1idspicerequiredchecks Record1idspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRecord2idspicecompany.
+        /// </summary>
+        public virtual IRecord2idspicecompany Record2idspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IRecord2idspicerequiredchecks.
+        /// </summary>
+        public virtual IRecord2idspicerequiredchecks Record2idspicerequiredchecks { get; private set; }
+
+        /// <summary>
         /// Gets the IContacts.
         /// </summary>
         public virtual IContacts Contacts { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactspicerequiredcheckses.
+        /// </summary>
+        public virtual IContactspicerequiredcheckses Contactspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactincident.
+        /// </summary>
+        public virtual IContactincident Contactincident { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IContactspiceaccountcaseassignment Contactspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactspicealiases.
+        /// </summary>
+        public virtual IContactspicealiases Contactspicealiases { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactspicepreviousaddresses.
+        /// </summary>
+        public virtual IContactspicepreviousaddresses Contactspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IContractspicerequiredcheckses.
+        /// </summary>
+        public virtual IContractspicerequiredcheckses Contractspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IBaserecordidspiceaccountcaseassignment Baserecordidspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicecompany.
+        /// </summary>
+        public virtual IBaserecordidspicecompany Baserecordidspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceexportrequest.
+        /// </summary>
+        public virtual IBaserecordidspiceexportrequest Baserecordidspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicegovministry.
+        /// </summary>
+        public virtual IBaserecordidspicegovministry Baserecordidspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicelcrblicencetype.
+        /// </summary>
+        public virtual IBaserecordidspicelcrblicencetype Baserecordidspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceministry.
+        /// </summary>
+        public virtual IBaserecordidspiceministry Baserecordidspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceministryemployee.
+        /// </summary>
+        public virtual IBaserecordidspiceministryemployee Baserecordidspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicepreviousaddresses.
+        /// </summary>
+        public virtual IBaserecordidspicepreviousaddresses Baserecordidspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicereasonforscreening.
+        /// </summary>
+        public virtual IBaserecordidspicereasonforscreening Baserecordidspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspicerequiredchecks.
+        /// </summary>
+        public virtual IBaserecordidspicerequiredchecks Baserecordidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IBaserecordidspiceservices.
+        /// </summary>
+        public virtual IBaserecordidspiceservices Baserecordidspiceservices { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IDuplicaterecordidspiceaccountcaseassignment Duplicaterecordidspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicecompany.
+        /// </summary>
+        public virtual IDuplicaterecordidspicecompany Duplicaterecordidspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceexportrequest.
+        /// </summary>
+        public virtual IDuplicaterecordidspiceexportrequest Duplicaterecordidspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicegovministry.
+        /// </summary>
+        public virtual IDuplicaterecordidspicegovministry Duplicaterecordidspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicelcrblicencetype.
+        /// </summary>
+        public virtual IDuplicaterecordidspicelcrblicencetype Duplicaterecordidspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceministry.
+        /// </summary>
+        public virtual IDuplicaterecordidspiceministry Duplicaterecordidspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceministryemployee.
+        /// </summary>
+        public virtual IDuplicaterecordidspiceministryemployee Duplicaterecordidspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicepreviousaddresses.
+        /// </summary>
+        public virtual IDuplicaterecordidspicepreviousaddresses Duplicaterecordidspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicereasonforscreening.
+        /// </summary>
+        public virtual IDuplicaterecordidspicereasonforscreening Duplicaterecordidspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspicerequiredchecks.
+        /// </summary>
+        public virtual IDuplicaterecordidspicerequiredchecks Duplicaterecordidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IDuplicaterecordidspiceservices.
+        /// </summary>
+        public virtual IDuplicaterecordidspiceservices Duplicaterecordidspiceservices { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyemail.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyemail Regardingobjectidspicecompanyemail { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestemail.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestemail Regardingobjectidspiceexportrequestemail { get; private set; }
+
+        /// <summary>
+        /// Gets the IEntitlementspicerequiredcheckses.
+        /// </summary>
+        public virtual IEntitlementspicerequiredcheckses Entitlementspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IEntitlementtemplatespicerequiredcheckses.
+        /// </summary>
+        public virtual IEntitlementtemplatespicerequiredcheckses Entitlementtemplatespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyfax.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyfax Regardingobjectidspicecompanyfax { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestfax.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestfax Regardingobjectidspiceexportrequestfax { get; private set; }
 
         /// <summary>
         /// Gets the IIncidents.
@@ -57,14 +501,269 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IIncidents Incidents { get; private set; }
 
         /// <summary>
+        /// Gets the IBpfincidentspiceessprocess.
+        /// </summary>
+        public virtual IBpfincidentspiceessprocess Bpfincidentspiceessprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IBpfincidentspicespicebusinesscaseprocess.
+        /// </summary>
+        public virtual IBpfincidentspicespicebusinesscaseprocess Bpfincidentspicespicebusinesscaseprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IBpfincidentspicespiceprocess.
+        /// </summary>
+        public virtual IBpfincidentspicespiceprocess Bpfincidentspicespiceprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IIncidentspicerequiredcheckses.
+        /// </summary>
+        public virtual IIncidentspicerequiredcheckses Incidentspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IApplicantid.
+        /// </summary>
+        public virtual IApplicantid Applicantid { get; private set; }
+
+        /// <summary>
+        /// Gets the IApplyingpersonid.
+        /// </summary>
+        public virtual IApplyingpersonid Applyingpersonid { get; private set; }
+
+        /// <summary>
+        /// Gets the IClient.
+        /// </summary>
+        public virtual IClient Client { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestincident.
+        /// </summary>
+        public virtual IExportrequestincident Exportrequestincident { get; private set; }
+
+        /// <summary>
+        /// Gets the IIncidentspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IIncidentspiceaccountcaseassignment Incidentspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeid.
+        /// </summary>
+        public virtual ILcrblicencetypeid Lcrblicencetypeid { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningid.
+        /// </summary>
+        public virtual IReasonforscreeningid Reasonforscreeningid { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequesterhiringmanager.
+        /// </summary>
+        public virtual IRequesterhiringmanager Requesterhiringmanager { get; private set; }
+
+        /// <summary>
+        /// Gets the IReturnresultto.
+        /// </summary>
+        public virtual IReturnresultto Returnresultto { get; private set; }
+
+        /// <summary>
+        /// Gets the IServiceid.
+        /// </summary>
+        public virtual IServiceid Serviceid { get; private set; }
+
+        /// <summary>
+        /// Gets the IWfcrrupassback.
+        /// </summary>
+        public virtual IWfcrrupassback Wfcrrupassback { get; private set; }
+
+        /// <summary>
+        /// Gets the IInteractionforemailspicerequiredcheckses.
+        /// </summary>
+        public virtual IInteractionforemailspicerequiredcheckses Interactionforemailspicerequiredcheckses { get; private set; }
+
+        /// <summary>
         /// Gets the IInvoices.
         /// </summary>
         public virtual IInvoices Invoices { get; private set; }
 
         /// <summary>
+        /// Gets the IInvoicespicerequiredcheckses.
+        /// </summary>
+        public virtual IInvoicespicerequiredcheckses Invoicespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IKnowledgearticlespicerequiredcheckses.
+        /// </summary>
+        public virtual IKnowledgearticlespicerequiredcheckses Knowledgearticlespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IKnowledgebaserecordspicerequiredcheckses.
+        /// </summary>
+        public virtual IKnowledgebaserecordspicerequiredcheckses Knowledgebaserecordspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the ILeadspicerequiredcheckses.
+        /// </summary>
+        public virtual ILeadspicerequiredcheckses Leadspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyletter.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyletter Regardingobjectidspicecompanyletter { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestletter.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestletter Regardingobjectidspiceexportrequestletter { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksmailboxsendermailboxid.
+        /// </summary>
+        public virtual IRequiredchecksmailboxsendermailboxid Requiredchecksmailboxsendermailboxid { get; private set; }
+
+        /// <summary>
+        /// Gets the IOpportunityspicerequiredcheckses.
+        /// </summary>
+        public virtual IOpportunityspicerequiredcheckses Opportunityspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicealiases.
+        /// </summary>
+        public virtual IOrganizationspicealiases Organizationspicealiases { get; private set; }
+
+        /// <summary>
+        /// Gets the IOrganizationspiceessprocess.
+        /// </summary>
+        public virtual IOrganizationspiceessprocess Organizationspiceessprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IOrganizationspiceservices.
+        /// </summary>
+        public virtual IOrganizationspiceservices Organizationspiceservices { get; private set; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicespicebusinesscaseprocess.
+        /// </summary>
+        public virtual IOrganizationspicespicebusinesscaseprocess Organizationspicespicebusinesscaseprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IOrganizationspicespiceprocess.
+        /// </summary>
+        public virtual IOrganizationspicespiceprocess Organizationspicespiceprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyphonecall.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyphonecall Regardingobjectidspicecompanyphonecall { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestphonecall.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestphonecall Regardingobjectidspiceexportrequestphonecall { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IObjectidspiceaccountcaseassignment Objectidspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceessprocess.
+        /// </summary>
+        public virtual IObjectidspiceessprocess Objectidspiceessprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceexportrequest.
+        /// </summary>
+        public virtual IObjectidspiceexportrequest Objectidspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicegovministry.
+        /// </summary>
+        public virtual IObjectidspicegovministry Objectidspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicelcrblicencetype.
+        /// </summary>
+        public virtual IObjectidspicelcrblicencetype Objectidspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceministryemployee.
+        /// </summary>
+        public virtual IObjectidspiceministryemployee Objectidspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicereasonforscreening.
+        /// </summary>
+        public virtual IObjectidspicereasonforscreening Objectidspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspiceservices.
+        /// </summary>
+        public virtual IObjectidspiceservices Objectidspiceservices { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicespicebusinesscaseprocess.
+        /// </summary>
+        public virtual IObjectidspicespicebusinesscaseprocess Objectidspicespicebusinesscaseprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IObjectidspicespiceprocess.
+        /// </summary>
+        public virtual IObjectidspicespiceprocess Objectidspicespiceprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessactivestageid.
+        /// </summary>
+        public virtual ILkspiceessprocessactivestageid Lkspiceessprocessactivestageid { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessactivestageid.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocessactivestageid Lkspicespicebusinesscaseprocessactivestageid { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessactivestageid.
+        /// </summary>
+        public virtual ILkspicespiceprocessactivestageid Lkspicespiceprocessactivestageid { get; private set; }
+
+        /// <summary>
+        /// Gets the IQuotespicerequiredcheckses.
+        /// </summary>
+        public virtual IQuotespicerequiredcheckses Quotespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyrecurringappointmentmaster.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyrecurringappointmentmaster Regardingobjectidspicecompanyrecurringappointmentmaster { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestrecurringappointmentmaster.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestrecurringappointmentmaster Regardingobjectidspiceexportrequestrecurringappointmentmaster { get; private set; }
+
+        /// <summary>
+        /// Gets the ISalesorderspicerequiredcheckses.
+        /// </summary>
+        public virtual ISalesorderspicerequiredcheckses Salesorderspicerequiredcheckses { get; private set; }
+
+        /// <summary>
         /// Gets the ISavedqueries.
         /// </summary>
         public virtual ISavedqueries Savedqueries { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyserviceappointment.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyserviceappointment Regardingobjectidspicecompanyserviceappointment { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestserviceappointment.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestserviceappointment Regardingobjectidspiceexportrequestserviceappointment { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksserviceserviceid.
+        /// </summary>
+        public virtual IRequiredchecksserviceserviceid Requiredchecksserviceserviceid { get; private set; }
 
         /// <summary>
         /// Gets the ISharepointdocumentlocations.
@@ -77,9 +776,89 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual ISharepointsites Sharepointsites { get; private set; }
 
         /// <summary>
+        /// Gets the ISitespicerequiredcheckses.
+        /// </summary>
+        public virtual ISitespicerequiredcheckses Sitespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksslaslaid.
+        /// </summary>
+        public virtual IRequiredchecksslaslaid Requiredchecksslaslaid { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksslaslainvokedid.
+        /// </summary>
+        public virtual IRequiredchecksslaslainvokedid Requiredchecksslaslainvokedid { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanysocialactivity.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanysocialactivity Regardingobjectidspicecompanysocialactivity { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestsocialactivity.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestsocialactivity Regardingobjectidspiceexportrequestsocialactivity { get; private set; }
+
+        /// <summary>
         /// Gets the IAccountcaseassignments.
         /// </summary>
         public virtual IAccountcaseassignments Accountcaseassignments { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentasyncoperations.
+        /// </summary>
+        public virtual IAccountcaseassignmentasyncoperations Accountcaseassignmentasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentbulkdeletefailures.
+        /// </summary>
+        public virtual IAccountcaseassignmentbulkdeletefailures Accountcaseassignmentbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentduplicatebaserecord.
+        /// </summary>
+        public virtual IAccountcaseassignmentduplicatebaserecord Accountcaseassignmentduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentduplicatematchingrecord.
+        /// </summary>
+        public virtual IAccountcaseassignmentduplicatematchingrecord Accountcaseassignmentduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentmailboxtrackingfolders.
+        /// </summary>
+        public virtual IAccountcaseassignmentmailboxtrackingfolders Accountcaseassignmentmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IAccountcaseassignmentprincipalobjectattributeaccesses Accountcaseassignmentprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentprocesssession.
+        /// </summary>
+        public virtual IAccountcaseassignmentprocesssession Accountcaseassignmentprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IAccountcaseassignmentsyncerrors.
+        /// </summary>
+        public virtual IAccountcaseassignmentsyncerrors Accountcaseassignmentsyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the IAssociatedcaseid.
+        /// </summary>
+        public virtual IAssociatedcaseid Associatedcaseid { get; private set; }
+
+        /// <summary>
+        /// Gets the IBusinessid.
+        /// </summary>
+        public virtual IBusinessid Businessid { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactcaseassignmentid.
+        /// </summary>
+        public virtual IContactcaseassignmentid Contactcaseassignmentid { get; private set; }
 
         /// <summary>
         /// Gets the IAliaseses.
@@ -87,14 +866,209 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IAliaseses Aliaseses { get; private set; }
 
         /// <summary>
+        /// Gets the IAliascontact.
+        /// </summary>
+        public virtual IAliascontact Aliascontact { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesannotations.
+        /// </summary>
+        public virtual IAliasesannotations Aliasesannotations { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesasyncoperations.
+        /// </summary>
+        public virtual IAliasesasyncoperations Aliasesasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesbulkdeletefailures.
+        /// </summary>
+        public virtual IAliasesbulkdeletefailures Aliasesbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesmailboxtrackingfolders.
+        /// </summary>
+        public virtual IAliasesmailboxtrackingfolders Aliasesmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IAliasesprincipalobjectattributeaccesses Aliasesprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasesprocesssession.
+        /// </summary>
+        public virtual IAliasesprocesssession Aliasesprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IAliasessyncerrors.
+        /// </summary>
+        public virtual IAliasessyncerrors Aliasessyncerrors { get; private set; }
+
+        /// <summary>
         /// Gets the ICompanies.
         /// </summary>
         public virtual ICompanies Companies { get; private set; }
 
         /// <summary>
+        /// Gets the ICompanyaccount.
+        /// </summary>
+        public virtual ICompanyaccount Companyaccount { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyactivitypointers.
+        /// </summary>
+        public virtual ICompanyactivitypointers Companyactivitypointers { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyannotations.
+        /// </summary>
+        public virtual ICompanyannotations Companyannotations { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyappointments.
+        /// </summary>
+        public virtual ICompanyappointments Companyappointments { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyasyncoperations.
+        /// </summary>
+        public virtual ICompanyasyncoperations Companyasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanybulkdeletefailures.
+        /// </summary>
+        public virtual ICompanybulkdeletefailures Companybulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyconnections1.
+        /// </summary>
+        public virtual ICompanyconnections1 Companyconnections1 { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyconnections2.
+        /// </summary>
+        public virtual ICompanyconnections2 Companyconnections2 { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyduplicatebaserecord.
+        /// </summary>
+        public virtual ICompanyduplicatebaserecord Companyduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyduplicatematchingrecord.
+        /// </summary>
+        public virtual ICompanyduplicatematchingrecord Companyduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyemails.
+        /// </summary>
+        public virtual ICompanyemails Companyemails { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyfaxes.
+        /// </summary>
+        public virtual ICompanyfaxes Companyfaxes { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyletters.
+        /// </summary>
+        public virtual ICompanyletters Companyletters { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanymailboxtrackingfolders.
+        /// </summary>
+        public virtual ICompanymailboxtrackingfolders Companymailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyphonecalls.
+        /// </summary>
+        public virtual ICompanyphonecalls Companyphonecalls { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual ICompanyprincipalobjectattributeaccesses Companyprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyprocesssession.
+        /// </summary>
+        public virtual ICompanyprocesssession Companyprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyrecurringappointmentmasters.
+        /// </summary>
+        public virtual ICompanyrecurringappointmentmasters Companyrecurringappointmentmasters { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyserviceappointments.
+        /// </summary>
+        public virtual ICompanyserviceappointments Companyserviceappointments { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanysocialactivities.
+        /// </summary>
+        public virtual ICompanysocialactivities Companysocialactivities { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanyspicerequiredcheckses.
+        /// </summary>
+        public virtual ICompanyspicerequiredcheckses Companyspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanysyncerrors.
+        /// </summary>
+        public virtual ICompanysyncerrors Companysyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompanytasks.
+        /// </summary>
+        public virtual ICompanytasks Companytasks { get; private set; }
+
+        /// <summary>
         /// Gets the IContactaccountset.
         /// </summary>
         public virtual IContactaccountset Contactaccountset { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocesses.
+        /// </summary>
+        public virtual IEssprocesses Essprocesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessasyncoperations.
+        /// </summary>
+        public virtual IEssprocessasyncoperations Essprocessasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessbulkdeletefailures.
+        /// </summary>
+        public virtual IEssprocessbulkdeletefailures Essprocessbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessmailboxtrackingfolders.
+        /// </summary>
+        public virtual IEssprocessmailboxtrackingfolders Essprocessmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IEssprocessprincipalobjectattributeaccesses Essprocessprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessprocesssession.
+        /// </summary>
+        public virtual IEssprocessprocesssession Essprocessprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocesssyncerrors.
+        /// </summary>
+        public virtual IEssprocesssyncerrors Essprocesssyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the IEssprocessworkflowlogs.
+        /// </summary>
+        public virtual IEssprocessworkflowlogs Essprocessworkflowlogs { get; private set; }
 
         /// <summary>
         /// Gets the IExportrequestincidentset.
@@ -107,9 +1081,149 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IExportrequests Exportrequests { get; private set; }
 
         /// <summary>
+        /// Gets the IExportrequestactivitypointers.
+        /// </summary>
+        public virtual IExportrequestactivitypointers Exportrequestactivitypointers { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestappointments.
+        /// </summary>
+        public virtual IExportrequestappointments Exportrequestappointments { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestasyncoperations.
+        /// </summary>
+        public virtual IExportrequestasyncoperations Exportrequestasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestbulkdeletefailures.
+        /// </summary>
+        public virtual IExportrequestbulkdeletefailures Exportrequestbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestduplicatebaserecord.
+        /// </summary>
+        public virtual IExportrequestduplicatebaserecord Exportrequestduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestduplicatematchingrecord.
+        /// </summary>
+        public virtual IExportrequestduplicatematchingrecord Exportrequestduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestemails.
+        /// </summary>
+        public virtual IExportrequestemails Exportrequestemails { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestfaxes.
+        /// </summary>
+        public virtual IExportrequestfaxes Exportrequestfaxes { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestletters.
+        /// </summary>
+        public virtual IExportrequestletters Exportrequestletters { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestmailboxtrackingfolders.
+        /// </summary>
+        public virtual IExportrequestmailboxtrackingfolders Exportrequestmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestphonecalls.
+        /// </summary>
+        public virtual IExportrequestphonecalls Exportrequestphonecalls { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IExportrequestprincipalobjectattributeaccesses Exportrequestprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestprocesssession.
+        /// </summary>
+        public virtual IExportrequestprocesssession Exportrequestprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestrecurringappointmentmasters.
+        /// </summary>
+        public virtual IExportrequestrecurringappointmentmasters Exportrequestrecurringappointmentmasters { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestserviceappointments.
+        /// </summary>
+        public virtual IExportrequestserviceappointments Exportrequestserviceappointments { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestsocialactivities.
+        /// </summary>
+        public virtual IExportrequestsocialactivities Exportrequestsocialactivities { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestspicerequiredcheckses.
+        /// </summary>
+        public virtual IExportrequestspicerequiredcheckses Exportrequestspicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequestsyncerrors.
+        /// </summary>
+        public virtual IExportrequestsyncerrors Exportrequestsyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the IExportrequesttasks.
+        /// </summary>
+        public virtual IExportrequesttasks Exportrequesttasks { get; private set; }
+
+        /// <summary>
         /// Gets the IGovministries.
         /// </summary>
         public virtual IGovministries Govministries { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryasyncoperations.
+        /// </summary>
+        public virtual IGovministryasyncoperations Govministryasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministrybulkdeletefailures.
+        /// </summary>
+        public virtual IGovministrybulkdeletefailures Govministrybulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryduplicatebaserecord.
+        /// </summary>
+        public virtual IGovministryduplicatebaserecord Govministryduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryduplicatematchingrecord.
+        /// </summary>
+        public virtual IGovministryduplicatematchingrecord Govministryduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministrymailboxtrackingfolders.
+        /// </summary>
+        public virtual IGovministrymailboxtrackingfolders Govministrymailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IGovministryprincipalobjectattributeaccesses Govministryprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryprocesssession.
+        /// </summary>
+        public virtual IGovministryprocesssession Govministryprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryspiceministry.
+        /// </summary>
+        public virtual IGovministryspiceministry Govministryspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministrysyncerrors.
+        /// </summary>
+        public virtual IGovministrysyncerrors Govministrysyncerrors { get; private set; }
 
         /// <summary>
         /// Gets the ILcrblicencetypes.
@@ -117,9 +1231,119 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual ILcrblicencetypes Lcrblicencetypes { get; private set; }
 
         /// <summary>
+        /// Gets the ILcrblicencetypeasyncoperations.
+        /// </summary>
+        public virtual ILcrblicencetypeasyncoperations Lcrblicencetypeasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypebulkdeletefailures.
+        /// </summary>
+        public virtual ILcrblicencetypebulkdeletefailures Lcrblicencetypebulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeduplicatebaserecord.
+        /// </summary>
+        public virtual ILcrblicencetypeduplicatebaserecord Lcrblicencetypeduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeduplicatematchingrecord.
+        /// </summary>
+        public virtual ILcrblicencetypeduplicatematchingrecord Lcrblicencetypeduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeincident.
+        /// </summary>
+        public virtual ILcrblicencetypeincident Lcrblicencetypeincident { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypemailboxtrackingfolders.
+        /// </summary>
+        public virtual ILcrblicencetypemailboxtrackingfolders Lcrblicencetypemailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual ILcrblicencetypeprincipalobjectattributeaccesses Lcrblicencetypeprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypeprocesssession.
+        /// </summary>
+        public virtual ILcrblicencetypeprocesssession Lcrblicencetypeprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the ILcrblicencetypesyncerrors.
+        /// </summary>
+        public virtual ILcrblicencetypesyncerrors Lcrblicencetypesyncerrors { get; private set; }
+
+        /// <summary>
         /// Gets the IMinistries.
         /// </summary>
         public virtual IMinistries Ministries { get; private set; }
+
+        /// <summary>
+        /// Gets the IGovministryid.
+        /// </summary>
+        public virtual IGovministryid Govministryid { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryannotations.
+        /// </summary>
+        public virtual IMinistryannotations Ministryannotations { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryasyncoperations.
+        /// </summary>
+        public virtual IMinistryasyncoperations Ministryasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistrybulkdeletefailures.
+        /// </summary>
+        public virtual IMinistrybulkdeletefailures Ministrybulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryduplicatebaserecord.
+        /// </summary>
+        public virtual IMinistryduplicatebaserecord Ministryduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryduplicatematchingrecord.
+        /// </summary>
+        public virtual IMinistryduplicatematchingrecord Ministryduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistrymailboxtrackingfolders.
+        /// </summary>
+        public virtual IMinistrymailboxtrackingfolders Ministrymailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IMinistryprincipalobjectattributeaccesses Ministryprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryprocesssession.
+        /// </summary>
+        public virtual IMinistryprocesssession Ministryprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistrysyncerrors.
+        /// </summary>
+        public virtual IMinistrysyncerrors Ministrysyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceministryincidentclient.
+        /// </summary>
+        public virtual ISpiceministryincidentclient Spiceministryincidentclient { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceministryspiceministryemployee.
+        /// </summary>
+        public virtual ISpiceministryspiceministryemployee Spiceministryspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceministryspiceservices.
+        /// </summary>
+        public virtual ISpiceministryspiceservices Spiceministryspiceservices { get; private set; }
 
         /// <summary>
         /// Gets the IMinistryemployees.
@@ -127,9 +1351,119 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IMinistryemployees Ministryemployees { get; private set; }
 
         /// <summary>
+        /// Gets the IMinistryemployeeactivityparties.
+        /// </summary>
+        public virtual IMinistryemployeeactivityparties Ministryemployeeactivityparties { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeasyncoperations.
+        /// </summary>
+        public virtual IMinistryemployeeasyncoperations Ministryemployeeasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeebulkdeletefailures.
+        /// </summary>
+        public virtual IMinistryemployeebulkdeletefailures Ministryemployeebulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeduplicatebaserecord.
+        /// </summary>
+        public virtual IMinistryemployeeduplicatebaserecord Ministryemployeeduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeduplicatematchingrecord.
+        /// </summary>
+        public virtual IMinistryemployeeduplicatematchingrecord Ministryemployeeduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeemailboxtrackingfolders.
+        /// </summary>
+        public virtual IMinistryemployeemailboxtrackingfolders Ministryemployeemailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IMinistryemployeeprincipalobjectattributeaccesses Ministryemployeeprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeeprocesssession.
+        /// </summary>
+        public virtual IMinistryemployeeprocesssession Ministryemployeeprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryemployeesyncerrors.
+        /// </summary>
+        public virtual IMinistryemployeesyncerrors Ministryemployeesyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the IMinistryid.
+        /// </summary>
+        public virtual IMinistryid Ministryid { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceministryemployeeincidentrequesterhiringmanager.
+        /// </summary>
+        public virtual ISpiceministryemployeeincidentrequesterhiringmanager Spiceministryemployeeincidentrequesterhiringmanager { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceministryemployeeincidentreturnresultto.
+        /// </summary>
+        public virtual ISpiceministryemployeeincidentreturnresultto Spiceministryemployeeincidentreturnresultto { get; private set; }
+
+        /// <summary>
         /// Gets the IPreviousaddresseses.
         /// </summary>
         public virtual IPreviousaddresseses Previousaddresseses { get; private set; }
+
+        /// <summary>
+        /// Gets the IContactid.
+        /// </summary>
+        public virtual IContactid Contactid { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesannotations.
+        /// </summary>
+        public virtual IPreviousaddressesannotations Previousaddressesannotations { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesasyncoperations.
+        /// </summary>
+        public virtual IPreviousaddressesasyncoperations Previousaddressesasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesbulkdeletefailures.
+        /// </summary>
+        public virtual IPreviousaddressesbulkdeletefailures Previousaddressesbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesduplicatebaserecord.
+        /// </summary>
+        public virtual IPreviousaddressesduplicatebaserecord Previousaddressesduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesduplicatematchingrecord.
+        /// </summary>
+        public virtual IPreviousaddressesduplicatematchingrecord Previousaddressesduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesmailboxtrackingfolders.
+        /// </summary>
+        public virtual IPreviousaddressesmailboxtrackingfolders Previousaddressesmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IPreviousaddressesprincipalobjectattributeaccesses Previousaddressesprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressesprocesssession.
+        /// </summary>
+        public virtual IPreviousaddressesprocesssession Previousaddressesprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IPreviousaddressessyncerrors.
+        /// </summary>
+        public virtual IPreviousaddressessyncerrors Previousaddressessyncerrors { get; private set; }
 
         /// <summary>
         /// Gets the IReasonforscreenings.
@@ -137,9 +1471,324 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IReasonforscreenings Reasonforscreenings { get; private set; }
 
         /// <summary>
+        /// Gets the IReasonforscreeningasyncoperations.
+        /// </summary>
+        public virtual IReasonforscreeningasyncoperations Reasonforscreeningasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningbulkdeletefailures.
+        /// </summary>
+        public virtual IReasonforscreeningbulkdeletefailures Reasonforscreeningbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningduplicatebaserecord.
+        /// </summary>
+        public virtual IReasonforscreeningduplicatebaserecord Reasonforscreeningduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningduplicatematchingrecord.
+        /// </summary>
+        public virtual IReasonforscreeningduplicatematchingrecord Reasonforscreeningduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningincident.
+        /// </summary>
+        public virtual IReasonforscreeningincident Reasonforscreeningincident { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningmailboxtrackingfolders.
+        /// </summary>
+        public virtual IReasonforscreeningmailboxtrackingfolders Reasonforscreeningmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IReasonforscreeningprincipalobjectattributeaccesses Reasonforscreeningprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningprocesssession.
+        /// </summary>
+        public virtual IReasonforscreeningprocesssession Reasonforscreeningprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IReasonforscreeningsyncerrors.
+        /// </summary>
+        public virtual IReasonforscreeningsyncerrors Reasonforscreeningsyncerrors { get; private set; }
+
+        /// <summary>
         /// Gets the IRequiredcheckses.
         /// </summary>
         public virtual IRequiredcheckses Requiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the IActivityidspicerequiredchecks.
+        /// </summary>
+        public virtual IActivityidspicerequiredchecks Activityidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ICampaignresponsespicerequiredcheckses.
+        /// </summary>
+        public virtual ICampaignresponsespicerequiredcheckses Campaignresponsespicerequiredcheckses { get; private set; }
+
+        /// <summary>
+        /// Gets the ICreatedbyspicerequiredchecks.
+        /// </summary>
+        public virtual ICreatedbyspicerequiredchecks Createdbyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ICreatedonbehalfbyspicerequiredchecks.
+        /// </summary>
+        public virtual ICreatedonbehalfbyspicerequiredchecks Createdonbehalfbyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IModifiedbyspicerequiredchecks.
+        /// </summary>
+        public virtual IModifiedbyspicerequiredchecks Modifiedbyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IModifiedonbehalfbyspicerequiredchecks.
+        /// </summary>
+        public virtual IModifiedonbehalfbyspicerequiredchecks Modifiedonbehalfbyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IOwneridspicerequiredchecks.
+        /// </summary>
+        public virtual IOwneridspicerequiredchecks Owneridspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IOwningbusinessunitspicerequiredchecks.
+        /// </summary>
+        public virtual IOwningbusinessunitspicerequiredchecks Owningbusinessunitspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IOwningteamspicerequiredchecks.
+        /// </summary>
+        public virtual IOwningteamspicerequiredchecks Owningteamspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IOwninguserspicerequiredchecks.
+        /// </summary>
+        public virtual IOwninguserspicerequiredchecks Owninguserspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidaccountspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidaccountspicerequiredchecks Regardingobjectidaccountspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbookableresourcebookingspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidbookableresourcebookingspicerequiredchecks Regardingobjectidbookableresourcebookingspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbookableresourcebookingheaderspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidbookableresourcebookingheaderspicerequiredchecks Regardingobjectidbookableresourcebookingheaderspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidbulkoperationspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidbulkoperationspicerequiredchecks Regardingobjectidbulkoperationspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcampaignspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidcampaignspicerequiredchecks Regardingobjectidcampaignspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcampaignactivityspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidcampaignactivityspicerequiredchecks Regardingobjectidcampaignactivityspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcontactspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidcontactspicerequiredchecks Regardingobjectidcontactspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidcontractspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidcontractspicerequiredchecks Regardingobjectidcontractspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidentitlementspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidentitlementspicerequiredchecks Regardingobjectidentitlementspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidentitlementtemplatespicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidentitlementtemplatespicerequiredchecks Regardingobjectidentitlementtemplatespicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidincidentspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidincidentspicerequiredchecks Regardingobjectidincidentspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidinvoicespicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidinvoicespicerequiredchecks Regardingobjectidinvoicespicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidknowledgearticlespicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidknowledgearticlespicerequiredchecks Regardingobjectidknowledgearticlespicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidknowledgebaserecordspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidknowledgebaserecordspicerequiredchecks Regardingobjectidknowledgebaserecordspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidleadspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidleadspicerequiredchecks Regardingobjectidleadspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidmsdynpostalbumspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidmsdynpostalbumspicerequiredchecks Regardingobjectidmsdynpostalbumspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidnewinteractionforemailspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidnewinteractionforemailspicerequiredchecks Regardingobjectidnewinteractionforemailspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidopportunityspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidopportunityspicerequiredchecks Regardingobjectidopportunityspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidquotespicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidquotespicerequiredchecks Regardingobjectidquotespicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidsalesorderspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidsalesorderspicerequiredchecks Regardingobjectidsalesorderspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidsitespicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidsitespicerequiredchecks Regardingobjectidsitespicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanyspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanyspicerequiredchecks Regardingobjectidspicecompanyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequestspicerequiredchecks.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequestspicerequiredchecks Regardingobjectidspiceexportrequestspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ISendermailboxidspicerequiredchecks.
+        /// </summary>
+        public virtual ISendermailboxidspicerequiredchecks Sendermailboxidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IServiceidspicerequiredchecks.
+        /// </summary>
+        public virtual IServiceidspicerequiredchecks Serviceidspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ISlaactivitypointerslaspicerequiredchecks.
+        /// </summary>
+        public virtual ISlaactivitypointerslaspicerequiredchecks Slaactivitypointerslaspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ISlainvokedidactivitypointerslaspicerequiredchecks.
+        /// </summary>
+        public virtual ISlainvokedidactivitypointerslaspicerequiredchecks Slainvokedidactivitypointerslaspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompletedbyspicerequiredchecks.
+        /// </summary>
+        public virtual ICompletedbyspicerequiredchecks Completedbyspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the ICompletedbyuserspicerequiredchecks.
+        /// </summary>
+        public virtual ICompletedbyuserspicerequiredchecks Completedbyuserspicerequiredchecks { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksactioncards.
+        /// </summary>
+        public virtual IRequiredchecksactioncards Requiredchecksactioncards { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksactivityparties.
+        /// </summary>
+        public virtual IRequiredchecksactivityparties Requiredchecksactivityparties { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksannotations.
+        /// </summary>
+        public virtual IRequiredchecksannotations Requiredchecksannotations { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksasyncoperations.
+        /// </summary>
+        public virtual IRequiredchecksasyncoperations Requiredchecksasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksbulkdeletefailures.
+        /// </summary>
+        public virtual IRequiredchecksbulkdeletefailures Requiredchecksbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksconnections1.
+        /// </summary>
+        public virtual IRequiredchecksconnections1 Requiredchecksconnections1 { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksconnections2.
+        /// </summary>
+        public virtual IRequiredchecksconnections2 Requiredchecksconnections2 { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksduplicatebaserecord.
+        /// </summary>
+        public virtual IRequiredchecksduplicatebaserecord Requiredchecksduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksduplicatematchingrecord.
+        /// </summary>
+        public virtual IRequiredchecksduplicatematchingrecord Requiredchecksduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksfeedback.
+        /// </summary>
+        public virtual IRequiredchecksfeedback Requiredchecksfeedback { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksmailboxtrackingfolders.
+        /// </summary>
+        public virtual IRequiredchecksmailboxtrackingfolders Requiredchecksmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IRequiredchecksprincipalobjectattributeaccesses Requiredchecksprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksprocesssession.
+        /// </summary>
+        public virtual IRequiredchecksprocesssession Requiredchecksprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksqueueitems.
+        /// </summary>
+        public virtual IRequiredchecksqueueitems Requiredchecksqueueitems { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssyncerrors.
+        /// </summary>
+        public virtual IRequiredcheckssyncerrors Requiredcheckssyncerrors { get; private set; }
 
         /// <summary>
         /// Gets the IServiceses.
@@ -147,14 +1796,589 @@ namespace Gov.Jag.Spice.Interfaces
         public virtual IServiceses Serviceses { get; private set; }
 
         /// <summary>
-        /// Gets the IBusinesscaseprocesses.
+        /// Gets the IMinistryserviceid.
         /// </summary>
-        public virtual IBusinesscaseprocesses Businesscaseprocesses { get; private set; }
+        public virtual IMinistryserviceid Ministryserviceid { get; private set; }
 
         /// <summary>
-        /// Gets the IProcesses.
+        /// Gets the IServicesasyncoperations.
         /// </summary>
-        public virtual IProcesses Processes { get; private set; }
+        public virtual IServicesasyncoperations Servicesasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesbulkdeletefailures.
+        /// </summary>
+        public virtual IServicesbulkdeletefailures Servicesbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesduplicatebaserecord.
+        /// </summary>
+        public virtual IServicesduplicatebaserecord Servicesduplicatebaserecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesduplicatematchingrecord.
+        /// </summary>
+        public virtual IServicesduplicatematchingrecord Servicesduplicatematchingrecord { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesmailboxtrackingfolders.
+        /// </summary>
+        public virtual IServicesmailboxtrackingfolders Servicesmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual IServicesprincipalobjectattributeaccesses Servicesprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicesprocesssession.
+        /// </summary>
+        public virtual IServicesprocesssession Servicesprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the IServicessyncerrors.
+        /// </summary>
+        public virtual IServicessyncerrors Servicessyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceservicesincident.
+        /// </summary>
+        public virtual ISpiceservicesincident Spiceservicesincident { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocesses.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocesses Spicebusinesscaseprocesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessasyncoperations.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessasyncoperations Spicebusinesscaseprocessasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessbulkdeletefailures.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessbulkdeletefailures Spicebusinesscaseprocessbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessmailboxtrackingfolders.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessmailboxtrackingfolders Spicebusinesscaseprocessmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessprincipalobjectattributeaccesses Spicebusinesscaseprocessprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessprocesssession.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessprocesssession Spicebusinesscaseprocessprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocesssyncerrors.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocesssyncerrors Spicebusinesscaseprocesssyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpicebusinesscaseprocessworkflowlogs.
+        /// </summary>
+        public virtual ISpicebusinesscaseprocessworkflowlogs Spicebusinesscaseprocessworkflowlogs { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocesses.
+        /// </summary>
+        public virtual ISpiceprocesses Spiceprocesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessasyncoperations.
+        /// </summary>
+        public virtual ISpiceprocessasyncoperations Spiceprocessasyncoperations { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessbulkdeletefailures.
+        /// </summary>
+        public virtual ISpiceprocessbulkdeletefailures Spiceprocessbulkdeletefailures { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessmailboxtrackingfolders.
+        /// </summary>
+        public virtual ISpiceprocessmailboxtrackingfolders Spiceprocessmailboxtrackingfolders { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessprincipalobjectattributeaccesses.
+        /// </summary>
+        public virtual ISpiceprocessprincipalobjectattributeaccesses Spiceprocessprincipalobjectattributeaccesses { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessprocesssession.
+        /// </summary>
+        public virtual ISpiceprocessprocesssession Spiceprocessprocesssession { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocesssyncerrors.
+        /// </summary>
+        public virtual ISpiceprocesssyncerrors Spiceprocesssyncerrors { get; private set; }
+
+        /// <summary>
+        /// Gets the ISpiceprocessworkflowlogs.
+        /// </summary>
+        public virtual ISpiceprocessworkflowlogs Spiceprocessworkflowlogs { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentcreatedby.
+        /// </summary>
+        public virtual ILkspiceaccountcaseassignmentcreatedby Lkspiceaccountcaseassignmentcreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentcreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceaccountcaseassignmentcreatedonbehalfby Lkspiceaccountcaseassignmentcreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentmodifiedby.
+        /// </summary>
+        public virtual ILkspiceaccountcaseassignmentmodifiedby Lkspiceaccountcaseassignmentmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceaccountcaseassignmentmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceaccountcaseassignmentmodifiedonbehalfby Lkspiceaccountcaseassignmentmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasescreatedby.
+        /// </summary>
+        public virtual ILkspicealiasescreatedby Lkspicealiasescreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasescreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicealiasescreatedonbehalfby Lkspicealiasescreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasesmodifiedby.
+        /// </summary>
+        public virtual ILkspicealiasesmodifiedby Lkspicealiasesmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicealiasesmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicealiasesmodifiedonbehalfby Lkspicealiasesmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanycreatedby.
+        /// </summary>
+        public virtual ILkspicecompanycreatedby Lkspicecompanycreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanycreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicecompanycreatedonbehalfby Lkspicecompanycreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanymodifiedby.
+        /// </summary>
+        public virtual ILkspicecompanymodifiedby Lkspicecompanymodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicecompanymodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicecompanymodifiedonbehalfby Lkspicecompanymodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocesscreatedby.
+        /// </summary>
+        public virtual ILkspiceessprocesscreatedby Lkspiceessprocesscreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocesscreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceessprocesscreatedonbehalfby Lkspiceessprocesscreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessmodifiedby.
+        /// </summary>
+        public virtual ILkspiceessprocessmodifiedby Lkspiceessprocessmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceessprocessmodifiedonbehalfby Lkspiceessprocessmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestcreatedby.
+        /// </summary>
+        public virtual ILkspiceexportrequestcreatedby Lkspiceexportrequestcreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestcreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceexportrequestcreatedonbehalfby Lkspiceexportrequestcreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestmodifiedby.
+        /// </summary>
+        public virtual ILkspiceexportrequestmodifiedby Lkspiceexportrequestmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceexportrequestmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceexportrequestmodifiedonbehalfby Lkspiceexportrequestmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrycreatedby.
+        /// </summary>
+        public virtual ILkspicegovministrycreatedby Lkspicegovministrycreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrycreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicegovministrycreatedonbehalfby Lkspicegovministrycreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrymodifiedby.
+        /// </summary>
+        public virtual ILkspicegovministrymodifiedby Lkspicegovministrymodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicegovministrymodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicegovministrymodifiedonbehalfby Lkspicegovministrymodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypecreatedby.
+        /// </summary>
+        public virtual ILkspicelcrblicencetypecreatedby Lkspicelcrblicencetypecreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypecreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicelcrblicencetypecreatedonbehalfby Lkspicelcrblicencetypecreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypemodifiedby.
+        /// </summary>
+        public virtual ILkspicelcrblicencetypemodifiedby Lkspicelcrblicencetypemodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicelcrblicencetypemodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicelcrblicencetypemodifiedonbehalfby Lkspicelcrblicencetypemodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrycreatedby.
+        /// </summary>
+        public virtual ILkspiceministrycreatedby Lkspiceministrycreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrycreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceministrycreatedonbehalfby Lkspiceministrycreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrymodifiedby.
+        /// </summary>
+        public virtual ILkspiceministrymodifiedby Lkspiceministrymodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministrymodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceministrymodifiedonbehalfby Lkspiceministrymodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeecreatedby.
+        /// </summary>
+        public virtual ILkspiceministryemployeecreatedby Lkspiceministryemployeecreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeecreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceministryemployeecreatedonbehalfby Lkspiceministryemployeecreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeemodifiedby.
+        /// </summary>
+        public virtual ILkspiceministryemployeemodifiedby Lkspiceministryemployeemodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceministryemployeemodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceministryemployeemodifiedonbehalfby Lkspiceministryemployeemodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressescreatedby.
+        /// </summary>
+        public virtual ILkspicepreviousaddressescreatedby Lkspicepreviousaddressescreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressescreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicepreviousaddressescreatedonbehalfby Lkspicepreviousaddressescreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressesmodifiedby.
+        /// </summary>
+        public virtual ILkspicepreviousaddressesmodifiedby Lkspicepreviousaddressesmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicepreviousaddressesmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicepreviousaddressesmodifiedonbehalfby Lkspicepreviousaddressesmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningcreatedby.
+        /// </summary>
+        public virtual ILkspicereasonforscreeningcreatedby Lkspicereasonforscreeningcreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningcreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicereasonforscreeningcreatedonbehalfby Lkspicereasonforscreeningcreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningmodifiedby.
+        /// </summary>
+        public virtual ILkspicereasonforscreeningmodifiedby Lkspicereasonforscreeningmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicereasonforscreeningmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicereasonforscreeningmodifiedonbehalfby Lkspicereasonforscreeningmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicescreatedby.
+        /// </summary>
+        public virtual ILkspiceservicescreatedby Lkspiceservicescreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicescreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceservicescreatedonbehalfby Lkspiceservicescreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicesmodifiedby.
+        /// </summary>
+        public virtual ILkspiceservicesmodifiedby Lkspiceservicesmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceservicesmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspiceservicesmodifiedonbehalfby Lkspiceservicesmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocesscreatedby.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocesscreatedby Lkspicespicebusinesscaseprocesscreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocesscreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocesscreatedonbehalfby Lkspicespicebusinesscaseprocesscreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessmodifiedby.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocessmodifiedby Lkspicespicebusinesscaseprocessmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocessmodifiedonbehalfby Lkspicespicebusinesscaseprocessmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocesscreatedby.
+        /// </summary>
+        public virtual ILkspicespiceprocesscreatedby Lkspicespiceprocesscreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocesscreatedonbehalfby.
+        /// </summary>
+        public virtual ILkspicespiceprocesscreatedonbehalfby Lkspicespiceprocesscreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessmodifiedby.
+        /// </summary>
+        public virtual ILkspicespiceprocessmodifiedby Lkspicespiceprocessmodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessmodifiedonbehalfby.
+        /// </summary>
+        public virtual ILkspicespiceprocessmodifiedonbehalfby Lkspicespiceprocessmodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusercreatedby.
+        /// </summary>
+        public virtual IRequiredcheckssystemusercreatedby Requiredcheckssystemusercreatedby { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusercreatedonbehalfby.
+        /// </summary>
+        public virtual IRequiredcheckssystemusercreatedonbehalfby Requiredcheckssystemusercreatedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusermodifiedby.
+        /// </summary>
+        public virtual IRequiredcheckssystemusermodifiedby Requiredcheckssystemusermodifiedby { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemusermodifiedonbehalfby.
+        /// </summary>
+        public virtual IRequiredcheckssystemusermodifiedonbehalfby Requiredcheckssystemusermodifiedonbehalfby { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredcheckssystemuserowninguser.
+        /// </summary>
+        public virtual IRequiredcheckssystemuserowninguser Requiredcheckssystemuserowninguser { get; private set; }
+
+        /// <summary>
+        /// Gets the ISystemuserincidentwfcrrupassback.
+        /// </summary>
+        public virtual ISystemuserincidentwfcrrupassback Systemuserincidentwfcrrupassback { get; private set; }
+
+        /// <summary>
+        /// Gets the ISystemuserspicerequiredcheckscompletedby.
+        /// </summary>
+        public virtual ISystemuserspicerequiredcheckscompletedby Systemuserspicerequiredcheckscompletedby { get; private set; }
+
+        /// <summary>
+        /// Gets the ISystemuserspicerequiredcheckscompletedbyuser.
+        /// </summary>
+        public virtual ISystemuserspicerequiredcheckscompletedbyuser Systemuserspicerequiredcheckscompletedbyuser { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspiceaccountcaseassignment.
+        /// </summary>
+        public virtual IUserspiceaccountcaseassignment Userspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspicecompany.
+        /// </summary>
+        public virtual IUserspicecompany Userspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspiceexportrequest.
+        /// </summary>
+        public virtual IUserspiceexportrequest Userspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspicegovministry.
+        /// </summary>
+        public virtual IUserspicegovministry Userspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspicelcrblicencetype.
+        /// </summary>
+        public virtual IUserspicelcrblicencetype Userspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspiceministry.
+        /// </summary>
+        public virtual IUserspiceministry Userspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspiceministryemployee.
+        /// </summary>
+        public virtual IUserspiceministryemployee Userspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspicepreviousaddresses.
+        /// </summary>
+        public virtual IUserspicepreviousaddresses Userspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the IUserspicereasonforscreening.
+        /// </summary>
+        public virtual IUserspicereasonforscreening Userspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspicecompanytask.
+        /// </summary>
+        public virtual IRegardingobjectidspicecompanytask Regardingobjectidspicecompanytask { get; private set; }
+
+        /// <summary>
+        /// Gets the IRegardingobjectidspiceexportrequesttask.
+        /// </summary>
+        public virtual IRegardingobjectidspiceexportrequesttask Regardingobjectidspiceexportrequesttask { get; private set; }
+
+        /// <summary>
+        /// Gets the IRequiredchecksteamowningteam.
+        /// </summary>
+        public virtual IRequiredchecksteamowningteam Requiredchecksteamowningteam { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspiceaccountcaseassignment.
+        /// </summary>
+        public virtual ITeamspiceaccountcaseassignment Teamspiceaccountcaseassignment { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspicecompany.
+        /// </summary>
+        public virtual ITeamspicecompany Teamspicecompany { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspiceexportrequest.
+        /// </summary>
+        public virtual ITeamspiceexportrequest Teamspiceexportrequest { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspicegovministry.
+        /// </summary>
+        public virtual ITeamspicegovministry Teamspicegovministry { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspicelcrblicencetype.
+        /// </summary>
+        public virtual ITeamspicelcrblicencetype Teamspicelcrblicencetype { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspiceministry.
+        /// </summary>
+        public virtual ITeamspiceministry Teamspiceministry { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspiceministryemployee.
+        /// </summary>
+        public virtual ITeamspiceministryemployee Teamspiceministryemployee { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspicepreviousaddresses.
+        /// </summary>
+        public virtual ITeamspicepreviousaddresses Teamspicepreviousaddresses { get; private set; }
+
+        /// <summary>
+        /// Gets the ITeamspicereasonforscreening.
+        /// </summary>
+        public virtual ITeamspicereasonforscreening Teamspicereasonforscreening { get; private set; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspiceessprocess.
+        /// </summary>
+        public virtual IAsyncoperationidspiceessprocess Asyncoperationidspiceessprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspicespicebusinesscaseprocess.
+        /// </summary>
+        public virtual IAsyncoperationidspicespicebusinesscaseprocess Asyncoperationidspicespicebusinesscaseprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the IAsyncoperationidspicespiceprocess.
+        /// </summary>
+        public virtual IAsyncoperationidspicespiceprocess Asyncoperationidspicespiceprocess { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspiceessprocessprocessid.
+        /// </summary>
+        public virtual ILkspiceessprocessprocessid Lkspiceessprocessprocessid { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespicebusinesscaseprocessprocessid.
+        /// </summary>
+        public virtual ILkspicespicebusinesscaseprocessprocessid Lkspicespicebusinesscaseprocessprocessid { get; private set; }
+
+        /// <summary>
+        /// Gets the ILkspicespiceprocessprocessid.
+        /// </summary>
+        public virtual ILkspicespiceprocessprocessid Lkspicespiceprocessprocessid { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the DynamicsClient class.
@@ -398,29 +2622,469 @@ namespace Gov.Jag.Spice.Interfaces
         private void Initialize()
         {
             Accounts = new Accounts(this);
+            Accountspicerequiredcheckses = new Accountspicerequiredcheckses(this);
+            Accountincident = new Accountincident(this);
+            Accountspiceaccountcaseassignment = new Accountspiceaccountcaseassignment(this);
+            Companyid = new Companyid(this);
+            Contactaccount = new Contactaccount(this);
+            Regardingobjectidspicerequiredchecks = new Regardingobjectidspicerequiredchecks(this);
+            Activityidspicerequiredchecksactivityparty = new Activityidspicerequiredchecksactivityparty(this);
+            Partyidspiceministryemployee = new Partyidspiceministryemployee(this);
+            Activitypointerspicerequiredchecks = new Activitypointerspicerequiredchecks(this);
+            Regardingobjectidspicecompany = new Regardingobjectidspicecompany(this);
+            Regardingobjectidspiceexportrequest = new Regardingobjectidspiceexportrequest(this);
+            Objectidspicealiases = new Objectidspicealiases(this);
+            Objectidspicecompany = new Objectidspicecompany(this);
+            Objectidspiceministry = new Objectidspiceministry(this);
+            Objectidspicepreviousaddresses = new Objectidspicepreviousaddresses(this);
+            Objectidspicerequiredchecks = new Objectidspicerequiredchecks(this);
+            Regardingobjectidspicecompanyappointment = new Regardingobjectidspicecompanyappointment(this);
+            Regardingobjectidspiceexportrequestappointment = new Regardingobjectidspiceexportrequestappointment(this);
+            Regardingobjectidspiceaccountcaseassignment = new Regardingobjectidspiceaccountcaseassignment(this);
+            Regardingobjectidspicealiases = new Regardingobjectidspicealiases(this);
+            Regardingobjectidspiceessprocess = new Regardingobjectidspiceessprocess(this);
+            Regardingobjectidspicegovministry = new Regardingobjectidspicegovministry(this);
+            Regardingobjectidspicelcrblicencetype = new Regardingobjectidspicelcrblicencetype(this);
+            Regardingobjectidspiceministry = new Regardingobjectidspiceministry(this);
+            Regardingobjectidspiceministryemployee = new Regardingobjectidspiceministryemployee(this);
+            Regardingobjectidspicepreviousaddresses = new Regardingobjectidspicepreviousaddresses(this);
+            Regardingobjectidspicereasonforscreening = new Regardingobjectidspicereasonforscreening(this);
+            Regardingobjectidspiceservices = new Regardingobjectidspiceservices(this);
+            Regardingobjectidspicespicebusinesscaseprocess = new Regardingobjectidspicespicebusinesscaseprocess(this);
+            Regardingobjectidspicespiceprocess = new Regardingobjectidspicespiceprocess(this);
+            Bookableresourcebookingheaderspicerequiredcheckses = new Bookableresourcebookingheaderspicerequiredcheckses(this);
+            Bookableresourcebookingspicerequiredcheckses = new Bookableresourcebookingspicerequiredcheckses(this);
+            Bulkoperationspicerequiredcheckses = new Bulkoperationspicerequiredcheckses(this);
+            Businessunitspiceaccountcaseassignment = new Businessunitspiceaccountcaseassignment(this);
+            Businessunitspicecompany = new Businessunitspicecompany(this);
+            Businessunitspiceexportrequest = new Businessunitspiceexportrequest(this);
+            Businessunitspicegovministry = new Businessunitspicegovministry(this);
+            Businessunitspicelcrblicencetype = new Businessunitspicelcrblicencetype(this);
+            Businessunitspiceministry = new Businessunitspiceministry(this);
+            Businessunitspiceministryemployee = new Businessunitspiceministryemployee(this);
+            Businessunitspicepreviousaddresses = new Businessunitspicepreviousaddresses(this);
+            Businessunitspicereasonforscreening = new Businessunitspicereasonforscreening(this);
+            Requiredchecksbusinessunitowningbusinessunit = new Requiredchecksbusinessunitowningbusinessunit(this);
+            Campaignactivityspicerequiredcheckses = new Campaignactivityspicerequiredcheckses(this);
+            Originatingactivityidspicerequiredcheckscampaignresponse = new Originatingactivityidspicerequiredcheckscampaignresponse(this);
+            Campaignspicerequiredcheckses = new Campaignspicerequiredcheckses(this);
+            Record1idspicecompany = new Record1idspicecompany(this);
+            Record1idspicerequiredchecks = new Record1idspicerequiredchecks(this);
+            Record2idspicecompany = new Record2idspicecompany(this);
+            Record2idspicerequiredchecks = new Record2idspicerequiredchecks(this);
             Contacts = new Contacts(this);
+            Contactspicerequiredcheckses = new Contactspicerequiredcheckses(this);
+            Contactincident = new Contactincident(this);
+            Contactspiceaccountcaseassignment = new Contactspiceaccountcaseassignment(this);
+            Contactspicealiases = new Contactspicealiases(this);
+            Contactspicepreviousaddresses = new Contactspicepreviousaddresses(this);
+            Contractspicerequiredcheckses = new Contractspicerequiredcheckses(this);
+            Baserecordidspiceaccountcaseassignment = new Baserecordidspiceaccountcaseassignment(this);
+            Baserecordidspicecompany = new Baserecordidspicecompany(this);
+            Baserecordidspiceexportrequest = new Baserecordidspiceexportrequest(this);
+            Baserecordidspicegovministry = new Baserecordidspicegovministry(this);
+            Baserecordidspicelcrblicencetype = new Baserecordidspicelcrblicencetype(this);
+            Baserecordidspiceministry = new Baserecordidspiceministry(this);
+            Baserecordidspiceministryemployee = new Baserecordidspiceministryemployee(this);
+            Baserecordidspicepreviousaddresses = new Baserecordidspicepreviousaddresses(this);
+            Baserecordidspicereasonforscreening = new Baserecordidspicereasonforscreening(this);
+            Baserecordidspicerequiredchecks = new Baserecordidspicerequiredchecks(this);
+            Baserecordidspiceservices = new Baserecordidspiceservices(this);
+            Duplicaterecordidspiceaccountcaseassignment = new Duplicaterecordidspiceaccountcaseassignment(this);
+            Duplicaterecordidspicecompany = new Duplicaterecordidspicecompany(this);
+            Duplicaterecordidspiceexportrequest = new Duplicaterecordidspiceexportrequest(this);
+            Duplicaterecordidspicegovministry = new Duplicaterecordidspicegovministry(this);
+            Duplicaterecordidspicelcrblicencetype = new Duplicaterecordidspicelcrblicencetype(this);
+            Duplicaterecordidspiceministry = new Duplicaterecordidspiceministry(this);
+            Duplicaterecordidspiceministryemployee = new Duplicaterecordidspiceministryemployee(this);
+            Duplicaterecordidspicepreviousaddresses = new Duplicaterecordidspicepreviousaddresses(this);
+            Duplicaterecordidspicereasonforscreening = new Duplicaterecordidspicereasonforscreening(this);
+            Duplicaterecordidspicerequiredchecks = new Duplicaterecordidspicerequiredchecks(this);
+            Duplicaterecordidspiceservices = new Duplicaterecordidspiceservices(this);
+            Regardingobjectidspicecompanyemail = new Regardingobjectidspicecompanyemail(this);
+            Regardingobjectidspiceexportrequestemail = new Regardingobjectidspiceexportrequestemail(this);
+            Entitlementspicerequiredcheckses = new Entitlementspicerequiredcheckses(this);
+            Entitlementtemplatespicerequiredcheckses = new Entitlementtemplatespicerequiredcheckses(this);
+            Regardingobjectidspicecompanyfax = new Regardingobjectidspicecompanyfax(this);
+            Regardingobjectidspiceexportrequestfax = new Regardingobjectidspiceexportrequestfax(this);
             Incidents = new Incidents(this);
+            Bpfincidentspiceessprocess = new Bpfincidentspiceessprocess(this);
+            Bpfincidentspicespicebusinesscaseprocess = new Bpfincidentspicespicebusinesscaseprocess(this);
+            Bpfincidentspicespiceprocess = new Bpfincidentspicespiceprocess(this);
+            Incidentspicerequiredcheckses = new Incidentspicerequiredcheckses(this);
+            Applicantid = new Applicantid(this);
+            Applyingpersonid = new Applyingpersonid(this);
+            
+            Exportrequestincident = new Exportrequestincident(this);
+            Incidentspiceaccountcaseassignment = new Incidentspiceaccountcaseassignment(this);
+            Lcrblicencetypeid = new Lcrblicencetypeid(this);
+            Reasonforscreeningid = new Reasonforscreeningid(this);
+            Requesterhiringmanager = new Requesterhiringmanager(this);
+            Returnresultto = new Returnresultto(this);
+            Serviceid = new Serviceid(this);
+            Wfcrrupassback = new Wfcrrupassback(this);
+            Interactionforemailspicerequiredcheckses = new Interactionforemailspicerequiredcheckses(this);
             Invoices = new Invoices(this);
+            Invoicespicerequiredcheckses = new Invoicespicerequiredcheckses(this);
+            Knowledgearticlespicerequiredcheckses = new Knowledgearticlespicerequiredcheckses(this);
+            Knowledgebaserecordspicerequiredcheckses = new Knowledgebaserecordspicerequiredcheckses(this);
+            Leadspicerequiredcheckses = new Leadspicerequiredcheckses(this);
+            Regardingobjectidspicecompanyletter = new Regardingobjectidspicecompanyletter(this);
+            Regardingobjectidspiceexportrequestletter = new Regardingobjectidspiceexportrequestletter(this);
+            Requiredchecksmailboxsendermailboxid = new Requiredchecksmailboxsendermailboxid(this);
+            Opportunityspicerequiredcheckses = new Opportunityspicerequiredcheckses(this);
+            Organizationspicealiases = new Organizationspicealiases(this);
+            Organizationspiceessprocess = new Organizationspiceessprocess(this);
+            Organizationspiceservices = new Organizationspiceservices(this);
+            Organizationspicespicebusinesscaseprocess = new Organizationspicespicebusinesscaseprocess(this);
+            Organizationspicespiceprocess = new Organizationspicespiceprocess(this);
+            Regardingobjectidspicecompanyphonecall = new Regardingobjectidspicecompanyphonecall(this);
+            Regardingobjectidspiceexportrequestphonecall = new Regardingobjectidspiceexportrequestphonecall(this);
+            Objectidspiceaccountcaseassignment = new Objectidspiceaccountcaseassignment(this);
+            Objectidspiceessprocess = new Objectidspiceessprocess(this);
+            Objectidspiceexportrequest = new Objectidspiceexportrequest(this);
+            Objectidspicegovministry = new Objectidspicegovministry(this);
+            Objectidspicelcrblicencetype = new Objectidspicelcrblicencetype(this);
+            Objectidspiceministryemployee = new Objectidspiceministryemployee(this);
+            Objectidspicereasonforscreening = new Objectidspicereasonforscreening(this);
+            Objectidspiceservices = new Objectidspiceservices(this);
+            Objectidspicespicebusinesscaseprocess = new Objectidspicespicebusinesscaseprocess(this);
+            Objectidspicespiceprocess = new Objectidspicespiceprocess(this);
+            Lkspiceessprocessactivestageid = new Lkspiceessprocessactivestageid(this);
+            Lkspicespicebusinesscaseprocessactivestageid = new Lkspicespicebusinesscaseprocessactivestageid(this);
+            Lkspicespiceprocessactivestageid = new Lkspicespiceprocessactivestageid(this);
+            Quotespicerequiredcheckses = new Quotespicerequiredcheckses(this);
+            Regardingobjectidspicecompanyrecurringappointmentmaster = new Regardingobjectidspicecompanyrecurringappointmentmaster(this);
+            Regardingobjectidspiceexportrequestrecurringappointmentmaster = new Regardingobjectidspiceexportrequestrecurringappointmentmaster(this);
+            Salesorderspicerequiredcheckses = new Salesorderspicerequiredcheckses(this);
             Savedqueries = new Savedqueries(this);
+            Regardingobjectidspicecompanyserviceappointment = new Regardingobjectidspicecompanyserviceappointment(this);
+            Regardingobjectidspiceexportrequestserviceappointment = new Regardingobjectidspiceexportrequestserviceappointment(this);
+            Requiredchecksserviceserviceid = new Requiredchecksserviceserviceid(this);
             Sharepointdocumentlocations = new Sharepointdocumentlocations(this);
             Sharepointsites = new Sharepointsites(this);
+            Sitespicerequiredcheckses = new Sitespicerequiredcheckses(this);
+            Requiredchecksslaslaid = new Requiredchecksslaslaid(this);
+            Requiredchecksslaslainvokedid = new Requiredchecksslaslainvokedid(this);
+            Regardingobjectidspicecompanysocialactivity = new Regardingobjectidspicecompanysocialactivity(this);
+            Regardingobjectidspiceexportrequestsocialactivity = new Regardingobjectidspiceexportrequestsocialactivity(this);
             Accountcaseassignments = new Accountcaseassignments(this);
+            Accountcaseassignmentasyncoperations = new Accountcaseassignmentasyncoperations(this);
+            Accountcaseassignmentbulkdeletefailures = new Accountcaseassignmentbulkdeletefailures(this);
+            Accountcaseassignmentduplicatebaserecord = new Accountcaseassignmentduplicatebaserecord(this);
+            Accountcaseassignmentduplicatematchingrecord = new Accountcaseassignmentduplicatematchingrecord(this);
+            Accountcaseassignmentmailboxtrackingfolders = new Accountcaseassignmentmailboxtrackingfolders(this);
+            Accountcaseassignmentprincipalobjectattributeaccesses = new Accountcaseassignmentprincipalobjectattributeaccesses(this);
+            Accountcaseassignmentprocesssession = new Accountcaseassignmentprocesssession(this);
+            Accountcaseassignmentsyncerrors = new Accountcaseassignmentsyncerrors(this);
+            Associatedcaseid = new Associatedcaseid(this);
+            Businessid = new Businessid(this);
+            Contactcaseassignmentid = new Contactcaseassignmentid(this);
             Aliaseses = new Aliaseses(this);
+            Aliascontact = new Aliascontact(this);
+            Aliasesannotations = new Aliasesannotations(this);
+            Aliasesasyncoperations = new Aliasesasyncoperations(this);
+            Aliasesbulkdeletefailures = new Aliasesbulkdeletefailures(this);
+            Aliasesmailboxtrackingfolders = new Aliasesmailboxtrackingfolders(this);
+            Aliasesprincipalobjectattributeaccesses = new Aliasesprincipalobjectattributeaccesses(this);
+            Aliasesprocesssession = new Aliasesprocesssession(this);
+            Aliasessyncerrors = new Aliasessyncerrors(this);
             Companies = new Companies(this);
+            Companyaccount = new Companyaccount(this);
+            Companyactivitypointers = new Companyactivitypointers(this);
+            Companyannotations = new Companyannotations(this);
+            Companyappointments = new Companyappointments(this);
+            Companyasyncoperations = new Companyasyncoperations(this);
+            Companybulkdeletefailures = new Companybulkdeletefailures(this);
+            Companyconnections1 = new Companyconnections1(this);
+            Companyconnections2 = new Companyconnections2(this);
+            Companyduplicatebaserecord = new Companyduplicatebaserecord(this);
+            Companyduplicatematchingrecord = new Companyduplicatematchingrecord(this);
+            Companyemails = new Companyemails(this);
+            Companyfaxes = new Companyfaxes(this);
+            Companyletters = new Companyletters(this);
+            Companymailboxtrackingfolders = new Companymailboxtrackingfolders(this);
+            Companyphonecalls = new Companyphonecalls(this);
+            Companyprincipalobjectattributeaccesses = new Companyprincipalobjectattributeaccesses(this);
+            Companyprocesssession = new Companyprocesssession(this);
+            Companyrecurringappointmentmasters = new Companyrecurringappointmentmasters(this);
+            Companyserviceappointments = new Companyserviceappointments(this);
+            Companysocialactivities = new Companysocialactivities(this);
+            Companyspicerequiredcheckses = new Companyspicerequiredcheckses(this);
+            Companysyncerrors = new Companysyncerrors(this);
+            Companytasks = new Companytasks(this);
             Contactaccountset = new Contactaccountset(this);
+            Essprocesses = new Essprocesses(this);
+            Essprocessasyncoperations = new Essprocessasyncoperations(this);
+            Essprocessbulkdeletefailures = new Essprocessbulkdeletefailures(this);
+            Essprocessmailboxtrackingfolders = new Essprocessmailboxtrackingfolders(this);
+            Essprocessprincipalobjectattributeaccesses = new Essprocessprincipalobjectattributeaccesses(this);
+            Essprocessprocesssession = new Essprocessprocesssession(this);
+            Essprocesssyncerrors = new Essprocesssyncerrors(this);
+            Essprocessworkflowlogs = new Essprocessworkflowlogs(this);
             Exportrequestincidentset = new Exportrequestincidentset(this);
             Exportrequests = new Exportrequests(this);
+            Exportrequestactivitypointers = new Exportrequestactivitypointers(this);
+            Exportrequestappointments = new Exportrequestappointments(this);
+            Exportrequestasyncoperations = new Exportrequestasyncoperations(this);
+            Exportrequestbulkdeletefailures = new Exportrequestbulkdeletefailures(this);
+            Exportrequestduplicatebaserecord = new Exportrequestduplicatebaserecord(this);
+            Exportrequestduplicatematchingrecord = new Exportrequestduplicatematchingrecord(this);
+            Exportrequestemails = new Exportrequestemails(this);
+            Exportrequestfaxes = new Exportrequestfaxes(this);
+            Exportrequestletters = new Exportrequestletters(this);
+            Exportrequestmailboxtrackingfolders = new Exportrequestmailboxtrackingfolders(this);
+            Exportrequestphonecalls = new Exportrequestphonecalls(this);
+            Exportrequestprincipalobjectattributeaccesses = new Exportrequestprincipalobjectattributeaccesses(this);
+            Exportrequestprocesssession = new Exportrequestprocesssession(this);
+            Exportrequestrecurringappointmentmasters = new Exportrequestrecurringappointmentmasters(this);
+            Exportrequestserviceappointments = new Exportrequestserviceappointments(this);
+            Exportrequestsocialactivities = new Exportrequestsocialactivities(this);
+            Exportrequestspicerequiredcheckses = new Exportrequestspicerequiredcheckses(this);
+            Exportrequestsyncerrors = new Exportrequestsyncerrors(this);
+            Exportrequesttasks = new Exportrequesttasks(this);
             Govministries = new Govministries(this);
+            Govministryasyncoperations = new Govministryasyncoperations(this);
+            Govministrybulkdeletefailures = new Govministrybulkdeletefailures(this);
+            Govministryduplicatebaserecord = new Govministryduplicatebaserecord(this);
+            Govministryduplicatematchingrecord = new Govministryduplicatematchingrecord(this);
+            Govministrymailboxtrackingfolders = new Govministrymailboxtrackingfolders(this);
+            Govministryprincipalobjectattributeaccesses = new Govministryprincipalobjectattributeaccesses(this);
+            Govministryprocesssession = new Govministryprocesssession(this);
+            Govministryspiceministry = new Govministryspiceministry(this);
+            Govministrysyncerrors = new Govministrysyncerrors(this);
             Lcrblicencetypes = new Lcrblicencetypes(this);
+            Lcrblicencetypeasyncoperations = new Lcrblicencetypeasyncoperations(this);
+            Lcrblicencetypebulkdeletefailures = new Lcrblicencetypebulkdeletefailures(this);
+            Lcrblicencetypeduplicatebaserecord = new Lcrblicencetypeduplicatebaserecord(this);
+            Lcrblicencetypeduplicatematchingrecord = new Lcrblicencetypeduplicatematchingrecord(this);
+            Lcrblicencetypeincident = new Lcrblicencetypeincident(this);
+            Lcrblicencetypemailboxtrackingfolders = new Lcrblicencetypemailboxtrackingfolders(this);
+            Lcrblicencetypeprincipalobjectattributeaccesses = new Lcrblicencetypeprincipalobjectattributeaccesses(this);
+            Lcrblicencetypeprocesssession = new Lcrblicencetypeprocesssession(this);
+            Lcrblicencetypesyncerrors = new Lcrblicencetypesyncerrors(this);
             Ministries = new Ministries(this);
+            Govministryid = new Govministryid(this);
+            Ministryannotations = new Ministryannotations(this);
+            Ministryasyncoperations = new Ministryasyncoperations(this);
+            Ministrybulkdeletefailures = new Ministrybulkdeletefailures(this);
+            Ministryduplicatebaserecord = new Ministryduplicatebaserecord(this);
+            Ministryduplicatematchingrecord = new Ministryduplicatematchingrecord(this);
+            Ministrymailboxtrackingfolders = new Ministrymailboxtrackingfolders(this);
+            Ministryprincipalobjectattributeaccesses = new Ministryprincipalobjectattributeaccesses(this);
+            Ministryprocesssession = new Ministryprocesssession(this);
+            Ministrysyncerrors = new Ministrysyncerrors(this);
+            Spiceministryincidentclient = new Spiceministryincidentclient(this);
+            Spiceministryspiceministryemployee = new Spiceministryspiceministryemployee(this);
+            Spiceministryspiceservices = new Spiceministryspiceservices(this);
             Ministryemployees = new Ministryemployees(this);
+            Ministryemployeeactivityparties = new Ministryemployeeactivityparties(this);
+            Ministryemployeeasyncoperations = new Ministryemployeeasyncoperations(this);
+            Ministryemployeebulkdeletefailures = new Ministryemployeebulkdeletefailures(this);
+            Ministryemployeeduplicatebaserecord = new Ministryemployeeduplicatebaserecord(this);
+            Ministryemployeeduplicatematchingrecord = new Ministryemployeeduplicatematchingrecord(this);
+            Ministryemployeemailboxtrackingfolders = new Ministryemployeemailboxtrackingfolders(this);
+            Ministryemployeeprincipalobjectattributeaccesses = new Ministryemployeeprincipalobjectattributeaccesses(this);
+            Ministryemployeeprocesssession = new Ministryemployeeprocesssession(this);
+            Ministryemployeesyncerrors = new Ministryemployeesyncerrors(this);
+            Ministryid = new Ministryid(this);
+            Spiceministryemployeeincidentrequesterhiringmanager = new Spiceministryemployeeincidentrequesterhiringmanager(this);
+            Spiceministryemployeeincidentreturnresultto = new Spiceministryemployeeincidentreturnresultto(this);
             Previousaddresseses = new Previousaddresseses(this);
+            Contactid = new Contactid(this);
+            Previousaddressesannotations = new Previousaddressesannotations(this);
+            Previousaddressesasyncoperations = new Previousaddressesasyncoperations(this);
+            Previousaddressesbulkdeletefailures = new Previousaddressesbulkdeletefailures(this);
+            Previousaddressesduplicatebaserecord = new Previousaddressesduplicatebaserecord(this);
+            Previousaddressesduplicatematchingrecord = new Previousaddressesduplicatematchingrecord(this);
+            Previousaddressesmailboxtrackingfolders = new Previousaddressesmailboxtrackingfolders(this);
+            Previousaddressesprincipalobjectattributeaccesses = new Previousaddressesprincipalobjectattributeaccesses(this);
+            Previousaddressesprocesssession = new Previousaddressesprocesssession(this);
+            Previousaddressessyncerrors = new Previousaddressessyncerrors(this);
             Reasonforscreenings = new Reasonforscreenings(this);
+            Reasonforscreeningasyncoperations = new Reasonforscreeningasyncoperations(this);
+            Reasonforscreeningbulkdeletefailures = new Reasonforscreeningbulkdeletefailures(this);
+            Reasonforscreeningduplicatebaserecord = new Reasonforscreeningduplicatebaserecord(this);
+            Reasonforscreeningduplicatematchingrecord = new Reasonforscreeningduplicatematchingrecord(this);
+            Reasonforscreeningincident = new Reasonforscreeningincident(this);
+            Reasonforscreeningmailboxtrackingfolders = new Reasonforscreeningmailboxtrackingfolders(this);
+            Reasonforscreeningprincipalobjectattributeaccesses = new Reasonforscreeningprincipalobjectattributeaccesses(this);
+            Reasonforscreeningprocesssession = new Reasonforscreeningprocesssession(this);
+            Reasonforscreeningsyncerrors = new Reasonforscreeningsyncerrors(this);
             Requiredcheckses = new Requiredcheckses(this);
+            Activityidspicerequiredchecks = new Activityidspicerequiredchecks(this);
+            Campaignresponsespicerequiredcheckses = new Campaignresponsespicerequiredcheckses(this);
+            Createdbyspicerequiredchecks = new Createdbyspicerequiredchecks(this);
+            Createdonbehalfbyspicerequiredchecks = new Createdonbehalfbyspicerequiredchecks(this);
+            Modifiedbyspicerequiredchecks = new Modifiedbyspicerequiredchecks(this);
+            Modifiedonbehalfbyspicerequiredchecks = new Modifiedonbehalfbyspicerequiredchecks(this);
+            Owneridspicerequiredchecks = new Owneridspicerequiredchecks(this);
+            Owningbusinessunitspicerequiredchecks = new Owningbusinessunitspicerequiredchecks(this);
+            Owningteamspicerequiredchecks = new Owningteamspicerequiredchecks(this);
+            Owninguserspicerequiredchecks = new Owninguserspicerequiredchecks(this);
+            Regardingobjectidaccountspicerequiredchecks = new Regardingobjectidaccountspicerequiredchecks(this);
+            Regardingobjectidbookableresourcebookingspicerequiredchecks = new Regardingobjectidbookableresourcebookingspicerequiredchecks(this);
+            Regardingobjectidbookableresourcebookingheaderspicerequiredchecks = new Regardingobjectidbookableresourcebookingheaderspicerequiredchecks(this);
+            Regardingobjectidbulkoperationspicerequiredchecks = new Regardingobjectidbulkoperationspicerequiredchecks(this);
+            Regardingobjectidcampaignspicerequiredchecks = new Regardingobjectidcampaignspicerequiredchecks(this);
+            Regardingobjectidcampaignactivityspicerequiredchecks = new Regardingobjectidcampaignactivityspicerequiredchecks(this);
+            Regardingobjectidcontactspicerequiredchecks = new Regardingobjectidcontactspicerequiredchecks(this);
+            Regardingobjectidcontractspicerequiredchecks = new Regardingobjectidcontractspicerequiredchecks(this);
+            Regardingobjectidentitlementspicerequiredchecks = new Regardingobjectidentitlementspicerequiredchecks(this);
+            Regardingobjectidentitlementtemplatespicerequiredchecks = new Regardingobjectidentitlementtemplatespicerequiredchecks(this);
+            Regardingobjectidincidentspicerequiredchecks = new Regardingobjectidincidentspicerequiredchecks(this);
+            Regardingobjectidinvoicespicerequiredchecks = new Regardingobjectidinvoicespicerequiredchecks(this);
+            Regardingobjectidknowledgearticlespicerequiredchecks = new Regardingobjectidknowledgearticlespicerequiredchecks(this);
+            Regardingobjectidknowledgebaserecordspicerequiredchecks = new Regardingobjectidknowledgebaserecordspicerequiredchecks(this);
+            Regardingobjectidleadspicerequiredchecks = new Regardingobjectidleadspicerequiredchecks(this);
+            Regardingobjectidmsdynpostalbumspicerequiredchecks = new Regardingobjectidmsdynpostalbumspicerequiredchecks(this);
+            Regardingobjectidnewinteractionforemailspicerequiredchecks = new Regardingobjectidnewinteractionforemailspicerequiredchecks(this);
+            Regardingobjectidopportunityspicerequiredchecks = new Regardingobjectidopportunityspicerequiredchecks(this);
+            Regardingobjectidquotespicerequiredchecks = new Regardingobjectidquotespicerequiredchecks(this);
+            Regardingobjectidsalesorderspicerequiredchecks = new Regardingobjectidsalesorderspicerequiredchecks(this);
+            Regardingobjectidsitespicerequiredchecks = new Regardingobjectidsitespicerequiredchecks(this);
+            Regardingobjectidspicecompanyspicerequiredchecks = new Regardingobjectidspicecompanyspicerequiredchecks(this);
+            Regardingobjectidspiceexportrequestspicerequiredchecks = new Regardingobjectidspiceexportrequestspicerequiredchecks(this);
+            Sendermailboxidspicerequiredchecks = new Sendermailboxidspicerequiredchecks(this);
+            Serviceidspicerequiredchecks = new Serviceidspicerequiredchecks(this);
+            Slaactivitypointerslaspicerequiredchecks = new Slaactivitypointerslaspicerequiredchecks(this);
+            Slainvokedidactivitypointerslaspicerequiredchecks = new Slainvokedidactivitypointerslaspicerequiredchecks(this);
+            Completedbyspicerequiredchecks = new Completedbyspicerequiredchecks(this);
+            Completedbyuserspicerequiredchecks = new Completedbyuserspicerequiredchecks(this);
+            Requiredchecksactioncards = new Requiredchecksactioncards(this);
+            Requiredchecksactivityparties = new Requiredchecksactivityparties(this);
+            Requiredchecksannotations = new Requiredchecksannotations(this);
+            Requiredchecksasyncoperations = new Requiredchecksasyncoperations(this);
+            Requiredchecksbulkdeletefailures = new Requiredchecksbulkdeletefailures(this);
+            Requiredchecksconnections1 = new Requiredchecksconnections1(this);
+            Requiredchecksconnections2 = new Requiredchecksconnections2(this);
+            Requiredchecksduplicatebaserecord = new Requiredchecksduplicatebaserecord(this);
+            Requiredchecksduplicatematchingrecord = new Requiredchecksduplicatematchingrecord(this);
+            Requiredchecksfeedback = new Requiredchecksfeedback(this);
+            Requiredchecksmailboxtrackingfolders = new Requiredchecksmailboxtrackingfolders(this);
+            Requiredchecksprincipalobjectattributeaccesses = new Requiredchecksprincipalobjectattributeaccesses(this);
+            Requiredchecksprocesssession = new Requiredchecksprocesssession(this);
+            Requiredchecksqueueitems = new Requiredchecksqueueitems(this);
+            Requiredcheckssyncerrors = new Requiredcheckssyncerrors(this);
             Serviceses = new Serviceses(this);
-            Businesscaseprocesses = new Businesscaseprocesses(this);
-            Processes = new Processes(this);
-            BaseUri = new System.Uri("https://wsgw.test.jag.gov.bc.ca/spdcss/spd-spice-train/api/data/v9.0");
+            Ministryserviceid = new Ministryserviceid(this);
+            Servicesasyncoperations = new Servicesasyncoperations(this);
+            Servicesbulkdeletefailures = new Servicesbulkdeletefailures(this);
+            Servicesduplicatebaserecord = new Servicesduplicatebaserecord(this);
+            Servicesduplicatematchingrecord = new Servicesduplicatematchingrecord(this);
+            Servicesmailboxtrackingfolders = new Servicesmailboxtrackingfolders(this);
+            Servicesprincipalobjectattributeaccesses = new Servicesprincipalobjectattributeaccesses(this);
+            Servicesprocesssession = new Servicesprocesssession(this);
+            Servicessyncerrors = new Servicessyncerrors(this);
+            Spiceservicesincident = new Spiceservicesincident(this);
+            Spicebusinesscaseprocesses = new Spicebusinesscaseprocesses(this);
+            Spicebusinesscaseprocessasyncoperations = new Spicebusinesscaseprocessasyncoperations(this);
+            Spicebusinesscaseprocessbulkdeletefailures = new Spicebusinesscaseprocessbulkdeletefailures(this);
+            Spicebusinesscaseprocessmailboxtrackingfolders = new Spicebusinesscaseprocessmailboxtrackingfolders(this);
+            Spicebusinesscaseprocessprincipalobjectattributeaccesses = new Spicebusinesscaseprocessprincipalobjectattributeaccesses(this);
+            Spicebusinesscaseprocessprocesssession = new Spicebusinesscaseprocessprocesssession(this);
+            Spicebusinesscaseprocesssyncerrors = new Spicebusinesscaseprocesssyncerrors(this);
+            Spicebusinesscaseprocessworkflowlogs = new Spicebusinesscaseprocessworkflowlogs(this);
+            Spiceprocesses = new Spiceprocesses(this);
+            Spiceprocessasyncoperations = new Spiceprocessasyncoperations(this);
+            Spiceprocessbulkdeletefailures = new Spiceprocessbulkdeletefailures(this);
+            Spiceprocessmailboxtrackingfolders = new Spiceprocessmailboxtrackingfolders(this);
+            Spiceprocessprincipalobjectattributeaccesses = new Spiceprocessprincipalobjectattributeaccesses(this);
+            Spiceprocessprocesssession = new Spiceprocessprocesssession(this);
+            Spiceprocesssyncerrors = new Spiceprocesssyncerrors(this);
+            Spiceprocessworkflowlogs = new Spiceprocessworkflowlogs(this);
+            Lkspiceaccountcaseassignmentcreatedby = new Lkspiceaccountcaseassignmentcreatedby(this);
+            Lkspiceaccountcaseassignmentcreatedonbehalfby = new Lkspiceaccountcaseassignmentcreatedonbehalfby(this);
+            Lkspiceaccountcaseassignmentmodifiedby = new Lkspiceaccountcaseassignmentmodifiedby(this);
+            Lkspiceaccountcaseassignmentmodifiedonbehalfby = new Lkspiceaccountcaseassignmentmodifiedonbehalfby(this);
+            Lkspicealiasescreatedby = new Lkspicealiasescreatedby(this);
+            Lkspicealiasescreatedonbehalfby = new Lkspicealiasescreatedonbehalfby(this);
+            Lkspicealiasesmodifiedby = new Lkspicealiasesmodifiedby(this);
+            Lkspicealiasesmodifiedonbehalfby = new Lkspicealiasesmodifiedonbehalfby(this);
+            Lkspicecompanycreatedby = new Lkspicecompanycreatedby(this);
+            Lkspicecompanycreatedonbehalfby = new Lkspicecompanycreatedonbehalfby(this);
+            Lkspicecompanymodifiedby = new Lkspicecompanymodifiedby(this);
+            Lkspicecompanymodifiedonbehalfby = new Lkspicecompanymodifiedonbehalfby(this);
+            Lkspiceessprocesscreatedby = new Lkspiceessprocesscreatedby(this);
+            Lkspiceessprocesscreatedonbehalfby = new Lkspiceessprocesscreatedonbehalfby(this);
+            Lkspiceessprocessmodifiedby = new Lkspiceessprocessmodifiedby(this);
+            Lkspiceessprocessmodifiedonbehalfby = new Lkspiceessprocessmodifiedonbehalfby(this);
+            Lkspiceexportrequestcreatedby = new Lkspiceexportrequestcreatedby(this);
+            Lkspiceexportrequestcreatedonbehalfby = new Lkspiceexportrequestcreatedonbehalfby(this);
+            Lkspiceexportrequestmodifiedby = new Lkspiceexportrequestmodifiedby(this);
+            Lkspiceexportrequestmodifiedonbehalfby = new Lkspiceexportrequestmodifiedonbehalfby(this);
+            Lkspicegovministrycreatedby = new Lkspicegovministrycreatedby(this);
+            Lkspicegovministrycreatedonbehalfby = new Lkspicegovministrycreatedonbehalfby(this);
+            Lkspicegovministrymodifiedby = new Lkspicegovministrymodifiedby(this);
+            Lkspicegovministrymodifiedonbehalfby = new Lkspicegovministrymodifiedonbehalfby(this);
+            Lkspicelcrblicencetypecreatedby = new Lkspicelcrblicencetypecreatedby(this);
+            Lkspicelcrblicencetypecreatedonbehalfby = new Lkspicelcrblicencetypecreatedonbehalfby(this);
+            Lkspicelcrblicencetypemodifiedby = new Lkspicelcrblicencetypemodifiedby(this);
+            Lkspicelcrblicencetypemodifiedonbehalfby = new Lkspicelcrblicencetypemodifiedonbehalfby(this);
+            Lkspiceministrycreatedby = new Lkspiceministrycreatedby(this);
+            Lkspiceministrycreatedonbehalfby = new Lkspiceministrycreatedonbehalfby(this);
+            Lkspiceministrymodifiedby = new Lkspiceministrymodifiedby(this);
+            Lkspiceministrymodifiedonbehalfby = new Lkspiceministrymodifiedonbehalfby(this);
+            Lkspiceministryemployeecreatedby = new Lkspiceministryemployeecreatedby(this);
+            Lkspiceministryemployeecreatedonbehalfby = new Lkspiceministryemployeecreatedonbehalfby(this);
+            Lkspiceministryemployeemodifiedby = new Lkspiceministryemployeemodifiedby(this);
+            Lkspiceministryemployeemodifiedonbehalfby = new Lkspiceministryemployeemodifiedonbehalfby(this);
+            Lkspicepreviousaddressescreatedby = new Lkspicepreviousaddressescreatedby(this);
+            Lkspicepreviousaddressescreatedonbehalfby = new Lkspicepreviousaddressescreatedonbehalfby(this);
+            Lkspicepreviousaddressesmodifiedby = new Lkspicepreviousaddressesmodifiedby(this);
+            Lkspicepreviousaddressesmodifiedonbehalfby = new Lkspicepreviousaddressesmodifiedonbehalfby(this);
+            Lkspicereasonforscreeningcreatedby = new Lkspicereasonforscreeningcreatedby(this);
+            Lkspicereasonforscreeningcreatedonbehalfby = new Lkspicereasonforscreeningcreatedonbehalfby(this);
+            Lkspicereasonforscreeningmodifiedby = new Lkspicereasonforscreeningmodifiedby(this);
+            Lkspicereasonforscreeningmodifiedonbehalfby = new Lkspicereasonforscreeningmodifiedonbehalfby(this);
+            Lkspiceservicescreatedby = new Lkspiceservicescreatedby(this);
+            Lkspiceservicescreatedonbehalfby = new Lkspiceservicescreatedonbehalfby(this);
+            Lkspiceservicesmodifiedby = new Lkspiceservicesmodifiedby(this);
+            Lkspiceservicesmodifiedonbehalfby = new Lkspiceservicesmodifiedonbehalfby(this);
+            Lkspicespicebusinesscaseprocesscreatedby = new Lkspicespicebusinesscaseprocesscreatedby(this);
+            Lkspicespicebusinesscaseprocesscreatedonbehalfby = new Lkspicespicebusinesscaseprocesscreatedonbehalfby(this);
+            Lkspicespicebusinesscaseprocessmodifiedby = new Lkspicespicebusinesscaseprocessmodifiedby(this);
+            Lkspicespicebusinesscaseprocessmodifiedonbehalfby = new Lkspicespicebusinesscaseprocessmodifiedonbehalfby(this);
+            Lkspicespiceprocesscreatedby = new Lkspicespiceprocesscreatedby(this);
+            Lkspicespiceprocesscreatedonbehalfby = new Lkspicespiceprocesscreatedonbehalfby(this);
+            Lkspicespiceprocessmodifiedby = new Lkspicespiceprocessmodifiedby(this);
+            Lkspicespiceprocessmodifiedonbehalfby = new Lkspicespiceprocessmodifiedonbehalfby(this);
+            Requiredcheckssystemusercreatedby = new Requiredcheckssystemusercreatedby(this);
+            Requiredcheckssystemusercreatedonbehalfby = new Requiredcheckssystemusercreatedonbehalfby(this);
+            Requiredcheckssystemusermodifiedby = new Requiredcheckssystemusermodifiedby(this);
+            Requiredcheckssystemusermodifiedonbehalfby = new Requiredcheckssystemusermodifiedonbehalfby(this);
+            Requiredcheckssystemuserowninguser = new Requiredcheckssystemuserowninguser(this);
+            Systemuserincidentwfcrrupassback = new Systemuserincidentwfcrrupassback(this);
+            Systemuserspicerequiredcheckscompletedby = new Systemuserspicerequiredcheckscompletedby(this);
+            Systemuserspicerequiredcheckscompletedbyuser = new Systemuserspicerequiredcheckscompletedbyuser(this);
+            Userspiceaccountcaseassignment = new Userspiceaccountcaseassignment(this);
+            Userspicecompany = new Userspicecompany(this);
+            Userspiceexportrequest = new Userspiceexportrequest(this);
+            Userspicegovministry = new Userspicegovministry(this);
+            Userspicelcrblicencetype = new Userspicelcrblicencetype(this);
+            Userspiceministry = new Userspiceministry(this);
+            Userspiceministryemployee = new Userspiceministryemployee(this);
+            Userspicepreviousaddresses = new Userspicepreviousaddresses(this);
+            Userspicereasonforscreening = new Userspicereasonforscreening(this);
+            Regardingobjectidspicecompanytask = new Regardingobjectidspicecompanytask(this);
+            Regardingobjectidspiceexportrequesttask = new Regardingobjectidspiceexportrequesttask(this);
+            Requiredchecksteamowningteam = new Requiredchecksteamowningteam(this);
+            Teamspiceaccountcaseassignment = new Teamspiceaccountcaseassignment(this);
+            Teamspicecompany = new Teamspicecompany(this);
+            Teamspiceexportrequest = new Teamspiceexportrequest(this);
+            Teamspicegovministry = new Teamspicegovministry(this);
+            Teamspicelcrblicencetype = new Teamspicelcrblicencetype(this);
+            Teamspiceministry = new Teamspiceministry(this);
+            Teamspiceministryemployee = new Teamspiceministryemployee(this);
+            Teamspicepreviousaddresses = new Teamspicepreviousaddresses(this);
+            Teamspicereasonforscreening = new Teamspicereasonforscreening(this);
+            Asyncoperationidspiceessprocess = new Asyncoperationidspiceessprocess(this);
+            Asyncoperationidspicespicebusinesscaseprocess = new Asyncoperationidspicespicebusinesscaseprocess(this);
+            Asyncoperationidspicespiceprocess = new Asyncoperationidspicespiceprocess(this);
+            Lkspiceessprocessprocessid = new Lkspiceessprocessprocessid(this);
+            Lkspicespicebusinesscaseprocessprocessid = new Lkspicespicebusinesscaseprocessprocessid(this);
+            Lkspicespiceprocessprocessid = new Lkspicespiceprocessprocessid(this);
+            BaseUri = new System.Uri("http://localhost");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,

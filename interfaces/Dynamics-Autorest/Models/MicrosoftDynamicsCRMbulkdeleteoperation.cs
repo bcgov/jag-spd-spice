@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// bulkdeleteoperation
+    /// Microsoft.Dynamics.CRM.bulkdeleteoperation
     /// </summary>
     public partial class MicrosoftDynamicsCRMbulkdeleteoperation
     {

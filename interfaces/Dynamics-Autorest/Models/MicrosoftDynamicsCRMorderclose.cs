@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// orderclose
+    /// Microsoft.Dynamics.CRM.orderclose
     /// </summary>
     public partial class MicrosoftDynamicsCRMorderclose
     {

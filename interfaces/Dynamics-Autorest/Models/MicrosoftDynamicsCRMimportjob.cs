@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// importjob
+    /// Microsoft.Dynamics.CRM.importjob
     /// </summary>
     public partial class MicrosoftDynamicsCRMimportjob
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMimportjob
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMimportjob(string importjobid = default(string), string _createdbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string importcontext = default(string), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), double? progress = default(double?), string operationcontext = default(string), int? utcconversiontimezonecode = default(int?), string _organizationidValue = default(string), int? timezoneruleversionnumber = default(int?), string data = default(string), string solutionid = default(string), string solutionname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? startedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMimportjob(string importjobid = default(string), string _createdbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string name = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string importcontext = default(string), System.DateTimeOffset? completedon = default(System.DateTimeOffset?), string _createdonbehalfbyValue = default(string), string _modifiedbyValue = default(string), decimal? progress = default(decimal?), string operationcontext = default(string), int? utcconversiontimezonecode = default(int?), string _organizationidValue = default(string), int? timezoneruleversionnumber = default(int?), string data = default(string), string solutionid = default(string), string solutionname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? startedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Importjobid = importjobid;
             this._createdbyValue = _createdbyValue;
@@ -109,7 +109,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "progress")]
-        public double? Progress { get; set; }
+        public decimal? Progress { get; set; }
 
         /// <summary>
         /// </summary>

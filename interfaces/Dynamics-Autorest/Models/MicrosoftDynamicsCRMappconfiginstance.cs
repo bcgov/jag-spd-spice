@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// appconfiginstance
+    /// Microsoft.Dynamics.CRM.appconfiginstance
     /// </summary>
     public partial class MicrosoftDynamicsCRMappconfiginstance
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMappconfiginstance class.
         /// </summary>
-        public MicrosoftDynamicsCRMappconfiginstance(string _createdbyValue = default(string), string _organizationidValue = default(string), string appconfiginstanceidunique = default(string), int? importsequencenumber = default(int?), long? versionnumber = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string appconfiginstanceid = default(string), string _modifiedbyValue = default(string), string solutionid = default(string), string componenttype = default(string), string _appconfigmasteridValue = default(string), bool? ismanaged = default(bool?), int? componentstate = default(int?), string objectid = default(string), string appconfigidunique = default(string), string introducedversion = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _appconfigidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string value = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMappconfigmaster appconfiginstanceAppconfigmaster = default(MicrosoftDynamicsCRMappconfigmaster), MicrosoftDynamicsCRMorganization organizationAppconfiginstanceAppconfiginstance = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser appconfiginstanceCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMappconfig appconfiginstanceAppconfig = default(MicrosoftDynamicsCRMappconfig), MicrosoftDynamicsCRMsystemuser appconfiginstanceModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfiginstanceModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfiginstanceCreatedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMappconfiginstance(string _createdbyValue = default(string), string _organizationidValue = default(string), string appconfiginstanceidunique = default(string), int? importsequencenumber = default(int?), string versionnumber = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string appconfiginstanceid = default(string), string _modifiedbyValue = default(string), string solutionid = default(string), string componenttype = default(string), string _appconfigmasteridValue = default(string), bool? ismanaged = default(bool?), int? componentstate = default(int?), string objectid = default(string), string appconfigidunique = default(string), string introducedversion = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string _appconfigidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string value = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMappconfigmaster appconfiginstanceAppconfigmaster = default(MicrosoftDynamicsCRMappconfigmaster), MicrosoftDynamicsCRMorganization organizationAppconfiginstanceAppconfiginstance = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser appconfiginstanceCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMappconfig appconfiginstanceAppconfig = default(MicrosoftDynamicsCRMappconfig), MicrosoftDynamicsCRMsystemuser appconfiginstanceModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfiginstanceModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfiginstanceCreatedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             this._createdbyValue = _createdbyValue;
             this._organizationidValue = _organizationidValue;
@@ -90,7 +90,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

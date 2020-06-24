@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// importentitymapping
+    /// Microsoft.Dynamics.CRM.importentitymapping
     /// </summary>
     public partial class MicrosoftDynamicsCRMimportentitymapping
     {

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// fax
+    /// Microsoft.Dynamics.CRM.fax
     /// </summary>
     public partial class MicrosoftDynamicsCRMfax
     {

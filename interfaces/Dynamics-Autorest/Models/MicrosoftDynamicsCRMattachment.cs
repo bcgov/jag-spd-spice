@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// attachment
+    /// Microsoft.Dynamics.CRM.attachment
     /// </summary>
     public partial class MicrosoftDynamicsCRMattachment
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMattachment
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMattachment(string attachmentid = default(string), string mimetype = default(string), string body = default(string), object bodyBinary = default(object), string subject = default(string), string filename = default(string), int? filesize = default(int?), long? versionnumber = default(long?), IList<MicrosoftDynamicsCRMsyncerror> attachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivitymimeattachment> attachmentActivityMimeAttachments = default(IList<MicrosoftDynamicsCRMactivitymimeattachment>))
+        public MicrosoftDynamicsCRMattachment(string attachmentid = default(string), string mimetype = default(string), string body = default(string), byte[] bodyBinary = default(byte[]), string subject = default(string), string filename = default(string), int? filesize = default(int?), string versionnumber = default(string), IList<MicrosoftDynamicsCRMsyncerror> attachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivitymimeattachment> attachmentActivityMimeAttachments = default(IList<MicrosoftDynamicsCRMactivitymimeattachment>))
         {
             Attachmentid = attachmentid;
             Mimetype = mimetype;
@@ -66,8 +68,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "body_binary")]
-        public object BodyBinary { get; set; }
+        public byte[] BodyBinary { get; set; }
 
         /// <summary>
         /// </summary>
@@ -87,7 +90,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

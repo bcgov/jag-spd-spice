@@ -43,8 +43,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Status")]
-        // Had to change the case of the propertyname from status to Status to work after 9.0.8 upgrade
+        [JsonProperty(PropertyName = "status")]
         public int? Status { get; set; }
 
     }

@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// lookupmapping
+    /// Microsoft.Dynamics.CRM.lookupmapping
     /// </summary>
     public partial class MicrosoftDynamicsCRMlookupmapping
     {

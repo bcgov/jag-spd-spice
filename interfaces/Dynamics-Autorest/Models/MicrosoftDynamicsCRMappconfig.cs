@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// appconfig
+    /// Microsoft.Dynamics.CRM.appconfig
     /// </summary>
     public partial class MicrosoftDynamicsCRMappconfig
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMappconfig
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMappconfig(int? componentstate = default(int?), string solutionid = default(string), string _organizationidValue = default(string), long? versionnumber = default(long?), bool? ismanaged = default(bool?), string appconfigimportxml = default(string), string appconfigidunique = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), string introducedversion = default(string), string _modifiedbyValue = default(string), string _appmoduleidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string appconfigid = default(string), int? statecode = default(int?), int? statuscode = default(int?), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMappmodule appmoduleAppconfig = default(MicrosoftDynamicsCRMappmodule), MicrosoftDynamicsCRMsystemuser appconfigModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMnavigationsetting> appconfigNavigationsetting = default(IList<MicrosoftDynamicsCRMnavigationsetting>), MicrosoftDynamicsCRMsystemuser appconfigCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMappconfiginstance> appconfigAppconfiginstance = default(IList<MicrosoftDynamicsCRMappconfiginstance>), MicrosoftDynamicsCRMsystemuser appconfigCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationAppconfig = default(MicrosoftDynamicsCRMorganization))
+        public MicrosoftDynamicsCRMappconfig(int? componentstate = default(int?), string solutionid = default(string), string _organizationidValue = default(string), string versionnumber = default(string), bool? ismanaged = default(bool?), string appconfigimportxml = default(string), string appconfigidunique = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), string introducedversion = default(string), string _modifiedbyValue = default(string), string _appmoduleidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string appconfigid = default(string), int? statecode = default(int?), int? statuscode = default(int?), string _modifiedonbehalfbyValue = default(string), MicrosoftDynamicsCRMappmodule appmoduleAppconfig = default(MicrosoftDynamicsCRMappmodule), MicrosoftDynamicsCRMsystemuser appconfigModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMnavigationsetting> appconfigNavigationsetting = default(IList<MicrosoftDynamicsCRMnavigationsetting>), MicrosoftDynamicsCRMsystemuser appconfigCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMappconfiginstance> appconfigAppconfiginstance = default(IList<MicrosoftDynamicsCRMappconfiginstance>), MicrosoftDynamicsCRMsystemuser appconfigCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationAppconfig = default(MicrosoftDynamicsCRMorganization))
         {
             Componentstate = componentstate;
             Solutionid = solutionid;
@@ -86,7 +86,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

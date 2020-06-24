@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// plugintracelog
+    /// Microsoft.Dynamics.CRM.plugintracelog
     /// </summary>
     public partial class MicrosoftDynamicsCRMplugintracelog
     {

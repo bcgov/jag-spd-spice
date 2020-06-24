@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// incidentresolution
+    /// Microsoft.Dynamics.CRM.incidentresolution
     /// </summary>
     public partial class MicrosoftDynamicsCRMincidentresolution
     {

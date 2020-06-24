@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// monthlyfiscalcalendar
+    /// Microsoft.Dynamics.CRM.monthlyfiscalcalendar
     /// </summary>
     public partial class MicrosoftDynamicsCRMmonthlyfiscalcalendar
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMmonthlyfiscalcalendar class.
         /// </summary>
-        public MicrosoftDynamicsCRMmonthlyfiscalcalendar(object month8 = default(object), object month12Base = default(object), object month10Base = default(object), object exchangerate = default(object), string _createdonbehalfbyValue = default(string), object month6Base = default(object), object month9 = default(object), object month9Base = default(object), int? fiscalperiodtype = default(int?), object month4Base = default(object), string _createdbyValue = default(string), object month12 = default(object), string userfiscalcalendarid = default(string), string _businessunitidValue = default(string), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), object month11Base = default(object), object month2 = default(object), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), object month7 = default(object), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), object month11 = default(object), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), object month3Base = default(object), object month6 = default(object), object month8Base = default(object), object month7Base = default(object), object month10 = default(object), object month1 = default(object), object month2Base = default(object), object month5 = default(object), object month1Base = default(object), object month3 = default(object), object month5Base = default(object), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), string _salespersonidValue = default(string), object month4 = default(object), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> monthlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> monthlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMmonthlyfiscalcalendar(decimal? month8 = default(decimal?), decimal? month12Base = default(decimal?), decimal? month10Base = default(decimal?), decimal? exchangerate = default(decimal?), string _createdonbehalfbyValue = default(string), decimal? month6Base = default(decimal?), decimal? month9 = default(decimal?), decimal? month9Base = default(decimal?), int? fiscalperiodtype = default(int?), decimal? month4Base = default(decimal?), string _createdbyValue = default(string), decimal? month12 = default(decimal?), string userfiscalcalendarid = default(string), string _businessunitidValue = default(string), int? utcconversiontimezonecode = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), decimal? month11Base = default(decimal?), decimal? month2 = default(decimal?), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), decimal? month7 = default(decimal?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), decimal? month11 = default(decimal?), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), decimal? month3Base = default(decimal?), decimal? month6 = default(decimal?), decimal? month8Base = default(decimal?), decimal? month7Base = default(decimal?), decimal? month10 = default(decimal?), decimal? month1 = default(decimal?), decimal? month2Base = default(decimal?), decimal? month5 = default(decimal?), decimal? month1Base = default(decimal?), decimal? month3 = default(decimal?), decimal? month5Base = default(decimal?), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), string _salespersonidValue = default(string), decimal? month4 = default(decimal?), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> monthlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMbulkdeletefailure> monthlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Month8 = month8;
             Month12Base = month12Base;
@@ -89,22 +89,22 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month8")]
-        public object Month8 { get; set; }
+        public decimal? Month8 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month12_base")]
-        public object Month12Base { get; set; }
+        public decimal? Month12Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month10_base")]
-        public object Month10Base { get; set; }
+        public decimal? Month10Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -114,17 +114,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month6_base")]
-        public object Month6Base { get; set; }
+        public decimal? Month6Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month9")]
-        public object Month9 { get; set; }
+        public decimal? Month9 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month9_base")]
-        public object Month9Base { get; set; }
+        public decimal? Month9Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -134,7 +134,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month4_base")]
-        public object Month4Base { get; set; }
+        public decimal? Month4Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -144,7 +144,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month12")]
-        public object Month12 { get; set; }
+        public decimal? Month12 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -169,12 +169,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month11_base")]
-        public object Month11Base { get; set; }
+        public decimal? Month11Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month2")]
-        public object Month2 { get; set; }
+        public decimal? Month2 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -189,7 +189,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month7")]
-        public object Month7 { get; set; }
+        public decimal? Month7 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -199,7 +199,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month11")]
-        public object Month11 { get; set; }
+        public decimal? Month11 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -209,57 +209,57 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month3_base")]
-        public object Month3Base { get; set; }
+        public decimal? Month3Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month6")]
-        public object Month6 { get; set; }
+        public decimal? Month6 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month8_base")]
-        public object Month8Base { get; set; }
+        public decimal? Month8Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month7_base")]
-        public object Month7Base { get; set; }
+        public decimal? Month7Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month10")]
-        public object Month10 { get; set; }
+        public decimal? Month10 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month1")]
-        public object Month1 { get; set; }
+        public decimal? Month1 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month2_base")]
-        public object Month2Base { get; set; }
+        public decimal? Month2Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month5")]
-        public object Month5 { get; set; }
+        public decimal? Month5 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month1_base")]
-        public object Month1Base { get; set; }
+        public decimal? Month1Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month3")]
-        public object Month3 { get; set; }
+        public decimal? Month3 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month5_base")]
-        public object Month5Base { get; set; }
+        public decimal? Month5Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -279,7 +279,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "month4")]
-        public object Month4 { get; set; }
+        public decimal? Month4 { get; set; }
 
         /// <summary>
         /// </summary>

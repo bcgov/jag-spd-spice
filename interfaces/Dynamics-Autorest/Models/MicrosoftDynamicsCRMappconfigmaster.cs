@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// appconfigmaster
+    /// Microsoft.Dynamics.CRM.appconfigmaster
     /// </summary>
     public partial class MicrosoftDynamicsCRMappconfigmaster
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMappconfigmaster class.
         /// </summary>
-        public MicrosoftDynamicsCRMappconfigmaster(System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string configtype = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string defaultvalue = default(string), int? isnavigationsetting = default(int?), long? versionnumber = default(long?), string name = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), string validator = default(string), string _organizationidValue = default(string), string parentappconfigmasterid = default(string), string appconfigmasterid = default(string), string _createdbyValue = default(string), IList<MicrosoftDynamicsCRMappconfiginstance> appconfigmasterAppconfiginstance = default(IList<MicrosoftDynamicsCRMappconfiginstance>), MicrosoftDynamicsCRMsystemuser appconfigmasterCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigmasterCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationAppconfigmasterAppconfigmaster = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser appconfigmasterModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigmasterModifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMappconfigmaster(System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedbyValue = default(string), string configtype = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string defaultvalue = default(string), int? isnavigationsetting = default(int?), string versionnumber = default(string), string name = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? importsequencenumber = default(int?), string validator = default(string), string _organizationidValue = default(string), string parentappconfigmasterid = default(string), string appconfigmasterid = default(string), string _createdbyValue = default(string), IList<MicrosoftDynamicsCRMappconfiginstance> appconfigmasterAppconfiginstance = default(IList<MicrosoftDynamicsCRMappconfiginstance>), MicrosoftDynamicsCRMsystemuser appconfigmasterCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigmasterCreatedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationAppconfigmasterAppconfigmaster = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser appconfigmasterModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser appconfigmasterModifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Overriddencreatedon = overriddencreatedon;
             this._modifiedbyValue = _modifiedbyValue;
@@ -100,7 +100,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
