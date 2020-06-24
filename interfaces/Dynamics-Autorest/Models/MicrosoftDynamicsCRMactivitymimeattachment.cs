@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// activitymimeattachment
+    /// Microsoft.Dynamics.CRM.activitymimeattachment
     /// </summary>
     public partial class MicrosoftDynamicsCRMactivitymimeattachment
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMactivitymimeattachment class.
         /// </summary>
-        public MicrosoftDynamicsCRMactivitymimeattachment(int? componentstate = default(int?), long? versionnumber = default(long?), string _owneridValue = default(string), string subject = default(string), int? filesize = default(int?), bool? isfollowed = default(bool?), bool? ismanaged = default(bool?), string activitymimeattachmentid = default(string), string _owninguserValue = default(string), string attachmentcontentid = default(string), string _attachmentidValue = default(string), string objecttypecode = default(string), string _owningbusinessunitValue = default(string), string _objectidValue = default(string), string activitymimeattachmentidunique = default(string), string mimetype = default(string), string activitysubject = default(string), string solutionid = default(string), int? attachmentnumber = default(int?), string anonymouslink = default(string), string filename = default(string), string body = default(string), object bodyBinary = default(object), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), IList<MicrosoftDynamicsCRMsyncerror> activityMimeAttachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMemail objectidEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMactivitypointer objectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMtemplate objectidTemplate = default(MicrosoftDynamicsCRMtemplate), MicrosoftDynamicsCRMattachment attachmentid = default(MicrosoftDynamicsCRMattachment), MicrosoftDynamicsCRMappointment objectidAppointment = default(MicrosoftDynamicsCRMappointment), IList<MicrosoftDynamicsCRMasyncoperation> activityMimeAttachmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> activityMimeAttachmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
+        public MicrosoftDynamicsCRMactivitymimeattachment(int? componentstate = default(int?), string versionnumber = default(string), string _owneridValue = default(string), string subject = default(string), int? filesize = default(int?), bool? isfollowed = default(bool?), bool? ismanaged = default(bool?), string activitymimeattachmentid = default(string), string _owninguserValue = default(string), string attachmentcontentid = default(string), string _attachmentidValue = default(string), string objecttypecode = default(string), string _owningbusinessunitValue = default(string), string _objectidValue = default(string), string activitymimeattachmentidunique = default(string), string mimetype = default(string), string activitysubject = default(string), string solutionid = default(string), int? attachmentnumber = default(int?), string anonymouslink = default(string), string filename = default(string), string body = default(string), byte[] bodyBinary = default(byte[]), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), IList<MicrosoftDynamicsCRMsyncerror> activityMimeAttachmentSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMemail objectidEmail = default(MicrosoftDynamicsCRMemail), MicrosoftDynamicsCRMactivitypointer objectidActivitypointer = default(MicrosoftDynamicsCRMactivitypointer), MicrosoftDynamicsCRMtemplate objectidTemplate = default(MicrosoftDynamicsCRMtemplate), MicrosoftDynamicsCRMattachment attachmentid = default(MicrosoftDynamicsCRMattachment), MicrosoftDynamicsCRMappointment objectidAppointment = default(MicrosoftDynamicsCRMappointment), IList<MicrosoftDynamicsCRMasyncoperation> activityMimeAttachmentAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMbulkdeletefailure> activityMimeAttachmentBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>))
         {
             Componentstate = componentstate;
             Versionnumber = versionnumber;
@@ -79,7 +81,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -183,8 +185,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "body_binary")]
-        public object BodyBinary { get; set; }
+        public byte[] BodyBinary { get; set; }
 
         /// <summary>
         /// </summary>

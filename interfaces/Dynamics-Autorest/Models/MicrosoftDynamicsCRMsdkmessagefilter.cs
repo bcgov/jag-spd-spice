@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// sdkmessagefilter
+    /// Microsoft.Dynamics.CRM.sdkmessagefilter
     /// </summary>
     public partial class MicrosoftDynamicsCRMsdkmessagefilter
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMsdkmessagefilter class.
         /// </summary>
-        public MicrosoftDynamicsCRMsdkmessagefilter(bool? ismanaged = default(bool?), string secondaryobjecttypecode = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string sdkmessagefilterid = default(string), string _modifiedonbehalfbyValue = default(string), int? customizationlevel = default(int?), string _sdkmessageidValue = default(string), bool? isvisible = default(bool?), bool? workflowsdkstepenabled = default(bool?), string primaryobjecttypecode = default(string), string introducedversion = default(string), string sdkmessagefilteridunique = default(string), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), int? componentstate = default(int?), string _modifiedbyValue = default(string), int? restrictionlevel = default(int?), string _createdbyValue = default(string), string solutionid = default(string), bool? iscustomprocessingstepallowed = default(bool?), int? availability = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessagefilteridSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMsdkmessagefilter(bool? ismanaged = default(bool?), string secondaryobjecttypecode = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string sdkmessagefilterid = default(string), string _modifiedonbehalfbyValue = default(string), int? customizationlevel = default(int?), string _sdkmessageidValue = default(string), bool? isvisible = default(bool?), bool? workflowsdkstepenabled = default(bool?), string primaryobjecttypecode = default(string), string introducedversion = default(string), string sdkmessagefilteridunique = default(string), string versionnumber = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _organizationidValue = default(string), int? componentstate = default(int?), string _modifiedbyValue = default(string), int? restrictionlevel = default(int?), string _createdbyValue = default(string), string solutionid = default(string), bool? iscustomprocessingstepallowed = default(bool?), int? availability = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMsdkmessageprocessingstep> sdkmessagefilteridSdkmessageprocessingstep = default(IList<MicrosoftDynamicsCRMsdkmessageprocessingstep>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsdkmessage sdkmessageid = default(MicrosoftDynamicsCRMsdkmessage), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Ismanaged = ismanaged;
             Secondaryobjecttypecode = secondaryobjecttypecode;
@@ -133,7 +133,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

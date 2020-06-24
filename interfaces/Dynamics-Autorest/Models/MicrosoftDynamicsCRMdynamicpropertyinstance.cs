@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// dynamicpropertyinstance
+    /// Microsoft.Dynamics.CRM.dynamicpropertyinstance
     /// </summary>
     public partial class MicrosoftDynamicsCRMdynamicpropertyinstance
     {
@@ -29,14 +29,16 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMdynamicpropertyinstance class.
         /// </summary>
-        public MicrosoftDynamicsCRMdynamicpropertyinstance(string _owningbusinessunitValue = default(string), int? utcconversiontimezonecode = default(int?), string _transactioncurrencyidValue = default(string), object valuedecimal = default(object), string name = default(string), string _createdbyValue = default(string), bool? validationstatus = default(bool?), int? timezoneruleversionnumber = default(int?), int? dmtimportstate = default(int?), string _createdonbehalfbyValue = default(string), long? versionnumber = default(long?), string valuestring = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), double? valuedouble = default(double?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? valueinteger = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _owneridValue = default(string), string _regardingobjectidValue = default(string), int? importsequencenumber = default(int?), string _modifiedbyValue = default(string), string _dynamicpropertyidValue = default(string), string _owningteamValue = default(string), string dynamicpropertyinstanceid = default(string), string _owninguserValue = default(string), object exchangerate = default(object), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> dynamicpropertyinstanceSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> dynamicpropertyinstanceAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> dynamicpropertyinstanceMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> dynamicpropertyinstanceBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> dynamicpropertyinstancePrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMdynamicproperty dynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), MicrosoftDynamicsCRMinvoicedetail regardingobjectidInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), MicrosoftDynamicsCRMopportunityproduct regardingobjectidOpportunityproduct = default(MicrosoftDynamicsCRMopportunityproduct), MicrosoftDynamicsCRMquotedetail regardingobjectidQuotedetail = default(MicrosoftDynamicsCRMquotedetail), MicrosoftDynamicsCRMsalesorderdetail regardingobjectidSalesorderdetail = default(MicrosoftDynamicsCRMsalesorderdetail))
+        public MicrosoftDynamicsCRMdynamicpropertyinstance(string _owningbusinessunitValue = default(string), int? utcconversiontimezonecode = default(int?), string _transactioncurrencyidValue = default(string), string _modifiedbyValue = default(string), decimal? valuedecimal = default(decimal?), string name = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), bool? validationstatus = default(bool?), int? timezoneruleversionnumber = default(int?), int? dmtimportstate = default(int?), string _createdonbehalfbyValue = default(string), string versionnumber = default(string), string valuestring = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), decimal? valuedouble = default(decimal?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), int? valueinteger = default(int?), string _owneridValue = default(string), string _regardingobjectidValue = default(string), int? importsequencenumber = default(int?), string _dynamicpropertyidValue = default(string), string _owningteamValue = default(string), string dynamicpropertyinstanceid = default(string), string _owninguserValue = default(string), decimal? exchangerate = default(decimal?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> dynamicpropertyinstanceSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> dynamicpropertyinstanceAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> dynamicpropertyinstanceMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> dynamicpropertyinstanceBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> dynamicpropertyinstancePrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMdynamicproperty dynamicpropertyid = default(MicrosoftDynamicsCRMdynamicproperty), MicrosoftDynamicsCRMinvoicedetail regardingobjectidInvoicedetail = default(MicrosoftDynamicsCRMinvoicedetail), MicrosoftDynamicsCRMopportunityproduct regardingobjectidOpportunityproduct = default(MicrosoftDynamicsCRMopportunityproduct), MicrosoftDynamicsCRMquotedetail regardingobjectidQuotedetail = default(MicrosoftDynamicsCRMquotedetail), MicrosoftDynamicsCRMsalesorderdetail regardingobjectidSalesorderdetail = default(MicrosoftDynamicsCRMsalesorderdetail))
         {
             this._owningbusinessunitValue = _owningbusinessunitValue;
             Utcconversiontimezonecode = utcconversiontimezonecode;
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
+            this._modifiedbyValue = _modifiedbyValue;
             Valuedecimal = valuedecimal;
             Name = name;
             this._createdbyValue = _createdbyValue;
+            Createdon = createdon;
             Validationstatus = validationstatus;
             Timezoneruleversionnumber = timezoneruleversionnumber;
             Dmtimportstate = dmtimportstate;
@@ -48,11 +50,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
             Overriddencreatedon = overriddencreatedon;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             Valueinteger = valueinteger;
-            Createdon = createdon;
             this._owneridValue = _owneridValue;
             this._regardingobjectidValue = _regardingobjectidValue;
             Importsequencenumber = importsequencenumber;
-            this._modifiedbyValue = _modifiedbyValue;
             this._dynamicpropertyidValue = _dynamicpropertyidValue;
             this._owningteamValue = _owningteamValue;
             Dynamicpropertyinstanceid = dynamicpropertyinstanceid;
@@ -102,8 +102,13 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "_modifiedby_value")]
+        public string _modifiedbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "valuedecimal")]
-        public object Valuedecimal { get; set; }
+        public decimal? Valuedecimal { get; set; }
 
         /// <summary>
         /// </summary>
@@ -114,6 +119,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "_createdby_value")]
         public string _createdbyValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "createdon")]
+        public System.DateTimeOffset? Createdon { get; set; }
 
         /// <summary>
         /// </summary>
@@ -138,7 +148,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -153,7 +163,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "valuedouble")]
-        public double? Valuedouble { get; set; }
+        public decimal? Valuedouble { get; set; }
 
         /// <summary>
         /// </summary>
@@ -172,11 +182,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "createdon")]
-        public System.DateTimeOffset? Createdon { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "_ownerid_value")]
         public string _owneridValue { get; set; }
 
@@ -189,11 +194,6 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "importsequencenumber")]
         public int? Importsequencenumber { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_modifiedby_value")]
-        public string _modifiedbyValue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -218,7 +218,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>

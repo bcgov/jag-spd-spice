@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// tracelog
+    /// Microsoft.Dynamics.CRM.tracelog
     /// </summary>
     public partial class MicrosoftDynamicsCRMtracelog
     {

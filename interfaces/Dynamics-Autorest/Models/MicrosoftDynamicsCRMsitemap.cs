@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// sitemap
+    /// Microsoft.Dynamics.CRM.sitemap
     /// </summary>
     public partial class MicrosoftDynamicsCRMsitemap
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMsitemap
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMsitemap(System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string sitemapxml = default(string), string sitemapnameunique = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), string sitemapidunique = default(string), string _modifiedbyValue = default(string), int? componentstate = default(int?), bool? isappaware = default(bool?), string sitemapname = default(string), string _organizationidValue = default(string), string solutionid = default(string), string sitemapid = default(string), bool? ismanaged = default(bool?), MicrosoftDynamicsCRMsystemuser siteMapModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser siteMapModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser siteMapCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser siteMapCreatedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMsitemap(System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string sitemapxml = default(string), string sitemapnameunique = default(string), string _createdbyValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), string versionnumber = default(string), string _createdonbehalfbyValue = default(string), string sitemapidunique = default(string), string _modifiedbyValue = default(string), int? componentstate = default(int?), bool? isappaware = default(bool?), string sitemapname = default(string), string _organizationidValue = default(string), string solutionid = default(string), string sitemapid = default(string), bool? ismanaged = default(bool?), MicrosoftDynamicsCRMsystemuser siteMapModifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser siteMapModifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser siteMapCreatedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMsystemuser siteMapCreatedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Overwritetime = overwritetime;
             Modifiedon = modifiedon;
@@ -98,7 +98,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

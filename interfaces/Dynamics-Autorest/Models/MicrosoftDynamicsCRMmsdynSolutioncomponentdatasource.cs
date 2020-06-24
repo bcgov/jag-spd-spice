@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// msdyn_solutioncomponentdatasource
+    /// Microsoft.Dynamics.CRM.msdyn_solutioncomponentdatasource
     /// </summary>
     public partial class MicrosoftDynamicsCRMmsdynSolutioncomponentdatasource
     {

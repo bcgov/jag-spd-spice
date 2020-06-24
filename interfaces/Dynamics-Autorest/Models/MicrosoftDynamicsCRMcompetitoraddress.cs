@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// competitoraddress
+    /// Microsoft.Dynamics.CRM.competitoraddress
     /// </summary>
     public partial class MicrosoftDynamicsCRMcompetitoraddress
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcompetitoraddress class.
         /// </summary>
-        public MicrosoftDynamicsCRMcompetitoraddress(string stateorprovince = default(string), string upszone = default(string), string telephone2 = default(string), string county = default(string), string competitoraddressid = default(string), string fax = default(string), double? latitude = default(double?), string telephone3 = default(string), string city = default(string), int? shippingmethodcode = default(int?), string line1 = default(string), string _parentidValue = default(string), int? utcoffset = default(int?), string line2 = default(string), string country = default(string), string telephone1 = default(string), int? importsequencenumber = default(int?), int? timezoneruleversionnumber = default(int?), string _createdonbehalfbyValue = default(string), string postalcode = default(string), string _modifiedbyValue = default(string), string postofficebox = default(string), int? addressnumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string line3 = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), long? versionnumber = default(long?), string _createdbyValue = default(string), int? addresstypecode = default(int?), string name = default(string), double? longitude = default(double?), string composite = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> competitorAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> competitoraddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> competitoraddressMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> competitoraddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> competitoraddressPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMcompetitor parentid = default(MicrosoftDynamicsCRMcompetitor))
+        public MicrosoftDynamicsCRMcompetitoraddress(string stateorprovince = default(string), string upszone = default(string), string telephone2 = default(string), string county = default(string), string competitoraddressid = default(string), string fax = default(string), decimal? latitude = default(decimal?), string telephone3 = default(string), string city = default(string), int? shippingmethodcode = default(int?), string line1 = default(string), string _parentidValue = default(string), int? utcoffset = default(int?), string line2 = default(string), string country = default(string), string telephone1 = default(string), int? importsequencenumber = default(int?), int? timezoneruleversionnumber = default(int?), string _createdonbehalfbyValue = default(string), string postalcode = default(string), string _modifiedbyValue = default(string), string postofficebox = default(string), int? addressnumber = default(int?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string line3 = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string _modifiedonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string versionnumber = default(string), string _createdbyValue = default(string), int? addresstypecode = default(int?), string name = default(string), decimal? longitude = default(decimal?), string composite = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMsyncerror> competitorAddressSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMasyncoperation> competitoraddressAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> competitoraddressMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> competitoraddressBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> competitoraddressPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMcompetitor parentid = default(MicrosoftDynamicsCRMcompetitor))
         {
             Stateorprovince = stateorprovince;
             Upszone = upszone;
@@ -117,7 +117,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "latitude")]
-        public double? Latitude { get; set; }
+        public decimal? Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -232,7 +232,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -252,7 +252,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "longitude")]
-        public double? Longitude { get; set; }
+        public decimal? Longitude { get; set; }
 
         /// <summary>
         /// </summary>

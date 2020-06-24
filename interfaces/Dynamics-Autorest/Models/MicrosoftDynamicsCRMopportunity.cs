@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// opportunity
+    /// Microsoft.Dynamics.CRM.opportunity
     /// </summary>
     public partial class MicrosoftDynamicsCRMopportunity
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMopportunity
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMopportunity(object discountamount = default(object), string _customeridValue = default(string), object totallineitemamount = default(object), object totallineitemdiscountamountBase = default(object), bool? sendthankyounote = default(bool?), bool? decisionmaker = default(bool?), string timespentbymeonemailandmeetings = default(string), System.DateTimeOffset? finaldecisiondate = default(System.DateTimeOffset?), int? budgetstatus = default(int?), string _campaignidValue = default(string), string _owningteamValue = default(string), int? timeline = default(int?), int? salesstagecode = default(int?), string emailaddress = default(string), int? purchasetimeframe = default(int?), string quotecomments = default(string), int? pricingerrorcode = default(int?), string _createdonbehalfbyValue = default(string), int? prioritycode = default(int?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? schedulefollowupProspect = default(System.DateTimeOffset?), bool? completefinalproposal = default(bool?), string _owninguserValue = default(string), string _accountidValue = default(string), string customerpainpoints = default(string), bool? isrevenuesystemcalculated = default(bool?), object estimatedvalueBase = default(object), bool? identifycompetitors = default(bool?), int? initialcommunication = default(int?), object totaltax = default(object), object discountpercentage = default(object), object budgetamountBase = default(object), string _createdbyValue = default(string), object totalamountBase = default(object), string _parentcontactidValue = default(string), object actualvalue = default(object), string currentsituation = default(string), int? need = default(int?), string processid = default(string), bool? captureproposalfeedback = default(bool?), int? statuscode = default(int?), string _transactioncurrencyidValue = default(string), string customerneed = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), object freightamountBase = default(object), long? versionnumber = default(long?), string _contactidValue = default(string), string _owneridValue = default(string), int? statecode = default(int?), string name = default(string), string opportunityid = default(string), string _slaidValue = default(string), System.DateTimeOffset? actualclosedate = default(System.DateTimeOffset?), object estimatedvalue = default(object), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? onholdtime = default(int?), string _owningbusinessunitValue = default(string), string _originatingleadidValue = default(string), object totaldiscountamountBase = default(object), object totallineitemdiscountamount = default(object), System.DateTimeOffset? scheduleproposalmeeting = default(System.DateTimeOffset?), bool? presentproposal = default(bool?), string _slainvokedidValue = default(string), object totalamountlessfreightBase = default(object), bool? completeinternalreview = default(bool?), int? closeprobability = default(int?), bool? presentfinalproposal = default(bool?), object exchangerate = default(object), object totallineitemamountBase = default(object), System.DateTimeOffset? schedulefollowupQualify = default(System.DateTimeOffset?), bool? confirminterest = default(bool?), object budgetamount = default(object), string stepname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? purchaseprocess = default(int?), string qualificationcomments = default(string), bool? evaluatefit = default(bool?), bool? identifycustomercontacts = default(bool?), int? importsequencenumber = default(int?), object totaltaxBase = default(object), string description = default(string), object totalamount = default(object), string stepid = default(string), bool? identifypursuitteam = default(bool?), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), object totalamountlessfreight = default(object), object actualvalueBase = default(object), string _modifiedbyValue = default(string), object discountamountBase = default(object), string traversedpath = default(string), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), bool? participatesinworkflow = default(bool?), string stageid = default(string), bool? filedebrief = default(bool?), int? opportunityratingcode = default(int?), string proposedsolution = default(string), System.DateTimeOffset? estimatedclosedate = default(System.DateTimeOffset?), string _parentaccountidValue = default(string), string _pricelevelidValue = default(string), object totaldiscountamount = default(object), object freightamount = default(object), bool? resolvefeedback = default(bool?), int? salesstage = default(int?), bool? developproposal = default(bool?), bool? pursuitdecision = default(bool?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> opportunityActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> opportunitySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> opportunityActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> opportunityDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> opportunityDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> opportunitySharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMteam> opportunityTeams = default(IList<MicrosoftDynamicsCRMteam>), IList<MicrosoftDynamicsCRMasyncoperation> opportunityAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> opportunityMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> opportunityProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> opportunityBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> opportunityPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMappointment> opportunityAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> opportunityEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> opportunityFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> opportunityLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> opportunityPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> opportunityTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> opportunityRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> opportunitySocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> opportunityConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> opportunityConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMannotation> opportunityAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMserviceappointment> opportunityServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMopportunityclose> opportunityOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> opportunityOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> opportunityQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMactioncard> opportunityActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMlead originatingleadid = default(MicrosoftDynamicsCRMlead), IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess> opportunityLeadtoopportunitysalesprocess = default(IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess>), MicrosoftDynamicsCRMaccount parentaccountid = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact parentcontactid = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMpostfollow> opportunityPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMinvoice> opportunityInvoices = default(IList<MicrosoftDynamicsCRMinvoice>), IList<MicrosoftDynamicsCRMopportunityclose> opportunityOpportunityClose = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMpostregarding> opportunityPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMquote> opportunityQuotes = default(IList<MicrosoftDynamicsCRMquote>), IList<MicrosoftDynamicsCRMsalesorder> opportunitySalesOrders = default(IList<MicrosoftDynamicsCRMsalesorder>), IList<MicrosoftDynamicsCRMopportunityproduct> productOpportunities = default(IList<MicrosoftDynamicsCRMopportunityproduct>), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceOpportunity = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMlead> leadQualifyingOpportunity = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMcompetitor> opportunitycompetitorsAssociation = default(IList<MicrosoftDynamicsCRMcompetitor>), IList<MicrosoftDynamicsCRMopportunitysalesprocess> opportunityOpportunitysalesprocess = default(IList<MicrosoftDynamicsCRMopportunitysalesprocess>), MicrosoftDynamicsCRMpricelevel pricelevelid = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMsla slaOpportunitySla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMsla slainvokedidOpportunitySla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMcampaign campaignid = default(MicrosoftDynamicsCRMcampaign), IList<MicrosoftDynamicsCRMbulkoperationlog> createdOpportunityBulkOperationLogs = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> opportunitySpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>))
+        public MicrosoftDynamicsCRMopportunity(decimal? discountamount = default(decimal?), string _customeridValue = default(string), decimal? totallineitemamount = default(decimal?), decimal? totallineitemdiscountamountBase = default(decimal?), bool? sendthankyounote = default(bool?), bool? decisionmaker = default(bool?), string timespentbymeonemailandmeetings = default(string), System.DateTimeOffset? finaldecisiondate = default(System.DateTimeOffset?), int? budgetstatus = default(int?), string _campaignidValue = default(string), string _owningteamValue = default(string), int? timeline = default(int?), int? salesstagecode = default(int?), int? skippricecalculation = default(int?), string emailaddress = default(string), int? purchasetimeframe = default(int?), string quotecomments = default(string), int? pricingerrorcode = default(int?), string _createdonbehalfbyValue = default(string), int? prioritycode = default(int?), int? timezoneruleversionnumber = default(int?), System.DateTimeOffset? schedulefollowupProspect = default(System.DateTimeOffset?), bool? completefinalproposal = default(bool?), string _owninguserValue = default(string), string _accountidValue = default(string), string customerpainpoints = default(string), bool? isrevenuesystemcalculated = default(bool?), decimal? estimatedvalueBase = default(decimal?), bool? identifycompetitors = default(bool?), int? initialcommunication = default(int?), decimal? totaltax = default(decimal?), decimal? discountpercentage = default(decimal?), decimal? budgetamountBase = default(decimal?), string _createdbyValue = default(string), decimal? totalamountBase = default(decimal?), string _parentcontactidValue = default(string), decimal? actualvalue = default(decimal?), string currentsituation = default(string), int? need = default(int?), string processid = default(string), bool? captureproposalfeedback = default(bool?), int? statuscode = default(int?), string _transactioncurrencyidValue = default(string), string customerneed = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), decimal? freightamountBase = default(decimal?), string versionnumber = default(string), string _contactidValue = default(string), string _owneridValue = default(string), int? statecode = default(int?), string name = default(string), string opportunityid = default(string), string _slaidValue = default(string), System.DateTimeOffset? actualclosedate = default(System.DateTimeOffset?), decimal? estimatedvalue = default(decimal?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? onholdtime = default(int?), string _owningbusinessunitValue = default(string), string _originatingleadidValue = default(string), decimal? totaldiscountamountBase = default(decimal?), decimal? totallineitemdiscountamount = default(decimal?), System.DateTimeOffset? scheduleproposalmeeting = default(System.DateTimeOffset?), bool? presentproposal = default(bool?), string _slainvokedidValue = default(string), decimal? totalamountlessfreightBase = default(decimal?), bool? completeinternalreview = default(bool?), int? closeprobability = default(int?), bool? presentfinalproposal = default(bool?), decimal? exchangerate = default(decimal?), decimal? totallineitemamountBase = default(decimal?), System.DateTimeOffset? schedulefollowupQualify = default(System.DateTimeOffset?), bool? confirminterest = default(bool?), decimal? budgetamount = default(decimal?), string stepname = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? purchaseprocess = default(int?), string qualificationcomments = default(string), bool? evaluatefit = default(bool?), bool? identifycustomercontacts = default(bool?), int? importsequencenumber = default(int?), decimal? totaltaxBase = default(decimal?), string description = default(string), decimal? totalamount = default(decimal?), string stepid = default(string), bool? identifypursuitteam = default(bool?), string _modifiedonbehalfbyValue = default(string), int? utcconversiontimezonecode = default(int?), decimal? totalamountlessfreight = default(decimal?), decimal? actualvalueBase = default(decimal?), string _modifiedbyValue = default(string), decimal? discountamountBase = default(decimal?), string traversedpath = default(string), System.DateTimeOffset? lastonholdtime = default(System.DateTimeOffset?), bool? participatesinworkflow = default(bool?), string stageid = default(string), bool? filedebrief = default(bool?), int? opportunityratingcode = default(int?), string proposedsolution = default(string), System.DateTimeOffset? estimatedclosedate = default(System.DateTimeOffset?), string _parentaccountidValue = default(string), string _pricelevelidValue = default(string), decimal? totaldiscountamount = default(decimal?), decimal? freightamount = default(decimal?), bool? resolvefeedback = default(bool?), int? salesstage = default(int?), bool? developproposal = default(bool?), bool? pursuitdecision = default(bool?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser owninguser = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMteam owningteam = default(MicrosoftDynamicsCRMteam), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMactivitypointer> opportunityActivityPointers = default(IList<MicrosoftDynamicsCRMactivitypointer>), IList<MicrosoftDynamicsCRMsyncerror> opportunitySyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), IList<MicrosoftDynamicsCRMactivityparty> opportunityActivityParties = default(IList<MicrosoftDynamicsCRMactivityparty>), IList<MicrosoftDynamicsCRMduplicaterecord> opportunityDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMduplicaterecord> opportunityDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsharepointdocumentlocation> opportunitySharepointDocumentLocation = default(IList<MicrosoftDynamicsCRMsharepointdocumentlocation>), IList<MicrosoftDynamicsCRMteam> opportunityTeams = default(IList<MicrosoftDynamicsCRMteam>), IList<MicrosoftDynamicsCRMasyncoperation> opportunityAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> opportunityMailboxTrackingFolder = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMprocesssession> opportunityProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMbulkdeletefailure> opportunityBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> opportunityPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMprocessstage stageidProcessstage = default(MicrosoftDynamicsCRMprocessstage), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), IList<MicrosoftDynamicsCRMappointment> opportunityAppointments = default(IList<MicrosoftDynamicsCRMappointment>), IList<MicrosoftDynamicsCRMemail> opportunityEmails = default(IList<MicrosoftDynamicsCRMemail>), IList<MicrosoftDynamicsCRMfax> opportunityFaxes = default(IList<MicrosoftDynamicsCRMfax>), IList<MicrosoftDynamicsCRMletter> opportunityLetters = default(IList<MicrosoftDynamicsCRMletter>), IList<MicrosoftDynamicsCRMphonecall> opportunityPhonecalls = default(IList<MicrosoftDynamicsCRMphonecall>), IList<MicrosoftDynamicsCRMtask> opportunityTasks = default(IList<MicrosoftDynamicsCRMtask>), IList<MicrosoftDynamicsCRMrecurringappointmentmaster> opportunityRecurringAppointmentMasters = default(IList<MicrosoftDynamicsCRMrecurringappointmentmaster>), IList<MicrosoftDynamicsCRMsocialactivity> opportunitySocialActivities = default(IList<MicrosoftDynamicsCRMsocialactivity>), IList<MicrosoftDynamicsCRMconnection> opportunityConnections1 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMconnection> opportunityConnections2 = default(IList<MicrosoftDynamicsCRMconnection>), IList<MicrosoftDynamicsCRMannotation> opportunityAnnotation = default(IList<MicrosoftDynamicsCRMannotation>), IList<MicrosoftDynamicsCRMserviceappointment> opportunityServiceAppointments = default(IList<MicrosoftDynamicsCRMserviceappointment>), IList<MicrosoftDynamicsCRMopportunityclose> opportunityOpportunityCloses = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMorderclose> opportunityOrderCloses = default(IList<MicrosoftDynamicsCRMorderclose>), IList<MicrosoftDynamicsCRMquoteclose> opportunityQuoteCloses = default(IList<MicrosoftDynamicsCRMquoteclose>), MicrosoftDynamicsCRMaccount customeridAccount = default(MicrosoftDynamicsCRMaccount), IList<MicrosoftDynamicsCRMactioncard> opportunityActioncard = default(IList<MicrosoftDynamicsCRMactioncard>), MicrosoftDynamicsCRMcontact customeridContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMlead originatingleadid = default(MicrosoftDynamicsCRMlead), IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess> opportunityLeadtoopportunitysalesprocess = default(IList<MicrosoftDynamicsCRMleadtoopportunitysalesprocess>), MicrosoftDynamicsCRMaccount parentaccountid = default(MicrosoftDynamicsCRMaccount), MicrosoftDynamicsCRMcontact parentcontactid = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMpostfollow> opportunityPostFollows = default(IList<MicrosoftDynamicsCRMpostfollow>), IList<MicrosoftDynamicsCRMinvoice> opportunityInvoices = default(IList<MicrosoftDynamicsCRMinvoice>), IList<MicrosoftDynamicsCRMopportunityclose> opportunityOpportunityClose = default(IList<MicrosoftDynamicsCRMopportunityclose>), IList<MicrosoftDynamicsCRMpostregarding> opportunityPostRegardings = default(IList<MicrosoftDynamicsCRMpostregarding>), IList<MicrosoftDynamicsCRMquote> opportunityQuotes = default(IList<MicrosoftDynamicsCRMquote>), IList<MicrosoftDynamicsCRMsalesorder> opportunitySalesOrders = default(IList<MicrosoftDynamicsCRMsalesorder>), IList<MicrosoftDynamicsCRMopportunityproduct> productOpportunities = default(IList<MicrosoftDynamicsCRMopportunityproduct>), IList<MicrosoftDynamicsCRMslakpiinstance> slakpiinstanceOpportunity = default(IList<MicrosoftDynamicsCRMslakpiinstance>), IList<MicrosoftDynamicsCRMlead> leadQualifyingOpportunity = default(IList<MicrosoftDynamicsCRMlead>), IList<MicrosoftDynamicsCRMcompetitor> opportunitycompetitorsAssociation = default(IList<MicrosoftDynamicsCRMcompetitor>), IList<MicrosoftDynamicsCRMopportunitysalesprocess> opportunityOpportunitysalesprocess = default(IList<MicrosoftDynamicsCRMopportunitysalesprocess>), MicrosoftDynamicsCRMpricelevel pricelevelid = default(MicrosoftDynamicsCRMpricelevel), MicrosoftDynamicsCRMsla slaOpportunitySla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMsla slainvokedidOpportunitySla = default(MicrosoftDynamicsCRMsla), MicrosoftDynamicsCRMcampaign campaignid = default(MicrosoftDynamicsCRMcampaign), IList<MicrosoftDynamicsCRMbulkoperationlog> createdOpportunityBulkOperationLogs = default(IList<MicrosoftDynamicsCRMbulkoperationlog>), IList<MicrosoftDynamicsCRMspiceRequiredchecks> opportunitySpiceRequiredcheckses = default(IList<MicrosoftDynamicsCRMspiceRequiredchecks>))
         {
             Discountamount = discountamount;
             this._customeridValue = _customeridValue;
@@ -44,6 +44,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             this._owningteamValue = _owningteamValue;
             Timeline = timeline;
             Salesstagecode = salesstagecode;
+            Skippricecalculation = skippricecalculation;
             Emailaddress = emailaddress;
             Purchasetimeframe = purchasetimeframe;
             Quotecomments = quotecomments;
@@ -209,7 +210,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discountamount")]
-        public object Discountamount { get; set; }
+        public decimal? Discountamount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -219,12 +220,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totallineitemamount")]
-        public object Totallineitemamount { get; set; }
+        public decimal? Totallineitemamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totallineitemdiscountamount_base")]
-        public object TotallineitemdiscountamountBase { get; set; }
+        public decimal? TotallineitemdiscountamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -270,6 +271,11 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// </summary>
         [JsonProperty(PropertyName = "salesstagecode")]
         public int? Salesstagecode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "skippricecalculation")]
+        public int? Skippricecalculation { get; set; }
 
         /// <summary>
         /// </summary>
@@ -339,7 +345,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "estimatedvalue_base")]
-        public object EstimatedvalueBase { get; set; }
+        public decimal? EstimatedvalueBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -354,17 +360,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totaltax")]
-        public object Totaltax { get; set; }
+        public decimal? Totaltax { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discountpercentage")]
-        public object Discountpercentage { get; set; }
+        public decimal? Discountpercentage { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "budgetamount_base")]
-        public object BudgetamountBase { get; set; }
+        public decimal? BudgetamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -374,7 +380,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totalamount_base")]
-        public object TotalamountBase { get; set; }
+        public decimal? TotalamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -384,7 +390,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "actualvalue")]
-        public object Actualvalue { get; set; }
+        public decimal? Actualvalue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -429,12 +435,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "freightamount_base")]
-        public object FreightamountBase { get; set; }
+        public decimal? FreightamountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -474,7 +480,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "estimatedvalue")]
-        public object Estimatedvalue { get; set; }
+        public decimal? Estimatedvalue { get; set; }
 
         /// <summary>
         /// </summary>
@@ -499,12 +505,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totaldiscountamount_base")]
-        public object TotaldiscountamountBase { get; set; }
+        public decimal? TotaldiscountamountBase { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totallineitemdiscountamount")]
-        public object Totallineitemdiscountamount { get; set; }
+        public decimal? Totallineitemdiscountamount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -524,7 +530,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totalamountlessfreight_base")]
-        public object TotalamountlessfreightBase { get; set; }
+        public decimal? TotalamountlessfreightBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -544,12 +550,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totallineitemamount_base")]
-        public object TotallineitemamountBase { get; set; }
+        public decimal? TotallineitemamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -564,7 +570,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "budgetamount")]
-        public object Budgetamount { get; set; }
+        public decimal? Budgetamount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -604,7 +610,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totaltax_base")]
-        public object TotaltaxBase { get; set; }
+        public decimal? TotaltaxBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -614,7 +620,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totalamount")]
-        public object Totalamount { get; set; }
+        public decimal? Totalamount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -639,12 +645,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totalamountlessfreight")]
-        public object Totalamountlessfreight { get; set; }
+        public decimal? Totalamountlessfreight { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "actualvalue_base")]
-        public object ActualvalueBase { get; set; }
+        public decimal? ActualvalueBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -654,7 +660,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "discountamount_base")]
-        public object DiscountamountBase { get; set; }
+        public decimal? DiscountamountBase { get; set; }
 
         /// <summary>
         /// </summary>
@@ -709,12 +715,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "totaldiscountamount")]
-        public object Totaldiscountamount { get; set; }
+        public decimal? Totaldiscountamount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "freightamount")]
-        public object Freightamount { get; set; }
+        public decimal? Freightamount { get; set; }
 
         /// <summary>
         /// </summary>

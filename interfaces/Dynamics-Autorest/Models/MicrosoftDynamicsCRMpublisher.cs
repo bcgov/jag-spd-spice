@@ -6,13 +6,15 @@
 
 namespace Gov.Jag.Spice.Interfaces.Models
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// publisher
+    /// Microsoft.Dynamics.CRM.publisher
     /// </summary>
     public partial class MicrosoftDynamicsCRMpublisher
     {
@@ -29,7 +31,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMpublisher
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMpublisher(string friendlyname = default(string), string publisherid = default(string), int? address2Utcoffset = default(int?), string address1Telephone2 = default(string), string address2County = default(string), int? address1Shippingmethodcode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? isreadonly = default(bool?), string address1Telephone3 = default(string), long? entityimageTimestamp = default(long?), string address1Country = default(string), string pinpointpublisherdefaultlocale = default(string), string address2Name = default(string), string address1Telephone1 = default(string), string description = default(string), string address1Addressid = default(string), string address2Stateorprovince = default(string), int? address1Addresstypecode = default(int?), string address2Addressid = default(string), string address2City = default(string), string address1Line3 = default(string), string address2Line1 = default(string), string address1Upszone = default(string), long? versionnumber = default(long?), long? pinpointpublisherid = default(long?), string address1Name = default(string), string _createdbyValue = default(string), string customizationprefix = default(string), string address2Line3 = default(string), double? address2Longitude = default(double?), string address1Fax = default(string), string entityimageUrl = default(string), string address2Fax = default(string), string address1Line1 = default(string), int? address2Shippingmethodcode = default(int?), string address2Line2 = default(string), string address1Postalcode = default(string), string address2Postalcode = default(string), string address1County = default(string), string address1Postofficebox = default(string), double? address2Latitude = default(double?), int? customizationoptionvalueprefix = default(int?), string address2Upszone = default(string), string address2Country = default(string), string _modifiedonbehalfbyValue = default(string), string entityimageid = default(string), string address2Telephone1 = default(string), double? address1Longitude = default(double?), int? address1Utcoffset = default(int?), string address2Telephone2 = default(string), string address1Line2 = default(string), int? address2Addresstypecode = default(int?), string _modifiedbyValue = default(string), double? address1Latitude = default(double?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Telephone3 = default(string), string _createdonbehalfbyValue = default(string), string address1Stateorprovince = default(string), string uniquename = default(string), string address1City = default(string), string _organizationidValue = default(string), string emailaddress = default(string), object entityimage = default(object), string address2Postofficebox = default(string), string supportingwebsiteurl = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> publisherDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsyncerror> publisherSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMduplicaterecord> publisherDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsolution> publisherSolution = default(IList<MicrosoftDynamicsCRMsolution>), IList<MicrosoftDynamicsCRMappmodule> publisherAppmodule = default(IList<MicrosoftDynamicsCRMappmodule>), IList<MicrosoftDynamicsCRMpublisheraddress> publisherPublisherAddress = default(IList<MicrosoftDynamicsCRMpublisheraddress>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMpublisher(string friendlyname = default(string), string publisherid = default(string), int? address2Utcoffset = default(int?), string address1Telephone2 = default(string), string address2County = default(string), int? address1Shippingmethodcode = default(int?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), bool? isreadonly = default(bool?), string address1Telephone3 = default(string), long? entityimageTimestamp = default(long?), string address1Country = default(string), string pinpointpublisherdefaultlocale = default(string), string address2Name = default(string), string address1Telephone1 = default(string), string description = default(string), string address1Addressid = default(string), string address2Stateorprovince = default(string), int? address1Addresstypecode = default(int?), string address2Addressid = default(string), string address2City = default(string), string address1Line3 = default(string), string address2Line1 = default(string), string address1Upszone = default(string), string versionnumber = default(string), long? pinpointpublisherid = default(long?), string address1Name = default(string), string _createdbyValue = default(string), string customizationprefix = default(string), string address2Line3 = default(string), decimal? address2Longitude = default(decimal?), string address1Fax = default(string), string entityimageUrl = default(string), string address2Fax = default(string), string address1Line1 = default(string), int? address2Shippingmethodcode = default(int?), string address2Line2 = default(string), string address1Postalcode = default(string), string address2Postalcode = default(string), string address1County = default(string), string address1Postofficebox = default(string), decimal? address2Latitude = default(decimal?), int? customizationoptionvalueprefix = default(int?), string address2Upszone = default(string), string address2Country = default(string), string _modifiedonbehalfbyValue = default(string), string entityimageid = default(string), string address2Telephone1 = default(string), decimal? address1Longitude = default(decimal?), int? address1Utcoffset = default(int?), string address2Telephone2 = default(string), string address1Line2 = default(string), int? address2Addresstypecode = default(int?), string _modifiedbyValue = default(string), decimal? address1Latitude = default(decimal?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string address2Telephone3 = default(string), string _createdonbehalfbyValue = default(string), string address1Stateorprovince = default(string), string uniquename = default(string), string address1City = default(string), string _organizationidValue = default(string), string emailaddress = default(string), byte[] entityimage = default(byte[]), string address2Postofficebox = default(string), string supportingwebsiteurl = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMduplicaterecord> publisherDuplicateMatchingRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsyncerror> publisherSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMduplicaterecord> publisherDuplicateBaseRecord = default(IList<MicrosoftDynamicsCRMduplicaterecord>), IList<MicrosoftDynamicsCRMsolution> publisherSolution = default(IList<MicrosoftDynamicsCRMsolution>), IList<MicrosoftDynamicsCRMappmodule> publisherAppmodule = default(IList<MicrosoftDynamicsCRMappmodule>), IList<MicrosoftDynamicsCRMpublisheraddress> publisherPublisherAddress = default(IList<MicrosoftDynamicsCRMpublisheraddress>), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Friendlyname = friendlyname;
             Publisherid = publisherid;
@@ -233,7 +235,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -263,7 +265,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_longitude")]
-        public double? Address2Longitude { get; set; }
+        public decimal? Address2Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -318,7 +320,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address2_latitude")]
-        public double? Address2Latitude { get; set; }
+        public decimal? Address2Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -353,7 +355,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_longitude")]
-        public double? Address1Longitude { get; set; }
+        public decimal? Address1Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -383,7 +385,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "address1_latitude")]
-        public double? Address1Latitude { get; set; }
+        public decimal? Address1Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -427,8 +429,9 @@ namespace Gov.Jag.Spice.Interfaces.Models
 
         /// <summary>
         /// </summary>
+        [JsonConverter(typeof(Base64UrlJsonConverter))]
         [JsonProperty(PropertyName = "entityimage")]
-        public object Entityimage { get; set; }
+        public byte[] Entityimage { get; set; }
 
         /// <summary>
         /// </summary>

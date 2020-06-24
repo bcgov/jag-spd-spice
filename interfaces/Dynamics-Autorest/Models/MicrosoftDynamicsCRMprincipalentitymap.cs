@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// principalentitymap
+    /// Microsoft.Dynamics.CRM.principalentitymap
     /// </summary>
     public partial class MicrosoftDynamicsCRMprincipalentitymap
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMprincipalentitymap class.
         /// </summary>
-        public MicrosoftDynamicsCRMprincipalentitymap(string objecttypecode = default(string), string principalid = default(string), string principalentitymapid = default(string), long? versionnumber = default(long?), MicrosoftDynamicsCRMprincipal principalidOwner = default(MicrosoftDynamicsCRMprincipal))
+        public MicrosoftDynamicsCRMprincipalentitymap(string objecttypecode = default(string), string principalid = default(string), string principalentitymapid = default(string), string versionnumber = default(string), MicrosoftDynamicsCRMprincipal principalidOwner = default(MicrosoftDynamicsCRMprincipal))
         {
             Objecttypecode = objecttypecode;
             Principalid = principalid;
@@ -60,7 +60,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

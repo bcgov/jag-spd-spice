@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// metric
+    /// Microsoft.Dynamics.CRM.metric
     /// </summary>
     public partial class MicrosoftDynamicsCRMmetric
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// Initializes a new instance of the MicrosoftDynamicsCRMmetric class.
         /// </summary>
-        public MicrosoftDynamicsCRMmetric(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string metricid = default(string), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), bool? isstretchtracked = default(bool?), string _createdbyValue = default(string), int? statecode = default(int?), bool? isamount = default(bool?), int? statuscode = default(int?), int? importsequencenumber = default(int?), int? amountdatatype = default(int?), string _createdonbehalfbyValue = default(string), long? versionnumber = default(long?), int? timezoneruleversionnumber = default(int?), string name = default(string), int? utcconversiontimezonecode = default(int?), string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string description = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMgoal> metricGoal = default(IList<MicrosoftDynamicsCRMgoal>), IList<MicrosoftDynamicsCRMrollupfield> metricRollupfield = default(IList<MicrosoftDynamicsCRMrollupfield>), IList<MicrosoftDynamicsCRMprocesssession> metricProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMasyncoperation> metricAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMsyncerror> metricSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
+        public MicrosoftDynamicsCRMmetric(System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string metricid = default(string), string _modifiedbyValue = default(string), string _modifiedonbehalfbyValue = default(string), bool? isstretchtracked = default(bool?), string _createdbyValue = default(string), int? statecode = default(int?), bool? isamount = default(bool?), int? statuscode = default(int?), int? importsequencenumber = default(int?), int? amountdatatype = default(int?), string _createdonbehalfbyValue = default(string), string versionnumber = default(string), int? timezoneruleversionnumber = default(int?), string name = default(string), int? utcconversiontimezonecode = default(int?), string _organizationidValue = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string description = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), IList<MicrosoftDynamicsCRMgoal> metricGoal = default(IList<MicrosoftDynamicsCRMgoal>), IList<MicrosoftDynamicsCRMrollupfield> metricRollupfield = default(IList<MicrosoftDynamicsCRMrollupfield>), IList<MicrosoftDynamicsCRMprocesssession> metricProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMasyncoperation> metricAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMsyncerror> metricSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
         {
             Modifiedon = modifiedon;
             Metricid = metricid;
@@ -130,7 +130,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// feedback
+    /// Microsoft.Dynamics.CRM.feedback
     /// </summary>
     public partial class MicrosoftDynamicsCRMfeedback
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMfeedback
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMfeedback(long? versionnumber = default(long?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? closedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statecode = default(int?), string _regardingobjectidValue = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? rating = default(int?), string _createdbycontactValue = default(string), string comments = default(string), string feedbackid = default(string), int? maxrating = default(int?), string _closedbyValue = default(string), string _createdbyValue = default(string), int? importsequencenumber = default(int?), int? source = default(int?), string _owningbusinessunitValue = default(string), string _createdonbehalfbycontactValue = default(string), object exchangerate = default(object), string _owningteamValue = default(string), string _owninguserValue = default(string), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), object normalizedrating = default(object), int? minrating = default(int?), string _owneridValue = default(string), MicrosoftDynamicsCRMspiceRequiredchecks regardingobjectidSpiceRequiredchecks = default(MicrosoftDynamicsCRMspiceRequiredchecks), MicrosoftDynamicsCRMcontact contactId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact createdOnBehalfByContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> feedbackPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedOnBehalfBy = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser closedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcontact createdByContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMfeedback feedbackId = default(MicrosoftDynamicsCRMfeedback), IList<MicrosoftDynamicsCRMfeedback> feedbackFeedback = default(IList<MicrosoftDynamicsCRMfeedback>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> feedbackSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMknowledgearticle knowledgeArticleId = default(MicrosoftDynamicsCRMknowledgearticle))
+        public MicrosoftDynamicsCRMfeedback(string versionnumber = default(string), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? statuscode = default(int?), string _modifiedbyValue = default(string), System.DateTimeOffset? closedon = default(System.DateTimeOffset?), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), int? statecode = default(int?), string _regardingobjectidValue = default(string), string title = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? rating = default(int?), string _createdbycontactValue = default(string), string comments = default(string), string feedbackid = default(string), int? maxrating = default(int?), string _closedbyValue = default(string), string _createdbyValue = default(string), int? importsequencenumber = default(int?), int? source = default(int?), string _owningbusinessunitValue = default(string), string _createdonbehalfbycontactValue = default(string), decimal? exchangerate = default(decimal?), string _owningteamValue = default(string), string _owninguserValue = default(string), string _modifiedonbehalfbyValue = default(string), string _transactioncurrencyidValue = default(string), decimal? normalizedrating = default(decimal?), int? minrating = default(int?), string _owneridValue = default(string), MicrosoftDynamicsCRMspiceRequiredchecks regardingobjectidSpiceRequiredchecks = default(MicrosoftDynamicsCRMspiceRequiredchecks), MicrosoftDynamicsCRMcontact contactId = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMcontact createdOnBehalfByContact = default(MicrosoftDynamicsCRMcontact), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> feedbackPrincipalobjectattributeaccess = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMprincipal ownerid = default(MicrosoftDynamicsCRMprincipal), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser modifiedOnBehalfBy = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser closedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMcontact createdByContact = default(MicrosoftDynamicsCRMcontact), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMfeedback feedbackId = default(MicrosoftDynamicsCRMfeedback), IList<MicrosoftDynamicsCRMfeedback> feedbackFeedback = default(IList<MicrosoftDynamicsCRMfeedback>), MicrosoftDynamicsCRMbusinessunit owningbusinessunit = default(MicrosoftDynamicsCRMbusinessunit), IList<MicrosoftDynamicsCRMsyncerror> feedbackSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMknowledgearticle knowledgeArticleId = default(MicrosoftDynamicsCRMknowledgearticle))
         {
             Versionnumber = versionnumber;
             this._createdonbehalfbyValue = _createdonbehalfbyValue;
@@ -89,7 +89,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -199,7 +199,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -224,7 +224,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "normalizedrating")]
-        public object Normalizedrating { get; set; }
+        public decimal? Normalizedrating { get; set; }
 
         /// <summary>
         /// </summary>

@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// rollupfield
+    /// Microsoft.Dynamics.CRM.rollupfield
     /// </summary>
     public partial class MicrosoftDynamicsCRMrollupfield
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMrollupfield
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMrollupfield(string goalattribute = default(string), string _metricidValue = default(string), string rollupfieldid = default(string), string sourceattribute = default(string), bool? isstateparententityattribute = default(bool?), string _createdbyValue = default(string), int? sourcestatus = default(int?), string dateattribute = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), long? versionnumber = default(long?), int? importsequencenumber = default(int?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string sourceentity = default(string), int? timezoneruleversionnumber = default(int?), string entityfordateattribute = default(string), string _modifiedonbehalfbyValue = default(string), int? sourcestate = default(int?), string _organizationidValue = default(string), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMmetric metricid = default(MicrosoftDynamicsCRMmetric), IList<MicrosoftDynamicsCRMprocesssession> rollupfieldProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMasyncoperation> rollupfieldAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMsyncerror> rollupFieldSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
+        public MicrosoftDynamicsCRMrollupfield(string goalattribute = default(string), string _metricidValue = default(string), string rollupfieldid = default(string), string sourceattribute = default(string), bool? isstateparententityattribute = default(bool?), string _createdbyValue = default(string), int? sourcestatus = default(int?), string dateattribute = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string versionnumber = default(string), int? importsequencenumber = default(int?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string sourceentity = default(string), int? timezoneruleversionnumber = default(int?), string entityfordateattribute = default(string), string _modifiedonbehalfbyValue = default(string), int? sourcestate = default(int?), string _organizationidValue = default(string), string _modifiedbyValue = default(string), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMmetric metricid = default(MicrosoftDynamicsCRMmetric), IList<MicrosoftDynamicsCRMprocesssession> rollupfieldProcessSessions = default(IList<MicrosoftDynamicsCRMprocesssession>), IList<MicrosoftDynamicsCRMasyncoperation> rollupfieldAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMsyncerror> rollupFieldSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>))
         {
             Goalattribute = goalattribute;
             this._metricidValue = _metricidValue;
@@ -121,7 +121,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

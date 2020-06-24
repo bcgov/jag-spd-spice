@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// task
+    /// Microsoft.Dynamics.CRM.task
     /// </summary>
     public partial class MicrosoftDynamicsCRMtask
     {

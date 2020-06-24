@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// incidentknowledgebaserecord
+    /// Microsoft.Dynamics.CRM.incidentknowledgebaserecord
     /// </summary>
     public partial class MicrosoftDynamicsCRMincidentknowledgebaserecord
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMincidentknowledgebaserecord class.
         /// </summary>
-        public MicrosoftDynamicsCRMincidentknowledgebaserecord(int? importsequencenumber = default(int?), string incidentknowledgebaserecordid = default(string), string name = default(string), string knowledgebaserecordid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string incidentid = default(string), int? timezoneruleversionnumber = default(int?), int? utcconversiontimezonecode = default(int?), long? versionnumber = default(long?), IList<MicrosoftDynamicsCRMasyncoperation> incidentknowledgebaserecordAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> incidentknowledgebaserecordMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentknowledgebaserecordBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> incidentknowledgebaserecordPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
+        public MicrosoftDynamicsCRMincidentknowledgebaserecord(int? importsequencenumber = default(int?), string incidentknowledgebaserecordid = default(string), string name = default(string), string knowledgebaserecordid = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string incidentid = default(string), int? timezoneruleversionnumber = default(int?), int? utcconversiontimezonecode = default(int?), string versionnumber = default(string), IList<MicrosoftDynamicsCRMasyncoperation> incidentknowledgebaserecordAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> incidentknowledgebaserecordMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> incidentknowledgebaserecordBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> incidentknowledgebaserecordPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>))
         {
             Importsequencenumber = importsequencenumber;
             Incidentknowledgebaserecordid = incidentknowledgebaserecordid;
@@ -95,7 +95,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

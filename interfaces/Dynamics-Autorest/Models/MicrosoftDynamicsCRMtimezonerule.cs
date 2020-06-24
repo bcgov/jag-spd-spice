@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// timezonerule
+    /// Microsoft.Dynamics.CRM.timezonerule
     /// </summary>
     public partial class MicrosoftDynamicsCRMtimezonerule
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the MicrosoftDynamicsCRMtimezonerule
         /// class.
         /// </summary>
-        public MicrosoftDynamicsCRMtimezonerule(int? daylighthour = default(int?), int? daylightminute = default(int?), int? standardsecond = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? standardmonth = default(int?), int? standardhour = default(int?), int? bias = default(int?), string _timezonedefinitionidValue = default(string), long? versionnumber = default(long?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? standardday = default(int?), int? daylightbias = default(int?), int? standardminute = default(int?), string _createdonbehalfbyValue = default(string), string timezoneruleid = default(string), int? daylightyear = default(int?), int? standardbias = default(int?), int? timezoneruleversionnumber = default(int?), int? standardyear = default(int?), string _modifiedonbehalfbyValue = default(string), string _createdbyValue = default(string), int? standarddayofweek = default(int?), int? daylightsecond = default(int?), int? daylightmonth = default(int?), string _organizationidValue = default(string), int? daylightdayofweek = default(int?), string _modifiedbyValue = default(string), int? daylightday = default(int?), System.DateTimeOffset? effectivedatetime = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtimezonedefinition timezonedefinitionid = default(MicrosoftDynamicsCRMtimezonedefinition), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMtimezonerule(int? daylighthour = default(int?), int? daylightminute = default(int?), int? standardsecond = default(int?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? standardmonth = default(int?), int? standardhour = default(int?), int? bias = default(int?), string _timezonedefinitionidValue = default(string), string versionnumber = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), int? standardday = default(int?), int? daylightbias = default(int?), int? standardminute = default(int?), string _createdonbehalfbyValue = default(string), string timezoneruleid = default(string), int? daylightyear = default(int?), int? standardbias = default(int?), int? timezoneruleversionnumber = default(int?), int? standardyear = default(int?), string _modifiedonbehalfbyValue = default(string), string _createdbyValue = default(string), int? standarddayofweek = default(int?), int? daylightsecond = default(int?), int? daylightmonth = default(int?), string _organizationidValue = default(string), int? daylightdayofweek = default(int?), string _modifiedbyValue = default(string), int? daylightday = default(int?), System.DateTimeOffset? effectivedatetime = default(System.DateTimeOffset?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMtimezonedefinition timezonedefinitionid = default(MicrosoftDynamicsCRMtimezonedefinition), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Daylighthour = daylighthour;
             Daylightminute = daylightminute;
@@ -114,7 +114,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

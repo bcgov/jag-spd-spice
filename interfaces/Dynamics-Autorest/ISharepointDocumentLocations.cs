@@ -46,13 +46,13 @@ namespace Gov.Jag.Spice.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="OdataerrorException">
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<SharepointdocumentlocationsGetResponseModel>> GetWithHttpMessagesAsync(int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<MicrosoftDynamicsCRMsharepointdocumentlocationCollection>> GetWithHttpMessagesAsync(int? top = default(int?), int? skip = default(int?), string search = default(string), string filter = default(string), bool? count = default(bool?), IList<string> orderby = default(IList<string>), IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Add new entity to sharepointdocumentlocations
         /// </summary>
@@ -69,7 +69,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="OdataerrorException">
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.SerializationException">
@@ -83,7 +83,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// Get entity from sharepointdocumentlocations by key
         /// </summary>
         /// <param name='sharepointdocumentlocationid'>
-        /// key: sharepointdocumentlocationid
+        /// key: sharepointdocumentlocationid of sharepointdocumentlocation
         /// </param>
         /// <param name='select'>
         /// Select properties to be returned
@@ -97,7 +97,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="OdataerrorException">
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.SerializationException">
@@ -108,32 +108,10 @@ namespace Gov.Jag.Spice.Interfaces
         /// </exception>
         Task<HttpOperationResponse<MicrosoftDynamicsCRMsharepointdocumentlocation>> GetByKeyWithHttpMessagesAsync(string sharepointdocumentlocationid, IList<string> select = default(IList<string>), IList<string> expand = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Delete entity from sharepointdocumentlocations
-        /// </summary>
-        /// <param name='sharepointdocumentlocationid'>
-        /// key: sharepointdocumentlocationid
-        /// </param>
-        /// <param name='ifMatch'>
-        /// ETag
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="OdataerrorException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> DeleteWithHttpMessagesAsync(string sharepointdocumentlocationid, string ifMatch = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
         /// Update entity in sharepointdocumentlocations
         /// </summary>
         /// <param name='sharepointdocumentlocationid'>
-        /// key: sharepointdocumentlocationid
+        /// key: sharepointdocumentlocationid of sharepointdocumentlocation
         /// </param>
         /// <param name='body'>
         /// New property values
@@ -144,12 +122,34 @@ namespace Gov.Jag.Spice.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="OdataerrorException">
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse> UpdateWithHttpMessagesAsync(string sharepointdocumentlocationid, MicrosoftDynamicsCRMsharepointdocumentlocation body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete entity from sharepointdocumentlocations
+        /// </summary>
+        /// <param name='sharepointdocumentlocationid'>
+        /// key: sharepointdocumentlocationid of sharepointdocumentlocation
+        /// </param>
+        /// <param name='ifMatch'>
+        /// ETag
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> DeleteWithHttpMessagesAsync(string sharepointdocumentlocationid, string ifMatch = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

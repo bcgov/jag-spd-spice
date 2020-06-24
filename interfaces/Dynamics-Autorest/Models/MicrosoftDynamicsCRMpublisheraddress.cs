@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// publisheraddress
+    /// Microsoft.Dynamics.CRM.publisheraddress
     /// </summary>
     public partial class MicrosoftDynamicsCRMpublisheraddress
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMpublisheraddress class.
         /// </summary>
-        public MicrosoftDynamicsCRMpublisheraddress(string postofficebox = default(string), string line3 = default(string), string publisheraddressid = default(string), string telephone1 = default(string), int? importsequencenumber = default(int?), double? latitude = default(double?), string line1 = default(string), double? longitude = default(double?), string primarycontactname = default(string), long? versionnumber = default(long?), int? shippingmethodcode = default(int?), int? utcconversiontimezonecode = default(int?), string country = default(string), int? addresstypecode = default(int?), string _createdonbehalfbyValue = default(string), int? utcoffset = default(int?), string telephone3 = default(string), string name = default(string), string county = default(string), string line2 = default(string), string postalcode = default(string), string _parentidValue = default(string), string stateorprovince = default(string), string _modifiedonbehalfbyValue = default(string), int? freighttermscode = default(int?), int? timezoneruleversionnumber = default(int?), string fax = default(string), string _modifiedbyValue = default(string), string city = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string telephone2 = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string upszone = default(string), int? addressnumber = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMpublisher parentid = default(MicrosoftDynamicsCRMpublisher), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMpublisheraddress(string postofficebox = default(string), string line3 = default(string), string publisheraddressid = default(string), string telephone1 = default(string), int? importsequencenumber = default(int?), decimal? latitude = default(decimal?), string line1 = default(string), decimal? longitude = default(decimal?), string primarycontactname = default(string), string versionnumber = default(string), int? shippingmethodcode = default(int?), int? utcconversiontimezonecode = default(int?), string country = default(string), int? addresstypecode = default(int?), string _createdonbehalfbyValue = default(string), int? utcoffset = default(int?), string telephone3 = default(string), string name = default(string), string county = default(string), string line2 = default(string), string postalcode = default(string), string _parentidValue = default(string), string stateorprovince = default(string), string _modifiedonbehalfbyValue = default(string), int? freighttermscode = default(int?), int? timezoneruleversionnumber = default(int?), string fax = default(string), string _modifiedbyValue = default(string), string city = default(string), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string telephone2 = default(string), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string _createdbyValue = default(string), string upszone = default(string), int? addressnumber = default(int?), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMpublisher parentid = default(MicrosoftDynamicsCRMpublisher), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser))
         {
             Postofficebox = postofficebox;
             Line3 = line3;
@@ -105,7 +105,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "latitude")]
-        public double? Latitude { get; set; }
+        public decimal? Latitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -115,7 +115,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "longitude")]
-        public double? Longitude { get; set; }
+        public decimal? Longitude { get; set; }
 
         /// <summary>
         /// </summary>
@@ -125,7 +125,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

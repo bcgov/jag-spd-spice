@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// spice_contact_account
+    /// Microsoft.Dynamics.CRM.spice_contact_account
     /// </summary>
     public partial class MicrosoftDynamicsCRMspiceContactAccount
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMspiceContactAccount class.
         /// </summary>
-        public MicrosoftDynamicsCRMspiceContactAccount(string spiceContactAccountid = default(string), long? versionnumber = default(long?), string contactid = default(string), string accountid = default(string))
+        public MicrosoftDynamicsCRMspiceContactAccount(string spiceContactAccountid = default(string), string versionnumber = default(string), string contactid = default(string), string accountid = default(string))
         {
             SpiceContactAccountid = spiceContactAccountid;
             Versionnumber = versionnumber;
@@ -49,7 +49,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

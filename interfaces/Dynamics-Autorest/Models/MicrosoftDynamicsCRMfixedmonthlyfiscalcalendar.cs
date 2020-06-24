@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// fixedmonthlyfiscalcalendar
+    /// Microsoft.Dynamics.CRM.fixedmonthlyfiscalcalendar
     /// </summary>
     public partial class MicrosoftDynamicsCRMfixedmonthlyfiscalcalendar
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMfixedmonthlyfiscalcalendar class.
         /// </summary>
-        public MicrosoftDynamicsCRMfixedmonthlyfiscalcalendar(string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), object period5 = default(object), object period6Base = default(object), object period5Base = default(object), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string userfiscalcalendarid = default(string), string _businessunitidValue = default(string), object period4Base = default(object), string _salespersonidValue = default(string), object period11 = default(object), object period12Base = default(object), object period9Base = default(object), object period12 = default(object), object period13 = default(object), object period10 = default(object), object period2Base = default(object), int? utcconversiontimezonecode = default(int?), object period6 = default(object), object period8Base = default(object), object period3 = default(object), object period2 = default(object), object exchangerate = default(object), object period11Base = default(object), object period1Base = default(object), object period8 = default(object), object period13Base = default(object), int? fiscalperiodtype = default(int?), string _createdbyValue = default(string), object period9 = default(object), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), object period10Base = default(object), object period7 = default(object), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), object period3Base = default(object), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), object period4 = default(object), object period7Base = default(object), object period1 = default(object), IList<MicrosoftDynamicsCRMbulkdeletefailure> fixedMonthlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> fixedMonthlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
+        public MicrosoftDynamicsCRMfixedmonthlyfiscalcalendar(string _transactioncurrencyidValue = default(string), string _modifiedonbehalfbyValue = default(string), decimal? period5 = default(decimal?), decimal? period6Base = default(decimal?), decimal? period5Base = default(decimal?), System.DateTimeOffset? createdon = default(System.DateTimeOffset?), string userfiscalcalendarid = default(string), string _businessunitidValue = default(string), decimal? period4Base = default(decimal?), string _salespersonidValue = default(string), decimal? period11 = default(decimal?), decimal? period12Base = default(decimal?), decimal? period9Base = default(decimal?), decimal? period12 = default(decimal?), decimal? period13 = default(decimal?), decimal? period10 = default(decimal?), decimal? period2Base = default(decimal?), int? utcconversiontimezonecode = default(int?), decimal? period6 = default(decimal?), decimal? period8Base = default(decimal?), decimal? period3 = default(decimal?), decimal? period2 = default(decimal?), decimal? exchangerate = default(decimal?), decimal? period11Base = default(decimal?), decimal? period1Base = default(decimal?), decimal? period8 = default(decimal?), decimal? period13Base = default(decimal?), int? fiscalperiodtype = default(int?), string _createdbyValue = default(string), decimal? period9 = default(decimal?), string _createdonbehalfbyValue = default(string), System.DateTimeOffset? effectiveon = default(System.DateTimeOffset?), decimal? period10Base = default(decimal?), decimal? period7 = default(decimal?), string _modifiedbyValue = default(string), int? timezoneruleversionnumber = default(int?), decimal? period3Base = default(decimal?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), decimal? period4 = default(decimal?), decimal? period7Base = default(decimal?), decimal? period1 = default(decimal?), IList<MicrosoftDynamicsCRMbulkdeletefailure> fixedMonthlyFiscalCalendarBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyid = default(MicrosoftDynamicsCRMtransactioncurrency), MicrosoftDynamicsCRMsystemuser createdonbehalfby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdby = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedby = default(MicrosoftDynamicsCRMsystemuser), IList<MicrosoftDynamicsCRMasyncoperation> fixedMonthlyFiscalCalendarAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), MicrosoftDynamicsCRMsystemuser salespersonid = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfby = default(MicrosoftDynamicsCRMsystemuser))
         {
             this._transactioncurrencyidValue = _transactioncurrencyidValue;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
@@ -101,17 +101,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period5")]
-        public object Period5 { get; set; }
+        public decimal? Period5 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period6_base")]
-        public object Period6Base { get; set; }
+        public decimal? Period6Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period5_base")]
-        public object Period5Base { get; set; }
+        public decimal? Period5Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period4_base")]
-        public object Period4Base { get; set; }
+        public decimal? Period4Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -141,37 +141,37 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period11")]
-        public object Period11 { get; set; }
+        public decimal? Period11 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period12_base")]
-        public object Period12Base { get; set; }
+        public decimal? Period12Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period9_base")]
-        public object Period9Base { get; set; }
+        public decimal? Period9Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period12")]
-        public object Period12 { get; set; }
+        public decimal? Period12 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period13")]
-        public object Period13 { get; set; }
+        public decimal? Period13 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period10")]
-        public object Period10 { get; set; }
+        public decimal? Period10 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period2_base")]
-        public object Period2Base { get; set; }
+        public decimal? Period2Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -181,47 +181,47 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period6")]
-        public object Period6 { get; set; }
+        public decimal? Period6 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period8_base")]
-        public object Period8Base { get; set; }
+        public decimal? Period8Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period3")]
-        public object Period3 { get; set; }
+        public decimal? Period3 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period2")]
-        public object Period2 { get; set; }
+        public decimal? Period2 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period11_base")]
-        public object Period11Base { get; set; }
+        public decimal? Period11Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period1_base")]
-        public object Period1Base { get; set; }
+        public decimal? Period1Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period8")]
-        public object Period8 { get; set; }
+        public decimal? Period8 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period13_base")]
-        public object Period13Base { get; set; }
+        public decimal? Period13Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -236,7 +236,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period9")]
-        public object Period9 { get; set; }
+        public decimal? Period9 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -251,12 +251,12 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period10_base")]
-        public object Period10Base { get; set; }
+        public decimal? Period10Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period7")]
-        public object Period7 { get; set; }
+        public decimal? Period7 { get; set; }
 
         /// <summary>
         /// </summary>
@@ -271,7 +271,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period3_base")]
-        public object Period3Base { get; set; }
+        public decimal? Period3Base { get; set; }
 
         /// <summary>
         /// </summary>
@@ -281,17 +281,17 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period4")]
-        public object Period4 { get; set; }
+        public decimal? Period4 { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period7_base")]
-        public object Period7Base { get; set; }
+        public decimal? Period7Base { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "period1")]
-        public object Period1 { get; set; }
+        public decimal? Period1 { get; set; }
 
         /// <summary>
         /// </summary>

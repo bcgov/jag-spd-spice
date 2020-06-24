@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// spice_requiredchecks
+    /// Microsoft.Dynamics.CRM.spice_requiredchecks
     /// </summary>
     public partial class MicrosoftDynamicsCRMspiceRequiredchecks
     {

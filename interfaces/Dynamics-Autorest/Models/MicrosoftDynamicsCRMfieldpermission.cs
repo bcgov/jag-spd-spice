@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// fieldpermission
+    /// Microsoft.Dynamics.CRM.fieldpermission
     /// </summary>
     public partial class MicrosoftDynamicsCRMfieldpermission
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMfieldpermission class.
         /// </summary>
-        public MicrosoftDynamicsCRMfieldpermission(bool? ismanaged = default(bool?), int? componentstate = default(int?), int? canupdate = default(int?), string fieldpermissionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), string entityname = default(string), int? canread = default(int?), string _organizationidValue = default(string), int? cancreate = default(int?), string _fieldsecurityprofileidValue = default(string), long? versionnumber = default(long?), string fieldpermissionidunique = default(string), string attributelogicalname = default(string), IList<MicrosoftDynamicsCRMsyncerror> fieldPermissionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMfieldsecurityprofile fieldsecurityprofileid = default(MicrosoftDynamicsCRMfieldsecurityprofile))
+        public MicrosoftDynamicsCRMfieldpermission(bool? ismanaged = default(bool?), int? componentstate = default(int?), int? canupdate = default(int?), string fieldpermissionid = default(string), System.DateTimeOffset? overwritetime = default(System.DateTimeOffset?), string solutionid = default(string), string entityname = default(string), int? canread = default(int?), string _organizationidValue = default(string), int? cancreate = default(int?), string _fieldsecurityprofileidValue = default(string), string versionnumber = default(string), string fieldpermissionidunique = default(string), string attributelogicalname = default(string), IList<MicrosoftDynamicsCRMsyncerror> fieldPermissionSyncErrors = default(IList<MicrosoftDynamicsCRMsyncerror>), MicrosoftDynamicsCRMfieldsecurityprofile fieldsecurityprofileid = default(MicrosoftDynamicsCRMfieldsecurityprofile))
         {
             Ismanaged = ismanaged;
             Componentstate = componentstate;
@@ -113,7 +113,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

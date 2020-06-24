@@ -12,7 +12,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// campaignactivityitem
+    /// Microsoft.Dynamics.CRM.campaignactivityitem
     /// </summary>
     public partial class MicrosoftDynamicsCRMcampaignactivityitem
     {
@@ -29,7 +29,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMcampaignactivityitem class.
         /// </summary>
-        public MicrosoftDynamicsCRMcampaignactivityitem(long? versionnumber = default(long?), string owninguser = default(string), int? importsequencenumber = default(int?), string name = default(string), string itemobjecttypecode = default(string), string itemid = default(string), string _owneridValue = default(string), string campaignactivityitemid = default(string), int? utcconversiontimezonecode = default(int?), string _campaignactivityidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string owningbusinessunit = default(string), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMasyncoperation> campaignactivityitemAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> campaignactivityitemMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> campaignactivityitemBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> campaignactivityitemPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMactivitypointer campaignactivityid = default(MicrosoftDynamicsCRMactivitypointer))
+        public MicrosoftDynamicsCRMcampaignactivityitem(string versionnumber = default(string), string owninguser = default(string), int? importsequencenumber = default(int?), string name = default(string), string itemobjecttypecode = default(string), string itemid = default(string), string _owneridValue = default(string), string campaignactivityitemid = default(string), int? utcconversiontimezonecode = default(int?), string _campaignactivityidValue = default(string), System.DateTimeOffset? overriddencreatedon = default(System.DateTimeOffset?), string owningbusinessunit = default(string), int? timezoneruleversionnumber = default(int?), IList<MicrosoftDynamicsCRMasyncoperation> campaignactivityitemAsyncOperations = default(IList<MicrosoftDynamicsCRMasyncoperation>), IList<MicrosoftDynamicsCRMmailboxtrackingfolder> campaignactivityitemMailboxTrackingFolders = default(IList<MicrosoftDynamicsCRMmailboxtrackingfolder>), IList<MicrosoftDynamicsCRMbulkdeletefailure> campaignactivityitemBulkDeleteFailures = default(IList<MicrosoftDynamicsCRMbulkdeletefailure>), IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess> campaignactivityitemPrincipalObjectAttributeAccesses = default(IList<MicrosoftDynamicsCRMprincipalobjectattributeaccess>), MicrosoftDynamicsCRMactivitypointer campaignactivityid = default(MicrosoftDynamicsCRMactivitypointer))
         {
             Versionnumber = versionnumber;
             Owninguser = owninguser;
@@ -60,7 +60,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>

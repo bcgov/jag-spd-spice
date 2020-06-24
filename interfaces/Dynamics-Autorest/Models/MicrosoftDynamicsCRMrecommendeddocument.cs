@@ -10,7 +10,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
     using System.Linq;
 
     /// <summary>
-    /// recommendeddocument
+    /// Microsoft.Dynamics.CRM.recommendeddocument
     /// </summary>
     public partial class MicrosoftDynamicsCRMrecommendeddocument
     {
@@ -27,7 +27,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// Initializes a new instance of the
         /// MicrosoftDynamicsCRMrecommendeddocument class.
         /// </summary>
-        public MicrosoftDynamicsCRMrecommendeddocument(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string filetype = default(string), string editurl = default(string), long? versionnumber = default(long?), string title = default(string), string _modifiedbyValue = default(string), string source = default(string), string externaldocumentid = default(string), int? timezoneruleversionnumber = default(int?), string _transactioncurrencyidValue = default(string), string iconclassname = default(string), string externalmodifiedby = default(string), string _organizationidValue = default(string), string readurl = default(string), string location = default(string), object exchangerate = default(object), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string version = default(string), string fullname = default(string), string author = default(string), string _createdbyValue = default(string), int? filesize = default(int?), string absoluteurl = default(string), string contenttype = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string recommendeddocumentid = default(string), string _regardingobjectidValue = default(string), string associatedrecordname = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyidname = default(MicrosoftDynamicsCRMtransactioncurrency))
+        public MicrosoftDynamicsCRMrecommendeddocument(System.DateTimeOffset? createdon = default(System.DateTimeOffset?), int? utcconversiontimezonecode = default(int?), string filetype = default(string), string editurl = default(string), string versionnumber = default(string), string title = default(string), string _modifiedbyValue = default(string), string source = default(string), string externaldocumentid = default(string), int? timezoneruleversionnumber = default(int?), string _transactioncurrencyidValue = default(string), string iconclassname = default(string), string externalmodifiedby = default(string), string _organizationidValue = default(string), string readurl = default(string), string location = default(string), decimal? exchangerate = default(decimal?), System.DateTimeOffset? modifiedon = default(System.DateTimeOffset?), string version = default(string), string fullname = default(string), string author = default(string), string _createdbyValue = default(string), int? filesize = default(int?), string absoluteurl = default(string), string contenttype = default(string), string _createdonbehalfbyValue = default(string), string _modifiedonbehalfbyValue = default(string), string recommendeddocumentid = default(string), string _regardingobjectidValue = default(string), string associatedrecordname = default(string), MicrosoftDynamicsCRMsystemuser createdbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser createdonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMsystemuser modifiedonbehalfbyname = default(MicrosoftDynamicsCRMsystemuser), MicrosoftDynamicsCRMorganization organizationid = default(MicrosoftDynamicsCRMorganization), MicrosoftDynamicsCRMtransactioncurrency transactioncurrencyidname = default(MicrosoftDynamicsCRMtransactioncurrency))
         {
             Createdon = createdon;
             Utcconversiontimezonecode = utcconversiontimezonecode;
@@ -96,7 +96,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionnumber")]
-        public long? Versionnumber { get; set; }
+        public string Versionnumber { get; set; }
 
         /// <summary>
         /// </summary>
@@ -156,7 +156,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exchangerate")]
-        public object Exchangerate { get; set; }
+        public decimal? Exchangerate { get; set; }
 
         /// <summary>
         /// </summary>
