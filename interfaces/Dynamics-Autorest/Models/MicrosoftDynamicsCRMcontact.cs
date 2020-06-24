@@ -569,10 +569,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
         [JsonProperty(PropertyName = "address3_postofficebox")]
         public string Address3Postofficebox { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_dateofbirth")]
-        public System.DateTimeOffset? SpiceDateofbirth { get; set; }
+
 
         /// <summary>
         /// </summary>

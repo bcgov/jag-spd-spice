@@ -2714,7 +2714,7 @@ namespace Gov.Jag.Spice.Interfaces
             Incidentspicerequiredcheckses = new Incidentspicerequiredcheckses(this);
             Applicantid = new Applicantid(this);
             Applyingpersonid = new Applyingpersonid(this);
-            Client = new Client(this);
+            
             Exportrequestincident = new Exportrequestincident(this);
             Incidentspiceaccountcaseassignment = new Incidentspiceaccountcaseassignment(this);
             Lcrblicencetypeid = new Lcrblicencetypeid(this);
