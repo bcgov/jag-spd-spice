@@ -32,9 +32,10 @@ namespace Gov.Jag.Spice.Public.Utils
             return entities;
         }
 
-        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceServices>> GetScreeningTypesAsync(IDynamicsClient dynamicsClient)
+        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceServices>> GetActiveScreeningTypesAsync(IDynamicsClient dynamicsClient)
         {
-            var entities = (await dynamicsClient.Serviceses.GetAsync()).Value;
+            const string filter = "statecode eq 0";
+            var entities = (await dynamicsClient.Serviceses.GetAsync(filter: filter)).Value;
             if (!entities.Any())
             {
                 throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceServices));
@@ -97,7 +98,6 @@ namespace Gov.Jag.Spice.Public.Utils
                 Lastname = candidate.LastName,
                 SpiceDateofbirth = candidate.DateOfBirth,
                 Emailaddress1 = candidate.Email,
-                SpicePositiontitle = candidate.Position,
             };
 
             entity = await dynamicsClient.Contacts.CreateAsync(entity);
@@ -112,8 +112,7 @@ namespace Gov.Jag.Spice.Public.Utils
                 Firstname = user.GivenName,
                 Lastname = user.Surname,
                 Emailaddress1 = user.Email,
-                SpicePortalcontactidentifier = user.Id
-
+                SpicePortalcontactidentifier = user.Id,
             };
 
             entity = await dynamicsClient.Contacts.CreateAsync(entity);
@@ -156,6 +155,7 @@ namespace Gov.Jag.Spice.Public.Utils
                 SpiceReturnToIdODataBind = contact,
                 SpiceApplicanttype = applicantType,
                 SpiceCannabisapplicanttype = cannabisApplicantType,
+                SpiceJobtitle = screeningRequest.Candidate.Position,
             };
 
             entity = await dynamicsClient.Incidents.CreateAsync(entity);
