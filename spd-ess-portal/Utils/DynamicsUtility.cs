@@ -32,9 +32,10 @@ namespace Gov.Jag.Spice.Public.Utils
             return entities;
         }
 
-        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceServices>> GetScreeningTypesAsync(IDynamicsClient dynamicsClient)
+        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceServices>> GetActiveScreeningTypesAsync(IDynamicsClient dynamicsClient)
         {
-            var entities = (await dynamicsClient.Serviceses.GetAsync()).Value;
+            const string filter = "statecode eq 0";
+            var entities = (await dynamicsClient.Serviceses.GetAsync(filter: filter)).Value;
             if (!entities.Any())
             {
                 throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceServices));
