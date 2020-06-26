@@ -112,7 +112,7 @@ namespace Gov.Jag.Spice.Public.ViewModels
         {
             var getMinistries = DynamicsUtility.GetMinistriesAsync(dynamicsClient);
             var getProgramAreas = DynamicsUtility.GetProgramAreasAsync(dynamicsClient);
-            var getScreeningTypes = DynamicsUtility.GetScreeningTypesAsync(dynamicsClient);
+            var getScreeningTypes = DynamicsUtility.GetActiveScreeningTypesAsync(dynamicsClient);
 
             var screeningTypes = (await getScreeningTypes).ToList();
             var programAreas = (await getProgramAreas).ToList();
