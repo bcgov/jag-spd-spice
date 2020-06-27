@@ -21,9 +21,10 @@ namespace Gov.Jag.Spice.Public.Utils
             return entities;
         }
 
-        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceMinistry>> GetProgramAreasAsync(IDynamicsClient dynamicsClient)
+        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceMinistry>> GetProgramAreasAsync(IDynamicsClient dynamicsClient, string orgCode)
         {
-            var entities = (await dynamicsClient.Ministries.GetAsync()).Value;
+            string filter = $"spice_orgcode eq '{orgCode}'";
+            var entities = (await dynamicsClient.Ministries.GetAsync(filter: filter)).Value;
             if (!entities.Any())
             {
                 throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceMinistry));
