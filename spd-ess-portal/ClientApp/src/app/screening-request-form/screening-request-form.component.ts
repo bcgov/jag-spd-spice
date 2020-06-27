@@ -15,7 +15,6 @@ import { AppState } from '../app-state/models/app-state';
 import { Ministry } from '../models/ministry.model';
 import { ScreeningReason } from '../models/screening-reason.model';
 import { ScreeningRequest } from '../models/screening-request.model';
-import { User } from '../models/user.model';
 import { FormBase } from '../shared/form-base';
 import { FileUploaderComponent } from '../shared/file-uploader/file-uploader.component';
 import { StrictMomentDateAdapter } from '../shared/strict-moment-date-adapter/strict-moment-date-adapter';
@@ -71,8 +70,8 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
     this.startDate = moment().startOf('day').subtract(18, 'years');
 
     this.form = this.fb.group({
-      clientMinistry: [{ value: '', disabled: true }, Validators.required],
-      programArea: [{ value: '', disabled: true }, Validators.required],
+      clientMinistry: ['', Validators.required],
+      programArea: ['', Validators.required],
       screeningType: ['', Validators.required],
       reason: ['', Validators.required],
       otherReason: [''],
@@ -96,35 +95,24 @@ export class ScreeningRequestFormComponent extends FormBase implements OnInit, O
 
     // retrieve dropdown data from store
     combineLatest(
-      this.store.select(state => state.currentUserState.currentUser)
-        .pipe(filter<User>((u): u is User => !!u)),
       this.store.select(state => state.ministryScreeningTypesState.ministryScreeningTypes)
         .pipe(filter<Ministry[]>((m): m is Ministry[] => !!m)),
       this.store.select(state => state.screeningReasonsState.screeningReasons)
         .pipe(filter<ScreeningReason[]>((r): r is ScreeningReason[] => !!r)),
     ).pipe(
       takeUntil(this.unsubscribe),
-    ).subscribe(([ currentUser, ministryScreeningTypes, screeningReasons ]) => {
+    ).subscribe(([ ministryScreeningTypes, screeningReasons ]) => {
       this.ministryScreeningTypes = ministryScreeningTypes;
       this.screeningReasons = screeningReasons;
 
       const otherScreeningReason = screeningReasons.find(r => r.name === 'Other');
       this.otherScreeningReasonValue = otherScreeningReason ? otherScreeningReason.value : '';
 
-      // initialize dropdown selections based on current user
-      const clientMinistry = this.ministryScreeningTypes.find(m => m.name === currentUser.ministry);
+      // initialize dropdown selections
       const clientMinistryControl = this.form.get('clientMinistry');
-      if (clientMinistry && clientMinistryControl) {
-        clientMinistryControl.setValue(clientMinistry.value);
-
-        const programArea = this.getProgramAreas().find(m => m.name === currentUser.programArea);
-        const programAreaControl = this.form.get('programArea');
-        if (programArea && programAreaControl) {
-          programAreaControl.setValue(programArea.value);
-          this.loaded = true;
-        } else {
-          this.router.navigate(['/access-denied'], { skipLocationChange: true });
-        }
+      if (this.ministryScreeningTypes.length > 0 && clientMinistryControl) {
+        clientMinistryControl.setValue(this.ministryScreeningTypes[0].value);
+        this.loaded = true;
       } else {
         this.router.navigate(['/access-denied'], { skipLocationChange: true });
       }

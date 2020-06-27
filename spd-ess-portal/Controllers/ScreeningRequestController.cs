@@ -32,32 +32,53 @@ namespace Gov.Jag.Spice.Public.Controllers
             {
                 var user = new User(HttpContext.User);
 
-                var ministries = await ScreeningRequest.GetMinistryScreeningTypesAsync(_dynamicsClient);
-
-                var siteMinderMinistry = ministries.FirstOrDefault(m => m.Name == user.Ministry);
-                var siteMinderProgramArea = siteMinderMinistry?.ProgramAreas.FirstOrDefault(a => a.Name == user.ProgramArea);
-                var screeningType = siteMinderProgramArea?.ScreeningTypes.Find(t => t.Value == screeningRequest.ScreeningType);
-
-                // ensure ministry and program area from siteminder match a ministry and program area in our system
-                if (siteMinderProgramArea == null)
-                {
-                    _logger.LogWarning(string.Join(Environment.NewLine, "Cannot find ministry and program area in database matching SiteMinder headers", "{@User}", "{@RetrievedMinistries}"), user, ministries);
-                    return Unauthorized();
-                }
+                var (ministry, programArea, screeningType) =
+                    await ScreeningRequest.GetMinistryScreeningTypeAsync(
+                        _dynamicsClient,
+                        user.OrgCode,
+                        screeningRequest.ScreeningType
+                    );
 
                 // validate screening request
                 try
                 {
-                    bool validationResult = await screeningRequest.Validate(_dynamicsClient, siteMinderMinistry, siteMinderProgramArea);
+                    bool validationResult = await screeningRequest.Validate(_dynamicsClient, ministry, programArea, screeningType);
                     if (validationResult == false)
                     {
-                        _logger.LogWarning("Validation failed for screening request {@ScreeningRequest} {@Ministry} {@ProgramArea}", screeningRequest, siteMinderMinistry, siteMinderProgramArea);
+                        _logger.LogWarning(
+                            string.Join(
+                                Environment.NewLine,
+                                "Validation failed for screening request {@ScreeningRequest}",
+                                "{@ministry}",
+                                "{@programArea}",
+                                "{@screeningType}"
+                            ),
+                            screeningRequest,
+                            ministry,
+                            programArea,
+                            screeningType
+                        );
+
                         return BadRequest();
                     }
                 }
                 catch (DynamicsEntityNotFoundException ex)
                 {
-                    _logger.LogError(ex, "Validation failed for screening request {@ScreeningRequest} {@Ministry} {@ProgramArea}", screeningRequest, siteMinderMinistry, siteMinderProgramArea);
+                    _logger.LogError(
+                        ex, 
+                        string.Join(
+                            Environment.NewLine,
+                            "Validation failed for screening request {@ScreeningRequest}",
+                            "{@ministry}",
+                            "{@programArea}",
+                            "{@screeningType}"
+                        ),
+                        screeningRequest,
+                        ministry,
+                        programArea,
+                        screeningType
+                    );
+
                     return BadRequest();
                 }
 
@@ -69,7 +90,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 }
 
                 // submit request to dynamics and return its new screeningId
-                string screeningId = await screeningRequest.Submit(_dynamicsClient, _logger, user, screeningType, siteMinderProgramArea.Value);
+                string screeningId = await screeningRequest.Submit(_dynamicsClient, _logger, user, screeningType, programArea.Value);
 
                 return new JsonResult(new { screeningId });
             }
@@ -87,7 +108,8 @@ namespace Gov.Jag.Spice.Public.Controllers
         {
             try
             {
-                var data = await ScreeningRequest.GetMinistryScreeningTypesAsync(_dynamicsClient);
+                var user = new User(HttpContext.User);
+                var data = await ScreeningRequest.GetMinistryScreeningTypesAsync(_dynamicsClient, user.OrgCode);
                 _logger.LogInformation("Successfully retrieved ministry screening types {@Ministries}", data);
                 return new JsonResult(data);
             }

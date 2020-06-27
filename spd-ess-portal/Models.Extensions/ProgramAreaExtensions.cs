@@ -14,7 +14,8 @@ namespace Gov.Jag.Spice.Public.Models.Extensions
             {
                 Name = programArea.SpiceName,
                 Value = programArea.SpiceMinistryid,
-                ScreeningTypes = programArea.SpiceSpiceMinistrySpiceServices.Select(screeningType => screeningType.ToViewModel()).ToList(),
+                OrgCode = programArea.SpiceOrgcode,
+                ScreeningTypes = programArea.SpiceSpiceMinistrySpiceServices?.Select(screeningType => screeningType.ToViewModel()).ToList() ?? new List<ScreeningType>(),
             };
         }
     }

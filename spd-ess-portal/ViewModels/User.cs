@@ -18,6 +18,8 @@ namespace Gov.Jag.Spice.Public.ViewModels
 
         public string Ministry { get; set; }
 
+        public string OrgCode { get; set; }
+
         public string ProgramArea { get; set; }
 
         public string Email { get; set; }
@@ -29,6 +31,7 @@ namespace Gov.Jag.Spice.Public.ViewModels
             GivenName = principal.FindFirstValue(SiteMinderClaimTypes.GIVEN_NAME);
             Surname = principal.FindFirstValue(SiteMinderClaimTypes.SURNAME);
             Ministry = principal.FindFirstValue(SiteMinderClaimTypes.COMPANY);
+            OrgCode = principal.FindFirstValue(SiteMinderClaimTypes.ORGCODE);
             ProgramArea = principal.FindFirstValue(SiteMinderClaimTypes.DEPARTMENT);
             Email = principal.FindFirstValue(SiteMinderClaimTypes.EMAIL);
         }
