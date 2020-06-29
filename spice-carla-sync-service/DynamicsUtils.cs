@@ -43,7 +43,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 // Company
                 string uniqueFilter = "spice_carla_company eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
-                CompaniesGetResponseModel companiesResponse;
+                MicrosoftDynamicsCRMspiceCompanyCollection companiesResponse;
                 try
                 {
                     companiesResponse = _dynamicsClient.Companies.Get(1, filter: uniqueFilter);
@@ -87,7 +87,7 @@ namespace Gov.Jag.Spice.CarlaSync
                  
                 // Contact person
                 uniqueFilter = "externaluseridentifier eq '" + applicationRequest.ContactPerson.ContactId + "'";
-                ContactsGetResponseModel contactResponse;
+                MicrosoftDynamicsCRMcontactCollection contactResponse;
                 try
                 {
                      contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
@@ -129,7 +129,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
 
                 uniqueFilter = "spice_carla_account eq '" + applicationRequest.ApplicantAccount.AccountId + "'";
-                AccountsGetResponseModel accountResponse;
+                MicrosoftDynamicsCRMaccountCollection accountResponse;
                 try
                 {
                     accountResponse = _dynamicsClient.Accounts.Get(1, filter: uniqueFilter);
@@ -215,7 +215,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     SpiceClientIdODataBind = clientEntityUri
                 };
 
-                LcrblicencetypesGetResponseModel response = _dynamicsClient.Lcrblicencetypes.Get(filter: "spice_name eq '" + applicationRequest.ApplicationType + "'");
+                MicrosoftDynamicsCRMspiceLcrblicencetypeCollection response = _dynamicsClient.Lcrblicencetypes.Get(filter: "spice_name eq '" + applicationRequest.ApplicationType + "'");
                 if (response.Value.Count > 0)
                 {
                     incident.LCRBLicenceTypeIdOdataBind = _dynamicsClient.GetEntityURI("spice_lcrblicencetypes", response.Value[0].SpiceLcrblicencetypeid);
@@ -397,7 +397,7 @@ namespace Gov.Jag.Spice.CarlaSync
                  and (spice_cannabisapplicanttype eq {(int)CannabisApplicantType.Business} or spice_cannabisapplicanttype eq {(int)CannabisApplicantType.MarketingBusiness})
                  and spice_applicanttype eq {(int)SpiceApplicantType.Cannabis}
                  and statecode eq 1 and statuscode eq 5";
-            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
+            MicrosoftDynamicsCRMincidentCollection resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
                 hangfireContext.WriteLine("No completed business screenings found.");
@@ -447,7 +447,7 @@ namespace Gov.Jag.Spice.CarlaSync
         {
             string[] select = {"incidentid"};
             string workerFilter = $"spice_workersreadyforlcrb eq {(int)ReadyForLCRBStatus.ReadyForLCRB} and spice_cannabisapplicanttype eq {(int)CannabisApplicantType.Worker} and statecode eq 1 and statuscode eq 5";
-            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: workerFilter, select: select);
+            MicrosoftDynamicsCRMincidentCollection resp = _dynamicsClient.Incidents.Get(filter: workerFilter, select: select);
             if(resp.Value.Count == 0)
             {
                 hangfireContext.WriteLine("No completed worker screenings found.");
@@ -507,7 +507,7 @@ namespace Gov.Jag.Spice.CarlaSync
             try
             {
                 string uniqueFilter = "externaluseridentifier eq '" + contactId + "'";
-                ContactsGetResponseModel contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
+                MicrosoftDynamicsCRMcontactCollection contactResponse = _dynamicsClient.Contacts.Get(1, filter: uniqueFilter);
                 MicrosoftDynamicsCRMcontact contact = new MicrosoftDynamicsCRMcontact()
                 {
                     Externaluseridentifier = contactId,
@@ -544,8 +544,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
 
                 string entityUri = _dynamicsClient.GetEntityURI("contacts", contact.Contactid);
-                
-                PreviousaddressesesGetResponseModel currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
+
+                MicrosoftDynamicsCRMspicePreviousaddressesCollection currentPreviousAddresses = _dynamicsClient.Previousaddresseses.Get(filter: $"_spice_contactid_value eq {contact.Contactid}");
                 if(currentPreviousAddresses.Value.Count > 0)
                 {
                     foreach(var address in currentPreviousAddresses.Value)
@@ -568,7 +568,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     });
                 }
 
-                AliasesesGetResponseModel currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
+                MicrosoftDynamicsCRMspiceAliasesCollection currentAliases = _dynamicsClient.Aliaseses.Get(filter: $"_spice_aliascontact_value eq {contact.Contactid}");
                 if(currentAliases.Value.Count > 0)
                 {
                     foreach(var alias in currentAliases.Value)
@@ -642,7 +642,7 @@ namespace Gov.Jag.Spice.CarlaSync
             string filter = $"_parentcaseid_value eq {incident.Incidentid}";
             string[] associateExpand = {"customerid_contact"};
             string[] associateSelect = {"customerid_contact", "incidentid"};
-            IncidentsGetResponseModel resp = _dynamicsClient.Incidents.Get(filter: filter, expand: associateExpand, select: associateSelect);
+            MicrosoftDynamicsCRMincidentCollection resp = _dynamicsClient.Incidents.Get(filter: filter, expand: associateExpand, select: associateSelect);
 
             foreach(var associate in resp.Value)
             {
