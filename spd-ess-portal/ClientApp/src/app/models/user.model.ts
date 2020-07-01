@@ -4,6 +4,7 @@ export class User {
   givenName: string;
   surname: string;
   ministry: string;
+  orgCode: string;
   programArea: string;
   email: string;
 
