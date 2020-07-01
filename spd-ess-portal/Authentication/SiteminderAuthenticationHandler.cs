@@ -96,6 +96,7 @@ namespace Gov.Jag.Spice.Public.Authentication
                 new Claim(SiteMinderClaimTypes.GIVEN_NAME, smAuthToken.smgov_givenname),
                 new Claim(SiteMinderClaimTypes.SURNAME, smAuthToken.smgov_sn),
                 new Claim(SiteMinderClaimTypes.DEPARTMENT, smAuthToken.smgov_department),
+                new Claim(SiteMinderClaimTypes.ORGCODE, smAuthToken.smgov_orgcode),
                 new Claim(SiteMinderClaimTypes.COMPANY, smAuthToken.smgov_company),
                 new Claim(SiteMinderClaimTypes.EMAIL, smAuthToken.smgov_email),
             };

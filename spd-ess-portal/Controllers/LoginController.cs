@@ -74,6 +74,7 @@ namespace Gov.Jag.Spice.Public.Controllers
                 smgov_givenname = "John",
                 smgov_sn = "Doe",
                 smgov_company = "Ministry of Public Safety and Solicitor General",
+                smgov_orgcode = "PSSG",
                 smgov_department = "Security Programs and Police Technology",
                 smgov_email = "johndoe@fake.emailaddress",
             });

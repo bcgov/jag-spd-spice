@@ -22,7 +22,7 @@ namespace Gov.Jag.Spice.Public.ViewModels
 
         public Contact Contact { get; set; }
 
-        public async Task<bool> Validate(IDynamicsClient dynamicsClient, Ministry siteMinderMinistry, ProgramArea siteMinderProgramArea)
+        public async Task<bool> Validate(IDynamicsClient dynamicsClient, Ministry dynamicsMinistry, ProgramArea dynamicsProgramArea, ScreeningType dynamicsScreeningType)
         {
             // validate nested data exists
             if (Candidate == null || Contact == null)
@@ -57,14 +57,14 @@ namespace Gov.Jag.Spice.Public.ViewModels
                 return false;
             }
 
-            // validate ministry and program area match the values from siteminder
-            if (ClientMinistry != siteMinderMinistry.Value || ProgramArea != siteMinderProgramArea.Value)
+            // validate submitted screening type matches an existing screening type in Dynamics which is valid for the user's org code
+            if (dynamicsMinistry == null || dynamicsProgramArea == null || dynamicsScreeningType == null)
             {
                 return false;
             }
 
-            // validate screening type matches one of the screening types for the program area
-            if (!siteMinderProgramArea.ScreeningTypes.Any(t => t.Value == ScreeningType))
+            // validate submitted ministry and program area match the associated entities in Dynamics for the submitted screening type
+            if (ClientMinistry != dynamicsMinistry.Value || ProgramArea != dynamicsProgramArea.Value)
             {
                 return false;
             }
@@ -108,10 +108,10 @@ namespace Gov.Jag.Spice.Public.ViewModels
             }
         }
 
-        public static async Task<IEnumerable<Ministry>> GetMinistryScreeningTypesAsync(IDynamicsClient dynamicsClient)
+        public static async Task<IEnumerable<Ministry>> GetMinistryScreeningTypesAsync(IDynamicsClient dynamicsClient, string orgCode)
         {
             var getMinistries = DynamicsUtility.GetMinistriesAsync(dynamicsClient);
-            var getProgramAreas = DynamicsUtility.GetProgramAreasAsync(dynamicsClient);
+            var getProgramAreas = DynamicsUtility.GetProgramAreasAsync(dynamicsClient, orgCode);
             var getScreeningTypes = DynamicsUtility.GetActiveScreeningTypesAsync(dynamicsClient);
 
             var screeningTypes = (await getScreeningTypes).ToList();
@@ -130,7 +130,21 @@ namespace Gov.Jag.Spice.Public.ViewModels
                     programAreas.Where(a => a._spiceGovministryidValue == ministry.SpiceGovministryid).ToList();
             }
 
-            return ministries.Select(m => m.ToViewModel());
+            return ministries.Select(m => m.ToViewModel()).Where(m => m.ProgramAreas.Any());
+        }
+
+        public static async Task<(Ministry, ProgramArea, ScreeningType)> GetMinistryScreeningTypeAsync(
+            IDynamicsClient dynamicsClient, string orgCode, string screeningTypeId)
+        {
+            var getMinistries = DynamicsUtility.GetMinistriesAsync(dynamicsClient);
+            var getProgramAreas = DynamicsUtility.GetProgramAreasAsync(dynamicsClient, orgCode);
+            var getScreeningTypes = DynamicsUtility.GetActiveScreeningTypesAsync(dynamicsClient);
+
+            var screeningType = (await getScreeningTypes).SingleOrDefault(s => s.SpiceServicesid == screeningTypeId);
+            var programArea = (await getProgramAreas).SingleOrDefault(p => p.SpiceMinistryid == screeningType?._spiceMinistryserviceidValue);
+            var ministry = (await getMinistries).SingleOrDefault(m => m.SpiceGovministryid == programArea?._spiceGovministryidValue);
+
+            return (ministry?.ToViewModel(), programArea?.ToViewModel(), screeningType?.ToViewModel());
         }
 
         public static async Task<IEnumerable<ScreeningReason>> GetScreeningReasonsAsync(IDynamicsClient dynamicsClient)

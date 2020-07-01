@@ -21,9 +21,10 @@ namespace Gov.Jag.Spice.Public.Utils
             return entities;
         }
 
-        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceMinistry>> GetProgramAreasAsync(IDynamicsClient dynamicsClient)
+        public static async Task<IEnumerable<MicrosoftDynamicsCRMspiceMinistry>> GetProgramAreasAsync(IDynamicsClient dynamicsClient, string orgCode)
         {
-            var entities = (await dynamicsClient.Ministries.GetAsync()).Value;
+            string filter = $"spice_orgcode eq '{Escape(orgCode)}'";
+            var entities = (await dynamicsClient.Ministries.GetAsync(filter: filter)).Value;
             if (!entities.Any())
             {
                 throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceMinistry));
@@ -57,7 +58,7 @@ namespace Gov.Jag.Spice.Public.Utils
 
         public static async Task<MicrosoftDynamicsCRMspiceReasonforscreening> GetScreeningReasonAsync(IDynamicsClient dynamicsClient, string reasonId)
         {
-            string filter = $"spice_reasonforscreeningid eq {reasonId}";
+            string filter = $"spice_reasonforscreeningid eq {Escape(reasonId)}";
             var entities = (await dynamicsClient.Reasonforscreenings.GetAsync(filter: filter)).Value;
             if (!entities.Any())
             {
@@ -69,21 +70,21 @@ namespace Gov.Jag.Spice.Public.Utils
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetCandidateAsync(IDynamicsClient dynamicsClient, Candidate candidate)
         {
-            string filter = $"fullname eq '{candidate.FirstName} {candidate.LastName}' and middlename eq '{candidate.MiddleName}' and spice_dateofbirth eq {candidate.DateOfBirth.ToString("o")} and emailaddress1 eq '{candidate.Email}' and spice_positiontitle eq '{candidate.Position}'";
+            string filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
             return entities.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetSubmitterAsync(IDynamicsClient dynamicsClient, User user)
         {
-            string filter = $"spice_portalcontactidentifier eq '{user.Id}'";
+            string filter = $"spice_portalcontactidentifier eq '{Escape(user.Id)}'";
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
             return entities.FirstOrDefault();
         }
 
         public static async Task<MicrosoftDynamicsCRMspiceMinistryemployee> GetContactAsync(IDynamicsClient dynamicsClient, Contact contact)
         {
-            string filter = $"spice_name eq '{contact.FirstName}' and spice_lastname eq '{contact.LastName}' and spice_email eq '{contact.Email}'";
+            string filter = $"spice_name eq '{Escape(contact.FirstName)}' and spice_lastname eq '{Escape(contact.LastName)}' and spice_email eq '{Escape(contact.Email)}'";
             var entity = (await dynamicsClient.Ministryemployees.GetAsync(filter: filter)).Value;
             return entity.FirstOrDefault();
         }
@@ -161,6 +162,7 @@ namespace Gov.Jag.Spice.Public.Utils
             entity = await dynamicsClient.Incidents.CreateAsync(entity);
             return entity;
         }
+
+        private static string Escape(string s) => s.Replace("'", "''");
     }
 }
-

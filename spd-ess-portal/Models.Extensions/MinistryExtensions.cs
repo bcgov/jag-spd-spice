@@ -14,7 +14,7 @@ namespace Gov.Jag.Spice.Public.Models.Extensions
             {
                 Name = ministry.SpiceName,
                 Value = ministry.SpiceGovministryid,
-                ProgramAreas = ministry.SpiceGovministrySpiceMinistry.Select(programArea => programArea.ToViewModel()).ToList(),
+                ProgramAreas = ministry.SpiceGovministrySpiceMinistry?.Select(programArea => programArea.ToViewModel()).ToList() ?? new List<ProgramArea>(),
             };
         }
     }
