@@ -13,9 +13,9 @@ namespace SpiceCarlaSync.models
         public string Title { get; set; }
         public List<string> Positions { get; set; }
         public bool TiedHouse { get; set; }
-        public decimal InterestPercentage { get; set; }
-        public DateTimeOffset AppointmentDate { get; set; }
-        public decimal NumberVotingShares { get; set; }
+        public decimal? InterestPercentage { get; set; }
+        public DateTimeOffset? AppointmentDate { get; set; }
+        public decimal? NumberVotingShares { get; set; }
         public List<Alias> Aliases { get; set; }
         public List<Address> PreviousAddresses { get; set; }
     }
