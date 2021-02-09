@@ -23,7 +23,7 @@ namespace SpiceCarlaSync.models
         public string Birthplace { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public GeneralYesNo SelfDisclosure { get; set; }
+        public GeneralYesNo? SelfDisclosure { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public AdoxioGenderCode Gender { get; set; }
 
