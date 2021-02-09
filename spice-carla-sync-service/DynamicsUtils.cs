@@ -724,9 +724,9 @@ namespace Gov.Jag.Spice.CarlaSync
             return string.Join(", ", positionValues);
         }
 
-        public int? GetGenderCode(AdoxioGenderCode gender)
+        public int? GetGenderCode(AdoxioGenderCode? gender)
         {
-            if (gender == AdoxioGenderCode.Male || gender == AdoxioGenderCode.Female)
+            if (gender != null && (gender == AdoxioGenderCode.Male || gender == AdoxioGenderCode.Female))
             {
                 return (int?)gender;
             }

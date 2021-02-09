@@ -25,7 +25,7 @@ namespace SpiceCarlaSync.models
         [JsonConverter(typeof(StringEnumConverter))]
         public GeneralYesNo? SelfDisclosure { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
-        public AdoxioGenderCode Gender { get; set; }
+        public AdoxioGenderCode? Gender { get; set; }
 
         public Address Address { get; set; }
         public List<Alias> Aliases { get; set; }
