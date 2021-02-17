@@ -23,6 +23,7 @@ using System.Net.Http;
 using Serilog;
 using Serilog.Exceptions;
 using System.Threading.Tasks;
+using System.Net;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -123,6 +124,10 @@ namespace Gov.Jag.Spice.CarlaSync
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            // workaround for SSL certificate issue
+            ServicePointManager.ServerCertificateValidationCallback =
+                (sender, certificate, chain, sslPolicyErrors) => { return true; };
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
