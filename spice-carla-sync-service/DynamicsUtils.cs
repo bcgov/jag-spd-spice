@@ -740,9 +740,9 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 MicrosoftDynamicsCRMCloseIncidentresolution resolution = new MicrosoftDynamicsCRMCloseIncidentresolution()
                 {
-                    Statuscode = 5,
+                    //Statuscode = 5,
                     Incidentidodatabind = _dynamicsClient.GetEntityURI("incidents", incidentId),
-                    Statecode = 1,
+                    //Statecode = 1,
                     Subject = "Sent to LCRB"
                 };
                 try
