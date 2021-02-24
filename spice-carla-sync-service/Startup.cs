@@ -226,8 +226,6 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
-                    log.LogInformation("Creating Hangfire job for Send Results jobs ...");
-                    RecurringJob.AddOrUpdate(() => new CarlaUtils(Configuration, loggerFactory, serviceScope.ServiceProvider.GetRequiredService<FileManager>()).ProcessResults(null), "*/5 * * * *"); // Run every 5 minutes
                     // Process Results in Dynamics
                     IDynamicsClient dynamics = DynamicsSetupUtil.SetupDynamics(Configuration);
                     RecurringJob.AddOrUpdate(() => new DynamicsUtils(Configuration, loggerFactory, dynamics).ProcessBusinessResults(null), Cron.MinuteInterval(5)); // Run every 5 minutes
