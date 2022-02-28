@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { NgBusyModule } from 'ng-busy';
 import { CookieService } from 'ngx-cookie-service';
-import { FileDropModule } from 'ngx-file-drop';
+import { NgxFileDropModule as FileDropModule } from 'ngx-file-drop';
 import {
   MatAutocompleteModule,
   MatButtonModule,
