@@ -43,7 +43,7 @@ export const MY_FORMATS = {
   ]
 })
 export class ScreeningRequestFormComponent extends FormBase implements OnInit, OnDestroy {
-  @ViewChild('documentUploader') documentUploader: FileUploaderComponent;
+  @ViewChild('documentUploader', { static: false }) documentUploader: FileUploaderComponent;
   form: FormGroup;
   minDate: Moment;
   maxDate: Moment;
