@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ScreeningRequestFormComponent } from './screening-request-form.component';
 
@@ -6,7 +6,7 @@ describe('ScreeningRequestFormComponent', () => {
   let component: ScreeningRequestFormComponent;
   let fixture: ComponentFixture<ScreeningRequestFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ScreeningRequestFormComponent ]
     })
