@@ -1,5 +1,5 @@
 
-import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+import { TestBed, ComponentFixture, ComponentFixtureAutoDetect, waitForAsync } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NotFoundComponent } from './not-found.component';
 
@@ -7,7 +7,7 @@ let component: NotFoundComponent;
 let fixture: ComponentFixture<NotFoundComponent>;
 
 describe('NotFound component', () => {
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [ NotFoundComponent ],
             imports: [ BrowserModule ],
@@ -19,7 +19,7 @@ describe('NotFound component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it('should do something', waitForAsync(() => {
         expect(true).toEqual(true);
     }));
 });
