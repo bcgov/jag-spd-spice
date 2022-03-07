@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 /* Controls Survey styles */
 
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @import "~mygovbc-bootstrap-theme/dist/mygovbc-bootstrap-theme.min.css";
 @include mat.core();
 $primary: mat.define-palette(mat.$grey-palette, 400);
