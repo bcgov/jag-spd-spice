@@ -2,15 +2,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "downlevelIteration": true,
     "outDir": "../out-tsc/app",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "es2020",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "es2015",
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -38,8 +38,11 @@
       "@shared*": ["app/shared*"]
     }
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
   ]
 }
