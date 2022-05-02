@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FileSystemFileEntry, UploadEvent } from 'ngx-file-drop';
+import { FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
 
 import * as FileUploadsActions from '../../app-state/actions/file-uploads.action';
 import { AppState } from '../../app-state/models/app-state';
@@ -47,10 +47,9 @@ export class FileUploaderComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  public dropped(event: UploadEvent) {
+  public dropped(files: NgxFileDropEntry[]) {
     this.validationErrors = [];
 
-    const files = event.files;
     for (const droppedFile of files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;

@@ -1,12 +1,14 @@
 <div class="upload-wrapper">
-  <file-drop (onFileDrop)="dropped($event)" customstype="filedrop">
-    <div style="text-align: center">
-      <span>{{uploadHeader}} </span><a href="javascript:void(0)" (click)="browseFiles(fileBrowserM)">BROWSE</a>.
-      <br>
-      <span style="color: #A9A9A9">FILE MUST BE IN {{fileTypes}} FORMAT (MAX: {{fileSizeLimitReadable}}).</span>
-      <input (change)="onBrowserFileSelect($event, fileBrowserM)" type="file" multiple style="display: none;" #fileBrowserM>
-    </div>
-  </file-drop>
+  <ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="drop-zone" contentClassName="content" customstype="filedrop">
+    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+      <div style="text-align: center">
+        <span>{{uploadHeader}} </span><a href="javascript:void(0)" (click)="browseFiles(fileBrowserM)">BROWSE</a>.
+        <br>
+        <span style="color: #A9A9A9">FILE MUST BE IN {{fileTypes}} FORMAT (MAX: {{fileSizeLimitReadable}}).</span>
+        <input (change)="onBrowserFileSelect($event, fileBrowserM)" type="file" multiple style="display: none;" #fileBrowserM>
+      </div>
+    </ng-template>
+  </ngx-file-drop>
   <div *ngFor="let error of validationErrors" class="error-states error-container" style="word-break: break-all;" [innerHTML]="error"></div>
   <div style="margin-top: 5px; color: #2C679E;">
     <section *ngFor="let item of files" class="file-list">
