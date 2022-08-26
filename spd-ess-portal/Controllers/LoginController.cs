@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace Gov.Jag.Spice.Public.Controllers
         private readonly ILogger<LoginController> _logger;
         private readonly IConfiguration Configuration;
 
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public LoginController(ILogger<LoginController> logger, IConfiguration configuration, IHostingEnvironment env)
+        public LoginController(ILogger<LoginController> logger, IConfiguration configuration, IWebHostEnvironment env)
         {
             _logger = logger;
             Configuration = configuration;
