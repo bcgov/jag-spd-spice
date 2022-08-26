@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Rest;
@@ -72,9 +73,10 @@ namespace Gov.Jag.Spice.Public
                 //CSPReportOnly
                 opts.Filters.Add(typeof(CspReportOnlyAttribute));
                 opts.Filters.Add(new CspScriptSrcReportOnlyAttribute { None = true });
+                opts.EnableEndpointRouting = false;
             })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-            .AddJsonOptions(
+            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            .AddNewtonsoftJson(
                 opts =>
                 {
                     opts.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
@@ -134,7 +136,7 @@ namespace Gov.Jag.Spice.Public
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             string pathBase = Configuration["BASE_PATH"];
             if (string.IsNullOrEmpty(pathBase))
