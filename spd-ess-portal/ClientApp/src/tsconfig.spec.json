@@ -6,7 +6,6 @@
     "types": [
       "jasmine",
       "node",
-      "knockout"
     ]
   },
   "files": [
