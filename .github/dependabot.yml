@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/spd-ess-portal/ClientApp"
+    schedule:
+      interval: daily
+    target-branch: develop
