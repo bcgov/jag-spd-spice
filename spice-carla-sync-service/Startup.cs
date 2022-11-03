@@ -16,6 +16,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,8 @@ using Serilog;
 using Serilog.Exceptions;
 using System.Threading.Tasks;
 using System.Net;
+// https://stackoverflow.com/a/58072137
+using Microsoft.Extensions.Hosting;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -52,14 +55,14 @@ namespace Gov.Jag.Spice.CarlaSync
                                  .Build();
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            // Other ConfigureServices() code...
+                config.EnableEndpointRouting = false;
+            } ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo{ Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
                 c.DescribeAllEnumsAsStrings();
+                c.ParameterFilter<EnumTypeParameterFilter>();
                 c.SchemaFilter<EnumTypeSchemaFilter>();
             });
 
@@ -122,7 +125,7 @@ namespace Gov.Jag.Spice.CarlaSync
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             // workaround for SSL certificate issue
             ServicePointManager.ServerCertificateValidationCallback =

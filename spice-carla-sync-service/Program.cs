@@ -37,7 +37,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     logging.AddEventSourceLogger();
                 })
                 .UseSerilog()
-                .UseStartup<Startup>()
-                .MapHealthChecks("/healthep");
+                .UseStartup<Startup>();
+
     }
 }
