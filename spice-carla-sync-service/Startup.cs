@@ -27,6 +27,7 @@ using System.Threading.Tasks;
 using System.Net;
 // https://stackoverflow.com/a/58072137
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -116,7 +117,7 @@ namespace Gov.Jag.Spice.CarlaSync
             // health checks. 
             services.AddHealthChecks()
                 //.AddCheck("spice-sync", () => HealthCheckResult.Healthy("Ok"))
-                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "Dynamics_ready" });
+                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
         }
 
         private void SetupSharePoint(IServiceCollection services)
@@ -174,6 +175,19 @@ namespace Gov.Jag.Spice.CarlaSync
             app.UseMvc();
 
             app.UseHealthChecks("/hc");
+            /*app.MapHealthChecks("/healthcheck/dynamics_ready", new HealthCheckOptions
+            {
+                Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
+            });*/
+
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/healthcheck/dynamics_ready", new HealthCheckOptions
+                {
+                    Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
+                });
+            });
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
