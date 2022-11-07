@@ -115,8 +115,8 @@ namespace Gov.Jag.Spice.CarlaSync
 
             // health checks. 
             services.AddHealthChecks()
-                .AddCheck("spice-sync", () => HealthCheckResult.Healthy("Ok"))
-                .AddCheck<DynamicsHealthCheck>("Dynamics"); 
+                //.AddCheck("spice-sync", () => HealthCheckResult.Healthy("Ok"))
+                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "Dynamics_ready" });
         }
 
         private void SetupSharePoint(IServiceCollection services)
