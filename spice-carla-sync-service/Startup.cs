@@ -57,7 +57,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
                 config.EnableEndpointRouting = false;
-            } ) ; //.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            } ) ; 
 
             services.AddSwaggerGen(c =>
             {

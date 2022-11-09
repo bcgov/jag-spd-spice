@@ -75,7 +75,6 @@ namespace Gov.Jag.Spice.Public
                 opts.Filters.Add(new CspScriptSrcReportOnlyAttribute { None = true });
                 opts.EnableEndpointRouting = false;
             })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
             .AddNewtonsoftJson(
                 opts =>
                 {
