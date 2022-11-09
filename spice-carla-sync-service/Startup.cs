@@ -57,7 +57,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
                 config.EnableEndpointRouting = false;
-            } ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            } ) ; //.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
             {
@@ -116,7 +116,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             // health checks. 
             services.AddHealthChecks()
-                //.AddCheck("spice-sync", () => HealthCheckResult.Healthy("Ok"))
                 .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
         }
 
@@ -173,12 +172,6 @@ namespace Gov.Jag.Spice.CarlaSync
 
             app.UseAuthentication();
             app.UseMvc();
-
-            app.UseHealthChecks("/hc");
-            /*app.MapHealthChecks("/healthcheck/dynamics_ready", new HealthCheckOptions
-            {
-                Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
-            });*/
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>
