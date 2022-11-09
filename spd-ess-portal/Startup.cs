@@ -22,6 +22,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Gov.Jag.Spice.Public.Utils;
 using Gov.Jag.Spice.Interfaces.SharePoint;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Gov.Jag.Spice.Public
 {
@@ -122,6 +123,8 @@ namespace Gov.Jag.Spice.Public
                 .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
 
             services.AddSession();
+
+            
         }
 
         private void SetupDynamics(IServiceCollection services)
@@ -191,7 +194,14 @@ namespace Gov.Jag.Spice.Public
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/healthcheck/dynamics_ready", new HealthCheckOptions
+                {
+                    Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
+                });
+            });
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
