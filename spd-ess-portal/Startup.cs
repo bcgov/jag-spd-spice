@@ -118,6 +118,9 @@ namespace Gov.Jag.Spice.Public
                 checks.AddValueTaskCheck("HTTP Endpoint", () => new ValueTask<IHealthCheckResult>(HealthCheckResult.Healthy("Ok")));
                                 
             });
+            // health checks.
+            services.AddHealthChecks()
+                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
 
             services.AddSession();
         }
