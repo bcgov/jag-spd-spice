@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>6E5C22DB-D6DA-4C9A-88B8-85CEA7E11268</UserSecretsId>
     <StartupObject>odata2openapi.Program</StartupObject>
   </PropertyGroup>
