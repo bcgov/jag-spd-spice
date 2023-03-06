@@ -38,5 +38,6 @@ namespace Gov.Jag.Spice.CarlaSync
                 })
                 .UseSerilog()
                 .UseStartup<Startup>();
+
     }
 }
