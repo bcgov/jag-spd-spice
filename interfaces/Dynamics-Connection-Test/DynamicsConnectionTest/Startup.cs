@@ -49,7 +49,7 @@ namespace DynamicsConnectionTest
             services.AddMvc(config =>
             {
                 config.EnableEndpointRouting = false;                
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            });
             
 
 
