@@ -29,6 +29,7 @@
   <main class="app-content">
     <div class="app-main">
       <div *ngIf="error" class="text-center">
+        <span>Current User is: {{currentUser}}</span>
         <h1>Site Error</h1>
         <p>{{error}}</p>
       </div>

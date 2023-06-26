@@ -23,7 +23,7 @@ namespace Gov.Jag.Spice.Interfaces
             bool healthCheckResultHealthy;
             try
             {
-                var result = _dynamics.Accounts.Get(top: 1).Value;
+                //var result = _dynamics.Accounts.Get(top: 1).Value;
                 healthCheckResultHealthy = true;
             }
             catch (Exception)
