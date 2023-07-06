@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Rest;
 using Newtonsoft.Json;
@@ -10,8 +11,7 @@ namespace Gov.Jag.Spice.Interfaces
 {
     public static class DynamicsSetupUtil
     {
-
-        public static ServiceClientCredentials GetServiceClientCredentials(IConfiguration Configuration)
+        public static ServiceClientCredentials GetServiceClientCredentials(IConfiguration Configuration, ILogger logger)
         {
             // Cloud - x.dynamics.com
             string aadTenantId = Configuration["DYNAMICS_AAD_TENANT_ID"]; // Cloud AAD Tenant ID
@@ -31,12 +31,25 @@ namespace Gov.Jag.Spice.Interfaces
             string ssgUsername = Configuration["SSG_USERNAME"];  // BASIC authentication username
             string ssgPassword = Configuration["SSG_PASSWORD"];  // BASIC authentication password
 
-
-
-            ServiceClientCredentials serviceClientCredentials = null;
+            logger.LogInformation("***ssgUsername[" + ssgUsername + "] ssgpassword[" + ssgPassword +
+                "] adfsOauth2Uri[" + adfsOauth2Uri +
+                "] applicationGroupResource[" + applicationGroupResource +
+                "] applicationGroupClientId[" + applicationGroupClientId
+                + "] applicationGroupSecret[" + applicationGroupSecret
+                + "] serviceAccountUsername[" + serviceAccountUsername
+                + "] serviceAccountPassword[" + serviceAccountPassword
+                + "]"
+                );
+        ServiceClientCredentials serviceClientCredentials = null;
             if (!string.IsNullOrEmpty(appRegistrationClientId) && !string.IsNullOrEmpty(appRegistrationClientKey) && !string.IsNullOrEmpty(serverAppIdUri) && !string.IsNullOrEmpty(aadTenantId))
             // Cloud authentication - using an App Registration's client ID, client key.  Add the App Registration to Dynamics as an Application User.
             {
+                logger.LogInformation("***Cloud authentication: " + "https://login.windows.net/" + aadTenantId
+                    + " serverAppIdUri[" + serverAppIdUri 
+                    + "] appRegistrationClientId[" + appRegistrationClientId
+                    + "] appRegistrationClientKey[" + appRegistrationClientKey
+                    );
+                
                 var authenticationContext = new AuthenticationContext(
                 "https://login.windows.net/" + aadTenantId);
                 ClientCredential clientCredential = new ClientCredential(appRegistrationClientId, appRegistrationClientKey);
@@ -54,6 +67,7 @@ namespace Gov.Jag.Spice.Interfaces
                 !string.IsNullOrEmpty(serviceAccountPassword))
             // ADFS 2016 authentication - using an Application Group Client ID and Secret, plus service account credentials.
             {
+                logger.LogInformation("***HTTP client");
                 // create a new HTTP client that is just used to get a token.
                 var stsClient = new HttpClient();
 
@@ -80,8 +94,11 @@ namespace Gov.Jag.Spice.Interfaces
 
                 // This will also set the content type of the request
                 var content = new FormUrlEncodedContent(pairs);
+                logger.LogInformation($"Content: {content}");
                 // send the request to the ADFS server
                 var _httpResponse = stsClient.PostAsync(adfsOauth2Uri, content).GetAwaiter().GetResult();
+
+                logger.LogInformation($"{_httpResponse.StatusCode}");
                 var _responseContent = _httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                 // response should be in JSON format.
                 try
@@ -100,6 +117,7 @@ namespace Gov.Jag.Spice.Interfaces
             else if (!string.IsNullOrEmpty(ssgUsername) && !string.IsNullOrEmpty(ssgPassword))
             // Authenticate using BASIC authentication - used for API Gateways with BASIC authentication.  Add the NTLM user associated with the API gateway entry to Dynamics as a user.            
             {
+                logger.LogInformation("***BASIC authentication " + ssgUsername + " " + ssgPassword);
                 serviceClientCredentials = new BasicAuthenticationCredentials()
                 {
                     UserName = ssgUsername,
@@ -119,7 +137,7 @@ namespace Gov.Jag.Spice.Interfaces
         /// </summary>
         /// <param name="Configuration"></param>
         /// <returns></returns>
-        public static IDynamicsClient SetupDynamics(IConfiguration Configuration)
+        public static IDynamicsClient SetupDynamics(IConfiguration Configuration, ILogger _logger)
         {
             string dynamicsOdataUri = Configuration["DYNAMICS_ODATA_URI"]; // Dynamics ODATA endpoint
 
@@ -128,7 +146,7 @@ namespace Gov.Jag.Spice.Interfaces
                 throw new Exception("Configuration setting DYNAMICS_ODATA_URI is blank.");
             }
 
-            ServiceClientCredentials serviceClientCredentials = GetServiceClientCredentials(Configuration);
+            ServiceClientCredentials serviceClientCredentials = GetServiceClientCredentials(Configuration, _logger);
 
             IDynamicsClient client = new DynamicsClient(new Uri(dynamicsOdataUri), serviceClientCredentials);
 

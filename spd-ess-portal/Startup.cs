@@ -23,14 +23,17 @@ using System.Threading.Tasks;
 using Gov.Jag.Spice.Public.Utils;
 using Gov.Jag.Spice.Interfaces.SharePoint;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Logging;
 
 namespace Gov.Jag.Spice.Public
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        internal static ILoggerFactory LogFactory { get; set; }
+        public Startup(IConfiguration configuration, ILoggerFactory logFactory)
         {
             Configuration = configuration;
+            LogFactory = logFactory;
         }
 
         public IConfiguration Configuration { get; }
@@ -131,7 +134,7 @@ namespace Gov.Jag.Spice.Public
         {            
             services.AddTransient(serviceProvider =>
             {                
-                IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
+                IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration, LogFactory.CreateLogger<Startup>());
                 return client;
             });
 
