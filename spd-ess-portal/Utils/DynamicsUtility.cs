@@ -153,7 +153,7 @@ namespace Gov.Jag.Spice.Public.Utils
                 SpiceServiceIdODataBind = screeningType,
                 SpiceReasonForScreeningIdODataBind = reason,
                 SpiceOtherscreeningreason = screeningRequest.OtherReason,
-                SpiceReturnToIdODataBind = contact,
+                SpiceReturnToIdODataBind = contact              ,
                 SpiceApplicanttype = applicantType,
                 SpiceCannabisapplicanttype = cannabisApplicantType,
                 SpiceJobtitle = screeningRequest.Candidate.Position,
