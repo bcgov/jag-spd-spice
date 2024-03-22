@@ -28,6 +28,7 @@ using System.Net;
 // https://stackoverflow.com/a/58072137
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.Text.Json.Serialization;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -57,12 +58,14 @@ namespace Gov.Jag.Spice.CarlaSync
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
                 config.EnableEndpointRouting = false;
-            } ) ; 
+            }).AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo{ Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
-                c.DescribeAllEnumsAsStrings();
                 c.ParameterFilter<EnumTypeParameterFilter>();
                 c.SchemaFilter<EnumTypeSchemaFilter>();
             });
