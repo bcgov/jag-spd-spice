@@ -50,7 +50,7 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             return Ok();
         }       
 
-        /// <summary>
+        /*/// <summary>
         /// Send a completed worker screening to the CARLA system for test purposes.  Normally this would occur from a polling process.
         /// </summary>
         /// <returns></returns>
@@ -66,6 +66,6 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             BackgroundJob.Enqueue(() => new CarlaUtils(Configuration, _loggerFactory, _sharepoint).SendWorkerScreeningResult(payload));
             _logger.LogInformation($"Started send Worker Screening result for job: {result.RecordIdentifier}");
             return Ok();
-        }
+        }*/
     }
 }
