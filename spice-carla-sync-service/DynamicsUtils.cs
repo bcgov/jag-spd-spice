@@ -433,6 +433,8 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (Exception e)
                     {
+                        _logger.LogError($"Exception Occured" + e);
+                        _logger.LogError($"Exception Occured" + e.Message);
                         this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                     }
                 }
