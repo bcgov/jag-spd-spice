@@ -99,6 +99,7 @@ namespace Gov.Jag.Spice.Public.Utils
                 Lastname = candidate.LastName,
                 SpiceDateofbirth = candidate.DateOfBirth,
                 Emailaddress1 = candidate.Email,
+                SpicePositiontitle = candidate.Position,
             };
 
             entity = await dynamicsClient.Contacts.CreateAsync(entity);
