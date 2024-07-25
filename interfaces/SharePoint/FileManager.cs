@@ -41,7 +41,7 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
     
     public class FileManager
     {
-        
+        private const string ScreeningDocumentListTitle = "Screening";
 
         private AuthenticationResult authenticationResult;
 
@@ -905,6 +905,48 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             return result;
         }
+
+
+        /// <summary>
+        /// TestStatus - Tests the status of the SharePoint service
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> TestStatus()
+        {
+            bool result = false;
+
+            // Test the status of the SharePoint service by performing a simple GET request
+            string title = Uri.EscapeUriString(ScreeningDocumentListTitle);
+            string query = $"web/lists/GetByTitle('{title}')";
+
+            HttpRequestMessage endpointRequest = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(ApiEndpoint + query),
+                Headers = {
+                    { "Accept", "application/json" }
+                }
+            };
+
+            // make the request.
+            try
+            {
+                var response = await _Client.SendAsync(endpointRequest);
+                HttpStatusCode _statusCode = response.StatusCode;
+
+                // We're only interested in the status of the response, which we check here.
+                if (_statusCode == HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception)
+            {
+                // we ignore any exceptions and just set the result to false.
+                result = false;
+            }
+            return result;
+        }
     }
 
    class DocumentLibraryResponse
@@ -916,4 +958,5 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
     {
         public string Id { get; set; }
     }
+
 }
