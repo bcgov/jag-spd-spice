@@ -120,7 +120,8 @@ namespace Gov.Jag.Spice.Public
             });
             // health checks.
             services.AddHealthChecks()
-                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
+                .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" })
+                .AddCheck<SharePointHealthCheck>("SharePoint", tags: new[] { "sharepoint_ready" });
 
             services.AddSession();
 
@@ -201,6 +202,10 @@ namespace Gov.Jag.Spice.Public
                 {
                     Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
                 });
+                endpoints.MapHealthChecks("/healthcheck/sharepoint_ready", new HealthCheckOptions
+                {
+                    Predicate = healthCheck => healthCheck.Tags.Contains("sharepoint_ready")
+                });
             });
             app.UseSpa(spa =>
             {
@@ -212,7 +217,10 @@ namespace Gov.Jag.Spice.Public
                 // Only run the angular CLI Server in Development mode (not staging or test.)
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    // When using .NET Core 3.0 and above, use the external Angular CLI instance instead of launching one of your own
+                    // see https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.1&tabs=visual-studio#run-ng-serve-independently
+                    
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
 
