@@ -1,6 +1,7 @@
 ﻿using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.Models;
 using Gov.Jag.Spice.Public.ViewModels;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,7 +71,17 @@ namespace Gov.Jag.Spice.Public.Utils
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetCandidateAsync(IDynamicsClient dynamicsClient, Candidate candidate)
         {
-            string filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
+            /* SPDCSS-1174 - Middle name is optional. If it's not included, we need to use a different filter - just setting it to an empty string doesn't work. */
+            string filter = string.Empty;
+            if (candidate.MiddleName.IsNullOrEmpty())
+            {
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
+            }
+            else
+            {
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
+            }
+
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
             return entities.FirstOrDefault();
         }
