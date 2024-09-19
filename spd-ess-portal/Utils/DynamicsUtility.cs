@@ -75,11 +75,11 @@ namespace Gov.Jag.Spice.Public.Utils
             string filter = string.Empty;
             if (candidate.MiddleName.IsNullOrEmpty())
             {
-                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}'";
             }
             else
             {
-                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}' and spice_positiontitle eq '{Escape(candidate.Position)}'";
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}'";
             }
 
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
@@ -110,7 +110,6 @@ namespace Gov.Jag.Spice.Public.Utils
                 Lastname = candidate.LastName,
                 SpiceDateofbirth = candidate.DateOfBirth,
                 Emailaddress1 = candidate.Email,
-                SpicePositiontitle = candidate.Position,
             };
 
             entity = await dynamicsClient.Contacts.CreateAsync(entity);
