@@ -75,15 +75,31 @@ namespace Gov.Jag.Spice.Public.Utils
             string filter = string.Empty;
             if (candidate.MiddleName.IsNullOrEmpty())
             {
-                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}'";
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o}";
             }
             else
             {
-                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o} and emailaddress1 eq '{Escape(candidate.Email)}'";
+                filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq '{Escape(candidate.MiddleName)}' and spice_dateofbirth eq {candidate.DateOfBirth:o}";
             }
 
             var entities = (await dynamicsClient.Contacts.GetAsync(filter: filter)).Value;
             return entities.FirstOrDefault();
+        }
+
+        public static async Task UpdateCandidateEmailAsync(IDynamicsClient dynamicsClient, MicrosoftDynamicsCRMcontact candidate)
+        {
+            try
+            {
+                var entity = new MicrosoftDynamicsCRMcontact
+                {
+                    Emailaddress1 = candidate.Emailaddress1,
+                };
+                await dynamicsClient.Contacts.UpdateAsync(candidate.Contactid, entity);
+            }
+            catch (OdataerrorException ex)
+            {
+                throw new DynamicsEntityNotFoundException(nameof(MicrosoftDynamicsCRMspiceGovministry));
+            }
         }
 
         public static async Task<MicrosoftDynamicsCRMcontact> GetSubmitterAsync(IDynamicsClient dynamicsClient, User user)
