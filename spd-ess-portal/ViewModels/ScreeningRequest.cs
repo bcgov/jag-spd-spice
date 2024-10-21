@@ -85,13 +85,27 @@ namespace Gov.Jag.Spice.Public.ViewModels
             var submitter = await ObtainSubmitter(dynamicsClient, logger, user, programAreaId);
             var contact = await ObtainContact(dynamicsClient, logger);
 
+            if (candidate.Emailaddress1 != Candidate.Email)
+            {
+                try
+                {
+                    candidate.Emailaddress1 = Candidate.Email;
+                    await DynamicsUtility.UpdateCandidateEmailAsync(dynamicsClient, candidate);
+                }
+                catch (OdataerrorException ex)
+                {
+                    logger.LogError(ex, string.Join(Environment.NewLine, "Failed to update candidate email address {CandidateId} to {NewEmail}", "{@ErrorBody}"), candidate.Contactid, Candidate.Email, ex.Body);
+                    throw;
+                }
+            }
+
             try
             {
                 var screeningRequest = await DynamicsUtility.CreateScreeningRequestAsync(
-                    dynamicsClient, 
+                    dynamicsClient,
                     this,
                     candidate.Contactid,
-                    submitter.SpiceMinistryemployeeid,                                       
+                    submitter.SpiceMinistryemployeeid,
                     contact.SpiceMinistryemployeeid,
                     screeningType.ApplicantType,
                     screeningType.CannabisApplicantType
@@ -187,7 +201,6 @@ namespace Gov.Jag.Spice.Public.ViewModels
                 try
                 {
                     submitter = await DynamicsUtility.CreateContactAsync(dynamicsClient, contact, programAreaId);
-                    logger.LogInformation("Successfully created contact {ContactId} from view model {@Contact}", submitter.SpiceMinistryemployeeid,  contact);
                 }
                 catch (OdataerrorException ex)
                 {
