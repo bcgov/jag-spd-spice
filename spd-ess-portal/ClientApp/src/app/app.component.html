@@ -40,15 +40,15 @@
         </p>
       </div>
       <div
-        *ngIf="!error && configuration?.outageInfo?.isOutage"
+        *ngIf="!error && isOutage()"
         class="text-center"
       >
         <h1>Site Outage</h1>
-        <p>{{ configuration.outageInfo.content }}</p>
+        <p>{{ configuration.outageMessage }}</p>
         <p>{{ generateOutageDateMessage() }}</p>
       </div>
       <router-outlet
-        *ngIf="!error && !configuration?.outageInfo?.isOutage"
+        *ngIf="!error && !isOutage()"
       ></router-outlet>
     </div>
   </main>

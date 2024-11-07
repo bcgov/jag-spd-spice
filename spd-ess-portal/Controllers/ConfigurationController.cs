@@ -13,15 +13,13 @@ namespace Gov.Jag.Spice.Public.Controllers
     [ApiController]
     public class ConfigurationController : ControllerBase
     {
-        private readonly ILogger<ConfigurationController> _logger;
-        private readonly IDynamicsClient _dynamicsClient;
-        private readonly IConfiguration _configuration;
+        private readonly ILogger<ConfigurationController> logger;
+        private readonly IConfiguration configuration;
 
         public ConfigurationController(ILogger<ConfigurationController> logger, IDynamicsClient dynamicsClient, IConfiguration configuration)
         {
-            _logger = logger;
-            _dynamicsClient = dynamicsClient;
-            _configuration = configuration;
+            this.logger = logger;
+            this.configuration = configuration;
         }
 
         [AllowAnonymous]
@@ -30,39 +28,32 @@ namespace Gov.Jag.Spice.Public.Controllers
         {
             try
             {
-                // Log to check if the section exists
-                _logger.LogInformation("Configuration section exists: " + _configuration.GetSection("Configuration").Exists());
-
-                // Retrieve the entire Configuration section from appsettings.json
-                var configurationData = _configuration.GetSection("Configuration").Get<ConfigurationRoot>();
-
-                if (configurationData == null)
+                var config = new Configuration
                 {
-                    _logger.LogWarning("Configuration information is not configured.");
-                    return NotFound("Configuration information not found.");
-                }
+                    OutageMessage = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_MESSAGE"),
+                    OutageStartDate = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_STARTDATE"),
+                    OutageEndDate = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_ENDDATE")
+                };
 
-                _logger.LogInformation("Full Configuration Information: {@ConfigurationData}", configurationData);
+                if (string.IsNullOrEmpty(config.OutageMessage) || string.IsNullOrEmpty(config.OutageStartDate) || string.IsNullOrEmpty(config.OutageEndDate))
+                {
+                    return Ok();
+                };
 
-                return new JsonResult(configurationData);
+                return Ok(config);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to retrieve configuration information.");
+                logger.LogError(ex, "Failed to retrieve configuration information.");
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
     }
 }
 
-public class ConfigurationRoot
+public class Configuration
 {
-    public OutageInfo OutageInfo { get; set; }
-}
-public class OutageInfo
-{
-    public bool IsOutage { get; set; }
-    public string Content { get; set; }
-    public DateTime OutageStartDate { get; set; }
-    public DateTime OutageEndDate { get; set; }
-}
+    public string OutageMessage { get; set; }
+    public string OutageStartDate { get; set; }
+    public string OutageEndDate { get; set; }
+};
