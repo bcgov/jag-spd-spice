@@ -12,7 +12,7 @@ import { ScreeningRequestDataService } from './services/screening-request-data.s
 import { UserDataService } from './services/user-data.service';
 import { ConfigService } from '@appservices/config.service';
 import { Configuration } from '@appmodels/configuration';
-import { parseDate } from '@apputilities/datetimeUtility';
+import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'app-root',
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
       this.userDataService.getCurrentUser(),
       this.screeningRequestDataService.getMinistryScreeningTypes(),
       this.screeningRequestDataService.getScreeningReasons(),
-    ).subscribe(([ user, ministryScreeningTypes, screeningReasons ]) => {
+    ).subscribe(([user, ministryScreeningTypes, screeningReasons]) => {
       this.currentUser = user;
       this.store.dispatch(new CurrentUserActions.SetCurrentUserAction(user));
       this.store.dispatch(new MinistryScreeningTypesActions.SetMinistryScreeningTypesAction(ministryScreeningTypes));
@@ -58,19 +58,21 @@ export class AppComponent implements OnInit {
     });
   }
 
-  generateOutageDateMessage(): string {
-    if (this.configuration?.outageInfo && this.configuration?.outageInfo?.isOutage) {
-      const outageInfo = this.configuration.outageInfo;
-      if (outageInfo.outageEndDate && outageInfo.outageStartDate) {
-        const startDate = parseDate(outageInfo.outageStartDate);
-        const endDate = parseDate(outageInfo.outageEndDate);
-
-        return "The system will be unavailable from " + startDate + " to " + endDate;
-      }
-      return ""
-    } else {
-      return ""
+  isOutage() {
+    if (!this.configuration?.outageEndDate || !this.configuration?.outageStartDate || !this.configuration?.outageMessage) {
+      return false;
     }
+    const currentDate = moment().tz("America/Vancouver");
+    const outageStartDate = moment(this.configuration.outageStartDate).tz("America/Vancouver");
+    const outageEndDate = moment(this.configuration.outageEndDate).tz("America/Vancouver");
+    return currentDate.isBetween(outageStartDate, outageEndDate, null, '[]');
+  }
+
+
+  generateOutageDateMessage(): string {
+    const startDate = moment(this.configuration.outageStartDate).tz("America/Vancouver").format("MMMM Do YYYY, h:mm a");
+    const endDate = moment(this.configuration.outageEndDate).tz("America/Vancouver").format("MMMM Do YYYY, h:mm a");
+    return "The system will be unavailable from " + startDate + " to " + endDate;
   }
 
   isIE10orLower() {
