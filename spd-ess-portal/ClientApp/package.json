@@ -42,6 +42,7 @@
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.2",
+    "moment-timezone": "^0.5.46",
     "mygovbc-bootstrap-theme": "^0.4.1",
     "ng-busy": "^13.0.0",
     "ngx-bootstrap": "^3.3.0",
