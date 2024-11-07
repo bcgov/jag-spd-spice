@@ -10,6 +10,9 @@ import { AppState } from './app-state/models/app-state';
 import { User } from './models/user.model';
 import { ScreeningRequestDataService } from './services/screening-request-data.service';
 import { UserDataService } from './services/user-data.service';
+import { ConfigService } from '@appservices/config.service';
+import { Configuration } from '@appmodels/configuration';
+import { parseDate } from '@apputilities/datetimeUtility';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +21,7 @@ import { UserDataService } from './services/user-data.service';
 })
 export class AppComponent implements OnInit {
   currentUser: User;
+  configuration: Configuration;
   busy: Subscription;
 
   error = false;
@@ -25,10 +29,21 @@ export class AppComponent implements OnInit {
   constructor(
     private screeningRequestDataService: ScreeningRequestDataService,
     private userDataService: UserDataService,
+    private configService: ConfigService,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
+    this.configService.load()
+      .then((configuration) => {
+        console.log("Fetched Configuration:", configuration);
+        this.configuration = configuration;
+      })
+      .catch((error) => {
+        console.error("Failed to fetch configuration:", error);
+        this.error = error;
+      });
+
     this.busy = forkJoin(
       this.userDataService.getCurrentUser(),
       this.screeningRequestDataService.getMinistryScreeningTypes(),
@@ -41,6 +56,21 @@ export class AppComponent implements OnInit {
     }, error => {
       this.error = error;
     });
+  }
+
+  generateOutageDateMessage(): string {
+    if (this.configuration?.outageInfo && this.configuration?.outageInfo?.isOutage) {
+      const outageInfo = this.configuration.outageInfo;
+      if (outageInfo.outageEndDate && outageInfo.outageStartDate) {
+        const startDate = parseDate(outageInfo.outageStartDate);
+        const endDate = parseDate(outageInfo.outageEndDate);
+
+        return "The system will be unavailable from " + startDate + " to " + endDate;
+      }
+      return ""
+    } else {
+      return ""
+    }
   }
 
   isIE10orLower() {

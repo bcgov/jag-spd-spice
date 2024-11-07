@@ -43,6 +43,7 @@ import { metaReducers, reducers } from './app-state/reducers/reducers';
 
 import { ScreeningRequestDataService } from './services/screening-request-data.service';
 import { UserDataService } from './services/user-data.service';
+import { ConfigService } from '@appservices/config.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -156,6 +157,7 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     ScreeningRequestDataService,
     Title,
     UserDataService,
+    ConfigService,
   ],
   bootstrap: [AppComponent]
 })
