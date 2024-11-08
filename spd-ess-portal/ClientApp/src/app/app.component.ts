@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.configService.load()
       .then((configuration) => {
-        console.log("Fetched Configuration:", configuration);
         this.configuration = configuration;
       })
       .catch((error) => {
