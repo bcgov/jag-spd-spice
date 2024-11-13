@@ -16,7 +16,7 @@ namespace Gov.Jag.Spice.Public.Controllers
         private readonly ILogger<ConfigurationController> logger;
         private readonly IConfiguration configuration;
 
-        public ConfigurationController(ILogger<ConfigurationController> logger, IDynamicsClient dynamicsClient, IConfiguration configuration)
+        public ConfigurationController(ILogger<ConfigurationController> logger, IConfiguration configuration)
         {
             this.logger = logger;
             this.configuration = configuration;
