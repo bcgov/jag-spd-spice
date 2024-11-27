@@ -73,7 +73,7 @@ namespace Gov.Jag.Spice.Public.Utils
         {
             /* SPDCSS-1174 - Middle name is optional. If it's not included, we need to use a different filter - just setting it to an empty string doesn't work. */
             string filter = string.Empty;
-            if (candidate.MiddleName.IsNullOrEmpty())
+            if (string.IsNullOrEmpty(candidate.MiddleName))
             {
                 filter = $"fullname eq '{Escape(candidate.FirstName)} {Escape(candidate.LastName)}' and middlename eq null and spice_dateofbirth eq {candidate.DateOfBirth:o}";
             }
