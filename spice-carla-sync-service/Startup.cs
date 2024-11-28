@@ -69,7 +69,7 @@ namespace Gov.Jag.Spice.CarlaSync
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo{ Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
-                c.DescribeAllEnumsAsStrings();
+                //c.DescribeAllEnumsAsStrings();
                 c.ParameterFilter<EnumTypeParameterFilter>();
                 c.SchemaFilter<EnumTypeSchemaFilter>();
             });
