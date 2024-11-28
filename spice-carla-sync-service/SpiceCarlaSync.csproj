@@ -22,10 +22,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="7.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="7.1.0" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.console" Version="2.9.2">
       <PrivateAssets>all</PrivateAssets>
