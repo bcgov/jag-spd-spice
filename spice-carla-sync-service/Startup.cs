@@ -28,6 +28,7 @@ using System.Net;
 // https://stackoverflow.com/a/58072137
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.Text.Json.Serialization;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -57,7 +58,13 @@ namespace Gov.Jag.Spice.CarlaSync
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
                 config.EnableEndpointRouting = false;
-            } ) ; 
+            } ) ;
+
+            services.AddControllersWithViews().AddJsonOptions(x =>
+            {
+                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -67,11 +74,13 @@ namespace Gov.Jag.Spice.CarlaSync
                 c.SchemaFilter<EnumTypeSchemaFilter>();
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddDefaultTokenProviders();
+        
 
             if (!string.IsNullOrEmpty(Configuration["JWT_TOKEN_KEY"]))
             {
+                services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddDefaultTokenProviders();
+
                 // Configure JWT authentication
                 services.AddAuthentication(o =>
                 {
@@ -81,12 +90,18 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     o.SaveToken = true;
                     o.RequireHttpsMetadata = false;
+
+                    byte[] secretBytes = Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]);
+                    Array.Resize(ref secretBytes, 32);
+
+                    var symmetricSecurityKey = new SymmetricSecurityKey(secretBytes);
+
                     o.TokenValidationParameters = new TokenValidationParameters()
                     {
                         RequireExpirationTime = false,
                         ValidIssuer = Configuration["JWT_VALID_ISSUER"],
                         ValidAudience = Configuration["JWT_VALID_AUDIENCE"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]))
+                        IssuerSigningKey = symmetricSecurityKey
                     };
                 });
             }
