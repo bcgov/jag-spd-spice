@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore;
+﻿using System;
+using System.Reflection;
+using System.Text;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
@@ -11,12 +13,15 @@ namespace Gov.Jag.Spice.CarlaSync
     {
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
-            host.Run();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            CreateWebHostBuilder(args)
+                .Build()
+                .Run();
         }
 
-        private static IHostBuilder CreateWebHostBuilder(string[] args) =>
-           Host.CreateDefaultBuilder(args)
+        private static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var env = hostingContext.HostingEnvironment;
@@ -38,10 +43,19 @@ namespace Gov.Jag.Spice.CarlaSync
                 logging.AddEventSourceLogger();
             })
             .UseSerilog()
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
+            .UseStartup<Startup>()
+            .UseKestrel(options =>
+             {
+                 options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(5);
+                 options.Limits.MaxRequestBodySize = 512 * 1024 * 1024; // allow large transfers
+                                                                        // for macOS local dev but don't have env
+                                                                        // options.ListenLocalhost(5001, o => {
+                                                                        //     o.Protocols = HttpProtocols.Http2;
+                                                                        // });
+             });
+
+        }
+           
 
     }
 }
