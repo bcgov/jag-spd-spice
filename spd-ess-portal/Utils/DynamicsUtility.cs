@@ -111,7 +111,8 @@ namespace Gov.Jag.Spice.Public.Utils
 
         public static async Task<MicrosoftDynamicsCRMspiceMinistryemployee> GetContactAsync(IDynamicsClient dynamicsClient, Contact contact)
         {
-            string filter = $"spice_name eq '{Escape(contact.FirstName)}' and spice_lastname eq '{Escape(contact.LastName)}' and spice_email eq '{Escape(contact.Email)}'";
+            /* SPDCSS-1195: Changed spice_name to spice_firstname. */ 
+            string filter = $"spice_firstname eq '{Escape(contact.FirstName)}' and spice_lastname eq '{Escape(contact.LastName)}' and spice_email eq '{Escape(contact.Email)}'";
             var entity = (await dynamicsClient.Ministryemployees.GetAsync(filter: filter)).Value;
             return entity.FirstOrDefault();
         }
@@ -153,7 +154,7 @@ namespace Gov.Jag.Spice.Public.Utils
 
             var entity = new MicrosoftDynamicsCRMspiceMinistryemployee
             {
-                SpiceName = contact.FirstName,
+                SpiceFirstName = contact.FirstName,
                 SpiceLastname = contact.LastName,
                 SpiceEmail = contact.Email,
                 SpiceMinistryIdODataBind = programArea,
