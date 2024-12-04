@@ -46,7 +46,7 @@ namespace Gov.Jag.Spice.Interfaces.Models
             this._modifiedbyValue = _modifiedbyValue;
             this._modifiedonbehalfbyValue = _modifiedonbehalfbyValue;
             this._createdbyValue = _createdbyValue;
-            SpiceName = spiceName;
+            SpiceFirstName = spiceName;
             this._owneridValue = _owneridValue;
             Timezoneruleversionnumber = timezoneruleversionnumber;
             Createdon = createdon;
@@ -158,9 +158,10 @@ namespace Gov.Jag.Spice.Interfaces.Models
         public string _createdbyValue { get; set; }
 
         /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "spice_name")]
-        public string SpiceName { get; set; }
+        /// </summary>           
+        /* SPDCSS-1195: Changed PropertyName from spice_name to spice_firstname. */ 
+        [JsonProperty(PropertyName = "spice_firstname")]
+        public string SpiceFirstName { get; set; }
 
         /// <summary>
         /// </summary>
