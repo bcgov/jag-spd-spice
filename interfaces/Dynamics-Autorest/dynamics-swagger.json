@@ -110455,7 +110455,7 @@
         "_createdby_value": {
           "type": "string"
         },
-        "spice_name": {
+        "spice_firstname": {
           "type": "string"
         },
         "_ownerid_value": {
