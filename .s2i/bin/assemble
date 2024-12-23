@@ -223,11 +223,8 @@ elif [ -n "$DOTNET_TEST" ]; then
 else	  
   # publish application
   echo "---> Restoring application dependencies..."
-  if [ -n "$INCREMENTAL_SOURCE_OPTION" ]; then
-    # perform a restore against packages-for-incremental-build
-    dotnet restore "$DOTNET_STARTUP_PROJECT" $RESTORE_OPTIONS $INCREMENTAL_SOURCE_OPTION $VERBOSITY_OPTION >/dev/null 2>&1 || true
-  fi
-  dotnet restore "$DOTNET_STARTUP_PROJECT" $RESTORE_OPTIONS $RESTORE_SOURCE_OPTIONS $VERBOSITY_OPTION
+  
+  dotnet restore "$DOTNET_STARTUP_PROJECT" 
   echo "---> Publishing application..."
   dotnet publish "$DOTNET_STARTUP_PROJECT" -f "$DOTNET_FRAMEWORK" -c "$DOTNET_CONFIGURATION" $VERBOSITY_OPTION \
          --self-contained false /p:PublishWithAspNetCoreTargetManifest=false --no-restore -o "$DOTNET_APP_PATH"		 
