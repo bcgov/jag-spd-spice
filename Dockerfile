@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 RUN set -uex \
     && apt-get update \
     && NODE_MAJOR=18 \
-    && apt-get install nodejs -y;
+    && apt-get install nodejs npm -y;
 
 WORKDIR /src
 
