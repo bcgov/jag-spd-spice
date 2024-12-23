@@ -1,0 +1,24 @@
+name: spd-ess-portal
+
+on:
+  workflow_dispatch:
+env:
+  IMAGE_NAME: spd-ess-portal
+  WORKING_DIRECTORY: ./
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:      
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+        
+      - name: Docker Build Image
+        run: |          
+          docker build --tag ${{ env.IMAGE_NAME }} -f api/Dockerfile . 
+          docker tag ${{ env.IMAGE_NAME }} artifacts.developer.gov.bc.ca/ccb6-images/${{ env.IMAGE_NAME }}:dev-${{ steps.short_sha.outputs.SHORT_SHA }}
+          docker push artifacts.developer.gov.bc.ca/ccb6-images/${{ env.IMAGE_NAME }}:dev-${{ steps.short_sha.outputs.SHORT_SHA }}
+
+      
