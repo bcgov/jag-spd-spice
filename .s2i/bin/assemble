@@ -100,9 +100,6 @@ fi
 if [ "$BUILD_TYPE" == "source" ]; then
   echo "Using SDK: $(dotnet --version)"
 
-  # Trust certificates from DOTNET_SSL_DIRS.
-  source /opt/app-root/etc/trust_ssl_dirs
-
   # npm
   if [ -n "${DOTNET_NPM_TOOLS}" ]; then
     echo "---> Installing npm tools..."
