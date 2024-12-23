@@ -21,10 +21,7 @@ else
   VERBOSITY_OPTION=""
 fi
 
-echo "---> Installing application source..."
-if [ -d /tmp/src ]; then
-  mv /tmp/src/* ./
-fi
+cd /tmp/src
 
 if [ "$DEV_MODE" == true ]; then
   BUILD_TYPE=source
