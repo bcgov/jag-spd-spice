@@ -45,7 +45,7 @@
     "moment-timezone": "^0.5.46",
     "mygovbc-bootstrap-theme": "^0.4.1",
     "ng-busy": "^13.0.0",
-    "ngx-bootstrap": "^3.3.0",
+    "ngx-bootstrap": "^19.0.2",
     "ngx-cookie-service": "^13.1.2",
     "ngx-file-drop": "^13.0.0",
     "popper.js": "^1.14.7",
