@@ -163,7 +163,6 @@ namespace odata2openapi
         {
             if (args.Length == 0)
             {
-                solutionPrefix = "spice";
                 Console.WriteLine("Please enter a solution prefix");
             }
             else
@@ -913,10 +912,6 @@ namespace odata2openapi
 
 
                 //**************************************
-
-                // fix for "odata.error.main" - innererror property.
-                var d = swaggerDocument.Components.Schemas.Keys;
-
                 // fix for two entities that have links to everything else - this causes massive spikes in memory consumption.
 
                 swaggerDocument.Components.Schemas.Remove("Microsoft.Dynamics.CRM.transactioncurrency");
