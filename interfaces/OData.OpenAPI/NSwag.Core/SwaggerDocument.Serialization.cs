@@ -24,7 +24,7 @@ namespace NSwag
         /// <returns>The settings.</returns>
         public static PropertyRenameAndIgnoreSerializerContractResolver CreateJsonSerializerContractResolver(SchemaType schemaType)
         {
-            var resolver = JsonSchema4.CreateJsonSerializerContractResolver(schemaType);
+            var resolver = JsonSchema.CreateJsonSerializerContractResolver(schemaType);
 
             if (schemaType == SchemaType.OpenApi3)
             {
@@ -162,7 +162,7 @@ namespace NSwag
 
         /// <summary>Gets or sets the types (Swagger only).</summary>
         [JsonProperty(PropertyName = "definitions", Order = 13, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public IDictionary<string, JsonSchema4> Definitions => Components.Schemas;
+        public IDictionary<string, JsonSchema> Definitions => Components.Schemas;
 
         /// <summary>Gets or sets the parameters which can be used for all operations (Swagger only).</summary>
         [JsonProperty(PropertyName = "parameters", Order = 14, DefaultValueHandling = DefaultValueHandling.Ignore)]

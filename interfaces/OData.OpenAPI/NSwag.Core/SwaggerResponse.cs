@@ -44,7 +44,7 @@ namespace NSwag
 
         /// <summary>Gets the actual non-nullable response schema (either oneOf schema or the actual schema).</summary>
         [JsonIgnore]
-        public JsonSchema4 ActualResponseSchema => ActualResponse.GetActualResponseSchema();
+        public JsonSchema ActualResponseSchema => ActualResponse.GetActualResponseSchema();
 
         /// <summary>Gets or sets the expected child schemas of the base schema (can be used for generating enhanced typings/documentation).</summary>
         [JsonProperty(PropertyName = "x-expectedSchemas", Order = 7, DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
@@ -60,7 +60,7 @@ namespace NSwag
 
         /// <summary>Gets or sets the response schema (Swagger only).</summary>
         [JsonProperty(PropertyName = "schema", Order = 2, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public JsonSchema4 Schema
+        public JsonSchema Schema
         {
             get => Content.FirstOrDefault(c => c.Value.Schema != null).Value?.Schema;
             set => UpdateContent(value, Examples);
@@ -74,7 +74,7 @@ namespace NSwag
             set => UpdateContent(Schema, value);
         }
 
-        private void UpdateContent(JsonSchema4 schema, object example)
+        private void UpdateContent(JsonSchema schema, object example)
         {
             Content.Clear();
 
@@ -114,10 +114,10 @@ namespace NSwag
             return Schema?.ActualSchema.IsNullable(schemaType) ?? false;
         }
 
-        private JsonSchema4 GetActualResponseSchema()
+        private JsonSchema GetActualResponseSchema()
         {
             if ((Parent as SwaggerOperation)?.ActualProduces?.Contains("application/octet-stream") == true)
-                return new JsonSchema4 { Type = JsonObjectType.File };
+                return new JsonSchema { Type = JsonObjectType.File };
 
             return Schema?.ActualSchema;
         }
