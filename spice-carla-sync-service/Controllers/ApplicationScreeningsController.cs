@@ -37,12 +37,16 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         [HttpPost("receive")]
         public ActionResult ReceiveApplicationScreenings([FromBody] List<IncompleteApplicationScreening> requests)
         {
+            _logger.LogInformation("*NP: ReceiveApplicationScreenings 1");
+
             // Process the updates received from the SPICE system.
             if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
             {
+                _logger.LogInformation("*NP: ReceiveApplicationScreenings 2");
                 BackgroundJob.Enqueue(() => new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient).ImportApplicationRequests(null, requests));
             }
 
+            _logger.LogInformation("*NP: ReceiveApplicationScreenings 3");
             _logger.LogInformation("Started receive Application Screenings import job");
             return Ok();
         }
