@@ -9,15 +9,17 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using NJsonSchema;
-using NJsonSchema.Generation;
 using NJsonSchema.Infrastructure;
 using NSwag.Collections;
+using NJsonSchema.NewtonsoftJson.Generation;
 
 namespace NSwag
 {
@@ -162,8 +164,9 @@ namespace NSwag
         /// <param name="documentPath">The document path (URL or file path) for resolving relative document references.</param>
         /// <param name="expectedSchemaType">The expected schema type which is used when the type cannot be determined.</param>
         /// <param name="referenceResolverFactory">The JSON reference resolver factory.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>The <see cref="SwaggerDocument"/>.</returns>
-        public static async Task<SwaggerDocument> FromJsonAsync(string data, string documentPath, SchemaType expectedSchemaType, Func<SwaggerDocument, JsonReferenceResolver> referenceResolverFactory)
+        public static async Task<SwaggerDocument> FromJsonAsync(string data, string documentPath, SchemaType expectedSchemaType, Func<SwaggerDocument, JsonReferenceResolver> referenceResolverFactory, CancellationToken cancellationToken = default)
         {
             // For explanation of the regex use https://regexr.com/ and the below unescaped pattern that is without named groups
             // (?:\"(openapi|swagger)\")(?:\s*:\s*)(?:\"([^"]*)\")
@@ -199,10 +202,10 @@ namespace NSwag
                 }
                 else
                 {
-                    var schemaResolver = new SwaggerSchemaResolver(document, new JsonSchemaGeneratorSettings());
+                    SwaggerSchemaResolver schemaResolver = new SwaggerSchemaResolver(document, new NewtonsoftJsonSchemaGeneratorSettings());
                     return new JsonReferenceResolver(schemaResolver);
                 }
-            }, contractResolver).ConfigureAwait(false);
+            }, contractResolver, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Creates a Swagger specification from a JSON file.</summary>
@@ -210,16 +213,17 @@ namespace NSwag
         /// <returns>The <see cref="SwaggerDocument" />.</returns>
         public static async Task<SwaggerDocument> FromFileAsync(string filePath)
         {
-            var data = await DynamicApis.FileReadAllTextAsync(filePath).ConfigureAwait(false);
+            var data = await File.ReadAllTextAsync(filePath).ConfigureAwait(false);
             return await FromJsonAsync(data, filePath).ConfigureAwait(false);
         }
 
         /// <summary>Creates a Swagger specification from an URL.</summary>
         /// <param name="url">The URL.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>The <see cref="SwaggerDocument"/>.</returns>
-        public static async Task<SwaggerDocument> FromUrlAsync(string url)
+        public static async Task<SwaggerDocument> FromUrlAsync(string url, CancellationToken cancellationToken = default)
         {
-            var data = await DynamicApis.HttpGetAsync(url).ConfigureAwait(false);
+            var data = await DynamicApis.HttpGetAsync(url, cancellationToken).ConfigureAwait(false);
             return await FromJsonAsync(data, url).ConfigureAwait(false);
         }
 
