@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.OData.OpenAPI</AssemblyName>
     <RootNamespace>Microsoft.OData.OpenAPI</RootNamespace>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Company>Microsoft</Company>
     <Product>Microsoft.OData.OpenApi</Product>
     <PackageId>Microsoft.OData.OpenApi</PackageId>
