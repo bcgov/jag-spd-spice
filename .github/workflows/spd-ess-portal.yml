@@ -30,5 +30,7 @@ jobs:
             ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           cache-from: |
             ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
 
 
