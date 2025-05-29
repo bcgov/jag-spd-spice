@@ -17,7 +17,7 @@ jobs:
         
       - name: Docker Build Image
         run: |          
-          docker build --tag ${{ env.IMAGE_NAME }} -f /Dockerfile . 
+          docker build --tag ${{ env.IMAGE_NAME }} -f ./Dockerfile .
           docker tag ${{ env.IMAGE_NAME }} artifacts.developer.gov.bc.ca/ccb6-images/${{ env.IMAGE_NAME }}:dev-${{ steps.short_sha.outputs.SHORT_SHA }}
           docker push artifacts.developer.gov.bc.ca/ccb6-images/${{ env.IMAGE_NAME }}:dev-${{ steps.short_sha.outputs.SHORT_SHA }}
 
