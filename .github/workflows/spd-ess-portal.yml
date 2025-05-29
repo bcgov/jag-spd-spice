@@ -19,7 +19,7 @@ jobs:
 
       - name: Log in to Registry
         run: |
-          echo "${{ secrets.OPENSHIFT_TOKEN }}" | docker login -u serviceaccount --password-stdin ${{ env.IMAGE_REGISTRY }}
+          echo "${{ secrets.OPENSHIFT_TOKEN }}" | docker login -u serviceaccount --password-stdin ${{ secrets.OCP4_REGISTRY }}
 
       - name: Build and push spd-ess-portal
         uses: docker/build-push-action@v6
