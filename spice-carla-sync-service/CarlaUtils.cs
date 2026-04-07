@@ -22,7 +22,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public CarlaClient CarlaClient;
         public CarlaSharepoint _carlaSharepoint;
 
-        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, FileManager sharepoint)
+        public CarlaUtils(IConfiguration Configuration, ILoggerFactory loggerFactory, ISharePointFileManager sharepoint)
         {
             this.Configuration = Configuration;
             _logger = loggerFactory.CreateLogger(typeof(CarlaUtils));

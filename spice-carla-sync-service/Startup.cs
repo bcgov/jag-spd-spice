@@ -1,4 +1,5 @@
-﻿using Gov.Jag.Spice.Interfaces;
+﻿using CsvHelper.Configuration;
+using Gov.Jag.Spice.Interfaces;
 using Gov.Jag.Spice.Interfaces.SharePoint;
 using Hangfire;
 using Hangfire.Console;
@@ -6,6 +7,7 @@ using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,22 +15,21 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Reflection;
-using System.Text;
-using System.Net.Http;
-using Serilog;
-using Serilog.Exceptions;
-using System.Threading.Tasks;
-using System.Net;
 // https://stackoverflow.com/a/58072137
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Exceptions;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
+using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -116,7 +117,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 });
             }
 
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]))
+            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) || 
+                !string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI_CLOUD"]))
             {
                 SetupSharePoint(services);
             }
@@ -132,11 +134,24 @@ namespace Gov.Jag.Spice.CarlaSync
             // health checks. 
             services.AddHealthChecks()
                 .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
+
+            // Add SharePoint health check if SharePoint is configured
+            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) || 
+                !string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI_CLOUD"]))
+            {
+                services.AddHealthChecks()
+                    .AddCheck<SharePointHealthCheck>("SharePoint", tags: new[] { "sharepoint_ready" });
+            }
         }
 
         private void SetupSharePoint(IServiceCollection services)
         {            
-            services.AddTransient(_ => new FileManager(Configuration));
+            // add SharePoint.
+            services.AddTransient<ISharePointFileManager>(sp =>
+            {
+                var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
+                return SharePointFileManager.Create(Configuration, loggerFactory);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -194,6 +209,11 @@ namespace Gov.Jag.Spice.CarlaSync
                 endpoints.MapHealthChecks("/healthcheck/dynamics_ready", new HealthCheckOptions
                 {
                     Predicate = healthCheck => healthCheck.Tags.Contains("dynamics_ready")
+                });
+
+                endpoints.MapHealthChecks("/healthcheck/sharepoint_ready", new HealthCheckOptions
+                {
+                    Predicate = healthCheck => healthCheck.Tags.Contains("sharepoint_ready")
                 });
             });
 

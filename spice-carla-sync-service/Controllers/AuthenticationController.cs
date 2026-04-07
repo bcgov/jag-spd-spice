@@ -31,12 +31,15 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
             string configuredSecret = Configuration["JWT_TOKEN_KEY"];
             if (configuredSecret.Equals(secret))
             {
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]));
+                // Create the signing key the same way as in Startup.cs
+                byte[] secretBytes = Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]);
+                Array.Resize(ref secretBytes, 32);
+                var key = new SymmetricSecurityKey(secretBytes);
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var jwtSecurityToken = new JwtSecurityToken(
                     Configuration["JWT_VALID_ISSUER"],
-                    Configuration["JWT_VALID_ISSUER"],
+                    Configuration["JWT_VALID_AUDIENCE"],
                     expires: DateTime.UtcNow.AddYears(5),
                     signingCredentials: creds
                     );

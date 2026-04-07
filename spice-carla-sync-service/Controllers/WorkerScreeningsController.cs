@@ -18,11 +18,11 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         private readonly IConfiguration Configuration;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
-        private FileManager _sharepoint;
+        private ISharePointFileManager _sharepoint;
         private IDynamicsClient _dynamicsClient;
         private CarlaUtils _carlaUtils;
 
-        public WorkerScreeningsController (IConfiguration configuration, ILoggerFactory loggerFactory, FileManager sharepoint, IServiceProvider serviceProvider)
+        public WorkerScreeningsController (IConfiguration configuration, ILoggerFactory loggerFactory, ISharePointFileManager sharepoint, IServiceProvider serviceProvider)
         {
             Configuration = configuration;
             _loggerFactory = loggerFactory;

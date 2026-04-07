@@ -11,23 +11,22 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 {
     public class SharePointHealthCheck : IHealthCheck
     {
-        private readonly IConfiguration _configuration;
+        private readonly ISharePointFileManager _sharePointFileManager;
 
-        public SharePointHealthCheck(IConfiguration configuration)
+        public SharePointHealthCheck(ISharePointFileManager sharePointFileManager)
         {
-            _configuration = configuration;
+            _sharePointFileManager = sharePointFileManager;
         }
 
-        public Task<HealthCheckResult> CheckHealthAsync(
+        public async Task<HealthCheckResult> CheckHealthAsync(
         HealthCheckContext context,
         CancellationToken cancellationToken = default(CancellationToken))
         {
-            FileManager sharePoint = new FileManager(_configuration);
             // Try and get the Account document library
             bool healthCheckResultHealthy;
             try
             {
-                healthCheckResultHealthy = sharePoint.TestStatus().GetAwaiter().GetResult();
+                healthCheckResultHealthy = await _sharePointFileManager.TestStatus();
             }
             catch (Exception)
             {
@@ -36,11 +35,11 @@ namespace Gov.Jag.Spice.Interfaces.SharePoint
 
             if (healthCheckResultHealthy)
             {
-                return Task.FromResult(HealthCheckResult.Healthy("SharePoint is healthy."));
+                return HealthCheckResult.Healthy("SharePoint is healthy.");
             }
             else
             {
-                return Task.FromResult(HealthCheckResult.Unhealthy("SharePoint is unhealthy."));
+                return HealthCheckResult.Unhealthy("SharePoint is unhealthy.");
             }
         }
     }

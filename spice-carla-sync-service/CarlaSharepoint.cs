@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using Microsoft.Rest;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Gov.Lclb.Cllb.Interfaces
 {
@@ -36,10 +37,10 @@ namespace Gov.Lclb.Cllb.Interfaces
 
         public ILogger _logger { get; }
         private IConfiguration _configuration { get; }
-        public FileManager _sharepoint;
+        public ISharePointFileManager _sharepoint;
         public CarlaClient _carlaClient;
 
-        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, FileManager sharepoint, CarlaClient carla)
+        public CarlaSharepoint(IConfiguration Configuration, ILoggerFactory loggerFactory, ISharePointFileManager sharepoint, CarlaClient carla)
         {
             _configuration = Configuration;
             _sharepoint = sharepoint;
@@ -122,7 +123,8 @@ namespace Gov.Lclb.Cllb.Interfaces
                     try
                     {
                         _logger.LogInformation("Uploading business associates CSV.");
-                        (resp, associatesFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        associatesFilepath = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_associates_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + ASSOCIATES_PATH, mem, "text/csv");
+                        resp = !associatesFilepath.IsNullOrEmpty();
                     }
                     catch (Exception ex)
                     {
@@ -149,7 +151,8 @@ namespace Gov.Lclb.Cllb.Interfaces
                     try
                     {
                         _logger.LogInformation("Uploading business application CSV.");
-                        (resp, businessFilepath) = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                        businessFilepath = await _sharepoint.UploadFile($"{request.RecordIdentifier}_{request.Establishment.Name}_business_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + APPLICATIONS_PATH, mem, "text/csv");
+                        resp = !businessFilepath.IsNullOrEmpty();                    
                     }
                     catch (Exception ex)
                     {
@@ -195,7 +198,8 @@ namespace Gov.Lclb.Cllb.Interfaces
                 try
                 {
                     _logger.LogInformation("Uploading workers CSV.");
-                    return await _sharepoint.UploadFile($"{workerfilePrefix}_workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                    var uploadedFilePath = await _sharepoint.UploadFile($"{workerfilePrefix}_workers_{suffix}.csv", DOCUMENT_LIBRARY, REQUESTS_PATH + "/" + WORKERS_PATH, mem, "text/csv");
+                    return (!string.IsNullOrEmpty(uploadedFilePath), uploadedFilePath);
                 }
                 catch (Exception ex)
                 {
@@ -494,7 +498,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             List<FileSystemItem> fileSystemItemVMList = new List<FileSystemItem>();
 
             // Get the file details list in folder
-            List<FileDetailsList> fileDetailsList = null;
+            List<SharePointFileDetailsList> fileDetailsList = null;
             try
             {
                 fileDetailsList = await _sharepoint.GetFileDetailsListInFolder(libraryPath, folderPath, "");
@@ -511,7 +515,7 @@ namespace Gov.Lclb.Cllb.Interfaces
 
             if (fileDetailsList != null)
             {
-                foreach (FileDetailsList fileDetails in fileDetailsList)
+                foreach (SharePointFileDetailsList fileDetails in fileDetailsList)
                 {
                     FileSystemItem fileSystemItemVM = new FileSystemItem()
                     {

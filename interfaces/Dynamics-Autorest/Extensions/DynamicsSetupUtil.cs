@@ -100,7 +100,7 @@ namespace Gov.Jag.Spice.Interfaces
                 }
                 catch (Exception e)
                 {
-                    throw new Exception(e.Message + " " + _responseContent);
+                    throw new InvalidOperationException(e.Message + " " + _responseContent, e);
                 }
 
             }
@@ -115,7 +115,7 @@ namespace Gov.Jag.Spice.Interfaces
             }
             else
             {
-                throw new Exception("No configured connection to Dynamics.");
+                throw new InvalidOperationException("No configured connection to Dynamics.");
             }
 
             return serviceClientCredentials;
@@ -132,7 +132,7 @@ namespace Gov.Jag.Spice.Interfaces
 
             if (string.IsNullOrEmpty(dynamicsOdataUri))
             {
-                throw new Exception("Configuration setting DYNAMICS_ODATA_URI is blank.");
+                throw new ArgumentException("Configuration setting DYNAMICS_ODATA_URI is blank.", nameof(Configuration));
             }
 
             ServiceClientCredentials serviceClientCredentials = GetServiceClientCredentials(Configuration);
