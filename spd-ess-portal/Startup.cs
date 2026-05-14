@@ -138,7 +138,12 @@ namespace Gov.Jag.Spice.Public
 
             // add SharePoint.
 
-            services.AddTransient(_ => new FileManager(Configuration));
+            services.AddTransient<ISharePointFileManager>(sp =>
+                SharePointFileManager.Create(
+                    Configuration,
+                    sp.GetRequiredService<Microsoft.Extensions.Logging.ILoggerFactory>()
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
