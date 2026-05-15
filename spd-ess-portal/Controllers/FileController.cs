@@ -20,10 +20,10 @@ namespace Gov.Jag.Spice.Public.Controllers
         private const string ScreeningDocumentUrlTitle = "incident";
 
         private readonly ILogger<FileController> _logger;
-        private readonly FileManager _sharePointFileManager;
+        private readonly ISharePointFileManager _sharePointFileManager;
         private readonly IDynamicsClient _dynamicsClient;
 
-        public FileController(ILogger<FileController> logger, IDynamicsClient dynamicsClient, FileManager fileManager)
+        public FileController(ILogger<FileController> logger, IDynamicsClient dynamicsClient, ISharePointFileManager fileManager)
         {
             _logger = logger;
             _sharePointFileManager = fileManager;
