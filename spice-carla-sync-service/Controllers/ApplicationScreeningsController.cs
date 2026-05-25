@@ -23,11 +23,20 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
 
         public ApplicationScreeningsController(IConfiguration configuration, ILoggerFactory loggerFactory, ISharePointFileManager sharepoint, IServiceProvider serviceProvider)
         {
-            Configuration = configuration;
-            _loggerFactory = loggerFactory;
-            _logger = loggerFactory.CreateLogger(typeof(ApplicationScreeningsController));
-            _sharepoint = sharepoint;
-            _dynamicsClient = (IDynamicsClient)serviceProvider.GetService(typeof(IDynamicsClient));
+            try
+            {
+                Configuration = configuration;
+                _loggerFactory = loggerFactory;
+                _logger = loggerFactory.CreateLogger(typeof(ApplicationScreeningsController));
+                _sharepoint = sharepoint;
+                _dynamicsClient = (IDynamicsClient)serviceProvider.GetService(typeof(IDynamicsClient));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ApplicationScreeningsController - Constructor Exception: {ex.GetType().Name} - {ex.Message}");
+                Console.WriteLine($"ApplicationScreeningsController - Stack: {ex.StackTrace}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -37,16 +46,26 @@ namespace Gov.Jag.Spice.CarlaSync.Controllers
         [HttpPost("receive")]
         public ActionResult ReceiveApplicationScreenings([FromBody] List<IncompleteApplicationScreening> requests)
         {
-            // Process the updates received from the SPICE system.
-            if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+            try
             {
-                BackgroundJob.Enqueue(() => new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient).ImportApplicationRequests(null, requests));
+                _logger.LogInformation($"ReceiveApplicationScreenings - Received {requests?.Count ?? 0} incomplete application screenings from CARLA for import.");
+
+                // Process the updates received from the SPICE system.
+                if (!string.IsNullOrEmpty(Configuration["DYNAMICS_ODATA_URI"]))
+                {
+                    BackgroundJob.Enqueue(() => new DynamicsUtils(Configuration, _loggerFactory, _dynamicsClient).ImportApplicationRequests(null, requests));
+                }
+
+                _logger.LogInformation("ReceiveApplicationScreenings - Enqueued receive Application Screenings import job");
+
+                return Ok();
             }
-
-            _logger.LogInformation("Started receive Application Screenings import job");
-            return Ok();
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "ReceiveApplicationScreenings - Error in ReceiveApplicationScreenings");
+                return StatusCode(500, ex.Message);
+            }
         }
-
 
         /// <summary>
         /// Send a completed application screening to the CARLA system for test purposes.  Normally this would occur from a polling process.

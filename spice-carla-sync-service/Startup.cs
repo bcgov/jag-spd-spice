@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -61,11 +62,13 @@ namespace Gov.Jag.Spice.CarlaSync
                 config.EnableEndpointRouting = false;
             } ) ;
 
-            services.AddControllersWithViews().AddJsonOptions(x =>
-            {
-                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-            });
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                });
 
             services.AddSwaggerGen(c =>
             {
@@ -91,18 +94,12 @@ namespace Gov.Jag.Spice.CarlaSync
                 {
                     o.SaveToken = true;
                     o.RequireHttpsMetadata = false;
-
-                    byte[] secretBytes = Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]);
-                    Array.Resize(ref secretBytes, 32);
-
-                    var symmetricSecurityKey = new SymmetricSecurityKey(secretBytes);
-
                     o.TokenValidationParameters = new TokenValidationParameters()
                     {
                         RequireExpirationTime = false,
                         ValidIssuer = Configuration["JWT_VALID_ISSUER"],
                         ValidAudience = Configuration["JWT_VALID_AUDIENCE"],
-                        IssuerSigningKey = symmetricSecurityKey
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT_TOKEN_KEY"]))
                     };
                 });
             }
@@ -117,7 +114,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 });
             }
 
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) || 
+            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) ||
                 !string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI_CLOUD"]))
             {
                 SetupSharePoint(services);
@@ -136,7 +133,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 .AddCheck<DynamicsHealthCheck>("Dynamics", tags: new[] { "dynamics_ready" });
 
             // Add SharePoint health check if SharePoint is configured
-            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) || 
+            if (!string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI"]) ||
                 !string.IsNullOrEmpty(Configuration["SHAREPOINT_ODATA_URI_CLOUD"]))
             {
                 services.AddHealthChecks()
@@ -157,6 +154,7 @@ namespace Gov.Jag.Spice.CarlaSync
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            var logger = loggerFactory.CreateLogger<Startup>();
             // workaround for SSL certificate issue
             ServicePointManager.ServerCertificateValidationCallback =
                 (sender, certificate, chain, sslPolicyErrors) => { return true; };
@@ -166,6 +164,32 @@ namespace Gov.Jag.Spice.CarlaSync
                 app.UseDeveloperExceptionPage();
             }
 
+            // Add request logging middleware
+            app.Use(async (context, next) =>
+            {
+                try
+                {
+                    Console.WriteLine($"[Request] {context.Request.Method} {context.Request.Path} from {context.Connection.RemoteIpAddress}");
+                    logger.LogInformation("[Request] {Method} {Path} from {RemoteIp}", 
+                        context.Request.Method, 
+                        context.Request.Path, 
+                        context.Connection.RemoteIpAddress);
+                    await next();
+                    Console.WriteLine($"[Response] {context.Request.Method} {context.Request.Path} returned {context.Response.StatusCode}");
+                    logger.LogInformation("[Response] {Method} {Path} returned {StatusCode}", 
+                        context.Request.Method, 
+                        context.Request.Path, 
+                        context.Response.StatusCode);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[MIDDLEWARE EXCEPTION] {ex.GetType().Name}: {ex.Message}");
+                    Console.WriteLine($"[MIDDLEWARE EXCEPTION] Stack: {ex.StackTrace}");
+                    logger.LogError(ex, "[MIDDLEWARE EXCEPTION] Unhandled exception in request pipeline");
+                    context.Response.StatusCode = 500;
+                    await context.Response.WriteAsync(ex.Message);
+                }
+            });
 
             bool startHangfire = true;
 #if DEBUG

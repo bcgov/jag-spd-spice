@@ -38,7 +38,7 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 if (applicationRequest.ApplicantAccount == null)
                 {
-                    _logger.LogError("Application sent without a valid account");
+                    _logger.LogError("ImportApplicationRequests - Application sent without a valid account");
                     return;
                 }
                 // Company
@@ -50,7 +50,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to query companies");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to query companies");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -78,7 +78,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError(e, "Failed to create new company");
+                        _logger.LogError(e, "ImportApplicationRequests - Failed to create new company");
                         _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
@@ -94,7 +94,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to query contacts");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to query contacts");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -120,7 +120,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError(e, "Failed to create new contact");
+                        _logger.LogError(e, "ImportApplicationRequests - Failed to create new contact");
                         _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
@@ -136,7 +136,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to query accounts");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to query accounts");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -167,7 +167,7 @@ namespace Gov.Jag.Spice.CarlaSync
                     }
                     catch (OdataerrorException e)
                     {
-                        _logger.LogError(e, "Failed to create new account");
+                        _logger.LogError(e, "ImportApplicationRequests - Failed to create new account");
                         _logger.LogError(e.Request.Content);
                         _logger.LogError(e.Response.Content);
                         return;
@@ -184,7 +184,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to query services");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to query services");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -198,7 +198,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to query ministries");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to query ministries");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -222,7 +222,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 else
                 {
-                    _logger.LogError($"Licence type {applicationRequest.ApplicationType} not found");
+                    _logger.LogWarning($"ImportApplicationRequests - Licence type {applicationRequest.ApplicationType} not found");
                 }
 
                 try
@@ -232,7 +232,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e, "ImportApplicationRequests - Failed to create new incident");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -247,7 +247,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
         public async Task ImportWorkerRequests(PerformContext hangfireContext, List<IncompleteWorkerScreening> requests)
         {
-            _logger.LogInformation("Started worker import into dynamics");
+            _logger.LogInformation("ImportWorkerRequests - Started worker import into dynamics");
             foreach (IncompleteWorkerScreening workerRequest in requests)
             {
                 try
@@ -297,7 +297,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to import worker requests");
+                    _logger.LogError(e, "ImportWorkerRequests - Failed to import worker requests");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -347,7 +347,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to create new account case assignment");
+                    _logger.LogError(e, "CreateAssociate - Failed to create new account case assignment");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -374,7 +374,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (OdataerrorException e)
                 {
-                    _logger.LogError(e, "Failed to create new incident");
+                    _logger.LogError(e, "CreateAssociate - Failed to create new incident");
                     _logger.LogError(e.Request.Content);
                     _logger.LogError(e.Response.Content);
                     return;
@@ -400,18 +400,18 @@ namespace Gov.Jag.Spice.CarlaSync
             MicrosoftDynamicsCRMincidentCollection resp = _dynamicsClient.Incidents.Get(filter: businessFilter, select: select);
             if(resp.Value.Count == 0)
             {
-                hangfireContext.WriteLine("No completed business screenings found.");
-                _logger.LogInformation("No completed business screenings found.");
+                hangfireContext.WriteLine("ProcessBusinessResults - No completed business screenings found.");
+                _logger.LogInformation("ProcessBusinessResults - No completed business screenings found.");
                 return;
             }
             CarlaUtils carlaUtils = new CarlaUtils(Configuration, _loggerFactory, null);
-            hangfireContext.WriteLine($"Found {resp.Value.Count} resolved business screenings.");
-            _logger.LogInformation($"Found {resp.Value.Count} resolved business screenings.");
+            hangfireContext.WriteLine($"ProcessBusinessResults - Found {resp.Value.Count} resolved business screenings.");
+            _logger.LogInformation($"ProcessBusinessResults - Found {resp.Value.Count} resolved business screenings.");
             foreach(MicrosoftDynamicsCRMincident incident in resp.Value)
             {
                 CompletedApplicationScreening screening = GenerateCompletedBusinessScreening(incident.Incidentid);
-                hangfireContext.WriteLine($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
-                _logger.LogError($"Sending business screening [{screening.RecordIdentifier}] to Carla.");
+                hangfireContext.WriteLine($"ProcessBusinessResults - Sending business screening [{screening.RecordIdentifier}] to Carla.");
+                _logger.LogError($"ProcessBusinessResults - Sending business screening [{screening.RecordIdentifier}] to Carla.");
                 ToggleResolution(incident.Incidentid, false);
                 bool statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.SentToLCRB, isBusiness: true);
                 if (statusSet)
@@ -423,21 +423,24 @@ namespace Gov.Jag.Spice.CarlaSync
                         {
                             statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: true);
                             ToggleResolution(incident.Incidentid, true);
-                            hangfireContext.WriteLine($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                            _logger.LogError($"Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            hangfireContext.WriteLine($"ProcessBusinessResults - Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"ProcessBusinessResults - Successfully sent completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         }
                         else
                         {
+                            _logger.LogWarning($"ProcessBusinessResults - Failed to send completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                             this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                         }
                     }
                     catch (Exception e)
                     {
+                        _logger.LogError(e, $"ProcessBusinessResults - Error while sending completed application screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                     }
                 }
                 else
                 {
+                    _logger.LogWarning($"ProcessBusinessResults - Failed to update LCRB status for business screening request [LCRB Job Id: {screening.RecordIdentifier}].");
                     this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                 }
             }
@@ -450,18 +453,18 @@ namespace Gov.Jag.Spice.CarlaSync
             MicrosoftDynamicsCRMincidentCollection resp = _dynamicsClient.Incidents.Get(filter: workerFilter, select: select);
             if(resp.Value.Count == 0)
             {
-                hangfireContext.WriteLine("No completed worker screenings found.");
-                _logger.LogInformation("No completed worker screenings found.");
+                hangfireContext.WriteLine("ProcessWorkerResults - No completed worker screenings found.");
+                _logger.LogInformation("ProcessWorkerResults - No completed worker screenings found.");
                 return;
             }
             CarlaUtils carlaUtils = new CarlaUtils(Configuration, _loggerFactory, null);
-            hangfireContext.WriteLine($"Found {resp.Value.Count} resolved worker screenings.");
-            _logger.LogInformation($"Found {resp.Value.Count} resolved worker screenings.");
+            hangfireContext.WriteLine($"ProcessWorkerResults - Found {resp.Value.Count} resolved worker screenings.");
+            _logger.LogInformation($"ProcessWorkerResults - Found {resp.Value.Count} resolved worker screenings.");
             foreach(MicrosoftDynamicsCRMincident incident in resp.Value)
             {
                 CompletedWorkerScreening screening = GenerateCompletedWorkerScreening(incident.Incidentid);
-                hangfireContext.WriteLine($"Sending worker screening [{screening.RecordIdentifier}] to Carla.");
-                _logger.LogError($"Sending worker screening [{screening.RecordIdentifier}] to Carla.");
+                hangfireContext.WriteLine($"ProcessWorkerResults - Sending worker screening [{screening.RecordIdentifier}] to Carla.");
+                _logger.LogError($"ProcessWorkerResults - Sending worker screening [{screening.RecordIdentifier}] to Carla.");
                 ToggleResolution(incident.Incidentid, false);
                 bool statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.SentToLCRB, isBusiness: false);
                 if (statusSet)
@@ -472,22 +475,25 @@ namespace Gov.Jag.Spice.CarlaSync
                         if (workerResultSendStatus) {
                             statusSet = SetLCRBStatus(incident.Incidentid, (int)ReadyForLCRBStatus.ReceivedByLCRB, isBusiness: false);
                             ToggleResolution(incident.Incidentid, true);
-                            hangfireContext.WriteLine($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
-                            _logger.LogError($"Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            hangfireContext.WriteLine($"ProcessWorkerResults - Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
+                            _logger.LogError($"ProcessWorkerResults - Successfully sent completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                         }
                         else
                         {
+                            _logger.LogWarning($"ProcessWorkerResults - Failed to send completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla.");
                             this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                         }
 
                     }
                     catch (HttpOperationException httpOperationException)
                     {
+                        _logger.LogWarning($"ProcessWorkerResults - HTTP error while sending completed worker screening request [LCRB Job Id: {screening.RecordIdentifier}] to Carla: {httpOperationException.Message}");
                         this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                     }
                 }
                 else
                 {
+                    _logger.LogWarning($"ProcessWorkerResults - Failed to update LCRB status for worker screening request [LCRB Job Id: {screening.RecordIdentifier}].");
                     this.HandleSendToLCRBFail(incident.Incidentid, screening.RecordIdentifier);
                 }
             }
@@ -591,7 +597,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
             catch (OdataerrorException e)
             {
-                _logger.LogError(e, "Failed to create or update contact");
+                _logger.LogError(e, "CreateOrUpdateContact - Failed to create or update contact");
                 _logger.LogError(e.Request.Content);
                 _logger.LogError(e.Response.Content);
                 throw;
@@ -616,7 +622,7 @@ namespace Gov.Jag.Spice.CarlaSync
             }
             catch (OdataerrorException e)
             {
-                _logger.LogError(e, "Failed to update screening with new ready for LCRB status");
+                _logger.LogError(e, "SetLCRBStatus - Failed to update screening with new ready for LCRB status");
                 _logger.LogError(e.Request.Content);
                 _logger.LogError(e.Response.Content);
                 return false;
@@ -751,7 +757,7 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (HttpOperationException ex)
                 {
-                    _logger.LogError(ex, "Failed to close incident");
+                    _logger.LogError(ex, "ToggleResolution - Failed to close incident");
                     _logger.LogError(ex.Request.Content);
                     _logger.LogError(ex.Response.Content);
                 }
@@ -767,7 +773,7 @@ namespace Gov.Jag.Spice.CarlaSync
         public void HandleSendToLCRBFail(string incidentId, string recordIdentifier)
         {
             ToggleResolution(incidentId, true);
-            _logger.LogError($"Failed to send screening request [LCRB Job Id: {recordIdentifier}] to Carla.");
+            _logger.LogError($"HandleSendToLCRBFail - Failed to send screening request [LCRB Job Id: {recordIdentifier}] to Carla.");
         }
     }
 }
