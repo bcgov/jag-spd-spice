@@ -169,13 +169,11 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 try
                 {
-                    Console.WriteLine($"[Request] {context.Request.Method} {context.Request.Path} from {context.Connection.RemoteIpAddress}");
                     logger.LogInformation("[Request] {Method} {Path} from {RemoteIp}", 
                         context.Request.Method, 
                         context.Request.Path, 
                         context.Connection.RemoteIpAddress);
                     await next();
-                    Console.WriteLine($"[Response] {context.Request.Method} {context.Request.Path} returned {context.Response.StatusCode}");
                     logger.LogInformation("[Response] {Method} {Path} returned {StatusCode}", 
                         context.Request.Method, 
                         context.Request.Path, 
@@ -183,8 +181,8 @@ namespace Gov.Jag.Spice.CarlaSync
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[MIDDLEWARE EXCEPTION] {ex.GetType().Name}: {ex.Message}");
-                    Console.WriteLine($"[MIDDLEWARE EXCEPTION] Stack: {ex.StackTrace}");
+                    logger.LogError($"[MIDDLEWARE EXCEPTION] {ex.GetType().Name}: {ex.Message}");
+                    logger.LogError($"[MIDDLEWARE EXCEPTION] Stack: {ex.StackTrace}");
                     logger.LogError(ex, "[MIDDLEWARE EXCEPTION] Unhandled exception in request pipeline");
                     context.Response.StatusCode = 500;
                     await context.Response.WriteAsync(ex.Message);
