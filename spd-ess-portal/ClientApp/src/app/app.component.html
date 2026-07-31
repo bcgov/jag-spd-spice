@@ -3,7 +3,11 @@
   <p>Please use Google Chrome, Firefox, Edge or IE 11</p>
 </section>
 
-<div class="app-outer" *ngIf="!isIE10orLower()">
+<div
+  class="app-outer"
+  *ngIf="!isIE10orLower()"
+  [ngBusy]="{ busy: busy, message: 'Loading...', minDuration: 1500 }"
+>
   <header class="app-header">
     <div
       class="top-menu row"
@@ -31,24 +35,17 @@
     </div>
   </header>
 
+  <app-notification-banner
+    #notificationBanner
+    [configuration]="configuration"
+  ></app-notification-banner>
+
   <main class="app-content">
     <div class="app-main">
-      <div *ngIf="error" class="text-center">
-        <h1>Site Error</h1>
-        <p>
-          This site is experiencing unexpected errors. Please check back later.
-        </p>
-      </div>
-      <div
-        *ngIf="!error && isOutage()"
-        class="text-center"
-      >
-        <h1>Site Outage</h1>
-        <p>{{ configuration.outageMessage }}</p>
-        <p>{{ generateOutageDateMessage() }}</p>
-      </div>
+      <app-site-error #siteError [error]="appError"></app-site-error>
+      <!-- Disable router-outlet if there is an error or the notification-banner is considered an outage -->
       <router-outlet
-        *ngIf="!error && !isOutage()"
+        *ngIf="!siteError.isVisible && !notificationBanner.isOutage"
       ></router-outlet>
     </div>
   </main>

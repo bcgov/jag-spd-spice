@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject, Subscription, combineLatest } from 'rxjs';
 import { filter, take, takeUntil } from 'rxjs/operators';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import moment, { Moment } from 'moment';
 
 import * as CurrentScreeningRequestActions from '../app-state/actions/current-screening-request.action';
 import * as FileUploadsActions from '../app-state/actions/file-uploads.action';

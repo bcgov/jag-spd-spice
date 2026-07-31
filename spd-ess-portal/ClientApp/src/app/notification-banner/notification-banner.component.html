@@ -1,0 +1,9 @@
+<div
+  *ngIf="isVisibile"
+  role="alert"
+  [class]="'alert text-center m-0 p-2 ' + severityClass"
+>
+  <p class="mb-0">
+    <strong>{{ configuration?.notificationBannerMessage }}</strong>
+  </p>
+</div>

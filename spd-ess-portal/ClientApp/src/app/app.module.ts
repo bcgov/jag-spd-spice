@@ -54,6 +54,9 @@ import { ScreeningRequestFormComponent } from './screening-request-form/screenin
 import { ScreeningRequestReviewComponent } from './screening-request-review/screening-request-review.component';
 import { ScreeningRequestConfirmationComponent } from './screening-request-confirmation/screening-request-confirmation.component';
 
+import { NotificationBannerComponent } from './notification-banner/notification-banner.component';
+import { SiteErrorComponent } from './site-error/site-error.component';
+
 import { FieldComponent } from './shared/field/field.component';
 import { FileUploaderComponent } from './shared/file-uploader/file-uploader.component';
 
@@ -67,6 +70,8 @@ import { FileUploaderComponent } from './shared/file-uploader/file-uploader.comp
     ScreeningRequestFormComponent,
     ScreeningRequestReviewComponent,
     ScreeningRequestConfirmationComponent,
+    SiteErrorComponent,
+    NotificationBannerComponent,
   ],
   imports: [
     AppRoutingModule,
