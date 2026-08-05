@@ -1,11 +1,12 @@
 using System;
 using System.Threading.Tasks;
 using Gov.Jag.Spice.Interfaces;
+using Gov.Jag.Spice.Public.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Gov.Jag.Spice.Public.Controllers
 {
@@ -30,15 +31,27 @@ namespace Gov.Jag.Spice.Public.Controllers
             {
                 var config = new Configuration
                 {
-                    OutageMessage = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_MESSAGE"),
-                    OutageStartDate = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_STARTDATE"),
-                    OutageEndDate = configuration.GetValue<string>("CONFIGURATION_OUTAGEINFORMATION_ENDDATE")
+                    NotificationBannerMessage = configuration.GetValue<string>("NOTIFICATION_BANNER_MESSAGE"),
+                    NotificationBannerStartDate = configuration.GetValue<string>("NOTIFICATION_BANNER_STARTDATE"),
+                    NotificationBannerEndDate = configuration.GetValue<string>("NOTIFICATION_BANNER_ENDDATE"),
+                    NotificationBannerSeverity = Enum.TryParse<NotificationBannerSeverity>(
+                        configuration.GetValue<string>("NOTIFICATION_BANNER_SEVERITY"),
+                        ignoreCase: true,
+                        out var severity
+                    )
+                        ? severity
+                        : NotificationBannerSeverity.Warning,
+                    NotificationBannerIsOutage = configuration.GetValue<bool>("NOTIFICATION_BANNER_IS_OUTAGE"),
                 };
 
-                if (string.IsNullOrEmpty(config.OutageMessage) || string.IsNullOrEmpty(config.OutageStartDate) || string.IsNullOrEmpty(config.OutageEndDate))
+                if (
+                    string.IsNullOrEmpty(config.NotificationBannerMessage)
+                    || string.IsNullOrEmpty(config.NotificationBannerStartDate)
+                    || string.IsNullOrEmpty(config.NotificationBannerEndDate)
+                )
                 {
                     return Ok();
-                };
+                }
 
                 return Ok(config);
             }
@@ -50,10 +63,3 @@ namespace Gov.Jag.Spice.Public.Controllers
         }
     }
 }
-
-public class Configuration
-{
-    public string OutageMessage { get; set; }
-    public string OutageStartDate { get; set; }
-    public string OutageEndDate { get; set; }
-};
