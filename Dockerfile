@@ -28,6 +28,13 @@ RUN dotnet publish "spd-ess-portal/spd-ess-portal.csproj" -c Release -o /app/pub
 
 FROM base AS final
 
+ENV TZ=America/Vancouver
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends tzdata \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
+    && rm -rf /var/lib/apt/lists/*
+
 # copy app
 WORKDIR /app
 COPY --from=publish /app/publish .
